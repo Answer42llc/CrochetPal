@@ -1,0 +1,111 @@
+import PhotosUI
+import SwiftUI
+
+@MainActor
+struct ImportSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var container: AppContainer
+    @State private var urlText = ""
+    @State private var photoItem: PhotosPickerItem?
+    @State private var isImporting = false
+    @State private var errorMessage: String?
+
+    let onImported: (UUID) -> Void
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Import From Web") {
+                    TextField("https://example.com/pattern", text: $urlText)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+
+                    Button("Import URL") {
+                        Task { await importFromURL() }
+                    }
+                    .disabled(urlText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isImporting)
+                }
+
+                Section("Import From Image") {
+                    PhotosPicker(selection: $photoItem, matching: .images) {
+                        Label("Choose From Photos", systemImage: "photo.on.rectangle")
+                    }
+                    .disabled(isImporting)
+
+                    if ProcessInfo.processInfo.arguments.contains("-ui-testing") {
+                        Button("Use Sample Image") {
+                            Task { await importSampleImage() }
+                        }
+                    }
+                }
+
+                if let errorMessage {
+                    Section("Error") {
+                        Text(errorMessage)
+                            .foregroundStyle(.red)
+                    }
+                }
+            }
+            .navigationTitle("Import Pattern")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
+            .overlay {
+                if isImporting {
+                    ProgressView("Parsing pattern...")
+                        .padding()
+                        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                }
+            }
+            .task(id: photoItem) {
+                guard let photoItem else { return }
+                await importFromPhotoPicker(photoItem)
+            }
+        }
+    }
+
+    private func importFromURL() async {
+        await performImport {
+            let record = try await container.repository.importWebPattern(from: urlText)
+            onImported(record.project.id)
+        }
+    }
+
+    private func importFromPhotoPicker(_ item: PhotosPickerItem) async {
+        await performImport {
+            guard let data = try await item.loadTransferable(type: Data.self) else {
+                throw PatternImportFailure.invalidResponse("empty_image_data")
+            }
+            let fileName = item.supportedContentTypes.first?.preferredFilenameExtension.map { "pattern.\($0)" } ?? "pattern.jpg"
+            let record = try await container.repository.importImagePattern(data: data, fileName: fileName)
+            onImported(record.project.id)
+        }
+    }
+
+    private func importSampleImage() async {
+        await performImport {
+            let record = try await container.repository.importImagePattern(
+                data: SampleDataFactory.sampleImageData,
+                fileName: "sample.png"
+            )
+            onImported(record.project.id)
+        }
+    }
+
+    private func performImport(_ block: @escaping () async throws -> Void) async {
+        errorMessage = nil
+        isImporting = true
+        defer { isImporting = false }
+
+        do {
+            try await block()
+            dismiss()
+        } catch {
+            errorMessage = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+        }
+    }
+}

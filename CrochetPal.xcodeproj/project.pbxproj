@@ -6,8 +6,87 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0B7AD5CDC00DEC0635646A7F /* PatternImportServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */; };
+		0BFC80E42BB02752CA68CC75 /* WatchSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320DF2735E41A588CBD55B7 /* WatchSyncCoordinator.swift */; };
+		1E2E31572C9D8A988E230485 /* RuntimeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */; };
+		2A8D27AFD9624C5EA9D4B7D1 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */; };
+		354BBC5EDADE0DE60C2342E1 /* mouse-pattern.html in Resources */ = {isa = PBXBuildFile; fileRef = 4949DA575051101BA8291C8C /* mouse-pattern.html */; };
+		3631618DE4A2EE9A615EE397 /* ExecutionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0348647949D35B3555E41E0C /* ExecutionEngineTests.swift */; };
+		47D7D23420BA6A580038784C /* JSONFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F0FAA5EA7E370704F061 /* JSONFileStore.swift */; };
+		4B12EE6FA609FDE59484B868 /* WatchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B75E25373489AB8A5F43D /* WatchRootView.swift */; };
+		4C9884A1E573445F3A8F7C2B /* TraceLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */; };
+		5E92DD73389ADD42E8A39B75 /* HTMLExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */; };
+		8B1D5E02B3C4D5E6F708192A /* ModelNormalizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */; };
+		65C4F693EDD940EDBF0D022E /* CrochetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C495908B9D552B3695C3CDD /* CrochetModels.swift */; };
+		7D1E9A3CB5E24B8F90C6A4E2 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */; };
+		95209499FBA04B44FE54D9C2 /* CrochetPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AEC3D5E10C424E8532A207 /* CrochetPalUITests.swift */; };
+		957A24FE2F56FAAE18BAD866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6A93657B24C203B25E2972 /* Assets.xcassets */; };
+		990F8C694AC658F8FD4B05CC /* CrochetPalWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED8A99A8F5C52988061EB1 /* CrochetPalWatchApp.swift */; };
+		B7BBC63AD8041694849030D7 /* WatchMotionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DADBCB38B91BDAAB320FE /* WatchMotionInput.swift */; };
+		CD621F6F4E8AE0578AF563BD /* CrochetPalWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1AC5C78C24A49C5A22EED2B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E34DF32F86418A0029DD25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9E34DFA2F86418A0029DD25;
+			remoteInfo = CrochetPal;
+		};
+		A5572FB7C08B109CB985A45A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E34DF32F86418A0029DD25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9E34DFA2F86418A0029DD25;
+			remoteInfo = CrochetPal;
+		};
+		B3BB0DC92B1973D5C22642D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9E34DF32F86418A0029DD25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8FEBA3CAECB133212621824;
+			remoteInfo = CrochetPalWatchApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A94DD8292703A55805FC741C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CD621F6F4E8AE0578AF563BD /* CrochetPalWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0348647949D35B3555E41E0C /* ExecutionEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExecutionEngineTests.swift; sourceTree = "<group>"; };
+		0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RuntimeConfigurationTests.swift; sourceTree = "<group>"; };
+		21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TraceLoggerTests.swift; sourceTree = "<group>"; };
+		3C495908B9D552B3695C3CDD /* CrochetModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrochetModels.swift; path = CrochetPal/Shared/Models/CrochetModels.swift; sourceTree = SOURCE_ROOT; };
+		3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTMLExtractionServiceTests.swift; sourceTree = "<group>"; };
+		4949DA575051101BA8291C8C /* mouse-pattern.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; path = "mouse-pattern.html"; sourceTree = "<group>"; };
+		4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrochetPalWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternImportServiceTests.swift; sourceTree = "<group>"; };
+		5ADCDFCBF161EC0F08EA837E /* CrochetPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrochetPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelNormalizationIntegrationTests.swift; sourceTree = "<group>"; };
+		801B75E25373489AB8A5F43D /* WatchRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchRootView.swift; sourceTree = "<group>"; };
+		81A01144F5B111A5589D9F1C /* Debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		84F8F0FAA5EA7E370704F061 /* JSONFileStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONFileStore.swift; path = CrochetPal/Shared/Utilities/JSONFileStore.swift; sourceTree = SOURCE_ROOT; };
+		952AB45456C88DA8E75311D2 /* CrochetPalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrochetPalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3ED8A99A8F5C52988061EB1 /* CrochetPalWatchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrochetPalWatchApp.swift; sourceTree = "<group>"; };
+		C2AEC3D5E10C424E8532A207 /* CrochetPalUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrochetPalUITests.swift; sourceTree = "<group>"; };
 		C9E34DFB2F86418A0029DD25 /* CrochetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrochetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD6DADBCB38B91BDAAB320FE /* WatchMotionInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchMotionInput.swift; sourceTree = "<group>"; };
+		D320DF2735E41A588CBD55B7 /* WatchSyncCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WatchSyncCoordinator.swift; path = CrochetPal/Shared/Services/WatchSyncCoordinator.swift; sourceTree = SOURCE_ROOT; };
+		DB6A93657B24C203B25E2972 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E04D8597EB881AA1A9470E3B /* Release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -19,21 +98,107 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C9E34DF82F86418A0029DD25 /* Frameworks */ = {
+		27F8BAF9DFFBDF59D5B42D4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E7CAA3E761A866D30666F48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8912A6CDAED1DAA65CD75F18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D1E9A3CB5E24B8F90C6A4E2 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9E34DF82F86418A0029DD25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A8D27AFD9624C5EA9D4B7D1 /* SwiftSoup in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0367B66F8B9D00AC21254D79 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				81A01144F5B111A5589D9F1C /* Debug.xcconfig */,
+				E04D8597EB881AA1A9470E3B /* Release.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		4FE9FFFA6CE47B71C7B1A0E6 /* CrochetPalTests */ = {
+			isa = PBXGroup;
+			children = (
+				774F3CA4C25BE7E13B7A3BB3 /* Fixtures */,
+				0348647949D35B3555E41E0C /* ExecutionEngineTests.swift */,
+				3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */,
+				9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */,
+				4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */,
+				0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */,
+				21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */,
+			);
+			path = CrochetPalTests;
+			sourceTree = "<group>";
+		};
+		607DF8657D47CF6A1CD35375 /* CrochetPalWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				E473D8AE94E3B557E47D39D1 /* Shared */,
+				A3ED8A99A8F5C52988061EB1 /* CrochetPalWatchApp.swift */,
+				801B75E25373489AB8A5F43D /* WatchRootView.swift */,
+				CD6DADBCB38B91BDAAB320FE /* WatchMotionInput.swift */,
+				DB6A93657B24C203B25E2972 /* Assets.xcassets */,
+			);
+			path = CrochetPalWatchApp;
+			sourceTree = "<group>";
+		};
+		71A653AF41ED7F5781893DC6 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				4949DA575051101BA8291C8C /* mouse-pattern.html */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		774F3CA4C25BE7E13B7A3BB3 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				71A653AF41ED7F5781893DC6 /* Web */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		7DC2EFEAF0FEF12BDF055EAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C9E34DF22F86418A0029DD25 = {
 			isa = PBXGroup;
 			children = (
 				C9E34DFD2F86418A0029DD25 /* CrochetPal */,
 				C9E34DFC2F86418A0029DD25 /* Products */,
+				0367B66F8B9D00AC21254D79 /* Config */,
+				7DC2EFEAF0FEF12BDF055EAC /* Frameworks */,
+				607DF8657D47CF6A1CD35375 /* CrochetPalWatchApp */,
+				4FE9FFFA6CE47B71C7B1A0E6 /* CrochetPalTests */,
+				DFC38BC4BA83AB5B3C6289BD /* CrochetPalUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -41,13 +206,73 @@
 			isa = PBXGroup;
 			children = (
 				C9E34DFB2F86418A0029DD25 /* CrochetPal.app */,
+				4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */,
+				952AB45456C88DA8E75311D2 /* CrochetPalTests.xctest */,
+				5ADCDFCBF161EC0F08EA837E /* CrochetPalUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DFC38BC4BA83AB5B3C6289BD /* CrochetPalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C2AEC3D5E10C424E8532A207 /* CrochetPalUITests.swift */,
+			);
+			path = CrochetPalUITests;
+			sourceTree = "<group>";
+		};
+		E473D8AE94E3B557E47D39D1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3C495908B9D552B3695C3CDD /* CrochetModels.swift */,
+				84F8F0FAA5EA7E370704F061 /* JSONFileStore.swift */,
+				D320DF2735E41A588CBD55B7 /* WatchSyncCoordinator.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1508F10557140AE59150A807 /* CrochetPalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93C103DB83CEB9DBAFE47A3D /* Build configuration list for PBXNativeTarget "CrochetPalUITests" */;
+			buildPhases = (
+				B5D6CFBE3B98F18DEEB3DA1D /* Sources */,
+				6E7CAA3E761A866D30666F48 /* Frameworks */,
+				1FB7146E4A74C06C25B0254A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D73935388E4646919C3CD68B /* PBXTargetDependency */,
+			);
+			name = CrochetPalUITests;
+			productName = CrochetPalUITests;
+			productReference = 5ADCDFCBF161EC0F08EA837E /* CrochetPalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		894B8DC50DE2B95236419E4E /* CrochetPalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B4DB36FD622D90BFDBB9C8 /* Build configuration list for PBXNativeTarget "CrochetPalTests" */;
+			buildPhases = (
+				2CA999B5F9A5D1BBD5DA6CE2 /* Sources */,
+				8912A6CDAED1DAA65CD75F18 /* Frameworks */,
+				0695F73146545FED6EB9C7A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90940909D07CE3B0D0859FD4 /* PBXTargetDependency */,
+			);
+			name = CrochetPalTests;
+			packageProductDependencies = (
+				2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */,
+			);
+			productName = CrochetPalTests;
+			productReference = 952AB45456C88DA8E75311D2 /* CrochetPalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C9E34DFA2F86418A0029DD25 /* CrochetPal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9E34E062F86418C0029DD25 /* Build configuration list for PBXNativeTarget "CrochetPal" */;
@@ -55,19 +280,39 @@
 				C9E34DF72F86418A0029DD25 /* Sources */,
 				C9E34DF82F86418A0029DD25 /* Frameworks */,
 				C9E34DF92F86418A0029DD25 /* Resources */,
+				A94DD8292703A55805FC741C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9E8B9009949941FDA237C966 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				C9E34DFD2F86418A0029DD25 /* CrochetPal */,
 			);
 			name = CrochetPal;
 			packageProductDependencies = (
+				2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */,
 			);
 			productName = CrochetPal;
 			productReference = C9E34DFB2F86418A0029DD25 /* CrochetPal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8FEBA3CAECB133212621824 /* CrochetPalWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3D85F73BE6626602E64026F /* Build configuration list for PBXNativeTarget "CrochetPalWatchApp" */;
+			buildPhases = (
+				9BFF8C4236FF23C5463A245B /* Sources */,
+				27F8BAF9DFFBDF59D5B42D4E /* Frameworks */,
+				34F62E2BEF149584D5356A44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CrochetPalWatchApp;
+			productName = CrochetPalWatchApp;
+			productReference = 4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -80,7 +325,18 @@
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
+					1508F10557140AE59150A807 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = C9E34DFA2F86418A0029DD25;
+					};
+					894B8DC50DE2B95236419E4E = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = C9E34DFA2F86418A0029DD25;
+					};
 					C9E34DFA2F86418A0029DD25 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					F8FEBA3CAECB133212621824 = {
 						CreatedOnToolsVersion = 26.3;
 					};
 				};
@@ -94,17 +350,46 @@
 			);
 			mainGroup = C9E34DF22F86418A0029DD25;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2A8D27ADD9624C5EA9D4B7D1 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C9E34DFC2F86418A0029DD25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				C9E34DFA2F86418A0029DD25 /* CrochetPal */,
+				F8FEBA3CAECB133212621824 /* CrochetPalWatchApp */,
+				894B8DC50DE2B95236419E4E /* CrochetPalTests */,
+				1508F10557140AE59150A807 /* CrochetPalUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0695F73146545FED6EB9C7A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				354BBC5EDADE0DE60C2342E1 /* mouse-pattern.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FB7146E4A74C06C25B0254A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34F62E2BEF149584D5356A44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				957A24FE2F56FAAE18BAD866 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9E34DF92F86418A0029DD25 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +400,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2CA999B5F9A5D1BBD5DA6CE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3631618DE4A2EE9A615EE397 /* ExecutionEngineTests.swift in Sources */,
+				5E92DD73389ADD42E8A39B75 /* HTMLExtractionServiceTests.swift in Sources */,
+				8B1D5E02B3C4D5E6F708192A /* ModelNormalizationIntegrationTests.swift in Sources */,
+				0B7AD5CDC00DEC0635646A7F /* PatternImportServiceTests.swift in Sources */,
+				1E2E31572C9D8A988E230485 /* RuntimeConfigurationTests.swift in Sources */,
+				4C9884A1E573445F3A8F7C2B /* TraceLoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BFF8C4236FF23C5463A245B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				990F8C694AC658F8FD4B05CC /* CrochetPalWatchApp.swift in Sources */,
+				4B12EE6FA609FDE59484B868 /* WatchRootView.swift in Sources */,
+				B7BBC63AD8041694849030D7 /* WatchMotionInput.swift in Sources */,
+				65C4F693EDD940EDBF0D022E /* CrochetModels.swift in Sources */,
+				47D7D23420BA6A580038784C /* JSONFileStore.swift in Sources */,
+				0BFC80E42BB02752CA68CC75 /* WatchSyncCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5D6CFBE3B98F18DEEB3DA1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95209499FBA04B44FE54D9C2 /* CrochetPalUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9E34DF72F86418A0029DD25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,9 +443,141 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		90940909D07CE3B0D0859FD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CrochetPal;
+			target = C9E34DFA2F86418A0029DD25 /* CrochetPal */;
+			targetProxy = A5572FB7C08B109CB985A45A /* PBXContainerItemProxy */;
+		};
+		9E8B9009949941FDA237C966 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CrochetPalWatchApp;
+			target = F8FEBA3CAECB133212621824 /* CrochetPalWatchApp */;
+			targetProxy = B3BB0DC92B1973D5C22642D6 /* PBXContainerItemProxy */;
+		};
+		D73935388E4646919C3CD68B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CrochetPal;
+			target = C9E34DFA2F86418A0029DD25 /* CrochetPal */;
+			targetProxy = 1AC5C78C24A49C5A22EED2B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		06C8289483E9D9BAF5668485 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E04D8597EB881AA1A9470E3B /* Release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CrochetPal;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		10C55EC5515685244601C083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81A01144F5B111A5589D9F1C /* Debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPalUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CrochetPal;
+			};
+			name = Debug;
+		};
+		2844876D4CCFFC0F30D26AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E04D8597EB881AA1A9470E3B /* Release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrochetPal.app/CrochetPal";
+				TEST_TARGET_NAME = CrochetPal;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96452E8FB6AA093253693B6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81A01144F5B111A5589D9F1C /* Debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrochetPal.app/CrochetPal";
+				TEST_TARGET_NAME = CrochetPal;
+			};
+			name = Debug;
+		};
 		C9E34E042F86418C0029DD25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81A01144F5B111A5589D9F1C /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -190,6 +641,7 @@
 		};
 		C9E34E052F86418C0029DD25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E04D8597EB881AA1A9470E3B /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -246,18 +698,15 @@
 		};
 		C9E34E072F86418C0029DD25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81A01144F5B111A5589D9F1C /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/CrochetPal-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -277,18 +726,15 @@
 		};
 		C9E34E082F86418C0029DD25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E04D8597EB881AA1A9470E3B /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/CrochetPal-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,9 +752,82 @@
 			};
 			name = Release;
 		};
+		EA49C218136DB0B029E192CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81A01144F5B111A5589D9F1C /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CrochetPal;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = org.CrochetPal;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPal.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		EDF68425709B94660A7845D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E04D8597EB881AA1A9470E3B /* Release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CrochetPal;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = org.CrochetPal;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPal.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		65B4DB36FD622D90BFDBB9C8 /* Build configuration list for PBXNativeTarget "CrochetPalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2844876D4CCFFC0F30D26AE8 /* Release */,
+				96452E8FB6AA093253693B6A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93C103DB83CEB9DBAFE47A3D /* Build configuration list for PBXNativeTarget "CrochetPalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06C8289483E9D9BAF5668485 /* Release */,
+				10C55EC5515685244601C083 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C9E34DF62F86418A0029DD25 /* Build configuration list for PBXProject "CrochetPal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -327,7 +846,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		E3D85F73BE6626602E64026F /* Build configuration list for PBXNativeTarget "CrochetPalWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF68425709B94660A7845D6 /* Release */,
+				EA49C218136DB0B029E192CD /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A8D27ADD9624C5EA9D4B7D1 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.13.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A8D27ADD9624C5EA9D4B7D1 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9E34DF32F86418A0029DD25 /* Project object */;
 }
