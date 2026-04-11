@@ -311,7 +311,7 @@ struct PatternImportService: PatternImporting {
                     let atomicActions = round.atomicActions.enumerated().map { actionIndex, action in
                         AtomicAction(
                             type: action.type,
-                            instruction: action.instruction,
+                            instruction: AtomicAction.normalizedInstruction(action.instruction),
                             producedStitches: action.producedStitches ?? action.type.defaultProducedStitches,
                             note: action.note,
                             sequenceIndex: actionIndex
@@ -417,7 +417,7 @@ struct PatternImportService: PatternImporting {
                 actions.append(
                     AtomicAction(
                         type: group.type,
-                        instruction: actionInstruction(for: group),
+                        instruction: AtomicAction.normalizedInstruction(group.instruction),
                         producedStitches: group.producedStitches ?? group.type.defaultProducedStitches,
                         note: group.note,
                         sequenceIndex: sequenceIndex
@@ -429,15 +429,6 @@ struct PatternImportService: PatternImporting {
 
         return actions
     }
-
-    private func actionInstruction(for group: ParsedActionGroup) -> String {
-        let rawInstruction = group.instruction ?? ""
-        if rawInstruction.isEmpty {
-            return group.type.defaultInstruction
-        }
-        return rawInstruction
-    }
-
     private func mimeType(for fileName: String) -> String {
         if fileName.lowercased().hasSuffix(".png") {
             return "image/png"

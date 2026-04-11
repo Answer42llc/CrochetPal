@@ -106,16 +106,22 @@ struct PatternSource: Codable, Hashable {
 struct AtomicAction: Codable, Hashable, Identifiable {
     var id: UUID = UUID()
     var type: StitchActionType
-    var instruction: String
+    var instruction: String?
     var producedStitches: Int
     var note: String? = nil
     var sequenceIndex: Int
 
     var shortDisplay: String {
-        if instruction.isEmpty {
-            return type.title
+        if let instruction, !instruction.isEmpty {
+            return instruction
         }
-        return instruction
+        return type.title
+    }
+
+    static func normalizedInstruction(_ instruction: String?) -> String? {
+        guard let instruction else { return nil }
+        let trimmed = instruction.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
     }
 }
 
@@ -228,7 +234,7 @@ struct ProjectSnapshot: Codable, Hashable {
     var partName: String
     var roundTitle: String
     var actionTitle: String
-    var actionHint: String
+    var actionHint: String?
     var actionNote: String? = nil
     var nextActionTitle: String?
     var stitchProgress: Int

@@ -81,7 +81,7 @@ struct RoundEditorView: View {
                 defer { sequenceIndex += 1 }
                 return AtomicAction(
                     type: draft.type,
-                    instruction: draft.instruction,
+                    instruction: AtomicAction.normalizedInstruction(draft.instruction),
                     producedStitches: draft.producedStitches,
                     note: draft.note.isEmpty ? nil : draft.note,
                     sequenceIndex: sequenceIndex
@@ -121,7 +121,7 @@ struct RoundEditorView: View {
                 drafts.append(
                     RoundActionDraft(
                         type: action.type,
-                        instruction: action.instruction,
+                        instruction: action.instruction ?? "",
                         producedStitches: action.producedStitches,
                         note: action.note ?? "",
                         count: 1

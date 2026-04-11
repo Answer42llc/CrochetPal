@@ -54,9 +54,11 @@ struct WatchRootView: View {
                         .font(.headline)
                     Text(snapshot.actionTitle)
                         .font(.system(size: 34, weight: .bold, design: .rounded))
-                    Text(snapshot.actionHint)
-                        .font(.footnote)
-                        .multilineTextAlignment(.center)
+                    if let actionHint = snapshot.actionHint, !actionHint.isEmpty {
+                        Text(actionHint)
+                            .font(.footnote)
+                            .multilineTextAlignment(.center)
+                    }
                     if let actionNote = snapshot.actionNote, !actionNote.isEmpty {
                         Text(actionNote)
                             .font(.caption2)

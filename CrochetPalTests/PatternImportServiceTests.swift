@@ -183,7 +183,7 @@ final class PatternImportServiceTests: XCTestCase {
 
         XCTAssertEqual(updates.count, 2)
         XCTAssertEqual(updates[0].atomicActions.count, 7)
-        XCTAssertEqual(updates[0].atomicActions.first?.instruction, "mr")
+        XCTAssertNil(updates[0].atomicActions.first?.instruction)
         XCTAssertEqual(updates[0].atomicActions.last?.sequenceIndex, 6)
         XCTAssertEqual(updates[1].atomicActions.count, 9)
         XCTAssertEqual(updates[1].atomicActions[2].type, .inc)
@@ -246,6 +246,25 @@ final class PatternImportServiceTests: XCTestCase {
         let record = try await importer.importImagePattern(data: SampleDataFactory.sampleImageData, fileName: "sample.png")
 
         XCTAssertEqual(record.project.parts[0].rounds[0].atomicActions[0].note, "in a MR")
+    }
+
+    func testImportImagePatternNormalizesBlankInstructionToNil() async throws {
+        var imageResponse = SampleDataFactory.demoImageParseResponse
+        imageResponse.parts[0].rounds[0].atomicActions[0].instruction = "   "
+
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: SampleDataFactory.demoOutlineResponse,
+                imageResponse: imageResponse,
+                atomizationResponse: SampleDataFactory.demoAtomizationResponse
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importImagePattern(data: SampleDataFactory.sampleImageData, fileName: "sample.png")
+
+        XCTAssertNil(record.project.parts[0].rounds[0].atomicActions[0].instruction)
     }
 
     func testOutlineLLMRequestUsesStrictJSONSchemaWithoutParseWarningsOrNotes() async throws {

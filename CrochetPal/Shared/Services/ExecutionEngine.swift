@@ -195,12 +195,12 @@ enum ExecutionEngine {
         round: PatternRound?,
         executionState: ProjectExecutionState,
         isComplete: Bool
-    ) -> String {
+    ) -> String? {
         if isComplete {
             return "Project complete"
         }
         if let currentAction {
-            return currentAction.instruction
+            return AtomicAction.normalizedInstruction(currentAction.instruction)
         }
         switch executionState {
         case .bootstrapping, .parsingNextRound:

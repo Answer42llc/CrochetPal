@@ -56,6 +56,15 @@ final class ExecutionEngineTests: XCTestCase {
         XCTAssertEqual(snapshot.actionNote, "Change to white yarn before this stitch.")
     }
 
+    func testSnapshotOmitsActionHintWhenInstructionIsNil() async throws {
+        var record = try await makeImageRecord()
+        record.project.parts[0].rounds[0].atomicActions[0].instruction = nil
+
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
+
+        XCTAssertNil(snapshot.actionHint)
+    }
+
     func testExecutionViewShowsRetryButtonWhenCurrentRoundFailedEvenIfExecutionStateIsIdle() {
         let round = PatternRound(
             title: "Round 4",

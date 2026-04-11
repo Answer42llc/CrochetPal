@@ -62,14 +62,13 @@ final class WatchSyncCoordinator: NSObject, ObservableObject {
     }
 
     private func snapshotPayload(_ snapshot: ProjectSnapshot) -> [String: Any] {
-        [
+        var payload: [String: Any] = [
             "type": "snapshot",
             "projectID": snapshot.projectID.uuidString,
             "title": snapshot.title,
             "partName": snapshot.partName,
             "roundTitle": snapshot.roundTitle,
             "actionTitle": snapshot.actionTitle,
-            "actionHint": snapshot.actionHint,
             "actionNote": snapshot.actionNote ?? "",
             "nextActionTitle": snapshot.nextActionTitle ?? "",
             "stitchProgress": snapshot.stitchProgress,
@@ -80,6 +79,10 @@ final class WatchSyncCoordinator: NSObject, ObservableObject {
             "isComplete": snapshot.isComplete,
             "updatedAt": snapshot.updatedAt.timeIntervalSince1970
         ]
+        if let actionHint = snapshot.actionHint {
+            payload["actionHint"] = actionHint
+        }
+        return payload
     }
 
     private func makeSnapshot(from payload: [String: Any]) -> ProjectSnapshot? {
@@ -90,7 +93,6 @@ final class WatchSyncCoordinator: NSObject, ObservableObject {
             let partName = payload["partName"] as? String,
             let roundTitle = payload["roundTitle"] as? String,
             let actionTitle = payload["actionTitle"] as? String,
-            let actionHint = payload["actionHint"] as? String,
             let stitchProgress = payload["stitchProgress"] as? Int,
             let rawExecutionState = payload["executionState"] as? String,
             let executionState = SnapshotExecutionState(rawValue: rawExecutionState),
@@ -108,7 +110,7 @@ final class WatchSyncCoordinator: NSObject, ObservableObject {
             partName: partName,
             roundTitle: roundTitle,
             actionTitle: actionTitle,
-            actionHint: actionHint,
+            actionHint: (payload["actionHint"] as? String).flatMap { $0.isEmpty ? nil : $0 },
             actionNote: (payload["actionNote"] as? String).flatMap { $0.isEmpty ? nil : $0 },
             nextActionTitle: (payload["nextActionTitle"] as? String).flatMap { $0.isEmpty ? nil : $0 },
             stitchProgress: stitchProgress,

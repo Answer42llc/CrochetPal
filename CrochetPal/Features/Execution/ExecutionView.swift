@@ -54,8 +54,10 @@ struct ExecutionView: View {
                             .font(.headline)
                         Text(snapshot.actionTitle)
                             .font(.system(size: 44, weight: .bold, design: .rounded))
-                        Text(snapshot.actionHint)
-                            .font(.title3)
+                        if let actionHint = snapshot.actionHint, !actionHint.isEmpty {
+                            Text(actionHint)
+                                .font(.title3)
+                        }
                         if let actionNote = snapshot.actionNote, !actionNote.isEmpty {
                             Text(actionNote)
                                 .font(.body)
