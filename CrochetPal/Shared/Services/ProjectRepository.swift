@@ -96,7 +96,7 @@ final class ProjectRepository: ObservableObject {
             return
         }
 
-        if isBusy(projectID: projectID) {
+        if executionState(for: projectID).isBusy {
             return
         }
 
@@ -130,7 +130,7 @@ final class ProjectRepository: ObservableObject {
     }
 
     func continueExecution(projectID: UUID, source: ExecutionCommandSource) async {
-        guard !isBusy(projectID: projectID) else { return }
+        guard !executionState(for: projectID).isBusy else { return }
         guard let initialRecord = record(for: projectID) else { return }
 
         if initialRecord.project.source.type.supportsDeferredAtomization {
@@ -158,9 +158,13 @@ final class ProjectRepository: ObservableObject {
         apply(.forward, to: projectID, source: source)
     }
 
-    func retryRoundAtomization(projectID: UUID, partID: UUID, roundID: UUID) async {
-        guard !isBusy(projectID: projectID) else { return }
-        _ = await atomizeTargets([RoundReference(partID: partID, roundID: roundID)], in: projectID, pendingState: .parsingNextRound)
+    func regenerateRound(projectID: UUID, partID: UUID, roundID: UUID) async {
+        guard !executionState(for: projectID).isBusy else { return }
+        _ = await atomizeTargets(
+            [RoundReference(partID: partID, roundID: roundID)],
+            in: projectID,
+            pendingState: .regeneratingCurrentRound
+        )
     }
 
     func undoExecution(projectID: UUID, source: ExecutionCommandSource) {
@@ -304,15 +308,6 @@ final class ProjectRepository: ObservableObject {
     private func setExecutionState(_ state: ProjectExecutionState, for projectID: UUID) {
         executionStates[projectID] = state
         pushActiveSnapshot()
-    }
-
-    private func isBusy(projectID: UUID) -> Bool {
-        switch executionState(for: projectID) {
-        case .bootstrapping, .parsingNextRound:
-            return true
-        case .idle, .failed:
-            return false
-        }
     }
 
     private func round(for reference: RoundReference, in project: CrochetProject) -> PatternRound? {

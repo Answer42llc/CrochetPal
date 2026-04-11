@@ -18,15 +18,11 @@ struct ExecutionView: View {
         container.repository.snapshot(for: projectID)
     }
 
-    static func shouldShowRetryButton(
-        executionState: ProjectExecutionState,
+    static func shouldShowRegenerateButton(
+        sourceType: PatternSourceType,
         round: PatternRound?
     ) -> Bool {
-        if case .failed = executionState {
-            return round != nil
-        }
-
-        return round?.atomizationStatus == .failed
+        sourceType.supportsDeferredAtomization && round != nil
     }
 
     var body: some View {
@@ -34,8 +30,8 @@ struct ExecutionView: View {
             if let record, let snapshot {
                 let nextAction = ExecutionEngine.nextAction(in: record.project, progress: record.progress)
                 let round = ExecutionEngine.currentRound(in: record.project, progress: record.progress)
-                let shouldShowRetryButton = Self.shouldShowRetryButton(
-                    executionState: executionState,
+                let shouldShowRegenerateButton = Self.shouldShowRegenerateButton(
+                    sourceType: record.project.source.type,
                     round: round
                 )
                 VStack(alignment: .leading, spacing: 24) {
@@ -81,20 +77,22 @@ struct ExecutionView: View {
                     }
                     .font(.headline)
 
-                    if shouldShowRetryButton, let round {
+                    if shouldShowRegenerateButton, let round {
                         Button {
                             Task {
-                                await container.repository.retryRoundAtomization(
+                                await container.repository.regenerateRound(
                                     projectID: projectID,
                                     partID: record.progress.cursor.partID,
                                     roundID: round.id
                                 )
                             }
                         } label: {
-                            Label("Retry", systemImage: "arrow.clockwise")
+                            Label("Regenerate", systemImage: "arrow.clockwise")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
+                        .accessibilityIdentifier("regenerateCurrentRound")
+                        .disabled(executionState.isBusy)
                     }
 
                     Spacer()

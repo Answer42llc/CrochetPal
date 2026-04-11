@@ -266,13 +266,14 @@ enum ProjectExecutionState: Hashable {
     case idle
     case bootstrapping
     case parsingNextRound
+    case regeneratingCurrentRound
     case failed(String)
 
     var snapshotState: SnapshotExecutionState {
         switch self {
         case .idle:
             return .ready
-        case .bootstrapping, .parsingNextRound:
+        case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound:
             return .loading
         case .failed:
             return .failed
@@ -287,6 +288,8 @@ enum ProjectExecutionState: Hashable {
             return "正在解析前两圈"
         case .parsingNextRound:
             return "正在解析下一圈"
+        case .regeneratingCurrentRound:
+            return "正在重新生成当前圈"
         case let .failed(message):
             return message
         }
@@ -296,7 +299,16 @@ enum ProjectExecutionState: Hashable {
         switch self {
         case .idle:
             return true
-        case .bootstrapping, .parsingNextRound, .failed:
+        case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound, .failed:
+            return false
+        }
+    }
+
+    var isBusy: Bool {
+        switch self {
+        case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound:
+            return true
+        case .idle, .failed:
             return false
         }
     }

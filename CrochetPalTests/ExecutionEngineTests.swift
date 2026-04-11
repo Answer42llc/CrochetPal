@@ -65,30 +65,32 @@ final class ExecutionEngineTests: XCTestCase {
         XCTAssertNil(snapshot.actionHint)
     }
 
-    func testExecutionViewShowsRetryButtonWhenCurrentRoundFailedEvenIfExecutionStateIsIdle() {
+    func testExecutionViewShowsRegenerateButtonForDeferredRound() {
         let round = PatternRound(
             title: "Round 4",
             rawInstruction: "(sc 2, inc) x 3. (12)",
-            summary: "Retry needed.",
+            summary: "Can regenerate.",
             targetStitchCount: 12,
-            atomizationStatus: .failed,
-            atomizationError: "The network connection was lost.",
-            atomicActions: []
+            atomizationStatus: .ready,
+            atomizationError: nil,
+            atomicActions: [
+                AtomicAction(type: .sc, instruction: "sc", producedStitches: 1, sequenceIndex: 0)
+            ]
         )
 
         XCTAssertTrue(
-            ExecutionView.shouldShowRetryButton(
-                executionState: .idle,
+            ExecutionView.shouldShowRegenerateButton(
+                sourceType: .web,
                 round: round
             )
         )
     }
 
-    func testExecutionViewHidesRetryButtonForReadyRoundInIdleState() {
+    func testExecutionViewHidesRegenerateButtonForImageRound() {
         let round = PatternRound(
             title: "Round 4",
             rawInstruction: "(sc 2, inc) x 3. (12)",
-            summary: "No retry needed.",
+            summary: "Image projects do not support regeneration.",
             targetStitchCount: 12,
             atomizationStatus: .ready,
             atomizationError: nil,
@@ -98,8 +100,8 @@ final class ExecutionEngineTests: XCTestCase {
         )
 
         XCTAssertFalse(
-            ExecutionView.shouldShowRetryButton(
-                executionState: .idle,
+            ExecutionView.shouldShowRegenerateButton(
+                sourceType: .image,
                 round: round
             )
         )

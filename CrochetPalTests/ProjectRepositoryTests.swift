@@ -78,6 +78,31 @@ final class ProjectRepositoryTests: XCTestCase {
         XCTAssertEqual(importer.atomizeRequestCounts, [2])
     }
 
+    func testRegenerateRoundOnlyReatomizesRequestedRound() async throws {
+        let importer = FakePatternImporter(record: makePendingWebRecord())
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await repository.importWebPattern(from: "https://example.com/pattern")
+        let firstPartID = try XCTUnwrap(record.project.parts.first?.id)
+        let firstRoundID = try XCTUnwrap(record.project.parts.first?.rounds.first?.id)
+
+        await repository.regenerateRound(
+            projectID: record.project.id,
+            partID: firstPartID,
+            roundID: firstRoundID
+        )
+
+        let updated = try XCTUnwrap(repository.records.first)
+        let statuses = updated.project.parts.flatMap(\.rounds).map(\.atomizationStatus)
+        XCTAssertEqual(statuses, [.ready, .pending, .pending])
+        XCTAssertEqual(importer.atomizeRequestCounts, [1])
+        XCTAssertEqual(importer.requestedTargets, [[RoundReference(partID: firstPartID, roundID: firstRoundID)]])
+    }
+
     private func tempDirectory() -> URL {
         FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)
@@ -130,6 +155,7 @@ final class ProjectRepositoryTests: XCTestCase {
 private final class FakePatternImporter: PatternImporting {
     private let record: ProjectRecord
     private(set) var atomizeRequestCounts: [Int] = []
+    private(set) var requestedTargets: [[RoundReference]] = []
 
     init(record: ProjectRecord) {
         self.record = record
@@ -149,6 +175,7 @@ private final class FakePatternImporter: PatternImporting {
 
     func atomizeRounds(in project: CrochetProject, targets: [RoundReference]) async throws -> [AtomizedRoundUpdate] {
         atomizeRequestCounts.append(targets.count)
+        requestedTargets.append(targets)
         return targets.map { target in
             AtomizedRoundUpdate(
                 reference: target,

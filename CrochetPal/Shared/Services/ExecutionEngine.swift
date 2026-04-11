@@ -181,7 +181,7 @@ enum ExecutionEngine {
             return currentAction.type.title
         }
         switch executionState {
-        case .bootstrapping, .parsingNextRound:
+        case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound:
             return "Loading"
         case .failed:
             return "Blocked"
@@ -203,7 +203,7 @@ enum ExecutionEngine {
             return AtomicAction.normalizedInstruction(currentAction.instruction)
         }
         switch executionState {
-        case .bootstrapping, .parsingNextRound:
+        case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound:
             return executionState.statusMessage ?? "正在解析步骤"
         case let .failed(message):
             return message

@@ -518,23 +518,20 @@ enum PromptFactory {
 
     static func roundAtomizationSystemPrompt() -> String {
         """
-        You convert crochet rounds into compact action groups.
-
+        You are a crochet master, I will give you a instruction of a crochet pattern. You will help convert it into compact action groups with follow steps:
+            1.Read the instruction carefully,understand what the whole instruction is going to do.
+            2.At sometimes, the instrunction might have some little mistake, as typo usually, you could fix it.
+            2.Convert actions in the instruction to single crochet action with original order. You should convert it after you understand it, not just divide it simplicity.
+            3.Output result as JSON object with the rules below.
         Rules:
         - Return one JSON object only.
-        - The schema is supplied separately via response_format.
         - Preserve the order of the input rounds.
-        - Each output round must align with the input round at the same index.
         - rawInstruction is the source of truth. Use partName, title, and targetStitchCount only as supporting context.
         - type must be exactly one enum value from this list: mr, sc, inc, dec, ch, sl_st, blo, flo, fo, hdc, dc, custom.
         - Never output natural-language type names such as "magic loop", "magic ring", "slip stitch", or "fasten off" in the type field.
         - note is optional and should be a short, readable explanation for context such as color changes, placement, special loops, or finishing details.
         - Prefer attaching contextual modifiers to note on the nearest real stitch action instead of emitting a standalone custom action.
         - Use custom only when the step itself is genuinely not one of the known stitch symbols and cannot be attached as a note to a neighboring stitch action.
-        - Known actions must never be emitted as custom.
-        - Map "magic loop" and "magic ring" to type "mr".
-        - Map "slst", "sl st", and "slip stitch" to type "sl_st".
-        - Map "fasten off" and "finish off" to type "fo".
         - Each actionGroup must represent exactly one base crochet action from the enum.
         - Do not collapse compound shorthand into one action.
         - "sc inc" must become one sc action followed by one inc action.
@@ -548,19 +545,13 @@ enum PromptFactory {
         - Only include producedStitches when it differs from the usual default for that symbol.
         - Control actions that do not create stitches, such as color changes, joins, loop placement, skips, and fasten off, should usually become notes rather than standalone actions.
         - If you must use a standalone custom control action, set producedStitches: 0.
-        - Do not add text before or after the JSON object.
-
+        - If some action is going to do in magic ring, you should note it out.
         Golden examples:
         1. Raw instruction: "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc."
            - Correct output groups: mr x1, ch x1, sc x1, sc x1, sc x1, sc x1, sc x1, sc x1, sc x1, sl_st x1
            - Incorrect output groups: custom("magic loop"), custom("slip stitch"), sc x6
            - Incorrect output groups: mr x1, ch x1, sc x7, sl_st x1 (do not compress — each sc must be a separate actionGroup)
-
-        2. Raw instruction: "Ch1, sc inc in the same st, sc inc, ..."
-           - Correct output groups: ch x1, sc x1 (note: null), inc x1 (note: "in the same st as the previous sc"), sc x1, inc x1, ...
-           - Incorrect output groups: ch x1, sc x1 (note: "inc in the same st"), inc x1 (note: null)
-           - The "in the same st" note must go on the inc action, never on the preceding sc.
-
+        
         Output example:
         \(atomizationExampleJSON)
         """
