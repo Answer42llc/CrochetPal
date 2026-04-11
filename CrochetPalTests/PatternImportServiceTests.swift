@@ -41,6 +41,29 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertTrue(record.project.parts.flatMap(\.rounds).allSatisfy(\.atomicActions.isEmpty))
     }
 
+    func testImportTextPatternBuildsOutlineRecordWithPendingRounds() async throws {
+        let parserClient = OutlineTextCaptureClient(response: SampleDataFactory.demoOutlineResponse)
+        let importer = PatternImportService(
+            parserClient: parserClient,
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importTextPattern(from: "\n  Mouse Cat Toy\nRound 1: In a MR, sc 6. (6)\n")
+
+        XCTAssertEqual(record.project.source.type, PatternSourceType.text)
+        XCTAssertEqual(record.project.source.displayName, "Pasted Pattern")
+        XCTAssertNil(record.project.source.sourceURL)
+        XCTAssertNil(record.project.source.fileName)
+        XCTAssertTrue(record.project.parts.flatMap(\.rounds).allSatisfy { $0.atomizationStatus == .pending })
+        XCTAssertTrue(record.project.parts.flatMap(\.rounds).allSatisfy(\.atomicActions.isEmpty))
+
+        let request = await parserClient.capturedTextRequest()
+        XCTAssertEqual(request.extractedText, "Mouse Cat Toy\nRound 1: In a MR, sc 6. (6)")
+        XCTAssertNil(request.titleHint)
+        XCTAssertEqual(request.context?.sourceType, .text)
+    }
+
     func testImportWebPatternSendsAllRemainingTextNodesToOutlineLLM() async throws {
         let html = """
         <html>
@@ -165,6 +188,27 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(updates[1].atomicActions.count, 9)
         XCTAssertEqual(updates[1].atomicActions[2].type, .inc)
         XCTAssertEqual(updates[1].atomicActions[2].producedStitches, 2)
+    }
+
+    func testAtomizeRoundsBuildsAtomicActionsForTextProject() async throws {
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: SampleDataFactory.demoOutlineResponse,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: SampleDataFactory.demoAtomizationResponse
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importTextPattern(from: "Mouse Cat Toy\nRound 1: In a MR, sc 6. (6)")
+        let targets = try firstRoundReferences(in: record.project, count: 2)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: targets)
+
+        XCTAssertEqual(record.project.source.type, .text)
+        XCTAssertEqual(updates.count, 2)
+        XCTAssertEqual(updates[0].atomicActions.count, 7)
+        XCTAssertEqual(updates[1].atomicActions[2].type, .inc)
     }
 
     func testImportImagePatternUsesFixtureClient() async throws {
@@ -750,6 +794,7 @@ private actor OutlineTextCaptureClient: PatternLLMParsing {
     private let response: PatternOutlineResponse
     private var extractedText: String?
     private var titleHint: String?
+    private var context: ParseRequestContext?
 
     init(response: PatternOutlineResponse) {
         self.response = response
@@ -762,6 +807,7 @@ private actor OutlineTextCaptureClient: PatternLLMParsing {
     ) async throws -> PatternOutlineResponse {
         self.extractedText = extractedText
         self.titleHint = titleHint
+        self.context = context
         return response
     }
 
@@ -783,8 +829,8 @@ private actor OutlineTextCaptureClient: PatternLLMParsing {
         SampleDataFactory.demoImageParseResponse
     }
 
-    func capturedTextRequest() -> (extractedText: String?, titleHint: String?) {
-        (extractedText, titleHint)
+    func capturedTextRequest() -> (extractedText: String?, titleHint: String?, context: ParseRequestContext?) {
+        (extractedText, titleHint, context)
     }
 }
 

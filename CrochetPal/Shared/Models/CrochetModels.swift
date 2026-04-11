@@ -2,7 +2,17 @@ import Foundation
 
 enum PatternSourceType: String, Codable, Hashable {
     case web
+    case text
     case image
+
+    var supportsDeferredAtomization: Bool {
+        switch self {
+        case .web, .text:
+            return true
+        case .image:
+            return false
+        }
+    }
 }
 
 enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {

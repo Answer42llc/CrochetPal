@@ -72,6 +72,12 @@ final class ProjectRepository: ObservableObject {
         return record
     }
 
+    func importTextPattern(from rawText: String) async throws -> ProjectRecord {
+        let record = try await importer.importTextPattern(from: rawText)
+        upsert(record)
+        return record
+    }
+
     func importImagePattern(data: Data, fileName: String) async throws -> ProjectRecord {
         let record = try await importer.importImagePattern(data: data, fileName: fileName)
         upsert(record)
@@ -85,7 +91,7 @@ final class ProjectRepository: ObservableObject {
 
     func prepareExecution(projectID: UUID) async {
         guard let record = record(for: projectID),
-              record.project.source.type == .web,
+              record.project.source.type.supportsDeferredAtomization,
               record.progress.completedAt == nil else {
             return
         }
@@ -127,7 +133,7 @@ final class ProjectRepository: ObservableObject {
         guard !isBusy(projectID: projectID) else { return }
         guard let initialRecord = record(for: projectID) else { return }
 
-        if initialRecord.project.source.type == .web {
+        if initialRecord.project.source.type.supportsDeferredAtomization {
             if let currentRound = ExecutionEngine.currentRound(in: initialRecord.project, progress: initialRecord.progress) {
                 switch currentRound.atomizationStatus {
                 case .pending:

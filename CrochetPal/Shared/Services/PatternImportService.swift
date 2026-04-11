@@ -7,6 +7,7 @@ struct AtomizedRoundUpdate: Hashable {
 
 protocol PatternImporting {
     func importWebPattern(from urlString: String) async throws -> ProjectRecord
+    func importTextPattern(from rawText: String) async throws -> ProjectRecord
     func importImagePattern(data: Data, fileName: String) async throws -> ProjectRecord
     func atomizeRounds(in project: CrochetProject, targets: [RoundReference]) async throws -> [AtomizedRoundUpdate]
 }
@@ -94,7 +95,7 @@ struct PatternImportService: PatternImporting {
             context: context
         )
 
-        return makeWebRecord(
+        return makeOutlineRecord(
             from: responsePayload,
             source: PatternSource(
                 type: .web,
@@ -102,6 +103,55 @@ struct PatternImportService: PatternImporting {
                 sourceURL: url.absoluteString,
                 fileName: nil,
                 fileSizeBytes: data.count,
+                importedAt: .now
+            ),
+            context: context
+        )
+    }
+
+    func importTextPattern(from rawText: String) async throws -> ProjectRecord {
+        let trimmedText = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedText.isEmpty else {
+            throw PatternImportFailure.emptyExtraction
+        }
+
+        let context = ParseRequestContext(
+            traceID: UUID().uuidString,
+            parseRequestID: UUID().uuidString,
+            sourceType: .text
+        )
+
+        logger.log(LogEvent(
+            timestamp: .now,
+            level: "debug",
+            traceID: context.traceID,
+            parseRequestID: context.parseRequestID,
+            projectID: nil,
+            sourceType: .text,
+            stage: "text_outline_payload",
+            decision: "prepared_final_text",
+            reason: "sending_outline_text_to_llm",
+            durationMS: nil,
+            metadata: [
+                "characterCount": "\(trimmedText.count)",
+                "finalText": trimmedText
+            ]
+        ))
+
+        let responsePayload = try await parserClient.parseTextPatternOutline(
+            extractedText: trimmedText,
+            titleHint: nil,
+            context: context
+        )
+
+        return makeOutlineRecord(
+            from: responsePayload,
+            source: PatternSource(
+                type: .text,
+                displayName: "Pasted Pattern",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: trimmedText.lengthOfBytes(using: .utf8),
                 importedAt: .now
             ),
             context: context
@@ -151,7 +201,7 @@ struct PatternImportService: PatternImporting {
     }
 
     func atomizeRounds(in project: CrochetProject, targets: [RoundReference]) async throws -> [AtomizedRoundUpdate] {
-        guard project.source.type == .web else {
+        guard project.source.type.supportsDeferredAtomization else {
             return []
         }
         guard !targets.isEmpty else {
@@ -161,7 +211,7 @@ struct PatternImportService: PatternImporting {
         let context = ParseRequestContext(
             traceID: UUID().uuidString,
             parseRequestID: UUID().uuidString,
-            sourceType: .web
+            sourceType: project.source.type
         )
 
         let inputs = try atomizationInputs(for: project, targets: targets)
@@ -193,7 +243,7 @@ struct PatternImportService: PatternImporting {
         return updates
     }
 
-    private func makeWebRecord(
+    private func makeOutlineRecord(
         from payload: PatternOutlineResponse,
         source: PatternSource,
         context: ParseRequestContext

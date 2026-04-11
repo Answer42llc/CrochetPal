@@ -11,7 +11,7 @@ struct ProjectListView: View {
                 ContentUnavailableView(
                     "No Project Yet",
                     systemImage: "figure.2.and.child.holdinghands",
-                    description: Text("Import a web or image pattern to start tracking stitches.")
+                    description: Text("Import a web, text, or image pattern to start tracking stitches.")
                 )
                 .listRowBackground(Color.clear)
             } else {

@@ -60,12 +60,34 @@ final class ProjectRepositoryTests: XCTestCase {
         XCTAssertEqual(importer.atomizeRequestCounts, [2, 1])
     }
 
+    func testPrepareExecutionAtomizesFirstTwoPendingRoundsForTextProject() async throws {
+        let importer = FakePatternImporter(record: makePendingRecord(sourceType: .text))
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await repository.importTextPattern(from: "Mouse Cat Toy\nRound 1: In a MR, sc 6. (6)")
+        await repository.prepareExecution(projectID: record.project.id)
+
+        let updated = try XCTUnwrap(repository.records.first)
+        let statuses = updated.project.parts.flatMap(\.rounds).map(\.atomizationStatus)
+        XCTAssertEqual(updated.project.source.type, .text)
+        XCTAssertEqual(statuses, [.ready, .ready, .pending])
+        XCTAssertEqual(importer.atomizeRequestCounts, [2])
+    }
+
     private func tempDirectory() -> URL {
         FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)
     }
 
     private func makePendingWebRecord() -> ProjectRecord {
+        makePendingRecord(sourceType: .web)
+    }
+
+    private func makePendingRecord(sourceType: PatternSourceType) -> ProjectRecord {
         let parts = SampleDataFactory.demoOutlineResponse.parts.map { part in
             PatternPart(
                 name: part.name,
@@ -86,9 +108,9 @@ final class ProjectRepositoryTests: XCTestCase {
         let project = CrochetProject(
             title: SampleDataFactory.demoOutlineResponse.projectTitle,
             source: PatternSource(
-                type: .web,
-                displayName: "Preview",
-                sourceURL: "https://example.com/pattern",
+                type: sourceType,
+                displayName: sourceType == .text ? "Pasted Pattern" : "Preview",
+                sourceURL: sourceType == .web ? "https://example.com/pattern" : nil,
                 fileName: nil,
                 fileSizeBytes: 128,
                 importedAt: .now
@@ -118,6 +140,10 @@ private final class FakePatternImporter: PatternImporting {
     }
 
     func importImagePattern(data: Data, fileName: String) async throws -> ProjectRecord {
+        record
+    }
+
+    func importTextPattern(from rawText: String) async throws -> ProjectRecord {
         record
     }
 

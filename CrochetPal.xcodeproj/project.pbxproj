@@ -18,6 +18,7 @@
 		4C9884A1E573445F3A8F7C2B /* TraceLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */; };
 		5E92DD73389ADD42E8A39B75 /* HTMLExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */; };
 		8B1D5E02B3C4D5E6F708192A /* ModelNormalizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */; };
+		A1B2C3D4E5F60718293A4B5C /* ProjectRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */; };
 		65C4F693EDD940EDBF0D022E /* CrochetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C495908B9D552B3695C3CDD /* CrochetModels.swift */; };
 		7D1E9A3CB5E24B8F90C6A4E2 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */; };
 		95209499FBA04B44FE54D9C2 /* CrochetPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AEC3D5E10C424E8532A207 /* CrochetPalUITests.swift */; };
@@ -76,6 +77,7 @@
 		4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternImportServiceTests.swift; sourceTree = "<group>"; };
 		5ADCDFCBF161EC0F08EA837E /* CrochetPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrochetPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelNormalizationIntegrationTests.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProjectRepositoryTests.swift; sourceTree = "<group>"; };
 		801B75E25373489AB8A5F43D /* WatchRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchRootView.swift; sourceTree = "<group>"; };
 		81A01144F5B111A5589D9F1C /* Debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		84F8F0FAA5EA7E370704F061 /* JSONFileStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONFileStore.swift; path = CrochetPal/Shared/Utilities/JSONFileStore.swift; sourceTree = SOURCE_ROOT; };
@@ -148,6 +150,7 @@
 				3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */,
 				9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */,
 				4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */,
+				B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */,
 				0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */,
 				21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */,
 			);
@@ -408,6 +411,7 @@
 				5E92DD73389ADD42E8A39B75 /* HTMLExtractionServiceTests.swift in Sources */,
 				8B1D5E02B3C4D5E6F708192A /* ModelNormalizationIntegrationTests.swift in Sources */,
 				0B7AD5CDC00DEC0635646A7F /* PatternImportServiceTests.swift in Sources */,
+				A1B2C3D4E5F60718293A4B5C /* ProjectRepositoryTests.swift in Sources */,
 				1E2E31572C9D8A988E230485 /* RuntimeConfigurationTests.swift in Sources */,
 				4C9884A1E573445F3A8F7C2B /* TraceLoggerTests.swift in Sources */,
 			);

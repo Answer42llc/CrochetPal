@@ -6,6 +6,7 @@ struct ImportSheet: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var container: AppContainer
     @State private var urlText = ""
+    @State private var patternText = ""
     @State private var photoItem: PhotosPickerItem?
     @State private var isImporting = false
     @State private var errorMessage: String?
@@ -24,6 +25,28 @@ struct ImportSheet: View {
                         Task { await importFromURL() }
                     }
                     .disabled(urlText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isImporting)
+                }
+
+                Section("Import From Text") {
+                    ZStack(alignment: .topLeading) {
+                        TextEditor(text: $patternText)
+                            .frame(minHeight: 180)
+                            .autocorrectionDisabled()
+                            .accessibilityIdentifier("patternTextInput")
+
+                        if patternText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            Text("Paste the plain pattern text here.")
+                                .foregroundStyle(.secondary)
+                                .padding(.horizontal, 5)
+                                .padding(.vertical, 8)
+                                .allowsHitTesting(false)
+                        }
+                    }
+
+                    Button("Import Text") {
+                        Task { await importFromText() }
+                    }
+                    .disabled(patternText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isImporting)
                 }
 
                 Section("Import From Image") {
@@ -82,6 +105,13 @@ struct ImportSheet: View {
             }
             let fileName = item.supportedContentTypes.first?.preferredFilenameExtension.map { "pattern.\($0)" } ?? "pattern.jpg"
             let record = try await container.repository.importImagePattern(data: data, fileName: fileName)
+            onImported(record.project.id)
+        }
+    }
+
+    private func importFromText() async {
+        await performImport {
+            let record = try await container.repository.importTextPattern(from: patternText)
             onImported(record.project.id)
         }
     }
