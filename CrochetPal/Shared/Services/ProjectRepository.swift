@@ -327,6 +327,7 @@ final class ProjectRepository: ObservableObject {
             }
 
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomicActions = update.atomicActions
+            records[projectIndex].project.parts[partIndex].rounds[roundIndex].targetStitchCount = update.resolvedTargetStitchCount
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationStatus = .ready
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationError = nil
         }

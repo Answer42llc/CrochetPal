@@ -34,7 +34,8 @@ final class ModelNormalizationIntegrationTests: XCTestCase {
         bundle: Bundle
     ) async throws {
         let config = try integrationConfiguration(modelID: modelID, environment: environment, bundle: bundle)
-        let logger = ConsoleTraceLogger()
+        let eventCapture = IntegrationEventCapture()
+        let logger = ConsoleTraceLogger { eventCapture.events.append($0) }
         let extractor = HTMLExtractionService()
         let client = OpenAICompatibleLLMClient(configuration: config, logger: logger)
         let importer = PatternImportService(
@@ -63,7 +64,15 @@ final class ModelNormalizationIntegrationTests: XCTestCase {
         let part = try XCTUnwrap(project.parts.first)
         let round = try XCTUnwrap(part.rounds.first)
         let target = RoundReference(partID: part.id, roundID: round.id)
-        let updates = try await importer.atomizeRounds(in: project, targets: [target])
+        let updates: [AtomizedRoundUpdate]
+        do {
+            updates = try await importer.atomizeRounds(in: project, targets: [target])
+        } catch {
+            throw IntegrationDiagnosticError(
+                baseError: error,
+                diagnostics: recentDiagnostics(from: eventCapture.events)
+            )
+        }
         let actions = try XCTUnwrap(updates.first?.atomicActions)
 
         let actionSequence = actions.map(\.type.rawValue).joined(separator: " -> ")
@@ -198,4 +207,50 @@ final class ModelNormalizationIntegrationTests: XCTestCase {
             updatedAt: .now
         )
     }
+}
+
+private struct IntegrationDiagnosticError: LocalizedError {
+    let baseError: Error
+    let diagnostics: String
+
+    var errorDescription: String? {
+        let baseDescription = (baseError as? LocalizedError)?.errorDescription ?? baseError.localizedDescription
+        guard !diagnostics.isEmpty else {
+            return baseDescription
+        }
+        return "\(baseDescription)\n\nRecent trace diagnostics:\n\(diagnostics)"
+    }
+}
+
+private final class IntegrationEventCapture: @unchecked Sendable {
+    var events: [LogEvent] = []
+}
+
+private func recentDiagnostics(from events: [LogEvent]) -> String {
+    let relevantStages: Set<String> = [
+        "llm_request_payload",
+        "llm_request",
+        "llm_response_payload",
+        "llm_repair",
+        "llm_decode"
+    ]
+
+    let relevantEvents = events
+        .filter { relevantStages.contains($0.stage) }
+        .suffix(8)
+
+    guard !relevantEvents.isEmpty else {
+        return ""
+    }
+
+    return relevantEvents.map { event in
+        let metadata = event.metadata
+            .sorted { $0.key < $1.key }
+            .map { "\($0.key)=\($0.value)" }
+            .joined(separator: "\n")
+        return """
+        [\(event.stage)] \(event.decision) / \(event.reason)
+        \(metadata)
+        """
+    }.joined(separator: "\n\n")
 }

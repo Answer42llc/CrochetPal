@@ -294,9 +294,12 @@ final class PatternImportServiceTests: XCTestCase {
 
     func testCrochetTermDictionaryClassifiesDescriptorsOutsideAtomicActionSet() {
         XCTAssertEqual(CrochetTermDictionary.definition(for: "sc")?.kind, .action)
+        XCTAssertEqual(CrochetTermDictionary.definition(for: "fpdc")?.kind, .action)
         XCTAssertEqual(CrochetTermDictionary.definition(for: "flo")?.kind, .descriptor)
         XCTAssertEqual(CrochetTermDictionary.definition(for: "blo")?.kind, .descriptor)
         XCTAssertTrue(StitchActionType.sc.isAtomicActionType)
+        XCTAssertTrue(StitchActionType.fpdc.isAtomicActionType)
+        XCTAssertTrue(CrochetTermDictionary.supportedAtomicActionTypes.contains(.fpdc))
         XCTAssertFalse(StitchActionType.flo.isAtomicActionType)
         XCTAssertFalse(StitchActionType.blo.isAtomicActionType)
         XCTAssertFalse(StitchActionType.custom.isAtomicActionType)
@@ -366,7 +369,7 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertFalse((messages.first?["content"] as? String)?.contains("- notes") == true)
     }
 
-    func testAtomizationLLMRequestUsesCompactActionGroupSchema() async throws {
+    func testAtomizationLLMRequestUsesStructuredSegmentSchema() async throws {
         let capture = RequestCapture()
         let completionData = try completionResponseData(for: SampleDataFactory.demoAtomizationResponse)
         MockURLProtocol.handler = { request in
@@ -408,36 +411,154 @@ final class PatternImportServiceTests: XCTestCase {
         let rounds = try XCTUnwrap(properties["rounds"] as? [String: Any])
         let roundItems = try XCTUnwrap(rounds["items"] as? [String: Any])
         let roundProperties = try XCTUnwrap(roundItems["properties"] as? [String: Any])
-        let actionGroups = try XCTUnwrap(roundProperties["actionGroups"] as? [String: Any])
-        let actionGroupItem = try XCTUnwrap(actionGroups["items"] as? [String: Any])
-        let actionGroupProperties = try XCTUnwrap(actionGroupItem["properties"] as? [String: Any])
-        let typeDefinition = try XCTUnwrap(actionGroupProperties["type"] as? [String: Any])
-        let allowedTypes = try XCTUnwrap(typeDefinition["enum"] as? [String])
-        XCTAssertNil(actionGroupProperties["sequenceIndex"])
-        XCTAssertNotNil(actionGroupProperties["count"])
-        XCTAssertNotNil(actionGroupProperties["note"])
-        XCTAssertEqual(allowedTypes, CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue))
-        XCTAssertFalse(allowedTypes.contains("blo"))
-        XCTAssertFalse(allowedTypes.contains("flo"))
-        XCTAssertFalse(allowedTypes.contains("custom"))
+        let segments = try XCTUnwrap(roundProperties["segments"] as? [String: Any])
+        let segmentItems = try XCTUnwrap(segments["items"] as? [String: Any])
+        XCTAssertEqual(segmentItems["$ref"] as? String, "#/$defs/segment")
+
+        let defs = try XCTUnwrap(schema["$defs"] as? [String: Any])
+        let segment = try XCTUnwrap(defs["segment"] as? [String: Any])
+        let segmentProperties = try XCTUnwrap(segment["properties"] as? [String: Any])
+        let typeDefinition = try XCTUnwrap(segmentProperties["type"] as? [String: Any])
+        let allowedTypes = try XCTUnwrap(typeDefinition["enum"] as? [Any])
+        let allowedTypeStrings = allowedTypes.compactMap { $0 as? String }
+        XCTAssertNotNil(segmentProperties["count"])
+        XCTAssertNotNil(segmentProperties["note"])
+        XCTAssertNotNil(segmentProperties["notePlacement"])
+        XCTAssertNotNil(segmentProperties["verbatim"])
+        XCTAssertNotNil(segmentProperties["times"])
+        XCTAssertNotNil(segmentProperties["sequence"])
+        XCTAssertNotNil(segmentProperties["controlKind"])
+        let producedStitchesDefinition = try XCTUnwrap(segmentProperties["producedStitches"] as? [String: Any])
+        XCTAssertEqual(producedStitchesDefinition["type"] as? String, "null")
+        XCTAssertEqual(allowedTypeStrings, CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue))
+        XCTAssertTrue(allowedTypes.contains { $0 is NSNull })
+        XCTAssertFalse(allowedTypeStrings.contains("blo"))
+        XCTAssertFalse(allowedTypeStrings.contains("flo"))
+        XCTAssertFalse(allowedTypeStrings.contains("custom"))
+
+        let controlKindDefinition = try XCTUnwrap(segmentProperties["controlKind"] as? [String: Any])
+        let controlKindValues = try XCTUnwrap(controlKindDefinition["enum"] as? [Any])
+        XCTAssertEqual(controlKindValues.compactMap { $0 as? String }, ControlSegmentKind.allCases.map(\.rawValue))
+        XCTAssertTrue(controlKindValues.contains { $0 is NSNull })
+
+        let repeatSequenceSegment = try XCTUnwrap(defs["repeatSequenceSegment"] as? [String: Any])
+        let repeatSequenceProperties = try XCTUnwrap(repeatSequenceSegment["properties"] as? [String: Any])
+        let repeatSequenceKinds = try XCTUnwrap((repeatSequenceProperties["kind"] as? [String: Any])?["enum"] as? [String])
+        XCTAssertEqual(repeatSequenceKinds, [AtomizedSegmentKind.stitchRun.rawValue, AtomizedSegmentKind.control.rawValue])
+
+        let requestJSONString = String(decoding: requestData, as: UTF8.self)
+        XCTAssertFalse(requestJSONString.contains("\"oneOf\""))
 
         let messages = try XCTUnwrap(object["messages"] as? [[String: Any]])
         let systemPrompt = messages.first?["content"] as? String
         let userPrompt = messages.last?["content"] as? String
-        XCTAssertTrue(systemPrompt?.contains("compact action groups") == true)
-        XCTAssertTrue(systemPrompt?.contains("\"sc inc\" must become one sc action followed by one inc action.") == true)
-        XCTAssertTrue(systemPrompt?.contains("Prefer attaching contextual modifiers to note") == true)
-        XCTAssertTrue(systemPrompt?.contains("Never output descriptive or control terms such as \"blo\", \"flo\"") == true)
-        XCTAssertTrue(systemPrompt?.contains("Never output natural-language type names such as \"magic loop\", \"magic ring\", \"slip stitch\", or \"fasten off\" in the type field.") == true)
-        XCTAssertTrue(systemPrompt?.contains("Raw instruction: \"With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.\"") == true)
-        XCTAssertTrue(systemPrompt?.contains("Incorrect output groups: custom(\"magic loop\")") == true)
-        XCTAssertFalse(systemPrompt?.contains("Use custom only") == true)
+        XCTAssertTrue(systemPrompt?.contains("structured summary segments") == true)
+        XCTAssertTrue(systemPrompt?.contains("Compress consecutive identical stitches into one stitchRun.") == true)
+        XCTAssertTrue(systemPrompt?.contains("control.kind must be exactly one enum value") == true)
+        XCTAssertTrue(systemPrompt?.contains("notePlacement must never be null") == true)
+        XCTAssertTrue(systemPrompt?.contains("producedStitches must be null") == true)
+        XCTAssertTrue(systemPrompt?.contains("set it to null instead of omitting it") == true)
+        XCTAssertTrue(systemPrompt?.contains("fpdc must stay fpdc") == true)
+        XCTAssertTrue(systemPrompt?.contains("Use notePlacement=all") == true)
+        XCTAssertTrue(systemPrompt?.contains("Raw instruction: \"With off white, ch 114\"") == true)
+        XCTAssertTrue(systemPrompt?.contains("control is only for standalone control steps") == true)
+        XCTAssertTrue(systemPrompt?.contains("turn or skip (skipping one or more stitches)") == true)
+        XCTAssertTrue(systemPrompt?.contains("skip is not a stitch, it is a control step") == true)
         XCTAssertTrue(userPrompt?.contains("Input rounds JSON:") == true)
         XCTAssertTrue(userPrompt?.contains("\"rawInstruction\"") == true)
         XCTAssertFalse(userPrompt?.contains("Previous attempt failed validation.") == true)
         XCTAssertTrue(userPrompt?.contains("\"summary\"") == true)
         XCTAssertTrue(userPrompt?.contains("Create a magic ring and crochet six single crochets into it.") == true)
         XCTAssertFalse(userPrompt?.contains("\"notes\"") == true)
+    }
+
+    func testAtomizationLLMHTTPFailureIncludesProviderErrorDetails() async throws {
+        let providerError = #"""
+        {
+          "error": {
+            "message": "Provider returned error",
+            "code": 400,
+            "metadata": {
+              "raw": "{\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'crochet_round_atomization_response': In context=('properties', 'sequence', 'items'), 'oneOf' is not permitted.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"text.format.schema\",\n    \"code\": \"invalid_json_schema\"\n  }\n}",
+              "provider_name": "Azure",
+              "is_byok": false
+            }
+          }
+        }
+        """#
+
+        MockURLProtocol.handler = { request in
+            let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 400, httpVersion: nil, headerFields: nil)!
+            return (response, Data(providerError.utf8))
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try testConfiguration(),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        do {
+            _ = try await client.atomizeTextRounds(
+                projectTitle: "Quiet Tides Baby Blanket",
+                materials: ["Off white yarn"],
+                rounds: [
+                    AtomizationRoundInput(
+                        partName: "Main",
+                        title: "Foundation",
+                        rawInstruction: "Using off white yarn, chain 114.",
+                        summary: "Create the foundation chain with off white yarn.",
+                        targetStitchCount: nil
+                    )
+                ],
+                context: ParseRequestContext(traceID: "request-atomize-400", parseRequestID: "request-atomize-400", sourceType: .web)
+            )
+            XCTFail("预期应透传 provider 返回的 400 错误")
+        } catch let error as PatternImportFailure {
+            guard case let .fetchFailed(statusCode, details) = error else {
+                return XCTFail("收到错误类型不正确：\(error)")
+            }
+            XCTAssertEqual(statusCode, 400)
+            XCTAssertTrue(details?.contains("Azure") == true)
+            XCTAssertTrue(details?.contains("Invalid schema for response_format") == true)
+            XCTAssertTrue(error.localizedDescription.contains("请求失败，状态码 400") == true)
+        }
+    }
+
+    func testRoundAtomizationDecodeDefaultsNullNotePlacementOnStitchRuns() throws {
+        let payload = #"""
+        {
+          "rounds": [
+            {
+              "segments": [
+                {
+                  "times": null,
+                  "kind": "stitchRun",
+                  "producedStitches": null,
+                  "controlKind": null,
+                  "notePlacement": null,
+                  "instruction": null,
+                  "note": null,
+                  "count": 7,
+                  "type": "sc",
+                  "sequence": null,
+                  "verbatim": "7sc"
+                }
+              ]
+            }
+          ]
+        }
+        """#
+
+        let response = try JSONDecoder().decode(RoundAtomizationResponse.self, from: Data(payload.utf8))
+        guard case let .stitchRun(segment)? = response.rounds.first?.segments.first else {
+            return XCTFail("预期解码出 stitchRun segment")
+        }
+
+        XCTAssertEqual(segment.count, 7)
+        XCTAssertEqual(segment.type, .sc)
+        XCTAssertEqual(segment.notePlacement, .first)
     }
 
     func testDeepSeekTextLLMRequestOmitsProviderRoutingPayloadWhenDisabled() async throws {
@@ -515,16 +636,16 @@ final class PatternImportServiceTests: XCTestCase {
     }
 
     func testAtomizeRoundsPreservesSameStitchNoteOnOriginalAction() async throws {
-        let html = try fixture(named: "mouse-pattern", extension: "html")
-        MockURLProtocol.handler = { request in
-            let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
-            return (response, Data(html.utf8))
-        }
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "ch 1, sc, inc",
+            summary: "Chain once, single crochet, then increase in the same stitch.",
+            targetStitchCount: 3
+        )
 
         // Simulate LLM incorrectly placing "same stitch" note on the sc action
         let importer = PatternImportService(
             parserClient: FixturePatternParsingClient(
-                outlineResponse: SampleDataFactory.demoOutlineResponse,
+                outlineResponse: outline,
                 imageResponse: SampleDataFactory.demoImageParseResponse,
                 atomizationResponse: RoundAtomizationResponse(
                     rounds: [
@@ -541,7 +662,17 @@ final class PatternImportServiceTests: XCTestCase {
             logger: ConsoleTraceLogger()
         )
 
-        let record = try await importer.importWebPattern(from: "https://example.com/pattern")
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .web,
+                displayName: "Note Preservation",
+                sourceURL: "https://example.com/pattern",
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
         let target = try firstRoundReferences(in: record.project, count: 1)
         let updates = try await importer.atomizeRounds(in: record.project, targets: target)
         let actions = try XCTUnwrap(updates.first?.atomicActions)
@@ -550,6 +681,426 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertNil(actions[0].note)
         XCTAssertEqual(actions[1].note, "inc in the same stitch")
         XCTAssertNil(actions[2].note)
+    }
+
+    func testAtomizeRoundsExpandsFoundationChainRunAndCopiesRunNoteToEveryAction() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "With off white, ch 114",
+            summary: "Create the foundation chain with off white yarn.",
+            targetStitchCount: nil
+        )
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: outline,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: RoundAtomizationResponse(
+                    rounds: [
+                        AtomizedPatternRound(segments: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .ch,
+                                    count: 114,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: "with off white yarn",
+                                    notePlacement: .all,
+                                    verbatim: "With off white, ch 114"
+                                )
+                            )
+                        ])
+                    ]
+                )
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .text,
+                displayName: "Foundation Chain",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
+        let update = try XCTUnwrap(updates.first)
+
+        XCTAssertEqual(update.atomicActions.count, 114)
+        XCTAssertTrue(update.atomicActions.allSatisfy { $0.type == .ch })
+        XCTAssertTrue(update.atomicActions.allSatisfy { $0.note == "with off white yarn" })
+        XCTAssertEqual(update.resolvedTargetStitchCount, 0)
+    }
+
+    func testAtomizeRoundsExpandsRowInstructionWithControlTurn() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "Row 1: 1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+            summary: "Work 113 single crochets across, chain one, then turn.",
+            targetStitchCount: 113
+        )
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: outline,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: RoundAtomizationResponse(
+                    rounds: [
+                        AtomizedPatternRound(segments: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .sc,
+                                    count: 113,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: "in the 2nd ch from the hook",
+                                    notePlacement: .first,
+                                    verbatim: "1 sc in the 2nd ch from the hook and in each ch across"
+                                )
+                            ),
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .ch,
+                                    count: 1,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: nil,
+                                    notePlacement: .first,
+                                    verbatim: "Ch 1"
+                                )
+                            ),
+                            .control(
+                                ControlSegment(
+                                    kind: .turn,
+                                    instruction: nil,
+                                    note: nil,
+                                    verbatim: "turn"
+                                )
+                            )
+                        ])
+                    ]
+                )
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .text,
+                displayName: "Row Pattern",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
+        let actions = try XCTUnwrap(updates.first?.atomicActions)
+
+        XCTAssertEqual(actions.count, 115)
+        XCTAssertEqual(actions.prefix(113).map(\.type), Array(repeating: .sc, count: 113))
+        XCTAssertEqual(actions[0].note, "in the 2nd ch from the hook")
+        XCTAssertNil(actions[1].note)
+        XCTAssertEqual(actions[113].type, .ch)
+        XCTAssertEqual(actions[114].type, .custom)
+        XCTAssertEqual(actions[114].instruction, "turn")
+        XCTAssertEqual(updates.first?.resolvedTargetStitchCount, 113)
+    }
+
+    func testAtomizeRoundsAttachesTrailingColorChangeNoteToLastAction() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "R3: sc around (12), change color",
+            summary: "Single crochet around and change color at the end.",
+            targetStitchCount: 12
+        )
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: outline,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: RoundAtomizationResponse(
+                    rounds: [
+                        AtomizedPatternRound(segments: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .sc,
+                                    count: 12,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: "change color",
+                                    notePlacement: .last,
+                                    verbatim: "sc around (12), change color"
+                                )
+                            )
+                        ])
+                    ]
+                )
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .text,
+                displayName: "Color Change",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
+        let actions = updates.first?.atomicActions
+
+        XCTAssertEqual(actions?.count, 12)
+        XCTAssertTrue(actions?.dropLast().allSatisfy { $0.note == nil } == true)
+        XCTAssertEqual(actions?.last?.note, "change color")
+    }
+
+    func testAtomizeRoundsAttachesWholeRunContextNoteToEveryAction() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "R8: work in FLO of R5: sc 12",
+            summary: "Work twelve single crochets in the front loop only of round five.",
+            targetStitchCount: 12
+        )
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: outline,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: RoundAtomizationResponse(
+                    rounds: [
+                        AtomizedPatternRound(segments: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .sc,
+                                    count: 12,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: "work in FLO of Round 5",
+                                    notePlacement: .all,
+                                    verbatim: "work in FLO of R5: sc 12"
+                                )
+                            )
+                        ])
+                    ]
+                )
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .text,
+                displayName: "FLO Round",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
+        let actions = updates.first?.atomicActions
+
+        XCTAssertEqual(actions?.count, 12)
+        XCTAssertTrue(actions?.allSatisfy { $0.note == "work in FLO of Round 5" } == true)
+    }
+
+    func testAtomizeRoundsPreservesFrontPostDoubleCrochetType() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "fpdc around next st",
+            summary: "Work one front post double crochet around the next stitch.",
+            targetStitchCount: 1
+        )
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: outline,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: RoundAtomizationResponse(
+                    rounds: [
+                        AtomizedPatternRound(segments: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .fpdc,
+                                    count: 1,
+                                    instruction: "fpdc around next st",
+                                    producedStitches: nil,
+                                    note: "around next stitch",
+                                    notePlacement: .all,
+                                    verbatim: "fpdc around next st"
+                                )
+                            )
+                        ])
+                    ]
+                )
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .text,
+                displayName: "Post Stitch",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let actions = try await importer.atomizeRounds(in: record.project, targets: target).first?.atomicActions
+
+        XCTAssertEqual(actions?.count, 1)
+        XCTAssertEqual(actions?.first?.type, .fpdc)
+        XCTAssertEqual(actions?.first?.producedStitches, 1)
+        XCTAssertEqual(actions?.first?.note, "around next stitch")
+        XCTAssertEqual(actions?.first?.instruction, "fpdc around next st")
+    }
+
+    func testAtomizeRoundsBackfillsMissingTargetStitchCountFromExpandedActions() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "sc 12",
+            summary: "Single crochet twelve stitches.",
+            targetStitchCount: nil
+        )
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: outline,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: RoundAtomizationResponse(
+                    rounds: [
+                        AtomizedPatternRound(segments: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .sc,
+                                    count: 12,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: nil,
+                                    notePlacement: .first,
+                                    verbatim: "sc 12"
+                                )
+                            )
+                        ])
+                    ]
+                )
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .text,
+                displayName: "Backfill Target",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
+        let update = updates.first
+
+        XCTAssertEqual(update?.resolvedTargetStitchCount, 12)
+    }
+
+    func testAtomizeRoundsIgnoresModelProducedStitchesOverridesForDeterministicStitches() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+            summary: "Create a magic loop, chain one, work seven single crochets, then join.",
+            targetStitchCount: 7
+        )
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: outline,
+                imageResponse: SampleDataFactory.demoImageParseResponse,
+                atomizationResponse: RoundAtomizationResponse(
+                    rounds: [
+                        AtomizedPatternRound(segments: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .mr,
+                                    count: 1,
+                                    instruction: nil,
+                                    producedStitches: 7,
+                                    note: "with grey yarn",
+                                    notePlacement: .all,
+                                    verbatim: "With grey yarn: Magic loop"
+                                )
+                            ),
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .ch,
+                                    count: 1,
+                                    instruction: nil,
+                                    producedStitches: 1,
+                                    note: nil,
+                                    notePlacement: .first,
+                                    verbatim: "ch1"
+                                )
+                            ),
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .sc,
+                                    count: 7,
+                                    instruction: nil,
+                                    producedStitches: 5,
+                                    note: nil,
+                                    notePlacement: .first,
+                                    verbatim: "7sc"
+                                )
+                            ),
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .slSt,
+                                    count: 1,
+                                    instruction: nil,
+                                    producedStitches: 4,
+                                    note: "to the first sc",
+                                    notePlacement: .all,
+                                    verbatim: "slst to the first sc"
+                                )
+                            )
+                        ])
+                    ]
+                )
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = importer.makePreviewWebRecord(
+            from: outline,
+            source: PatternSource(
+                type: .text,
+                displayName: "Magic Loop",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            )
+        )
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
+        let actions = try XCTUnwrap(updates.first?.atomicActions)
+
+        XCTAssertEqual(actions.map(\.type), [.mr, .ch, .sc, .sc, .sc, .sc, .sc, .sc, .sc, .slSt])
+        XCTAssertEqual(actions.reduce(0) { $0 + $1.producedStitches }, 7)
+        XCTAssertEqual(updates.first?.resolvedTargetStitchCount, 7)
     }
 
     func testAtomizeRoundsRejectsDescriptorTypeEvenWhenInstructionExists() async throws {
@@ -595,8 +1146,17 @@ final class PatternImportServiceTests: XCTestCase {
         {
           "rounds": [
             {
-              "actionGroups": [
-                { "type": "magic loop", "count": 1, "instruction": null, "producedStitches": null, "note": null }
+              "segments": [
+                {
+                  "kind": "stitchRun",
+                  "type": "magic loop",
+                  "count": 1,
+                  "instruction": null,
+                  "producedStitches": null,
+                  "note": null,
+                  "notePlacement": "first",
+                  "verbatim": "magic loop"
+                }
               ]
             }
           ]
@@ -739,7 +1299,7 @@ final class PatternImportServiceTests: XCTestCase {
 
             if capture.requestCount == 1 {
                 let malformed = """
-                {"rounds":[{"actionGroups":[{"type":"mr","count":1,"instruction":"mr","producedStitches":0}]}]
+                {"rounds":[{"segments":[{"kind":"stitchRun","type":"mr","count":1,"instruction":"mr","producedStitches":0,"note":null,"notePlacement":"first","verbatim":"mr"}]}]
                 """
                 return (response, try self.completionResponseData(withContent: malformed))
             }
@@ -810,6 +1370,31 @@ final class PatternImportServiceTests: XCTestCase {
             part.rounds.map { RoundReference(partID: part.id, roundID: $0.id) }
         }
         return Array(references.prefix(count))
+    }
+
+    private func makeSingleRoundOutlineResponse(
+        rawInstruction: String,
+        summary: String,
+        targetStitchCount: Int?
+    ) -> PatternOutlineResponse {
+        PatternOutlineResponse(
+            projectTitle: "Custom Round",
+            materials: ["Cotton yarn"],
+            confidence: 1,
+            parts: [
+                OutlinedPatternPart(
+                    name: "Body",
+                    rounds: [
+                        OutlinedPatternRound(
+                            title: "Round 1",
+                            rawInstruction: rawInstruction,
+                            summary: summary,
+                            targetStitchCount: targetStitchCount
+                        )
+                    ]
+                )
+            ]
+        )
     }
 
     private func fixture(named name: String, extension fileExtension: String) throws -> String {

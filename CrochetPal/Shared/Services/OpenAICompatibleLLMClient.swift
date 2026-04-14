@@ -173,7 +173,24 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
             throw PatternImportFailure.invalidResponse("missing_http_response")
         }
         guard 200..<300 ~= httpResponse.statusCode else {
-            throw PatternImportFailure.fetchFailed(statusCode: httpResponse.statusCode)
+            logger.log(LogEvent(
+                timestamp: .now,
+                level: "error",
+                traceID: context.traceID,
+                parseRequestID: context.parseRequestID,
+                projectID: nil,
+                sourceType: context.sourceType,
+                stage: "llm_request",
+                decision: "failure",
+                reason: "http_error",
+                durationMS: duration,
+                metadata: [
+                    "modelID": modelID,
+                    "statusCode": "\(httpResponse.statusCode)",
+                    "responseEnvelopeJSON": serializeResponseDataForLogging(data)
+                ]
+            ))
+            throw makeHTTPFailure(statusCode: httpResponse.statusCode, data: data)
         }
 
         logger.log(LogEvent(
@@ -398,6 +415,85 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
         return try decoder.decode(Response.self, from: data)
     }
 
+    private func makeHTTPFailure(statusCode: Int, data: Data) -> PatternImportFailure {
+        PatternImportFailure.fetchFailed(
+            statusCode: statusCode,
+            details: extractErrorMessage(from: data)
+        )
+    }
+
+    private func extractErrorMessage(from data: Data) -> String? {
+        if let object = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let message = extractErrorMessage(fromJSONObject: object) {
+            return message
+        }
+
+        let rawText = String(decoding: data, as: UTF8.self)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        return rawText.isEmpty ? nil : rawText
+    }
+
+    private func extractErrorMessage(fromJSONObject object: [String: Any]) -> String? {
+        if let errorObject = object["error"] as? [String: Any] {
+            let metadata = errorObject["metadata"] as? [String: Any]
+            let providerName = normalizedMessage(metadata?["provider_name"] as? String)
+            let providerRaw = normalizedMessage(metadata?["raw"] as? String)
+            let nestedProviderMessage = providerRaw.flatMap(extractNestedErrorMessage(fromRawPayload:))
+            let outerMessage = normalizedMessage(errorObject["message"] as? String)
+
+            let preferredMessage: String?
+            if let nestedProviderMessage {
+                preferredMessage = nestedProviderMessage
+            } else if outerMessage == "Provider returned error" {
+                preferredMessage = nil
+            } else {
+                preferredMessage = outerMessage
+            }
+
+            switch (providerName, preferredMessage) {
+            case let (providerName?, preferredMessage?):
+                return "\(providerName): \(preferredMessage)"
+            case let (_, preferredMessage?):
+                return preferredMessage
+            case let (providerName?, _):
+                return providerName
+            default:
+                break
+            }
+        }
+
+        if let message = normalizedMessage(object["message"] as? String) {
+            return message
+        }
+
+        return nil
+    }
+
+    private func extractNestedErrorMessage(fromRawPayload rawPayload: String) -> String? {
+        let trimmed = rawPayload.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
+            return nil
+        }
+
+        if let data = trimmed.data(using: .utf8),
+           let object = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let nestedError = object["error"] as? [String: Any],
+           let nestedMessage = normalizedMessage(nestedError["message"] as? String) {
+            return nestedMessage
+        }
+
+        return trimmed
+    }
+
+    private func normalizedMessage(_ value: String?) -> String? {
+        guard let value else {
+            return nil
+        }
+
+        let normalized = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        return normalized.isEmpty ? nil : normalized
+    }
+
     private func extractJSONObject(from text: String) -> String {
         guard let first = text.firstIndex(of: "{"), let last = text.lastIndex(of: "}") else {
             return text
@@ -432,17 +528,20 @@ enum PromptFactory {
     {
       "rounds": [
         {
-          "actionGroups": [
-            { "type": "mr", "count": 1, "instruction": null, "producedStitches": null, "note": "With grey yarn." },
-            { "type": "ch", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sc", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sc", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sc", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sc", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sc", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sc", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sc", "count": 1, "instruction": null, "producedStitches": null, "note": null },
-            { "type": "sl_st", "count": 1, "instruction": null, "producedStitches": null, "note": "Join to the first sc." }
+          "segments": [
+            {
+              "kind": "stitchRun",
+              "type": "ch",
+              "count": 114,
+              "instruction": null,
+              "producedStitches": null,
+              "note": "With off white yarn.",
+              "notePlacement": "all",
+              "times": null,
+              "sequence": null,
+              "controlKind": null,
+              "verbatim": "With off white, ch 114"
+            }
           ]
         }
       ]
@@ -521,42 +620,61 @@ enum PromptFactory {
         let supportedTypes = CrochetTermDictionary.supportedAtomicActionTypes
             .map(\.rawValue)
             .joined(separator: ", ")
+        let controlKinds = ControlSegmentKind.allCases.map(\.rawValue).joined(separator: ", ")
 
         return """
-        You are a crochet master, I will give you a instruction of a crochet pattern, usually it a round or a row's instruction of a crochet pattern. You will help convert it into compact action groups with follow steps:
-            1.Read the instruction carefully,understand what the whole instruction is going to do. If there is a significantly crochet action, such like sc(single crochet)、dc(double crochet) and so on, you MUST extract it as one of action sequence.
-            2.Generate notes from summary we give to each crochet actions. You should give notes as possible.
-            3.At sometimes, the given instrunction might have some little mistake, as typo usually, you could fix it.
-            4.Convert actions in the instruction to single crochet action with original order. You should convert it after you understand it, not just divide it simplicity.
-            5.Output result as JSON object with the rules below.
+        You are a crochet master. Convert each crochet round into structured summary segments that a deterministic program can expand into final atomic actions.
+
+        Segment kinds:
+        - stitchRun: one stitch type repeated count times
+        - repeat: a repeated sequence of segments
+        - control: a non-stitch control action such as turning the work
+
         Rules:
         - Return one JSON object only.
         - Preserve the order of the input rounds.
-        - rawInstruction is the source of truth of corchet actions. Use summary to help generate notes.
-        - type must be exactly one enum value from this list: \(supportedTypes).
-        - Never output descriptive or control terms such as "blo", "flo", "front loop only", "back loop only", or color-change text in the type field.
-        - Never output natural-language type names such as "magic loop", "magic ring", "slip stitch", or "fasten off" in the type field.
-        - note should be a short, readable explanation for context such as color changes, placement, special loops, which stitches you should work with, new or currently? or finishing details. You can use summary field we given as reference to generate notes.
-        - Prefer attaching contextual modifiers to note on the nearest real stitch action instead of emitting a standalone non-action step.
-        - Each actionGroup must represent exactly one base crochet action from the enum.
-        - Do not collapse compound shorthand into one action.
-        - "sc inc" must become one sc action followed by one inc action.
-        - "hdc inc" must become one hdc action followed by one inc action.
-        - "1hdc+1sc" must become one hdc action followed by one sc action.
-        - "ch1+1sc" must become one ch action followed by one sc action.
-        - Expand repeated compound shorthand in order. "(sc inc)x5" must become sc, inc, sc, inc, sc, inc, sc, inc, sc, inc.
-        - If an increase or decrease happens in the same stitch as the previous action, put that detail in note on the inc/dec action.
-        - count must always be 1. Emit one actionGroup per individual stitch — do not compress consecutive same-type stitches. For example, "7sc" must become seven separate sc actionGroups, each with count 1.
+        - rawInstruction is the source of truth. Use summary only to improve note clarity.
+        - stitchRun.type must be exactly one enum value from this list: \(supportedTypes).
+        - control.kind must be exactly one enum value from this list: \(controlKinds).
+        - Never use custom or control as an escape hatch for stitch-like content.
+        - Never output descriptive terms such as blo, flo, front loop only, back loop only, or color-change text as stitchRun.type.
+        - Never output natural-language stitch names such as "magic loop", "magic ring", "slip stitch", or "fasten off" as stitchRun.type.
+        - Do not collapse derived stitch abbreviations into their base stitch. For example, fpdc must stay fpdc, not dc with a "front post" note.
+        - Compress consecutive identical stitches into one stitchRun. "7sc" must become one stitchRun with type sc and count 7.
+        - Use repeat when the source expresses repeated structure. "(sc 2, inc) x 3" should become one repeat segment whose sequence is [sc x2, inc x1] and whose times is 3.
+        - Preserve the original stitch order after expansion.
+        - stitchRun.note must be short, readable context. Use notePlacement to say whether the note applies to the first stitch, last stitch, or every stitch in that run.
+        - For stitchRun, notePlacement must never be null. If stitchRun.note is null, use notePlacement=first as the default placeholder.
+        - Use notePlacement=first for leading placement guidance such as "in the 2nd ch from the hook".
+        - Use notePlacement=last for trailing follow-up guidance such as "change color".
+        - Use notePlacement=all for context that applies to the whole run such as yarn color or FLO/BLO placement.
+        - For stitchRun, producedStitches must be null. The app already calculates stitch contribution from stitchRun.type.
+        - Every segment object must include every schema key. When a field does not apply to that segment kind, set it to null instead of omitting it.
+        - Contextual modifiers such as color, loop placement, round references, and placement guidance should stay in note, not control.
+        - control is only for standalone control steps that should remain separate after expansion, such as turn or skip (skipping one or more stitches).
+        - If control.kind is custom, instruction must contain the exact control wording to preserve.
         - Only include instruction when the default instruction would be misleading.
-        - Only include producedStitches when it differs from the usual default for that symbol.
-        - Control or descriptive details, such as color changes, loop placement, and skips, must become notes rather than standalone actionGroups.
-        - If some action is going to do in magic ring, you should note it out.
+        - Every segment must include verbatim with the exact source snippet that the segment came from.
         Golden examples:
-        1. Raw instruction: "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc."
-           - Correct output groups: mr x1, ch x1, sc x1, sc x1, sc x1, sc x1, sc x1, sc x1, sc x1, sl_st x1
-           - Incorrect output groups: custom("magic loop"), custom("slip stitch"), sc x6
-           - Incorrect output groups: mr x1, ch x1, sc x7, sl_st x1 (do not compress — each sc must be a separate actionGroup)
-        
+        1. Raw instruction: "With off white, ch 114"
+           - Correct output: one stitchRun(type=ch, count=114, note="with off white yarn", notePlacement=all)
+           - Incorrect output: 114 separate stitchRun segments
+        2. Raw instruction: "Row 1: 1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn."
+           - Correct output: stitchRun(sc x113, notePlacement=first), stitchRun(ch x1), control(turn)
+        3. Raw instruction: "R3: sc around (12), change color"
+           - Correct output: stitchRun(sc x12, note="change color", notePlacement=last)
+        4. Raw instruction: "R8: work in FLO of R5: sc 12"
+           - Correct output: stitchRun(sc x12, note="work in FLO of Round 5", notePlacement=all)
+        5. Raw instruction: "fpdc around next st"
+           - Correct output: stitchRun(type=fpdc, count=1)
+           - Incorrect output: stitchRun(type=dc, note="front post")
+        6. Raw instruction: "1 sc in the first 2 sc, *fpdc around next st from 3 rows below, sk the sc behind the fpdc, 1 sc in each of the next 2 sc* repeat across. (113 stitches)" with targetStitchCount=113
+           - Correct output: stitchRun(sc x2), repeat(sequence=[stitchRun(fpdc x1), control(kind=skip, instruction="skip the sc behind the post stitch"), stitchRun(sc x2)], times=37) — times = (113 - 2) / 3 = 37
+           - Incorrect output: stitchRun(type=sc, instruction="skip") — skip is not a stitch, it is a control step. Also incorrect: times=null — always calculate a concrete integer for times from targetStitchCount.
+        7. Raw instruction: "skip next 2 sts, 3dc in next st"
+           - Correct output: control(kind=skip, instruction="skip next 2 sts"), stitchRun(dc x3)
+           - Incorrect output: stitchRun with instruction="skip"
+
         """
     }
 
@@ -569,7 +687,7 @@ enum PromptFactory {
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let roundsPayload = (try? encoder.encode(rounds)).flatMap { String(data: $0, encoding: .utf8) } ?? "[]"
         var prompt = """
-        Atomize the following crochet rounds into compact action groups.
+        Atomize the following crochet rounds into structured summary segments.
 
         Project title: \(projectTitle)
         """
@@ -605,6 +723,7 @@ enum PromptFactory {
         Rules:
         - Detect part names, rounds, stitch counts, and abbreviations from the image.
         - sequence details are not needed; only return atomicActions with type, instruction, producedStitches, and optional note.
+        - Preserve derived stitch abbreviations exactly when they appear. For example, fpdc stays fpdc and must not be reduced to dc.
         - Extract only what is visible in the image.
         - Preserve the original language used in the image when possible.
         - Do not restate the schema.
@@ -722,16 +841,30 @@ enum PromptFactory {
                         "type": "object",
                         "additionalProperties": false,
                         "properties": [
-                            "actionGroups": [
+                            "segments": [
                                 "type": "array",
-                                "items": actionGroupSchema()
+                                "items": [
+                                    "$ref": "#/$defs/segment"
+                                ]
                             ]
                         ],
-                        "required": ["actionGroups"]
+                        "required": ["segments"]
                     ]
                 ]
             ],
-            "required": ["rounds"]
+            "required": ["rounds"],
+            "$defs": [
+                "segment": atomizationSegmentSchema(
+                    allowedKinds: AtomizedSegmentKind.allCases,
+                    timesSchema: nullableIntegerSchema(),
+                    sequenceSchema: nullableArraySchema(items: ["$ref": "#/$defs/repeatSequenceSegment"])
+                ),
+                "repeatSequenceSegment": atomizationSegmentSchema(
+                    allowedKinds: [.stitchRun, .control],
+                    timesSchema: nullOnlySchema(),
+                    sequenceSchema: nullOnlySchema()
+                )
+            ]
         ]
     }
 
@@ -825,21 +958,47 @@ enum PromptFactory {
         ]
     }
 
-    private static func actionGroupSchema() -> [String: Any] {
+    private static func atomizationSegmentSchema(
+        allowedKinds: [AtomizedSegmentKind],
+        timesSchema: [String: Any],
+        sequenceSchema: [String: Any]
+    ) -> [String: Any] {
         [
             "type": "object",
             "additionalProperties": false,
             "properties": [
-                "type": [
+                "kind": [
                     "type": "string",
-                    "enum": CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)
+                    "enum": allowedKinds.map(\.rawValue)
                 ],
-                "count": ["type": "integer"],
+                "type": nullableStringEnumSchema(CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)),
+                "count": nullableIntegerSchema(),
                 "instruction": nullableStringSchema(),
-                "producedStitches": nullableIntegerSchema(),
-                "note": nullableStringSchema()
+                "producedStitches": nullOnlySchema(),
+                "note": nullableStringSchema(),
+                "notePlacement": nullableStringEnumSchema(AtomizedNotePlacement.allCases.map(\.rawValue)),
+                "times": timesSchema,
+                "sequence": sequenceSchema,
+                "controlKind": nullableStringEnumSchema(ControlSegmentKind.allCases.map(\.rawValue)),
+                "verbatim": ["type": "string"]
             ],
-            "required": ["type", "count", "instruction", "producedStitches", "note"]
+            "required": atomizationSegmentRequiredKeys()
+        ]
+    }
+
+    private static func atomizationSegmentRequiredKeys() -> [String] {
+        [
+            "kind",
+            "type",
+            "count",
+            "instruction",
+            "producedStitches",
+            "note",
+            "notePlacement",
+            "times",
+            "sequence",
+            "controlKind",
+            "verbatim"
         ]
     }
 
@@ -850,12 +1009,30 @@ enum PromptFactory {
         ]
     }
 
+    private static func nullableStringEnumSchema(_ values: [String]) -> [String: Any] {
+        [
+            "type": ["string", "null"],
+            "enum": values + [NSNull()]
+        ]
+    }
+
     private static func nullableStringSchema() -> [String: Any] {
         ["type": ["string", "null"]]
     }
 
     private static func nullableIntegerSchema() -> [String: Any] {
         ["type": ["integer", "null"]]
+    }
+
+    private static func nullableArraySchema(items: [String: Any]) -> [String: Any] {
+        [
+            "type": ["array", "null"],
+            "items": items
+        ]
+    }
+
+    private static func nullOnlySchema() -> [String: Any] {
+        ["type": "null"]
     }
 }
 

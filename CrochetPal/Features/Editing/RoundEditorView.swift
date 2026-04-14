@@ -40,7 +40,7 @@ struct RoundEditorView: View {
                     ForEach($drafts) { $draft in
                         VStack(alignment: .leading, spacing: 12) {
                             Picker("Type", selection: $draft.type) {
-                                ForEach(StitchActionType.allCases) { action in
+                                ForEach(StitchActionType.allCases.filter { $0 != .skip }) { action in
                                     Text(action.title).tag(action)
                                 }
                             }

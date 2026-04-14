@@ -194,34 +194,85 @@ struct SampleDataFactory {
 
     static let demoAtomizationResponse = RoundAtomizationResponse(
         rounds: [
-            AtomizedPatternRound(actionGroups: [
-                ParsedActionGroup(type: .mr, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil)
+            AtomizedPatternRound(segments: [
+                .stitchRun(
+                    StitchRunSegment(
+                        type: .mr,
+                        count: 1,
+                        instruction: nil,
+                        producedStitches: nil,
+                        note: nil,
+                        notePlacement: .first,
+                        verbatim: "In a MR"
+                    )
+                ),
+                .stitchRun(
+                    StitchRunSegment(
+                        type: .sc,
+                        count: 6,
+                        instruction: nil,
+                        producedStitches: nil,
+                        note: nil,
+                        notePlacement: .first,
+                        verbatim: "sc 6"
+                    )
+                )
             ]),
-            AtomizedPatternRound(actionGroups: [
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .inc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .inc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .inc, count: 1, instruction: nil, producedStitches: nil)
+            AtomizedPatternRound(segments: [
+                .repeatBlock(
+                    RepeatSegment(
+                        times: 3,
+                        sequence: [
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .sc,
+                                    count: 2,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: nil,
+                                    notePlacement: .first,
+                                    verbatim: "sc 2"
+                                )
+                            ),
+                            .stitchRun(
+                                StitchRunSegment(
+                                    type: .inc,
+                                    count: 1,
+                                    instruction: nil,
+                                    producedStitches: nil,
+                                    note: nil,
+                                    notePlacement: .first,
+                                    verbatim: "inc"
+                                )
+                            )
+                        ],
+                        verbatim: "(sc 2, inc) x 3"
+                    )
+                )
             ]),
-            AtomizedPatternRound(actionGroups: [
-                ParsedActionGroup(type: .mr, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil),
-                ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil)
+            AtomizedPatternRound(segments: [
+                .stitchRun(
+                    StitchRunSegment(
+                        type: .mr,
+                        count: 1,
+                        instruction: nil,
+                        producedStitches: nil,
+                        note: nil,
+                        notePlacement: .first,
+                        verbatim: "In a MR"
+                    )
+                ),
+                .stitchRun(
+                    StitchRunSegment(
+                        type: .sc,
+                        count: 6,
+                        instruction: nil,
+                        producedStitches: nil,
+                        note: nil,
+                        notePlacement: .first,
+                        verbatim: "sc 6"
+                    )
+                )
             ])
         ]
     )

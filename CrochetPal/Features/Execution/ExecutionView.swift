@@ -84,7 +84,7 @@ struct ExecutionView: View {
                         }
                         Label("Stitch progress: \(snapshot.stitchProgress)/\(snapshot.targetStitches ?? 0)", systemImage: "number")
                         if let nextAction {
-                            Label("Next: \(nextAction.type.title)", systemImage: "arrow.turn.down.right")
+                            Label("Next: \(nextAction.executionDisplayTitle)", systemImage: "arrow.turn.down.right")
                         }
                     }
                     .font(.headline)

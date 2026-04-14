@@ -92,6 +92,121 @@ final class ExecutionEngineTests: XCTestCase {
         XCTAssertNil(snapshot.actionHint)
     }
 
+    func testSnapshotUsesFrontPostDoubleCrochetTitleForPostStitchAction() {
+        let round = PatternRound(
+            title: "Row 5",
+            rawInstruction: "fpdc around next st",
+            summary: "Work one front post double crochet.",
+            targetStitchCount: 1,
+            atomizationStatus: .ready,
+            atomizationError: nil,
+            atomicActions: [
+                AtomicAction(type: .fpdc, instruction: "fpdc around next st", producedStitches: 1, note: nil, sequenceIndex: 0)
+            ]
+        )
+        let part = PatternPart(name: "Main", rounds: [round])
+        let project = CrochetProject(
+            title: "Post Stitch",
+            source: PatternSource(
+                type: .text,
+                displayName: "Post Stitch",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            ),
+            materials: [],
+            confidence: 1,
+            parts: [part],
+            activePartID: part.id,
+            createdAt: .now,
+            updatedAt: .now
+        )
+        let record = ProjectRecord(project: project, progress: .initial(for: project))
+
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
+
+        XCTAssertEqual(snapshot.actionTitle, "FPDC")
+        XCTAssertEqual(snapshot.actionHint, "fpdc around next st")
+    }
+
+    func testSnapshotUsesCustomInstructionAsDisplayTitle() {
+        let round = PatternRound(
+            title: "Row 1",
+            rawInstruction: "turn",
+            summary: "Turn the work.",
+            targetStitchCount: 0,
+            atomizationStatus: .ready,
+            atomizationError: nil,
+            atomicActions: [
+                AtomicAction(type: .custom, instruction: "turn", producedStitches: 0, sequenceIndex: 0)
+            ]
+        )
+        let part = PatternPart(name: "Body", rounds: [round])
+        let project = CrochetProject(
+            title: "Custom Control",
+            source: PatternSource(
+                type: .text,
+                displayName: "Custom Control",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            ),
+            materials: [],
+            confidence: 1,
+            parts: [part],
+            activePartID: part.id,
+            createdAt: .now,
+            updatedAt: .now
+        )
+        let record = ProjectRecord(project: project, progress: .initial(for: project))
+
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
+
+        XCTAssertEqual(snapshot.actionTitle, "turn")
+        XCTAssertNil(snapshot.actionHint)
+        XCTAssertNil(snapshot.nextActionTitle)
+    }
+
+    func testSnapshotDisplaysSkipWithTitleAndHint() {
+        let round = PatternRound(
+            title: "Row 5",
+            rawInstruction: "sk the sc behind the fpdc",
+            summary: "Skip stitch behind post stitch.",
+            targetStitchCount: 0,
+            atomizationStatus: .ready,
+            atomizationError: nil,
+            atomicActions: [
+                AtomicAction(type: .skip, instruction: "skip the sc behind the fpdc you just made", producedStitches: 0, sequenceIndex: 0)
+            ]
+        )
+        let part = PatternPart(name: "Body", rounds: [round])
+        let project = CrochetProject(
+            title: "Skip Control",
+            source: PatternSource(
+                type: .text,
+                displayName: "Skip Control",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            ),
+            materials: [],
+            confidence: 1,
+            parts: [part],
+            activePartID: part.id,
+            createdAt: .now,
+            updatedAt: .now
+        )
+        let record = ProjectRecord(project: project, progress: .initial(for: project))
+
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
+
+        XCTAssertEqual(snapshot.actionTitle, "Skip")
+        XCTAssertEqual(snapshot.actionHint, "skip the sc behind the fpdc you just made")
+    }
+
     func testSnapshotTracksProgressWithinRepeatedFoundationChainSequence() {
         var record = makeFoundationChainRecord(chainCount: 114)
         record.progress.cursor.actionIndex = 57

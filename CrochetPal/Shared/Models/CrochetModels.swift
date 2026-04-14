@@ -18,6 +18,8 @@ enum PatternSourceType: String, Codable, Hashable {
 enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
     case mr
     case sc
+    case fpsc
+    case bpsc
     case inc
     case dec
     case ch
@@ -25,8 +27,24 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
     case blo
     case flo
     case fo
+    case esc
     case hdc
+    case fphdc
+    case bphdc
+    case ehdc
     case dc
+    case fpdc
+    case bpdc
+    case edc
+    case tr
+    case fptr
+    case bptr
+    case etr
+    case dtr
+    case fpdtr
+    case bpdtr
+    case trtr
+    case skip
     case custom
 
     var id: String { rawValue }
@@ -35,6 +53,8 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         switch self {
         case .mr: "MR"
         case .sc: "SC"
+        case .fpsc: "FPSC"
+        case .bpsc: "BPSC"
         case .inc: "Inc"
         case .dec: "Dec"
         case .ch: "CH"
@@ -42,8 +62,24 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .blo: "BLO"
         case .flo: "FLO"
         case .fo: "FO"
+        case .esc: "ESC"
         case .hdc: "HDC"
+        case .fphdc: "FPHDC"
+        case .bphdc: "BPHDC"
+        case .ehdc: "EHDC"
         case .dc: "DC"
+        case .fpdc: "FPDC"
+        case .bpdc: "BPDC"
+        case .edc: "EDC"
+        case .tr: "TR"
+        case .fptr: "FPTR"
+        case .bptr: "BPTR"
+        case .etr: "ETR"
+        case .dtr: "DTR"
+        case .fpdtr: "FPDTR"
+        case .bpdtr: "BPDTR"
+        case .trtr: "TRTR"
+        case .skip: "Skip"
         case .custom: "Custom"
         }
     }
@@ -52,6 +88,8 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         switch self {
         case .mr: "mr"
         case .sc: "sc"
+        case .fpsc: "fpsc"
+        case .bpsc: "bpsc"
         case .inc: "inc"
         case .dec: "dec"
         case .ch: "ch"
@@ -59,8 +97,24 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .blo: "blo"
         case .flo: "flo"
         case .fo: "fo"
+        case .esc: "esc"
         case .hdc: "hdc"
+        case .fphdc: "fphdc"
+        case .bphdc: "bphdc"
+        case .ehdc: "ehdc"
         case .dc: "dc"
+        case .fpdc: "fpdc"
+        case .bpdc: "bpdc"
+        case .edc: "edc"
+        case .tr: "tr"
+        case .fptr: "fptr"
+        case .bptr: "bptr"
+        case .etr: "etr"
+        case .dtr: "dtr"
+        case .fpdtr: "fpdtr"
+        case .bpdtr: "bpdtr"
+        case .trtr: "trtr"
+        case .skip: "skip"
         case .custom: "custom"
         }
     }
@@ -77,6 +131,7 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .dec: 1
         case .fo: 0
         case .ch: 0
+        case .skip: 0
         case .custom: 0
         default: 1
         }
@@ -84,6 +139,18 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
 
     var isAtomicActionType: Bool {
         CrochetTermDictionary.supportedAtomicActionTypeSet.contains(self)
+    }
+
+    var allowsAtomizationProducedStitchesOverride: Bool {
+        false
+    }
+
+    func resolvedAtomizationProducedStitches(from override: Int?) -> Int {
+        guard allowsAtomizationProducedStitchesOverride, let override else {
+            return defaultProducedStitches
+        }
+
+        return override
     }
 
     static func normalized(from rawValue: String) -> StitchActionType {
@@ -131,11 +198,11 @@ enum CrochetTermDictionary {
         term("bl", "back loop or back loop only", kind: .descriptor, aliases: ["blo", "back loop", "back loop only"]),
         term("bo", "bobble", kind: .action),
         term("bp", "back post", kind: .descriptor, aliases: ["back post"]),
-        term("bpdc", "back post double crochet", kind: .action),
-        term("bpdtr", "back post double treble crochet", kind: .action),
-        term("bphdc", "back post half double crochet", kind: .action),
-        term("bpsc", "back post single crochet", kind: .action),
-        term("bptr", "back post treble crochet", kind: .action),
+        term("bpdc", "back post double crochet", kind: .action, supportedActionType: .bpdc, producedStitches: 1),
+        term("bpdtr", "back post double treble crochet", kind: .action, supportedActionType: .bpdtr, producedStitches: 1),
+        term("bphdc", "back post half double crochet", kind: .action, supportedActionType: .bphdc, producedStitches: 1),
+        term("bpsc", "back post single crochet", kind: .action, supportedActionType: .bpsc, producedStitches: 1),
+        term("bptr", "back post treble crochet", kind: .action, supportedActionType: .bptr, producedStitches: 1),
         term("cc", "contrasting color", kind: .control),
         term("ch", "chain stitch", kind: .action, supportedActionType: .ch, producedStitches: 0, aliases: ["chain", "chain stitch"]),
         term("ch-", "chain reference", kind: .reference),
@@ -145,19 +212,19 @@ enum CrochetTermDictionary {
         term("dc", "double crochet", kind: .action, supportedActionType: .dc, producedStitches: 1, aliases: ["double crochet"]),
         term("dc2tog", "double crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
         term("dec", "decrease", kind: .action, supportedActionType: .dec, producedStitches: 1, aliases: ["decrease"]),
-        term("dtr", "double treble crochet", kind: .action),
-        term("edc", "extended double crochet", kind: .action),
-        term("ehdc", "extended half double crochet", kind: .action),
-        term("esc", "extended single crochet", kind: .action),
-        term("etr", "extended treble crochet", kind: .action),
+        term("dtr", "double treble crochet", kind: .action, supportedActionType: .dtr, producedStitches: 1),
+        term("edc", "extended double crochet", kind: .action, supportedActionType: .edc, producedStitches: 1),
+        term("ehdc", "extended half double crochet", kind: .action, supportedActionType: .ehdc, producedStitches: 1),
+        term("esc", "extended single crochet", kind: .action, supportedActionType: .esc, producedStitches: 1),
+        term("etr", "extended treble crochet", kind: .action, supportedActionType: .etr, producedStitches: 1),
         term("fl", "front loop or front loop only", kind: .descriptor, aliases: ["flo", "front loop", "front loop only"]),
         term("foll", "following", kind: .meta),
         term("fp", "front post", kind: .descriptor, aliases: ["front post"]),
-        term("fpdc", "front post double crochet", kind: .action),
-        term("fpdtr", "front post double treble crochet", kind: .action),
-        term("fphdc", "front post half double crochet", kind: .action),
-        term("fpsc", "front post single crochet", kind: .action),
-        term("fptr", "front post treble crochet", kind: .action),
+        term("fpdc", "front post double crochet", kind: .action, supportedActionType: .fpdc, producedStitches: 1),
+        term("fpdtr", "front post double treble crochet", kind: .action, supportedActionType: .fpdtr, producedStitches: 1),
+        term("fphdc", "front post half double crochet", kind: .action, supportedActionType: .fphdc, producedStitches: 1),
+        term("fpsc", "front post single crochet", kind: .action, supportedActionType: .fpsc, producedStitches: 1),
+        term("fptr", "front post treble crochet", kind: .action, supportedActionType: .fptr, producedStitches: 1),
         term("fo", "fasten off", kind: .action, supportedActionType: .fo, producedStitches: 0, aliases: ["fasten off"]),
         term("hdc", "half double crochet", kind: .action, supportedActionType: .hdc, producedStitches: 1, aliases: ["half double crochet"]),
         term("hdc2tog", "half double crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
@@ -177,7 +244,7 @@ enum CrochetTermDictionary {
         term("sc", "single crochet", kind: .action, supportedActionType: .sc, producedStitches: 1, aliases: ["single crochet"]),
         term("sc2tog", "single crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
         term("sh", "shell", kind: .action, aliases: ["shell"]),
-        term("sk", "skip", kind: .control, aliases: ["skip"]),
+        term("sk", "skip", kind: .control, supportedActionType: .skip, producedStitches: 0, aliases: ["skip"]),
         term("sl st", "slip stitch", kind: .action, supportedActionType: .slSt, producedStitches: 0, aliases: ["slst", "sl_st", "slip stitch"]),
         term("sm", "slip marker", kind: .control, aliases: ["sl m", "slip marker"]),
         term("sp", "space", kind: .reference, aliases: ["space"]),
@@ -185,9 +252,9 @@ enum CrochetTermDictionary {
         term("tbl", "through back loop", kind: .descriptor, aliases: ["through back loop"]),
         term("tch", "turning chain", kind: .control, aliases: ["t-ch", "turning chain"]),
         term("tog", "together", kind: .reference, aliases: ["together"]),
-        term("tr", "treble crochet", kind: .action, aliases: ["treble crochet"]),
+        term("tr", "treble crochet", kind: .action, supportedActionType: .tr, producedStitches: 1, aliases: ["treble crochet"]),
         term("tr2tog", "treble crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
-        term("trtr", "triple treble crochet", kind: .action),
+        term("trtr", "triple treble crochet", kind: .action, supportedActionType: .trtr, producedStitches: 1),
         term("ws", "wrong side", kind: .reference, aliases: ["wrong side"]),
         term("yo", "yarn over", kind: .control, aliases: ["yarn over"]),
         term("yoh", "yarn over hook", kind: .control, aliases: ["yarn over hook"])
@@ -261,6 +328,20 @@ struct AtomicAction: Codable, Hashable, Identifiable {
             return instruction
         }
         return type.title
+    }
+
+    var executionDisplayTitle: String {
+        if type == .custom, let instruction = AtomicAction.normalizedInstruction(instruction) {
+            return instruction
+        }
+        return type.title
+    }
+
+    var executionDisplayHint: String? {
+        if type == .custom {
+            return nil
+        }
+        return AtomicAction.normalizedInstruction(instruction)
     }
 
     func matchesExecutionDisplay(as other: AtomicAction) -> Bool {

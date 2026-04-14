@@ -99,7 +99,7 @@ enum ExecutionEngine {
                 isComplete: isComplete
             ),
             actionNote: currentAction?.note,
-            nextActionTitle: nextAction?.type.title,
+            nextActionTitle: nextAction?.executionDisplayTitle,
             actionSequenceProgress: actionSequence?.progress,
             actionSequenceTotal: actionSequence?.total,
             stitchProgress: stitchProgress,
@@ -224,7 +224,7 @@ enum ExecutionEngine {
             return "Round Complete"
         }
         if let currentAction {
-            return currentAction.type.title
+            return currentAction.executionDisplayTitle
         }
         switch executionState {
         case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound:
@@ -250,7 +250,7 @@ enum ExecutionEngine {
             return "Tap Enter Next Round when you're ready."
         }
         if let currentAction {
-            return AtomicAction.normalizedInstruction(currentAction.instruction)
+            return currentAction.executionDisplayHint
         }
         switch executionState {
         case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound:

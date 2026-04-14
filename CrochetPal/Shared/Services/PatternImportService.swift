@@ -3,6 +3,7 @@ import Foundation
 struct AtomizedRoundUpdate: Hashable {
     var reference: RoundReference
     var atomicActions: [AtomicAction]
+    var resolvedTargetStitchCount: Int
 }
 
 protocol PatternImporting {
@@ -49,7 +50,7 @@ struct PatternImportService: PatternImporting {
             throw PatternImportFailure.invalidResponse("missing_http_response")
         }
         guard 200..<300 ~= httpResponse.statusCode else {
-            throw PatternImportFailure.fetchFailed(statusCode: httpResponse.statusCode)
+            throw PatternImportFailure.fetchFailed(statusCode: httpResponse.statusCode, details: nil)
         }
 
         let html = String(decoding: data, as: UTF8.self)
@@ -229,7 +230,7 @@ struct PatternImportService: PatternImporting {
             traceID: context.traceID,
             parseRequestID: context.parseRequestID,
             projectID: project.id,
-            sourceType: .web,
+            sourceType: project.source.type,
             stage: targets.count > 1 ? "execution_bootstrap_atomization" : "execution_incremental_atomization",
             decision: "success",
             reason: "atomized_rounds",
@@ -402,39 +403,169 @@ struct PatternImportService: PatternImporting {
             throw PatternImportFailure.inconsistentRound("atomized_round_count_mismatch")
         }
 
-        return try zip(targets, response.rounds).map { target, payload in
-            let atomicActions = try buildAtomicActions(from: payload.actionGroups)
-            return AtomizedRoundUpdate(reference: target, atomicActions: atomicActions)
+        return try zip(zip(targets, inputs), response.rounds).map { entry, payload in
+            let (target, input) = entry
+            let expansion = try buildAtomicActions(
+                from: payload.segments,
+                originalTargetStitchCount: input.targetStitchCount
+            )
+            return AtomizedRoundUpdate(
+                reference: target,
+                atomicActions: expansion.atomicActions,
+                resolvedTargetStitchCount: expansion.resolvedTargetStitchCount
+            )
         }
     }
 
-    private func buildAtomicActions(from groups: [ParsedActionGroup]) throws -> [AtomicAction] {
-        var actions: [AtomicAction] = []
-        var sequenceIndex = 0
+    private func buildAtomicActions(
+        from segments: [AtomizedSegment],
+        originalTargetStitchCount: Int?
+    ) throws -> (atomicActions: [AtomicAction], resolvedTargetStitchCount: Int) {
+        let drafts = try expandSegments(segments)
+        let atomicActions = try drafts.enumerated().map { index, draft in
+            try makeAtomicAction(from: draft, sequenceIndex: index)
+        }
+        let producedStitchCount = atomicActions.reduce(0) { $0 + $1.producedStitches }
 
-        for group in groups {
-            guard group.count > 0 else {
-                throw PatternImportFailure.invalidResponse("invalid_action_group_count")
-            }
-
-            for _ in 0..<group.count {
-                actions.append(
-                    try makeAtomicAction(
-                        type: group.type,
-                        instruction: group.instruction,
-                        producedStitches: group.producedStitches,
-                        note: group.note,
-                        sequenceIndex: sequenceIndex,
-                        failureBuilder: { type in
-                            PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(type.rawValue)")
-                        }
-                    )
-                )
-                sequenceIndex += 1
-            }
+        if let originalTargetStitchCount,
+           originalTargetStitchCount != producedStitchCount {
+            throw PatternImportFailure.atomizationFailed(
+                "atomization_target_stitch_count_mismatch:expected_\(originalTargetStitchCount)_actual_\(producedStitchCount)"
+            )
         }
 
+        return (
+            atomicActions: atomicActions,
+            resolvedTargetStitchCount: originalTargetStitchCount ?? producedStitchCount
+        )
+    }
+
+    private func expandSegments(_ segments: [AtomizedSegment]) throws -> [ExpandedAtomicAction] {
+        try segments.flatMap(expandSegment)
+    }
+
+    private func expandSegment(_ segment: AtomizedSegment) throws -> [ExpandedAtomicAction] {
+        switch segment {
+        case let .stitchRun(run):
+            return try expandStitchRun(run)
+        case let .repeatBlock(repeatSegment):
+            return try expandRepeatSegment(repeatSegment)
+        case let .control(control):
+            return try expandControlSegment(control)
+        }
+    }
+
+    private func expandStitchRun(_ segment: StitchRunSegment) throws -> [ExpandedAtomicAction] {
+        guard segment.count > 0 else {
+            throw PatternImportFailure.invalidResponse("invalid_stitch_run_count")
+        }
+        guard segment.type.isAtomicActionType else {
+            throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(segment.type.rawValue)")
+        }
+
+        var actions = (0..<segment.count).map { _ in
+            ExpandedAtomicAction(
+                type: segment.type,
+                instruction: segment.instruction,
+                producedStitches: segment.type.resolvedAtomizationProducedStitches(from: segment.producedStitches),
+                note: nil
+            )
+        }
+        apply(note: segment.note, placement: segment.notePlacement, to: &actions)
         return actions
+    }
+
+    private func expandRepeatSegment(_ segment: RepeatSegment) throws -> [ExpandedAtomicAction] {
+        guard segment.times > 0 else {
+            throw PatternImportFailure.invalidResponse("invalid_repeat_times")
+        }
+        guard !segment.sequence.isEmpty else {
+            throw PatternImportFailure.invalidResponse("empty_repeat_sequence")
+        }
+
+        let onePass = try expandSegments(segment.sequence)
+        return Array(repeating: onePass, count: segment.times).flatMap { $0 }
+    }
+
+    private func expandControlSegment(_ segment: ControlSegment) throws -> [ExpandedAtomicAction] {
+        let normalizedInstruction = AtomicAction.normalizedInstruction(segment.instruction)
+
+        switch segment.kind {
+        case .turn:
+            return [
+                ExpandedAtomicAction(
+                    type: .custom,
+                    instruction: normalizedInstruction ?? "turn",
+                    producedStitches: 0,
+                    note: segment.note
+                )
+            ]
+        case .skip:
+            return [
+                ExpandedAtomicAction(
+                    type: .skip,
+                    instruction: normalizedInstruction ?? "skip",
+                    producedStitches: 0,
+                    note: segment.note
+                )
+            ]
+        case .custom:
+            guard let normalizedInstruction else {
+                throw PatternImportFailure.invalidResponse("missing_custom_control_instruction")
+            }
+            return [
+                ExpandedAtomicAction(
+                    type: .custom,
+                    instruction: normalizedInstruction,
+                    producedStitches: 0,
+                    note: segment.note
+                )
+            ]
+        }
+    }
+
+    private func apply(
+        note: String?,
+        placement: AtomizedNotePlacement,
+        to actions: inout [ExpandedAtomicAction]
+    ) {
+        guard let normalizedNote = normalizeNote(note), !actions.isEmpty else {
+            return
+        }
+
+        switch placement {
+        case .first:
+            actions[0].note = normalizedNote
+        case .last:
+            actions[actions.count - 1].note = normalizedNote
+        case .all:
+            for index in actions.indices {
+                actions[index].note = normalizedNote
+            }
+        }
+    }
+
+    private func makeAtomicAction(from draft: ExpandedAtomicAction, sequenceIndex: Int) throws -> AtomicAction {
+        if draft.type == .custom {
+            return AtomicAction(
+                type: .custom,
+                instruction: AtomicAction.normalizedInstruction(draft.instruction),
+                producedStitches: draft.producedStitches,
+                note: normalizeNote(draft.note),
+                sequenceIndex: sequenceIndex
+            )
+        }
+
+        return try makeAtomicAction(
+            type: draft.type,
+            instruction: draft.instruction,
+            producedStitches: draft.producedStitches,
+            note: draft.note,
+            sequenceIndex: sequenceIndex,
+            failureBuilder: { type in
+                PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(type.rawValue)")
+            }
+        )
     }
 
     private func makeAtomicAction(
@@ -453,9 +584,15 @@ struct PatternImportService: PatternImporting {
             type: type,
             instruction: AtomicAction.normalizedInstruction(instruction),
             producedStitches: producedStitches ?? type.defaultProducedStitches,
-            note: note,
+            note: normalizeNote(note),
             sequenceIndex: sequenceIndex
         )
+    }
+
+    private func normalizeNote(_ note: String?) -> String? {
+        guard let note else { return nil }
+        let trimmed = note.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
     }
 
     private func mimeType(for fileName: String) -> String {
@@ -467,4 +604,11 @@ struct PatternImportService: PatternImporting {
         }
         return "image/jpeg"
     }
+}
+
+private struct ExpandedAtomicAction: Hashable {
+    var type: StitchActionType
+    var instruction: String?
+    var producedStitches: Int
+    var note: String?
 }
