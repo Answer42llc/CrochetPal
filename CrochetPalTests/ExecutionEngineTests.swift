@@ -1,33 +1,60 @@
 import XCTest
 @testable import CrochetPal
 
+@MainActor
 final class ExecutionEngineTests: XCTestCase {
-    func testForwardAdvancesAcrossReadyRounds() async throws {
+    func testForwardStopsAtRoundCompletionBeforeEnteringNextRound() async throws {
         let record = try await makeImageRecord()
 
         var progress = record.progress
         progress = ExecutionEngine.apply(.forward, to: progress, in: record.project, source: .phoneButton)
-        XCTAssertEqual(progress.cursor.roundIndex, 0)
-        XCTAssertEqual(progress.cursor.actionIndex, 1)
+        var cursor = cursorState(for: progress)
+        XCTAssertEqual(cursor.roundIndex, 0)
+        XCTAssertEqual(cursor.actionIndex, 1)
 
         for _ in 0..<6 {
             progress = ExecutionEngine.apply(.forward, to: progress, in: record.project, source: .phoneButton)
         }
 
-        XCTAssertEqual(progress.cursor.roundIndex, 1)
-        XCTAssertEqual(progress.cursor.actionIndex, 0)
-        XCTAssertNil(progress.completedAt)
+        cursor = cursorState(for: progress)
+        XCTAssertEqual(cursor.roundIndex, 0)
+        XCTAssertEqual(cursor.actionIndex, 7)
+        let isAwaitingNextRound = awaitingNextRound(in: record.project, progress: progress)
+        XCTAssertTrue(isAwaitingNextRound)
+        XCTAssertNil(completionDate(for: progress))
+
+        progress = ExecutionEngine.apply(.forward, to: progress, in: record.project, source: .phoneButton)
+
+        cursor = cursorState(for: progress)
+        XCTAssertEqual(cursor.roundIndex, 1)
+        XCTAssertEqual(cursor.actionIndex, 0)
+        let enteredNextRound = awaitingNextRound(in: record.project, progress: progress)
+        XCTAssertFalse(enteredNextRound)
+        XCTAssertNil(completionDate(for: progress))
     }
 
-    func testUndoReturnsToPreviousCursor() async throws {
+    func testUndoReturnsToRoundCompletionBeforeLastAction() async throws {
         let record = try await makeImageRecord()
         var progress = record.progress
-        progress = ExecutionEngine.apply(.forward, to: progress, in: record.project, source: .phoneButton)
-        progress = ExecutionEngine.apply(.forward, to: progress, in: record.project, source: .phoneButton)
+        for _ in 0..<8 {
+            progress = ExecutionEngine.apply(.forward, to: progress, in: record.project, source: .phoneButton)
+        }
 
-        let undone = ExecutionEngine.apply(.undo, to: progress, in: record.project, source: .phoneButton)
-        XCTAssertEqual(undone.cursor.actionIndex, 1)
-        XCTAssertNil(undone.completedAt)
+        let undoneToRoundCompletion = ExecutionEngine.apply(.undo, to: progress, in: record.project, source: .phoneButton)
+        var cursor = cursorState(for: undoneToRoundCompletion)
+        XCTAssertEqual(cursor.roundIndex, 0)
+        XCTAssertEqual(cursor.actionIndex, 7)
+        let isAwaitingNextRound = awaitingNextRound(in: record.project, progress: undoneToRoundCompletion)
+        XCTAssertTrue(isAwaitingNextRound)
+        XCTAssertNil(completionDate(for: undoneToRoundCompletion))
+
+        let undoneToLastAction = ExecutionEngine.apply(.undo, to: undoneToRoundCompletion, in: record.project, source: .phoneButton)
+        cursor = cursorState(for: undoneToLastAction)
+        XCTAssertEqual(cursor.roundIndex, 0)
+        XCTAssertEqual(cursor.actionIndex, 6)
+        let returnedToAction = awaitingNextRound(in: record.project, progress: undoneToLastAction)
+        XCTAssertFalse(returnedToAction)
+        XCTAssertNil(completionDate(for: undoneToLastAction))
     }
 
     func testSnapshotUsesLoadingStateForPendingWebRound() async throws {
@@ -63,6 +90,71 @@ final class ExecutionEngineTests: XCTestCase {
         let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
 
         XCTAssertNil(snapshot.actionHint)
+    }
+
+    func testSnapshotTracksProgressWithinRepeatedFoundationChainSequence() {
+        var record = makeFoundationChainRecord(chainCount: 114)
+        record.progress.cursor.actionIndex = 57
+
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
+
+        XCTAssertEqual(snapshot.actionTitle, "CH")
+        XCTAssertEqual(snapshot.actionSequenceProgress, 58)
+        XCTAssertEqual(snapshot.actionSequenceTotal, 114)
+        XCTAssertEqual(snapshot.stitchProgress, 0)
+        XCTAssertEqual(snapshot.targetStitches, 113)
+    }
+
+    func testSnapshotOmitsActionSequenceForStandaloneAction() async throws {
+        let record = try await makeImageRecord()
+
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
+
+        XCTAssertNil(snapshot.actionSequenceProgress)
+        XCTAssertNil(snapshot.actionSequenceTotal)
+    }
+
+    func testSnapshotShowsRoundCompletionStateWhilePreparingNextRound() async throws {
+        let baseRecord = try await makeImageRecord()
+        var progress = baseRecord.progress
+
+        for _ in 0..<7 {
+            progress = ExecutionEngine.apply(.forward, to: progress, in: baseRecord.project, source: .phoneButton)
+        }
+
+        let record = ProjectRecord(project: baseRecord.project, progress: progress)
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .parsingNextRound)
+
+        XCTAssertEqual(snapshot.roundTitle, "Round 1")
+        XCTAssertEqual(snapshot.actionTitle, "Round Complete")
+        XCTAssertEqual(snapshot.actionHint, "Tap Enter Next Round when you're ready.")
+        XCTAssertEqual(snapshot.nextActionTitle, "SC")
+        XCTAssertEqual(snapshot.stitchProgress, 6)
+        XCTAssertEqual(snapshot.targetStitches, 6)
+        XCTAssertEqual(snapshot.executionState, .loading)
+        XCTAssertEqual(snapshot.statusMessage, "正在解析下一圈")
+        XCTAssertTrue(snapshot.canAdvance)
+    }
+
+    func testForwardCompletesProjectImmediatelyOnFinalRound() async throws {
+        let record = try await makeImageRecord()
+        var progress = record.progress
+        let finalPartID = record.project.parts[1].id
+        progress.cursor = ExecutionCursor(
+            partID: finalPartID,
+            roundIndex: 0,
+            actionIndex: 0
+        )
+
+        for _ in 0..<7 {
+            progress = ExecutionEngine.apply(.forward, to: progress, in: record.project, source: .phoneButton)
+        }
+
+        let cursor = cursorState(for: progress)
+        XCTAssertEqual(cursor.partID, finalPartID)
+        XCTAssertEqual(cursor.roundIndex, 0)
+        XCTAssertEqual(cursor.actionIndex, 7)
+        XCTAssertNotNil(completionDate(for: progress))
     }
 
     func testExecutionViewShowsRegenerateButtonForDeferredRound() {
@@ -133,6 +225,65 @@ final class ExecutionEngineTests: XCTestCase {
             logger: ConsoleTraceLogger()
         )
         return importer.makePreviewWebRecord()
+    }
+
+    private func makeFoundationChainRecord(chainCount: Int) -> ProjectRecord {
+        let part = PatternPart(
+            name: "Main",
+            rounds: [
+                PatternRound(
+                    title: "Row 1",
+                    rawInstruction: "Chain \(chainCount), then single crochet in the second chain from hook and each chain across.",
+                    summary: "Chain \(chainCount), then single crochet in the second chain from hook and each chain across.",
+                    targetStitchCount: max(chainCount - 1, 0),
+                    atomizationStatus: .ready,
+                    atomizationError: nil,
+                    atomicActions: makeFoundationChainActions(chainCount: chainCount)
+                )
+            ]
+        )
+        let project = CrochetProject(
+            title: "Quiet Tides Baby Blanket",
+            source: PatternSource(
+                type: .text,
+                displayName: "Preview",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            ),
+            materials: [],
+            confidence: 1,
+            parts: [part],
+            activePartID: part.id,
+            createdAt: .now,
+            updatedAt: .now
+        )
+        return ProjectRecord(project: project, progress: .initial(for: project))
+    }
+
+    private func makeFoundationChainActions(chainCount: Int) -> [AtomicAction] {
+        let chains = (0..<chainCount).map { index in
+            AtomicAction(type: .ch, instruction: "ch", producedStitches: 0, sequenceIndex: index)
+        }
+        let singleCrochets = (0..<max(chainCount - 1, 0)).map { offset in
+            let sequenceIndex = chainCount + offset
+            return AtomicAction(type: .sc, instruction: "sc", producedStitches: 1, sequenceIndex: sequenceIndex)
+        }
+        return chains + singleCrochets
+    }
+
+    private func cursorState(for progress: ExecutionProgress) -> (partID: UUID, roundIndex: Int, actionIndex: Int) {
+        let cursor = progress.cursor
+        return (cursor.partID, cursor.roundIndex, cursor.actionIndex)
+    }
+
+    private func completionDate(for progress: ExecutionProgress) -> Date? {
+        progress.completedAt
+    }
+
+    private func awaitingNextRound(in project: CrochetProject, progress: ExecutionProgress) -> Bool {
+        ExecutionEngine.isAwaitingNextRound(in: project, progress: progress)
     }
 }
 

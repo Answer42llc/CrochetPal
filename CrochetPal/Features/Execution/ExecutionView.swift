@@ -30,10 +30,15 @@ struct ExecutionView: View {
             if let record, let snapshot {
                 let nextAction = ExecutionEngine.nextAction(in: record.project, progress: record.progress)
                 let round = ExecutionEngine.currentRound(in: record.project, progress: record.progress)
+                let isAwaitingNextRound = ExecutionEngine.isAwaitingNextRound(
+                    in: record.project,
+                    progress: record.progress
+                )
                 let shouldShowRegenerateButton = Self.shouldShowRegenerateButton(
                     sourceType: record.project.source.type,
                     round: round
-                )
+                ) && !isAwaitingNextRound
+                let primaryButtonTitle = isAwaitingNextRound ? "Enter Next Round" : "Continue"
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(snapshot.partName)
@@ -70,6 +75,13 @@ struct ExecutionView: View {
                     .background(.background.secondary, in: RoundedRectangle(cornerRadius: 20))
 
                     VStack(alignment: .leading, spacing: 10) {
+                        if let actionSequenceProgress = snapshot.actionSequenceProgress,
+                           let actionSequenceTotal = snapshot.actionSequenceTotal {
+                            Label(
+                                "Action progress: \(actionSequenceProgress)/\(actionSequenceTotal)",
+                                systemImage: "list.number"
+                            )
+                        }
                         Label("Stitch progress: \(snapshot.stitchProgress)/\(snapshot.targetStitches ?? 0)", systemImage: "number")
                         if let nextAction {
                             Label("Next: \(nextAction.type.title)", systemImage: "arrow.turn.down.right")
@@ -105,14 +117,17 @@ struct ExecutionView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.bordered)
-                        .disabled(record.progress.history.isEmpty || snapshot.executionState == .loading)
+                        .disabled(
+                            record.progress.history.isEmpty ||
+                            (snapshot.executionState == .loading && !isAwaitingNextRound)
+                        )
 
                         Button {
                             Task {
                                 await container.repository.continueExecution(projectID: projectID, source: .phoneButton)
                             }
                         } label: {
-                            Label("Continue", systemImage: "arrow.right.circle.fill")
+                            Label(primaryButtonTitle, systemImage: "arrow.right.circle.fill")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
@@ -133,7 +148,7 @@ struct ExecutionView: View {
                         } label: {
                             Image(systemName: "slider.horizontal.3")
                         }
-                        .disabled(round?.atomizationStatus != .ready)
+                        .disabled(round?.atomizationStatus != .ready || isAwaitingNextRound)
                     }
                 }
                 .sheet(isPresented: $isShowingEditor) {

@@ -316,15 +316,16 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
     }
 
     private func textProviderPayload(for modelID: String) -> JSONObject? {
-        guard modelID == "deepseek/deepseek-v3.2" else {
-            return nil
-        }
-
-        return [
-            "require_parameters": true,
-            "allow_fallbacks": false,
-            "order": ["atlas-cloud/fp8", "siliconflow/fp8"]
-        ]
+//        guard modelID == "deepseek/deepseek-v3.2" else {
+//            return nil
+//        }
+//
+//        return [
+//            "require_parameters": true,
+//            "allow_fallbacks": false,
+//            "order": ["atlas-cloud/fp8", "siliconflow/fp8"]
+//        ]
+        return nil
     }
 
     private func responseHealingPlugins() -> [JSONObject] {
@@ -518,18 +519,19 @@ enum PromptFactory {
 
     static func roundAtomizationSystemPrompt() -> String {
         """
-        You are a crochet master, I will give you a instruction of a crochet pattern. You will help convert it into compact action groups with follow steps:
-            1.Read the instruction carefully,understand what the whole instruction is going to do.
-            2.At sometimes, the instrunction might have some little mistake, as typo usually, you could fix it.
-            2.Convert actions in the instruction to single crochet action with original order. You should convert it after you understand it, not just divide it simplicity.
-            3.Output result as JSON object with the rules below.
+        You are a crochet master, I will give you a instruction of a crochet pattern, usually it a round or a row's instruction of a crochet pattern. You will help convert it into compact action groups with follow steps:
+            1.Read the instruction carefully,understand what the whole instruction is going to do. If there is a significantly crochet action, such like sc(single crochet)、dc(double crochet) and so on, you MUST extract it as one of action sequence.
+            2.Generate notes from summary we give to each crochet actions. You should give notes as possible.
+            3.At sometimes, the given instrunction might have some little mistake, as typo usually, you could fix it.
+            4.Convert actions in the instruction to single crochet action with original order. You should convert it after you understand it, not just divide it simplicity.
+            5.Output result as JSON object with the rules below.
         Rules:
         - Return one JSON object only.
         - Preserve the order of the input rounds.
-        - rawInstruction is the source of truth. Use partName, title, and targetStitchCount only as supporting context.
+        - rawInstruction is the source of truth of corchet actions. Use summary to help generate notes.
         - type must be exactly one enum value from this list: mr, sc, inc, dec, ch, sl_st, blo, flo, fo, hdc, dc, custom.
         - Never output natural-language type names such as "magic loop", "magic ring", "slip stitch", or "fasten off" in the type field.
-        - note is optional and should be a short, readable explanation for context such as color changes, placement, special loops, or finishing details.
+        - note should be a short, readable explanation for context such as color changes, placement, special loops, which stitches you should work with, new or currently? or finishing details. You can use summary field we given as reference to generate notes.
         - Prefer attaching contextual modifiers to note on the nearest real stitch action instead of emitting a standalone custom action.
         - Use custom only when the step itself is genuinely not one of the known stitch symbols and cannot be attached as a note to a neighboring stitch action.
         - Each actionGroup must represent exactly one base crochet action from the enum.
@@ -552,8 +554,6 @@ enum PromptFactory {
            - Incorrect output groups: custom("magic loop"), custom("slip stitch"), sc x6
            - Incorrect output groups: mr x1, ch x1, sc x7, sl_st x1 (do not compress — each sc must be a separate actionGroup)
         
-        Output example:
-        \(atomizationExampleJSON)
         """
     }
 
@@ -565,13 +565,10 @@ enum PromptFactory {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let roundsPayload = (try? encoder.encode(rounds)).flatMap { String(data: $0, encoding: .utf8) } ?? "[]"
-        let materialsText = materials.isEmpty ? "none" : materials.joined(separator: ", ")
         var prompt = """
         Atomize the following crochet rounds into compact action groups.
 
         Project title: \(projectTitle)
-        Materials: \(materialsText)
-        Only use each round's rawInstruction as the stitch source of truth.
         """
 
         prompt += """

@@ -17,13 +17,13 @@
 		4B12EE6FA609FDE59484B868 /* WatchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801B75E25373489AB8A5F43D /* WatchRootView.swift */; };
 		4C9884A1E573445F3A8F7C2B /* TraceLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */; };
 		5E92DD73389ADD42E8A39B75 /* HTMLExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */; };
-		8B1D5E02B3C4D5E6F708192A /* ModelNormalizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */; };
-		A1B2C3D4E5F60718293A4B5C /* ProjectRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */; };
 		65C4F693EDD940EDBF0D022E /* CrochetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C495908B9D552B3695C3CDD /* CrochetModels.swift */; };
 		7D1E9A3CB5E24B8F90C6A4E2 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */; };
+		8B1D5E02B3C4D5E6F708192A /* ModelNormalizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */; };
 		95209499FBA04B44FE54D9C2 /* CrochetPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AEC3D5E10C424E8532A207 /* CrochetPalUITests.swift */; };
 		957A24FE2F56FAAE18BAD866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6A93657B24C203B25E2972 /* Assets.xcassets */; };
 		990F8C694AC658F8FD4B05CC /* CrochetPalWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED8A99A8F5C52988061EB1 /* CrochetPalWatchApp.swift */; };
+		A1B2C3D4E5F60718293A4B5C /* ProjectRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */; };
 		B7BBC63AD8041694849030D7 /* WatchMotionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DADBCB38B91BDAAB320FE /* WatchMotionInput.swift */; };
 		CD621F6F4E8AE0578AF563BD /* CrochetPalWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */; };
 /* End PBXBuildFile section */
@@ -76,13 +76,13 @@
 		4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrochetPalWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternImportServiceTests.swift; sourceTree = "<group>"; };
 		5ADCDFCBF161EC0F08EA837E /* CrochetPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrochetPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelNormalizationIntegrationTests.swift; sourceTree = "<group>"; };
-		B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProjectRepositoryTests.swift; sourceTree = "<group>"; };
 		801B75E25373489AB8A5F43D /* WatchRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchRootView.swift; sourceTree = "<group>"; };
 		81A01144F5B111A5589D9F1C /* Debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		84F8F0FAA5EA7E370704F061 /* JSONFileStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONFileStore.swift; path = CrochetPal/Shared/Utilities/JSONFileStore.swift; sourceTree = SOURCE_ROOT; };
 		952AB45456C88DA8E75311D2 /* CrochetPalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrochetPalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelNormalizationIntegrationTests.swift; sourceTree = "<group>"; };
 		A3ED8A99A8F5C52988061EB1 /* CrochetPalWatchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrochetPalWatchApp.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProjectRepositoryTests.swift; sourceTree = "<group>"; };
 		C2AEC3D5E10C424E8532A207 /* CrochetPalUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrochetPalUITests.swift; sourceTree = "<group>"; };
 		C9E34DFB2F86418A0029DD25 /* CrochetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrochetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6DADBCB38B91BDAAB320FE /* WatchMotionInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchMotionInput.swift; sourceTree = "<group>"; };
@@ -706,8 +706,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DKKQ7L53B8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Config/CrochetPal-Info.plist";
@@ -718,7 +721,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "org.*";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -734,8 +743,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DKKQ7L53B8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Config/CrochetPal-Info.plist";
@@ -746,7 +758,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "org.*";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -762,11 +780,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = DKKQ7L53B8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = CrochetPal;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = org.CrochetPal;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -774,12 +796,14 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPal.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "org.*";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Debug;
 		};
@@ -789,11 +813,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=watchos*]" = DKKQ7L53B8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = CrochetPal;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = org.CrochetPal;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -801,13 +829,15 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.CrochetPal.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "org.*";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 26.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Release;
 		};

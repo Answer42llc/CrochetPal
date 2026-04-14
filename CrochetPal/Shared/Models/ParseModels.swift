@@ -66,6 +66,7 @@ struct AtomizationRoundInput: Codable, Hashable {
     var partName: String
     var title: String
     var rawInstruction: String
+    var summary: String
     var targetStitchCount: Int?
 }
 

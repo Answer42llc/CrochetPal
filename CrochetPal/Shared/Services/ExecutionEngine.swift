@@ -38,30 +38,33 @@ enum ExecutionEngine {
     }
 
     static func nextAction(in project: CrochetProject, progress: ExecutionProgress) -> AtomicAction? {
+        if isAwaitingNextRound(in: project, progress: progress) {
+            return nextRound(in: project, progress: progress)?.atomicActions.first
+        }
         let moved = advance(progress, in: project, source: .sync, now: progress.lastUpdatedAt)
         return currentAction(in: project, progress: moved)
     }
 
+    static func isAwaitingNextRound(in project: CrochetProject, progress: ExecutionProgress) -> Bool {
+        guard progress.completedAt == nil,
+              let round = currentRound(in: project, progress: progress),
+              round.atomizationStatus == .ready else {
+            return false
+        }
+
+        return progress.cursor.actionIndex == round.atomicActions.count &&
+            nextRoundCursor(in: project, progress: progress) != nil
+    }
+
     static func nextRoundReference(in project: CrochetProject, progress: ExecutionProgress) -> RoundReference? {
-        guard let partIndex = project.parts.firstIndex(where: { $0.id == progress.cursor.partID }) else {
+        guard let nextCursor = nextRoundCursor(in: project, progress: progress),
+              let part = project.parts.first(where: { $0.id == nextCursor.partID }),
+              part.rounds.indices.contains(nextCursor.roundIndex) else {
             return nil
         }
-        let part = project.parts[partIndex]
-        guard part.rounds.indices.contains(progress.cursor.roundIndex) else {
-            return nil
-        }
 
-        if part.rounds.indices.contains(progress.cursor.roundIndex + 1) {
-            let round = part.rounds[progress.cursor.roundIndex + 1]
-            return RoundReference(partID: part.id, roundID: round.id)
-        }
-
-        if project.parts.indices.contains(partIndex + 1),
-           let nextRound = project.parts[partIndex + 1].rounds.first {
-            return RoundReference(partID: project.parts[partIndex + 1].id, roundID: nextRound.id)
-        }
-
-        return nil
+        let nextRound = part.rounds[nextCursor.roundIndex]
+        return RoundReference(partID: part.id, roundID: nextRound.id)
     }
 
     static func snapshot(for record: ProjectRecord, executionState: ProjectExecutionState) -> ProjectSnapshot {
@@ -71,8 +74,10 @@ enum ExecutionEngine {
         let currentRound = currentRound(in: project, progress: progress)
         let currentAction = currentAction(in: project, progress: progress)
         let nextAction = nextAction(in: project, progress: progress)
+        let actionSequence = currentActionSequence(in: currentRound, progress: progress)
         let stitchProgress = producedStitchesBeforeCursor(project: project, progress: progress)
         let isComplete = progress.completedAt != nil
+        let isAwaitingNextRound = isAwaitingNextRound(in: project, progress: progress)
 
         return ProjectSnapshot(
             projectID: project.id,
@@ -82,22 +87,26 @@ enum ExecutionEngine {
             actionTitle: snapshotActionTitle(
                 currentAction: currentAction,
                 round: currentRound,
+                isAwaitingNextRound: isAwaitingNextRound,
                 executionState: executionState,
                 isComplete: isComplete
             ),
             actionHint: snapshotActionHint(
                 currentAction: currentAction,
                 round: currentRound,
+                isAwaitingNextRound: isAwaitingNextRound,
                 executionState: executionState,
                 isComplete: isComplete
             ),
             actionNote: currentAction?.note,
             nextActionTitle: nextAction?.type.title,
+            actionSequenceProgress: actionSequence?.progress,
+            actionSequenceTotal: actionSequence?.total,
             stitchProgress: stitchProgress,
             targetStitches: currentRound?.targetStitchCount,
             executionState: isComplete ? .complete : executionState.snapshotState,
             statusMessage: isComplete ? "已完成" : executionState.statusMessage,
-            canAdvance: !isComplete && executionState.canAdvance && currentAction != nil,
+            canAdvance: !isComplete && (isAwaitingNextRound || (executionState.canAdvance && currentAction != nil)),
             isComplete: isComplete,
             updatedAt: progress.lastUpdatedAt
         )
@@ -139,6 +148,39 @@ enum ExecutionEngine {
         return min(count, record.project.totalAtomicActionCount)
     }
 
+    private static func currentActionSequence(
+        in round: PatternRound?,
+        progress: ExecutionProgress
+    ) -> (progress: Int, total: Int)? {
+        guard let round,
+              round.atomizationStatus == .ready,
+              round.atomicActions.indices.contains(progress.cursor.actionIndex) else {
+            return nil
+        }
+
+        let currentIndex = progress.cursor.actionIndex
+        let currentAction = round.atomicActions[currentIndex]
+        var lowerBound = currentIndex
+        var upperBound = currentIndex
+
+        while lowerBound > 0,
+              round.atomicActions[lowerBound - 1].matchesExecutionDisplay(as: currentAction) {
+            lowerBound -= 1
+        }
+
+        while upperBound + 1 < round.atomicActions.count,
+              round.atomicActions[upperBound + 1].matchesExecutionDisplay(as: currentAction) {
+            upperBound += 1
+        }
+
+        let total = upperBound - lowerBound + 1
+        guard total > 1 else {
+            return nil
+        }
+
+        return (currentIndex - lowerBound + 1, total)
+    }
+
     private static func coarseRoundProgress(for record: ProjectRecord) -> Double {
         let totalRounds = max(record.project.totalRoundCount, 1)
         let completedRounds = completedRoundCount(for: record.project, progress: record.progress)
@@ -171,11 +213,15 @@ enum ExecutionEngine {
     private static func snapshotActionTitle(
         currentAction: AtomicAction?,
         round: PatternRound?,
+        isAwaitingNextRound: Bool,
         executionState: ProjectExecutionState,
         isComplete: Bool
     ) -> String {
         if isComplete {
             return "Done"
+        }
+        if isAwaitingNextRound {
+            return "Round Complete"
         }
         if let currentAction {
             return currentAction.type.title
@@ -193,11 +239,15 @@ enum ExecutionEngine {
     private static func snapshotActionHint(
         currentAction: AtomicAction?,
         round: PatternRound?,
+        isAwaitingNextRound: Bool,
         executionState: ProjectExecutionState,
         isComplete: Bool
     ) -> String? {
         if isComplete {
             return "Project complete"
+        }
+        if isAwaitingNextRound {
+            return "Tap Enter Next Round when you're ready."
         }
         if let currentAction {
             return AtomicAction.normalizedInstruction(currentAction.instruction)
@@ -230,30 +280,76 @@ enum ExecutionEngine {
         }
 
         let round = part.rounds[progress.cursor.roundIndex]
-        guard round.atomizationStatus == .ready,
-              round.atomicActions.indices.contains(progress.cursor.actionIndex) else {
+        guard round.atomizationStatus == .ready else {
             return progress
         }
 
         var updated = progress
-        updated.history.append(progress.cursor)
-        updated.cursor.actionIndex += 1
         updated.lastCommandSource = source
         updated.lastUpdatedAt = now
 
-        if updated.cursor.actionIndex >= round.atomicActions.count {
-            if part.rounds.indices.contains(progress.cursor.roundIndex + 1) {
-                updated.cursor.roundIndex += 1
-                updated.cursor.actionIndex = 0
-            } else if project.parts.indices.contains(partIndex + 1) {
-                updated.cursor.partID = project.parts[partIndex + 1].id
-                updated.cursor.roundIndex = 0
-                updated.cursor.actionIndex = 0
-            } else {
-                updated.completedAt = now
+        if isAwaitingNextRound(in: project, progress: progress) {
+            guard let nextCursor = nextRoundCursor(in: project, progress: progress) else {
+                return progress
             }
+
+            updated.history.append(progress.cursor)
+            updated.cursor = nextCursor
+            return updated
+        }
+
+        guard round.atomicActions.indices.contains(progress.cursor.actionIndex) else {
+            return progress
+        }
+
+        updated.history.append(progress.cursor)
+        updated.cursor.actionIndex += 1
+
+        if updated.cursor.actionIndex >= round.atomicActions.count,
+           nextRoundCursor(in: project, progress: progress) == nil {
+            updated.completedAt = now
         }
         return updated
+    }
+
+    private static func nextRound(in project: CrochetProject, progress: ExecutionProgress) -> PatternRound? {
+        guard let nextCursor = nextRoundCursor(in: project, progress: progress),
+              let part = project.parts.first(where: { $0.id == nextCursor.partID }),
+              part.rounds.indices.contains(nextCursor.roundIndex) else {
+            return nil
+        }
+
+        return part.rounds[nextCursor.roundIndex]
+    }
+
+    private static func nextRoundCursor(in project: CrochetProject, progress: ExecutionProgress) -> ExecutionCursor? {
+        guard let partIndex = project.parts.firstIndex(where: { $0.id == progress.cursor.partID }) else {
+            return nil
+        }
+
+        let part = project.parts[partIndex]
+        guard part.rounds.indices.contains(progress.cursor.roundIndex) else {
+            return nil
+        }
+
+        if part.rounds.indices.contains(progress.cursor.roundIndex + 1) {
+            return ExecutionCursor(
+                partID: part.id,
+                roundIndex: progress.cursor.roundIndex + 1,
+                actionIndex: 0
+            )
+        }
+
+        if project.parts.indices.contains(partIndex + 1),
+           project.parts[partIndex + 1].rounds.isEmpty == false {
+            return ExecutionCursor(
+                partID: project.parts[partIndex + 1].id,
+                roundIndex: 0,
+                actionIndex: 0
+            )
+        }
+
+        return nil
     }
 
     private static func undo(_ progress: ExecutionProgress, source: ExecutionCommandSource, now: Date) -> ExecutionProgress {

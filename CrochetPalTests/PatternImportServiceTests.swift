@@ -211,6 +211,31 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(updates[1].atomicActions[2].type, .inc)
     }
 
+    func testAtomizeRoundsIncludesRoundSummaryInAtomizationInput() async throws {
+        let parserClient = AtomizationInputCaptureClient(
+            outlineResponse: SampleDataFactory.demoOutlineResponse,
+            atomizationResponse: SampleDataFactory.demoAtomizationResponse
+        )
+        let importer = PatternImportService(
+            parserClient: parserClient,
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importTextPattern(from: "Mouse Cat Toy\nRound 1: In a MR, sc 6. (6)")
+        let targets = try firstRoundReferences(in: record.project, count: 1)
+
+        _ = try await importer.atomizeRounds(in: record.project, targets: targets)
+
+        let capturedRounds = await parserClient.capturedRounds()
+        XCTAssertEqual(capturedRounds.count, 1)
+        XCTAssertEqual(capturedRounds.first?.partName, "Body")
+        XCTAssertEqual(capturedRounds.first?.title, "Round 1")
+        XCTAssertEqual(capturedRounds.first?.rawInstruction, "In a MR, sc 6. (6)")
+        XCTAssertEqual(capturedRounds.first?.summary, "Create a magic ring and crochet six single crochets into it.")
+        XCTAssertEqual(capturedRounds.first?.targetStitchCount, 6)
+    }
+
     func testImportImagePatternUsesFixtureClient() async throws {
         let importer = PatternImportService(
             parserClient: FixturePatternParsingClient(
@@ -330,6 +355,7 @@ final class PatternImportServiceTests: XCTestCase {
                     partName: "Body",
                     title: "Round 1",
                     rawInstruction: "In a MR, sc 6. (6)",
+                    summary: "Create a magic ring and crochet six single crochets into it.",
                     targetStitchCount: 6
                 )
             ],
@@ -360,17 +386,18 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertTrue(systemPrompt?.contains("compact action groups") == true)
         XCTAssertTrue(systemPrompt?.contains("\"sc inc\" must become one sc action followed by one inc action.") == true)
         XCTAssertTrue(systemPrompt?.contains("Prefer attaching contextual modifiers to note") == true)
-        XCTAssertTrue(systemPrompt?.contains("Map \"magic loop\" and \"magic ring\" to type \"mr\".") == true)
-        XCTAssertTrue(systemPrompt?.contains("Map \"slst\", \"sl st\", and \"slip stitch\" to type \"sl_st\".") == true)
+        XCTAssertTrue(systemPrompt?.contains("Never output natural-language type names such as \"magic loop\", \"magic ring\", \"slip stitch\", or \"fasten off\" in the type field.") == true)
         XCTAssertTrue(systemPrompt?.contains("Raw instruction: \"With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.\"") == true)
         XCTAssertTrue(systemPrompt?.contains("Incorrect output groups: custom(\"magic loop\")") == true)
-        XCTAssertTrue(userPrompt?.contains("Only use each round's rawInstruction as the stitch source of truth.") == true)
+        XCTAssertTrue(userPrompt?.contains("Input rounds JSON:") == true)
+        XCTAssertTrue(userPrompt?.contains("\"rawInstruction\"") == true)
         XCTAssertFalse(userPrompt?.contains("Previous attempt failed validation.") == true)
-        XCTAssertFalse(userPrompt?.contains("\"summary\"") == true)
+        XCTAssertTrue(userPrompt?.contains("\"summary\"") == true)
+        XCTAssertTrue(userPrompt?.contains("Create a magic ring and crochet six single crochets into it.") == true)
         XCTAssertFalse(userPrompt?.contains("\"notes\"") == true)
     }
 
-    func testDeepSeekTextLLMRequestIncludesProviderRoutingPayload() async throws {
+    func testDeepSeekTextLLMRequestOmitsProviderRoutingPayloadWhenDisabled() async throws {
         let capture = RequestCapture()
         let completionData = try completionResponseData(for: SampleDataFactory.demoOutlineResponse)
         MockURLProtocol.handler = { request in
@@ -400,10 +427,7 @@ final class PatternImportServiceTests: XCTestCase {
 
         let requestData = try XCTUnwrap(capture.body)
         let object = try XCTUnwrap(JSONSerialization.jsonObject(with: requestData) as? [String: Any])
-        let provider = try XCTUnwrap(object["provider"] as? [String: Any])
-        XCTAssertEqual(provider["require_parameters"] as? Bool, true)
-        XCTAssertEqual(provider["allow_fallbacks"] as? Bool, false)
-        XCTAssertEqual(provider["order"] as? [String], ["atlas-cloud/fp8", "siliconflow/fp8"])
+        XCTAssertNil(object["provider"])
     }
 
     func testAtomizeRoundsPreservesModelReturnedControlActionsAndNotes() async throws {
@@ -681,6 +705,7 @@ final class PatternImportServiceTests: XCTestCase {
                     partName: "Body",
                     title: "Round 1",
                     rawInstruction: "In a MR, sc 6. (6)",
+                    summary: "Create a magic ring and crochet six single crochets into it.",
                     targetStitchCount: 6
                 )
             ],
@@ -850,6 +875,48 @@ private actor OutlineTextCaptureClient: PatternLLMParsing {
 
     func capturedTextRequest() -> (extractedText: String?, titleHint: String?, context: ParseRequestContext?) {
         (extractedText, titleHint, context)
+    }
+}
+
+private actor AtomizationInputCaptureClient: PatternLLMParsing {
+    private let outlineResponse: PatternOutlineResponse
+    private let atomizationResponse: RoundAtomizationResponse
+    private var lastRounds: [AtomizationRoundInput] = []
+
+    init(outlineResponse: PatternOutlineResponse, atomizationResponse: RoundAtomizationResponse) {
+        self.outlineResponse = outlineResponse
+        self.atomizationResponse = atomizationResponse
+    }
+
+    func parseTextPatternOutline(
+        extractedText: String,
+        titleHint: String?,
+        context: ParseRequestContext
+    ) async throws -> PatternOutlineResponse {
+        outlineResponse
+    }
+
+    func atomizeTextRounds(
+        projectTitle: String,
+        materials: [String],
+        rounds: [AtomizationRoundInput],
+        context: ParseRequestContext
+    ) async throws -> RoundAtomizationResponse {
+        lastRounds = rounds
+        return RoundAtomizationResponse(rounds: Array(atomizationResponse.rounds.prefix(rounds.count)))
+    }
+
+    func parseImagePattern(
+        imageData: Data,
+        mimeType: String,
+        fileName: String,
+        context: ParseRequestContext
+    ) async throws -> PatternParseResponse {
+        SampleDataFactory.demoImageParseResponse
+    }
+
+    func capturedRounds() -> [AtomizationRoundInput] {
+        lastRounds
     }
 }
 

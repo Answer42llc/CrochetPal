@@ -130,8 +130,12 @@ final class ProjectRepository: ObservableObject {
     }
 
     func continueExecution(projectID: UUID, source: ExecutionCommandSource) async {
-        guard !executionState(for: projectID).isBusy else { return }
         guard let initialRecord = record(for: projectID) else { return }
+        let isAwaitingNextRound = ExecutionEngine.isAwaitingNextRound(
+            in: initialRecord.project,
+            progress: initialRecord.progress
+        )
+        guard !executionState(for: projectID).isBusy || isAwaitingNextRound else { return }
 
         if initialRecord.project.source.type.supportsDeferredAtomization {
             if let currentRound = ExecutionEngine.currentRound(in: initialRecord.project, progress: initialRecord.progress) {
@@ -147,15 +151,16 @@ final class ProjectRepository: ObservableObject {
                     break
                 }
             }
-
-            guard let refreshed = self.record(for: projectID) else { return }
-            if let nextReference = pendingNextRoundReferenceIfNeeded(for: refreshed) {
-                let success = await atomizeTargets([nextReference], in: projectID, pendingState: .parsingNextRound)
-                guard success else { return }
-            }
         }
 
         apply(.forward, to: projectID, source: source)
+
+        guard let refreshed = self.record(for: projectID),
+              refreshed.project.source.type.supportsDeferredAtomization else {
+            return
+        }
+
+        startNextRoundAtomizationIfNeeded(for: refreshed)
     }
 
     func regenerateRound(projectID: UUID, partID: UUID, roundID: UUID) async {
@@ -192,6 +197,10 @@ final class ProjectRepository: ObservableObject {
         return ExecutionEngine.snapshot(for: record, executionState: executionState(for: projectID))
     }
 
+    func clearRecentLogs() {
+        recentLogs.removeAll()
+    }
+
     private func apply(_ command: ExecutionCommand, to projectID: UUID, source: ExecutionCommandSource) {
         guard let index = records.firstIndex(where: { $0.project.id == projectID }) else { return }
         var record = records[index]
@@ -221,7 +230,15 @@ final class ProjectRepository: ObservableObject {
         } catch {
             let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
             markRoundsFailed(targets, in: projectID, message: message)
-            setExecutionState(.failed(message), for: projectID)
+            if shouldPreserveRoundCompletionStateAfterFailure(
+                for: targets,
+                in: projectID,
+                pendingState: pendingState
+            ) {
+                setExecutionState(.idle, for: projectID)
+            } else {
+                setExecutionState(.failed(message), for: projectID)
+            }
             return false
         }
     }
@@ -265,6 +282,39 @@ final class ProjectRepository: ObservableObject {
             }
         }
         return references
+    }
+
+    private func startNextRoundAtomizationIfNeeded(for record: ProjectRecord) {
+        guard !executionState(for: record.project.id).isBusy,
+              let nextReference = pendingNextRoundReferenceIfNeeded(for: record) else {
+            return
+        }
+
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            _ = await self.atomizeTargets(
+                [nextReference],
+                in: record.project.id,
+                pendingState: .parsingNextRound
+            )
+        }
+    }
+
+    private func shouldPreserveRoundCompletionStateAfterFailure(
+        for targets: [RoundReference],
+        in projectID: UUID,
+        pendingState: ProjectExecutionState
+    ) -> Bool {
+        guard pendingState == .parsingNextRound,
+              let record = record(for: projectID),
+              let currentRound = ExecutionEngine.currentRound(in: record.project, progress: record.progress),
+              ExecutionEngine.isAwaitingNextRound(in: record.project, progress: record.progress) else {
+            return false
+        }
+
+        return targets.contains { target in
+            target.partID != record.progress.cursor.partID || target.roundID != currentRound.id
+        }
     }
 
     private func applyAtomizedUpdates(_ updates: [AtomizedRoundUpdate], to projectID: UUID) {

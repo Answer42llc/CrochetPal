@@ -118,6 +118,13 @@ struct AtomicAction: Codable, Hashable, Identifiable {
         return type.title
     }
 
+    func matchesExecutionDisplay(as other: AtomicAction) -> Bool {
+        type == other.type &&
+        instruction == other.instruction &&
+        producedStitches == other.producedStitches &&
+        note == other.note
+    }
+
     static func normalizedInstruction(_ instruction: String?) -> String? {
         guard let instruction else { return nil }
         let trimmed = instruction.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -237,6 +244,8 @@ struct ProjectSnapshot: Codable, Hashable {
     var actionHint: String?
     var actionNote: String? = nil
     var nextActionTitle: String?
+    var actionSequenceProgress: Int?
+    var actionSequenceTotal: Int?
     var stitchProgress: Int
     var targetStitches: Int?
     var executionState: SnapshotExecutionState

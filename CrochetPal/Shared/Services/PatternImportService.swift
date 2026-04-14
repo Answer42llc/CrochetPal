@@ -375,6 +375,7 @@ struct PatternImportService: PatternImporting {
                 partName: part.name,
                 title: round.title,
                 rawInstruction: round.rawInstruction,
+                summary: round.summary,
                 targetStitchCount: round.targetStitchCount
             )
         }

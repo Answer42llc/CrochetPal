@@ -3,9 +3,13 @@ import SwiftUI
 struct DebugLogView: View {
     @EnvironmentObject private var container: AppContainer
 
+    private var recentLogs: [LogEvent] {
+        container.repository.recentLogs
+    }
+
     var body: some View {
         NavigationStack {
-            List(container.repository.recentLogs) { event in
+            List(recentLogs) { event in
                 VStack(alignment: .leading, spacing: 6) {
                     Text("\(event.stage) · \(event.decision)")
                         .font(.headline)
@@ -19,6 +23,15 @@ struct DebugLogView: View {
                 .padding(.vertical, 4)
             }
             .navigationTitle("Trace Logs")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Clear", role: .destructive) {
+                        container.repository.clearRecentLogs()
+                    }
+                    .disabled(recentLogs.isEmpty)
+                    .accessibilityIdentifier("clearTraceLogs")
+                }
+            }
         }
     }
 }
