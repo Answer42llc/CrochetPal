@@ -66,7 +66,11 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
     }
 
     var defaultProducedStitches: Int {
-        switch self {
+        if let producedStitches = CrochetTermDictionary.definition(for: self)?.defaultProducedStitches {
+            return producedStitches
+        }
+
+        return switch self {
         case .mr: 0
         case .inc: 2
         case .slSt: 0
@@ -76,6 +80,10 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .custom: 0
         default: 1
         }
+    }
+
+    var isAtomicActionType: Bool {
+        CrochetTermDictionary.supportedAtomicActionTypeSet.contains(self)
     }
 
     static func normalized(from rawValue: String) -> StitchActionType {
@@ -91,6 +99,143 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         default:
             return StitchActionType(rawValue: normalized) ?? .custom
         }
+    }
+}
+
+enum CrochetTermKind: String, Hashable {
+    case action
+    case descriptor
+    case control
+    case reference
+    case meta
+}
+
+struct CrochetTermDefinition: Hashable {
+    var abbreviation: String
+    var description: String
+    var kind: CrochetTermKind
+    var supportedActionType: StitchActionType?
+    var defaultProducedStitches: Int?
+    var aliases: [String] = []
+}
+
+enum CrochetTermDictionary {
+    // Source: Craft Yarn Council U.S. crochet abbreviations master list,
+    // plus a small set of app-supported aliases that are common in amigurumi patterns.
+    static let usTerms: [CrochetTermDefinition] = [
+        term("mr", "magic ring", kind: .action, supportedActionType: .mr, producedStitches: 0, aliases: ["magic ring", "magic loop"]),
+        term("alt", "alternate", kind: .meta),
+        term("approx", "approximately", kind: .meta),
+        term("beg", "begin/beginning", kind: .meta),
+        term("bet", "between", kind: .reference),
+        term("bl", "back loop or back loop only", kind: .descriptor, aliases: ["blo", "back loop", "back loop only"]),
+        term("bo", "bobble", kind: .action),
+        term("bp", "back post", kind: .descriptor, aliases: ["back post"]),
+        term("bpdc", "back post double crochet", kind: .action),
+        term("bpdtr", "back post double treble crochet", kind: .action),
+        term("bphdc", "back post half double crochet", kind: .action),
+        term("bpsc", "back post single crochet", kind: .action),
+        term("bptr", "back post treble crochet", kind: .action),
+        term("cc", "contrasting color", kind: .control),
+        term("ch", "chain stitch", kind: .action, supportedActionType: .ch, producedStitches: 0, aliases: ["chain", "chain stitch"]),
+        term("ch-", "chain reference", kind: .reference),
+        term("ch-sp", "chain space", kind: .reference, aliases: ["chain space"]),
+        term("cl", "cluster", kind: .action),
+        term("cont", "continue", kind: .meta),
+        term("dc", "double crochet", kind: .action, supportedActionType: .dc, producedStitches: 1, aliases: ["double crochet"]),
+        term("dc2tog", "double crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
+        term("dec", "decrease", kind: .action, supportedActionType: .dec, producedStitches: 1, aliases: ["decrease"]),
+        term("dtr", "double treble crochet", kind: .action),
+        term("edc", "extended double crochet", kind: .action),
+        term("ehdc", "extended half double crochet", kind: .action),
+        term("esc", "extended single crochet", kind: .action),
+        term("etr", "extended treble crochet", kind: .action),
+        term("fl", "front loop or front loop only", kind: .descriptor, aliases: ["flo", "front loop", "front loop only"]),
+        term("foll", "following", kind: .meta),
+        term("fp", "front post", kind: .descriptor, aliases: ["front post"]),
+        term("fpdc", "front post double crochet", kind: .action),
+        term("fpdtr", "front post double treble crochet", kind: .action),
+        term("fphdc", "front post half double crochet", kind: .action),
+        term("fpsc", "front post single crochet", kind: .action),
+        term("fptr", "front post treble crochet", kind: .action),
+        term("fo", "fasten off", kind: .action, supportedActionType: .fo, producedStitches: 0, aliases: ["fasten off"]),
+        term("hdc", "half double crochet", kind: .action, supportedActionType: .hdc, producedStitches: 1, aliases: ["half double crochet"]),
+        term("hdc2tog", "half double crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
+        term("inc", "increase", kind: .action, supportedActionType: .inc, producedStitches: 2, aliases: ["increase"]),
+        term("lp", "loop", kind: .reference),
+        term("m", "marker", kind: .control, aliases: ["marker"]),
+        term("mc", "main color", kind: .control, aliases: ["main color"]),
+        term("pat", "pattern", kind: .meta, aliases: ["patt"]),
+        term("pc", "popcorn stitch", kind: .action),
+        term("pm", "place marker", kind: .control, aliases: ["place marker"]),
+        term("prev", "previous", kind: .reference),
+        term("ps", "puff stitch", kind: .action, aliases: ["puff"]),
+        term("rem", "remaining", kind: .meta),
+        term("rep", "repeat", kind: .meta, aliases: ["repeat"]),
+        term("rnd", "round", kind: .meta, aliases: ["round"]),
+        term("rs", "right side", kind: .reference, aliases: ["right side"]),
+        term("sc", "single crochet", kind: .action, supportedActionType: .sc, producedStitches: 1, aliases: ["single crochet"]),
+        term("sc2tog", "single crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
+        term("sh", "shell", kind: .action, aliases: ["shell"]),
+        term("sk", "skip", kind: .control, aliases: ["skip"]),
+        term("sl st", "slip stitch", kind: .action, supportedActionType: .slSt, producedStitches: 0, aliases: ["slst", "sl_st", "slip stitch"]),
+        term("sm", "slip marker", kind: .control, aliases: ["sl m", "slip marker"]),
+        term("sp", "space", kind: .reference, aliases: ["space"]),
+        term("st", "stitch", kind: .reference, aliases: ["stitch"]),
+        term("tbl", "through back loop", kind: .descriptor, aliases: ["through back loop"]),
+        term("tch", "turning chain", kind: .control, aliases: ["t-ch", "turning chain"]),
+        term("tog", "together", kind: .reference, aliases: ["together"]),
+        term("tr", "treble crochet", kind: .action, aliases: ["treble crochet"]),
+        term("tr2tog", "treble crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
+        term("trtr", "triple treble crochet", kind: .action),
+        term("ws", "wrong side", kind: .reference, aliases: ["wrong side"]),
+        term("yo", "yarn over", kind: .control, aliases: ["yarn over"]),
+        term("yoh", "yarn over hook", kind: .control, aliases: ["yarn over hook"])
+    ]
+
+    static let supportedAtomicActionTypes: [StitchActionType] = {
+        var seen: Set<StitchActionType> = []
+        return usTerms.compactMap(\.supportedActionType).filter { seen.insert($0).inserted }
+    }()
+
+    static let supportedAtomicActionTypeSet = Set(supportedAtomicActionTypes)
+
+    static func definition(for type: StitchActionType) -> CrochetTermDefinition? {
+        usTerms.first(where: { $0.supportedActionType == type })
+    }
+
+    static func definition(for abbreviation: String) -> CrochetTermDefinition? {
+        let normalizedAbbreviation = normalize(abbreviation)
+        return usTerms.first { term in
+            normalize(term.abbreviation) == normalizedAbbreviation ||
+            term.aliases.contains(where: { normalize($0) == normalizedAbbreviation })
+        }
+    }
+
+    private static func term(
+        _ abbreviation: String,
+        _ description: String,
+        kind: CrochetTermKind,
+        supportedActionType: StitchActionType? = nil,
+        producedStitches: Int? = nil,
+        aliases: [String] = []
+    ) -> CrochetTermDefinition {
+        CrochetTermDefinition(
+            abbreviation: abbreviation,
+            description: description,
+            kind: kind,
+            supportedActionType: supportedActionType,
+            defaultProducedStitches: producedStitches,
+            aliases: aliases
+        )
+    }
+
+    private static func normalize(_ value: String) -> String {
+        value
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+            .replacingOccurrences(of: "_", with: " ")
+            .replacingOccurrences(of: "-", with: " ")
     }
 }
 

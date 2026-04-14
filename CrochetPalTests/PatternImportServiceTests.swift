@@ -292,6 +292,41 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertNil(record.project.parts[0].rounds[0].atomicActions[0].instruction)
     }
 
+    func testCrochetTermDictionaryClassifiesDescriptorsOutsideAtomicActionSet() {
+        XCTAssertEqual(CrochetTermDictionary.definition(for: "sc")?.kind, .action)
+        XCTAssertEqual(CrochetTermDictionary.definition(for: "flo")?.kind, .descriptor)
+        XCTAssertEqual(CrochetTermDictionary.definition(for: "blo")?.kind, .descriptor)
+        XCTAssertTrue(StitchActionType.sc.isAtomicActionType)
+        XCTAssertFalse(StitchActionType.flo.isAtomicActionType)
+        XCTAssertFalse(StitchActionType.blo.isAtomicActionType)
+        XCTAssertFalse(StitchActionType.custom.isAtomicActionType)
+    }
+
+    func testImportImagePatternRejectsNonActionAtomicType() async throws {
+        var imageResponse = SampleDataFactory.demoImageParseResponse
+        imageResponse.parts[0].rounds[0].atomicActions[0].type = .flo
+
+        let importer = PatternImportService(
+            parserClient: FixturePatternParsingClient(
+                outlineResponse: SampleDataFactory.demoOutlineResponse,
+                imageResponse: imageResponse,
+                atomizationResponse: SampleDataFactory.demoAtomizationResponse
+            ),
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        do {
+            _ = try await importer.importImagePattern(data: SampleDataFactory.sampleImageData, fileName: "sample.png")
+            XCTFail("预期应拒绝非动作术语进入 atomicActions")
+        } catch let error as PatternImportFailure {
+            guard case let .invalidResponse(message) = error else {
+                return XCTFail("收到错误类型不正确：\(error)")
+            }
+            XCTAssertEqual(message, "image_parse_contains_non_action_type:flo")
+        }
+    }
+
     func testOutlineLLMRequestUsesStrictJSONSchemaWithoutParseWarningsOrNotes() async throws {
         let capture = RequestCapture()
         let completionData = try completionResponseData(for: SampleDataFactory.demoOutlineResponse)
@@ -376,9 +411,15 @@ final class PatternImportServiceTests: XCTestCase {
         let actionGroups = try XCTUnwrap(roundProperties["actionGroups"] as? [String: Any])
         let actionGroupItem = try XCTUnwrap(actionGroups["items"] as? [String: Any])
         let actionGroupProperties = try XCTUnwrap(actionGroupItem["properties"] as? [String: Any])
+        let typeDefinition = try XCTUnwrap(actionGroupProperties["type"] as? [String: Any])
+        let allowedTypes = try XCTUnwrap(typeDefinition["enum"] as? [String])
         XCTAssertNil(actionGroupProperties["sequenceIndex"])
         XCTAssertNotNil(actionGroupProperties["count"])
         XCTAssertNotNil(actionGroupProperties["note"])
+        XCTAssertEqual(allowedTypes, CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue))
+        XCTAssertFalse(allowedTypes.contains("blo"))
+        XCTAssertFalse(allowedTypes.contains("flo"))
+        XCTAssertFalse(allowedTypes.contains("custom"))
 
         let messages = try XCTUnwrap(object["messages"] as? [[String: Any]])
         let systemPrompt = messages.first?["content"] as? String
@@ -386,9 +427,11 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertTrue(systemPrompt?.contains("compact action groups") == true)
         XCTAssertTrue(systemPrompt?.contains("\"sc inc\" must become one sc action followed by one inc action.") == true)
         XCTAssertTrue(systemPrompt?.contains("Prefer attaching contextual modifiers to note") == true)
+        XCTAssertTrue(systemPrompt?.contains("Never output descriptive or control terms such as \"blo\", \"flo\"") == true)
         XCTAssertTrue(systemPrompt?.contains("Never output natural-language type names such as \"magic loop\", \"magic ring\", \"slip stitch\", or \"fasten off\" in the type field.") == true)
         XCTAssertTrue(systemPrompt?.contains("Raw instruction: \"With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.\"") == true)
         XCTAssertTrue(systemPrompt?.contains("Incorrect output groups: custom(\"magic loop\")") == true)
+        XCTAssertFalse(systemPrompt?.contains("Use custom only") == true)
         XCTAssertTrue(userPrompt?.contains("Input rounds JSON:") == true)
         XCTAssertTrue(userPrompt?.contains("\"rawInstruction\"") == true)
         XCTAssertFalse(userPrompt?.contains("Previous attempt failed validation.") == true)
@@ -430,7 +473,7 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertNil(object["provider"])
     }
 
-    func testAtomizeRoundsPreservesModelReturnedControlActionsAndNotes() async throws {
+    func testAtomizeRoundsRejectsNonActionTermTypes() async throws {
         let html = try fixture(named: "mouse-pattern", extension: "html")
         MockURLProtocol.handler = { request in
             let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
@@ -447,7 +490,6 @@ final class PatternImportServiceTests: XCTestCase {
                             ParsedActionGroup(type: .sc, count: 1, instruction: nil, producedStitches: nil, note: nil),
                             ParsedActionGroup(type: .custom, count: 1, instruction: "change to white yarn", producedStitches: 0, note: nil),
                             ParsedActionGroup(type: .inc, count: 1, instruction: nil, producedStitches: nil, note: "work this increase in the same st as the previous sc"),
-                            ParsedActionGroup(type: .custom, count: 1, instruction: "change back to grey yarn on final yo", producedStitches: 0, note: nil),
                             ParsedActionGroup(type: .slSt, count: 1, instruction: nil, producedStitches: nil, note: nil)
                         ])
                     ]
@@ -460,13 +502,16 @@ final class PatternImportServiceTests: XCTestCase {
 
         let record = try await importer.importWebPattern(from: "https://example.com/pattern")
         let target = try firstRoundReferences(in: record.project, count: 1)
-        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
-        let actions = try XCTUnwrap(updates.first?.atomicActions)
 
-        XCTAssertEqual(actions.map(\.type), [.sc, .custom, .inc, .custom, .slSt])
-        XCTAssertEqual(actions[1].instruction, "change to white yarn")
-        XCTAssertEqual(actions[2].note, "work this increase in the same st as the previous sc")
-        XCTAssertEqual(actions[3].instruction, "change back to grey yarn on final yo")
+        do {
+            _ = try await importer.atomizeRounds(in: record.project, targets: target)
+            XCTFail("预期应拒绝 non-action type")
+        } catch let error as PatternImportFailure {
+            guard case let .atomizationFailed(message) = error else {
+                return XCTFail("收到错误类型不正确：\(error)")
+            }
+            XCTAssertEqual(message, "atomization_contains_non_action_type:custom")
+        }
     }
 
     func testAtomizeRoundsPreservesSameStitchNoteOnOriginalAction() async throws {
@@ -507,7 +552,7 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertNil(actions[2].note)
     }
 
-    func testAtomizeRoundsDefaultsCustomControlActionsToZeroProducedStitches() async throws {
+    func testAtomizeRoundsRejectsDescriptorTypeEvenWhenInstructionExists() async throws {
         let html = try fixture(named: "mouse-pattern", extension: "html")
         MockURLProtocol.handler = { request in
             let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
@@ -521,7 +566,7 @@ final class PatternImportServiceTests: XCTestCase {
                 atomizationResponse: RoundAtomizationResponse(
                     rounds: [
                         AtomizedPatternRound(actionGroups: [
-                            ParsedActionGroup(type: .custom, count: 1, instruction: "change to white yarn", producedStitches: nil)
+                            ParsedActionGroup(type: .flo, count: 1, instruction: "front loop only", producedStitches: nil)
                         ])
                     ]
                 )
@@ -533,11 +578,16 @@ final class PatternImportServiceTests: XCTestCase {
 
         let record = try await importer.importWebPattern(from: "https://example.com/pattern")
         let target = try firstRoundReferences(in: record.project, count: 1)
-        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
 
-        XCTAssertEqual(updates.first?.atomicActions.first?.type, .custom)
-        XCTAssertEqual(updates.first?.atomicActions.first?.instruction, "change to white yarn")
-        XCTAssertEqual(updates.first?.atomicActions.first?.producedStitches, 0)
+        do {
+            _ = try await importer.atomizeRounds(in: record.project, targets: target)
+            XCTFail("预期应拒绝描述性 type")
+        } catch let error as PatternImportFailure {
+            guard case let .atomizationFailed(message) = error else {
+                return XCTFail("收到错误类型不正确：\(error)")
+            }
+            XCTAssertEqual(message, "atomization_contains_non_action_type:flo")
+        }
     }
 
     func testRoundAtomizationDecodeRejectsUnsupportedActionType() throws {
@@ -614,11 +664,18 @@ final class PatternImportServiceTests: XCTestCase {
             )
         )
         let targets = try firstRoundReferences(in: record.project, count: 1)
-        let updates = try await importer.atomizeRounds(in: record.project, targets: targets)
+        do {
+            _ = try await importer.atomizeRounds(in: record.project, targets: targets)
+            XCTFail("预期应直接暴露 non-action type，而不是做语义兜底")
+        } catch let error as PatternImportFailure {
+            guard case let .atomizationFailed(message) = error else {
+                return XCTFail("收到错误类型不正确：\(error)")
+            }
+            XCTAssertEqual(message, "atomization_contains_non_action_type:custom")
+        }
 
         let callCount = await parserClient.atomizationCallCount()
         XCTAssertEqual(callCount, 1)
-        XCTAssertEqual(updates.first?.atomicActions.map(\.type), [.custom, .ch, .sc, .sc, .sc, .sc, .sc, .sc, .sc, .slSt])
     }
 
     func testTextLLMRepairsMalformedOutlineJSONResponse() async throws {

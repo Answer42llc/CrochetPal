@@ -518,7 +518,11 @@ enum PromptFactory {
     }
 
     static func roundAtomizationSystemPrompt() -> String {
-        """
+        let supportedTypes = CrochetTermDictionary.supportedAtomicActionTypes
+            .map(\.rawValue)
+            .joined(separator: ", ")
+
+        return """
         You are a crochet master, I will give you a instruction of a crochet pattern, usually it a round or a row's instruction of a crochet pattern. You will help convert it into compact action groups with follow steps:
             1.Read the instruction carefully,understand what the whole instruction is going to do. If there is a significantly crochet action, such like sc(single crochet)、dc(double crochet) and so on, you MUST extract it as one of action sequence.
             2.Generate notes from summary we give to each crochet actions. You should give notes as possible.
@@ -529,11 +533,11 @@ enum PromptFactory {
         - Return one JSON object only.
         - Preserve the order of the input rounds.
         - rawInstruction is the source of truth of corchet actions. Use summary to help generate notes.
-        - type must be exactly one enum value from this list: mr, sc, inc, dec, ch, sl_st, blo, flo, fo, hdc, dc, custom.
+        - type must be exactly one enum value from this list: \(supportedTypes).
+        - Never output descriptive or control terms such as "blo", "flo", "front loop only", "back loop only", or color-change text in the type field.
         - Never output natural-language type names such as "magic loop", "magic ring", "slip stitch", or "fasten off" in the type field.
         - note should be a short, readable explanation for context such as color changes, placement, special loops, which stitches you should work with, new or currently? or finishing details. You can use summary field we given as reference to generate notes.
-        - Prefer attaching contextual modifiers to note on the nearest real stitch action instead of emitting a standalone custom action.
-        - Use custom only when the step itself is genuinely not one of the known stitch symbols and cannot be attached as a note to a neighboring stitch action.
+        - Prefer attaching contextual modifiers to note on the nearest real stitch action instead of emitting a standalone non-action step.
         - Each actionGroup must represent exactly one base crochet action from the enum.
         - Do not collapse compound shorthand into one action.
         - "sc inc" must become one sc action followed by one inc action.
@@ -543,10 +547,9 @@ enum PromptFactory {
         - Expand repeated compound shorthand in order. "(sc inc)x5" must become sc, inc, sc, inc, sc, inc, sc, inc, sc, inc.
         - If an increase or decrease happens in the same stitch as the previous action, put that detail in note on the inc/dec action.
         - count must always be 1. Emit one actionGroup per individual stitch — do not compress consecutive same-type stitches. For example, "7sc" must become seven separate sc actionGroups, each with count 1.
-        - Only include instruction when type is custom or the default instruction would be misleading.
+        - Only include instruction when the default instruction would be misleading.
         - Only include producedStitches when it differs from the usual default for that symbol.
-        - Control actions that do not create stitches, such as color changes, joins, loop placement, skips, and fasten off, should usually become notes rather than standalone actions.
-        - If you must use a standalone custom control action, set producedStitches: 0.
+        - Control or descriptive details, such as color changes, loop placement, and skips, must become notes rather than standalone actionGroups.
         - If some action is going to do in magic ring, you should note it out.
         Golden examples:
         1. Raw instruction: "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc."
@@ -812,7 +815,7 @@ enum PromptFactory {
             "properties": [
                 "type": [
                     "type": "string",
-                    "enum": StitchActionType.allCases.map(\.rawValue)
+                    "enum": CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)
                 ],
                 "instruction": ["type": "string"],
                 "producedStitches": nullableIntegerSchema(),
@@ -829,7 +832,7 @@ enum PromptFactory {
             "properties": [
                 "type": [
                     "type": "string",
-                    "enum": StitchActionType.allCases.map(\.rawValue)
+                    "enum": CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)
                 ],
                 "count": ["type": "integer"],
                 "instruction": nullableStringSchema(),

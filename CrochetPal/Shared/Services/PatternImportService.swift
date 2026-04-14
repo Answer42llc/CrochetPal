@@ -186,7 +186,7 @@ struct PatternImportService: PatternImporting {
             context: context
         )
 
-        return makeImageRecord(
+        return try makeImageRecord(
             from: responsePayload,
             source: PatternSource(
                 type: .image,
@@ -302,19 +302,22 @@ struct PatternImportService: PatternImporting {
         from payload: PatternParseResponse,
         source: PatternSource,
         context: ParseRequestContext
-    ) -> ProjectRecord {
+    ) throws -> ProjectRecord {
         let now = Date()
-        let parts = payload.parts.map { part in
+        let parts = try payload.parts.map { part in
             PatternPart(
                 name: part.name,
-                rounds: part.rounds.map { round in
-                    let atomicActions = round.atomicActions.enumerated().map { actionIndex, action in
-                        AtomicAction(
+                rounds: try part.rounds.map { round in
+                    let atomicActions = try round.atomicActions.enumerated().map { actionIndex, action in
+                        try makeAtomicAction(
                             type: action.type,
-                            instruction: AtomicAction.normalizedInstruction(action.instruction),
-                            producedStitches: action.producedStitches ?? action.type.defaultProducedStitches,
+                            instruction: action.instruction,
+                            producedStitches: action.producedStitches,
                             note: action.note,
-                            sequenceIndex: actionIndex
+                            sequenceIndex: actionIndex,
+                            failureBuilder: { type in
+                                PatternImportFailure.invalidResponse("image_parse_contains_non_action_type:\(type.rawValue)")
+                            }
                         )
                     }
 
@@ -416,12 +419,15 @@ struct PatternImportService: PatternImporting {
 
             for _ in 0..<group.count {
                 actions.append(
-                    AtomicAction(
+                    try makeAtomicAction(
                         type: group.type,
-                        instruction: AtomicAction.normalizedInstruction(group.instruction),
-                        producedStitches: group.producedStitches ?? group.type.defaultProducedStitches,
+                        instruction: group.instruction,
+                        producedStitches: group.producedStitches,
                         note: group.note,
-                        sequenceIndex: sequenceIndex
+                        sequenceIndex: sequenceIndex,
+                        failureBuilder: { type in
+                            PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(type.rawValue)")
+                        }
                     )
                 )
                 sequenceIndex += 1
@@ -430,6 +436,28 @@ struct PatternImportService: PatternImporting {
 
         return actions
     }
+
+    private func makeAtomicAction(
+        type: StitchActionType,
+        instruction: String?,
+        producedStitches: Int?,
+        note: String?,
+        sequenceIndex: Int,
+        failureBuilder: (StitchActionType) -> PatternImportFailure
+    ) throws -> AtomicAction {
+        guard type.isAtomicActionType else {
+            throw failureBuilder(type)
+        }
+
+        return AtomicAction(
+            type: type,
+            instruction: AtomicAction.normalizedInstruction(instruction),
+            producedStitches: producedStitches ?? type.defaultProducedStitches,
+            note: note,
+            sequenceIndex: sequenceIndex
+        )
+    }
+
     private func mimeType(for fileName: String) -> String {
         if fileName.lowercased().hasSuffix(".png") {
             return "image/png"
