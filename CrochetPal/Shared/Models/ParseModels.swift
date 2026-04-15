@@ -218,6 +218,7 @@ struct AtomizationRoundInput: Codable, Hashable {
     var rawInstruction: String
     var summary: String
     var targetStitchCount: Int?
+    var previousRoundStitchCount: Int?
 }
 
 struct ParseRequestContext: Codable, Hashable {

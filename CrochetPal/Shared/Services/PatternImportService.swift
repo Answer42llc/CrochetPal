@@ -4,6 +4,7 @@ struct AtomizedRoundUpdate: Hashable {
     var reference: RoundReference
     var atomicActions: [AtomicAction]
     var resolvedTargetStitchCount: Int
+    var warning: String?
 }
 
 protocol PatternImporting {
@@ -371,16 +372,21 @@ struct PatternImportService: PatternImporting {
     private func atomizationInputs(for project: CrochetProject, targets: [RoundReference]) throws -> [AtomizationRoundInput] {
         try targets.map { target in
             guard let part = project.parts.first(where: { $0.id == target.partID }),
-                  let round = part.rounds.first(where: { $0.id == target.roundID }) else {
+                  let roundIndex = part.rounds.firstIndex(where: { $0.id == target.roundID }) else {
                 throw PatternImportFailure.invalidResponse("missing_round_for_atomization")
             }
+            let round = part.rounds[roundIndex]
+            let previousStitchCount = roundIndex > 0
+                ? part.rounds[roundIndex - 1].targetStitchCount
+                : nil
 
             return AtomizationRoundInput(
                 partName: part.name,
                 title: round.title,
                 rawInstruction: round.rawInstruction,
                 summary: round.summary,
-                targetStitchCount: round.targetStitchCount
+                targetStitchCount: round.targetStitchCount,
+                previousRoundStitchCount: previousStitchCount
             )
         }
     }
@@ -412,7 +418,8 @@ struct PatternImportService: PatternImporting {
             return AtomizedRoundUpdate(
                 reference: target,
                 atomicActions: expansion.atomicActions,
-                resolvedTargetStitchCount: expansion.resolvedTargetStitchCount
+                resolvedTargetStitchCount: expansion.resolvedTargetStitchCount,
+                warning: expansion.warning
             )
         }
     }
@@ -420,23 +427,23 @@ struct PatternImportService: PatternImporting {
     private func buildAtomicActions(
         from segments: [AtomizedSegment],
         originalTargetStitchCount: Int?
-    ) throws -> (atomicActions: [AtomicAction], resolvedTargetStitchCount: Int) {
+    ) throws -> (atomicActions: [AtomicAction], resolvedTargetStitchCount: Int, warning: String?) {
         let drafts = try expandSegments(segments)
         let atomicActions = try drafts.enumerated().map { index, draft in
             try makeAtomicAction(from: draft, sequenceIndex: index)
         }
         let producedStitchCount = atomicActions.reduce(0) { $0 + $1.producedStitches }
 
+        var warning: String? = nil
         if let originalTargetStitchCount,
            originalTargetStitchCount != producedStitchCount {
-            throw PatternImportFailure.atomizationFailed(
-                "atomization_target_stitch_count_mismatch:expected_\(originalTargetStitchCount)_actual_\(producedStitchCount)"
-            )
+            warning = "atomization_target_stitch_count_mismatch:expected_\(originalTargetStitchCount)_actual_\(producedStitchCount)"
         }
 
         return (
             atomicActions: atomicActions,
-            resolvedTargetStitchCount: originalTargetStitchCount ?? producedStitchCount
+            resolvedTargetStitchCount: producedStitchCount,
+            warning: warning
         )
     }
 

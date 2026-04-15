@@ -655,6 +655,9 @@ enum PromptFactory {
         - If control.kind is custom, instruction must contain the exact control wording to preserve.
         - Only include instruction when the default instruction would be misleading.
         - Every segment must include verbatim with the exact source snippet that the segment came from.
+        - previousRoundStitchCount tells you how many stitches are available to work into from the previous round. Use it to verify or correct explicit repeat counts when the raw instruction contains a mathematical error.
+        - When previousRoundStitchCount and targetStitchCount imply different repeat counts, trust previousRoundStitchCount — it is a hard physical constraint (you cannot work into stitches that do not exist), whereas targetStitchCount is a pattern-author annotation that may contain typos.
+        - Conflict resolution: calculate consumedPerRepeat (sum of stitches each action consumes). If previousRoundStitchCount / consumedPerRepeat gives an integer that differs from the explicit repeat count, use previousRoundStitchCount / consumedPerRepeat.
         Golden examples:
         1. Raw instruction: "With off white, ch 114"
            - Correct output: one stitchRun(type=ch, count=114, note="with off white yarn", notePlacement=all)
@@ -674,6 +677,18 @@ enum PromptFactory {
         7. Raw instruction: "skip next 2 sts, 3dc in next st"
            - Correct output: control(kind=skip, instruction="skip next 2 sts"), stitchRun(dc x3)
            - Incorrect output: stitchRun with instruction="skip"
+        8. Raw instruction: "(sc 6, inc) ×4. (24)" with targetStitchCount=24, previousRoundStitchCount=21
+           - Each repeat: sc 6 + inc 1 = consumes 7 stitches, produces 8 stitches
+           - Available stitches: 21 / 7 = 3 repeats (not 4 as written)
+           - Verification: 3 × 8 = 24 = targetStitchCount ✓
+           - Correct output: repeat(sequence=[stitchRun(sc x6), stitchRun(inc x1)], times=3)
+           - Incorrect output: times=4 — the raw instruction has a typo; previousRoundStitchCount proves only 3 repeats fit.
+        9. Raw instruction: "(sc 6, inc) ×3. (32)" with targetStitchCount=32, previousRoundStitchCount=21
+           - Each repeat: consumes 7, produces 8
+           - Available stitches: 21 / 7 = 3 repeats (matches ×3)
+           - Produced: 3 × 8 = 24 ≠ targetStitchCount (32), but previousRoundStitchCount confirms ×3
+           - Correct output: repeat(times=3) — trust previousRoundStitchCount over targetStitchCount.
+           - Incorrect output: times=4 — would require 28 stitches but only 21 are available.
 
         """
     }

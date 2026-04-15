@@ -83,6 +83,14 @@ struct ExecutionView: View {
                             )
                         }
                         Label("Stitch progress: \(snapshot.stitchProgress)/\(snapshot.targetStitches ?? 0)", systemImage: "number")
+                        if round?.atomizationWarning != nil {
+                            Label(
+                                "目标针数与实际展开不一致，已按指令展开",
+                                systemImage: "exclamationmark.triangle.fill"
+                            )
+                            .font(.caption)
+                            .foregroundStyle(.orange)
+                        }
                         if let nextAction {
                             Label("Next: \(nextAction.executionDisplayTitle)", systemImage: "arrow.turn.down.right")
                         }

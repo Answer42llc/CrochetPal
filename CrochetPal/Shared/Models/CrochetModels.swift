@@ -372,6 +372,7 @@ struct PatternRound: Codable, Hashable, Identifiable {
     var targetStitchCount: Int?
     var atomizationStatus: RoundAtomizationStatus
     var atomizationError: String?
+    var atomizationWarning: String?
     var atomicActions: [AtomicAction]
 }
 
