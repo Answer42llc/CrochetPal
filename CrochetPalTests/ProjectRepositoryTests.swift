@@ -3,7 +3,7 @@ import XCTest
 
 @MainActor
 final class ProjectRepositoryTests: XCTestCase {
-    func testPrepareExecutionAtomizesFirstTwoPendingRounds() async throws {
+    func testPrepareExecutionAtomizesFirstPendingRoundThenAutoParseNext() async throws {
         let importer = FakePatternImporter(record: makePendingWebRecord())
         let repository = ProjectRepository(
             importer: importer,
@@ -14,10 +14,15 @@ final class ProjectRepositoryTests: XCTestCase {
         let record = try await repository.importWebPattern(from: "https://example.com/pattern")
         await repository.prepareExecution(projectID: record.project.id)
 
+        // prepareExecution parses round 0 (limit:1), then auto-parse starts round 1 in background
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
         let updated = try XCTUnwrap(repository.records.first)
         let statuses = updated.project.parts.flatMap(\.rounds).map(\.atomizationStatus)
         XCTAssertEqual(statuses, [.ready, .ready, .pending])
-        XCTAssertEqual(importer.atomizeRequestCounts, [2])
+        XCTAssertEqual(importer.atomizeRequestCounts, [1, 1])
     }
 
     func testPrepareExecutionDoesNotRebootstrapWhenCurrentRoundIsAlreadyReady() async throws {
@@ -30,12 +35,17 @@ final class ProjectRepositoryTests: XCTestCase {
 
         let record = try await repository.importWebPattern(from: "https://example.com/pattern")
         await repository.prepareExecution(projectID: record.project.id)
+
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
         await repository.prepareExecution(projectID: record.project.id)
 
         let updated = try XCTUnwrap(repository.records.first)
         let statuses = updated.project.parts.flatMap(\.rounds).map(\.atomizationStatus)
         XCTAssertEqual(statuses, [.ready, .ready, .pending])
-        XCTAssertEqual(importer.atomizeRequestCounts, [2])
+        XCTAssertEqual(importer.atomizeRequestCounts, [1, 1])
     }
 
     func testContinueExecutionPrefetchesNextPendingRoundAfterRoundCompletion() async throws {
@@ -48,11 +58,21 @@ final class ProjectRepositoryTests: XCTestCase {
 
         let record = try await repository.importWebPattern(from: "https://example.com/pattern")
         await repository.prepareExecution(projectID: record.project.id)
-        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
-        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
-        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
+
+        // Wait for initial parse of round 0 and auto-parse of round 1
         await waitUntil {
-            importer.atomizeRequestCounts == [2, 1]
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
+        // Advance to end of round 0
+        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
+        // Enter round 1 → triggers auto-parse of round 2
+        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
+        // Advance to end of round 1
+        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
+
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1, 1]
         }
 
         let waiting = try XCTUnwrap(repository.records.first)
@@ -62,8 +82,9 @@ final class ProjectRepositoryTests: XCTestCase {
         XCTAssertEqual(waiting.progress.cursor.roundIndex, 1)
         XCTAssertEqual(waiting.progress.cursor.actionIndex, 1)
         XCTAssertTrue(ExecutionEngine.isAwaitingNextRound(in: waiting.project, progress: waiting.progress))
-        XCTAssertEqual(importer.atomizeRequestCounts, [2, 1])
+        XCTAssertEqual(importer.atomizeRequestCounts, [1, 1, 1])
 
+        // Enter round 2 (Part1/Round0)
         await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
 
         let updated = try XCTUnwrap(repository.records.first)
@@ -75,6 +96,7 @@ final class ProjectRepositoryTests: XCTestCase {
     func testContinueExecutionAllowsEnteringPendingNextRoundWhileAtomizationRuns() async throws {
         let importer = FakePatternImporter(record: makePendingWebRecord()) { _, targets, callIndex in
             if callIndex == 1 {
+                // Auto-parse of round 1 is slow, simulating user entering it mid-parse
                 try await Task.sleep(nanoseconds: 200_000_000)
             }
             return FakePatternImporter.defaultAtomizedUpdates(for: targets)
@@ -87,28 +109,30 @@ final class ProjectRepositoryTests: XCTestCase {
 
         let record = try await repository.importWebPattern(from: "https://example.com/pattern")
         await repository.prepareExecution(projectID: record.project.id)
-        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
-        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
-        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
 
+        // Wait for auto-parse of round 1 to start (slow, so it'll be in parsingNextRound state)
         await waitUntil {
             repository.executionState(for: record.project.id) == .parsingNextRound
         }
 
+        // Advance to end of round 0
+        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
+        // Enter round 1 while it's still being parsed
         await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
 
         let updated = try XCTUnwrap(repository.records.first)
         let currentRound = try XCTUnwrap(ExecutionEngine.currentRound(in: updated.project, progress: updated.progress))
-        XCTAssertEqual(updated.progress.cursor.partID, updated.project.parts[1].id)
-        XCTAssertEqual(updated.progress.cursor.roundIndex, 0)
+        XCTAssertEqual(updated.progress.cursor.partID, updated.project.parts[0].id)
+        XCTAssertEqual(updated.progress.cursor.roundIndex, 1)
         XCTAssertEqual(updated.progress.cursor.actionIndex, 0)
         XCTAssertEqual(currentRound.atomizationStatus, .pending)
         XCTAssertEqual(repository.executionState(for: record.project.id), .parsingNextRound)
     }
 
-    func testFailedNextRoundPrefetchKeepsRoundCompletionVisibleUntilEntry() async throws {
+    func testFailedNextRoundPrefetchKeepsIdleStateForCurrentRound() async throws {
         let importer = FakePatternImporter(record: makePendingWebRecord()) { _, targets, callIndex in
-            if callIndex == 1 {
+            if callIndex == 2 {
+                // Auto-parse of round 2 fails when user enters round 1
                 throw PatternImportFailure.atomizationFailed("next round failed")
             }
             return FakePatternImporter.defaultAtomizedUpdates(for: targets)
@@ -121,8 +145,15 @@ final class ProjectRepositoryTests: XCTestCase {
 
         let record = try await repository.importWebPattern(from: "https://example.com/pattern")
         await repository.prepareExecution(projectID: record.project.id)
+
+        // Wait for initial parse of round 0 and auto-parse of round 1
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
+        // Advance to end of round 0
         await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
-        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
+        // Enter round 1 → triggers auto-parse of round 2 which fails
         await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
 
         await waitUntil {
@@ -130,15 +161,18 @@ final class ProjectRepositoryTests: XCTestCase {
             return updated.project.parts[1].rounds[0].atomizationStatus == .failed
         }
 
-        let waiting = try XCTUnwrap(repository.records.first)
-        let waitingSnapshot = try XCTUnwrap(repository.snapshot(for: record.project.id))
+        // User is on round 1, state should be idle despite round 2 failure
+        let onRound1 = try XCTUnwrap(repository.records.first)
+        let round1Snapshot = try XCTUnwrap(repository.snapshot(for: record.project.id))
         XCTAssertEqual(repository.executionState(for: record.project.id), .idle)
-        XCTAssertEqual(waiting.progress.cursor.partID, waiting.project.parts[0].id)
-        XCTAssertEqual(waiting.progress.cursor.roundIndex, 1)
-        XCTAssertEqual(waiting.progress.cursor.actionIndex, 1)
-        XCTAssertEqual(waitingSnapshot.actionTitle, "Round Complete")
-        XCTAssertTrue(waitingSnapshot.canAdvance)
+        XCTAssertEqual(onRound1.progress.cursor.partID, onRound1.project.parts[0].id)
+        XCTAssertEqual(onRound1.progress.cursor.roundIndex, 1)
+        XCTAssertEqual(onRound1.progress.cursor.actionIndex, 0)
+        XCTAssertTrue(round1Snapshot.canAdvance)
 
+        // Advance through round 1
+        await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
+        // Enter round 2 (Part1/Round0) → handleRoundDidAppear detects .failed
         await repository.continueExecution(projectID: record.project.id, source: .phoneButton)
 
         let failedRoundSnapshot = try XCTUnwrap(repository.snapshot(for: record.project.id))
@@ -147,7 +181,7 @@ final class ProjectRepositoryTests: XCTestCase {
         XCTAssertFalse(failedRoundSnapshot.canAdvance)
     }
 
-    func testPrepareExecutionAtomizesFirstTwoPendingRoundsForTextProject() async throws {
+    func testPrepareExecutionAtomizesFirstPendingRoundThenAutoParseNextForTextProject() async throws {
         let importer = FakePatternImporter(record: makePendingRecord(sourceType: .text))
         let repository = ProjectRepository(
             importer: importer,
@@ -158,14 +192,18 @@ final class ProjectRepositoryTests: XCTestCase {
         let record = try await repository.importTextPattern(from: "Mouse Cat Toy\nRound 1: In a MR, sc 6. (6)")
         await repository.prepareExecution(projectID: record.project.id)
 
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
         let updated = try XCTUnwrap(repository.records.first)
         let statuses = updated.project.parts.flatMap(\.rounds).map(\.atomizationStatus)
         XCTAssertEqual(updated.project.source.type, .text)
         XCTAssertEqual(statuses, [.ready, .ready, .pending])
-        XCTAssertEqual(importer.atomizeRequestCounts, [2])
+        XCTAssertEqual(importer.atomizeRequestCounts, [1, 1])
     }
 
-    func testRegenerateRoundOnlyReatomizesRequestedRound() async throws {
+    func testRegenerateRoundReatomizesRequestedRoundAndAutoParseNext() async throws {
         let importer = FakePatternImporter(record: makePendingWebRecord())
         let repository = ProjectRepository(
             importer: importer,
@@ -183,11 +221,17 @@ final class ProjectRepositoryTests: XCTestCase {
             roundID: firstRoundID
         )
 
+        // Regeneration atomized round 0, then auto-parse starts round 1 in background
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
         let updated = try XCTUnwrap(repository.records.first)
         let statuses = updated.project.parts.flatMap(\.rounds).map(\.atomizationStatus)
-        XCTAssertEqual(statuses, [.ready, .pending, .pending])
-        XCTAssertEqual(importer.atomizeRequestCounts, [1])
-        XCTAssertEqual(importer.requestedTargets, [[RoundReference(partID: firstPartID, roundID: firstRoundID)]])
+        XCTAssertEqual(statuses, [.ready, .ready, .pending])
+        XCTAssertEqual(importer.atomizeRequestCounts, [1, 1])
+        // Verify regeneration call targeted only the requested round
+        XCTAssertEqual(importer.requestedTargets[0], [RoundReference(partID: firstPartID, roundID: firstRoundID)])
     }
 
     func testClearRecentLogsRemovesCapturedEvents() async throws {

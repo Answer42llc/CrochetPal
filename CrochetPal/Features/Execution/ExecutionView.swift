@@ -18,6 +18,11 @@ struct ExecutionView: View {
         container.repository.snapshot(for: projectID)
     }
 
+    private var currentRoundID: UUID? {
+        guard let record else { return nil }
+        return ExecutionEngine.currentRound(in: record.project, progress: record.progress)?.id
+    }
+
     static func shouldShowRegenerateButton(
         sourceType: PatternSourceType,
         round: PatternRound?
@@ -112,7 +117,7 @@ struct ExecutionView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .accessibilityIdentifier("regenerateCurrentRound")
-                        .disabled(executionState.isBusy)
+                        .disabled(executionState.isBusy && executionState != .parsingNextRound)
                     }
 
                     Spacer()
@@ -148,6 +153,11 @@ struct ExecutionView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .task(id: projectID) {
                     await container.repository.prepareExecution(projectID: projectID)
+                }
+                .onChange(of: currentRoundID) { _, _ in
+                    Task {
+                        await container.repository.onRoundDidAppear(projectID: projectID)
+                    }
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {

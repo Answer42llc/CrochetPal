@@ -246,8 +246,8 @@ final class ExecutionEngineTests: XCTestCase {
         XCTAssertEqual(snapshot.nextActionTitle, "SC")
         XCTAssertEqual(snapshot.stitchProgress, 6)
         XCTAssertEqual(snapshot.targetStitches, 6)
-        XCTAssertEqual(snapshot.executionState, .loading)
-        XCTAssertEqual(snapshot.statusMessage, "正在解析下一圈")
+        XCTAssertEqual(snapshot.executionState, .ready)
+        XCTAssertNil(snapshot.statusMessage)
         XCTAssertTrue(snapshot.canAdvance)
     }
 

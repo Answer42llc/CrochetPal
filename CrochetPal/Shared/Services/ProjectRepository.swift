@@ -116,7 +116,7 @@ final class ProjectRepository: ObservableObject {
             break
         }
 
-        let targets = pendingRoundTargets(for: record, limit: 2)
+        let targets = pendingRoundTargets(for: record, limit: 1)
         guard !targets.isEmpty else {
             setExecutionState(.idle, for: projectID)
             return
@@ -135,36 +135,28 @@ final class ProjectRepository: ObservableObject {
             in: initialRecord.project,
             progress: initialRecord.progress
         )
-        guard !executionState(for: projectID).isBusy || isAwaitingNextRound else { return }
+        let currentState = executionState(for: projectID)
+        guard !currentState.isBusy || isAwaitingNextRound || currentState == .parsingNextRound else { return }
 
-        if initialRecord.project.source.type.supportsDeferredAtomization {
-            if let currentRound = ExecutionEngine.currentRound(in: initialRecord.project, progress: initialRecord.progress) {
-                switch currentRound.atomizationStatus {
-                case .pending:
-                    let target = RoundReference(partID: initialRecord.progress.cursor.partID, roundID: currentRound.id)
-                    let success = await atomizeTargets([target], in: projectID, pendingState: .bootstrapping)
-                    guard success else { return }
-                case .failed:
-                    setExecutionState(.failed(currentRound.atomizationError ?? "步骤解析失败"), for: projectID)
-                    return
-                case .ready:
-                    break
-                }
-            }
-        }
+        let oldRoundIndex = initialRecord.progress.cursor.roundIndex
+        let oldPartID = initialRecord.progress.cursor.partID
 
         apply(.forward, to: projectID, source: source)
 
-        guard let refreshed = self.record(for: projectID),
-              refreshed.project.source.type.supportsDeferredAtomization else {
+        guard let updated = record(for: projectID),
+              updated.project.source.type.supportsDeferredAtomization else {
             return
         }
 
-        startNextRoundAtomizationIfNeeded(for: refreshed)
+        if updated.progress.cursor.roundIndex != oldRoundIndex ||
+           updated.progress.cursor.partID != oldPartID {
+            await handleRoundDidAppear(for: projectID)
+        }
     }
 
     func regenerateRound(projectID: UUID, partID: UUID, roundID: UUID) async {
-        guard !executionState(for: projectID).isBusy else { return }
+        let state = executionState(for: projectID)
+        guard state == .idle || state == .parsingNextRound else { return }
         _ = await atomizeTargets(
             [RoundReference(partID: partID, roundID: roundID)],
             in: projectID,
@@ -226,6 +218,7 @@ final class ProjectRepository: ObservableObject {
             let updates = try await importer.atomizeRounds(in: record.project, targets: targets)
             applyAtomizedUpdates(updates, to: projectID)
             setExecutionState(.idle, for: projectID)
+            startAutoParseOfNextRound(for: projectID)
             return true
         } catch {
             let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
@@ -252,20 +245,52 @@ final class ProjectRepository: ObservableObject {
             .map { $0 }
     }
 
-    private func pendingNextRoundReferenceIfNeeded(for record: ProjectRecord) -> RoundReference? {
-        guard let currentRound = ExecutionEngine.currentRound(in: record.project, progress: record.progress),
-              currentRound.atomizationStatus == .ready,
-              currentRound.atomicActions.indices.contains(record.progress.cursor.actionIndex),
-              record.progress.cursor.actionIndex == currentRound.atomicActions.count - 1 else {
-            return nil
+    func onRoundDidAppear(projectID: UUID) async {
+        await handleRoundDidAppear(for: projectID)
+    }
+
+    private func handleRoundDidAppear(for projectID: UUID) async {
+        guard let record = record(for: projectID),
+              record.project.source.type.supportsDeferredAtomization,
+              record.progress.completedAt == nil,
+              let currentRound = ExecutionEngine.currentRound(in: record.project, progress: record.progress) else {
+            return
         }
 
-        guard let nextReference = ExecutionEngine.nextRoundReference(in: record.project, progress: record.progress),
-              let nextRound = round(for: nextReference, in: record.project),
-              nextRound.atomizationStatus == .pending else {
-            return nil
+        switch currentRound.atomizationStatus {
+        case .ready:
+            startAutoParseOfNextRound(for: projectID)
+        case .pending:
+            guard !executionState(for: projectID).isBusy else { return }
+            _ = await atomizeTargets(
+                [RoundReference(partID: record.progress.cursor.partID, roundID: currentRound.id)],
+                in: projectID,
+                pendingState: .bootstrapping
+            )
+        case .failed:
+            setExecutionState(.failed(currentRound.atomizationError ?? "步骤解析失败"), for: projectID)
         }
-        return nextReference
+    }
+
+    private func startAutoParseOfNextRound(for projectID: UUID) {
+        guard let record = record(for: projectID),
+              !executionState(for: projectID).isBusy,
+              let currentRound = ExecutionEngine.currentRound(in: record.project, progress: record.progress),
+              currentRound.atomizationStatus == .ready,
+              let nextRef = ExecutionEngine.nextRoundReference(in: record.project, progress: record.progress),
+              let nextRound = round(for: nextRef, in: record.project),
+              nextRound.atomizationStatus == .pending else {
+            return
+        }
+
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            _ = await self.atomizeTargets(
+                [nextRef],
+                in: projectID,
+                pendingState: .parsingNextRound
+            )
+        }
     }
 
     private func flattenedRoundReferences(for project: CrochetProject, from progress: ExecutionProgress) -> [RoundReference] {
@@ -284,22 +309,6 @@ final class ProjectRepository: ObservableObject {
         return references
     }
 
-    private func startNextRoundAtomizationIfNeeded(for record: ProjectRecord) {
-        guard !executionState(for: record.project.id).isBusy,
-              let nextReference = pendingNextRoundReferenceIfNeeded(for: record) else {
-            return
-        }
-
-        Task { @MainActor [weak self] in
-            guard let self else { return }
-            _ = await self.atomizeTargets(
-                [nextReference],
-                in: record.project.id,
-                pendingState: .parsingNextRound
-            )
-        }
-    }
-
     private func shouldPreserveRoundCompletionStateAfterFailure(
         for targets: [RoundReference],
         in projectID: UUID,
@@ -307,12 +316,11 @@ final class ProjectRepository: ObservableObject {
     ) -> Bool {
         guard pendingState == .parsingNextRound,
               let record = record(for: projectID),
-              let currentRound = ExecutionEngine.currentRound(in: record.project, progress: record.progress),
-              ExecutionEngine.isAwaitingNextRound(in: record.project, progress: record.progress) else {
+              let currentRound = ExecutionEngine.currentRound(in: record.project, progress: record.progress) else {
             return false
         }
 
-        return targets.contains { target in
+        return targets.allSatisfy { target in
             target.partID != record.progress.cursor.partID || target.roundID != currentRound.id
         }
     }

@@ -507,9 +507,9 @@ enum ProjectExecutionState: Hashable {
 
     var snapshotState: SnapshotExecutionState {
         switch self {
-        case .idle:
+        case .idle, .parsingNextRound:
             return .ready
-        case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound:
+        case .bootstrapping, .regeneratingCurrentRound:
             return .loading
         case .failed:
             return .failed
@@ -521,9 +521,9 @@ enum ProjectExecutionState: Hashable {
         case .idle:
             return nil
         case .bootstrapping:
-            return "正在解析前两圈"
+            return "正在解析当前圈"
         case .parsingNextRound:
-            return "正在解析下一圈"
+            return nil
         case .regeneratingCurrentRound:
             return "正在重新生成当前圈"
         case let .failed(message):
@@ -533,9 +533,9 @@ enum ProjectExecutionState: Hashable {
 
     var canAdvance: Bool {
         switch self {
-        case .idle:
+        case .idle, .parsingNextRound:
             return true
-        case .bootstrapping, .parsingNextRound, .regeneratingCurrentRound, .failed:
+        case .bootstrapping, .regeneratingCurrentRound, .failed:
             return false
         }
     }

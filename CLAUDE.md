@@ -322,3 +322,11 @@ Web/image → `PatternImportService` → `HTMLExtractionService` (web only) → 
 - Models are structs (value types); mutations via repository indices
 - `@MainActor` on ObservableObjects; Combine `@Published` for reactivity
 - `ExecutionEngine` is a pure enum of static methods — no state, easy to test
+
+
+# 必须遵守
+- 不要针对特定的 Pattern 产生的问题客制化 LLM 提示词，要从特定情况推导出一般情况，给出更加通用的解决方案。你的解决方案应该是能够解决这一类问题，而不是只对特定的 Pattern 中的写法有用
+- 避免通过正则表达式对 LLM 生成的内容进行清洗，因为这样的话最终会演变成不断增加正则表达式的复杂度来适配各种各样的情况。优先方案应该是想办法去约束 LLM 的输出，从而让 LLM 生成的内容更加符合预期。
+
+# 历史数据
+- 现在产品处于早期研发阶段，还没有上线，没有真实用户，所有涉及存储结构的改动，比如改动数据模型等，都不需要考虑历史数据的兼容性问题。
