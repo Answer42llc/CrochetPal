@@ -517,6 +517,12 @@ enum PromptFactory {
               "rawInstruction": "In a MR, sc 6. (6)",
               "summary": "Create a magic ring and work six single crochets into it.",
               "targetStitchCount": 6
+            },
+            {
+              "title": "Add stuffing",
+              "rawInstruction": "Add stuffing.",
+              "summary": "Add stuffing to the body before closing.",
+              "targetStitchCount": null
             }
           ]
         }
@@ -586,9 +592,10 @@ enum PromptFactory {
         - Keep only actionable crochet content.
         - Preserve part and round order from the source.
         - Preserve part names such as Body, Head, Eyes, Ears when present.
-        - Expand "Rounds N-M" into separate round objects, one per round number.
+        - Expand "Rounds N-M" into separate round objects, one per round number. For each expanded round, rewrite rawInstruction to describe only that single round — replace the range prefix (e.g., "Rounds 9-10:") with the individual round prefix (e.g., "Round 9:") so the instruction reads as a standalone single-round instruction.
         - Do not generate atomicActions in this stage.
         - If target stitch count is missing, use null.
+        - Non-stitch instructions that appear between rounds, before the first round, or after the last round (such as "Add stuffing", "Finish off and sew closed", "Add safety eyes", "Weave in ends") are important crafting steps. Capture each such instruction as its own separate round object with title set to the instruction text itself (e.g., "Add catnip and stuffing"), rawInstruction set to the original text, summary as a brief description, and targetStitchCount set to null. Place these instruction rounds in their correct sequential position among the stitch rounds.
         - If a required string is unclear, use the closest literal text from the pattern.
         - Do not restate the schema.
         - Do not add any text before or after the JSON object.
@@ -634,6 +641,7 @@ enum PromptFactory {
         - Return one JSON object only.
         - Preserve the order of the input rounds.
         - rawInstruction is the source of truth. Use summary only to improve note clarity.
+        - Each input round represents exactly one round of work. The title field identifies which single round it is. If rawInstruction still contains a multi-round range prefix like "Rounds 9-10", treat the instruction body as applying to just this single round — do not wrap it in a repeat segment for the number of rounds in the range. The range notation means the same instruction was used for multiple consecutive rounds, each sent to you independently.
         - stitchRun.type must be exactly one enum value from this list: \(supportedTypes).
         - control.kind must be exactly one enum value from this list: \(controlKinds).
         - Never use custom or control as an escape hatch for stitch-like content.
@@ -653,6 +661,7 @@ enum PromptFactory {
         - Contextual modifiers such as color, loop placement, round references, and placement guidance should stay in note, not control.
         - control is only for standalone control steps that should remain separate after expansion, such as turn or skip (skipping one or more stitches).
         - If control.kind is custom, instruction must contain the exact control wording to preserve.
+        - Instruction-only rounds (rounds with no stitch content, such as "Add stuffing" or "Finish off and sew closed") must produce exactly one control segment with kind=custom. The instruction field must contain the full instruction text.
         - Only include instruction when the default instruction would be misleading.
         - Every segment must include verbatim with the exact source snippet that the segment came from.
         - previousRoundStitchCount tells you how many stitches are available to work into from the previous round. Use it to verify or correct explicit repeat counts when the raw instruction contains a mathematical error.
@@ -689,6 +698,15 @@ enum PromptFactory {
            - Produced: 3 × 8 = 24 ≠ targetStitchCount (32), but previousRoundStitchCount confirms ×3
            - Correct output: repeat(times=3) — trust previousRoundStitchCount over targetStitchCount.
            - Incorrect output: times=4 — would require 28 stitches but only 21 are available.
+        10. Raw instruction: "Add catnip and stuffing."
+           - This is an instruction-only round with no stitches.
+           - Correct output: one control(kind=custom, instruction="Add catnip and stuffing")
+           - Incorrect output: any stitchRun segment — this round has no stitch content.
+        11. title: "Round 9", rawInstruction: "Rounds 9-10: sc around. (18)" with targetStitchCount=18, previousRoundStitchCount=18
+           - "Rounds 9-10" means this same instruction applies to Round 9 and Round 10, each sent independently.
+           - This input is for Round 9 alone: 18 sc stitches.
+           - Correct output: stitchRun(sc x18, note="around", notePlacement=all)
+           - Incorrect output: repeat(times=2, sequence=[stitchRun(sc x18)]) — "Rounds 9-10" is NOT a repeat instruction; each round is sent as a separate input.
 
         """
     }
@@ -740,6 +758,7 @@ enum PromptFactory {
         - sequence details are not needed; only return atomicActions with type, instruction, producedStitches, and optional note.
         - Preserve derived stitch abbreviations exactly when they appear. For example, fpdc stays fpdc and must not be reduced to dc.
         - Extract only what is visible in the image.
+        - Non-stitch instructions between rounds (such as "Add stuffing", "Finish off and sew closed") should be captured as their own round objects with a single atomicAction of type "custom", instruction containing the text, and producedStitches 0.
         - Preserve the original language used in the image when possible.
         - Do not restate the schema.
         - Do not add any text before or after the JSON object.
