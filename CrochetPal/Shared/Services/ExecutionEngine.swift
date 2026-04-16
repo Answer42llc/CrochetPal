@@ -221,7 +221,7 @@ enum ExecutionEngine {
             return "Done"
         }
         if isAwaitingNextRound {
-            return "Round Complete"
+            return "Complete"
         }
         if let currentAction {
             return currentAction.executionDisplayTitle

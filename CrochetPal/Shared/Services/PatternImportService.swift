@@ -254,17 +254,7 @@ struct PatternImportService: PatternImporting {
         let parts = payload.parts.map { part in
             PatternPart(
                 name: part.name,
-                rounds: part.rounds.map { round in
-                    PatternRound(
-                        title: round.title,
-                        rawInstruction: round.rawInstruction,
-                        summary: round.summary,
-                        targetStitchCount: round.targetStitchCount,
-                        atomizationStatus: .pending,
-                        atomizationError: nil,
-                        atomicActions: []
-                    )
-                }
+                rounds: Self.expandOutlinedRounds(part.rounds, logger: logger, context: context)
             )
         }
 
@@ -610,6 +600,190 @@ struct PatternImportService: PatternImporting {
             return "image/webp"
         }
         return "image/jpeg"
+    }
+
+    // MARK: - Macro-repeat expansion
+
+    /// Expands macro-repeat sentinels in outlined rounds into individual PatternRound objects.
+    /// Normal rounds pass through as-is. Macro-repeat sentinels (with repeatFromTitle,
+    /// repeatToTitle, and repeatUntilCount all set) are expanded by cycling through source rounds.
+    static func expandOutlinedRounds(
+        _ outlinedRounds: [OutlinedPatternRound],
+        logger: TraceLogging,
+        context: ParseRequestContext
+    ) -> [PatternRound] {
+        var result: [PatternRound] = []
+
+        for round in outlinedRounds {
+            guard let fromTitle = round.repeatFromTitle,
+                  let toTitle = round.repeatToTitle,
+                  let untilCount = round.repeatUntilCount else {
+                // Normal round — pass through.
+                result.append(PatternRound(
+                    title: round.title,
+                    rawInstruction: round.rawInstruction,
+                    summary: round.summary,
+                    targetStitchCount: round.targetStitchCount,
+                    atomizationStatus: .pending,
+                    atomizationError: nil,
+                    atomicActions: []
+                ))
+                continue
+            }
+
+            // Macro-repeat sentinel — find source rounds and expand.
+            let sourceRounds = findSourceRounds(
+                from: fromTitle,
+                to: toTitle,
+                in: outlinedRounds
+            )
+
+            guard !sourceRounds.isEmpty else {
+                // Source rounds not found — graceful degradation.
+                logger.log(LogEvent(
+                    timestamp: .now,
+                    level: "warning",
+                    traceID: context.traceID,
+                    parseRequestID: context.parseRequestID,
+                    projectID: nil,
+                    sourceType: nil,
+                    stage: "macro_repeat_expansion",
+                    decision: "fallback",
+                    reason: "source_rounds_not_found",
+                    durationMS: nil,
+                    metadata: [
+                        "repeatFromTitle": fromTitle,
+                        "repeatToTitle": toTitle
+                    ]
+                ))
+                result.append(PatternRound(
+                    title: round.title,
+                    rawInstruction: round.rawInstruction,
+                    summary: round.summary,
+                    targetStitchCount: round.targetStitchCount,
+                    atomizationStatus: .pending,
+                    atomizationError: nil,
+                    atomicActions: []
+                ))
+                continue
+            }
+
+            // Use repeatAfterRow (LLM-provided) for correct row numbering;
+            // fall back to result.count when the field is absent.
+            let afterRow = round.repeatAfterRow ?? result.count
+            let needed = untilCount - afterRow
+
+            guard needed > 0 else {
+                // Already at or past target — skip expansion.
+                logger.log(LogEvent(
+                    timestamp: .now,
+                    level: "warning",
+                    traceID: context.traceID,
+                    parseRequestID: context.parseRequestID,
+                    projectID: nil,
+                    sourceType: nil,
+                    stage: "macro_repeat_expansion",
+                    decision: "skip",
+                    reason: "already_past_target",
+                    durationMS: nil,
+                    metadata: [
+                        "afterRow": "\(afterRow)",
+                        "repeatUntilCount": "\(untilCount)"
+                    ]
+                ))
+                result.append(PatternRound(
+                    title: round.title,
+                    rawInstruction: round.rawInstruction,
+                    summary: round.summary,
+                    targetStitchCount: round.targetStitchCount,
+                    atomizationStatus: .pending,
+                    atomizationError: nil,
+                    atomicActions: []
+                ))
+                continue
+            }
+
+            let cycleLength = sourceRounds.count
+            for i in 0..<needed {
+                let sourceIndex = i % cycleLength
+                let source = sourceRounds[sourceIndex]
+                let newRowNumber = afterRow + i + 1
+                let newTitle = replaceTrailingNumber(
+                    in: source.title,
+                    with: newRowNumber
+                )
+                result.append(PatternRound(
+                    title: newTitle,
+                    rawInstruction: source.rawInstruction,
+                    summary: source.summary,
+                    targetStitchCount: source.targetStitchCount,
+                    atomizationStatus: .pending,
+                    atomizationError: nil,
+                    atomicActions: [],
+                    macroRepeatSourceIndex: sourceIndex
+                ))
+            }
+
+            logger.log(LogEvent(
+                timestamp: .now,
+                level: "debug",
+                traceID: context.traceID,
+                parseRequestID: context.parseRequestID,
+                projectID: nil,
+                sourceType: nil,
+                stage: "macro_repeat_expansion",
+                decision: "expanded",
+                reason: "macro_repeat_expanded",
+                durationMS: nil,
+                metadata: [
+                    "sourceRoundCount": "\(cycleLength)",
+                    "expandedRoundCount": "\(needed)",
+                    "totalRoundsAfterExpansion": "\(result.count)"
+                ]
+            ))
+        }
+
+        return result
+    }
+
+    /// Finds the contiguous subsequence of outlined rounds whose titles match
+    /// the range [fromTitle...toTitle].
+    static func findSourceRounds(
+        from fromTitle: String,
+        to toTitle: String,
+        in rounds: [OutlinedPatternRound]
+    ) -> [OutlinedPatternRound] {
+        guard let startIndex = rounds.firstIndex(where: { $0.title == fromTitle }) else {
+            return []
+        }
+        guard let endIndex = rounds.firstIndex(where: { $0.title == toTitle }),
+              endIndex >= startIndex else {
+            return []
+        }
+        return Array(rounds[startIndex...endIndex])
+    }
+
+    /// Replaces the last contiguous sequence of digits in the title with a new number.
+    /// e.g. "Row 6" → "Row 14", "Round 13" → "Round 21".
+    /// If no digits are found, appends " {number}".
+    static func replaceTrailingNumber(
+        in title: String,
+        with newNumber: Int
+    ) -> String {
+        guard let lastDigitIndex = title.lastIndex(where: { $0.isNumber }) else {
+            return "\(title) \(newNumber)"
+        }
+
+        // Walk backwards from the last digit to find the start of the contiguous digit sequence.
+        var start = lastDigitIndex
+        while start > title.startIndex {
+            let prev = title.index(before: start)
+            guard title[prev].isNumber else { break }
+            start = prev
+        }
+
+        let end = title.index(after: lastDigitIndex)
+        return String(title[title.startIndex..<start]) + "\(newNumber)" + String(title[end..<title.endIndex])
     }
 }
 

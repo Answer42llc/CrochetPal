@@ -17,6 +17,16 @@ struct OutlinedPatternRound: Codable, Hashable {
     var rawInstruction: String
     var summary: String
     var targetStitchCount: Int?
+    /// For macro-repeat instructions (e.g. "Repeat Rows 6-13 until 118 rows"):
+    /// title of the first round in the repeating cycle.
+    var repeatFromTitle: String?
+    /// Title of the last round in the repeating cycle.
+    var repeatToTitle: String?
+    /// Target total round/row count the pattern wants to reach.
+    var repeatUntilCount: Int?
+    /// The row/round number of the last numbered row before this repeat instruction.
+    /// E.g. if rows 1-13 precede "Repeat Rows 6-13 until 118", set to 13.
+    var repeatAfterRow: Int?
 }
 
 struct PatternParseResponse: Codable, Hashable {

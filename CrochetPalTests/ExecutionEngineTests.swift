@@ -241,7 +241,7 @@ final class ExecutionEngineTests: XCTestCase {
         let snapshot = ExecutionEngine.snapshot(for: record, executionState: .parsingNextRound)
 
         XCTAssertEqual(snapshot.roundTitle, "Round 1")
-        XCTAssertEqual(snapshot.actionTitle, "Round Complete")
+        XCTAssertEqual(snapshot.actionTitle, "Complete")
         XCTAssertEqual(snapshot.actionHint, "Tap Enter Next Round when you're ready.")
         XCTAssertEqual(snapshot.nextActionTitle, "SC")
         XCTAssertEqual(snapshot.stitchProgress, 6)

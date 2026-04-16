@@ -516,13 +516,31 @@ enum PromptFactory {
               "title": "Round 1",
               "rawInstruction": "In a MR, sc 6. (6)",
               "summary": "Create a magic ring and work six single crochets into it.",
-              "targetStitchCount": 6
+              "targetStitchCount": 6,
+              "repeatFromTitle": null,
+              "repeatToTitle": null,
+              "repeatUntilCount": null,
+              "repeatAfterRow": null
+            },
+            {
+              "title": "Repeat Rounds 2-5",
+              "rawInstruction": "Repeat Rounds 2-5 until you have 20 rounds total.",
+              "summary": "Cycle through rounds 2-5 until the body reaches 20 rounds.",
+              "targetStitchCount": null,
+              "repeatFromTitle": "Round 2",
+              "repeatToTitle": "Round 5",
+              "repeatUntilCount": 20,
+              "repeatAfterRow": 5
             },
             {
               "title": "Add stuffing",
               "rawInstruction": "Add stuffing.",
               "summary": "Add stuffing to the body before closing.",
-              "targetStitchCount": null
+              "targetStitchCount": null,
+              "repeatFromTitle": null,
+              "repeatToTitle": null,
+              "repeatUntilCount": null,
+              "repeatAfterRow": null
             }
           ]
         }
@@ -592,7 +610,10 @@ enum PromptFactory {
         - Keep only actionable crochet content.
         - Preserve part and round order from the source.
         - Preserve part names such as Body, Head, Eyes, Ears when present.
-        - Expand "Rounds N-M" into separate round objects, one per round number. For each expanded round, rewrite rawInstruction to describe only that single round — replace the range prefix (e.g., "Rounds 9-10:") with the individual round prefix (e.g., "Round 9:") so the instruction reads as a standalone single-round instruction.
+        - Expand "Rounds N-M" into separate round objects, one per round number. For each expanded round, rewrite rawInstruction to describe only that single round — replace the range prefix (e.g., "Rounds 9-10:") with the individual round prefix (e.g., "Round 9:") so the instruction reads as a standalone single-round instruction. Set repeatFromTitle, repeatToTitle, and repeatUntilCount to null for these expanded rounds.
+        - Macro-repeat: When the pattern says to repeat a sequence of previously defined rows/rounds until a total row/round count is reached (e.g., "Repeat Rows 6-13 until you have a total of 118 rows", "Rep rounds 2-5 for a total of 40 rounds"), emit exactly ONE placeholder round object. Set its title to a descriptive label (e.g., "Repeat Rows 6-13"), rawInstruction to the original verbatim text, summary to a brief description, targetStitchCount to null, repeatFromTitle to the title of the first round in the repeating cycle (e.g., "Row 6"), repeatToTitle to the title of the last round in the repeating cycle (e.g., "Row 13"), repeatUntilCount to the total number of rows/rounds the pattern wants (e.g., 118), and repeatAfterRow to the row/round number of the last numbered row that appears before this macro-repeat instruction in the pattern (e.g., if the repeat comes right after Row 13, set to 13; if rows 1-14 exist before the repeat, set to 14; non-stitch instruction rounds like "Foundation Chain" or "Add stuffing" do not count). Do NOT expand the macro-repeat into individual rounds yourself — the app will handle the expansion. This is different from "Rounds N-M" range expansion: range expansion is for one instruction covering multiple consecutive rounds with the same work; macro-repeat is for re-cycling through a previously defined sequence of rounds to reach a total count.
+        - If additional instructions follow the macro-repeat in the same sentence or paragraph (such as "Then do one more row of sc" or "Weave in ends"), capture each such instruction as its own separate round object placed after the macro-repeat placeholder, following the existing rule for non-stitch instructions.
+        - For all normal rounds and non-stitch instruction rounds, set repeatFromTitle, repeatToTitle, repeatUntilCount, and repeatAfterRow to null.
         - Do not generate atomicActions in this stage.
         - If target stitch count is missing, use null.
         - Non-stitch instructions that appear between rounds, before the first round, or after the last round (such as "Add stuffing", "Finish off and sew closed", "Add safety eyes", "Weave in ends") are important crafting steps. Capture each such instruction as its own separate round object with title set to the instruction text itself (e.g., "Add catnip and stuffing"), rawInstruction set to the original text, summary as a brief description, and targetStitchCount set to null. Place these instruction rounds in their correct sequential position among the stitch rounds.
@@ -925,13 +946,21 @@ enum PromptFactory {
                 "title": ["type": "string"],
                 "rawInstruction": ["type": "string"],
                 "summary": ["type": "string"],
-                "targetStitchCount": nullableIntegerSchema()
+                "targetStitchCount": nullableIntegerSchema(),
+                "repeatFromTitle": nullableStringSchema(),
+                "repeatToTitle": nullableStringSchema(),
+                "repeatUntilCount": nullableIntegerSchema(),
+                "repeatAfterRow": nullableIntegerSchema()
             ],
             "required": [
                 "title",
                 "rawInstruction",
                 "summary",
-                "targetStitchCount"
+                "targetStitchCount",
+                "repeatFromTitle",
+                "repeatToTitle",
+                "repeatUntilCount",
+                "repeatAfterRow"
             ]
         ]
     }

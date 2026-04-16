@@ -341,9 +341,54 @@ final class ProjectRepository: ObservableObject {
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationWarning = update.warning
         }
 
+        propagateAtomizationToMatchingRounds(updates, in: projectIndex)
+
         records[projectIndex].project.updatedAt = .now
         persist()
         pushActiveSnapshot()
+    }
+
+    /// Propagates atomization results to pending rounds that share the same
+    /// macroRepeatSourceIndex as newly atomized rounds. Only macro-repeat expanded
+    /// rounds (non-nil index) are eligible — regular rounds are never propagated.
+    private func propagateAtomizationToMatchingRounds(_ updates: [AtomizedRoundUpdate], in projectIndex: Int) {
+        for update in updates {
+            guard let partIndex = records[projectIndex].project.parts.firstIndex(where: { $0.id == update.reference.partID }),
+                  let roundIndex = records[projectIndex].project.parts[partIndex].rounds.firstIndex(where: { $0.id == update.reference.roundID }) else {
+                continue
+            }
+
+            let atomizedRound = records[projectIndex].project.parts[partIndex].rounds[roundIndex]
+            guard let sourceIndex = atomizedRound.macroRepeatSourceIndex else {
+                continue
+            }
+
+            for pIdx in records[projectIndex].project.parts.indices {
+                for rIdx in records[projectIndex].project.parts[pIdx].rounds.indices {
+                    let candidate = records[projectIndex].project.parts[pIdx].rounds[rIdx]
+                    guard candidate.atomizationStatus == .pending,
+                          candidate.macroRepeatSourceIndex == sourceIndex else {
+                        continue
+                    }
+
+                    let copiedActions = update.atomicActions.map { action in
+                        AtomicAction(
+                            type: action.type,
+                            instruction: action.instruction,
+                            producedStitches: action.producedStitches,
+                            note: action.note,
+                            sequenceIndex: action.sequenceIndex
+                        )
+                    }
+
+                    records[projectIndex].project.parts[pIdx].rounds[rIdx].atomicActions = copiedActions
+                    records[projectIndex].project.parts[pIdx].rounds[rIdx].targetStitchCount = update.resolvedTargetStitchCount
+                    records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationStatus = .ready
+                    records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationError = nil
+                    records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationWarning = update.warning
+                }
+            }
+        }
     }
 
     private func markRoundsFailed(_ targets: [RoundReference], in projectID: UUID, message: String) {
@@ -391,6 +436,34 @@ final class ProjectRepository: ObservableObject {
         activeProjectID = record.project.id
         persist()
         pushActiveSnapshot()
+        autoParseFirstRound(for: record.project.id)
+    }
+
+    /// Automatically atomizes the first round of a newly imported deferred-atomization
+    /// project so it is ready when the user enters execution.
+    private func autoParseFirstRound(for projectID: UUID) {
+        guard let record = record(for: projectID),
+              record.project.source.type.supportsDeferredAtomization,
+              record.project.parts.first?.rounds.first?.atomizationStatus == .pending else {
+            return
+        }
+
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            // Re-check state inside Task to avoid racing with prepareExecution
+            guard !self.executionState(for: projectID).isBusy,
+                  let currentRecord = self.record(for: projectID),
+                  let firstPart = currentRecord.project.parts.first,
+                  let firstRound = firstPart.rounds.first,
+                  firstRound.atomizationStatus == .pending else {
+                return
+            }
+            _ = await self.atomizeTargets(
+                [RoundReference(partID: firstPart.id, roundID: firstRound.id)],
+                in: projectID,
+                pendingState: .bootstrapping
+            )
+        }
     }
 
     private func load() {
