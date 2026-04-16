@@ -615,7 +615,7 @@ enum PromptFactory {
         - If additional instructions follow the macro-repeat in the same sentence or paragraph (such as "Then do one more row of sc" or "Weave in ends"), capture each such instruction as its own separate round object placed after the macro-repeat placeholder, following the existing rule for non-stitch instructions.
         - For all normal rounds and non-stitch instruction rounds, set repeatFromTitle, repeatToTitle, repeatUntilCount, and repeatAfterRow to null.
         - Do not generate atomicActions in this stage.
-        - If target stitch count is missing, use null.
+        - targetStitchCount must only be set when the pattern text explicitly states a stitch count for that round (e.g., a number in parentheses such as "(18)" or "(6 sts)" at the end of the instruction). Do NOT calculate or infer targetStitchCount from the stitch operations — even if you can derive it mathematically. If no explicit stitch count appears in the pattern text for that round, set targetStitchCount to null.
         - Non-stitch instructions that appear between rounds, before the first round, or after the last round (such as "Add stuffing", "Finish off and sew closed", "Add safety eyes", "Weave in ends") are important crafting steps. Capture each such instruction as its own separate round object with title set to the instruction text itself (e.g., "Add catnip and stuffing"), rawInstruction set to the original text, summary as a brief description, and targetStitchCount set to null. Place these instruction rounds in their correct sequential position among the stitch rounds.
         - If a required string is unclear, use the closest literal text from the pattern.
         - Do not restate the schema.
@@ -671,6 +671,8 @@ enum PromptFactory {
         - Do not collapse derived stitch abbreviations into their base stitch. For example, fpdc must stay fpdc, not dc with a "front post" note.
         - Compress consecutive identical stitches into one stitchRun. "7sc" must become one stitchRun with type sc and count 7.
         - Use repeat when the source expresses repeated structure. "(sc 2, inc) x 3" should become one repeat segment whose sequence is [sc x2, inc x1] and whose times is 3.
+        - Only use repeat kind when the source contains an explicit repetition count (×3, x3, "3 times", "4x", etc.). A parenthesized or bracketed stitch group WITHOUT a ×N suffix is NOT a repeat — it means multiple stitches worked into the same stitch or stitch space. Common non-repeat groups: "(hdc, 2 dc, hdc)" (ear/peak into one st), "(3 dc in same st)" (shell/fan), "[dc, ch 1, dc] in corner" (V-stitch), "(yo, insert, pull up loop)" technique descriptions. Expand these as consecutive stitchRun segments with notes indicating they share the same stitch.
+        - times must always be a concrete positive integer when kind=repeat. Never output kind=repeat with times=null. If you cannot determine a concrete integer for times, do not use kind=repeat — flatten the contents as individual stitchRun segments instead.
         - Preserve the original stitch order after expansion.
         - stitchRun.note must be short, readable context. Use notePlacement to say whether the note applies to the first stitch, last stitch, or every stitch in that run.
         - For stitchRun, notePlacement must never be null. If stitchRun.note is null, use notePlacement=first as the default placeholder.
@@ -685,9 +687,10 @@ enum PromptFactory {
         - Instruction-only rounds (rounds with no stitch content, such as "Add stuffing" or "Finish off and sew closed") must produce exactly one control segment with kind=custom. The instruction field must contain the full instruction text.
         - Only include instruction when the default instruction would be misleading.
         - Every segment must include verbatim with the exact source snippet that the segment came from.
-        - previousRoundStitchCount tells you how many stitches are available to work into from the previous round. Use it to verify or correct explicit repeat counts when the raw instruction contains a mathematical error.
-        - When previousRoundStitchCount and targetStitchCount imply different repeat counts, trust previousRoundStitchCount — it is a hard physical constraint (you cannot work into stitches that do not exist), whereas targetStitchCount is a pattern-author annotation that may contain typos.
-        - Conflict resolution: calculate consumedPerRepeat (sum of stitches each action consumes). If previousRoundStitchCount / consumedPerRepeat gives an integer that differs from the explicit repeat count, use previousRoundStitchCount / consumedPerRepeat.
+        - previousRoundStitchCount tells you how many stitches are available to work into from the previous round. It is a hard physical constraint — you cannot work into stitches that do not exist.
+        - ALWAYS use previousRoundStitchCount (when provided) to verify and correct explicit repeat counts. This applies regardless of whether targetStitchCount is null or not. When targetStitchCount is null, previousRoundStitchCount is the ONLY available constraint and becomes even more critical.
+        - Conflict resolution: calculate consumedPerRepeat (sum of stitches each action consumes). If previousRoundStitchCount / consumedPerRepeat gives an integer that differs from the explicit repeat count, use previousRoundStitchCount / consumedPerRepeat. This rule applies whether targetStitchCount is present or null.
+        - For "around" instructions (e.g., "sc around", "dc around") with no explicit count: when previousRoundStitchCount is provided, the count equals previousRoundStitchCount (one stitch per available stitch from the previous round).
         Golden examples:
         1. Raw instruction: "With off white, ch 114"
            - Correct output: one stitchRun(type=ch, count=114, note="with off white yarn", notePlacement=all)
@@ -728,6 +731,27 @@ enum PromptFactory {
            - This input is for Round 9 alone: 18 sc stitches.
            - Correct output: stitchRun(sc x18, note="around", notePlacement=all)
            - Incorrect output: repeat(times=2, sequence=[stitchRun(sc x18)]) — "Rounds 9-10" is NOT a repeat instruction; each round is sent as a separate input.
+        12. Raw instruction: "(sc 6, inc) ×4" with targetStitchCount=null, previousRoundStitchCount=21
+           - targetStitchCount is null (pattern did not provide a stitch count)
+           - Each repeat: sc 6 + inc 1 = consumes 7 stitches, produces 8 stitches
+           - Available stitches from previous round: 21 / 7 = 3 repeats (not 4 as written)
+           - previousRoundStitchCount is the ONLY constraint; it proves only 3 repeats fit
+           - Correct output: repeat(sequence=[stitchRun(sc x6), stitchRun(inc x1)], times=3)
+           - Incorrect output: times=4 — would require 28 stitches but only 21 are available.
+        13. Raw instruction: "sc around" with targetStitchCount=null, previousRoundStitchCount=21
+           - targetStitchCount is null, but previousRoundStitchCount=21 tells us there are 21 stitches to work into
+           - "sc around" means one sc in each available stitch
+           - Correct output: stitchRun(sc x21, note="around", notePlacement=all)
+           - Incorrect output: any count other than 21 — "around" means working into every available stitch from the previous round.
+        14. Raw instruction: "in flo of next st (hdc, 2 dc, hdc) to form first ear"
+           - (hdc, 2 dc, hdc) has no ×N suffix — these are stitches worked into ONE stitch (ear/peak formation), not a repeat
+           - Correct output: stitchRun(hdc x1, note="in FLO of next stitch", notePlacement=first), stitchRun(dc x2, note="in same FLO stitch"), stitchRun(hdc x1, note="ear formed, in same FLO stitch", notePlacement=last)
+           - Incorrect output: repeat(times=null, ...) — times must never be null; a (stitch group) without ×N is not a repeat.
+           - Contrast: "(hdc, 2 dc, hdc) ×3" WOULD be repeat(times=3) because ×3 is explicit.
+        15. Raw instruction: "(3 dc in same st)"
+           - No ×N repeat count — this is a shell/fan stitch: 3 dc all worked into the same stitch
+           - Correct output: stitchRun(dc x3, note="in same stitch", notePlacement=all)
+           - Incorrect output: repeat(times=null, sequence=[stitchRun(dc x1)]) — "3 dc" is the stitch count, not a repeat multiplier for the group.
 
         """
     }
