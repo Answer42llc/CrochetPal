@@ -108,6 +108,7 @@ final class ProjectRepository: ObservableObject {
         switch currentRound.atomizationStatus {
         case .ready:
             setExecutionState(.idle, for: projectID)
+            startAutoParseOfNextRound(for: projectID)
             return
         case .failed:
             setExecutionState(.failed(currentRound.atomizationError ?? "步骤解析失败"), for: projectID)
@@ -206,7 +207,8 @@ final class ProjectRepository: ObservableObject {
     private func atomizeTargets(
         _ targets: [RoundReference],
         in projectID: UUID,
-        pendingState: ProjectExecutionState
+        pendingState: ProjectExecutionState,
+        prefetchNext: Bool = true
     ) async -> Bool {
         guard !targets.isEmpty, let record = record(for: projectID) else {
             return true
@@ -218,7 +220,9 @@ final class ProjectRepository: ObservableObject {
             let updates = try await importer.atomizeRounds(in: record.project, targets: targets)
             applyAtomizedUpdates(updates, to: projectID)
             setExecutionState(.idle, for: projectID)
-            startAutoParseOfNextRound(for: projectID)
+            if prefetchNext {
+                startAutoParseOfNextRound(for: projectID)
+            }
             return true
         } catch {
             let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
@@ -461,7 +465,8 @@ final class ProjectRepository: ObservableObject {
             _ = await self.atomizeTargets(
                 [RoundReference(partID: firstPart.id, roundID: firstRound.id)],
                 in: projectID,
-                pendingState: .bootstrapping
+                pendingState: .bootstrapping,
+                prefetchNext: false
             )
         }
     }
