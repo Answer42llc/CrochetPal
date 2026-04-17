@@ -60,6 +60,9 @@ struct ExecutionView: View {
                             .font(.headline)
                         Text(snapshot.actionTitle)
                             .font(.system(size: 44, weight: .bold, design: .rounded))
+                            .lineLimit(nil)
+                            .minimumScaleFactor(0.5)
+                            .fixedSize(horizontal: false, vertical: true)
                         if let actionHint = snapshot.actionHint, !actionHint.isEmpty {
                             Text(actionHint)
                                 .font(.title3)
