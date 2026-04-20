@@ -79,8 +79,42 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
             responseFormat: PromptFactory.atomizationResponseFormat(),
             providerPayload: textProviderPayload(for: configuration.atomizationModelID),
             temperature: 0,
+            reasoning: ["effort": "none"],
             repairModelID: configuration.atomizationModelID,
             repairProviderPayload: textProviderPayload(for: configuration.atomizationModelID)
+        )
+    }
+
+    /// 调试用：直接使用调用方提供的 system / user 提示词命中 atomization 端点。
+    /// 仅供测试调用 —— 绕过 `PromptFactory` 以便在测试中直接改提示词做 A/B。
+    /// 响应格式、温度、repair 策略与生产 `atomizeTextRounds` 一致；
+    /// `modelID` 和 `reasoning` 可在测试中单独覆盖。
+    /// - Parameters:
+    ///   - modelID: 覆盖模型 ID；传 `nil` 使用 `configuration.atomizationModelID`。
+    ///   - reasoning: 覆盖 reasoning 配置（effort 档位 / maxTokens 预算 / 不发送）。
+    func atomizeTextRoundsWithCustomPrompts(
+        systemPrompt: String,
+        userPrompt: String,
+        context: ParseRequestContext,
+        modelID: String? = nil,
+        reasoning: AtomizationReasoningConfig = .effort("medium")
+    ) async throws -> RoundAtomizationResponse {
+        let resolvedModelID = modelID ?? configuration.atomizationModelID
+        let messages: [[String: Any]] = [
+            ["role": "system", "content": systemPrompt],
+            ["role": "user", "content": userPrompt]
+        ]
+        return try await sendChatCompletion(
+            modelID: resolvedModelID,
+            messagePayload: messages,
+            context: context,
+            modelKind: "round_atomizer_debug",
+            responseFormat: PromptFactory.atomizationResponseFormat(),
+            providerPayload: textProviderPayload(for: resolvedModelID),
+            temperature: 0,
+            reasoning: reasoning.payload,
+            repairModelID: resolvedModelID,
+            repairProviderPayload: textProviderPayload(for: resolvedModelID)
         )
     }
 
@@ -122,6 +156,7 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
         responseFormat: JSONObject,
         providerPayload: JSONObject? = nil,
         temperature: Double = 0.1,
+        reasoning: JSONObject? = nil,
         allowsRepair: Bool = true,
         repairModelID: String? = nil,
         repairProviderPayload: JSONObject? = nil
@@ -144,6 +179,9 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
         }
         if let providerPayload {
             body["provider"] = providerPayload
+        }
+        if let reasoning {
+            body["reasoning"] = reasoning
         }
         let requestBody = try JSONSerialization.data(withJSONObject: body)
         request.httpBody = requestBody
@@ -615,7 +653,7 @@ enum PromptFactory {
         - If additional instructions follow the macro-repeat in the same sentence or paragraph (such as "Then do one more row of sc" or "Weave in ends"), capture each such instruction as its own separate round object placed after the macro-repeat placeholder, following the existing rule for non-stitch instructions.
         - For all normal rounds and non-stitch instruction rounds, set repeatFromTitle, repeatToTitle, repeatUntilCount, and repeatAfterRow to null.
         - Do not generate atomicActions in this stage.
-        - targetStitchCount must only be set when the pattern text explicitly states a stitch count for that round (e.g., a number in parentheses such as "(18)" or "(6 sts)" at the end of the instruction). Do NOT calculate or infer targetStitchCount from the stitch operations — even if you can derive it mathematically. If no explicit stitch count appears in the pattern text for that round, set targetStitchCount to null.
+        - targetStitchCount is the final-stitch-count annotation that pattern authors write at the END of a round's rawInstruction, enclosed in parentheses — e.g., "(18)", "(6 sts)", "(24 sc)", "(113 stitches)". Only set targetStitchCount when such an end-of-instruction parenthesized stitch-count annotation exists; otherwise set targetStitchCount to null. Do NOT calculate or infer targetStitchCount from the stitch operations in the instruction — even if the math is obvious. Parenthesized content that is not at the end of the instruction, or that describes something other than a stitch count (for example "(the 5th grey st from the left)", "(Round 5)", "(with color A)", "(count as 1dc)"), is NEVER a stitch count — in those cases targetStitchCount must be null.
         - Non-stitch instructions that appear between rounds, before the first round, or after the last round (such as "Add stuffing", "Finish off and sew closed", "Add safety eyes", "Weave in ends") are important crafting steps. Capture each such instruction as its own separate round object with title set to the instruction text itself (e.g., "Add catnip and stuffing"), rawInstruction set to the original text, summary as a brief description, and targetStitchCount set to null. Place these instruction rounds in their correct sequential position among the stitch rounds.
         - If a required string is unclear, use the closest literal text from the pattern.
         - Do not restate the schema.
@@ -651,108 +689,125 @@ enum PromptFactory {
         let controlKinds = ControlSegmentKind.allCases.map(\.rawValue).joined(separator: ", ")
 
         return """
-        You are a crochet master. Convert each crochet round into structured summary segments that a deterministic program can expand into final atomic actions.
+              You are a crochet master. Convert each crochet round into structured summary segments that a deterministic program can expand into final atomic actions.
+              Segment kinds:
+              - stitchRun: one stitch type repeated count times
+              - repeat: a repeated sequence of segments
+              - control: a non-stitch control action such as turning the work
+              Rules:
+              - Return one JSON object only.
+              - rawInstruction is the source of truth. Use summary only to improve note clarity.
+              - Each input round represents exactly one round of work. The title field identifies which single round it is. If rawInstruction still contains a multi-round range prefix like "Rounds 9-10", treat the instruction body as applying to just this single round — do not wrap it in a repeat segment for the number of rounds in the range. The range notation means the same instruction was used for multiple consecutive rounds, each sent to you independently.
+              - stitchRun.type must be exactly one enum value from this list: \(supportedTypes).
+              - control.kind must be exactly one enum value from this list: \(controlKinds).
+              - Never use custom or control as an escape hatch for stitch-like content.
+              - Never output descriptive terms such as blo, flo, front loop only, back loop only, or color-change text as stitchRun.type.
+              - Never output natural-language stitch names such as "magic loop", "magic ring", "slip stitch", or "fasten off" as stitchRun.type.
+              - Do not collapse derived stitch abbreviations into their base stitch. For example, fpdc must stay fpdc, not dc with a "front post" note.
+              - Specialty textured stitches — popcorn ("pc"), puff ("ps"), bobble ("bo") — have dedicated enum values (popcorn / puff / bobble). Emit them as stitchRun(type=popcorn | puff | bobble, count=N) directly. Do not split them into their component yarn-overs / pull-throughs, do not map them to custom, and never map them to fo (fasten off is a finishing step, not a specialty stitch).
+              - Compress consecutive identical stitches into one stitchRun. "7sc" must become one stitchRun with type sc and count 7.
+              - Use repeat when the source expresses repeated structure. "(sc 2, inc) x 3" should become one repeat segment whose sequence is [sc x2, inc x1] and whose times is 3.
+              - Only use repeat kind when the source contains an explicit repetition count (×3, x3, "3 times", "4x", etc.). A parenthesized or bracketed stitch group WITHOUT a ×N suffix is NOT a repeat — it means multiple stitches worked into the same stitch or stitch space. Common non-repeat groups: "(hdc, 2 dc, hdc)" (ear/peak into one st), "(3 dc in same st)" (shell/fan), "[dc, ch 1, dc] in corner" (V-stitch), "(yo, insert, pull up loop)" technique descriptions. Expand these as consecutive stitchRun segments with notes indicating they share the same stitch. If the source contains specific instructions regarding a particular repetition, such as changes in the procedure or adjustments in dosage, separate this repetition from those that come before or after it in the output.
+              - times must always be a concrete positive integer when kind=repeat. Never output kind=repeat with times=null. If you cannot determine a concrete integer for times, do not use kind=repeat — flatten the contents as individual stitchRun segments instead.
+              - Preserve the original stitch order after expansion.
+              - stitchRun.note must be short, readable context. Use notePlacement to say whether the note applies to the first stitch, last stitch, or every stitch in that run.
+              - For stitchRun, notePlacement must never be null. If stitchRun.note is null, use notePlacement=first as the default placeholder.
+              - Use notePlacement=first for leading placement guidance such as "in the 2nd ch from the hook".
+              - Use notePlacement=last for trailing follow-up guidance such as "change color".
+              - Use notePlacement=all for context that applies to the whole run such as yarn color or FLO/BLO placement.
+              - Inside note text, spell out common crochet abbreviations into their full English names so a non-expert reader can understand without a glossary. Apply this to stitch names (sc → single crochet, hdc → half double crochet, dc → double crochet, tr → treble crochet, dtr → double treble crochet, sl st → slip stitch, fpdc → front post double crochet, bpdc → back post double crochet, and all other similar abbreviations), loop/post descriptors (FLO / flo → front loop only, BLO / blo → back loop only, fp → front post, bp → back post), and common shorthand (st → stitch, sts → stitches, rnd → round, ch → chain, MR → magic ring, yo → yarn over, tog → together, rep → repeat, beg → beginning, rem → remaining). The expansion only applies to note text; stitchRun.type, control.kind, and instruction still use the canonical short forms.
+              - For stitchRun, producedStitches must be null. The app already calculates stitch contribution from stitchRun.type.
+              - Every segment object must include every schema key. When a field does not apply to that segment kind, set it to null instead of omitting it.
+              - Contextual modifiers such as color, loop placement, round references, and placement guidance should stay in note, not control.
+              - control is only for standalone control steps that should remain separate after expansion, such as turn. Skipping stitches is NOT a control — emit "sk" / "skip next N sts" as stitchRun(type=skip, count=N) so it participates in stitch ordering like any other stitch-level action. Never emit control.kind=skip.
+              - If control.kind is custom, instruction must contain the exact control wording to preserve.
+              - Instruction-only rounds (rounds with no stitch content, such as "Add stuffing" or "Finish off and sew closed") must produce exactly one control segment with kind=custom. The instruction field must contain the full instruction text.
+              - Only include instruction when the default instruction would be misleading.
+              - For stitchRun with type=inc or type=dec, instruction MUST explicitly name the base stitch of the increase/decrease (e.g., "sc inc", "hdc inc", "dc inc", "sc dec", "hdc dec", "dc dec"). The bare word "inc" / "dec" is too ambiguous — the base stitch changes how the user physically works it. Determine the base stitch from the rawInstruction context: explicit forms like "hdc inc" / "2 hdc in same st" / "dc2tog" map directly; when the pattern only writes "inc" or "dec", infer from the other stitches used in the same round when they are uniform; if still ambiguous, default to "sc inc" / "sc dec" (the amigurumi default). Keep instruction as a short phrase, not a sentence.
+              - Every segment must include verbatim with the exact source snippet that the segment came from.
+              - previousRoundStitchCount tells you how many stitches are available to work into from the previous round. It is a hard physical constraint — you cannot work into stitches that do not exist.
+              - ALWAYS use previousRoundStitchCount (when provided) to verify and correct explicit repeat counts. This applies regardless of whether targetStitchCount is null or not. When targetStitchCount is null, previousRoundStitchCount is the ONLY available constraint and becomes even more critical.
+              - Conflict resolution: calculate consumedPerRepeat (sum of stitches each action consumes). If previousRoundStitchCount / consumedPerRepeat gives an integer that differs from the explicit repeat count, use previousRoundStitchCount / consumedPerRepeat. This rule applies whether targetStitchCount is present or null.
+              - For "around" instructions (e.g., "sc around", "dc around") with no explicit count: when previousRoundStitchCount is provided, the count equals previousRoundStitchCount (one stitch per available stitch from the previous round).
 
-        Segment kinds:
-        - stitchRun: one stitch type repeated count times
-        - repeat: a repeated sequence of segments
-        - control: a non-stitch control action such as turning the work
+              Picot expansion rule (HARD):
+              - Picot stitches (written as "picot", "ch-1 picot", "ch-3 picot", "ch-N picot", "p", etc.) are NOT a dedicated stitch type and there is no picot enum value. You MUST expand them into their component stitches.
+              - Canonical expansion for a "ch-N picot": first a stitchRun(type=ch, count=N) for the chain part, then a stitchRun(type=sl_st, count=1) that anchors the picot by slip-stitching back into the base stitch (or into the first chain) to close the decorative loop. The sl st is what makes it a picot rather than a plain chain — do not omit it.
+              - Every segment produced by expanding a picot MUST carry a note that clearly states this is part of a picot (e.g., note="ch-1 picot: chain", note="ch-1 picot: sl st to close picot"), so a reader of the atomized output understands these stitches together form one picot. Use notePlacement=all for these picot segments.
+              - Do not invent a separate picot type. Do not collapse the picot into a single custom control segment. Always expand into the ch + sl st pair described above.
 
-        Rules:
-        - Return one JSON object only.
-        - Preserve the order of the input rounds.
-        - rawInstruction is the source of truth. Use summary only to improve note clarity.
-        - Each input round represents exactly one round of work. The title field identifies which single round it is. If rawInstruction still contains a multi-round range prefix like "Rounds 9-10", treat the instruction body as applying to just this single round — do not wrap it in a repeat segment for the number of rounds in the range. The range notation means the same instruction was used for multiple consecutive rounds, each sent to you independently.
-        - stitchRun.type must be exactly one enum value from this list: \(supportedTypes).
-        - control.kind must be exactly one enum value from this list: \(controlKinds).
-        - Never use custom or control as an escape hatch for stitch-like content.
-        - Never output descriptive terms such as blo, flo, front loop only, back loop only, or color-change text as stitchRun.type.
-        - Never output natural-language stitch names such as "magic loop", "magic ring", "slip stitch", or "fasten off" as stitchRun.type.
-        - Do not collapse derived stitch abbreviations into their base stitch. For example, fpdc must stay fpdc, not dc with a "front post" note.
-        - Compress consecutive identical stitches into one stitchRun. "7sc" must become one stitchRun with type sc and count 7.
-        - Use repeat when the source expresses repeated structure. "(sc 2, inc) x 3" should become one repeat segment whose sequence is [sc x2, inc x1] and whose times is 3.
-        - Only use repeat kind when the source contains an explicit repetition count (×3, x3, "3 times", "4x", etc.). A parenthesized or bracketed stitch group WITHOUT a ×N suffix is NOT a repeat — it means multiple stitches worked into the same stitch or stitch space. Common non-repeat groups: "(hdc, 2 dc, hdc)" (ear/peak into one st), "(3 dc in same st)" (shell/fan), "[dc, ch 1, dc] in corner" (V-stitch), "(yo, insert, pull up loop)" technique descriptions. Expand these as consecutive stitchRun segments with notes indicating they share the same stitch.
-        - times must always be a concrete positive integer when kind=repeat. Never output kind=repeat with times=null. If you cannot determine a concrete integer for times, do not use kind=repeat — flatten the contents as individual stitchRun segments instead.
-        - Preserve the original stitch order after expansion.
-        - stitchRun.note must be short, readable context. Use notePlacement to say whether the note applies to the first stitch, last stitch, or every stitch in that run.
-        - For stitchRun, notePlacement must never be null. If stitchRun.note is null, use notePlacement=first as the default placeholder.
-        - Use notePlacement=first for leading placement guidance such as "in the 2nd ch from the hook".
-        - Use notePlacement=last for trailing follow-up guidance such as "change color".
-        - Use notePlacement=all for context that applies to the whole run such as yarn color or FLO/BLO placement.
-        - For stitchRun, producedStitches must be null. The app already calculates stitch contribution from stitchRun.type.
-        - Every segment object must include every schema key. When a field does not apply to that segment kind, set it to null instead of omitting it.
-        - Contextual modifiers such as color, loop placement, round references, and placement guidance should stay in note, not control.
-        - control is only for standalone control steps that should remain separate after expansion, such as turn or skip (skipping one or more stitches).
-        - If control.kind is custom, instruction must contain the exact control wording to preserve.
-        - Instruction-only rounds (rounds with no stitch content, such as "Add stuffing" or "Finish off and sew closed") must produce exactly one control segment with kind=custom. The instruction field must contain the full instruction text.
-        - Only include instruction when the default instruction would be misleading.
-        - Every segment must include verbatim with the exact source snippet that the segment came from.
-        - previousRoundStitchCount tells you how many stitches are available to work into from the previous round. It is a hard physical constraint — you cannot work into stitches that do not exist.
-        - ALWAYS use previousRoundStitchCount (when provided) to verify and correct explicit repeat counts. This applies regardless of whether targetStitchCount is null or not. When targetStitchCount is null, previousRoundStitchCount is the ONLY available constraint and becomes even more critical.
-        - Conflict resolution: calculate consumedPerRepeat (sum of stitches each action consumes). If previousRoundStitchCount / consumedPerRepeat gives an integer that differs from the explicit repeat count, use previousRoundStitchCount / consumedPerRepeat. This rule applies whether targetStitchCount is present or null.
-        - For "around" instructions (e.g., "sc around", "dc around") with no explicit count: when previousRoundStitchCount is provided, the count equals previousRoundStitchCount (one stitch per available stitch from the previous round).
+              Repeat uniformity rule (HARD):
+              - A `repeat` segment means every one of the N iterations is IDENTICAL. If the source text says that one or more specific iterations differ from the others — e.g. "omit the final X", "instead work Y", "except on the last repeat", "the first time …", "on the 3rd repeat …", or any other per-iteration exception — you MUST NOT use a single `repeat(times=N)` segment. Flatten it instead.
+              - Flattening procedure: emit each iteration as its own independent sequence of stitchRun/control segments, in order, writing out the full body every time. For the iterations that differ, replace/add/remove segments exactly as the source describes. Do not combine the "normal" iterations into a smaller `repeat` while dangling the different iteration outside — just flatten all N iterations. (You may still use `repeat` for truly identical sub-structures that sit inside one iteration.)
+              - When the exception is "omit the final X" or "instead of the last X, do Y", the last flattened iteration must reflect exactly that: drop X and append Y. Do NOT first emit a full repeat and then append Y after it — that double-counts X.
         Golden examples:
         1. Raw instruction: "With off white, ch 114"
            - Correct output: one stitchRun(type=ch, count=114, note="with off white yarn", notePlacement=all)
-           - Incorrect output: 114 separate stitchRun segments
         2. Raw instruction: "Row 1: 1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn."
            - Correct output: stitchRun(sc x113, notePlacement=first), stitchRun(ch x1), control(turn)
         3. Raw instruction: "R3: sc around (12), change color"
            - Correct output: stitchRun(sc x12, note="change color", notePlacement=last)
         4. Raw instruction: "R8: work in FLO of R5: sc 12"
-           - Correct output: stitchRun(sc x12, note="work in FLO of Round 5", notePlacement=all)
+           - Correct output: stitchRun(sc x12, note="work in front loop only of Round 5", notePlacement=all)
         5. Raw instruction: "fpdc around next st"
            - Correct output: stitchRun(type=fpdc, count=1)
-           - Incorrect output: stitchRun(type=dc, note="front post")
         6. Raw instruction: "1 sc in the first 2 sc, *fpdc around next st from 3 rows below, sk the sc behind the fpdc, 1 sc in each of the next 2 sc* repeat across. (113 stitches)" with targetStitchCount=113
-           - Correct output: stitchRun(sc x2), repeat(sequence=[stitchRun(fpdc x1), control(kind=skip, instruction="skip the sc behind the post stitch"), stitchRun(sc x2)], times=37) — times = (113 - 2) / 3 = 37
-           - Incorrect output: stitchRun(type=sc, instruction="skip") — skip is not a stitch, it is a control step. Also incorrect: times=null — always calculate a concrete integer for times from targetStitchCount.
+           - Correct output: stitchRun(sc x2), repeat(sequence=[stitchRun(fpdc x1), stitchRun(type=skip, count=1, note="the sc behind the post stitch"), stitchRun(sc x2)], times=37) — times = (113 - 2) / 3 = 37
         7. Raw instruction: "skip next 2 sts, 3dc in next st"
-           - Correct output: control(kind=skip, instruction="skip next 2 sts"), stitchRun(dc x3)
-           - Incorrect output: stitchRun with instruction="skip"
+           - Correct output: stitchRun(type=skip, count=2), stitchRun(dc x3)
         8. Raw instruction: "(sc 6, inc) ×4. (24)" with targetStitchCount=24, previousRoundStitchCount=21
            - Each repeat: sc 6 + inc 1 = consumes 7 stitches, produces 8 stitches
            - Available stitches: 21 / 7 = 3 repeats (not 4 as written)
            - Verification: 3 × 8 = 24 = targetStitchCount ✓
            - Correct output: repeat(sequence=[stitchRun(sc x6), stitchRun(inc x1)], times=3)
-           - Incorrect output: times=4 — the raw instruction has a typo; previousRoundStitchCount proves only 3 repeats fit.
         9. Raw instruction: "(sc 6, inc) ×3. (32)" with targetStitchCount=32, previousRoundStitchCount=21
            - Each repeat: consumes 7, produces 8
            - Available stitches: 21 / 7 = 3 repeats (matches ×3)
            - Produced: 3 × 8 = 24 ≠ targetStitchCount (32), but previousRoundStitchCount confirms ×3
            - Correct output: repeat(times=3) — trust previousRoundStitchCount over targetStitchCount.
-           - Incorrect output: times=4 — would require 28 stitches but only 21 are available.
         10. Raw instruction: "Add catnip and stuffing."
            - This is an instruction-only round with no stitches.
            - Correct output: one control(kind=custom, instruction="Add catnip and stuffing")
-           - Incorrect output: any stitchRun segment — this round has no stitch content.
         11. title: "Round 9", rawInstruction: "Rounds 9-10: sc around. (18)" with targetStitchCount=18, previousRoundStitchCount=18
            - "Rounds 9-10" means this same instruction applies to Round 9 and Round 10, each sent independently.
            - This input is for Round 9 alone: 18 sc stitches.
            - Correct output: stitchRun(sc x18, note="around", notePlacement=all)
-           - Incorrect output: repeat(times=2, sequence=[stitchRun(sc x18)]) — "Rounds 9-10" is NOT a repeat instruction; each round is sent as a separate input.
         12. Raw instruction: "(sc 6, inc) ×4" with targetStitchCount=null, previousRoundStitchCount=21
            - targetStitchCount is null (pattern did not provide a stitch count)
            - Each repeat: sc 6 + inc 1 = consumes 7 stitches, produces 8 stitches
            - Available stitches from previous round: 21 / 7 = 3 repeats (not 4 as written)
            - previousRoundStitchCount is the ONLY constraint; it proves only 3 repeats fit
            - Correct output: repeat(sequence=[stitchRun(sc x6), stitchRun(inc x1)], times=3)
-           - Incorrect output: times=4 — would require 28 stitches but only 21 are available.
         13. Raw instruction: "sc around" with targetStitchCount=null, previousRoundStitchCount=21
            - targetStitchCount is null, but previousRoundStitchCount=21 tells us there are 21 stitches to work into
            - "sc around" means one sc in each available stitch
            - Correct output: stitchRun(sc x21, note="around", notePlacement=all)
-           - Incorrect output: any count other than 21 — "around" means working into every available stitch from the previous round.
         14. Raw instruction: "in flo of next st (hdc, 2 dc, hdc) to form first ear"
            - (hdc, 2 dc, hdc) has no ×N suffix — these are stitches worked into ONE stitch (ear/peak formation), not a repeat
-           - Correct output: stitchRun(hdc x1, note="in FLO of next stitch", notePlacement=first), stitchRun(dc x2, note="in same FLO stitch"), stitchRun(hdc x1, note="ear formed, in same FLO stitch", notePlacement=last)
-           - Incorrect output: repeat(times=null, ...) — times must never be null; a (stitch group) without ×N is not a repeat.
+           - Correct output: stitchRun(hdc x1, note="in front loop only of next stitch", notePlacement=first), stitchRun(dc x2, note="in the same front loop only stitch"), stitchRun(hdc x1, note="ear formed, in the same front loop only stitch", notePlacement=last)
            - Contrast: "(hdc, 2 dc, hdc) ×3" WOULD be repeat(times=3) because ×3 is explicit.
         15. Raw instruction: "(3 dc in same st)"
            - No ×N repeat count — this is a shell/fan stitch: 3 dc all worked into the same stitch
            - Correct output: stitchRun(dc x3, note="in same stitch", notePlacement=all)
-           - Incorrect output: repeat(times=null, sequence=[stitchRun(dc x1)]) — "3 dc" is the stitch count, not a repeat multiplier for the group.
-
+        16. Raw instruction: "sc 3, ch-1 picot, sc in next 3 sts"
+           - "ch-1 picot" is not a stitch type — it expands into ch 1 followed by sl st back into the base stitch to close the picot loop.
+           - Correct output: stitchRun(sc x3), stitchRun(ch x1, note="chain-1 picot: chain portion", notePlacement=all), stitchRun(sl_st x1, note="chain-1 picot: slip stitch to close the picot", notePlacement=all), stitchRun(sc x3)
+        17. Raw instruction: "dc, ch-3 picot, dc"
+           - "ch-3 picot" expands to ch 3 + sl st back into the base / first chain.
+           - Correct output: stitchRun(dc x1), stitchRun(ch x3, note="chain-3 picot: chain portion", notePlacement=all), stitchRun(sl_st x1, note="chain-3 picot: slip stitch to close the picot", notePlacement=all), stitchRun(dc x1)
+        18. Raw instruction: "hdc 5, hdc inc, hdc 5"
+           - Increase inside an hdc-only run — base stitch is hdc.
+           - Correct output: stitchRun(hdc x5), stitchRun(type=inc, count=1, instruction="hdc inc"), stitchRun(hdc x5)
+        19. Raw instruction: "(sc 6, inc) ×3" (surrounding stitches are sc)
+           - Bare "inc" in an sc-only context — base stitch is sc.
+           - Correct output: repeat(sequence=[stitchRun(sc x6), stitchRun(type=inc, count=1, instruction="sc inc")], times=3)
+        20. Raw instruction: "dc2tog across the row" with previousRoundStitchCount=20
+           - "dc2tog" is a double-crochet decrease consuming 2 stitches per decrease.
+           - 20 / 2 = 10 decreases.
+           - Correct output: stitchRun(type=dec, count=10, instruction="dc dec", note="across", notePlacement=all)
+        21. Raw instruction: "(sc around the popcorn, ch 2, make a Popcorn in the next st, ch 2) 4 times. Join with a sl st."
+           - Popcorn is a specialty textured stitch with a dedicated enum value (popcorn). Do NOT map it to fo/custom and do NOT expand it into yarn-overs. Keep the surrounding repeat/join structure intact.
+           - Correct output: repeat(times=4, sequence=[stitchRun(sc x1, note="around the popcorn", notePlacement=all), stitchRun(ch x2), stitchRun(type=popcorn, count=1, note="in the next stitch", notePlacement=all), stitchRun(ch x2)]), stitchRun(sl_st x1, note="join to first stitch")
         """
     }
 
@@ -1097,9 +1152,18 @@ enum PromptFactory {
     }
 
     private static func nullableStringEnumSchema(_ values: [String]) -> [String: Any] {
+        // 用 anyOf 代替 "type: [string, null]" + "enum: [..., null]" 的组合。
+        // 后者虽然符合 JSON Schema 规范，但 Anthropic 的严格校验器会把 enum
+        // 里的字符串值和 type 数组里的每种类型逐一比对，从而把 'mr' 当成不
+        // 匹配 'null' 报错。anyOf 写法在 OpenAI strict 模式和 Anthropic 都被接受。
         [
-            "type": ["string", "null"],
-            "enum": values + [NSNull()]
+            "anyOf": [
+                [
+                    "type": "string",
+                    "enum": values
+                ],
+                ["type": "null"]
+            ]
         ]
     }
 
@@ -1120,6 +1184,30 @@ enum PromptFactory {
 
     private static func nullOnlySchema() -> [String: Any] {
         ["type": "null"]
+    }
+}
+
+/// OpenRouter reasoning 配置 —— `effort` 和 `max_tokens` 在 OpenRouter API
+/// 里是二选一的互斥项（同时传会报错或被忽略），用枚举强制只能选其一。
+/// `.disabled` 表示请求里完全不附带 `reasoning` 字段（适用于不支持推理预算
+/// 的模型，或想走模型默认行为）。
+enum AtomizationReasoningConfig {
+    /// 档位式：`"low"` / `"medium"` / `"high"`
+    case effort(String)
+    /// 预算式：允许用于思考的最大 token 数
+    case maxTokens(Int)
+    /// 不发送 reasoning 字段
+    case disabled
+
+    fileprivate var payload: [String: Any]? {
+        switch self {
+        case .effort(let level):
+            return ["effort": level]
+        case .maxTokens(let tokens):
+            return ["max_tokens": tokens]
+        case .disabled:
+            return nil
+        }
     }
 }
 

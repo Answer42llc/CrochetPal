@@ -12,6 +12,19 @@ final class PatternImportServiceTests: XCTestCase {
         super.tearDown()
     }
 
+    /// nullableStringEnumSchema 的结构是 `{ "anyOf": [ {"type":"string","enum":[...]}, {"type":"null"} ] }`。
+    /// 这里抽出 enum 里的字符串值，便于断言。
+    private func extractNullableEnumStrings(from schema: [String: Any]) throws -> [String] {
+        let anyOf = try XCTUnwrap(schema["anyOf"] as? [[String: Any]])
+        let stringBranch = try XCTUnwrap(anyOf.first(where: { $0["type"] as? String == "string" }))
+        return try XCTUnwrap(stringBranch["enum"] as? [String])
+    }
+
+    private func nullableEnumAllowsNull(from schema: [String: Any]) throws -> Bool {
+        let anyOf = try XCTUnwrap(schema["anyOf"] as? [[String: Any]])
+        return anyOf.contains(where: { $0["type"] as? String == "null" })
+    }
+
     func testImportWebPatternBuildsOutlineRecordWithPendingRounds() async throws {
         let html = try fixture(named: "mouse-pattern", extension: "html")
         MockURLProtocol.handler = { request in
@@ -419,8 +432,7 @@ final class PatternImportServiceTests: XCTestCase {
         let segment = try XCTUnwrap(defs["segment"] as? [String: Any])
         let segmentProperties = try XCTUnwrap(segment["properties"] as? [String: Any])
         let typeDefinition = try XCTUnwrap(segmentProperties["type"] as? [String: Any])
-        let allowedTypes = try XCTUnwrap(typeDefinition["enum"] as? [Any])
-        let allowedTypeStrings = allowedTypes.compactMap { $0 as? String }
+        let allowedTypeStrings = try extractNullableEnumStrings(from: typeDefinition)
         XCTAssertNotNil(segmentProperties["count"])
         XCTAssertNotNil(segmentProperties["note"])
         XCTAssertNotNil(segmentProperties["notePlacement"])
@@ -431,15 +443,15 @@ final class PatternImportServiceTests: XCTestCase {
         let producedStitchesDefinition = try XCTUnwrap(segmentProperties["producedStitches"] as? [String: Any])
         XCTAssertEqual(producedStitchesDefinition["type"] as? String, "null")
         XCTAssertEqual(allowedTypeStrings, CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue))
-        XCTAssertTrue(allowedTypes.contains { $0 is NSNull })
+        XCTAssertTrue(try nullableEnumAllowsNull(from: typeDefinition))
         XCTAssertFalse(allowedTypeStrings.contains("blo"))
         XCTAssertFalse(allowedTypeStrings.contains("flo"))
         XCTAssertFalse(allowedTypeStrings.contains("custom"))
 
         let controlKindDefinition = try XCTUnwrap(segmentProperties["controlKind"] as? [String: Any])
-        let controlKindValues = try XCTUnwrap(controlKindDefinition["enum"] as? [Any])
-        XCTAssertEqual(controlKindValues.compactMap { $0 as? String }, ControlSegmentKind.allCases.map(\.rawValue))
-        XCTAssertTrue(controlKindValues.contains { $0 is NSNull })
+        let controlKindStrings = try extractNullableEnumStrings(from: controlKindDefinition)
+        XCTAssertEqual(controlKindStrings, ControlSegmentKind.allCases.map(\.rawValue))
+        XCTAssertTrue(try nullableEnumAllowsNull(from: controlKindDefinition))
 
         let repeatSequenceSegment = try XCTUnwrap(defs["repeatSequenceSegment"] as? [String: Any])
         let repeatSequenceProperties = try XCTUnwrap(repeatSequenceSegment["properties"] as? [String: Any])
@@ -462,8 +474,8 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertTrue(systemPrompt?.contains("Use notePlacement=all") == true)
         XCTAssertTrue(systemPrompt?.contains("Raw instruction: \"With off white, ch 114\"") == true)
         XCTAssertTrue(systemPrompt?.contains("control is only for standalone control steps") == true)
-        XCTAssertTrue(systemPrompt?.contains("turn or skip (skipping one or more stitches)") == true)
-        XCTAssertTrue(systemPrompt?.contains("skip is not a stitch, it is a control step") == true)
+        XCTAssertTrue(systemPrompt?.contains("Skipping stitches is NOT a control") == true)
+        XCTAssertTrue(systemPrompt?.contains("stitchRun(type=skip, count=N)") == true)
         XCTAssertTrue(userPrompt?.contains("Input rounds JSON:") == true)
         XCTAssertTrue(userPrompt?.contains("\"rawInstruction\"") == true)
         XCTAssertFalse(userPrompt?.contains("Previous attempt failed validation.") == true)
@@ -733,7 +745,7 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(update.atomicActions.count, 114)
         XCTAssertTrue(update.atomicActions.allSatisfy { $0.type == .ch })
         XCTAssertTrue(update.atomicActions.allSatisfy { $0.note == "with off white yarn" })
-        XCTAssertEqual(update.resolvedTargetStitchCount, 0)
+        XCTAssertEqual(update.resolvedStitchCount, 0)
     }
 
     func testAtomizeRoundsExpandsRowInstructionWithControlTurn() async throws {
@@ -809,7 +821,7 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(actions[113].type, .ch)
         XCTAssertEqual(actions[114].type, .custom)
         XCTAssertEqual(actions[114].instruction, "turn")
-        XCTAssertEqual(updates.first?.resolvedTargetStitchCount, 113)
+        XCTAssertEqual(updates.first?.resolvedStitchCount, 113)
     }
 
     func testAtomizeRoundsAttachesTrailingColorChangeNoteToLastAction() async throws {
@@ -1015,7 +1027,7 @@ final class PatternImportServiceTests: XCTestCase {
         let updates = try await importer.atomizeRounds(in: record.project, targets: target)
         let update = updates.first
 
-        XCTAssertEqual(update?.resolvedTargetStitchCount, 12)
+        XCTAssertEqual(update?.resolvedStitchCount, 12)
     }
 
     func testAtomizeRoundsIgnoresModelProducedStitchesOverridesForDeterministicStitches() async throws {
@@ -1100,7 +1112,7 @@ final class PatternImportServiceTests: XCTestCase {
 
         XCTAssertEqual(actions.map(\.type), [.mr, .ch, .sc, .sc, .sc, .sc, .sc, .sc, .sc, .slSt])
         XCTAssertEqual(actions.reduce(0) { $0 + $1.producedStitches }, 7)
-        XCTAssertEqual(updates.first?.resolvedTargetStitchCount, 7)
+        XCTAssertEqual(updates.first?.resolvedStitchCount, 7)
     }
 
     func testAtomizeRoundsRejectsDescriptorTypeEvenWhenInstructionExists() async throws {

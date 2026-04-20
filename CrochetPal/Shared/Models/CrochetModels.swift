@@ -44,6 +44,9 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
     case fpdtr
     case bpdtr
     case trtr
+    case popcorn
+    case puff
+    case bobble
     case skip
     case custom
 
@@ -79,6 +82,9 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .fpdtr: "FPDTR"
         case .bpdtr: "BPDTR"
         case .trtr: "TRTR"
+        case .popcorn: "Popcorn"
+        case .puff: "Puff"
+        case .bobble: "Bobble"
         case .skip: "Skip"
         case .custom: "Custom"
         }
@@ -114,6 +120,9 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .fpdtr: "fpdtr"
         case .bpdtr: "bpdtr"
         case .trtr: "trtr"
+        case .popcorn: "popcorn"
+        case .puff: "puff"
+        case .bobble: "bobble"
         case .skip: "skip"
         case .custom: "custom"
         }
@@ -196,7 +205,7 @@ enum CrochetTermDictionary {
         term("beg", "begin/beginning", kind: .meta),
         term("bet", "between", kind: .reference),
         term("bl", "back loop or back loop only", kind: .descriptor, aliases: ["blo", "back loop", "back loop only"]),
-        term("bo", "bobble", kind: .action),
+        term("bo", "bobble", kind: .action, supportedActionType: .bobble, producedStitches: 1, aliases: ["bobble"]),
         term("bp", "back post", kind: .descriptor, aliases: ["back post"]),
         term("bpdc", "back post double crochet", kind: .action, supportedActionType: .bpdc, producedStitches: 1),
         term("bpdtr", "back post double treble crochet", kind: .action, supportedActionType: .bpdtr, producedStitches: 1),
@@ -233,10 +242,10 @@ enum CrochetTermDictionary {
         term("m", "marker", kind: .control, aliases: ["marker"]),
         term("mc", "main color", kind: .control, aliases: ["main color"]),
         term("pat", "pattern", kind: .meta, aliases: ["patt"]),
-        term("pc", "popcorn stitch", kind: .action),
+        term("pc", "popcorn stitch", kind: .action, supportedActionType: .popcorn, producedStitches: 1, aliases: ["popcorn", "popcorn stitch"]),
         term("pm", "place marker", kind: .control, aliases: ["place marker"]),
         term("prev", "previous", kind: .reference),
-        term("ps", "puff stitch", kind: .action, aliases: ["puff"]),
+        term("ps", "puff stitch", kind: .action, supportedActionType: .puff, producedStitches: 1, aliases: ["puff", "puff stitch"]),
         term("rem", "remaining", kind: .meta),
         term("rep", "repeat", kind: .meta, aliases: ["repeat"]),
         term("rnd", "round", kind: .meta, aliases: ["round"]),
@@ -379,6 +388,12 @@ struct PatternRound: Codable, Hashable, Identifiable {
     /// same non-nil index originate from the same source instruction and can reuse
     /// each other's atomization results.
     var macroRepeatSourceIndex: Int?
+
+    /// 原子化展开后的实际产出针数（atomicActions 的 producedStitches 求和）。
+    /// 与 targetStitchCount 语义区分：target 是 pattern/用户声明的目标，resolved 是本次展开结果。
+    var resolvedStitchCount: Int {
+        atomicActions.reduce(0) { $0 + $1.producedStitches }
+    }
 }
 
 struct PatternPart: Codable, Hashable, Identifiable {

@@ -3,8 +3,12 @@ import Foundation
 struct AtomizedRoundUpdate: Hashable {
     var reference: RoundReference
     var atomicActions: [AtomicAction]
-    var resolvedTargetStitchCount: Int
     var warning: String?
+
+    /// 本次原子化展开出的实际针数（从 atomicActions 的 producedStitches 求和）。
+    var resolvedStitchCount: Int {
+        atomicActions.reduce(0) { $0 + $1.producedStitches }
+    }
 }
 
 protocol PatternImporting {
@@ -408,7 +412,6 @@ struct PatternImportService: PatternImporting {
             return AtomizedRoundUpdate(
                 reference: target,
                 atomicActions: expansion.atomicActions,
-                resolvedTargetStitchCount: expansion.resolvedTargetStitchCount,
                 warning: expansion.warning
             )
         }
@@ -417,7 +420,7 @@ struct PatternImportService: PatternImporting {
     private func buildAtomicActions(
         from segments: [AtomizedSegment],
         originalTargetStitchCount: Int?
-    ) throws -> (atomicActions: [AtomicAction], resolvedTargetStitchCount: Int, warning: String?) {
+    ) throws -> (atomicActions: [AtomicAction], warning: String?) {
         let drafts = try expandSegments(segments)
         let atomicActions = try drafts.enumerated().map { index, draft in
             try makeAtomicAction(from: draft, sequenceIndex: index)
@@ -432,7 +435,6 @@ struct PatternImportService: PatternImporting {
 
         return (
             atomicActions: atomicActions,
-            resolvedTargetStitchCount: producedStitchCount,
             warning: warning
         )
     }

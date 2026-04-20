@@ -373,8 +373,7 @@ private final class FakePatternImporter: PatternImporting {
                 reference: target,
                 atomicActions: [
                     AtomicAction(type: .sc, instruction: "sc", producedStitches: 1, sequenceIndex: 0)
-                ],
-                resolvedTargetStitchCount: 1
+                ]
             )
         }
     }

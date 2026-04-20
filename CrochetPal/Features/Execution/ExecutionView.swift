@@ -44,86 +44,106 @@ struct ExecutionView: View {
                     round: round
                 ) && !isAwaitingNextRound
                 let primaryButtonTitle = isAwaitingNextRound ? "Enter Next Round" : "Continue"
-                VStack(alignment: .leading, spacing: 24) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(snapshot.partName)
-                            .font(.title3.weight(.semibold))
-                            .foregroundStyle(.secondary)
-                        Text(snapshot.roundTitle)
-                            .font(.largeTitle.bold())
-                        Text(round?.summary ?? "This project is complete.")
-                            .font(.body)
-                    }
-
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Current Action")
-                            .font(.headline)
-                        Text(snapshot.actionTitle)
-                            .font(.system(size: 44, weight: .bold, design: .rounded))
-                            .lineLimit(nil)
-                            .minimumScaleFactor(0.5)
-                            .fixedSize(horizontal: false, vertical: true)
-                        if let actionHint = snapshot.actionHint, !actionHint.isEmpty {
-                            Text(actionHint)
-                                .font(.title3)
-                        }
-                        if let actionNote = snapshot.actionNote, !actionNote.isEmpty {
-                            Text(actionNote)
-                                .font(.body)
-                                .foregroundStyle(.secondary)
-                        }
-                        if let statusMessage = snapshot.statusMessage, snapshot.executionState != .ready {
-                            Text(statusMessage)
-                                .font(.body)
-                                .foregroundStyle(snapshot.executionState == .failed ? .red : .secondary)
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                    .background(.background.secondary, in: RoundedRectangle(cornerRadius: 20))
-
-                    VStack(alignment: .leading, spacing: 10) {
-                        if let actionSequenceProgress = snapshot.actionSequenceProgress,
-                           let actionSequenceTotal = snapshot.actionSequenceTotal {
-                            Label(
-                                "Action progress: \(actionSequenceProgress)/\(actionSequenceTotal)",
-                                systemImage: "list.number"
-                            )
-                        }
-                        Label("Stitch progress: \(snapshot.stitchProgress)/\(snapshot.targetStitches ?? 0)", systemImage: "number")
-                        if round?.atomizationWarning != nil {
-                            Label(
-                                "目标针数与实际展开不一致，已按指令展开",
-                                systemImage: "exclamationmark.triangle.fill"
-                            )
-                            .font(.caption)
-                            .foregroundStyle(.orange)
-                        }
-                        if let nextAction {
-                            Label("Next: \(nextAction.executionDisplayTitle)", systemImage: "arrow.turn.down.right")
-                        }
-                    }
-                    .font(.headline)
-
-                    if shouldShowRegenerateButton, let round {
-                        Button {
-                            Task {
-                                await container.repository.regenerateRound(
-                                    projectID: projectID,
-                                    partID: record.progress.cursor.partID,
-                                    roundID: round.id
-                                )
+                VStack(alignment: .leading, spacing: 16) {
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 24) {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(snapshot.partName)
+                                    .font(.title3.weight(.semibold))
+                                    .foregroundStyle(.secondary)
+                                Text(snapshot.roundTitle)
+                                    .font(.largeTitle.bold())
+                                Text(round?.summary ?? "This project is complete.")
+                                    .font(.body)
                             }
-                        } label: {
-                            Label("Regenerate", systemImage: "arrow.clockwise")
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .accessibilityIdentifier("regenerateCurrentRound")
-                        .disabled(executionState.isBusy && executionState != .parsingNextRound)
-                    }
 
-                    Spacer()
+                            if let rawInstruction = round?.rawInstruction,
+                               !rawInstruction.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                                VStack(alignment: .leading, spacing: 6) {
+                                    Text("原始指令")
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundStyle(.secondary)
+                                    Text(rawInstruction)
+                                        .font(.callout)
+                                        .foregroundStyle(.secondary)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .textSelection(.enabled)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(12)
+                                .background(.background.secondary, in: RoundedRectangle(cornerRadius: 12))
+                            }
+
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Current Action")
+                                    .font(.headline)
+                                Text(snapshot.actionTitle)
+                                    .font(.system(size: 44, weight: .bold, design: .rounded))
+                                    .lineLimit(nil)
+                                    .minimumScaleFactor(0.5)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                if let actionHint = snapshot.actionHint, !actionHint.isEmpty {
+                                    Text(actionHint)
+                                        .font(.title3)
+                                }
+                                if let actionNote = snapshot.actionNote, !actionNote.isEmpty {
+                                    Text(actionNote)
+                                        .font(.body)
+                                        .foregroundStyle(.secondary)
+                                }
+                                if let statusMessage = snapshot.statusMessage, snapshot.executionState != .ready {
+                                    Text(statusMessage)
+                                        .font(.body)
+                                        .foregroundStyle(snapshot.executionState == .failed ? .red : .secondary)
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+                            .background(.background.secondary, in: RoundedRectangle(cornerRadius: 20))
+
+                            VStack(alignment: .leading, spacing: 10) {
+                                if let actionSequenceProgress = snapshot.actionSequenceProgress,
+                                   let actionSequenceTotal = snapshot.actionSequenceTotal {
+                                    Label(
+                                        "Action progress: \(actionSequenceProgress)/\(actionSequenceTotal)",
+                                        systemImage: "list.number"
+                                    )
+                                }
+                                Label("Stitch progress: \(snapshot.stitchProgress)/\(snapshot.targetStitches ?? 0)", systemImage: "number")
+                                if round?.atomizationWarning != nil {
+                                    Label(
+                                        "目标针数与实际展开不一致，已按指令展开",
+                                        systemImage: "exclamationmark.triangle.fill"
+                                    )
+                                    .font(.caption)
+                                    .foregroundStyle(.orange)
+                                }
+                                if let nextAction {
+                                    Label("Next: \(nextAction.executionDisplayTitle)", systemImage: "arrow.turn.down.right")
+                                }
+                            }
+                            .font(.headline)
+
+                            if shouldShowRegenerateButton, let round {
+                                Button {
+                                    Task {
+                                        await container.repository.regenerateRound(
+                                            projectID: projectID,
+                                            partID: record.progress.cursor.partID,
+                                            roundID: round.id
+                                        )
+                                    }
+                                } label: {
+                                    Label("Regenerate", systemImage: "arrow.clockwise")
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .accessibilityIdentifier("regenerateCurrentRound")
+                                .disabled(executionState.isBusy && executionState != .parsingNextRound)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
 
                     HStack(spacing: 16) {
                         Button {

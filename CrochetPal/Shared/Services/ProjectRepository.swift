@@ -157,7 +157,7 @@ final class ProjectRepository: ObservableObject {
 
     func regenerateRound(projectID: UUID, partID: UUID, roundID: UUID) async {
         let state = executionState(for: projectID)
-        guard state == .idle || state == .parsingNextRound else { return }
+        guard !state.isBusy else { return }
         _ = await atomizeTargets(
             [RoundReference(partID: partID, roundID: roundID)],
             in: projectID,
@@ -339,7 +339,8 @@ final class ProjectRepository: ObservableObject {
             }
 
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomicActions = update.atomicActions
-            records[projectIndex].project.parts[partIndex].rounds[roundIndex].targetStitchCount = update.resolvedTargetStitchCount
+            // targetStitchCount 是 pattern/用户声明的 ground truth，atomization 不再改写。
+            // 需要"展开后实际针数"时读 round.resolvedStitchCount（从 atomicActions 求和）。
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationStatus = .ready
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationError = nil
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationWarning = update.warning
@@ -386,7 +387,6 @@ final class ProjectRepository: ObservableObject {
                     }
 
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomicActions = copiedActions
-                    records[projectIndex].project.parts[pIdx].rounds[rIdx].targetStitchCount = update.resolvedTargetStitchCount
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationStatus = .ready
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationError = nil
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationWarning = update.warning
