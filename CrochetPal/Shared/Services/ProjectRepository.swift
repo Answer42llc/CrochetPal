@@ -157,7 +157,12 @@ final class ProjectRepository: ObservableObject {
 
     func regenerateRound(projectID: UUID, partID: UUID, roundID: UUID) async {
         let state = executionState(for: projectID)
-        guard state == .idle || state == .parsingNextRound else { return }
+        switch state {
+        case .idle, .parsingNextRound, .failed:
+            break
+        default:
+            return
+        }
         _ = await atomizeTargets(
             [RoundReference(partID: partID, roundID: roundID)],
             in: projectID,

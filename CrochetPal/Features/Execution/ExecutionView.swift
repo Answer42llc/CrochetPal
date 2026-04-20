@@ -23,6 +23,15 @@ struct ExecutionView: View {
         return ExecutionEngine.currentRound(in: record.project, progress: record.progress)?.id
     }
 
+    private var isRegenerateDisabled: Bool {
+        switch executionState {
+        case .idle, .parsingNextRound, .failed:
+            return false
+        case .bootstrapping, .regeneratingCurrentRound:
+            return true
+        }
+    }
+
     static func shouldShowRegenerateButton(
         sourceType: PatternSourceType,
         round: PatternRound?
@@ -53,6 +62,15 @@ struct ExecutionView: View {
                             .font(.largeTitle.bold())
                         Text(round?.summary ?? "This project is complete.")
                             .font(.body)
+                        if let rawInstruction = round?.rawInstruction, !rawInstruction.isEmpty {
+                            Text(rawInstruction)
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(10)
+                                .background(.background.secondary, in: RoundedRectangle(cornerRadius: 10))
+                        }
                     }
 
                     VStack(alignment: .leading, spacing: 12) {
@@ -120,7 +138,7 @@ struct ExecutionView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .accessibilityIdentifier("regenerateCurrentRound")
-                        .disabled(executionState.isBusy && executionState != .parsingNextRound)
+                        .disabled(isRegenerateDisabled)
                     }
 
                     Spacer()
