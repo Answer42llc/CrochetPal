@@ -51,7 +51,7 @@ struct ExecutionView: View {
                 let shouldShowRegenerateButton = Self.shouldShowRegenerateButton(
                     sourceType: record.project.source.type,
                     round: round
-                ) && !isAwaitingNextRound
+                )
                 let primaryButtonTitle = isAwaitingNextRound ? "Enter Next Round" : "Continue"
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 8) {

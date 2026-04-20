@@ -7,14 +7,6 @@ protocol PatternLLMParsing {
         context: ParseRequestContext
     ) async throws -> PatternOutlineResponse
 
-    func atomizeTextRounds(
-        projectTitle: String,
-        materials: [String],
-        rounds: [AtomizationRoundInput],
-        context: ParseRequestContext
-    ) async throws -> RoundAtomizationResponse
-
-
     func parseTextRoundsToIR(
         projectTitle: String,
         materials: [String],
@@ -63,35 +55,6 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
             temperature: 0
         )
     }
-
-    func atomizeTextRounds(
-        projectTitle: String,
-        materials: [String],
-        rounds: [AtomizationRoundInput],
-        context: ParseRequestContext
-    ) async throws -> RoundAtomizationResponse {
-        let prompt = PromptFactory.roundAtomizationPrompt(
-            projectTitle: projectTitle,
-            materials: materials,
-            rounds: rounds
-        )
-        let messages: [[String: Any]] = [
-            ["role": "system", "content": PromptFactory.roundAtomizationSystemPrompt()],
-            ["role": "user", "content": prompt]
-        ]
-        return try await sendChatCompletion(
-            modelID: configuration.atomizationModelID,
-            messagePayload: messages,
-            context: context,
-            modelKind: "round_atomizer",
-            responseFormat: PromptFactory.atomizationResponseFormat(),
-            providerPayload: textProviderPayload(for: configuration.atomizationModelID),
-            temperature: 0,
-            repairModelID: configuration.atomizationModelID,
-            repairProviderPayload: textProviderPayload(for: configuration.atomizationModelID)
-        )
-    }
-
 
     func parseTextRoundsToIR(
         projectTitle: String,
@@ -585,31 +548,6 @@ enum PromptFactory {
     }
     """
 
-    private static let atomizationExampleJSON = """
-    {
-      "rounds": [
-        {
-          "segments": [
-            {
-              "kind": "stitchRun",
-              "type": "ch",
-              "count": 114,
-              "instruction": null,
-              "producedStitches": null,
-              "note": "With off white yarn.",
-              "notePlacement": "all",
-              "times": null,
-              "sequence": null,
-              "controlKind": null,
-              "verbatim": "With off white, ch 114"
-            }
-          ]
-        }
-      ]
-    }
-    """
-
-
     private static let irAtomizationExampleJSON = """
     {
       "rounds": [
@@ -644,6 +582,14 @@ enum PromptFactory {
               "note": null,
               "ambiguous": null
             }
+          ]
+        },
+        {
+          "title": "Round 3",
+          "sourceText": "sc around. (9)",
+          "expectedProducedStitches": 9,
+          "nodes": [
+            { "kind": "stitch", "stitch": { "type": "sc", "count": 9, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "sc around" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null }
           ]
         }
       ]
@@ -722,141 +668,6 @@ enum PromptFactory {
         """
     }
 
-    static func roundAtomizationSystemPrompt() -> String {
-        let supportedTypes = CrochetTermDictionary.supportedAtomicActionTypes
-            .map(\.rawValue)
-            .joined(separator: ", ")
-        let controlKinds = ControlSegmentKind.allCases.map(\.rawValue).joined(separator: ", ")
-
-        return """
-        You are a crochet master. Convert each crochet round into structured summary segments that a deterministic program can expand into final atomic actions.
-
-        Segment kinds:
-        - stitchRun: one stitch type repeated count times
-        - repeat: a repeated sequence of segments
-        - control: a non-stitch control action such as turning the work
-
-        Rules:
-        - Return one JSON object only.
-        - Preserve the order of the input rounds.
-        - rawInstruction is the source of truth. Use summary only to improve note clarity.
-        - Each input round represents exactly one round of work. The title field identifies which single round it is. If rawInstruction still contains a multi-round range prefix like "Rounds 9-10", treat the instruction body as applying to just this single round — do not wrap it in a repeat segment for the number of rounds in the range. The range notation means the same instruction was used for multiple consecutive rounds, each sent to you independently.
-        - stitchRun.type must be exactly one enum value from this list: \(supportedTypes).
-        - control.kind must be exactly one enum value from this list: \(controlKinds).
-        - Never use custom or control as an escape hatch for stitch-like content.
-        - Never output descriptive terms such as blo, flo, front loop only, back loop only, or color-change text as stitchRun.type.
-        - Never output natural-language stitch names such as "magic loop", "magic ring", "slip stitch", or "fasten off" as stitchRun.type.
-        - Do not collapse derived stitch abbreviations into their base stitch. For example, fpdc must stay fpdc, not dc with a "front post" note.
-        - Compress consecutive identical stitches into one stitchRun. "7sc" must become one stitchRun with type sc and count 7.
-        - Use repeat when the source expresses repeated structure. "(sc 2, inc) x 3" should become one repeat segment whose sequence is [sc x2, inc x1] and whose times is 3.
-        - Only use repeat kind when the source contains an explicit repetition count (×3, x3, "3 times", "4x", etc.). A parenthesized or bracketed stitch group WITHOUT a ×N suffix is NOT a repeat — it means multiple stitches worked into the same stitch or stitch space. Common non-repeat groups: "(hdc, 2 dc, hdc)" (ear/peak into one st), "(3 dc in same st)" (shell/fan), "[dc, ch 1, dc] in corner" (V-stitch), "(yo, insert, pull up loop)" technique descriptions. Expand these as consecutive stitchRun segments with notes indicating they share the same stitch.
-        - times must always be a concrete positive integer when kind=repeat. Never output kind=repeat with times=null. If you cannot determine a concrete integer for times, do not use kind=repeat — flatten the contents as individual stitchRun segments instead.
-        - Preserve the original stitch order after expansion.
-        - stitchRun.note must be short, readable context. Use notePlacement to say whether the note applies to the first stitch, last stitch, or every stitch in that run.
-        - For stitchRun, notePlacement must never be null. If stitchRun.note is null, use notePlacement=first as the default placeholder.
-        - Use notePlacement=first for leading placement guidance such as "in the 2nd ch from the hook".
-        - Use notePlacement=last for trailing follow-up guidance such as "change color".
-        - Use notePlacement=all for context that applies to the whole run such as yarn color or FLO/BLO placement.
-        - For stitchRun, producedStitches must be null. The app already calculates stitch contribution from stitchRun.type.
-        - Every segment object must include every schema key. When a field does not apply to that segment kind, set it to null instead of omitting it.
-        - Contextual modifiers such as color, loop placement, round references, and placement guidance should stay in note, not control.
-        - control is only for standalone control steps that should remain separate after expansion, such as turn or skip (skipping one or more stitches).
-        - If control.kind is custom, instruction must contain the exact control wording to preserve.
-        - Instruction-only rounds (rounds with no stitch content, such as "Add stuffing" or "Finish off and sew closed") must produce exactly one control segment with kind=custom. The instruction field must contain the full instruction text.
-        - Only include instruction when the default instruction would be misleading.
-        - Every segment must include verbatim with the exact source snippet that the segment came from.
-        - previousRoundStitchCount tells you how many stitches are available to work into from the previous round. It is a hard physical constraint — you cannot work into stitches that do not exist.
-        - ALWAYS use previousRoundStitchCount (when provided) to verify and correct explicit repeat counts. This applies regardless of whether targetStitchCount is null or not. When targetStitchCount is null, previousRoundStitchCount is the ONLY available constraint and becomes even more critical.
-        - Conflict resolution: calculate consumedPerRepeat (sum of stitches each action consumes). If previousRoundStitchCount / consumedPerRepeat gives an integer that differs from the explicit repeat count, use previousRoundStitchCount / consumedPerRepeat. This rule applies whether targetStitchCount is present or null.
-        - For "around" instructions (e.g., "sc around", "dc around") with no explicit count: when previousRoundStitchCount is provided, the count equals previousRoundStitchCount (one stitch per available stitch from the previous round).
-        Golden examples:
-        1. Raw instruction: "With off white, ch 114"
-           - Correct output: one stitchRun(type=ch, count=114, note="with off white yarn", notePlacement=all)
-           - Incorrect output: 114 separate stitchRun segments
-        2. Raw instruction: "Row 1: 1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn."
-           - Correct output: stitchRun(sc x113, notePlacement=first), stitchRun(ch x1), control(turn)
-        3. Raw instruction: "R3: sc around (12), change color"
-           - Correct output: stitchRun(sc x12, note="change color", notePlacement=last)
-        4. Raw instruction: "R8: work in FLO of R5: sc 12"
-           - Correct output: stitchRun(sc x12, note="work in FLO of Round 5", notePlacement=all)
-        5. Raw instruction: "fpdc around next st"
-           - Correct output: stitchRun(type=fpdc, count=1)
-           - Incorrect output: stitchRun(type=dc, note="front post")
-        6. Raw instruction: "1 sc in the first 2 sc, *fpdc around next st from 3 rows below, sk the sc behind the fpdc, 1 sc in each of the next 2 sc* repeat across. (113 stitches)" with targetStitchCount=113
-           - Correct output: stitchRun(sc x2), repeat(sequence=[stitchRun(fpdc x1), control(kind=skip, instruction="skip the sc behind the post stitch"), stitchRun(sc x2)], times=37) — times = (113 - 2) / 3 = 37
-           - Incorrect output: stitchRun(type=sc, instruction="skip") — skip is not a stitch, it is a control step. Also incorrect: times=null — always calculate a concrete integer for times from targetStitchCount.
-        7. Raw instruction: "skip next 2 sts, 3dc in next st"
-           - Correct output: control(kind=skip, instruction="skip next 2 sts"), stitchRun(dc x3)
-           - Incorrect output: stitchRun with instruction="skip"
-        8. Raw instruction: "(sc 6, inc) ×4. (24)" with targetStitchCount=24, previousRoundStitchCount=21
-           - Each repeat: sc 6 + inc 1 = consumes 7 stitches, produces 8 stitches
-           - Available stitches: 21 / 7 = 3 repeats (not 4 as written)
-           - Verification: 3 × 8 = 24 = targetStitchCount ✓
-           - Correct output: repeat(sequence=[stitchRun(sc x6), stitchRun(inc x1)], times=3)
-           - Incorrect output: times=4 — the raw instruction has a typo; previousRoundStitchCount proves only 3 repeats fit.
-        9. Raw instruction: "(sc 6, inc) ×3. (32)" with targetStitchCount=32, previousRoundStitchCount=21
-           - Each repeat: consumes 7, produces 8
-           - Available stitches: 21 / 7 = 3 repeats (matches ×3)
-           - Produced: 3 × 8 = 24 ≠ targetStitchCount (32), but previousRoundStitchCount confirms ×3
-           - Correct output: repeat(times=3) — trust previousRoundStitchCount over targetStitchCount.
-           - Incorrect output: times=4 — would require 28 stitches but only 21 are available.
-        10. Raw instruction: "Add catnip and stuffing."
-           - This is an instruction-only round with no stitches.
-           - Correct output: one control(kind=custom, instruction="Add catnip and stuffing")
-           - Incorrect output: any stitchRun segment — this round has no stitch content.
-        11. title: "Round 9", rawInstruction: "Rounds 9-10: sc around. (18)" with targetStitchCount=18, previousRoundStitchCount=18
-           - "Rounds 9-10" means this same instruction applies to Round 9 and Round 10, each sent independently.
-           - This input is for Round 9 alone: 18 sc stitches.
-           - Correct output: stitchRun(sc x18, note="around", notePlacement=all)
-           - Incorrect output: repeat(times=2, sequence=[stitchRun(sc x18)]) — "Rounds 9-10" is NOT a repeat instruction; each round is sent as a separate input.
-        12. Raw instruction: "(sc 6, inc) ×4" with targetStitchCount=null, previousRoundStitchCount=21
-           - targetStitchCount is null (pattern did not provide a stitch count)
-           - Each repeat: sc 6 + inc 1 = consumes 7 stitches, produces 8 stitches
-           - Available stitches from previous round: 21 / 7 = 3 repeats (not 4 as written)
-           - previousRoundStitchCount is the ONLY constraint; it proves only 3 repeats fit
-           - Correct output: repeat(sequence=[stitchRun(sc x6), stitchRun(inc x1)], times=3)
-           - Incorrect output: times=4 — would require 28 stitches but only 21 are available.
-        13. Raw instruction: "sc around" with targetStitchCount=null, previousRoundStitchCount=21
-           - targetStitchCount is null, but previousRoundStitchCount=21 tells us there are 21 stitches to work into
-           - "sc around" means one sc in each available stitch
-           - Correct output: stitchRun(sc x21, note="around", notePlacement=all)
-           - Incorrect output: any count other than 21 — "around" means working into every available stitch from the previous round.
-        14. Raw instruction: "in flo of next st (hdc, 2 dc, hdc) to form first ear"
-           - (hdc, 2 dc, hdc) has no ×N suffix — these are stitches worked into ONE stitch (ear/peak formation), not a repeat
-           - Correct output: stitchRun(hdc x1, note="in FLO of next stitch", notePlacement=first), stitchRun(dc x2, note="in same FLO stitch"), stitchRun(hdc x1, note="ear formed, in same FLO stitch", notePlacement=last)
-           - Incorrect output: repeat(times=null, ...) — times must never be null; a (stitch group) without ×N is not a repeat.
-           - Contrast: "(hdc, 2 dc, hdc) ×3" WOULD be repeat(times=3) because ×3 is explicit.
-        15. Raw instruction: "(3 dc in same st)"
-           - No ×N repeat count — this is a shell/fan stitch: 3 dc all worked into the same stitch
-           - Correct output: stitchRun(dc x3, note="in same stitch", notePlacement=all)
-           - Incorrect output: repeat(times=null, sequence=[stitchRun(dc x1)]) — "3 dc" is the stitch count, not a repeat multiplier for the group.
-
-        """
-    }
-
-    static func roundAtomizationPrompt(
-        projectTitle: String,
-        materials: [String],
-        rounds: [AtomizationRoundInput]
-    ) -> String {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        let roundsPayload = (try? encoder.encode(rounds)).flatMap { String(data: $0, encoding: .utf8) } ?? "[]"
-        var prompt = """
-        Atomize the following crochet rounds into structured summary segments.
-
-        Project title: \(projectTitle)
-        """
-
-        prompt += """
-
-        Input rounds JSON:
-        \(roundsPayload)
-        """
-        return prompt
-    }
-
-
     static func roundIRAtomizationSystemPrompt() -> String {
         let supportedTypes = CrochetTermDictionary.supportedAtomicActionTypes
             .map(\.rawValue)
@@ -884,9 +695,12 @@ enum PromptFactory {
         - Use lastIterationTransform for instructions such as omit the final ch3 or skip the last stitch of the final repeat.
         - Use conditional for explicit user choices. If no choice has been made by the user, still preserve all branches.
         - If a conditional is followed by a repeated common body, put the conditional node first and put the repeat node after it.
-        - Use ambiguous instead of inventing stitch counts for phrases such as work evenly around, continue as established, or assembly instructions that require a diagram.
+        - When an instruction names a single supported stitch type (e.g., sc, hdc, dc, fpdc) and applies it across the whole round ("<stitch> around", "<stitch> in each stitch around", "<stitch> in each st"), emit exactly one stitch node with that type and count equal to targetStitchCount if present, otherwise previousRoundStitchCount. Do NOT use ambiguous in this case — the expansion is deterministic.
+        - Use ambiguous ONLY when no supported stitch type can be identified in the instruction (e.g., "work evenly around", "continue as established") or the instruction is an assembly / diagram-only step. Ambiguous is a last resort; never use it when a deterministic stitch expansion is possible.
         - Never use FLO, BLO, colour text, or placement text as a stitch action type. Put those in note.
         - Do not collapse derived post stitches into base stitches. fpdc remains fpdc, fphdc remains fphdc.
+        - Increases (inc): encode as a single stitch node using the underlying base stitch type with count equal to the number of stitches produced in the same target, and set note to the original abbreviation. Example: one "sc inc" becomes {"type": "sc", "count": 2, "note": "inc", "notePlacement": "all"}; one "dc inc" becomes {"type": "dc", "count": 2, "note": "dc inc", "notePlacement": "all"}. Never emit "inc" as a stitch type — the schema does not include it. A sequence like "(sc, inc) x 6" is a repeat of 6 iterations whose body has exactly two stitch nodes: one plain sc and one sc-increase node (count 2 with note "inc").
+        - Decreases (dec, sc2tog, hdc2tog, etc.) are atomic and use the dec stitch type. One dec produces 1 stitch. "(sc, dec) x 6" is a repeat of 6 iterations whose body has two stitch nodes: one plain sc (count 1) and one dec (count 1).
         - Non-repeat stitch groups without an explicit repeat count, such as (hdc, 2 dc, hdc), are consecutive stitch nodes that share the same target in notes.
         - Every IR node must include every node payload key: stitch, repeat, conditional, control, note, ambiguous. Exactly one payload should be non-null.
         - expectedProducedStitches should equal the explicit target stitch count from the input when present, otherwise null.
@@ -903,9 +717,26 @@ enum PromptFactory {
         materials: [String],
         rounds: [AtomizationRoundInput]
     ) -> String {
+        struct IRRoundInput: Encodable {
+            var partName: String
+            var title: String
+            var rawInstruction: String
+            var targetStitchCount: Int?
+            var previousRoundStitchCount: Int?
+        }
+
+        let irInputs = rounds.map {
+            IRRoundInput(
+                partName: $0.partName,
+                title: $0.title,
+                rawInstruction: $0.rawInstruction,
+                targetStitchCount: $0.targetStitchCount,
+                previousRoundStitchCount: $0.previousRoundStitchCount
+            )
+        }
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        let roundsPayload = (try? encoder.encode(rounds)).flatMap { String(data: $0, encoding: .utf8) } ?? "[]"
+        let roundsPayload = (try? encoder.encode(irInputs)).flatMap { String(data: $0, encoding: .utf8) } ?? "[]"
         let materialsPayload = materials.isEmpty ? "none" : materials.joined(separator: ", ")
 
         return """
@@ -993,18 +824,6 @@ enum PromptFactory {
             ]
         ]
     }
-
-    static func atomizationResponseFormat() -> [String: Any] {
-        [
-            "type": "json_schema",
-            "json_schema": [
-                "name": "crochet_round_atomization_response",
-                "strict": true,
-                "schema": atomizationSchema()
-            ]
-        ]
-    }
-
 
     static func irAtomizationResponseFormat() -> [String: Any] {
         [
@@ -1267,44 +1086,6 @@ enum PromptFactory {
         ]
     }
 
-    private static func atomizationSchema() -> [String: Any] {
-        [
-            "type": "object",
-            "additionalProperties": false,
-            "properties": [
-                "rounds": [
-                    "type": "array",
-                    "items": [
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": [
-                            "segments": [
-                                "type": "array",
-                                "items": [
-                                    "$ref": "#/$defs/segment"
-                                ]
-                            ]
-                        ],
-                        "required": ["segments"]
-                    ]
-                ]
-            ],
-            "required": ["rounds"],
-            "$defs": [
-                "segment": atomizationSegmentSchema(
-                    allowedKinds: AtomizedSegmentKind.allCases,
-                    timesSchema: nullableIntegerSchema(),
-                    sequenceSchema: nullableArraySchema(items: ["$ref": "#/$defs/repeatSequenceSegment"])
-                ),
-                "repeatSequenceSegment": atomizationSegmentSchema(
-                    allowedKinds: [.stitchRun, .control],
-                    timesSchema: nullOnlySchema(),
-                    sequenceSchema: nullOnlySchema()
-                )
-            ]
-        ]
-    }
-
     private static func outlinedPartSchema() -> [String: Any] {
         [
             "type": "object",
@@ -1403,50 +1184,6 @@ enum PromptFactory {
         ]
     }
 
-    private static func atomizationSegmentSchema(
-        allowedKinds: [AtomizedSegmentKind],
-        timesSchema: [String: Any],
-        sequenceSchema: [String: Any]
-    ) -> [String: Any] {
-        [
-            "type": "object",
-            "additionalProperties": false,
-            "properties": [
-                "kind": [
-                    "type": "string",
-                    "enum": allowedKinds.map(\.rawValue)
-                ],
-                "type": nullableStringEnumSchema(CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)),
-                "count": nullableIntegerSchema(),
-                "instruction": nullableStringSchema(),
-                "producedStitches": nullOnlySchema(),
-                "note": nullableStringSchema(),
-                "notePlacement": nullableStringEnumSchema(AtomizedNotePlacement.allCases.map(\.rawValue)),
-                "times": timesSchema,
-                "sequence": sequenceSchema,
-                "controlKind": nullableStringEnumSchema(ControlSegmentKind.allCases.map(\.rawValue)),
-                "verbatim": ["type": "string"]
-            ],
-            "required": atomizationSegmentRequiredKeys()
-        ]
-    }
-
-    private static func atomizationSegmentRequiredKeys() -> [String] {
-        [
-            "kind",
-            "type",
-            "count",
-            "instruction",
-            "producedStitches",
-            "note",
-            "notePlacement",
-            "times",
-            "sequence",
-            "controlKind",
-            "verbatim"
-        ]
-    }
-
     private static func stringArraySchema() -> [String: Any] {
         [
             "type": "array",
@@ -1491,16 +1228,16 @@ enum PromptFactory {
 struct FixturePatternParsingClient: PatternLLMParsing {
     private let outlineResponse: PatternOutlineResponse
     private let imageResponse: PatternParseResponse
-    private let atomizationRounds: [AtomizedPatternRound]
+    private let irRounds: [CrochetIRInstructionBlock]
 
     init(
         outlineResponse: PatternOutlineResponse,
         imageResponse: PatternParseResponse,
-        atomizationResponse: RoundAtomizationResponse
+        irResponse: CrochetIRAtomizationResponse
     ) {
         self.outlineResponse = outlineResponse
         self.imageResponse = imageResponse
-        self.atomizationRounds = atomizationResponse.rounds
+        self.irRounds = irResponse.rounds
     }
 
     func parseTextPatternOutline(
@@ -1511,13 +1248,13 @@ struct FixturePatternParsingClient: PatternLLMParsing {
         outlineResponse
     }
 
-    func atomizeTextRounds(
+    func parseTextRoundsToIR(
         projectTitle: String,
         materials: [String],
         rounds: [AtomizationRoundInput],
         context: ParseRequestContext
-    ) async throws -> RoundAtomizationResponse {
-        RoundAtomizationResponse(rounds: Array(atomizationRounds.prefix(rounds.count)))
+    ) async throws -> CrochetIRAtomizationResponse {
+        CrochetIRAtomizationResponse(rounds: Array(irRounds.prefix(rounds.count)))
     }
 
     func parseImagePattern(

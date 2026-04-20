@@ -28,7 +28,7 @@ final class AppContainer: ObservableObject {
             parserClient = FixturePatternParsingClient(
                 outlineResponse: SampleDataFactory.demoOutlineResponse,
                 imageResponse: SampleDataFactory.demoImageParseResponse,
-                atomizationResponse: SampleDataFactory.demoAtomizationResponse
+                irResponse: SampleDataFactory.demoIRAtomizationResponse
             )
         } else if let configuration = try? RuntimeConfiguration.load() {
             parserClient = OpenAICompatibleLLMClient(configuration: configuration, logger: logger)
@@ -158,13 +158,16 @@ struct SampleDataFactory {
                         atomicActions: [
                             ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
                             ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .inc, instruction: "inc", producedStitches: 2),
+                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
+                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
                             ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
                             ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .inc, instruction: "inc", producedStitches: 2),
+                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
+                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
                             ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
                             ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .inc, instruction: "inc", producedStitches: 2)
+                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
+                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1)
                         ]
                     )
                 ]
@@ -192,88 +195,41 @@ struct SampleDataFactory {
         ]
     )
 
-    static let demoAtomizationResponse = RoundAtomizationResponse(
+    static let demoIRAtomizationResponse = CrochetIRAtomizationResponse(
         rounds: [
-            AtomizedPatternRound(segments: [
-                .stitchRun(
-                    StitchRunSegment(
-                        type: .mr,
-                        count: 1,
-                        instruction: nil,
-                        producedStitches: nil,
-                        note: nil,
-                        notePlacement: .first,
-                        verbatim: "In a MR"
-                    )
-                ),
-                .stitchRun(
-                    StitchRunSegment(
-                        type: .sc,
-                        count: 6,
-                        instruction: nil,
-                        producedStitches: nil,
-                        note: nil,
-                        notePlacement: .first,
-                        verbatim: "sc 6"
-                    )
-                )
-            ]),
-            AtomizedPatternRound(segments: [
-                .repeatBlock(
-                    RepeatSegment(
+            CrochetIRInstructionBlock(
+                title: "Round 1",
+                sourceText: "In a MR, sc 6. (6)",
+                expectedProducedStitches: 6,
+                nodes: [
+                    .stitch(CrochetIRStitch(type: .mr, count: 1, sourceText: "In a MR")),
+                    .stitch(CrochetIRStitch(type: .sc, count: 6, sourceText: "sc 6"))
+                ]
+            ),
+            CrochetIRInstructionBlock(
+                title: "Round 2",
+                sourceText: "(sc 2, inc) x 3. (12)",
+                expectedProducedStitches: 12,
+                nodes: [
+                    .repeatBlock(CrochetIRRepeat(
                         times: 3,
-                        sequence: [
-                            .stitchRun(
-                                StitchRunSegment(
-                                    type: .sc,
-                                    count: 2,
-                                    instruction: nil,
-                                    producedStitches: nil,
-                                    note: nil,
-                                    notePlacement: .first,
-                                    verbatim: "sc 2"
-                                )
-                            ),
-                            .stitchRun(
-                                StitchRunSegment(
-                                    type: .inc,
-                                    count: 1,
-                                    instruction: nil,
-                                    producedStitches: nil,
-                                    note: nil,
-                                    notePlacement: .first,
-                                    verbatim: "inc"
-                                )
-                            )
+                        body: [
+                            .stitch(CrochetIRStitch(type: .sc, count: 2, sourceText: "sc 2")),
+                            .stitch(CrochetIRStitch(type: .sc, count: 2, note: "inc", notePlacement: .all, sourceText: "inc"))
                         ],
-                        verbatim: "(sc 2, inc) x 3"
-                    )
-                )
-            ]),
-            AtomizedPatternRound(segments: [
-                .stitchRun(
-                    StitchRunSegment(
-                        type: .mr,
-                        count: 1,
-                        instruction: nil,
-                        producedStitches: nil,
-                        note: nil,
-                        notePlacement: .first,
-                        verbatim: "In a MR"
-                    )
-                ),
-                .stitchRun(
-                    StitchRunSegment(
-                        type: .sc,
-                        count: 6,
-                        instruction: nil,
-                        producedStitches: nil,
-                        note: nil,
-                        notePlacement: .first,
-                        verbatim: "sc 6"
-                    )
-                )
-            ])
+                        sourceText: "(sc 2, inc) x 3"
+                    ))
+                ]
+            ),
+            CrochetIRInstructionBlock(
+                title: "Eye Round 1",
+                sourceText: "In a MR, sc 6. (6)",
+                expectedProducedStitches: 6,
+                nodes: [
+                    .stitch(CrochetIRStitch(type: .mr, count: 1, sourceText: "In a MR")),
+                    .stitch(CrochetIRStitch(type: .sc, count: 6, sourceText: "sc 6"))
+                ]
+            )
         ]
     )
 
@@ -289,12 +245,12 @@ final class FailingPatternClient: PatternLLMParsing {
         throw PatternImportFailure.missingConfiguration("OPENAI_API_KEY")
     }
 
-    func atomizeTextRounds(
+    func parseTextRoundsToIR(
         projectTitle: String,
         materials: [String],
         rounds: [AtomizationRoundInput],
         context: ParseRequestContext
-    ) async throws -> RoundAtomizationResponse {
+    ) async throws -> CrochetIRAtomizationResponse {
         throw PatternImportFailure.missingConfiguration("OPENAI_API_KEY")
     }
 

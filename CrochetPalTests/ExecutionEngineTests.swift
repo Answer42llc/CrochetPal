@@ -319,7 +319,7 @@ final class ExecutionEngineTests: XCTestCase {
             parserClient: FixturePatternParsingClient(
                 outlineResponse: SampleDataFactory.demoOutlineResponse,
                 imageResponse: SampleDataFactory.demoImageParseResponse,
-                atomizationResponse: SampleDataFactory.demoAtomizationResponse
+                irResponse: SampleDataFactory.demoIRAtomizationResponse
             ),
             extractor: HTMLExtractionService(),
             logger: ConsoleTraceLogger()
@@ -333,7 +333,7 @@ final class ExecutionEngineTests: XCTestCase {
             parserClient: FixturePatternParsingClient(
                 outlineResponse: SampleDataFactory.demoOutlineResponse,
                 imageResponse: SampleDataFactory.demoImageParseResponse,
-                atomizationResponse: SampleDataFactory.demoAtomizationResponse
+                irResponse: SampleDataFactory.demoIRAtomizationResponse
             ),
             extractor: HTMLExtractionService(),
             session: session,

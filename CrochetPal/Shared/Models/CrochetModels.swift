@@ -20,7 +20,6 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
     case sc
     case fpsc
     case bpsc
-    case inc
     case dec
     case ch
     case slSt = "sl_st"
@@ -55,7 +54,6 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .sc: "SC"
         case .fpsc: "FPSC"
         case .bpsc: "BPSC"
-        case .inc: "Inc"
         case .dec: "Dec"
         case .ch: "CH"
         case .slSt: "Sl St"
@@ -90,7 +88,6 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
         case .sc: "sc"
         case .fpsc: "fpsc"
         case .bpsc: "bpsc"
-        case .inc: "inc"
         case .dec: "dec"
         case .ch: "ch"
         case .slSt: "sl st"
@@ -126,7 +123,6 @@ enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
 
         return switch self {
         case .mr: 0
-        case .inc: 2
         case .slSt: 0
         case .dec: 1
         case .fo: 0
@@ -228,7 +224,7 @@ enum CrochetTermDictionary {
         term("fo", "fasten off", kind: .action, supportedActionType: .fo, producedStitches: 0, aliases: ["fasten off"]),
         term("hdc", "half double crochet", kind: .action, supportedActionType: .hdc, producedStitches: 1, aliases: ["half double crochet"]),
         term("hdc2tog", "half double crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
-        term("inc", "increase", kind: .action, supportedActionType: .inc, producedStitches: 2, aliases: ["increase"]),
+        term("inc", "increase", kind: .action, aliases: ["increase"]),
         term("lp", "loop", kind: .reference),
         term("m", "marker", kind: .control, aliases: ["marker"]),
         term("mc", "main color", kind: .control, aliases: ["main color"]),
