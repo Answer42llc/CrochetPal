@@ -14,6 +14,14 @@ protocol PatternLLMParsing {
         context: ParseRequestContext
     ) async throws -> RoundAtomizationResponse
 
+
+    func parseTextRoundsToIR(
+        projectTitle: String,
+        materials: [String],
+        rounds: [AtomizationRoundInput],
+        context: ParseRequestContext
+    ) async throws -> CrochetIRAtomizationResponse
+
     func parseImagePattern(
         imageData: Data,
         mimeType: String,
@@ -77,6 +85,35 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
             context: context,
             modelKind: "round_atomizer",
             responseFormat: PromptFactory.atomizationResponseFormat(),
+            providerPayload: textProviderPayload(for: configuration.atomizationModelID),
+            temperature: 0,
+            repairModelID: configuration.atomizationModelID,
+            repairProviderPayload: textProviderPayload(for: configuration.atomizationModelID)
+        )
+    }
+
+
+    func parseTextRoundsToIR(
+        projectTitle: String,
+        materials: [String],
+        rounds: [AtomizationRoundInput],
+        context: ParseRequestContext
+    ) async throws -> CrochetIRAtomizationResponse {
+        let prompt = PromptFactory.roundIRAtomizationPrompt(
+            projectTitle: projectTitle,
+            materials: materials,
+            rounds: rounds
+        )
+        let messages: [[String: Any]] = [
+            ["role": "system", "content": PromptFactory.roundIRAtomizationSystemPrompt()],
+            ["role": "user", "content": prompt]
+        ]
+        return try await sendChatCompletion(
+            modelID: configuration.atomizationModelID,
+            messagePayload: messages,
+            context: context,
+            modelKind: "round_ir_parser",
+            responseFormat: PromptFactory.irAtomizationResponseFormat(),
             providerPayload: textProviderPayload(for: configuration.atomizationModelID),
             temperature: 0,
             repairModelID: configuration.atomizationModelID,
@@ -572,6 +609,47 @@ enum PromptFactory {
     }
     """
 
+
+    private static let irAtomizationExampleJSON = """
+    {
+      "rounds": [
+        {
+          "title": "Squaring",
+          "sourceText": "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+          "expectedProducedStitches": 37,
+          "nodes": [
+            {
+              "kind": "repeat",
+              "stitch": null,
+              "repeat": {
+                "times": 3,
+                "body": [
+                  { "kind": "stitch", "stitch": { "type": "dc", "count": 2, "instruction": null, "producedStitches": null, "note": "dc inc", "notePlacement": "all", "sourceText": "dc inc" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
+                  { "kind": "stitch", "stitch": { "type": "hdc", "count": 8, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "8hdc" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
+                  { "kind": "stitch", "stitch": { "type": "dc", "count": 2, "instruction": null, "producedStitches": null, "note": "dc inc", "notePlacement": "all", "sourceText": "dc inc" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
+                  { "kind": "stitch", "stitch": { "type": "ch", "count": 3, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "ch3" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null }
+                ],
+                "lastIterationTransform": {
+                  "removeTailNodeCount": 1,
+                  "append": [
+                    { "kind": "stitch", "stitch": { "type": "ch", "count": 1, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "ch1" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
+                    { "kind": "stitch", "stitch": { "type": "hdc", "count": 1, "instruction": null, "producedStitches": null, "note": "into the top of the first ch3", "notePlacement": "all", "sourceText": "1hdc into the top of the first ch3" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null }
+                  ],
+                  "sourceText": "omit the final ch3"
+                },
+                "sourceText": "[dc inc, 8hdc, dc inc, ch3] repeat 3 times"
+              },
+              "conditional": null,
+              "control": null,
+              "note": null,
+              "ambiguous": null
+            }
+          ]
+        }
+      ]
+    }
+    """
+
     private static let imageExampleJSON = """
     {
       "projectTitle": "Mouse Cat Toy",
@@ -778,6 +856,69 @@ enum PromptFactory {
         return prompt
     }
 
+
+    static func roundIRAtomizationSystemPrompt() -> String {
+        let supportedTypes = CrochetTermDictionary.supportedAtomicActionTypes
+            .map(\.rawValue)
+            .joined(separator: ", ")
+        let controlKinds = ControlSegmentKind.allCases.map(\.rawValue).joined(separator: ", ")
+
+        return """
+        You are a crochet master and compiler. Convert each short crochet row or round into Crochet IR, a structured intermediate representation that deterministic Swift code will expand into one tap-per-action instructions.
+
+        Supported stitch action types: \(supportedTypes)
+        Supported control kinds: \(controlKinds)
+
+        IR node kinds:
+        - stitch: a stitch action type repeated count times.
+        - repeat: an explicit repeat with a concrete integer times value.
+        - conditional: a user choice with branches, such as same colour vs different colour.
+        - control: standalone non-stitch controls such as turn, skip, or custom instructions.
+        - note: important non-action context. Set emitAsAction=true only when the user must explicitly do it.
+        - ambiguous: source text that is important but cannot be safely normalized.
+
+        Rules:
+        - Return exactly one JSON object and no surrounding text.
+        - Preserve source order and source text.
+        - Do not expand repeats yourself. Encode repeats as repeat nodes.
+        - Use lastIterationTransform for instructions such as omit the final ch3 or skip the last stitch of the final repeat.
+        - Use conditional for explicit user choices. If no choice has been made by the user, still preserve all branches.
+        - If a conditional is followed by a repeated common body, put the conditional node first and put the repeat node after it.
+        - Use ambiguous instead of inventing stitch counts for phrases such as work evenly around, continue as established, or assembly instructions that require a diagram.
+        - Never use FLO, BLO, colour text, or placement text as a stitch action type. Put those in note.
+        - Do not collapse derived post stitches into base stitches. fpdc remains fpdc, fphdc remains fphdc.
+        - Non-repeat stitch groups without an explicit repeat count, such as (hdc, 2 dc, hdc), are consecutive stitch nodes that share the same target in notes.
+        - Every IR node must include every node payload key: stitch, repeat, conditional, control, note, ambiguous. Exactly one payload should be non-null.
+        - expectedProducedStitches should equal the explicit target stitch count from the input when present, otherwise null.
+        - If the input round contains only a non-stitch instruction, emit a control node with kind=custom.
+        - The body of repeat nodes should contain stitch, control, note, or ambiguous nodes. If the nested structure is too complex, use ambiguous for the nested source text.
+
+        Output example:
+        \(irAtomizationExampleJSON)
+        """
+    }
+
+    static func roundIRAtomizationPrompt(
+        projectTitle: String,
+        materials: [String],
+        rounds: [AtomizationRoundInput]
+    ) -> String {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let roundsPayload = (try? encoder.encode(rounds)).flatMap { String(data: $0, encoding: .utf8) } ?? "[]"
+        let materialsPayload = materials.isEmpty ? "none" : materials.joined(separator: ", ")
+
+        return """
+        Compile these crochet rounds into Crochet IR.
+
+        Project title: \(projectTitle)
+        Materials: \(materialsPayload)
+
+        Input rounds JSON:
+        \(roundsPayload)
+        """
+    }
+
     static func imageSystemPrompt() -> String {
         """
         You convert crochet pattern images into a single valid JSON object.
@@ -864,6 +1005,18 @@ enum PromptFactory {
         ]
     }
 
+
+    static func irAtomizationResponseFormat() -> [String: Any] {
+        [
+            "type": "json_schema",
+            "json_schema": [
+                "name": "crochet_round_ir_atomization_response",
+                "strict": true,
+                "schema": irAtomizationSchema()
+            ]
+        ]
+    }
+
     static func imageResponseFormat() -> [String: Any] {
         [
             "type": "json_schema",
@@ -889,6 +1042,211 @@ enum PromptFactory {
                 ]
             ],
             "required": ["projectTitle", "materials", "confidence", "parts"]
+        ]
+    }
+
+
+    private static func irAtomizationSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "rounds": [
+                    "type": "array",
+                    "items": irInstructionBlockSchema()
+                ]
+            ],
+            "required": ["rounds"],
+            "$defs": [
+                "node": irNodeSchema(
+                    allowedKinds: CrochetIRNodeKind.allCases,
+                    allowsRepeat: true,
+                    allowsConditional: true
+                ),
+                "sequenceNode": irNodeSchema(
+                    allowedKinds: [.stitch, .control, .note, .ambiguous],
+                    allowsRepeat: false,
+                    allowsConditional: false
+                )
+            ]
+        ]
+    }
+
+    private static func irInstructionBlockSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "title": ["type": "string"],
+                "sourceText": ["type": "string"],
+                "expectedProducedStitches": nullableIntegerSchema(),
+                "nodes": [
+                    "type": "array",
+                    "items": ["$ref": "#/$defs/node"]
+                ]
+            ],
+            "required": ["title", "sourceText", "expectedProducedStitches", "nodes"]
+        ]
+    }
+
+    private static func irNodeSchema(
+        allowedKinds: [CrochetIRNodeKind],
+        allowsRepeat: Bool,
+        allowsConditional: Bool
+    ) -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "kind": [
+                    "type": "string",
+                    "enum": allowedKinds.map(\.rawValue)
+                ],
+                "stitch": nullableObjectSchema(irStitchSchema()),
+                "repeat": allowsRepeat ? nullableObjectSchema(irRepeatSchema()) : nullOnlySchema(),
+                "conditional": allowsConditional ? nullableObjectSchema(irConditionalSchema()) : nullOnlySchema(),
+                "control": nullableObjectSchema(irControlSchema()),
+                "note": nullableObjectSchema(irNoteSchema()),
+                "ambiguous": nullableObjectSchema(irAmbiguousSchema())
+            ],
+            "required": ["kind", "stitch", "repeat", "conditional", "control", "note", "ambiguous"]
+        ]
+    }
+
+    private static func irStitchSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "type": [
+                    "type": "string",
+                    "enum": CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)
+                ],
+                "count": ["type": "integer"],
+                "instruction": nullableStringSchema(),
+                "producedStitches": nullableIntegerSchema(),
+                "note": nullableStringSchema(),
+                "notePlacement": [
+                    "type": "string",
+                    "enum": AtomizedNotePlacement.allCases.map(\.rawValue)
+                ],
+                "sourceText": nullableStringSchema()
+            ],
+            "required": ["type", "count", "instruction", "producedStitches", "note", "notePlacement", "sourceText"]
+        ]
+    }
+
+    private static func irRepeatSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "times": ["type": "integer"],
+                "body": [
+                    "type": "array",
+                    "items": ["$ref": "#/$defs/sequenceNode"]
+                ],
+                "lastIterationTransform": nullableObjectSchema(irLastIterationTransformSchema()),
+                "sourceText": nullableStringSchema()
+            ],
+            "required": ["times", "body", "lastIterationTransform", "sourceText"]
+        ]
+    }
+
+    private static func irLastIterationTransformSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "removeTailNodeCount": ["type": "integer"],
+                "append": [
+                    "type": "array",
+                    "items": ["$ref": "#/$defs/sequenceNode"]
+                ],
+                "sourceText": nullableStringSchema()
+            ],
+            "required": ["removeTailNodeCount", "append", "sourceText"]
+        ]
+    }
+
+    private static func irConditionalSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "choiceID": ["type": "string"],
+                "question": ["type": "string"],
+                "branches": [
+                    "type": "array",
+                    "items": irConditionalBranchSchema()
+                ],
+                "defaultBranchValue": nullableStringSchema(),
+                "commonBody": [
+                    "type": "array",
+                    "items": ["$ref": "#/$defs/sequenceNode"]
+                ],
+                "sourceText": nullableStringSchema()
+            ],
+            "required": ["choiceID", "question", "branches", "defaultBranchValue", "commonBody", "sourceText"]
+        ]
+    }
+
+    private static func irConditionalBranchSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "value": ["type": "string"],
+                "label": ["type": "string"],
+                "nodes": [
+                    "type": "array",
+                    "items": ["$ref": "#/$defs/sequenceNode"]
+                ]
+            ],
+            "required": ["value", "label", "nodes"]
+        ]
+    }
+
+    private static func irControlSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "kind": [
+                    "type": "string",
+                    "enum": ControlSegmentKind.allCases.map(\.rawValue)
+                ],
+                "instruction": nullableStringSchema(),
+                "note": nullableStringSchema(),
+                "sourceText": nullableStringSchema()
+            ],
+            "required": ["kind", "instruction", "note", "sourceText"]
+        ]
+    }
+
+    private static func irNoteSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "message": ["type": "string"],
+                "sourceText": nullableStringSchema(),
+                "emitAsAction": ["type": "boolean"]
+            ],
+            "required": ["message", "sourceText", "emitAsAction"]
+        ]
+    }
+
+    private static func irAmbiguousSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "reason": ["type": "string"],
+                "sourceText": ["type": "string"],
+                "safeInstruction": nullableStringSchema()
+            ],
+            "required": ["reason", "sourceText", "safeInstruction"]
         ]
     }
 
@@ -1116,6 +1474,13 @@ enum PromptFactory {
             "type": ["array", "null"],
             "items": items
         ]
+    }
+
+
+    private static func nullableObjectSchema(_ objectSchema: [String: Any]) -> [String: Any] {
+        var schema = objectSchema
+        schema["type"] = ["object", "null"]
+        return schema
     }
 
     private static func nullOnlySchema() -> [String: Any] {

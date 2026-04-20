@@ -1861,6 +1861,198 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(rounds[9].title, "Round 10")
     }
 
+
+    // MARK: - Crochet IR compiler tests
+
+    func testCrochetIRCompilerExpandsRepeatWithLastIterationOverride() throws {
+        let repeatBody: [CrochetIRNode] = [
+            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all, sourceText: "dc inc")),
+            .stitch(CrochetIRStitch(type: .hdc, count: 8, sourceText: "8hdc")),
+            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all, sourceText: "dc inc")),
+            .stitch(CrochetIRStitch(type: .ch, count: 3, sourceText: "ch3"))
+        ]
+        let block = CrochetIRInstructionBlock(
+            title: "Squaring",
+            sourceText: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+            expectedProducedStitches: 37,
+            nodes: [
+                .repeatBlock(CrochetIRRepeat(
+                    times: 3,
+                    body: repeatBody,
+                    lastIterationTransform: CrochetIRRepeatLastIterationTransform(
+                        removeTailNodeCount: 1,
+                        append: [
+                            .stitch(CrochetIRStitch(type: .ch, count: 1, sourceText: "ch1")),
+                            .stitch(CrochetIRStitch(
+                                type: .hdc,
+                                count: 1,
+                                note: "into the top of the first ch3",
+                                notePlacement: .all,
+                                sourceText: "1hdc into the top of the first ch3"
+                            ))
+                        ],
+                        sourceText: "omit the final ch3"
+                    ),
+                    sourceText: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times"
+                ))
+            ]
+        )
+
+        let expansion = try CrochetIRCompiler().expand(block)
+
+        XCTAssertEqual(expansion.atomicActions.count, 44)
+        XCTAssertEqual(expansion.producedStitchCount, 37)
+        XCTAssertEqual(expansion.atomicActions.suffix(2).map(\.type), [.ch, .hdc])
+        XCTAssertEqual(expansion.atomicActions.last?.note, "into the top of the first ch3")
+        XCTAssertTrue(expansion.warnings.isEmpty)
+    }
+
+    func testCrochetIRCompilerHandlesConditionalChoiceAndCommonBody() throws {
+        let commonBody: [CrochetIRNode] = [
+            .repeatBlock(CrochetIRRepeat(
+                times: 2,
+                body: [
+                    .stitch(CrochetIRStitch(type: .ch, count: 3)),
+                    .stitch(CrochetIRStitch(type: .fpsc, count: 1, note: "around next Popcorn", notePlacement: .all)),
+                    .stitch(CrochetIRStitch(type: .ch, count: 3)),
+                    .stitch(CrochetIRStitch(type: .fpdc, count: 1, note: "around next FPhdc", notePlacement: .all))
+                ],
+                lastIterationTransform: CrochetIRRepeatLastIterationTransform(removeTailNodeCount: 1)
+            ))
+        ]
+        let block = CrochetIRInstructionBlock(
+            title: "Round 5",
+            sourceText: "If using a different colour start with standing FPdc. If using the same colour start with fake FPdc.",
+            nodes: [
+                .conditional(CrochetIRConditional(
+                    choiceID: "colour_mode",
+                    question: "Are you using a different colour for this round?",
+                    branches: [
+                        CrochetIRConditionalBranch(
+                            value: "different_colour",
+                            label: "Different colour",
+                            nodes: [.stitch(CrochetIRStitch(type: .fpdc, count: 1, note: "standing FPdc", notePlacement: .all))]
+                        ),
+                        CrochetIRConditionalBranch(
+                            value: "same_colour",
+                            label: "Same colour",
+                            nodes: [
+                                .stitch(CrochetIRStitch(type: .fpsc, count: 1)),
+                                .stitch(CrochetIRStitch(type: .ch, count: 1)),
+                                .stitch(CrochetIRStitch(type: .sc, count: 1, note: "counts as fake FPdc", notePlacement: .all))
+                            ]
+                        )
+                    ],
+                    commonBody: commonBody
+                ))
+            ]
+        )
+
+        let expansion = try CrochetIRCompiler().expand(block, choices: ["colour_mode": "same_colour"])
+
+        XCTAssertEqual(Array(expansion.atomicActions.prefix(3)).map(\.type), [.fpsc, .ch, .sc])
+        XCTAssertEqual(expansion.atomicActions.first(where: { $0.type == .sc })?.note, "counts as fake FPdc")
+        XCTAssertEqual(expansion.atomicActions.last?.type, .ch)
+        XCTAssertTrue(expansion.warnings.isEmpty)
+    }
+
+    func testCrochetIRCompilerEmitsCustomActionForAmbiguousSource() throws {
+        let block = CrochetIRInstructionBlock(
+            title: "Border",
+            sourceText: "work evenly around",
+            nodes: [
+                .ambiguous(CrochetIRAmbiguous(
+                    reason: "Cannot determine the stitch count from the source text.",
+                    sourceText: "work evenly around"
+                ))
+            ]
+        )
+
+        let expansion = try CrochetIRCompiler().expand(block)
+
+        XCTAssertEqual(expansion.atomicActions.count, 1)
+        XCTAssertEqual(expansion.atomicActions[0].type, .custom)
+        XCTAssertEqual(expansion.atomicActions[0].instruction, "work evenly around")
+        XCTAssertEqual(expansion.warnings.map(\.code), ["ir_ambiguous_source"])
+    }
+
+    func testCrochetIRValidatorReportsInvalidTailOverrideAndDescriptorStitch() {
+        let invalidTail = CrochetIRInstructionBlock(
+            title: "Invalid Repeat",
+            sourceText: "omit too much",
+            nodes: [
+                .repeatBlock(CrochetIRRepeat(
+                    times: 1,
+                    body: [.stitch(CrochetIRStitch(type: .sc, count: 1))],
+                    lastIterationTransform: CrochetIRRepeatLastIterationTransform(removeTailNodeCount: 2)
+                ))
+            ]
+        )
+        let descriptor = CrochetIRInstructionBlock(
+            title: "Descriptor",
+            sourceText: "FLO",
+            nodes: [.stitch(CrochetIRStitch(type: .flo, count: 1))]
+        )
+
+        let invalidTailReport = CrochetIRCompiler().validate(invalidTail)
+        let descriptorReport = CrochetIRCompiler().validate(descriptor)
+
+        XCTAssertTrue(invalidTailReport.hasErrors)
+        XCTAssertTrue(invalidTailReport.issues.contains { $0.code == "ir_invalid_last_iteration_tail_removal" })
+        XCTAssertTrue(descriptorReport.hasErrors)
+        XCTAssertTrue(descriptorReport.issues.contains { $0.code == "ir_contains_non_action_type" })
+    }
+
+    func testAtomizeRoundsUsesCrochetIRCompilerPathWhenAvailable() async throws {
+        let outline = makeSingleRoundOutlineResponse(
+            rawInstruction: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+            summary: "Repeat the squaring sequence and replace the final chain space.",
+            targetStitchCount: 37
+        )
+        let repeatBody: [CrochetIRNode] = [
+            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all)),
+            .stitch(CrochetIRStitch(type: .hdc, count: 8)),
+            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all)),
+            .stitch(CrochetIRStitch(type: .ch, count: 3))
+        ]
+        let irResponse = CrochetIRAtomizationResponse(rounds: [
+            CrochetIRInstructionBlock(
+                title: "Round 1",
+                sourceText: outline.parts[0].rounds[0].rawInstruction,
+                expectedProducedStitches: 37,
+                nodes: [
+                    .repeatBlock(CrochetIRRepeat(
+                        times: 3,
+                        body: repeatBody,
+                        lastIterationTransform: CrochetIRRepeatLastIterationTransform(
+                            removeTailNodeCount: 1,
+                            append: [
+                                .stitch(CrochetIRStitch(type: .ch, count: 1)),
+                                .stitch(CrochetIRStitch(type: .hdc, count: 1, note: "into the top of the first ch3", notePlacement: .all))
+                            ]
+                        )
+                    ))
+                ]
+            )
+        ])
+        let parserClient = IRAtomizationClient(outlineResponse: outline, irResponse: irResponse)
+        let importer = PatternImportService(
+            parserClient: parserClient,
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importTextPattern(from: "Wolf squaring")
+        let target = try firstRoundReferences(in: record.project, count: 1)
+        let updates = try await importer.atomizeRounds(in: record.project, targets: target)
+
+        XCTAssertEqual(updates.first?.atomicActions.count, 44)
+        XCTAssertEqual(updates.first?.resolvedTargetStitchCount, 37)
+        XCTAssertEqual(updates.first?.atomicActions.last?.note, "into the top of the first ch3")
+        XCTAssertEqual(await parserClient.irCallCount(), 1)
+        XCTAssertEqual(await parserClient.legacyAtomizationCallCount(), 0)
+    }
+
     private func firstRoundReferences(in project: CrochetProject, count: Int) throws -> [RoundReference] {
         let references = project.parts.flatMap { part in
             part.rounds.map { RoundReference(partID: part.id, roundID: $0.id) }
@@ -1970,6 +2162,59 @@ private final class RequestSequenceCapture: @unchecked Sendable {
 
 private final class EventCapture: @unchecked Sendable {
     var events: [LogEvent] = []
+}
+
+
+private actor IRAtomizationClient: PatternLLMParsing {
+    private let outlineResponse: PatternOutlineResponse
+    private let irResponse: CrochetIRAtomizationResponse
+    private var irCalls = 0
+    private var legacyCalls = 0
+
+    init(outlineResponse: PatternOutlineResponse, irResponse: CrochetIRAtomizationResponse) {
+        self.outlineResponse = outlineResponse
+        self.irResponse = irResponse
+    }
+
+    func parseTextPatternOutline(
+        extractedText: String,
+        titleHint: String?,
+        context: ParseRequestContext
+    ) async throws -> PatternOutlineResponse {
+        outlineResponse
+    }
+
+    func atomizeTextRounds(
+        projectTitle: String,
+        materials: [String],
+        rounds: [AtomizationRoundInput],
+        context: ParseRequestContext
+    ) async throws -> RoundAtomizationResponse {
+        legacyCalls += 1
+        return RoundAtomizationResponse(rounds: [])
+    }
+
+    func parseTextRoundsToIR(
+        projectTitle: String,
+        materials: [String],
+        rounds: [AtomizationRoundInput],
+        context: ParseRequestContext
+    ) async throws -> CrochetIRAtomizationResponse {
+        irCalls += 1
+        return CrochetIRAtomizationResponse(rounds: Array(irResponse.rounds.prefix(rounds.count)))
+    }
+
+    func parseImagePattern(
+        imageData: Data,
+        mimeType: String,
+        fileName: String,
+        context: ParseRequestContext
+    ) async throws -> PatternParseResponse {
+        SampleDataFactory.demoImageParseResponse
+    }
+
+    func irCallCount() -> Int { irCalls }
+    func legacyAtomizationCallCount() -> Int { legacyCalls }
 }
 
 private actor OutlineTextCaptureClient: PatternLLMParsing {

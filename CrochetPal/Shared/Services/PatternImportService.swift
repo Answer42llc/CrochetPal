@@ -388,7 +388,7 @@ struct PatternImportService: PatternImporting {
         targets: [RoundReference],
         context: ParseRequestContext
     ) async throws -> [AtomizedRoundUpdate] {
-        let response = try await parserClient.atomizeTextRounds(
+        let response = try await parserClient.parseTextRoundsToIR(
             projectTitle: projectTitle,
             materials: materials,
             rounds: inputs,
@@ -399,19 +399,36 @@ struct PatternImportService: PatternImporting {
             throw PatternImportFailure.inconsistentRound("atomized_round_count_mismatch")
         }
 
+        let compiler = CrochetIRCompiler()
         return try zip(zip(targets, inputs), response.rounds).map { entry, payload in
             let (target, input) = entry
-            let expansion = try buildAtomicActions(
-                from: payload.segments,
-                originalTargetStitchCount: input.targetStitchCount
-            )
+            var block = payload
+            if block.expectedProducedStitches == nil {
+                block.expectedProducedStitches = input.targetStitchCount
+            }
+
+            let validation = compiler.validate(block)
+            let errors = validation.issues.filter { $0.severity == .error }
+            guard errors.isEmpty else {
+                let codes = errors.map(\.code).joined(separator: ",")
+                throw PatternImportFailure.atomizationFailed("ir_validation_failed:\(codes)")
+            }
+
+            let expansion = try compiler.expand(block)
             return AtomizedRoundUpdate(
                 reference: target,
                 atomicActions: expansion.atomicActions,
-                resolvedTargetStitchCount: expansion.resolvedTargetStitchCount,
-                warning: expansion.warning
+                resolvedTargetStitchCount: expansion.producedStitchCount,
+                warning: warningString(from: expansion.warnings)
             )
         }
+    }
+
+    private func warningString(from warnings: [CrochetIRExpansionWarning]) -> String? {
+        guard !warnings.isEmpty else {
+            return nil
+        }
+        return warnings.map(\.code).joined(separator: ";")
     }
 
     private func buildAtomicActions(
