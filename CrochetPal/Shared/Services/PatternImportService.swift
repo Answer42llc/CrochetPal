@@ -3,7 +3,12 @@ import Foundation
 struct AtomizedRoundUpdate: Hashable {
     var reference: RoundReference
     var atomicActions: [AtomicAction]
-    var resolvedTargetStitchCount: Int
+    /// The number of stitches actually produced by compiling the LLM's IR for this round.
+    /// This is NOT the pattern's declared target (see `PatternRound.targetStitchCount` for that).
+    /// Consumers should treat this as diagnostic data; it may differ from the declared target
+    /// when the LLM failed to atomize the instruction correctly (in which case `warning` will
+    /// carry `atomization_target_stitch_count_mismatch`).
+    var producedStitchCount: Int
     var warning: String?
 }
 
@@ -263,6 +268,7 @@ struct PatternImportService: PatternImporting {
             source: source,
             materials: payload.materials,
             confidence: payload.confidence,
+            abbreviations: payload.abbreviations,
             parts: parts,
             activePartID: parts.first?.id,
             createdAt: now,
@@ -283,7 +289,8 @@ struct PatternImportService: PatternImporting {
             durationMS: nil,
             metadata: [
                 "partCount": "\(parts.count)",
-                "roundCount": "\(parts.flatMap(\.rounds).count)"
+                "roundCount": "\(parts.flatMap(\.rounds).count)",
+                "abbreviationCount": "\(payload.abbreviations.count)"
             ]
         ))
 
@@ -302,13 +309,10 @@ struct PatternImportService: PatternImporting {
                 rounds: try part.rounds.map { round in
                     let atomicActions = try round.atomicActions.enumerated().map { actionIndex, action in
                         try makeAtomicAction(
-                            type: action.type,
-                            instruction: action.instruction,
-                            producedStitches: action.producedStitches,
-                            note: action.note,
+                            from: action,
                             sequenceIndex: actionIndex,
-                            failureBuilder: { type in
-                                PatternImportFailure.invalidResponse("image_parse_contains_non_action_type:\(type.rawValue)")
+                            failureBuilder: { tag in
+                                PatternImportFailure.invalidResponse("image_parse_contains_non_action_type:\(tag)")
                             }
                         )
                     }
@@ -331,6 +335,7 @@ struct PatternImportService: PatternImporting {
             source: source,
             materials: payload.materials,
             confidence: payload.confidence,
+            abbreviations: payload.abbreviations,
             parts: parts,
             activePartID: parts.first?.id,
             createdAt: now,
@@ -376,7 +381,8 @@ struct PatternImportService: PatternImporting {
                 rawInstruction: round.rawInstruction,
                 summary: round.summary,
                 targetStitchCount: round.targetStitchCount,
-                previousRoundStitchCount: previousStitchCount
+                previousRoundStitchCount: previousStitchCount,
+                abbreviations: project.abbreviations
             )
         }
     }
@@ -418,7 +424,7 @@ struct PatternImportService: PatternImporting {
             return AtomizedRoundUpdate(
                 reference: target,
                 atomicActions: expansion.atomicActions,
-                resolvedTargetStitchCount: expansion.producedStitchCount,
+                producedStitchCount: expansion.producedStitchCount,
                 warning: warningString(from: expansion.warnings)
             )
         }
@@ -432,22 +438,23 @@ struct PatternImportService: PatternImporting {
     }
 
     private func makeAtomicAction(
-        type: StitchActionType,
-        instruction: String?,
-        producedStitches: Int?,
-        note: String?,
+        from action: ParsedAtomicAction,
         sequenceIndex: Int,
-        failureBuilder: (StitchActionType) -> PatternImportFailure
+        failureBuilder: (String) -> PatternImportFailure
     ) throws -> AtomicAction {
-        guard type.isAtomicActionType else {
-            throw failureBuilder(type)
+        if action.semantics != .bookkeeping {
+            guard let stitch = action.stitchTag, CrochetStitchCatalog.isValidStitchTag(stitch) else {
+                throw failureBuilder(action.stitchTag ?? action.actionTag)
+            }
         }
-
+        let defaultProduced = action.stitchTag.map(CrochetStitchCatalog.defaultProducedStitches(for:)) ?? 0
         return AtomicAction(
-            type: type,
-            instruction: AtomicAction.normalizedInstruction(instruction),
-            producedStitches: producedStitches ?? type.defaultProducedStitches,
-            note: normalizeNote(note),
+            semantics: action.semantics,
+            actionTag: action.actionTag,
+            stitchTag: action.stitchTag,
+            instruction: AtomicAction.normalizedInstruction(action.instruction),
+            producedStitches: action.producedStitches ?? defaultProduced,
+            note: normalizeNote(action.note),
             sequenceIndex: sequenceIndex
         )
     }

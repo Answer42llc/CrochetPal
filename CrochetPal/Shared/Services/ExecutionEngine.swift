@@ -52,6 +52,14 @@ enum ExecutionEngine {
             return false
         }
 
+        // A `.ready` round with zero expanded actions is a malformed atomization result —
+        // not a completed round. Without this guard, `actionIndex (0) == atomicActions.count (0)`
+        // would be true on entry, silently putting the user into the "tap Enter Next Round"
+        // state and letting them skip the round without doing anything.
+        guard !round.atomicActions.isEmpty else {
+            return false
+        }
+
         return progress.cursor.actionIndex == round.atomicActions.count &&
             nextRoundCursor(in: project, progress: progress) != nil
     }

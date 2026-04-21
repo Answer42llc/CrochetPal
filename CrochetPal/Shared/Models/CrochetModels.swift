@@ -1,5 +1,35 @@
 import Foundation
 
+/// Semantics decide how the compiler expands an Operation. Only 4 values — this enum is
+/// closed by design, because these are the only distinct compiler behaviors we need.
+///
+/// Defined here (rather than in CrochetIRModels.swift) so that `AtomicAction` — which is
+/// linked into both the main app and the watch target — can reference it.
+enum CrochetIROperationSemantics: String, Codable, CaseIterable, Hashable {
+    /// Produces `count` stitches, each occupying one stitch-slot of the previous round.
+    /// Examples: sc, hdc, dc, ch, slst, fpdc, fphdc, fpsc.
+    case stitchProducing
+    /// Produces N stitches into a single stitch-slot. Encoded as `count = 1`, with
+    /// `producedStitches = N`.
+    case increase
+    /// Consumes M stitch-slots and produces 1 stitch. Typically `stitch = "dec"`.
+    case decrease
+    /// Does not produce stitches. Examples: turn, skip, joinYarn, fastenOff, changeColor,
+    /// setWorkingLoop, placeMarker, removeMarker, moveMarker, assembly, custom.
+    case bookkeeping
+}
+
+/// One author-defined abbreviation, typically from an "Abbreviations" section at the top
+/// of the pattern. Propagated verbatim into the IR atomization prompt so the LLM uses
+/// the author's vocabulary instead of remapping to standard stitches.
+///
+/// Defined here (rather than in ParseModels.swift) so it can live on `CrochetProject`,
+/// which is shared with the watch target.
+struct PatternAbbreviation: Codable, Hashable {
+    var term: String
+    var definition: String
+}
+
 enum PatternSourceType: String, Codable, Hashable {
     case web
     case text
@@ -15,156 +45,146 @@ enum PatternSourceType: String, Codable, Hashable {
     }
 }
 
-enum StitchActionType: String, Codable, CaseIterable, Hashable, Identifiable {
-    case mr
-    case sc
-    case fpsc
-    case bpsc
-    case dec
-    case ch
-    case slSt = "sl_st"
-    case blo
-    case flo
-    case fo
-    case esc
-    case hdc
-    case fphdc
-    case bphdc
-    case ehdc
-    case dc
-    case fpdc
-    case bpdc
-    case edc
-    case tr
-    case fptr
-    case bptr
-    case etr
-    case dtr
-    case fpdtr
-    case bpdtr
-    case trtr
-    case skip
-    case custom
+/// Canonical vocabulary of known crochet stitch tags. `stitchTag` is an OPEN string
+/// (the LLM may invent new tags for pattern-specific abbreviations), but for the subset we
+/// do recognize we provide display titles, default produced-stitch counts, and a
+/// descriptor/action classification so the compiler can validate whether a tag is usable as
+/// an actual stitch-producing operation.
+///
+/// NOTE: this is intentionally tag-centric, not enum-centric. New stitches don't require
+/// code changes; they just flow through with fallback defaults.
+enum CrochetStitchCatalog {
+    /// All stitch tags that are valid as a stitch-producing operation. `blo/flo/fo` etc.
+    /// are descriptors/meta, not stitches themselves, so they're excluded.
+    static let knownStitchTags: Set<String> = [
+        "mr",
+        "sc", "fpsc", "bpsc",
+        "dec",
+        "ch",
+        "slst",
+        "esc", "hdc", "fphdc", "bphdc", "ehdc",
+        "dc", "fpdc", "bpdc", "edc",
+        "tr", "fptr", "bptr", "etr",
+        "dtr", "fpdtr", "bpdtr",
+        "trtr"
+    ]
 
-    var id: String { rawValue }
+    /// Tags that are NOT valid as stitch-producing — they describe WHERE to insert
+    /// (loops), or are meta commands. Validator rejects these in stitchProducing/inc/dec.
+    static let knownDescriptorOrMetaTags: Set<String> = [
+        "blo", "flo", "bl", "fl", "fo", "skip", "sk", "yo", "yoh", "custom",
+        "turn", "join", "fastenoff", "fasten_off",
+        "placemarker", "place_marker", "removemarker", "remove_marker",
+        "movemarker", "move_marker", "assembly"
+    ]
 
-    var title: String {
-        switch self {
-        case .mr: "MR"
-        case .sc: "SC"
-        case .fpsc: "FPSC"
-        case .bpsc: "BPSC"
-        case .dec: "Dec"
-        case .ch: "CH"
-        case .slSt: "Sl St"
-        case .blo: "BLO"
-        case .flo: "FLO"
-        case .fo: "FO"
-        case .esc: "ESC"
-        case .hdc: "HDC"
-        case .fphdc: "FPHDC"
-        case .bphdc: "BPHDC"
-        case .ehdc: "EHDC"
-        case .dc: "DC"
-        case .fpdc: "FPDC"
-        case .bpdc: "BPDC"
-        case .edc: "EDC"
-        case .tr: "TR"
-        case .fptr: "FPTR"
-        case .bptr: "BPTR"
-        case .etr: "ETR"
-        case .dtr: "DTR"
-        case .fpdtr: "FPDTR"
-        case .bpdtr: "BPDTR"
-        case .trtr: "TRTR"
-        case .skip: "Skip"
-        case .custom: "Custom"
-        }
-    }
+    /// Tags typically shown in the round editor picker. Order matches common usage.
+    static let commonPickerTags: [String] = [
+        "sc", "hdc", "dc", "ch", "slst", "mr", "dec",
+        "fpdc", "fphdc", "fpsc", "bpdc", "bphdc", "bpsc",
+        "tr", "dtr",
+        "custom"
+    ]
 
-    var defaultInstruction: String {
-        switch self {
-        case .mr: "mr"
-        case .sc: "sc"
-        case .fpsc: "fpsc"
-        case .bpsc: "bpsc"
-        case .dec: "dec"
-        case .ch: "ch"
-        case .slSt: "sl st"
-        case .blo: "blo"
-        case .flo: "flo"
-        case .fo: "fo"
-        case .esc: "esc"
-        case .hdc: "hdc"
-        case .fphdc: "fphdc"
-        case .bphdc: "bphdc"
-        case .ehdc: "ehdc"
-        case .dc: "dc"
-        case .fpdc: "fpdc"
-        case .bpdc: "bpdc"
-        case .edc: "edc"
-        case .tr: "tr"
-        case .fptr: "fptr"
-        case .bptr: "bptr"
-        case .etr: "etr"
-        case .dtr: "dtr"
-        case .fpdtr: "fpdtr"
-        case .bpdtr: "bpdtr"
-        case .trtr: "trtr"
-        case .skip: "skip"
-        case .custom: "custom"
-        }
-    }
-
-    var defaultProducedStitches: Int {
-        if let producedStitches = CrochetTermDictionary.definition(for: self)?.defaultProducedStitches {
-            return producedStitches
-        }
-
-        return switch self {
-        case .mr: 0
-        case .slSt: 0
-        case .dec: 1
-        case .fo: 0
-        case .ch: 0
-        case .skip: 0
-        case .custom: 0
-        default: 1
-        }
-    }
-
-    var isAtomicActionType: Bool {
-        CrochetTermDictionary.supportedAtomicActionTypeSet.contains(self)
-    }
-
-    var allowsAtomizationProducedStitchesOverride: Bool {
-        false
-    }
-
-    func resolvedAtomizationProducedStitches(from override: Int?) -> Int {
-        guard allowsAtomizationProducedStitchesOverride, let override else {
-            return defaultProducedStitches
-        }
-
-        return override
-    }
-
-    static func normalized(from rawValue: String) -> StitchActionType {
-        let normalized = rawValue
+    /// Canonicalizes free-form tag spellings to a normalized form we can match against the
+    /// catalog. Example: "sl_st" / "SL ST" / "Sl-St" / "slip stitch" all map to "slst".
+    static func canonicalize(_ tag: String) -> String {
+        let lowered = tag
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .lowercased()
             .replacingOccurrences(of: "-", with: "_")
             .replacingOccurrences(of: " ", with: "_")
-
-        switch normalized {
-        case "slst", "sl_st", "slip_stitch", "slipstitch":
-            return .slSt
+        switch lowered {
+        case "sl_st", "slst", "slip_stitch", "slipstitch":
+            return "slst"
+        case "magic_ring", "magicring", "magic_loop", "magicloop":
+            return "mr"
+        case "single_crochet":
+            return "sc"
+        case "double_crochet":
+            return "dc"
+        case "half_double_crochet":
+            return "hdc"
+        case "treble_crochet", "triple_crochet":
+            return "tr"
+        case "fasten_off", "fastenoff":
+            return "fo"
+        case "back_loop", "back_loop_only", "blo":
+            return "blo"
+        case "front_loop", "front_loop_only", "flo":
+            return "flo"
+        case "place_marker", "placemarker":
+            return "placeMarker"
+        case "remove_marker", "removemarker":
+            return "removeMarker"
         default:
-            return StitchActionType(rawValue: normalized) ?? .custom
+            return lowered.replacingOccurrences(of: "_", with: "")
+        }
+    }
+
+    /// `true` if this tag is acceptable as a stitchProducing / increase / decrease operation.
+    /// Unknown tags are treated as "yes" (open vocabulary) — only explicit descriptors are blocked.
+    static func isValidStitchTag(_ tag: String) -> Bool {
+        let canonical = canonicalize(tag)
+        return !knownDescriptorOrMetaTags.contains(canonical)
+    }
+
+    /// Default produced stitches for known tags. Unknown tags default to 1 (safest for an
+    /// unrecognized custom stitch — it's at least producing something).
+    static func defaultProducedStitches(for tag: String) -> Int {
+        let canonical = canonicalize(tag)
+        switch canonical {
+        case "mr", "slst", "ch", "fo", "skip", "custom":
+            return 0
+        default:
+            return 1
+        }
+    }
+
+    /// Display title used by execution UI. Prefers the catalog's short uppercase form for
+    /// known tags; falls back to the original tag uppercased for unknown ones (which is a
+    /// reasonable default for user-invented tags like "cs" → "CS" or "capStitch" → "CAPSTITCH").
+    static func displayTitle(for tag: String) -> String {
+        let canonical = canonicalize(tag)
+        switch canonical {
+        case "mr": return "MR"
+        case "sc": return "SC"
+        case "fpsc": return "FPSC"
+        case "bpsc": return "BPSC"
+        case "dec": return "Dec"
+        case "ch": return "CH"
+        case "slst": return "Sl St"
+        case "blo": return "BLO"
+        case "flo": return "FLO"
+        case "fo": return "FO"
+        case "esc": return "ESC"
+        case "hdc": return "HDC"
+        case "fphdc": return "FPHDC"
+        case "bphdc": return "BPHDC"
+        case "ehdc": return "EHDC"
+        case "dc": return "DC"
+        case "fpdc": return "FPDC"
+        case "bpdc": return "BPDC"
+        case "edc": return "EDC"
+        case "tr": return "TR"
+        case "fptr": return "FPTR"
+        case "bptr": return "BPTR"
+        case "etr": return "ETR"
+        case "dtr": return "DTR"
+        case "fpdtr": return "FPDTR"
+        case "bpdtr": return "BPDTR"
+        case "trtr": return "TRTR"
+        case "skip": return "Skip"
+        case "custom": return "Custom"
+        default:
+            // Unknown tag — just uppercase. Keeps the original author's wording visible.
+            return tag.uppercased()
         }
     }
 }
 
+/// Classic term dictionary used to build prompt vocabulary and normalize abbreviations in
+/// extracted text. Values are plain strings so they can be substituted for the old enum.
 enum CrochetTermKind: String, Hashable {
     case action
     case descriptor
@@ -177,16 +197,16 @@ struct CrochetTermDefinition: Hashable {
     var abbreviation: String
     var description: String
     var kind: CrochetTermKind
-    var supportedActionType: StitchActionType?
+    /// The canonical `stitchTag` string if this term maps to a stitch-producing operation.
+    /// nil for descriptors/meta.
+    var supportedStitchTag: String?
     var defaultProducedStitches: Int?
     var aliases: [String] = []
 }
 
 enum CrochetTermDictionary {
-    // Source: Craft Yarn Council U.S. crochet abbreviations master list,
-    // plus a small set of app-supported aliases that are common in amigurumi patterns.
     static let usTerms: [CrochetTermDefinition] = [
-        term("mr", "magic ring", kind: .action, supportedActionType: .mr, producedStitches: 0, aliases: ["magic ring", "magic loop"]),
+        term("mr", "magic ring", kind: .action, stitchTag: "mr", producedStitches: 0, aliases: ["magic ring", "magic loop"]),
         term("alt", "alternate", kind: .meta),
         term("approx", "approximately", kind: .meta),
         term("beg", "begin/beginning", kind: .meta),
@@ -194,36 +214,36 @@ enum CrochetTermDictionary {
         term("bl", "back loop or back loop only", kind: .descriptor, aliases: ["blo", "back loop", "back loop only"]),
         term("bo", "bobble", kind: .action),
         term("bp", "back post", kind: .descriptor, aliases: ["back post"]),
-        term("bpdc", "back post double crochet", kind: .action, supportedActionType: .bpdc, producedStitches: 1),
-        term("bpdtr", "back post double treble crochet", kind: .action, supportedActionType: .bpdtr, producedStitches: 1),
-        term("bphdc", "back post half double crochet", kind: .action, supportedActionType: .bphdc, producedStitches: 1),
-        term("bpsc", "back post single crochet", kind: .action, supportedActionType: .bpsc, producedStitches: 1),
-        term("bptr", "back post treble crochet", kind: .action, supportedActionType: .bptr, producedStitches: 1),
+        term("bpdc", "back post double crochet", kind: .action, stitchTag: "bpdc", producedStitches: 1),
+        term("bpdtr", "back post double treble crochet", kind: .action, stitchTag: "bpdtr", producedStitches: 1),
+        term("bphdc", "back post half double crochet", kind: .action, stitchTag: "bphdc", producedStitches: 1),
+        term("bpsc", "back post single crochet", kind: .action, stitchTag: "bpsc", producedStitches: 1),
+        term("bptr", "back post treble crochet", kind: .action, stitchTag: "bptr", producedStitches: 1),
         term("cc", "contrasting color", kind: .control),
-        term("ch", "chain stitch", kind: .action, supportedActionType: .ch, producedStitches: 0, aliases: ["chain", "chain stitch"]),
+        term("ch", "chain stitch", kind: .action, stitchTag: "ch", producedStitches: 0, aliases: ["chain", "chain stitch"]),
         term("ch-", "chain reference", kind: .reference),
         term("ch-sp", "chain space", kind: .reference, aliases: ["chain space"]),
         term("cl", "cluster", kind: .action),
         term("cont", "continue", kind: .meta),
-        term("dc", "double crochet", kind: .action, supportedActionType: .dc, producedStitches: 1, aliases: ["double crochet"]),
-        term("dc2tog", "double crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
-        term("dec", "decrease", kind: .action, supportedActionType: .dec, producedStitches: 1, aliases: ["decrease"]),
-        term("dtr", "double treble crochet", kind: .action, supportedActionType: .dtr, producedStitches: 1),
-        term("edc", "extended double crochet", kind: .action, supportedActionType: .edc, producedStitches: 1),
-        term("ehdc", "extended half double crochet", kind: .action, supportedActionType: .ehdc, producedStitches: 1),
-        term("esc", "extended single crochet", kind: .action, supportedActionType: .esc, producedStitches: 1),
-        term("etr", "extended treble crochet", kind: .action, supportedActionType: .etr, producedStitches: 1),
+        term("dc", "double crochet", kind: .action, stitchTag: "dc", producedStitches: 1, aliases: ["double crochet"]),
+        term("dc2tog", "double crochet 2 stitches together", kind: .action, stitchTag: "dec", producedStitches: 1),
+        term("dec", "decrease", kind: .action, stitchTag: "dec", producedStitches: 1, aliases: ["decrease"]),
+        term("dtr", "double treble crochet", kind: .action, stitchTag: "dtr", producedStitches: 1),
+        term("edc", "extended double crochet", kind: .action, stitchTag: "edc", producedStitches: 1),
+        term("ehdc", "extended half double crochet", kind: .action, stitchTag: "ehdc", producedStitches: 1),
+        term("esc", "extended single crochet", kind: .action, stitchTag: "esc", producedStitches: 1),
+        term("etr", "extended treble crochet", kind: .action, stitchTag: "etr", producedStitches: 1),
         term("fl", "front loop or front loop only", kind: .descriptor, aliases: ["flo", "front loop", "front loop only"]),
         term("foll", "following", kind: .meta),
         term("fp", "front post", kind: .descriptor, aliases: ["front post"]),
-        term("fpdc", "front post double crochet", kind: .action, supportedActionType: .fpdc, producedStitches: 1),
-        term("fpdtr", "front post double treble crochet", kind: .action, supportedActionType: .fpdtr, producedStitches: 1),
-        term("fphdc", "front post half double crochet", kind: .action, supportedActionType: .fphdc, producedStitches: 1),
-        term("fpsc", "front post single crochet", kind: .action, supportedActionType: .fpsc, producedStitches: 1),
-        term("fptr", "front post treble crochet", kind: .action, supportedActionType: .fptr, producedStitches: 1),
-        term("fo", "fasten off", kind: .action, supportedActionType: .fo, producedStitches: 0, aliases: ["fasten off"]),
-        term("hdc", "half double crochet", kind: .action, supportedActionType: .hdc, producedStitches: 1, aliases: ["half double crochet"]),
-        term("hdc2tog", "half double crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
+        term("fpdc", "front post double crochet", kind: .action, stitchTag: "fpdc", producedStitches: 1),
+        term("fpdtr", "front post double treble crochet", kind: .action, stitchTag: "fpdtr", producedStitches: 1),
+        term("fphdc", "front post half double crochet", kind: .action, stitchTag: "fphdc", producedStitches: 1),
+        term("fpsc", "front post single crochet", kind: .action, stitchTag: "fpsc", producedStitches: 1),
+        term("fptr", "front post treble crochet", kind: .action, stitchTag: "fptr", producedStitches: 1),
+        term("fo", "fasten off", kind: .action, stitchTag: "fo", producedStitches: 0, aliases: ["fasten off"]),
+        term("hdc", "half double crochet", kind: .action, stitchTag: "hdc", producedStitches: 1, aliases: ["half double crochet"]),
+        term("hdc2tog", "half double crochet 2 stitches together", kind: .action, stitchTag: "dec", producedStitches: 1),
         term("inc", "increase", kind: .action, aliases: ["increase"]),
         term("lp", "loop", kind: .reference),
         term("m", "marker", kind: .control, aliases: ["marker"]),
@@ -237,35 +257,32 @@ enum CrochetTermDictionary {
         term("rep", "repeat", kind: .meta, aliases: ["repeat"]),
         term("rnd", "round", kind: .meta, aliases: ["round"]),
         term("rs", "right side", kind: .reference, aliases: ["right side"]),
-        term("sc", "single crochet", kind: .action, supportedActionType: .sc, producedStitches: 1, aliases: ["single crochet"]),
-        term("sc2tog", "single crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
+        term("sc", "single crochet", kind: .action, stitchTag: "sc", producedStitches: 1, aliases: ["single crochet"]),
+        term("sc2tog", "single crochet 2 stitches together", kind: .action, stitchTag: "dec", producedStitches: 1),
         term("sh", "shell", kind: .action, aliases: ["shell"]),
-        term("sk", "skip", kind: .control, supportedActionType: .skip, producedStitches: 0, aliases: ["skip"]),
-        term("sl st", "slip stitch", kind: .action, supportedActionType: .slSt, producedStitches: 0, aliases: ["slst", "sl_st", "slip stitch"]),
+        term("sk", "skip", kind: .control, stitchTag: "skip", producedStitches: 0, aliases: ["skip"]),
+        term("sl st", "slip stitch", kind: .action, stitchTag: "slst", producedStitches: 0, aliases: ["slst", "sl_st", "slip stitch"]),
         term("sm", "slip marker", kind: .control, aliases: ["sl m", "slip marker"]),
         term("sp", "space", kind: .reference, aliases: ["space"]),
         term("st", "stitch", kind: .reference, aliases: ["stitch"]),
         term("tbl", "through back loop", kind: .descriptor, aliases: ["through back loop"]),
         term("tch", "turning chain", kind: .control, aliases: ["t-ch", "turning chain"]),
         term("tog", "together", kind: .reference, aliases: ["together"]),
-        term("tr", "treble crochet", kind: .action, supportedActionType: .tr, producedStitches: 1, aliases: ["treble crochet"]),
-        term("tr2tog", "treble crochet 2 stitches together", kind: .action, supportedActionType: .dec, producedStitches: 1),
-        term("trtr", "triple treble crochet", kind: .action, supportedActionType: .trtr, producedStitches: 1),
+        term("tr", "treble crochet", kind: .action, stitchTag: "tr", producedStitches: 1, aliases: ["treble crochet"]),
+        term("tr2tog", "treble crochet 2 stitches together", kind: .action, stitchTag: "dec", producedStitches: 1),
+        term("trtr", "triple treble crochet", kind: .action, stitchTag: "trtr", producedStitches: 1),
         term("ws", "wrong side", kind: .reference, aliases: ["wrong side"]),
         term("yo", "yarn over", kind: .control, aliases: ["yarn over"]),
         term("yoh", "yarn over hook", kind: .control, aliases: ["yarn over hook"])
     ]
 
-    static let supportedAtomicActionTypes: [StitchActionType] = {
-        var seen: Set<StitchActionType> = []
-        return usTerms.compactMap(\.supportedActionType).filter { seen.insert($0).inserted }
+    /// All canonical stitch tags that appear as `supportedStitchTag` in the dictionary.
+    static let supportedStitchTags: [String] = {
+        var seen: Set<String> = []
+        return usTerms.compactMap(\.supportedStitchTag).filter { seen.insert($0).inserted }
     }()
 
-    static let supportedAtomicActionTypeSet = Set(supportedAtomicActionTypes)
-
-    static func definition(for type: StitchActionType) -> CrochetTermDefinition? {
-        usTerms.first(where: { $0.supportedActionType == type })
-    }
+    static let supportedStitchTagSet = Set(supportedStitchTags)
 
     static func definition(for abbreviation: String) -> CrochetTermDefinition? {
         let normalizedAbbreviation = normalize(abbreviation)
@@ -279,7 +296,7 @@ enum CrochetTermDictionary {
         _ abbreviation: String,
         _ description: String,
         kind: CrochetTermKind,
-        supportedActionType: StitchActionType? = nil,
+        stitchTag: String? = nil,
         producedStitches: Int? = nil,
         aliases: [String] = []
     ) -> CrochetTermDefinition {
@@ -287,7 +304,7 @@ enum CrochetTermDictionary {
             abbreviation: abbreviation,
             description: description,
             kind: kind,
-            supportedActionType: supportedActionType,
+            supportedStitchTag: stitchTag,
             defaultProducedStitches: producedStitches,
             aliases: aliases
         )
@@ -311,37 +328,64 @@ struct PatternSource: Codable, Hashable {
     var importedAt: Date
 }
 
+/// A single tap-per-action instruction emitted by the compiler and executed by the UI.
+///
+/// Fields:
+/// - `semantics`: how this action contributes to stitch counting (matches `CrochetIROperationSemantics`)
+/// - `actionTag`: UI identity — used for icon lookup; always present
+/// - `stitchTag`: for stitch-producing / increase / decrease semantics, the author's stitch
+///   name (could be a standard like `"sc"` or a pattern-specific like `"cs"`); nil for
+///   bookkeeping actions
+/// - `instruction`: free-text description to display; required for bookkeeping actions and
+///   optional otherwise
 struct AtomicAction: Codable, Hashable, Identifiable {
     var id: UUID = UUID()
-    var type: StitchActionType
+    var semantics: CrochetIROperationSemantics
+    var actionTag: String
+    var stitchTag: String?
     var instruction: String?
     var producedStitches: Int
     var note: String? = nil
     var sequenceIndex: Int
 
     var shortDisplay: String {
-        if let instruction, !instruction.isEmpty {
+        if let instruction = Self.normalizedInstruction(instruction) {
             return instruction
         }
-        return type.title
+        return preferredDisplayTitle
     }
 
     var executionDisplayTitle: String {
-        if type == .custom, let instruction = AtomicAction.normalizedInstruction(instruction) {
-            return instruction
+        switch semantics {
+        case .bookkeeping:
+            // "custom" is the free-text fallback tag: treat instruction as the title itself.
+            // Any other bookkeeping tag (skip, turn, joinYarn, placeMarker, ...) has a
+            // meaningful display name — show that in the title and put instruction in the
+            // hint so users see both.
+            if actionTag == "custom", let instruction = Self.normalizedInstruction(instruction) {
+                return instruction
+            }
+            return CrochetStitchCatalog.displayTitle(for: actionTag)
+        case .stitchProducing, .increase, .decrease:
+            return preferredDisplayTitle
         }
-        return type.title
     }
 
     var executionDisplayHint: String? {
-        if type == .custom {
+        switch semantics {
+        case .bookkeeping where actionTag == "custom":
             return nil
+        case .bookkeeping:
+            return Self.normalizedInstruction(instruction)
+        case .stitchProducing, .increase, .decrease:
+            return Self.normalizedInstruction(instruction)
         }
-        return AtomicAction.normalizedInstruction(instruction)
     }
 
     func matchesExecutionDisplay(as other: AtomicAction) -> Bool {
-        type == other.type &&
+        semantics == other.semantics &&
+        actionTag == other.actionTag &&
+        stitchTag == other.stitchTag &&
         instruction == other.instruction &&
         producedStitches == other.producedStitches &&
         note == other.note
@@ -351,6 +395,14 @@ struct AtomicAction: Codable, Hashable, Identifiable {
         guard let instruction else { return nil }
         let trimmed = instruction.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? nil : trimmed
+    }
+
+    /// Preferred human title: stitchTag (upper-cased through catalog) if present, else actionTag.
+    private var preferredDisplayTitle: String {
+        if let stitchTag {
+            return CrochetStitchCatalog.displayTitle(for: stitchTag)
+        }
+        return CrochetStitchCatalog.displayTitle(for: actionTag)
     }
 }
 
@@ -389,6 +441,9 @@ struct CrochetProject: Codable, Hashable, Identifiable {
     var source: PatternSource
     var materials: [String]
     var confidence: Double
+    /// Pattern-level abbreviations table extracted from the source (e.g. "cs = cap stitch").
+    /// Propagated to the IR prompt so the model can honor author-defined terminology.
+    var abbreviations: [PatternAbbreviation]
     var parts: [PatternPart]
     var activePartID: UUID?
     var createdAt: Date
@@ -483,9 +538,13 @@ struct ProjectSnapshot: Codable, Hashable {
     var updatedAt: Date
 }
 
+/// Draft structure used by RoundEditorView for manual round editing. Preserves the
+/// open-string stitchTag semantics so users can type non-standard pattern abbreviations.
 struct RoundActionDraft: Identifiable, Hashable {
     var id: UUID = UUID()
-    var type: StitchActionType
+    var semantics: CrochetIROperationSemantics
+    var actionTag: String
+    var stitchTag: String
     var instruction: String
     var producedStitches: Int
     var note: String

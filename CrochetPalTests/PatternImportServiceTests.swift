@@ -219,17 +219,17 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(CrochetTermDictionary.definition(for: "fpdc")?.kind, .action)
         XCTAssertEqual(CrochetTermDictionary.definition(for: "flo")?.kind, .descriptor)
         XCTAssertEqual(CrochetTermDictionary.definition(for: "blo")?.kind, .descriptor)
-        XCTAssertTrue(StitchActionType.sc.isAtomicActionType)
-        XCTAssertTrue(StitchActionType.fpdc.isAtomicActionType)
-        XCTAssertTrue(CrochetTermDictionary.supportedAtomicActionTypes.contains(.fpdc))
-        XCTAssertFalse(StitchActionType.flo.isAtomicActionType)
-        XCTAssertFalse(StitchActionType.blo.isAtomicActionType)
-        XCTAssertFalse(StitchActionType.custom.isAtomicActionType)
+        XCTAssertTrue(CrochetStitchCatalog.isValidStitchTag("sc"))
+        XCTAssertTrue(CrochetStitchCatalog.isValidStitchTag("fpdc"))
+        XCTAssertTrue(CrochetTermDictionary.supportedStitchTagSet.contains("fpdc"))
+        XCTAssertFalse(CrochetStitchCatalog.isValidStitchTag("flo"))
+        XCTAssertFalse(CrochetStitchCatalog.isValidStitchTag("blo"))
+        XCTAssertFalse(CrochetStitchCatalog.isValidStitchTag("custom"))
     }
 
     func testImportImagePatternRejectsNonActionAtomicType() async throws {
         var imageResponse = SampleDataFactory.demoImageParseResponse
-        imageResponse.parts[0].rounds[0].atomicActions[0].type = .flo
+        imageResponse.parts[0].rounds[0].atomicActions[0].stitchTag = "flo"
 
         let importer = PatternImportService(
             parserClient: FixturePatternParsingClient(
@@ -404,6 +404,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(
                     name: "Body",
@@ -462,6 +463,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(
                     name: "Body",
@@ -546,6 +548,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Quiet Tides Baby Blanket",
             materials: [],
             confidence: 0.9,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(name: "Main Blanket", rounds: rounds)
             ]
@@ -591,6 +594,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(
                     name: "Body",
@@ -636,6 +640,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(
                     name: "Body",
@@ -699,6 +704,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(name: "Body", rounds: rounds)
             ]
@@ -750,6 +756,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(
                     name: "Body",
@@ -823,6 +830,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(name: "Body", rounds: rounds)
             ]
@@ -853,6 +861,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Test",
             materials: [],
             confidence: 1.0,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(
                     name: "Body",
@@ -896,143 +905,283 @@ final class PatternImportServiceTests: XCTestCase {
 
     // MARK: - Crochet IR compiler tests
 
-    func testCrochetIRCompilerExpandsRepeatWithLastIterationOverride() throws {
-        let repeatBody: [CrochetIRNode] = [
-            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all, sourceText: "dc inc")),
-            .stitch(CrochetIRStitch(type: .hdc, count: 8, sourceText: "8hdc")),
-            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all, sourceText: "dc inc")),
-            .stitch(CrochetIRStitch(type: .ch, count: 3, sourceText: "ch3"))
-        ]
+    /// Helper: wrap a list of statement kinds into a Block.
+    private func makeBlock(_ kinds: [CrochetIRStatementKind]) -> CrochetIRBlock {
+        CrochetIRBlock(statements: kinds.map { CrochetIRStatement(kind: $0) })
+    }
+
+    private func stitchOperation(_ tag: String, count: Int = 1, note: String? = nil, notePlacement: AtomizedNotePlacement = .first) -> CrochetIRStatementKind {
+        .operation(CrochetIROperation(
+            semantics: .stitchProducing,
+            actionTag: tag,
+            stitch: tag,
+            count: count,
+            note: note,
+            notePlacement: notePlacement
+        ))
+    }
+
+    private func increaseOperation(base stitch: String, producedStitches: Int = 2, note: String? = "inc") -> CrochetIRStatementKind {
+        .operation(CrochetIROperation(
+            semantics: .increase,
+            actionTag: "increase",
+            stitch: stitch,
+            count: 1,
+            note: note,
+            notePlacement: .all,
+            producedStitches: producedStitches
+        ))
+    }
+
+    func testCompilerExpandsHomogeneousRepeatOnly() throws {
+        // Post-normalization IR for "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3.
+        //  Instead, work ch1, then 1hdc into the top of the first ch3."
+        // → repeatBlock(times: 2) + flat final iteration with ch1 + hdc replacing the final ch3.
+        let unchangedIteration = makeBlock([
+            increaseOperation(base: "dc", note: "dc inc"),
+            stitchOperation("hdc", count: 8),
+            increaseOperation(base: "dc", note: "dc inc"),
+            stitchOperation("ch", count: 3)
+        ])
         let block = CrochetIRInstructionBlock(
             title: "Squaring",
-            sourceText: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+            sourceText: "Wolf squaring normalized form.",
             expectedProducedStitches: 37,
-            nodes: [
-                .repeatBlock(CrochetIRRepeat(
-                    times: 3,
-                    body: repeatBody,
-                    lastIterationTransform: CrochetIRRepeatLastIterationTransform(
-                        removeTailNodeCount: 1,
-                        append: [
-                            .stitch(CrochetIRStitch(type: .ch, count: 1, sourceText: "ch1")),
-                            .stitch(CrochetIRStitch(
-                                type: .hdc,
-                                count: 1,
-                                note: "into the top of the first ch3",
-                                notePlacement: .all,
-                                sourceText: "1hdc into the top of the first ch3"
-                            ))
-                        ],
-                        sourceText: "omit the final ch3"
-                    ),
-                    sourceText: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times"
-                ))
-            ]
+            body: CrochetIRBlock(statements: [
+                CrochetIRStatement(kind: .repeatBlock(CrochetIRRepeatBlock(
+                    times: 2,
+                    body: unchangedIteration,
+                    sourceRepeatCount: 3,
+                    normalizationNote: "Final iteration normalized out below."
+                ))),
+                CrochetIRStatement(kind: increaseOperation(base: "dc", note: "dc inc")),
+                CrochetIRStatement(kind: stitchOperation("hdc", count: 8)),
+                CrochetIRStatement(kind: increaseOperation(base: "dc", note: "dc inc")),
+                CrochetIRStatement(kind: stitchOperation("ch", count: 1)),
+                CrochetIRStatement(kind: .operation(CrochetIROperation(
+                    semantics: .stitchProducing,
+                    actionTag: "hdc",
+                    stitch: "hdc",
+                    count: 1,
+                    target: "top of the first ch3"
+                )))
+            ])
         )
 
         let expansion = try CrochetIRCompiler().expand(block)
 
+        // 3 total iterations of the original repeat (2 via repeatBlock + 1 flat):
+        //   dc inc (2 dc) + 8 hdc + dc inc (2 dc) + ch3 = 15 actions × 2 = 30
+        //   + dc inc (2) + 8 hdc + dc inc (2) + ch × 1 + hdc × 1 = 14
+        //   Total = 44.
         XCTAssertEqual(expansion.atomicActions.count, 44)
         XCTAssertEqual(expansion.producedStitchCount, 37)
-        XCTAssertEqual(expansion.atomicActions.suffix(2).map(\.type), [.ch, .hdc])
-        XCTAssertEqual(expansion.atomicActions.last?.note, "into the top of the first ch3")
+        XCTAssertEqual(expansion.atomicActions.last?.stitchTag, "hdc")
+        XCTAssertEqual(expansion.atomicActions.last?.note, "top of the first ch3")
+        // The last chain before the final hdc should be ch (count=1 → 1 action), not ch3.
+        let lastChIndex = expansion.atomicActions.lastIndex(where: { $0.stitchTag == "ch" })
+        XCTAssertNotNil(lastChIndex)
+        if let lastChIndex {
+            // The final 2 actions are "ch × 1, hdc × 1 (top of first ch3)".
+            XCTAssertEqual(lastChIndex, expansion.atomicActions.count - 2)
+            // The 5-action final iteration contributes exactly 1 ch (count=1), not 3.
+            let tail = expansion.atomicActions.suffix(5)
+            XCTAssertEqual(tail.filter { $0.stitchTag == "ch" }.count, 1)
+        }
         XCTAssertTrue(expansion.warnings.isEmpty)
     }
 
-    func testCrochetIRCompilerHandlesConditionalChoiceAndCommonBody() throws {
-        let commonBody: [CrochetIRNode] = [
-            .repeatBlock(CrochetIRRepeat(
-                times: 2,
-                body: [
-                    .stitch(CrochetIRStitch(type: .ch, count: 3)),
-                    .stitch(CrochetIRStitch(type: .fpsc, count: 1, note: "around next Popcorn", notePlacement: .all)),
-                    .stitch(CrochetIRStitch(type: .ch, count: 3)),
-                    .stitch(CrochetIRStitch(type: .fpdc, count: 1, note: "around next FPhdc", notePlacement: .all))
-                ],
-                lastIterationTransform: CrochetIRRepeatLastIterationTransform(removeTailNodeCount: 1)
-            ))
-        ]
+    func testCompilerTraversesNestedRepeatInsideRepeat() throws {
+        // [[A, B] × 2, C] × 2 → output should be A B A B C A B A B C.
+        let innerRepeat = CrochetIRStatement(kind: .repeatBlock(CrochetIRRepeatBlock(
+            times: 2,
+            body: makeBlock([
+                stitchOperation("sc"),
+                stitchOperation("dc")
+            ])
+        )))
+        let outerBody = CrochetIRBlock(statements: [
+            innerRepeat,
+            CrochetIRStatement(kind: stitchOperation("hdc"))
+        ])
         let block = CrochetIRInstructionBlock(
-            title: "Round 5",
-            sourceText: "If using a different colour start with standing FPdc. If using the same colour start with fake FPdc.",
-            nodes: [
-                .conditional(CrochetIRConditional(
-                    choiceID: "colour_mode",
-                    question: "Are you using a different colour for this round?",
-                    branches: [
-                        CrochetIRConditionalBranch(
-                            value: "different_colour",
-                            label: "Different colour",
-                            nodes: [.stitch(CrochetIRStitch(type: .fpdc, count: 1, note: "standing FPdc", notePlacement: .all))]
-                        ),
-                        CrochetIRConditionalBranch(
-                            value: "same_colour",
-                            label: "Same colour",
-                            nodes: [
-                                .stitch(CrochetIRStitch(type: .fpsc, count: 1)),
-                                .stitch(CrochetIRStitch(type: .ch, count: 1)),
-                                .stitch(CrochetIRStitch(type: .sc, count: 1, note: "counts as fake FPdc", notePlacement: .all))
-                            ]
-                        )
-                    ],
-                    commonBody: commonBody
-                ))
-            ]
-        )
-
-        let expansion = try CrochetIRCompiler().expand(block, choices: ["colour_mode": "same_colour"])
-
-        XCTAssertEqual(Array(expansion.atomicActions.prefix(3)).map(\.type), [.fpsc, .ch, .sc])
-        XCTAssertEqual(expansion.atomicActions.first(where: { $0.type == .sc })?.note, "counts as fake FPdc")
-        XCTAssertEqual(expansion.atomicActions.last?.type, .ch)
-        XCTAssertTrue(expansion.warnings.isEmpty)
-    }
-
-    func testCrochetIRCompilerEmitsCustomActionForAmbiguousSource() throws {
-        let block = CrochetIRInstructionBlock(
-            title: "Border",
-            sourceText: "work evenly around",
-            nodes: [
-                .ambiguous(CrochetIRAmbiguous(
-                    reason: "Cannot determine the stitch count from the source text.",
-                    sourceText: "work evenly around"
-                ))
-            ]
+            title: "Nested",
+            sourceText: "[[sc, dc] × 2, hdc] × 2",
+            body: CrochetIRBlock(statements: [
+                CrochetIRStatement(kind: .repeatBlock(CrochetIRRepeatBlock(times: 2, body: outerBody)))
+            ])
         )
 
         let expansion = try CrochetIRCompiler().expand(block)
-
-        XCTAssertEqual(expansion.atomicActions.count, 1)
-        XCTAssertEqual(expansion.atomicActions[0].type, .custom)
-        XCTAssertEqual(expansion.atomicActions[0].instruction, "work evenly around")
-        XCTAssertEqual(expansion.warnings.map(\.code), ["ir_ambiguous_source"])
+        XCTAssertEqual(expansion.atomicActions.map(\.stitchTag), [
+            "sc", "dc", "sc", "dc", "hdc",
+            "sc", "dc", "sc", "dc", "hdc"
+        ])
     }
 
-    func testCrochetIRValidatorReportsInvalidTailOverrideAndDescriptorStitch() {
-        let invalidTail = CrochetIRInstructionBlock(
-            title: "Invalid Repeat",
-            sourceText: "omit too much",
-            nodes: [
-                .repeatBlock(CrochetIRRepeat(
-                    times: 1,
-                    body: [.stitch(CrochetIRStitch(type: .sc, count: 1))],
-                    lastIterationTransform: CrochetIRRepeatLastIterationTransform(removeTailNodeCount: 2)
-                ))
-            ]
+    func testValidatorRejectsUnnormalizedIterationException() {
+        // repeatBlock that still carries "omit the final ch3" in its sourceText with no
+        // normalizationNote, and no flat tail → validator must flag it.
+        let block = CrochetIRInstructionBlock(
+            title: "Not normalized",
+            sourceText: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, hdc.",
+            body: CrochetIRBlock(statements: [
+                CrochetIRStatement(
+                    kind: .repeatBlock(CrochetIRRepeatBlock(
+                        times: 3,
+                        body: makeBlock([
+                            increaseOperation(base: "dc", note: "dc inc"),
+                            stitchOperation("hdc", count: 8),
+                            increaseOperation(base: "dc", note: "dc inc"),
+                            stitchOperation("ch", count: 3)
+                        ])
+                    )),
+                    sourceText: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, ch1, hdc."
+                )
+            ])
         )
+
+        let report = CrochetIRCompiler().validate(block)
+        XCTAssertTrue(report.hasErrors)
+        XCTAssertTrue(report.issues.contains { $0.code == "ir_iteration_specific_exception_not_normalized" })
+    }
+
+    func testValidatorRejectsDescriptorStitch() {
         let descriptor = CrochetIRInstructionBlock(
             title: "Descriptor",
             sourceText: "FLO",
-            nodes: [.stitch(CrochetIRStitch(type: .flo, count: 1))]
+            body: makeBlock([stitchOperation("flo")])
         )
+        let report = CrochetIRCompiler().validate(descriptor)
+        XCTAssertTrue(report.hasErrors)
+        XCTAssertTrue(report.issues.contains { $0.code == "ir_contains_non_action_type" })
+    }
 
-        let invalidTailReport = CrochetIRCompiler().validate(invalidTail)
-        let descriptorReport = CrochetIRCompiler().validate(descriptor)
+    func testConditionalChoiceIDIsSharedAcrossStatements() {
+        // Two conditionals sharing the same choiceID and identical branch value set → valid.
+        let sharedBranches: [CrochetIRConditionalBranch] = [
+            CrochetIRConditionalBranch(value: "diff", label: "Different colour", body: makeBlock([stitchOperation("fpdc")])),
+            CrochetIRConditionalBranch(value: "same", label: "Same colour", body: makeBlock([stitchOperation("sc")]))
+        ]
+        let validBlock = CrochetIRInstructionBlock(
+            title: "Round 5 shared choice",
+            sourceText: "...",
+            body: CrochetIRBlock(statements: [
+                CrochetIRStatement(kind: .conditional(CrochetIRConditional(
+                    choiceID: "round5_start",
+                    question: "Using a different colour?",
+                    branches: sharedBranches,
+                    defaultBranchValue: "same"
+                ))),
+                CrochetIRStatement(kind: stitchOperation("slst")),
+                CrochetIRStatement(kind: .conditional(CrochetIRConditional(
+                    choiceID: "round5_start",
+                    question: "Using a different colour?",
+                    branches: sharedBranches,
+                    defaultBranchValue: "same"
+                )))
+            ])
+        )
+        let validReport = CrochetIRCompiler().validate(validBlock)
+        XCTAssertFalse(validReport.issues.contains { $0.code == "ir_conditional_choice_id_mismatch" })
 
-        XCTAssertTrue(invalidTailReport.hasErrors)
-        XCTAssertTrue(invalidTailReport.issues.contains { $0.code == "ir_invalid_last_iteration_tail_removal" })
-        XCTAssertTrue(descriptorReport.hasErrors)
-        XCTAssertTrue(descriptorReport.issues.contains { $0.code == "ir_contains_non_action_type" })
+        // Mismatched branch value sets across the same choiceID → should be flagged.
+        let mismatchBranches: [CrochetIRConditionalBranch] = [
+            CrochetIRConditionalBranch(value: "diff", label: "Different", body: makeBlock([stitchOperation("fpdc")])),
+            CrochetIRConditionalBranch(value: "other", label: "Other", body: makeBlock([stitchOperation("sc")]))
+        ]
+        let invalidBlock = CrochetIRInstructionBlock(
+            title: "Round 5 mismatched choice",
+            sourceText: "...",
+            body: CrochetIRBlock(statements: [
+                CrochetIRStatement(kind: .conditional(CrochetIRConditional(
+                    choiceID: "round5_start",
+                    question: "Q1",
+                    branches: sharedBranches,
+                    defaultBranchValue: "same"
+                ))),
+                CrochetIRStatement(kind: .conditional(CrochetIRConditional(
+                    choiceID: "round5_start",
+                    question: "Q2",
+                    branches: mismatchBranches,
+                    defaultBranchValue: "other"
+                )))
+            ])
+        )
+        let invalidReport = CrochetIRCompiler().validate(invalidBlock)
+        XCTAssertTrue(invalidReport.issues.contains { $0.code == "ir_conditional_choice_id_mismatch" })
+    }
+
+    func testUnknownActionTagStillCompiles() throws {
+        // A bookkeeping action the compiler has never seen — it should still produce one
+        // AtomicAction with type=.custom and a sensible human-readable instruction.
+        let block = CrochetIRInstructionBlock(
+            title: "Unknown action",
+            sourceText: "Attach a bead.",
+            body: makeBlock([
+                .operation(CrochetIROperation(
+                    semantics: .bookkeeping,
+                    actionTag: "beadPlacement",
+                    instruction: "Attach a bead to the current stitch."
+                ))
+            ])
+        )
+        let expansion = try CrochetIRCompiler().expand(block)
+        XCTAssertEqual(expansion.atomicActions.count, 1)
+        XCTAssertEqual(expansion.atomicActions.first?.semantics, .bookkeeping)
+        XCTAssertEqual(expansion.atomicActions.first?.actionTag, "beadPlacement")
+        XCTAssertEqual(expansion.atomicActions.first?.instruction, "Attach a bead to the current stitch.")
+    }
+
+    func testStitchProducingRequiresStitchField() {
+        let block = CrochetIRInstructionBlock(
+            title: "Missing stitch",
+            sourceText: "...",
+            body: makeBlock([
+                .operation(CrochetIROperation(
+                    semantics: .stitchProducing,
+                    actionTag: "dc",
+                    stitch: nil,
+                    count: 1
+                ))
+            ])
+        )
+        let report = CrochetIRCompiler().validate(block)
+        XCTAssertTrue(report.hasErrors)
+        XCTAssertTrue(report.issues.contains { $0.code == "ir_operation_semantics_mismatch" })
+    }
+
+    func testCompilerExpandsRepeatTimes5WithFlattenedFinalIteration() throws {
+        // Round 5: "(ch 3, FPsc, ch 3, FPdc) × 6, omitting the last FPdc on the last repeat."
+        // Normalized: repeatBlock(times: 5) + flat (ch3, FPsc, ch3).
+        let iterationBody = makeBlock([
+            stitchOperation("ch", count: 3),
+            stitchOperation("fpsc", note: "around next Popcorn", notePlacement: .all),
+            stitchOperation("ch", count: 3),
+            stitchOperation("fpdc", note: "around next FPhdc", notePlacement: .all)
+        ])
+        let block = CrochetIRInstructionBlock(
+            title: "Round 5",
+            sourceText: "Round 5 normalized.",
+            body: CrochetIRBlock(statements: [
+                CrochetIRStatement(kind: .repeatBlock(CrochetIRRepeatBlock(
+                    times: 5,
+                    body: iterationBody,
+                    sourceRepeatCount: 6,
+                    normalizationNote: "Last FPdc omitted on the final repeat; normalized as repeat 5 + flat final."
+                ))),
+                CrochetIRStatement(kind: stitchOperation("ch", count: 3)),
+                CrochetIRStatement(kind: stitchOperation("fpsc", note: "around next Popcorn", notePlacement: .all)),
+                CrochetIRStatement(kind: stitchOperation("ch", count: 3))
+            ])
+        )
+        let expansion = try CrochetIRCompiler().expand(block)
+        let fpdcCount = expansion.atomicActions.filter { $0.stitchTag == "fpdc" }.count
+        let fpscCount = expansion.atomicActions.filter { $0.stitchTag == "fpsc" }.count
+        // 5 iterations produce 5 FPdc; the flat tail has no FPdc. Total = 5 (not 6).
+        XCTAssertEqual(fpdcCount, 5)
+        XCTAssertEqual(fpscCount, 6)
+        XCTAssertEqual(expansion.atomicActions.last?.stitchTag, "ch")
     }
 
     func testAtomizeRoundsUsesCrochetIRCompilerPathWhenAvailable() async throws {
@@ -1041,30 +1190,88 @@ final class PatternImportServiceTests: XCTestCase {
             summary: "Repeat the squaring sequence and replace the final chain space.",
             targetStitchCount: 37
         )
-        let repeatBody: [CrochetIRNode] = [
-            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all)),
-            .stitch(CrochetIRStitch(type: .hdc, count: 8)),
-            .stitch(CrochetIRStitch(type: .dc, count: 2, note: "dc inc", notePlacement: .all)),
-            .stitch(CrochetIRStitch(type: .ch, count: 3))
-        ]
+        let unchangedIteration = CrochetIRBlock(statements: [
+            CrochetIRStatement(kind: .operation(CrochetIROperation(
+                semantics: .increase,
+                actionTag: "increase",
+                stitch: "dc",
+                count: 1,
+                note: "dc inc",
+                notePlacement: .all,
+                producedStitches: 2
+            ))),
+            CrochetIRStatement(kind: .operation(CrochetIROperation(
+                semantics: .stitchProducing,
+                actionTag: "hdc",
+                stitch: "hdc",
+                count: 8
+            ))),
+            CrochetIRStatement(kind: .operation(CrochetIROperation(
+                semantics: .increase,
+                actionTag: "increase",
+                stitch: "dc",
+                count: 1,
+                note: "dc inc",
+                notePlacement: .all,
+                producedStitches: 2
+            ))),
+            CrochetIRStatement(kind: .operation(CrochetIROperation(
+                semantics: .stitchProducing,
+                actionTag: "ch",
+                stitch: "ch",
+                count: 3
+            )))
+        ])
         let irResponse = CrochetIRAtomizationResponse(rounds: [
             CrochetIRInstructionBlock(
                 title: "Round 1",
                 sourceText: outline.parts[0].rounds[0].rawInstruction,
                 expectedProducedStitches: 37,
-                nodes: [
-                    .repeatBlock(CrochetIRRepeat(
-                        times: 3,
-                        body: repeatBody,
-                        lastIterationTransform: CrochetIRRepeatLastIterationTransform(
-                            removeTailNodeCount: 1,
-                            append: [
-                                .stitch(CrochetIRStitch(type: .ch, count: 1)),
-                                .stitch(CrochetIRStitch(type: .hdc, count: 1, note: "into the top of the first ch3", notePlacement: .all))
-                            ]
-                        )
-                    ))
-                ]
+                body: CrochetIRBlock(statements: [
+                    CrochetIRStatement(kind: .repeatBlock(CrochetIRRepeatBlock(
+                        times: 2,
+                        body: unchangedIteration,
+                        sourceRepeatCount: 3,
+                        normalizationNote: "Final iteration normalized to flat statements below."
+                    ))),
+                    CrochetIRStatement(kind: .operation(CrochetIROperation(
+                        semantics: .increase,
+                        actionTag: "increase",
+                        stitch: "dc",
+                        count: 1,
+                        note: "dc inc",
+                        notePlacement: .all,
+                        producedStitches: 2
+                    ))),
+                    CrochetIRStatement(kind: .operation(CrochetIROperation(
+                        semantics: .stitchProducing,
+                        actionTag: "hdc",
+                        stitch: "hdc",
+                        count: 8
+                    ))),
+                    CrochetIRStatement(kind: .operation(CrochetIROperation(
+                        semantics: .increase,
+                        actionTag: "increase",
+                        stitch: "dc",
+                        count: 1,
+                        note: "dc inc",
+                        notePlacement: .all,
+                        producedStitches: 2
+                    ))),
+                    CrochetIRStatement(kind: .operation(CrochetIROperation(
+                        semantics: .stitchProducing,
+                        actionTag: "ch",
+                        stitch: "ch",
+                        count: 1
+                    ))),
+                    CrochetIRStatement(kind: .operation(CrochetIROperation(
+                        semantics: .stitchProducing,
+                        actionTag: "hdc",
+                        stitch: "hdc",
+                        count: 1,
+                        target: "top of the first ch3"
+                    )))
+                ])
             )
         ])
         let parserClient = IRAtomizationClient(outlineResponse: outline, irResponse: irResponse)
@@ -1079,8 +1286,9 @@ final class PatternImportServiceTests: XCTestCase {
         let updates = try await importer.atomizeRounds(in: record.project, targets: target)
 
         XCTAssertEqual(updates.first?.atomicActions.count, 44)
-        XCTAssertEqual(updates.first?.resolvedTargetStitchCount, 37)
-        XCTAssertEqual(updates.first?.atomicActions.last?.note, "into the top of the first ch3")
+        XCTAssertEqual(updates.first?.producedStitchCount, 37)
+        XCTAssertEqual(updates.first?.atomicActions.last?.stitchTag, "hdc")
+        XCTAssertEqual(updates.first?.atomicActions.last?.note, "top of the first ch3")
         let irCount = await parserClient.irCallCount()
         XCTAssertEqual(irCount, 1)
     }
@@ -1101,6 +1309,7 @@ final class PatternImportServiceTests: XCTestCase {
             projectTitle: "Custom Round",
             materials: ["Cotton yarn"],
             confidence: 1,
+            abbreviations: [],
             parts: [
                 OutlinedPatternPart(
                     name: "Body",
@@ -1305,6 +1514,7 @@ private extension PatternImportService {
             source: source,
             materials: payload.materials,
             confidence: payload.confidence,
+            abbreviations: [],
             parts: parts,
             activePartID: parts.first?.id,
             createdAt: .now,
@@ -1357,4 +1567,376 @@ private func requestBody(from request: URLRequest) throws -> Data {
         data.append(buffer, count: read)
     }
     return data
+}
+
+// MARK: - IR fixture: real LLM end-to-end test
+
+/// Integration tests that exercise the new Block/Statement/Operation IR against a captured
+/// LLM response. The fixture was produced once by running
+/// `CP_CAPTURE_IR_FIXTURE=1 xcodebuild ... test` with a real API key; after that the
+/// JSON is checked in and the structural test runs offline on every CI build.
+final class IRAtomizationLLMIntegrationTests: XCTestCase {
+    private let rawHTMLPath = "Fixtures/LLM/MouseCatToy/raw.html"
+    private let irFixturePath = "Fixtures/LLM/MouseCatToy/ir_atomization.json"
+    private let outlineFixturePath = "Fixtures/LLM/MouseCatToy/outline.json"
+    private let sourceURL = URL(string: "https://sparkitectcrafts.com/mouse-cat-toy-crochet-pattern/")!
+
+    /// Decodes the captured IR JSON with the current schema and reports which rounds pass
+    /// validation. Rounds that fail validation are expected to trigger LLM repair in
+    /// production, so we *don't* require 100% pass — but we do require:
+    /// - every round decodes cleanly (proves Swift Codable matches the LLM schema)
+    /// - at least one round compiles end-to-end to AtomicActions (proves the pipeline works
+    ///   on real LLM output at all)
+    /// - every round that validates also expands without throwing
+    /// - validation failures come from the whitelisted set of "LLM quality" codes rather
+    ///   than our new structural invariants (no iteration-exception smell, no choiceID
+    ///   mismatch, no Codable-level data corruption)
+    func testMouseCatToyIRFixtureIsCanonicalAndCompiles() throws {
+        let data = try XCTUnwrap(Self.fixtureData(at: irFixturePath))
+        let response = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: data)
+        XCTAssertFalse(response.rounds.isEmpty, "captured fixture must contain at least one round")
+
+        let compiler = CrochetIRCompiler()
+
+        // Structural invariants the refactor was specifically about. If the LLM ever
+        // regresses and re-introduces iteration-specific exceptions or inconsistent
+        // shared choiceIDs, this test will catch it.
+        let structuralInvariantCodes: Set<String> = [
+            "ir_iteration_specific_exception_not_normalized",
+            "ir_conditional_choice_id_mismatch"
+        ]
+
+        var validRoundsCompiled = 0
+        var llmQualityFailures: [(round: String, codes: [String])] = []
+
+        for block in response.rounds {
+            let report = compiler.validate(block)
+            let errors = report.issues.filter { $0.severity == .error }
+
+            // Structural invariants must never fail — that's our refactor's job.
+            let structuralErrors = errors.filter { structuralInvariantCodes.contains($0.code) }
+            XCTAssertTrue(
+                structuralErrors.isEmpty,
+                "Round '\(block.title)' violates a structural invariant: \(structuralErrors.map(\.code).joined(separator: ", "))"
+            )
+
+            if errors.isEmpty {
+                let expansion = try compiler.expand(block)
+                XCTAssertFalse(
+                    expansion.atomicActions.isEmpty,
+                    "Round '\(block.title)' validated but expanded to zero actions"
+                )
+                validRoundsCompiled += 1
+            } else {
+                llmQualityFailures.append((block.title, errors.map(\.code)))
+            }
+        }
+
+        // If the LLM were totally broken no round would validate. We require at least one.
+        XCTAssertGreaterThan(
+            validRoundsCompiled,
+            0,
+            "No round passed validation — LLM output is structurally unusable. Failures: \(llmQualityFailures)"
+        )
+
+        // Log — helps when iterating on the prompt.
+        if !llmQualityFailures.isEmpty {
+            print("[IR fixture] LLM quality issues in \(llmQualityFailures.count) round(s): \(llmQualityFailures)")
+        }
+        print("[IR fixture] \(validRoundsCompiled)/\(response.rounds.count) rounds validated and compiled")
+    }
+
+    /// Asserts the IR invariants that the refactor was about: no `lastIterationTransform`
+    /// is present anywhere (since we removed it), every repeat body is non-empty, and
+    /// every operation carries a non-empty actionTag + semantics-consistent stitch.
+    func testMouseCatToyIRRespectsNewIRInvariants() throws {
+        let data = try XCTUnwrap(Self.fixtureData(at: irFixturePath))
+
+        // Raw JSON check: the word "lastIterationTransform" must not appear. Since that
+        // field no longer exists in the schema, the LLM cannot emit it, and any residual
+        // occurrence would indicate stale data.
+        let raw = String(decoding: data, as: UTF8.self)
+        XCTAssertFalse(
+            raw.contains("lastIterationTransform"),
+            "The captured IR must not carry the removed lastIterationTransform field."
+        )
+
+        let response = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: data)
+
+        for round in response.rounds {
+            assertBlockInvariants(round.body, context: round.title)
+        }
+    }
+
+    private func assertBlockInvariants(_ block: CrochetIRBlock, context: String) {
+        for statement in block.statements {
+            switch statement.kind {
+            case let .operation(op):
+                XCTAssertFalse(
+                    op.actionTag.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+                    "[\(context)] operation is missing actionTag"
+                )
+                switch op.semantics {
+                case .stitchProducing, .increase, .decrease:
+                    XCTAssertNotNil(
+                        op.stitch,
+                        "[\(context)] operation with semantics \(op.semantics.rawValue) missing stitch"
+                    )
+                case .bookkeeping:
+                    // bookkeeping MAY carry an optional stitch-ish tag (e.g. "mr", "fo").
+                    // No assertion needed.
+                    break
+                }
+            case let .repeatBlock(rb):
+                XCTAssertGreaterThan(rb.times, 0, "[\(context)] repeatBlock times must be positive")
+                XCTAssertFalse(
+                    rb.body.statements.isEmpty,
+                    "[\(context)] repeatBlock body must not be empty"
+                )
+                assertBlockInvariants(rb.body, context: "\(context) > repeat")
+            case let .conditional(c):
+                XCTAssertFalse(c.branches.isEmpty, "[\(context)] conditional must have at least one branch")
+                for branch in c.branches {
+                    assertBlockInvariants(branch.body, context: "\(context) > branch[\(branch.value)]")
+                }
+                if let common = c.commonBody {
+                    assertBlockInvariants(common, context: "\(context) > commonBody")
+                }
+            case .note:
+                break
+            }
+        }
+    }
+
+    /// CAPTURE STEP — only runs when the sentinel file `/tmp/crochet/CAPTURE_IR` exists.
+    /// Reads credentials from `Config/Secrets.xcconfig` (same file the app itself uses).
+    /// Runs the real LLM pipeline against the checked-in raw.html, then writes the
+    /// outline + IR JSON back to the source tree.
+    ///
+    /// Notes:
+    /// - This test drives the HTTP call itself rather than going through
+    ///   `OpenAICompatibleLLMClient.sendChatCompletion`. The reason is that we want the
+    ///   raw assistant content written to disk *before* decoding, so that if the LLM
+    ///   emits something that doesn't match the new IR schema we can inspect the file.
+    /// - The HTTP request body exactly mirrors the production code path (same system
+    ///   prompt, same user prompt, same `response_format` schema).
+    func testCaptureMouseCatToyIRFixtureFromRealLLM() async throws {
+        let sentinelURL = URL(fileURLWithPath: "/tmp/crochet/CAPTURE_IR")
+        guard FileManager.default.fileExists(atPath: sentinelURL.path) else {
+            throw XCTSkip("Capture test disabled. `touch /tmp/crochet/CAPTURE_IR` to enable.")
+        }
+
+        let configuration = try Self.makeRuntimeConfigurationFromSecretsFile()
+        let logger = ConsoleTraceLogger()
+        let extractor = HTMLExtractionService()
+
+        let html = try XCTUnwrap(Self.fixtureText(at: rawHTMLPath), "raw.html missing at \(rawHTMLPath)")
+        let context = ParseRequestContext(
+            traceID: "capture-\(UUID().uuidString)",
+            parseRequestID: "capture-\(UUID().uuidString)",
+            sourceType: .web
+        )
+        let extraction = extractor.extract(from: html, sourceURL: sourceURL, context: context, logger: logger)
+        XCTAssertFalse(extraction.finalText.isEmpty, "HTML extractor returned empty text")
+        try Self.writeText(extraction.finalText, to: "Fixtures/LLM/MouseCatToy/extracted_text.txt")
+
+        // ----- Step 1: outline -----
+        let outlineContent = try await Self.fetchAssistantContent(
+            configuration: configuration,
+            modelID: configuration.textModelID,
+            systemPrompt: PromptFactory.textOutlineSystemPrompt(),
+            userPrompt: PromptFactory.textOutlinePrompt(
+                extractedText: extraction.finalText,
+                titleHint: extraction.title
+            ),
+            responseFormat: PromptFactory.outlineResponseFormat()
+        )
+        try Self.writeText(outlineContent, to: "Fixtures/LLM/MouseCatToy/outline_raw.json")
+
+        let outline: PatternOutlineResponse
+        do {
+            outline = try JSONDecoder().decode(
+                PatternOutlineResponse.self,
+                from: Data(outlineContent.utf8)
+            )
+            try Self.writePrettyJSON(outline, to: outlineFixturePath)
+        } catch {
+            XCTFail("Outline decode failed: \(error). Raw content saved to outline_raw.json.")
+            return
+        }
+
+        // ----- Step 2: IR atomization -----
+        let atomizationInputs: [AtomizationRoundInput] = outline.parts.flatMap { part in
+            part.rounds.map { round in
+                AtomizationRoundInput(
+                    partName: part.name,
+                    title: round.title,
+                    rawInstruction: round.rawInstruction,
+                    summary: round.summary,
+                    targetStitchCount: round.targetStitchCount,
+                    previousRoundStitchCount: nil,
+                    abbreviations: outline.abbreviations
+                )
+            }
+        }
+        XCTAssertFalse(atomizationInputs.isEmpty, "Outline produced zero rounds")
+
+        let irContent = try await Self.fetchAssistantContent(
+            configuration: configuration,
+            modelID: configuration.atomizationModelID,
+            systemPrompt: PromptFactory.roundIRAtomizationSystemPrompt(),
+            userPrompt: PromptFactory.roundIRAtomizationPrompt(
+                projectTitle: outline.projectTitle,
+                materials: outline.materials,
+                rounds: atomizationInputs
+            ),
+            responseFormat: PromptFactory.irAtomizationResponseFormat()
+        )
+        try Self.writeText(irContent, to: "Fixtures/LLM/MouseCatToy/ir_raw.json")
+
+        do {
+            let ir = try JSONDecoder().decode(
+                CrochetIRAtomizationResponse.self,
+                from: Data(irContent.utf8)
+            )
+            try Self.writePrettyJSON(ir, to: irFixturePath)
+            print("Captured \(ir.rounds.count) IR rounds → \(irFixturePath)")
+        } catch {
+            XCTFail("IR decode failed: \(error). Raw LLM content saved to ir_raw.json for inspection.")
+        }
+    }
+
+    /// Performs a single chat-completion call against an OpenAI-compatible endpoint and
+    /// returns the assistant's raw message content. Does NOT attempt to decode; callers
+    /// save the content first and decode separately.
+    private static func fetchAssistantContent(
+        configuration: RuntimeConfiguration,
+        modelID: String,
+        systemPrompt: String,
+        userPrompt: String,
+        responseFormat: [String: Any]
+    ) async throws -> String {
+        var request = URLRequest(url: configuration.baseURL.appending(path: "chat/completions"))
+        request.httpMethod = "POST"
+        request.timeoutInterval = 300
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(configuration.apiKey)", forHTTPHeaderField: "Authorization")
+
+        let body: [String: Any] = [
+            "model": modelID,
+            "temperature": 0,
+            "messages": [
+                ["role": "system", "content": systemPrompt],
+                ["role": "user", "content": userPrompt]
+            ],
+            "response_format": responseFormat
+        ]
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let http = response as? HTTPURLResponse, 200..<300 ~= http.statusCode else {
+            let status = (response as? HTTPURLResponse)?.statusCode ?? -1
+            let bodyPreview = String(data: data, encoding: .utf8).map { String($0.prefix(500)) } ?? ""
+            throw NSError(
+                domain: "CaptureIRFixture",
+                code: status,
+                userInfo: [NSLocalizedDescriptionKey: "HTTP \(status): \(bodyPreview)"]
+            )
+        }
+
+        guard let envelope = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let choices = envelope["choices"] as? [[String: Any]],
+              let message = choices.first?["message"] as? [String: Any],
+              let content = message["content"] as? String else {
+            throw NSError(
+                domain: "CaptureIRFixture",
+                code: -2,
+                userInfo: [NSLocalizedDescriptionKey: "could not extract assistant content"]
+            )
+        }
+        return content
+    }
+
+    private static func writeText(_ text: String, to relativePath: String) throws {
+        let url = fixtureURL(at: relativePath)
+        try FileManager.default.createDirectory(
+            at: url.deletingLastPathComponent(),
+            withIntermediateDirectories: true
+        )
+        try text.write(to: url, atomically: true, encoding: .utf8)
+    }
+
+    // MARK: Helpers
+
+    /// Locates fixtures relative to the current test source file — avoids the need to
+    /// register each JSON blob in the test target's bundle resources.
+    private static func fixtureData(at relativePath: String) -> Data? {
+        let url = fixtureURL(at: relativePath)
+        return try? Data(contentsOf: url)
+    }
+
+    private static func fixtureText(at relativePath: String) -> String? {
+        let url = fixtureURL(at: relativePath)
+        return try? String(contentsOf: url, encoding: .utf8)
+    }
+
+    private static func fixtureURL(at relativePath: String, file: StaticString = #filePath) -> URL {
+        URL(fileURLWithPath: "\(file)")
+            .deletingLastPathComponent()
+            .appendingPathComponent(relativePath)
+    }
+
+    private static func writePrettyJSON<T: Encodable>(_ value: T, to relativePath: String) throws {
+        let url = fixtureURL(at: relativePath)
+        try FileManager.default.createDirectory(
+            at: url.deletingLastPathComponent(),
+            withIntermediateDirectories: true
+        )
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let data = try encoder.encode(value)
+        try data.write(to: url)
+    }
+
+    /// Loads values from `Config/Secrets.xcconfig`, resolves `$(VAR)` references, and
+    /// builds a RuntimeConfiguration. The xcconfig file syntax is `KEY = VALUE` with
+    /// `$(OTHER_KEY)` expansion; we only need to handle that plus a `$(SLASH)` indirection
+    /// for the URL (because xcconfig can't contain raw `//`).
+    private static func makeRuntimeConfigurationFromSecretsFile() throws -> RuntimeConfiguration {
+        let secretsURL = projectRootURL().appendingPathComponent("Config/Secrets.xcconfig")
+        let contents = try String(contentsOf: secretsURL, encoding: .utf8)
+
+        var raw: [String: String] = [:]
+        for line in contents.split(separator: "\n") {
+            let trimmed = line.trimmingCharacters(in: .whitespaces)
+            guard !trimmed.isEmpty, !trimmed.hasPrefix("//"), let eq = trimmed.firstIndex(of: "=") else { continue }
+            let key = trimmed[..<eq].trimmingCharacters(in: .whitespaces)
+            let value = trimmed[trimmed.index(after: eq)...].trimmingCharacters(in: .whitespaces)
+            raw[key] = value
+        }
+
+        func resolve(_ value: String) -> String {
+            var result = value
+            while let range = result.range(of: #"\$\([A-Z_]+\)"#, options: .regularExpression) {
+                let key = String(result[range]).dropFirst(2).dropLast()
+                result.replaceSubrange(range, with: raw[String(key)] ?? "")
+            }
+            return result
+        }
+
+        return try RuntimeConfiguration.load(values: [
+            "OPENAI_API_KEY": resolve(raw["OPENAI_API_KEY"] ?? ""),
+            "OPENAI_BASE_URL": resolve(raw["OPENAI_BASE_URL"] ?? ""),
+            "TEXT_MODEL_ID": resolve(raw["TEXT_MODEL_ID"] ?? ""),
+            "ATOMIZATION_MODEL_ID": resolve(raw["ATOMIZATION_MODEL_ID"] ?? raw["TEXT_MODEL_ID"] ?? ""),
+            "VISION_MODEL_ID": resolve(raw["VISION_MODEL_ID"] ?? raw["TEXT_MODEL_ID"] ?? "")
+        ])
+    }
+
+    /// Walks up from the current test file to the repo root (the parent of `CrochetPalTests/`).
+    private static func projectRootURL(file: StaticString = #filePath) -> URL {
+        URL(fileURLWithPath: "\(file)")
+            .deletingLastPathComponent() // CrochetPalTests/
+            .deletingLastPathComponent() // project root
+    }
 }

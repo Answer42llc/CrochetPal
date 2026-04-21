@@ -5,7 +5,7 @@ struct CrochetIRCompiler {
         _ block: CrochetIRInstructionBlock,
         choices: [String: String] = [:]
     ) throws -> CrochetIRExpansion {
-        let expanded = try expand(nodes: block.nodes, choices: choices)
+        let expanded = try expand(block: block.body, choices: choices)
         let atomicActions = try expanded.actions.enumerated().map { index, draft in
             try makeAtomicAction(from: draft, sequenceIndex: index)
         }
@@ -30,7 +30,8 @@ struct CrochetIRCompiler {
 
     func validate(_ block: CrochetIRInstructionBlock) -> CrochetIRValidationReport {
         var issues: [CrochetIRValidationIssue] = []
-        validate(nodes: block.nodes, issues: &issues)
+        validate(block: block.body, issues: &issues)
+        validateChoiceIDConsistency(block: block.body, issues: &issues)
 
         if !issues.contains(where: { $0.severity == .error }) {
             do {
@@ -48,15 +49,17 @@ struct CrochetIRCompiler {
         return CrochetIRValidationReport(issues: issues)
     }
 
+    // MARK: - Expansion
+
     private func expand(
-        nodes: [CrochetIRNode],
+        block: CrochetIRBlock,
         choices: [String: String]
     ) throws -> (actions: [CrochetIRActionDraft], warnings: [CrochetIRExpansionWarning]) {
         var actions: [CrochetIRActionDraft] = []
         var warnings: [CrochetIRExpansionWarning] = []
 
-        for node in nodes {
-            let result = try expand(node: node, choices: choices)
+        for statement in block.statements {
+            let result = try expand(statement: statement, choices: choices)
             actions.append(contentsOf: result.actions)
             warnings.append(contentsOf: result.warnings)
         }
@@ -65,105 +68,177 @@ struct CrochetIRCompiler {
     }
 
     private func expand(
-        node: CrochetIRNode,
+        statement: CrochetIRStatement,
         choices: [String: String]
     ) throws -> (actions: [CrochetIRActionDraft], warnings: [CrochetIRExpansionWarning]) {
-        switch node {
-        case let .stitch(stitch):
-            return (try expand(stitch: stitch), [])
+        switch statement.kind {
+        case let .operation(operation):
+            return (try expand(operation: operation), [])
         case let .repeatBlock(repeatBlock):
             return try expand(repeatBlock: repeatBlock, choices: choices)
         case let .conditional(conditional):
             return try expand(conditional: conditional, choices: choices)
-        case let .control(control):
-            return (try expand(control: control), [])
         case let .note(note):
-            guard note.emitAsAction else {
-                return ([], [])
-            }
+            guard note.emitAsAction else { return ([], []) }
             return ([CrochetIRActionDraft(
-                type: .custom,
+                semantics: .bookkeeping,
+                actionTag: "note",
+                stitchTag: nil,
                 instruction: note.message,
                 producedStitches: 0,
                 note: nil
             )], [])
-        case let .ambiguous(ambiguous):
-            let instruction = ambiguous.safeInstruction ?? ambiguous.sourceText
-            return ([CrochetIRActionDraft(
-                type: .custom,
-                instruction: instruction,
-                producedStitches: 0,
-                note: ambiguous.reason
-            )], [CrochetIRExpansionWarning(
-                code: "ir_ambiguous_source",
-                message: ambiguous.reason,
-                sourceText: ambiguous.sourceText
-            )])
         }
     }
 
-    private func expand(stitch: CrochetIRStitch) throws -> [CrochetIRActionDraft] {
-        guard stitch.count > 0 else {
-            throw PatternImportFailure.invalidResponse("ir_invalid_stitch_count")
-        }
-        guard stitch.type.isAtomicActionType else {
-            throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(stitch.type.rawValue)")
+    private func expand(operation op: CrochetIROperation) throws -> [CrochetIRActionDraft] {
+        guard op.count > 0 else {
+            throw PatternImportFailure.invalidResponse("ir_invalid_operation_count")
         }
 
-        var actions = (0..<stitch.count).map { _ in
-            CrochetIRActionDraft(
-                type: stitch.type,
-                instruction: stitch.instruction,
-                producedStitches: stitch.type.resolvedAtomizationProducedStitches(from: stitch.producedStitches),
-                note: nil
-            )
+        switch op.semantics {
+        case .stitchProducing:
+            guard let stitch = op.stitch else {
+                throw PatternImportFailure.invalidResponse("ir_operation_missing_stitch_for_stitch_producing")
+            }
+            guard CrochetStitchCatalog.isValidStitchTag(stitch) else {
+                throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(stitch)")
+            }
+            let perStitch = op.producedStitches ?? CrochetStitchCatalog.defaultProducedStitches(for: stitch)
+            var actions = (0..<op.count).map { _ in
+                CrochetIRActionDraft(
+                    semantics: .stitchProducing,
+                    actionTag: op.actionTag,
+                    stitchTag: stitch,
+                    instruction: op.instruction,
+                    producedStitches: perStitch,
+                    note: nil
+                )
+            }
+            apply(note: composedNote(for: op), placement: op.notePlacement, to: &actions)
+            return actions
+
+        case .increase:
+            guard let stitch = op.stitch else {
+                throw PatternImportFailure.invalidResponse("ir_operation_missing_stitch_for_increase")
+            }
+            guard CrochetStitchCatalog.isValidStitchTag(stitch) else {
+                throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(stitch)")
+            }
+            // "1 sc inc" = 2 sc into same stitch. Represented as (count * producedPerInc)
+            // draft actions, each with producedStitches=1.
+            let producedPerInc = op.producedStitches ?? 2
+            var actions: [CrochetIRActionDraft] = []
+            for _ in 0..<op.count {
+                for _ in 0..<producedPerInc {
+                    actions.append(CrochetIRActionDraft(
+                        semantics: .increase,
+                        actionTag: op.actionTag,
+                        stitchTag: stitch,
+                        instruction: op.instruction,
+                        producedStitches: 1,
+                        note: nil
+                    ))
+                }
+            }
+            apply(note: composedNote(for: op, defaultNote: "inc"), placement: op.notePlacement, to: &actions)
+            return actions
+
+        case .decrease:
+            let stitchTag = op.stitch ?? "dec"
+            guard CrochetStitchCatalog.isValidStitchTag(stitchTag) else {
+                throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(stitchTag)")
+            }
+            let perStitch = op.producedStitches ?? CrochetStitchCatalog.defaultProducedStitches(for: stitchTag)
+            var actions = (0..<op.count).map { _ in
+                CrochetIRActionDraft(
+                    semantics: .decrease,
+                    actionTag: op.actionTag,
+                    stitchTag: stitchTag,
+                    instruction: op.instruction,
+                    producedStitches: perStitch,
+                    note: nil
+                )
+            }
+            apply(note: composedNote(for: op), placement: op.notePlacement, to: &actions)
+            return actions
+
+        case .bookkeeping:
+            return [CrochetIRActionDraft(
+                semantics: .bookkeeping,
+                actionTag: op.actionTag,
+                stitchTag: nil,
+                instruction: resolvedBookkeepingInstruction(for: op),
+                producedStitches: 0,
+                note: composedNote(for: op)
+            )]
         }
-        apply(note: stitch.note, placement: stitch.notePlacement, to: &actions)
-        return actions
+    }
+
+    /// Composes the note text, combining the operation's `target` (e.g. "same stitch",
+    /// "top of first ch3") with the `note` field. `target` describes WHERE the stitch goes and
+    /// is valuable context for the user; we surface it alongside any free-text note.
+    private func composedNote(for op: CrochetIROperation, defaultNote: String? = nil) -> String? {
+        var components: [String] = []
+        if let target = normalized(op.target) {
+            components.append(target)
+        }
+        if let note = normalized(op.note) {
+            components.append(note)
+        } else if let defaultNote = normalized(defaultNote), components.isEmpty {
+            components.append(defaultNote)
+        }
+        return components.isEmpty ? nil : components.joined(separator: "; ")
+    }
+
+    /// Falls back through instruction → humanized actionTag so the UI always has something
+    /// readable to show for bookkeeping actions.
+    private func resolvedBookkeepingInstruction(for op: CrochetIROperation) -> String {
+        if let instruction = AtomicAction.normalizedInstruction(op.instruction) {
+            return instruction
+        }
+        return humanizeActionTag(op.actionTag)
+    }
+
+    /// Converts camelCase action tags into title-cased human strings.
+    /// "placeMarker" → "Place marker", "joinYarn" → "Join yarn", "turn" → "Turn".
+    private func humanizeActionTag(_ tag: String) -> String {
+        guard !tag.isEmpty else { return "action" }
+        var result = ""
+        for (index, character) in tag.enumerated() {
+            if index == 0 {
+                result.append(character.uppercased())
+            } else if character.isUppercase {
+                result.append(" ")
+                result.append(character.lowercased())
+            } else {
+                result.append(character)
+            }
+        }
+        return result
     }
 
     private func expand(
-        repeatBlock: CrochetIRRepeat,
+        repeatBlock: CrochetIRRepeatBlock,
         choices: [String: String]
     ) throws -> (actions: [CrochetIRActionDraft], warnings: [CrochetIRExpansionWarning]) {
         guard repeatBlock.times > 0 else {
             throw PatternImportFailure.invalidResponse("ir_invalid_repeat_times")
         }
-        guard !repeatBlock.body.isEmpty else {
+        guard !repeatBlock.body.statements.isEmpty else {
             throw PatternImportFailure.invalidResponse("ir_empty_repeat_body")
         }
 
         var actions: [CrochetIRActionDraft] = []
         var warnings: [CrochetIRExpansionWarning] = []
 
-        for iteration in 0..<repeatBlock.times {
-            let body = try bodyForRepeatIteration(
-                repeatBlock,
-                isLastIteration: iteration == repeatBlock.times - 1
-            )
-            let result = try expand(nodes: body, choices: choices)
+        for _ in 0..<repeatBlock.times {
+            let result = try expand(block: repeatBlock.body, choices: choices)
             actions.append(contentsOf: result.actions)
             warnings.append(contentsOf: result.warnings)
         }
 
         return (actions, warnings)
-    }
-
-    private func bodyForRepeatIteration(
-        _ repeatBlock: CrochetIRRepeat,
-        isLastIteration: Bool
-    ) throws -> [CrochetIRNode] {
-        guard isLastIteration,
-              let transform = repeatBlock.lastIterationTransform else {
-            return repeatBlock.body
-        }
-        guard transform.removeTailNodeCount >= 0,
-              transform.removeTailNodeCount <= repeatBlock.body.count else {
-            throw PatternImportFailure.invalidResponse("ir_invalid_last_iteration_tail_removal")
-        }
-
-        let keptCount = repeatBlock.body.count - transform.removeTailNodeCount
-        return Array(repeatBlock.body.prefix(keptCount)) + transform.append
     }
 
     private func expand(
@@ -173,141 +248,65 @@ struct CrochetIRCompiler {
         let selectedValue = choices[conditional.choiceID] ?? conditional.defaultBranchValue
         guard let selectedValue else {
             return ([CrochetIRActionDraft(
-                type: .custom,
+                semantics: .bookkeeping,
+                actionTag: "conditionalPrompt",
+                stitchTag: nil,
                 instruction: conditional.question,
                 producedStitches: 0,
                 note: nil
             )], [CrochetIRExpansionWarning(
                 code: "ir_missing_choice",
                 message: "A choice is required for \(conditional.choiceID).",
-                sourceText: conditional.sourceText
+                sourceText: nil
             )])
         }
         guard let branch = conditional.branches.first(where: { $0.value == selectedValue }) else {
             return ([CrochetIRActionDraft(
-                type: .custom,
+                semantics: .bookkeeping,
+                actionTag: "conditionalPrompt",
+                stitchTag: nil,
                 instruction: conditional.question,
                 producedStitches: 0,
                 note: nil
             )], [CrochetIRExpansionWarning(
                 code: "ir_unknown_choice",
                 message: "No branch matched choice value \(selectedValue).",
-                sourceText: conditional.sourceText
+                sourceText: nil
             )])
         }
 
-        return try expand(nodes: branch.nodes + conditional.commonBody, choices: choices)
+        var out: [CrochetIRActionDraft] = []
+        var warnings: [CrochetIRExpansionWarning] = []
+
+        let branchResult = try expand(block: branch.body, choices: choices)
+        out.append(contentsOf: branchResult.actions)
+        warnings.append(contentsOf: branchResult.warnings)
+
+        if let commonBody = conditional.commonBody {
+            let commonResult = try expand(block: commonBody, choices: choices)
+            out.append(contentsOf: commonResult.actions)
+            warnings.append(contentsOf: commonResult.warnings)
+        }
+
+        return (out, warnings)
     }
 
-    private func expand(control: CrochetIRControl) throws -> [CrochetIRActionDraft] {
-        let instruction = AtomicAction.normalizedInstruction(control.instruction)
+    // MARK: - Validation
 
-        switch control.kind {
-        case .turn:
-            return [CrochetIRActionDraft(
-                type: .custom,
-                instruction: instruction ?? "turn",
-                producedStitches: 0,
-                note: control.note
-            )]
-        case .skip:
-            return [CrochetIRActionDraft(
-                type: .skip,
-                instruction: instruction ?? "skip",
-                producedStitches: 0,
-                note: control.note
-            )]
-        case .custom:
-            guard let instruction else {
-                throw PatternImportFailure.invalidResponse("ir_missing_custom_control_instruction")
-            }
-            return [CrochetIRActionDraft(
-                type: .custom,
-                instruction: instruction,
-                producedStitches: 0,
-                note: control.note
-            )]
+    private func validate(block: CrochetIRBlock, issues: inout [CrochetIRValidationIssue]) {
+        for statement in block.statements {
+            validate(statement: statement, issues: &issues)
         }
     }
 
-    private func validate(nodes: [CrochetIRNode], issues: inout [CrochetIRValidationIssue]) {
-        for node in nodes {
-            validate(node: node, issues: &issues)
-        }
-    }
-
-    private func validate(node: CrochetIRNode, issues: inout [CrochetIRValidationIssue]) {
-        switch node {
-        case let .stitch(stitch):
-            if stitch.count <= 0 {
-                issues.append(CrochetIRValidationIssue(
-                    severity: .error,
-                    code: "ir_invalid_stitch_count",
-                    message: "Stitch count must be positive.",
-                    sourceText: stitch.sourceText
-                ))
-            }
-            if !stitch.type.isAtomicActionType {
-                issues.append(CrochetIRValidationIssue(
-                    severity: .error,
-                    code: "ir_contains_non_action_type",
-                    message: "\(stitch.type.rawValue) is not an atomic action type.",
-                    sourceText: stitch.sourceText
-                ))
-            }
-        case let .repeatBlock(repeatBlock):
-            if repeatBlock.times <= 0 {
-                issues.append(CrochetIRValidationIssue(
-                    severity: .error,
-                    code: "ir_invalid_repeat_times",
-                    message: "Repeat times must be positive.",
-                    sourceText: repeatBlock.sourceText
-                ))
-            }
-            if repeatBlock.body.isEmpty {
-                issues.append(CrochetIRValidationIssue(
-                    severity: .error,
-                    code: "ir_empty_repeat_body",
-                    message: "Repeat body must not be empty.",
-                    sourceText: repeatBlock.sourceText
-                ))
-            }
-            if let transform = repeatBlock.lastIterationTransform,
-               transform.removeTailNodeCount < 0 || transform.removeTailNodeCount > repeatBlock.body.count {
-                issues.append(CrochetIRValidationIssue(
-                    severity: .error,
-                    code: "ir_invalid_last_iteration_tail_removal",
-                    message: "Last-iteration transform removes more nodes than the repeat body contains.",
-                    sourceText: transform.sourceText ?? repeatBlock.sourceText
-                ))
-            }
-            validate(nodes: repeatBlock.body, issues: &issues)
-            if let transform = repeatBlock.lastIterationTransform {
-                validate(nodes: transform.append, issues: &issues)
-            }
-        case let .conditional(conditional):
-            if conditional.branches.isEmpty {
-                issues.append(CrochetIRValidationIssue(
-                    severity: .error,
-                    code: "ir_empty_conditional_branches",
-                    message: "Conditional block must define at least one branch.",
-                    sourceText: conditional.sourceText
-                ))
-            }
-            for branch in conditional.branches {
-                validate(nodes: branch.nodes, issues: &issues)
-            }
-            validate(nodes: conditional.commonBody, issues: &issues)
-        case let .control(control):
-            if control.kind == .custom,
-               AtomicAction.normalizedInstruction(control.instruction) == nil {
-                issues.append(CrochetIRValidationIssue(
-                    severity: .error,
-                    code: "ir_missing_custom_control_instruction",
-                    message: "Custom control nodes must include an instruction.",
-                    sourceText: control.sourceText
-                ))
-            }
+    private func validate(statement: CrochetIRStatement, issues: inout [CrochetIRValidationIssue]) {
+        switch statement.kind {
+        case let .operation(op):
+            validate(operation: op, sourceText: statement.sourceText, issues: &issues)
+        case let .repeatBlock(rb):
+            validate(repeatBlock: rb, sourceText: statement.sourceText, issues: &issues)
+        case let .conditional(c):
+            validate(conditional: c, issues: &issues)
         case let .note(note):
             if note.message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 issues.append(CrochetIRValidationIssue(
@@ -317,14 +316,211 @@ struct CrochetIRCompiler {
                     sourceText: note.sourceText
                 ))
             }
-        case let .ambiguous(ambiguous):
+        }
+    }
+
+    private func validate(
+        operation op: CrochetIROperation,
+        sourceText: String?,
+        issues: inout [CrochetIRValidationIssue]
+    ) {
+        if op.count <= 0 {
             issues.append(CrochetIRValidationIssue(
-                severity: .warning,
-                code: "ir_ambiguous_source",
-                message: ambiguous.reason,
-                sourceText: ambiguous.sourceText
+                severity: .error,
+                code: "ir_invalid_operation_count",
+                message: "Operation count must be positive.",
+                sourceText: sourceText
             ))
         }
+        if normalized(op.actionTag) == nil {
+            issues.append(CrochetIRValidationIssue(
+                severity: .error,
+                code: "ir_operation_missing_action_tag",
+                message: "Operation must define a non-empty actionTag.",
+                sourceText: sourceText
+            ))
+        } else if !isValidActionTag(op.actionTag) {
+            issues.append(CrochetIRValidationIssue(
+                severity: .error,
+                code: "ir_operation_invalid_action_tag",
+                message: "actionTag must be camelCase letters or digits (got \(op.actionTag)).",
+                sourceText: sourceText
+            ))
+        }
+
+        switch op.semantics {
+        case .stitchProducing, .increase, .decrease:
+            if op.stitch == nil {
+                issues.append(CrochetIRValidationIssue(
+                    severity: .error,
+                    code: "ir_operation_semantics_mismatch",
+                    message: "Operation with semantics \(op.semantics.rawValue) requires a stitch tag.",
+                    sourceText: sourceText
+                ))
+            } else if let stitch = op.stitch, !CrochetStitchCatalog.isValidStitchTag(stitch) {
+                // Descriptors/meta (blo, flo, skip, ...) cannot stand in for a stitch.
+                // Unknown tags (pattern-specific abbreviations) ARE allowed.
+                issues.append(CrochetIRValidationIssue(
+                    severity: .error,
+                    code: "ir_contains_non_action_type",
+                    message: "\(stitch) is a descriptor/meta tag, not a stitch.",
+                    sourceText: sourceText
+                ))
+            }
+        case .bookkeeping:
+            // bookkeeping operations MAY carry an optional stitch tag when the action has
+            // a canonical stitch-like name — e.g. `mr` (magic ring), `fo` (fasten off),
+            // `slst` used as a join. It's just informational for the UI; compiler treats
+            // bookkeeping as stitchless regardless.
+            break
+        }
+    }
+
+    private func validate(
+        repeatBlock rb: CrochetIRRepeatBlock,
+        sourceText: String?,
+        issues: inout [CrochetIRValidationIssue]
+    ) {
+        if rb.times <= 0 {
+            issues.append(CrochetIRValidationIssue(
+                severity: .error,
+                code: "ir_invalid_repeat_times",
+                message: "Repeat times must be positive.",
+                sourceText: sourceText
+            ))
+        }
+        if rb.body.statements.isEmpty {
+            issues.append(CrochetIRValidationIssue(
+                severity: .error,
+                code: "ir_empty_repeat_body",
+                message: "Repeat body must not be empty.",
+                sourceText: sourceText
+            ))
+        }
+
+        if detectIterationExceptionSmell(
+            sourceText: sourceText,
+            block: rb.body,
+            normalizationNote: rb.normalizationNote
+        ) {
+            issues.append(CrochetIRValidationIssue(
+                severity: .error,
+                code: "ir_iteration_specific_exception_not_normalized",
+                message: "Instruction contains iteration-specific exception (omit final / instead / on the last repeat / ...). The canonical IR must normalize this into a homogeneous repeatBlock plus flat statements outside the repeat.",
+                sourceText: sourceText
+            ))
+        }
+
+        validate(block: rb.body, issues: &issues)
+    }
+
+    private func validate(
+        conditional: CrochetIRConditional,
+        issues: inout [CrochetIRValidationIssue]
+    ) {
+        if conditional.branches.isEmpty {
+            issues.append(CrochetIRValidationIssue(
+                severity: .error,
+                code: "ir_empty_conditional_branches",
+                message: "Conditional block must define at least one branch.",
+                sourceText: nil
+            ))
+        }
+        for branch in conditional.branches {
+            validate(block: branch.body, issues: &issues)
+        }
+        if let commonBody = conditional.commonBody {
+            validate(block: commonBody, issues: &issues)
+        }
+    }
+
+    /// Cross-statement check: if two or more `CrochetIRConditional`s share the same `choiceID`,
+    /// they must expose identical branch values and defaults so a single user input drives all
+    /// of them (supports "if you used one" kind of back-references).
+    private func validateChoiceIDConsistency(
+        block: CrochetIRBlock,
+        issues: inout [CrochetIRValidationIssue]
+    ) {
+        var groups: [String: [CrochetIRConditional]] = [:]
+        collectConditionals(block: block, into: &groups)
+
+        for (choiceID, conditionals) in groups where conditionals.count > 1 {
+            let branchValues = conditionals.map { Set($0.branches.map(\.value)) }
+            let defaults = Set(conditionals.map { $0.defaultBranchValue ?? "" })
+            let allBranchesMatch = branchValues.dropFirst().allSatisfy { $0 == branchValues[0] }
+            if !allBranchesMatch || defaults.count > 1 {
+                issues.append(CrochetIRValidationIssue(
+                    severity: .error,
+                    code: "ir_conditional_choice_id_mismatch",
+                    message: "Conditionals sharing choiceID '\(choiceID)' must expose identical branches and defaultBranchValue.",
+                    sourceText: nil
+                ))
+            }
+        }
+    }
+
+    private func collectConditionals(
+        block: CrochetIRBlock,
+        into groups: inout [String: [CrochetIRConditional]]
+    ) {
+        for statement in block.statements {
+            switch statement.kind {
+            case let .conditional(c):
+                groups[c.choiceID, default: []].append(c)
+                for branch in c.branches {
+                    collectConditionals(block: branch.body, into: &groups)
+                }
+                if let commonBody = c.commonBody {
+                    collectConditionals(block: commonBody, into: &groups)
+                }
+            case let .repeatBlock(rb):
+                collectConditionals(block: rb.body, into: &groups)
+            case .operation, .note:
+                break
+            }
+        }
+    }
+
+    // MARK: - Iteration exception heuristic
+
+    /// The LLM sometimes forgets to normalize "repeat 3 times, omit the final X" into
+    /// "repeat 2 times + flat final iteration". We scan sourceText fields for trigger phrases;
+    /// if any appears AND the IR does not carry an explicit `normalizationNote` showing the
+    /// LLM was aware of the exception, we return a repairable error.
+    private func detectIterationExceptionSmell(
+        sourceText: String?,
+        block: CrochetIRBlock,
+        normalizationNote: String?
+    ) -> Bool {
+        // If the LLM explicitly acknowledged normalization, assume it handled it correctly.
+        if let note = normalized(normalizationNote), !note.isEmpty {
+            return false
+        }
+
+        let phrases = [
+            "omit the final", "omit final",
+            ", instead", ". instead",
+            "on the final", "on the last repeat",
+            "on the first repeat", "on the nth repeat",
+            "except on", "but on the last", "but on the first"
+        ]
+
+        let candidateTexts: [String?] = [sourceText, block.sourceText]
+            + block.statements.map { $0.sourceText }
+        let haystack = candidateTexts.compactMap { $0 }.joined(separator: " ").lowercased()
+        return phrases.contains(where: haystack.contains)
+    }
+
+    // MARK: - Helpers
+
+    private func isValidActionTag(_ tag: String) -> Bool {
+        // actionTag is intentionally open — we only reject obvious junk (empty, whitespace,
+        // non-identifier characters). Allow the common identifier alphabets: letters,
+        // digits, underscore, hyphen. This matches both camelCase (`placeMarker`),
+        // snake_case (`sl_st` — which is `StitchActionType.slSt.rawValue`), kebab-case
+        // (`cap-stitch`), and all-caps abbreviations (`FPdc`, `CS`).
+        guard !tag.isEmpty, let first = tag.first, first.isLetter else { return false }
+        return tag.allSatisfy { $0.isLetter || $0.isNumber || $0 == "_" || $0 == "-" }
     }
 
     private func apply(
@@ -332,10 +528,7 @@ struct CrochetIRCompiler {
         placement: AtomizedNotePlacement,
         to actions: inout [CrochetIRActionDraft]
     ) {
-        guard let note = normalized(note), !actions.isEmpty else {
-            return
-        }
-
+        guard let note = normalized(note), !actions.isEmpty else { return }
         switch placement {
         case .first:
             actions[0].note = note
@@ -348,23 +541,17 @@ struct CrochetIRCompiler {
         }
     }
 
-    private func makeAtomicAction(from draft: CrochetIRActionDraft, sequenceIndex: Int) throws -> AtomicAction {
-        if draft.type == .custom {
-            return AtomicAction(
-                type: .custom,
-                instruction: AtomicAction.normalizedInstruction(draft.instruction),
-                producedStitches: draft.producedStitches,
-                note: normalized(draft.note),
-                sequenceIndex: sequenceIndex
-            )
+    private func makeAtomicAction(
+        from draft: CrochetIRActionDraft,
+        sequenceIndex: Int
+    ) throws -> AtomicAction {
+        if let stitch = draft.stitchTag, !CrochetStitchCatalog.isValidStitchTag(stitch) {
+            throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(stitch)")
         }
-
-        guard draft.type.isAtomicActionType else {
-            throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(draft.type.rawValue)")
-        }
-
         return AtomicAction(
-            type: draft.type,
+            semantics: draft.semantics,
+            actionTag: draft.actionTag,
+            stitchTag: draft.stitchTag,
             instruction: AtomicAction.normalizedInstruction(draft.instruction),
             producedStitches: draft.producedStitches,
             note: normalized(draft.note),
@@ -380,7 +567,9 @@ struct CrochetIRCompiler {
 }
 
 private struct CrochetIRActionDraft: Hashable {
-    var type: StitchActionType
+    var semantics: CrochetIROperationSemantics
+    var actionTag: String
+    var stitchTag: String?
     var instruction: String?
     var producedStitches: Int
     var note: String?

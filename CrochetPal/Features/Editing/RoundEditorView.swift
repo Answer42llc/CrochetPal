@@ -39,9 +39,9 @@ struct RoundEditorView: View {
                 Section("Actions") {
                     ForEach($drafts) { $draft in
                         VStack(alignment: .leading, spacing: 12) {
-                            Picker("Type", selection: $draft.type) {
-                                ForEach(StitchActionType.allCases.filter { $0 != .skip }) { action in
-                                    Text(action.title).tag(action)
+                            Picker("Stitch", selection: $draft.stitchTag) {
+                                ForEach(CrochetStitchCatalog.commonPickerTags, id: \.self) { tag in
+                                    Text(CrochetStitchCatalog.displayTitle(for: tag)).tag(tag)
                                 }
                             }
                             TextField("Instruction", text: $draft.instruction)
@@ -56,7 +56,15 @@ struct RoundEditorView: View {
                     }
 
                     Button("Add Action") {
-                        drafts.append(RoundActionDraft(type: .sc, instruction: "SC", producedStitches: 1, note: "", count: 1))
+                        drafts.append(RoundActionDraft(
+                            semantics: .stitchProducing,
+                            actionTag: "sc",
+                            stitchTag: "sc",
+                            instruction: "SC",
+                            producedStitches: 1,
+                            note: "",
+                            count: 1
+                        ))
                     }
                 }
             }
@@ -79,8 +87,12 @@ struct RoundEditorView: View {
         let atomicActions = drafts.flatMap { draft in
             (0..<draft.count).map { _ in
                 defer { sequenceIndex += 1 }
+                let actionTag = draft.actionTag.isEmpty ? draft.stitchTag : draft.actionTag
+                let semantics = draft.stitchTag == "custom" ? CrochetIROperationSemantics.bookkeeping : draft.semantics
                 return AtomicAction(
-                    type: draft.type,
+                    semantics: semantics,
+                    actionTag: actionTag,
+                    stitchTag: semantics == .bookkeeping ? nil : draft.stitchTag,
                     instruction: AtomicAction.normalizedInstruction(draft.instruction),
                     producedStitches: draft.producedStitches,
                     note: draft.note.isEmpty ? nil : draft.note,
@@ -105,14 +117,25 @@ struct RoundEditorView: View {
 
     private static func makeDrafts(from atomicActions: [AtomicAction]) -> [RoundActionDraft] {
         guard !atomicActions.isEmpty else {
-            return [RoundActionDraft(type: .sc, instruction: "SC", producedStitches: 1, note: "", count: 1)]
+            return [RoundActionDraft(
+                semantics: .stitchProducing,
+                actionTag: "sc",
+                stitchTag: "sc",
+                instruction: "SC",
+                producedStitches: 1,
+                note: "",
+                count: 1
+            )]
         }
 
         var drafts: [RoundActionDraft] = []
         for action in atomicActions {
+            let fallbackTag = action.stitchTag ?? action.actionTag
             if var last = drafts.last,
-               last.type == action.type,
-               last.instruction == action.instruction,
+               last.semantics == action.semantics,
+               last.actionTag == action.actionTag,
+               last.stitchTag == fallbackTag,
+               last.instruction == (action.instruction ?? ""),
                last.producedStitches == action.producedStitches,
                last.note == (action.note ?? "") {
                 last.count += 1
@@ -120,7 +143,9 @@ struct RoundEditorView: View {
             } else {
                 drafts.append(
                     RoundActionDraft(
-                        type: action.type,
+                        semantics: action.semantics,
+                        actionTag: action.actionTag,
+                        stitchTag: fallbackTag,
                         instruction: action.instruction ?? "",
                         producedStitches: action.producedStitches,
                         note: action.note ?? "",

@@ -4,6 +4,9 @@ struct PatternOutlineResponse: Codable, Hashable {
     var projectTitle: String
     var materials: [String]
     var confidence: Double
+    /// Author-defined abbreviations extracted from the pattern. Used to teach the IR
+    /// atomization LLM about non-standard terminology (e.g. `cs = cap stitch`).
+    var abbreviations: [PatternAbbreviation]
     var parts: [OutlinedPatternPart]
 }
 
@@ -33,6 +36,7 @@ struct PatternParseResponse: Codable, Hashable {
     var projectTitle: String
     var materials: [String]
     var confidence: Double
+    var abbreviations: [PatternAbbreviation]
     var parts: [ParsedPatternPart]
 }
 
@@ -49,17 +53,15 @@ struct ParsedPatternRound: Codable, Hashable {
     var atomicActions: [ParsedAtomicAction]
 }
 
+/// Atomic action emitted by image-parsing (full-parse) path. Mirrors the IR operation
+/// shape closely but is flatter since image parsing doesn't need a full AST.
 struct ParsedAtomicAction: Codable, Hashable {
-    var type: StitchActionType
+    var semantics: CrochetIROperationSemantics
+    var actionTag: String
+    var stitchTag: String?
     var instruction: String
     var producedStitches: Int?
     var note: String? = nil
-}
-
-enum ControlSegmentKind: String, Codable, CaseIterable, Hashable {
-    case turn
-    case skip
-    case custom
 }
 
 enum AtomizedNotePlacement: String, Codable, CaseIterable, Hashable {
@@ -75,6 +77,9 @@ struct AtomizationRoundInput: Codable, Hashable {
     var summary: String
     var targetStitchCount: Int?
     var previousRoundStitchCount: Int?
+    /// Pattern-level abbreviations forwarded from the outline stage so the IR LLM can
+    /// honor author-defined terminology (e.g. `cs = cap stitch`).
+    var abbreviations: [PatternAbbreviation]
 }
 
 struct ParseRequestContext: Codable, Hashable {

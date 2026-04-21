@@ -1,0 +1,1182 @@
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "MR",
+              "count": 1,
+              "instruction": "magic ring",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "MR",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "in a MR"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 6,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc 6"
+          }
+        ]
+      },
+      "expectedProducedStitches": 6,
+      "sourceText": "Round 1: in a MR, sc 6. (6)",
+      "title": "Round 1"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "(sc, inc)",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "inc",
+                      "count": 1,
+                      "instruction": "increase (2 single crochet in one stitch)",
+                      "note": "inc",
+                      "notePlacement": "all",
+                      "producedStitches": 2,
+                      "semantics": "increase",
+                      "stitch": "inc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "inc"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "(sc, inc) x3"
+          }
+        ]
+      },
+      "expectedProducedStitches": 9,
+      "sourceText": "Round 2: (sc, inc) x3. (9)",
+      "title": "Round 2"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 9,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 9,
+      "sourceText": "Round 3: sc around. (9)",
+      "title": "Round 3"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "(sc 2, inc)",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 2,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc 2"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "inc",
+                      "count": 1,
+                      "instruction": "increase (2 single crochet in one stitch)",
+                      "note": "inc",
+                      "notePlacement": "all",
+                      "producedStitches": 2,
+                      "semantics": "increase",
+                      "stitch": "inc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "inc"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "(sc 2, inc) x3"
+          }
+        ]
+      },
+      "expectedProducedStitches": 12,
+      "sourceText": "Round 4: (sc 2, inc) x3. (12)",
+      "title": "Round 4"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 12,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 12,
+      "sourceText": "Round 5: sc around. (12)",
+      "title": "Round 5"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 1,
+              "instruction": null,
+              "note": "both loops",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc (both loops)"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "hdc",
+              "count": 1,
+              "instruction": null,
+              "note": "in flo of next st to form first ear",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "hdc",
+              "target": "flo of next st"
+            },
+            "repeat": null,
+            "sourceText": "in flo of next st (hdc"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "2 dc"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "hdc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "hdc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "hdc) to form first ear"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 3,
+              "instruction": null,
+              "note": "both loops",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc 3 (both loops)"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "hdc",
+              "count": 1,
+              "instruction": null,
+              "note": "in flo of next st to form second ear",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "hdc",
+              "target": "flo of next st"
+            },
+            "repeat": null,
+            "sourceText": "in flo of next st (hdc"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "2 dc"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "hdc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "hdc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "hdc) to form second ear"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 6,
+              "instruction": null,
+              "note": "both loops",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc 6 (both loops)"
+          }
+        ]
+      },
+      "expectedProducedStitches": 18,
+      "sourceText": "Round 6: sc (both loops), in flo of next st (hdc, 2 dc, hdc) to form first ear, sc 3 (both loops), in flo of next st (hdc, 2 dc, hdc) to form second ear, sc 6 (both loops). (18)",
+      "title": "Round 6"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 1,
+              "instruction": null,
+              "note": "both loops",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc (both loops)"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 1,
+              "instruction": null,
+              "note": "bend first ear forward and sc in blo of st from round 5",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": "blo of st from round 5"
+            },
+            "repeat": null,
+            "sourceText": "bend first ear forward and sc in blo of st from round 5"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 3,
+              "instruction": null,
+              "note": "both loops",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc 3 (both loops)"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 1,
+              "instruction": null,
+              "note": "bend second ear forward and sc in blo of st from round 5",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": "blo of st from round 5"
+            },
+            "repeat": null,
+            "sourceText": "bend second ear forward and sc in blo of st from round 5"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 6,
+              "instruction": null,
+              "note": "both loops",
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc 6 (both loops)"
+          }
+        ]
+      },
+      "expectedProducedStitches": 12,
+      "sourceText": "Round 7: sc (both loops), bend first ear forward and sc in blo of st from round 5, sc 3 (both loops), bend second ear forward and sc in blo of st from round 5, sc 6 (both loops). (12)",
+      "title": "Round 7"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "(sc, inc)",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "inc",
+                      "count": 1,
+                      "instruction": "increase (2 single crochet in one stitch)",
+                      "note": "inc",
+                      "notePlacement": "all",
+                      "producedStitches": 2,
+                      "semantics": "increase",
+                      "stitch": "inc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "inc"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 6,
+              "times": 6
+            },
+            "sourceText": "(sc, inc) x6"
+          }
+        ]
+      },
+      "expectedProducedStitches": 18,
+      "sourceText": "Round 8: (sc, inc) x6. (18)",
+      "title": "Round 8"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 18,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 18,
+      "sourceText": "Round 9: sc around. (18)",
+      "title": "Round 9"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 18,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 18,
+      "sourceText": "Round 10: sc around. (18)",
+      "title": "Round 10"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "(sc 5, inc)",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 5,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc 5"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "inc",
+                      "count": 1,
+                      "instruction": "increase (2 single crochet in one stitch)",
+                      "note": "inc",
+                      "notePlacement": "all",
+                      "producedStitches": 2,
+                      "semantics": "increase",
+                      "stitch": "inc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "inc"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "(sc 5, inc) x3"
+          }
+        ]
+      },
+      "expectedProducedStitches": 21,
+      "sourceText": "Round 11: (sc 5, inc) x3. (21)",
+      "title": "Round 11"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 21,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 21,
+      "sourceText": "Round 12: sc around. (21)",
+      "title": "Round 12"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 21,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 21,
+      "sourceText": "Round 13: sc around. (21)",
+      "title": "Round 13"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "(sc 6, inc)",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 6,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc 6"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "inc",
+                      "count": 1,
+                      "instruction": "increase (2 single crochet in one stitch)",
+                      "note": "inc",
+                      "notePlacement": "all",
+                      "producedStitches": 2,
+                      "semantics": "increase",
+                      "stitch": "inc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "inc"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 4,
+              "times": 4
+            },
+            "sourceText": "(sc 6, inc) x4"
+          }
+        ]
+      },
+      "expectedProducedStitches": 24,
+      "sourceText": "Round 14: (sc 6, inc) x4. (24)",
+      "title": "Round 14"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 24,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 24,
+      "sourceText": "Round 15: sc around. (24)",
+      "title": "Round 15"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 24,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 24,
+      "sourceText": "Round 16: sc around. (24)",
+      "title": "Round 16"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 24,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "sc around"
+          }
+        ]
+      },
+      "expectedProducedStitches": 24,
+      "sourceText": "Round 17: sc around. (24)",
+      "title": "Round 17"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "(sc 2, dec)",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 2,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc 2"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dec",
+                      "count": 1,
+                      "instruction": "decrease (single crochet 2 together or invisible decrease)",
+                      "note": "dec",
+                      "notePlacement": "all",
+                      "producedStitches": 1,
+                      "semantics": "decrease",
+                      "stitch": "dec",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "dec"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 6,
+              "times": 6
+            },
+            "sourceText": "(sc 2, dec) x6"
+          }
+        ]
+      },
+      "expectedProducedStitches": 18,
+      "sourceText": "Round 18: (sc 2, dec) x6. (18)",
+      "title": "Round 18"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "(sc, dec)",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dec",
+                      "count": 1,
+                      "instruction": "decrease (single crochet 2 together or invisible decrease)",
+                      "note": "dec",
+                      "notePlacement": "all",
+                      "producedStitches": 1,
+                      "semantics": "decrease",
+                      "stitch": "dec",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "dec"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 6,
+              "times": 6
+            },
+            "sourceText": "(sc, dec) x6"
+          }
+        ]
+      },
+      "expectedProducedStitches": 12,
+      "sourceText": "Round 19: (sc, dec) x6. (12)",
+      "title": "Round 19"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "custom",
+              "count": 1,
+              "instruction": "Add catnip and stuffing.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "custom",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Add catnip and stuffing."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Add catnip and stuffing.",
+      "title": "Add catnip and stuffing"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dec",
+              "count": 3,
+              "instruction": "decrease (single crochet 2 together or invisible decrease)",
+              "note": "dec",
+              "notePlacement": "all",
+              "producedStitches": 3,
+              "semantics": "decrease",
+              "stitch": "dec",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "dec 3"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 15,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 15"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 14,
+              "instruction": "starting in 2nd ch from hook sc across chs",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": "across chs"
+            },
+            "repeat": null,
+            "sourceText": "starting in 2nd ch from hook sc across chs"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dec",
+              "count": 3,
+              "instruction": "decrease (single crochet 2 together or invisible decrease)",
+              "note": "dec",
+              "notePlacement": "all",
+              "producedStitches": 3,
+              "semantics": "decrease",
+              "stitch": "dec",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "dec 3"
+          }
+        ]
+      },
+      "expectedProducedStitches": 20,
+      "sourceText": "Round 20: dec 3, ch 15, starting in 2nd ch from hook sc across chs, dec 3. (20)",
+      "title": "Round 20"
+    },
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Finish off and sew closed.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Finish off and sew closed."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Finish off and sew closed.",
+      "title": "Finish off and sew closed"
+    }
+  ]
+}

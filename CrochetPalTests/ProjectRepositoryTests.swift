@@ -267,6 +267,103 @@ final class ProjectRepositoryTests: XCTestCase {
         XCTAssertTrue(repository.recentLogs.isEmpty)
     }
 
+    // Regression for the Round 7 "Complete + 0/0" bug: when the LLM atomization returns
+    // zero atomic actions (e.g. the produced count is 0 because every stitch was wrapped
+    // in a note(emitAsAction=false) — see docs/bad-cases/round7-...md), the repository
+    // must not overwrite the round's declared targetStitchCount with that produced count.
+    // Otherwise the "(12)" the outline stage parsed from the raw pattern text is erased
+    // and the UI can no longer show the user the real target.
+    func testApplyAtomizedUpdatesPreservesExplicitTargetStitchCount() async throws {
+        let importer = FakePatternImporter(
+            record: makePendingWebRecord(),
+            atomizeBehavior: { _, targets, _ in
+                targets.map { target in
+                    AtomizedRoundUpdate(
+                        reference: target,
+                        atomicActions: [],
+                        producedStitchCount: 0,
+                        warning: "atomization_target_stitch_count_mismatch"
+                    )
+                }
+            }
+        )
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await repository.importWebPattern(from: "https://example.com/pattern")
+        let originalTargets = record.project.parts.flatMap(\.rounds).map(\.targetStitchCount)
+        XCTAssertTrue(
+            originalTargets.contains(where: { $0 != nil }),
+            "Fixture sanity check: at least one outline round should have an explicit target."
+        )
+
+        await repository.prepareExecution(projectID: record.project.id)
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
+        let updated = try XCTUnwrap(repository.records.first)
+        let roundsAfter = updated.project.parts.flatMap(\.rounds)
+        for (index, round) in roundsAfter.enumerated() where round.atomizationStatus == .ready {
+            XCTAssertEqual(
+                round.targetStitchCount,
+                originalTargets[index],
+                "Round \(index) targetStitchCount must not be overwritten after atomization (before=\(String(describing: originalTargets[index])), after=\(String(describing: round.targetStitchCount)))."
+            )
+        }
+    }
+
+    // Complementary case: when the outline stage didn't parse an explicit target (e.g.
+    // the pattern text didn't end with "(N)"), the produced count is allowed to backfill
+    // so the progress bar still has something to show.
+    func testApplyAtomizedUpdatesBackfillsTargetStitchCountWhenNilFromOutline() async throws {
+        var seedRecord = makePendingWebRecord()
+        for partIndex in seedRecord.project.parts.indices {
+            for roundIndex in seedRecord.project.parts[partIndex].rounds.indices {
+                seedRecord.project.parts[partIndex].rounds[roundIndex].targetStitchCount = nil
+            }
+        }
+        let importer = FakePatternImporter(
+            record: seedRecord,
+            atomizeBehavior: { _, targets, _ in
+                targets.map { target in
+                    AtomizedRoundUpdate(
+                        reference: target,
+                        atomicActions: [
+                            AtomicAction(semantics: .stitchProducing, actionTag: "sc", stitchTag: "sc", instruction: "sc", producedStitches: 1, sequenceIndex: 0)
+                        ],
+                        producedStitchCount: 7,
+                        warning: nil
+                    )
+                }
+            }
+        )
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await repository.importWebPattern(from: "https://example.com/pattern")
+        await repository.prepareExecution(projectID: record.project.id)
+        await waitUntil {
+            importer.atomizeRequestCounts == [1, 1]
+        }
+
+        let updated = try XCTUnwrap(repository.records.first)
+        let readyRounds = updated.project.parts.flatMap(\.rounds).filter { $0.atomizationStatus == .ready }
+        XCTAssertFalse(readyRounds.isEmpty)
+        for round in readyRounds {
+            XCTAssertEqual(
+                round.targetStitchCount, 7,
+                "When outline didn't set a target, atomization's producedStitchCount should backfill it."
+            )
+        }
+    }
+
     private func tempDirectory() -> URL {
         FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)
@@ -306,6 +403,7 @@ final class ProjectRepositoryTests: XCTestCase {
             ),
             materials: SampleDataFactory.demoOutlineResponse.materials,
             confidence: SampleDataFactory.demoOutlineResponse.confidence,
+            abbreviations: [],
             parts: parts,
             activePartID: parts.first?.id,
             createdAt: .now,
@@ -372,9 +470,9 @@ private final class FakePatternImporter: PatternImporting {
             AtomizedRoundUpdate(
                 reference: target,
                 atomicActions: [
-                    AtomicAction(type: .sc, instruction: "sc", producedStitches: 1, sequenceIndex: 0)
+                    AtomicAction(semantics: .stitchProducing, actionTag: "sc", stitchTag: "sc", instruction: "sc", producedStitches: 1, sequenceIndex: 0)
                 ],
-                resolvedTargetStitchCount: 1
+                producedStitchCount: 1
             )
         }
     }

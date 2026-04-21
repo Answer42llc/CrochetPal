@@ -508,6 +508,11 @@ enum PromptFactory {
       "projectTitle": "Mouse Cat Toy",
       "materials": ["3.75 mm crochet hook", "Cotton yarn"],
       "confidence": 0.91,
+      "abbreviations": [
+        { "term": "sc", "definition": "single crochet" },
+        { "term": "ch", "definition": "chain" },
+        { "term": "cs", "definition": "cap stitch (pull up loop, yarn over, pull through first loop only)" }
+      ],
       "parts": [
         {
           "name": "Body",
@@ -555,42 +560,51 @@ enum PromptFactory {
           "title": "Squaring",
           "sourceText": "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
           "expectedProducedStitches": 37,
-          "nodes": [
-            {
-              "kind": "repeat",
-              "stitch": null,
-              "repeat": {
-                "times": 3,
-                "body": [
-                  { "kind": "stitch", "stitch": { "type": "dc", "count": 2, "instruction": null, "producedStitches": null, "note": "dc inc", "notePlacement": "all", "sourceText": "dc inc" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
-                  { "kind": "stitch", "stitch": { "type": "hdc", "count": 8, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "8hdc" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
-                  { "kind": "stitch", "stitch": { "type": "dc", "count": 2, "instruction": null, "producedStitches": null, "note": "dc inc", "notePlacement": "all", "sourceText": "dc inc" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
-                  { "kind": "stitch", "stitch": { "type": "ch", "count": 3, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "ch3" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null }
-                ],
-                "lastIterationTransform": {
-                  "removeTailNodeCount": 1,
-                  "append": [
-                    { "kind": "stitch", "stitch": { "type": "ch", "count": 1, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "ch1" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null },
-                    { "kind": "stitch", "stitch": { "type": "hdc", "count": 1, "instruction": null, "producedStitches": null, "note": "into the top of the first ch3", "notePlacement": "all", "sourceText": "1hdc into the top of the first ch3" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null }
-                  ],
-                  "sourceText": "omit the final ch3"
+          "body": {
+            "statements": [
+              {
+                "kind": "repeat",
+                "sourceText": "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3",
+                "operation": null,
+                "repeat": {
+                  "times": 2,
+                  "sourceRepeatCount": 3,
+                  "normalizationNote": "Original repeat count was 3, but the final iteration differs. Normalized to a homogeneous repeat of 2 plus the final iteration flattened below.",
+                  "body": {
+                    "sourceText": "[dc inc, 8hdc, dc inc, ch3]",
+                    "normalizationNote": null,
+                    "statements": [
+                      { "kind": "operation", "sourceText": "dc inc", "operation": { "semantics": "increase", "actionTag": "increase", "stitch": "dc", "count": 1, "instruction": null, "target": null, "note": "dc inc", "notePlacement": "all", "producedStitches": 2 }, "repeat": null, "conditional": null, "note": null },
+                      { "kind": "operation", "sourceText": "8hdc", "operation": { "semantics": "stitchProducing", "actionTag": "hdc", "stitch": "hdc", "count": 8, "instruction": null, "target": null, "note": null, "notePlacement": "first", "producedStitches": null }, "repeat": null, "conditional": null, "note": null },
+                      { "kind": "operation", "sourceText": "dc inc", "operation": { "semantics": "increase", "actionTag": "increase", "stitch": "dc", "count": 1, "instruction": null, "target": null, "note": "dc inc", "notePlacement": "all", "producedStitches": 2 }, "repeat": null, "conditional": null, "note": null },
+                      { "kind": "operation", "sourceText": "ch3", "operation": { "semantics": "stitchProducing", "actionTag": "ch", "stitch": "ch", "count": 3, "instruction": null, "target": null, "note": null, "notePlacement": "first", "producedStitches": null }, "repeat": null, "conditional": null, "note": null }
+                    ]
+                  }
                 },
-                "sourceText": "[dc inc, 8hdc, dc inc, ch3] repeat 3 times"
+                "conditional": null,
+                "note": null
               },
-              "conditional": null,
-              "control": null,
-              "note": null,
-              "ambiguous": null
-            }
-          ]
+              { "kind": "operation", "sourceText": "dc inc", "operation": { "semantics": "increase", "actionTag": "increase", "stitch": "dc", "count": 1, "instruction": null, "target": null, "note": "dc inc", "notePlacement": "all", "producedStitches": 2 }, "repeat": null, "conditional": null, "note": null },
+              { "kind": "operation", "sourceText": "8hdc", "operation": { "semantics": "stitchProducing", "actionTag": "hdc", "stitch": "hdc", "count": 8, "instruction": null, "target": null, "note": null, "notePlacement": "first", "producedStitches": null }, "repeat": null, "conditional": null, "note": null },
+              { "kind": "operation", "sourceText": "dc inc", "operation": { "semantics": "increase", "actionTag": "increase", "stitch": "dc", "count": 1, "instruction": null, "target": null, "note": "dc inc", "notePlacement": "all", "producedStitches": 2 }, "repeat": null, "conditional": null, "note": null },
+              { "kind": "operation", "sourceText": "ch1", "operation": { "semantics": "stitchProducing", "actionTag": "ch", "stitch": "ch", "count": 1, "instruction": null, "target": null, "note": null, "notePlacement": "first", "producedStitches": null }, "repeat": null, "conditional": null, "note": null },
+              { "kind": "operation", "sourceText": "1hdc into the top of the first ch3", "operation": { "semantics": "stitchProducing", "actionTag": "hdc", "stitch": "hdc", "count": 1, "instruction": null, "target": "top of the first ch3", "note": null, "notePlacement": "first", "producedStitches": null }, "repeat": null, "conditional": null, "note": null }
+            ],
+            "sourceText": null,
+            "normalizationNote": null
+          }
         },
         {
           "title": "Round 3",
           "sourceText": "sc around. (9)",
           "expectedProducedStitches": 9,
-          "nodes": [
-            { "kind": "stitch", "stitch": { "type": "sc", "count": 9, "instruction": null, "producedStitches": null, "note": null, "notePlacement": "first", "sourceText": "sc around" }, "repeat": null, "conditional": null, "control": null, "note": null, "ambiguous": null }
-          ]
+          "body": {
+            "statements": [
+              { "kind": "operation", "sourceText": "sc around", "operation": { "semantics": "stitchProducing", "actionTag": "sc", "stitch": "sc", "count": 9, "instruction": null, "target": null, "note": null, "notePlacement": "first", "producedStitches": null }, "repeat": null, "conditional": null, "note": null }
+            ],
+            "sourceText": null,
+            "normalizationNote": null
+          }
         }
       ]
     }
@@ -601,6 +615,7 @@ enum PromptFactory {
       "projectTitle": "Mouse Cat Toy",
       "materials": ["3.75 mm crochet hook"],
       "confidence": 0.91,
+      "abbreviations": [],
       "parts": [
         {
           "name": "Body",
@@ -611,8 +626,8 @@ enum PromptFactory {
               "summary": "Create a magic ring and work six single crochets.",
               "targetStitchCount": 6,
               "atomicActions": [
-                { "type": "mr", "instruction": "mr", "producedStitches": 0, "note": null },
-                { "type": "sc", "instruction": "sc", "producedStitches": 1, "note": null }
+                { "semantics": "stitchProducing", "actionTag": "mr", "stitchTag": "mr", "instruction": "mr", "producedStitches": 0, "note": null },
+                { "semantics": "stitchProducing", "actionTag": "sc", "stitchTag": "sc", "instruction": "sc", "producedStitches": 1, "note": null }
               ]
             }
           ]
@@ -628,6 +643,7 @@ enum PromptFactory {
         - projectTitle: the thing the pattern makes, not the blog post title
         - materials
         - confidence
+        - abbreviations: pattern-author-defined terminology. If the pattern contains an "Abbreviations" section (or similar — "Key", "Terms", "Stitches used") listing term-to-definition mappings (e.g., "cs = cap stitch (pull up loop, yarn over…)"), capture each entry as {term, definition}. Include both pattern-specific invented abbreviations (like "cs") AND standard ones the author chose to spell out. If no such section exists, return an empty array.
         - parts and rounds
 
         Rules:
@@ -639,7 +655,7 @@ enum PromptFactory {
         - If additional instructions follow the macro-repeat in the same sentence or paragraph (such as "Then do one more row of sc" or "Weave in ends"), capture each such instruction as its own separate round object placed after the macro-repeat placeholder, following the existing rule for non-stitch instructions.
         - For all normal rounds and non-stitch instruction rounds, set repeatFromTitle, repeatToTitle, repeatUntilCount, and repeatAfterRow to null.
         - Do not generate atomicActions in this stage.
-        - targetStitchCount must only be set when the pattern text explicitly states a stitch count for that round (e.g., a number in parentheses such as "(18)" or "(6 sts)" at the end of the instruction). Do NOT calculate or infer targetStitchCount from the stitch operations — even if you can derive it mathematically. If no explicit stitch count appears in the pattern text for that round, set targetStitchCount to null.
+        - targetStitchCount must only be set when the pattern text explicitly states a stitch count for that round (e.g., a number in parentheses such as "(18)" or "(6 sts)" at the end of the instruction). Do NOT calculate or infer targetStitchCount from the stitch operations. If no explicit stitch count appears in the pattern text for that round, set targetStitchCount to null.
         - Non-stitch instructions that appear between rounds, before the first round, or after the last round (such as "Add stuffing", "Finish off and sew closed", "Add safety eyes", "Weave in ends") are important crafting steps. Capture each such instruction as its own separate round object with title set to the instruction text itself (e.g., "Add catnip and stuffing"), rawInstruction set to the original text, summary as a brief description, and targetStitchCount set to null. Place these instruction rounds in their correct sequential position among the stitch rounds.
         - If a required string is unclear, use the closest literal text from the pattern.
         - Do not restate the schema.
@@ -669,43 +685,82 @@ enum PromptFactory {
     }
 
     static func roundIRAtomizationSystemPrompt() -> String {
-        let supportedTypes = CrochetTermDictionary.supportedAtomicActionTypes
-            .map(\.rawValue)
+        let supportedTypes = CrochetTermDictionary.supportedStitchTags
             .joined(separator: ", ")
-        let controlKinds = ControlSegmentKind.allCases.map(\.rawValue).joined(separator: ", ")
 
         return """
-        You are a crochet master and compiler. Convert each short crochet row or round into Crochet IR, a structured intermediate representation that deterministic Swift code will expand into one tap-per-action instructions.
+        You are a crochet master and compiler. Convert each short crochet row or round into canonical Crochet IR, a structured AST that deterministic Swift code will expand into one tap-per-action instructions.
 
-        Supported stitch action types: \(supportedTypes)
-        Supported control kinds: \(controlKinds)
+        ## IR overview
 
-        IR node kinds:
-        - stitch: a stitch action type repeated count times.
-        - repeat: an explicit repeat with a concrete integer times value.
-        - conditional: a user choice with branches, such as same colour vs different colour.
-        - control: standalone non-stitch controls such as turn, skip, or custom instructions.
-        - note: important non-action context. Set emitAsAction=true only when the user must explicitly do it.
-        - ambiguous: source text that is important but cannot be safely normalized.
+        The IR is an AST, not a literal copy of pattern syntax.
 
-        Rules:
+        - An `InstructionBlock` owns a `Block` (`body`).
+        - A `Block` is an ordered list of `statements`. Sequential execution is the natural meaning of an array — there is no `sequence` statement kind.
+        - A `Statement` has one of four kinds: `operation`, `repeat`, `conditional`, `note`.
+        - An `Operation` has two fields that separate compiler behavior from UI identity:
+          - `semantics` (closed 4-value enum): decides how the compiler expands the operation and counts stitches.
+            - `stitchProducing`: produces `count` stitches, each occupying one stitch-slot (sc, hdc, dc, ch, slSt, fpdc, fphdc, fpsc, bpdc, ...).
+            - `increase`: produces N stitches into one stitch-slot; encode `count = 1`, put the total stitch output into `producedStitches` (default 2).
+            - `decrease`: consumes multiple stitch-slots, produces 1 stitch; usually `stitch = dec`.
+            - `bookkeeping`: does not produce stitches (turn, skip, joinYarn, fastenOff, changeColor, setWorkingLoop, placeMarker, removeMarker, moveMarker, assembly, custom, ...).
+          - `actionTag` (open string): labels the action for the UI. Recommended values:
+            - stitchProducing: match the `stitch` value — use the same string (e.g. `actionTag = "sc"` when `stitch = "sc"`, or `actionTag = "cs"` when the pattern uses the custom "cs" abbreviation).
+            - increase: `increase` (and put the base stitch in `stitch`, e.g. `stitch = "dc"`)
+            - decrease: `decrease`
+            - bookkeeping: turn, skip, joinYarn, fastenOff, changeColor, setWorkingLoop, placeMarker, removeMarker, moveMarker, assembly, custom
+            - For actions not covered above, invent a camelCase or lowercase tag (letters, digits, underscore, or hyphen) and describe the action in `instruction`. Unknown tags are allowed.
+
+        ## Repeat invariants (IMPORTANT)
+
+        A `repeat` statement represents a HOMOGENEOUS loop. Every iteration of `body` must be identical.
+
+        If a repeated group has any exception on a specific iteration (omission, replacement, addition, "on the last repeat", "on the first repeat", "instead", "except"), DO NOT encode the exception inside the repeat. Normalize it into:
+
+        1. A `repeat` statement with `times` equal to the number of UNCHANGED iterations, whose body is the unchanged sequence.
+        2. Flat statements in the enclosing `block.statements` representing the changed iteration(s).
+        3. Set `sourceRepeatCount` to the original count declared in the pattern and fill `normalizationNote` with a short human-readable reason.
+
+        Abstract example:
+        Input: `[A, B, C] repeat 3 times, omit the final C. Instead, work D.`
+        Correct IR (parent.body.statements):
+          repeat times=2 body=[A, B, C]
+          A
+          B
+          D
+        Incorrect: a `repeat times=3` with some "last iteration transform".
+
+        ## Stitch field — OPEN string with a recommended vocabulary
+
+        The `stitch` field is a free-form string identifying the stitch. Recommended standard values:
+
+        \(supportedTypes)
+
+        However, if the pattern defines a custom stitch abbreviation (via the `abbreviations` list — see below), use the author's abbreviation verbatim as `stitch`. For example, if the pattern defines `cs = cap stitch`, then `stitch = "cs"` (NOT `stitch = "sc"`), `actionTag = "cs"`, and `instruction = "cap stitch (pull up loop, yarn over, pull through first loop only)"` or similar.
+
+        - Never use FLO, BLO, colour text, or placement text as a `stitch` value. Put those in `target` (for location like "top of first ch3", "same stitch", "FLO") or `note` (for free-text commentary).
+        - Do not collapse derived post stitches into base stitches. fpdc remains fpdc.
+        - Never emit "inc" as a stitch — use `semantics = increase` with the base stitch in `stitch`.
+
+        ## Pattern-level abbreviations
+
+        The request payload may include an `abbreviations` list — pattern-specific author-defined terms. When the raw instruction uses any of these terms:
+        1. Use the author's abbreviation as the `stitch` (and `actionTag`) value, NOT a standard stitch.
+        2. Put the author's definition (or a short rephrasing of it) into `instruction` so the user sees what the abbreviation actually means.
+        3. Never remap a custom abbreviation to a visually similar standard stitch — e.g. `cs` (cap stitch) must stay `cs`, not become `sc` (single crochet).
+
+        ## Rules
+
         - Return exactly one JSON object and no surrounding text.
-        - Preserve source order and source text.
-        - Do not expand repeats yourself. Encode repeats as repeat nodes.
-        - Use lastIterationTransform for instructions such as omit the final ch3 or skip the last stitch of the final repeat.
-        - Use conditional for explicit user choices. If no choice has been made by the user, still preserve all branches.
-        - If a conditional is followed by a repeated common body, put the conditional node first and put the repeat node after it.
-        - When an instruction names a single supported stitch type (e.g., sc, hdc, dc, fpdc) and applies it across the whole round ("<stitch> around", "<stitch> in each stitch around", "<stitch> in each st"), emit exactly one stitch node with that type and count equal to targetStitchCount if present, otherwise previousRoundStitchCount. Do NOT use ambiguous in this case — the expansion is deterministic.
-        - Use ambiguous ONLY when no supported stitch type can be identified in the instruction (e.g., "work evenly around", "continue as established") or the instruction is an assembly / diagram-only step. Ambiguous is a last resort; never use it when a deterministic stitch expansion is possible.
-        - Never use FLO, BLO, colour text, or placement text as a stitch action type. Put those in note.
-        - Do not collapse derived post stitches into base stitches. fpdc remains fpdc, fphdc remains fphdc.
-        - Increases (inc): encode as a single stitch node using the underlying base stitch type with count equal to the number of stitches produced in the same target, and set note to the original abbreviation. Example: one "sc inc" becomes {"type": "sc", "count": 2, "note": "inc", "notePlacement": "all"}; one "dc inc" becomes {"type": "dc", "count": 2, "note": "dc inc", "notePlacement": "all"}. Never emit "inc" as a stitch type — the schema does not include it. A sequence like "(sc, inc) x 6" is a repeat of 6 iterations whose body has exactly two stitch nodes: one plain sc and one sc-increase node (count 2 with note "inc").
-        - Decreases (dec, sc2tog, hdc2tog, etc.) are atomic and use the dec stitch type. One dec produces 1 stitch. "(sc, dec) x 6" is a repeat of 6 iterations whose body has two stitch nodes: one plain sc (count 1) and one dec (count 1).
-        - Non-repeat stitch groups without an explicit repeat count, such as (hdc, 2 dc, hdc), are consecutive stitch nodes that share the same target in notes.
-        - Every IR node must include every node payload key: stitch, repeat, conditional, control, note, ambiguous. Exactly one payload should be non-null.
-        - expectedProducedStitches should equal the explicit target stitch count from the input when present, otherwise null.
-        - If the input round contains only a non-stitch instruction, emit a control node with kind=custom.
-        - The body of repeat nodes should contain stitch, control, note, or ambiguous nodes. If the nested structure is too complex, use ambiguous for the nested source text.
+        - Preserve source order and the verbatim text of each statement in its `sourceText`.
+        - Do not expand repeats yourself. Encode repeats as `repeat` statements (homogeneous after normalization).
+        - Use `conditional` for explicit user choices. Preserve all branches even if no choice has been made yet. Multiple conditionals can share the same `choiceID` when the pattern re-refers to the same decision (e.g. "remove the SM if you used one"). When sharing, all sharing conditionals must expose identical `branches.value` sets and the same `defaultBranchValue`.
+        - When an instruction names a single supported stitch type (e.g., sc, hdc, dc, fpdc) and applies it across the whole round ("<stitch> around", "<stitch> in each stitch around"), emit exactly one `operation` with `semantics = stitchProducing`, the stitch type, and count equal to `targetStitchCount` if present, otherwise `previousRoundStitchCount`.
+        - Non-repeat stitch groups without an explicit repeat count, such as `(hdc, 2 dc, hdc)` applied to a single target, are consecutive operation statements that share the same `target`.
+        - Every Statement must include every payload key (operation, repeat, conditional, note). Exactly one payload is non-null for each statement, matching its `kind`.
+        - `expectedProducedStitches` equals the explicit target stitch count from the input when present, otherwise null.
+        - If the input round contains only a non-stitch instruction, emit a single `operation` with `semantics = bookkeeping` and an appropriate `actionTag`.
+        - The body of a `repeat` contains only `operation`, `repeat`, `conditional`, or `note` statements (never nested sequences — block.statements already is the sequence).
 
         Output example:
         \(irAtomizationExampleJSON)
@@ -739,11 +794,26 @@ enum PromptFactory {
         let roundsPayload = (try? encoder.encode(irInputs)).flatMap { String(data: $0, encoding: .utf8) } ?? "[]"
         let materialsPayload = materials.isEmpty ? "none" : materials.joined(separator: ", ")
 
+        // Author-defined abbreviations from the outline stage. All rounds share the same
+        // pattern-level abbreviation table, so we include it once.
+        let abbreviationsPayload: String
+        let abbreviations = rounds.first?.abbreviations ?? []
+        if abbreviations.isEmpty {
+            abbreviationsPayload = "none"
+        } else {
+            abbreviationsPayload = abbreviations
+                .map { "\($0.term) = \($0.definition)" }
+                .joined(separator: "\n")
+        }
+
         return """
         Compile these crochet rounds into Crochet IR.
 
         Project title: \(projectTitle)
         Materials: \(materialsPayload)
+
+        Pattern abbreviations (author-defined; honor these verbatim in `stitch` / `actionTag` / `instruction`):
+        \(abbreviationsPayload)
 
         Input rounds JSON:
         \(roundsPayload)
@@ -771,11 +841,13 @@ enum PromptFactory {
         Read the crochet pattern image and map it into the provided JSON schema.
 
         Rules:
-        - Detect part names, rounds, stitch counts, and abbreviations from the image.
-        - sequence details are not needed; only return atomicActions with type, instruction, producedStitches, and optional note.
+        - Detect part names, rounds, stitch counts from the image.
+        - Extract any author-defined abbreviations (from a "Key"/"Abbreviations"/"Stitches used" section) into the `abbreviations` array. Empty array if none.
+        - For each atomicAction, produce: `semantics` ("stitchProducing" / "increase" / "decrease" / "bookkeeping"), `actionTag` (open string, typically same as the stitch abbreviation), `stitchTag` (the stitch abbreviation — use author's term verbatim if defined in abbreviations), `instruction`, `producedStitches`, and optional `note`.
         - Preserve derived stitch abbreviations exactly when they appear. For example, fpdc stays fpdc and must not be reduced to dc.
+        - Custom author-defined stitches (e.g. "cs" for "cap stitch") must keep the author's tag — do not remap to standard stitches.
         - Extract only what is visible in the image.
-        - Non-stitch instructions between rounds (such as "Add stuffing", "Finish off and sew closed") should be captured as their own round objects with a single atomicAction of type "custom", instruction containing the text, and producedStitches 0.
+        - Non-stitch instructions between rounds (such as "Add stuffing", "Finish off and sew closed") should be captured as their own round objects with a single atomicAction whose `semantics` is "bookkeeping", `actionTag` is "custom", `stitchTag` is null, `instruction` contains the text, and `producedStitches` is 0.
         - Preserve the original language used in the image when possible.
         - Do not restate the schema.
         - Do not add any text before or after the JSON object.
@@ -855,12 +927,28 @@ enum PromptFactory {
                 "projectTitle": ["type": "string"],
                 "materials": stringArraySchema(),
                 "confidence": ["type": "number"],
+                "abbreviations": [
+                    "type": "array",
+                    "items": abbreviationSchema()
+                ],
                 "parts": [
                     "type": "array",
                     "items": outlinedPartSchema()
                 ]
             ],
-            "required": ["projectTitle", "materials", "confidence", "parts"]
+            "required": ["projectTitle", "materials", "confidence", "abbreviations", "parts"]
+        ]
+    }
+
+    private static func abbreviationSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "term": ["type": "string"],
+                "definition": ["type": "string"]
+            ],
+            "required": ["term", "definition"]
         ]
     }
 
@@ -877,16 +965,13 @@ enum PromptFactory {
             ],
             "required": ["rounds"],
             "$defs": [
-                "node": irNodeSchema(
-                    allowedKinds: CrochetIRNodeKind.allCases,
-                    allowsRepeat: true,
-                    allowsConditional: true
-                ),
-                "sequenceNode": irNodeSchema(
-                    allowedKinds: [.stitch, .control, .note, .ambiguous],
-                    allowsRepeat: false,
-                    allowsConditional: false
-                )
+                "block": irBlockSchema(),
+                "statement": irStatementSchema(),
+                "operation": irOperationSchema(),
+                "repeat": irRepeatBlockSchema(),
+                "conditional": irConditionalSchema(),
+                "conditionalBranch": irConditionalBranchSchema(),
+                "note": irNoteSchema()
             ]
         ]
     }
@@ -899,92 +984,100 @@ enum PromptFactory {
                 "title": ["type": "string"],
                 "sourceText": ["type": "string"],
                 "expectedProducedStitches": nullableIntegerSchema(),
-                "nodes": [
-                    "type": "array",
-                    "items": ["$ref": "#/$defs/node"]
-                ]
+                "body": ["$ref": "#/$defs/block"]
             ],
-            "required": ["title", "sourceText", "expectedProducedStitches", "nodes"]
+            "required": ["title", "sourceText", "expectedProducedStitches", "body"]
         ]
     }
 
-    private static func irNodeSchema(
-        allowedKinds: [CrochetIRNodeKind],
-        allowsRepeat: Bool,
-        allowsConditional: Bool
-    ) -> [String: Any] {
+    private static func irBlockSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "statements": [
+                    "type": "array",
+                    "items": ["$ref": "#/$defs/statement"]
+                ],
+                "sourceText": nullableStringSchema(),
+                "normalizationNote": nullableStringSchema()
+            ],
+            "required": ["statements", "sourceText", "normalizationNote"]
+        ]
+    }
+
+    private static func irStatementSchema() -> [String: Any] {
         [
             "type": "object",
             "additionalProperties": false,
             "properties": [
                 "kind": [
                     "type": "string",
-                    "enum": allowedKinds.map(\.rawValue)
+                    "enum": CrochetIRStatementKindTag.allCases.map(\.rawValue)
                 ],
-                "stitch": nullableObjectSchema(irStitchSchema()),
-                "repeat": allowsRepeat ? nullableObjectSchema(irRepeatSchema()) : nullOnlySchema(),
-                "conditional": allowsConditional ? nullableObjectSchema(irConditionalSchema()) : nullOnlySchema(),
-                "control": nullableObjectSchema(irControlSchema()),
-                "note": nullableObjectSchema(irNoteSchema()),
-                "ambiguous": nullableObjectSchema(irAmbiguousSchema())
+                "sourceText": nullableStringSchema(),
+                "operation": nullableObjectSchema(["$ref": "#/$defs/operation"]),
+                "repeat": nullableObjectSchema(["$ref": "#/$defs/repeat"]),
+                "conditional": nullableObjectSchema(["$ref": "#/$defs/conditional"]),
+                "note": nullableObjectSchema(["$ref": "#/$defs/note"])
             ],
-            "required": ["kind", "stitch", "repeat", "conditional", "control", "note", "ambiguous"]
+            "required": ["kind", "sourceText", "operation", "repeat", "conditional", "note"]
         ]
     }
 
-    private static func irStitchSchema() -> [String: Any] {
+    private static func irOperationSchema() -> [String: Any] {
         [
             "type": "object",
             "additionalProperties": false,
             "properties": [
-                "type": [
+                "semantics": [
                     "type": "string",
-                    "enum": CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)
+                    "enum": CrochetIROperationSemantics.allCases.map(\.rawValue)
                 ],
+                // actionTag is an OPEN string: the prompt recommends common values, but the
+                // schema does not constrain it so new actions never require a schema change.
+                "actionTag": ["type": "string"],
+                // stitch is also OPEN string. Recommended values (standard crochet stitches)
+                // are listed in the prompt; for author-defined abbreviations the LLM should
+                // use the author's term verbatim (e.g. "cs" for "cap stitch") rather than
+                // remapping to a standard stitch. Descriptors like "blo"/"flo" are rejected
+                // at validation time because they're not stitch-producing.
+                "stitch": nullableStringSchema(),
                 "count": ["type": "integer"],
                 "instruction": nullableStringSchema(),
-                "producedStitches": nullableIntegerSchema(),
+                "target": nullableStringSchema(),
                 "note": nullableStringSchema(),
                 "notePlacement": [
                     "type": "string",
                     "enum": AtomizedNotePlacement.allCases.map(\.rawValue)
                 ],
-                "sourceText": nullableStringSchema()
+                "producedStitches": nullableIntegerSchema()
             ],
-            "required": ["type", "count", "instruction", "producedStitches", "note", "notePlacement", "sourceText"]
+            "required": [
+                "semantics",
+                "actionTag",
+                "stitch",
+                "count",
+                "instruction",
+                "target",
+                "note",
+                "notePlacement",
+                "producedStitches"
+            ]
         ]
     }
 
-    private static func irRepeatSchema() -> [String: Any] {
+    private static func irRepeatBlockSchema() -> [String: Any] {
         [
             "type": "object",
             "additionalProperties": false,
             "properties": [
                 "times": ["type": "integer"],
-                "body": [
-                    "type": "array",
-                    "items": ["$ref": "#/$defs/sequenceNode"]
-                ],
-                "lastIterationTransform": nullableObjectSchema(irLastIterationTransformSchema()),
-                "sourceText": nullableStringSchema()
+                "body": ["$ref": "#/$defs/block"],
+                "sourceRepeatCount": nullableIntegerSchema(),
+                "normalizationNote": nullableStringSchema()
             ],
-            "required": ["times", "body", "lastIterationTransform", "sourceText"]
-        ]
-    }
-
-    private static func irLastIterationTransformSchema() -> [String: Any] {
-        [
-            "type": "object",
-            "additionalProperties": false,
-            "properties": [
-                "removeTailNodeCount": ["type": "integer"],
-                "append": [
-                    "type": "array",
-                    "items": ["$ref": "#/$defs/sequenceNode"]
-                ],
-                "sourceText": nullableStringSchema()
-            ],
-            "required": ["removeTailNodeCount", "append", "sourceText"]
+            "required": ["times", "body", "sourceRepeatCount", "normalizationNote"]
         ]
     }
 
@@ -997,16 +1090,12 @@ enum PromptFactory {
                 "question": ["type": "string"],
                 "branches": [
                     "type": "array",
-                    "items": irConditionalBranchSchema()
+                    "items": ["$ref": "#/$defs/conditionalBranch"]
                 ],
                 "defaultBranchValue": nullableStringSchema(),
-                "commonBody": [
-                    "type": "array",
-                    "items": ["$ref": "#/$defs/sequenceNode"]
-                ],
-                "sourceText": nullableStringSchema()
+                "commonBody": nullableObjectSchema(["$ref": "#/$defs/block"])
             ],
-            "required": ["choiceID", "question", "branches", "defaultBranchValue", "commonBody", "sourceText"]
+            "required": ["choiceID", "question", "branches", "defaultBranchValue", "commonBody"]
         ]
     }
 
@@ -1017,29 +1106,9 @@ enum PromptFactory {
             "properties": [
                 "value": ["type": "string"],
                 "label": ["type": "string"],
-                "nodes": [
-                    "type": "array",
-                    "items": ["$ref": "#/$defs/sequenceNode"]
-                ]
+                "body": ["$ref": "#/$defs/block"]
             ],
-            "required": ["value", "label", "nodes"]
-        ]
-    }
-
-    private static func irControlSchema() -> [String: Any] {
-        [
-            "type": "object",
-            "additionalProperties": false,
-            "properties": [
-                "kind": [
-                    "type": "string",
-                    "enum": ControlSegmentKind.allCases.map(\.rawValue)
-                ],
-                "instruction": nullableStringSchema(),
-                "note": nullableStringSchema(),
-                "sourceText": nullableStringSchema()
-            ],
-            "required": ["kind", "instruction", "note", "sourceText"]
+            "required": ["value", "label", "body"]
         ]
     }
 
@@ -1056,19 +1125,6 @@ enum PromptFactory {
         ]
     }
 
-    private static func irAmbiguousSchema() -> [String: Any] {
-        [
-            "type": "object",
-            "additionalProperties": false,
-            "properties": [
-                "reason": ["type": "string"],
-                "sourceText": ["type": "string"],
-                "safeInstruction": nullableStringSchema()
-            ],
-            "required": ["reason", "sourceText", "safeInstruction"]
-        ]
-    }
-
     private static func imageSchema() -> [String: Any] {
         [
             "type": "object",
@@ -1077,12 +1133,16 @@ enum PromptFactory {
                 "projectTitle": ["type": "string"],
                 "materials": stringArraySchema(),
                 "confidence": ["type": "number"],
+                "abbreviations": [
+                    "type": "array",
+                    "items": abbreviationSchema()
+                ],
                 "parts": [
                     "type": "array",
                     "items": parsedPartSchema()
                 ]
             ],
-            "required": ["projectTitle", "materials", "confidence", "parts"]
+            "required": ["projectTitle", "materials", "confidence", "abbreviations", "parts"]
         ]
     }
 
@@ -1172,15 +1232,17 @@ enum PromptFactory {
             "type": "object",
             "additionalProperties": false,
             "properties": [
-                "type": [
+                "semantics": [
                     "type": "string",
-                    "enum": CrochetTermDictionary.supportedAtomicActionTypes.map(\.rawValue)
+                    "enum": CrochetIROperationSemantics.allCases.map(\.rawValue)
                 ],
+                "actionTag": ["type": "string"],
+                "stitchTag": nullableStringSchema(),
                 "instruction": ["type": "string"],
                 "producedStitches": nullableIntegerSchema(),
                 "note": nullableStringSchema()
             ],
-            "required": ["type", "instruction", "producedStitches", "note"]
+            "required": ["semantics", "actionTag", "stitchTag", "instruction", "producedStitches", "note"]
         ]
     }
 
@@ -1215,6 +1277,17 @@ enum PromptFactory {
 
 
     private static func nullableObjectSchema(_ objectSchema: [String: Any]) -> [String: Any] {
+        // If the caller passed a {"$ref": "..."} node, `type` is ignored by JSON Schema's
+        // $ref semantics (ref replaces sibling properties). Route that case through an
+        // explicit anyOf so null is allowed while still resolving the ref.
+        if let ref = objectSchema["$ref"] as? String {
+            return [
+                "anyOf": [
+                    ["$ref": ref],
+                    ["type": "null"]
+                ]
+            ]
+        }
         var schema = objectSchema
         schema["type"] = ["object", "null"]
         return schema

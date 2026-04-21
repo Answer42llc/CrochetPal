@@ -75,13 +75,14 @@ final class ModelNormalizationIntegrationTests: XCTestCase {
         }
         let actions = try XCTUnwrap(updates.first?.atomicActions)
 
-        let actionSequence = actions.map(\.type.rawValue).joined(separator: " -> ")
+        let actionSequence = actions.map { $0.stitchTag ?? $0.actionTag }.joined(separator: " -> ")
         let producedStitches = actions.reduce(0) { $0 + $1.producedStitches }
         print("[Normalization][\(modelID)] actions=\(actionSequence) produced=\(producedStitches)")
 
-        XCTAssertEqual(actions.map(\.type), [.mr, .ch, .sc, .sc, .sc, .sc, .sc, .sc, .sc, .slSt])
+        let tags = actions.map { $0.stitchTag ?? $0.actionTag }
+        XCTAssertEqual(tags, ["mr", "ch", "sc", "sc", "sc", "sc", "sc", "sc", "sc", "slst"])
         XCTAssertEqual(actions.reduce(0) { total, action in
-            total + (action.type == .sc ? 1 : 0)
+            total + (action.stitchTag == "sc" ? 1 : 0)
         }, 7)
         XCTAssertEqual(producedStitches, 7)
     }
@@ -201,6 +202,7 @@ final class ModelNormalizationIntegrationTests: XCTestCase {
             ),
             materials: ["Grey yarn"],
             confidence: 1,
+            abbreviations: [],
             parts: [part],
             activePartID: part.id,
             createdAt: .now,

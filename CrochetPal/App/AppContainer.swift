@@ -95,6 +95,7 @@ struct SampleDataFactory {
         projectTitle: "Mouse Cat Toy",
         materials: ["4.0 mm hook", "Cotton yarn", "Safety eyes"],
         confidence: 0.92,
+        abbreviations: [],
         parts: [
             OutlinedPatternPart(
                 name: "Body",
@@ -127,10 +128,21 @@ struct SampleDataFactory {
         ]
     )
 
+    private static func demoStitchAction(_ tag: String, instruction: String, produced: Int) -> ParsedAtomicAction {
+        ParsedAtomicAction(
+            semantics: .stitchProducing,
+            actionTag: tag,
+            stitchTag: tag,
+            instruction: instruction,
+            producedStitches: produced
+        )
+    }
+
     static let demoImageParseResponse = PatternParseResponse(
         projectTitle: "Mouse Cat Toy",
         materials: ["4.0 mm hook", "Cotton yarn", "Safety eyes"],
         confidence: 0.92,
+        abbreviations: [],
         parts: [
             ParsedPatternPart(
                 name: "Body",
@@ -141,13 +153,13 @@ struct SampleDataFactory {
                         summary: "Create a magic ring and crochet six single crochets into it.",
                         targetStitchCount: 6,
                         atomicActions: [
-                            ParsedAtomicAction(type: .mr, instruction: "mr", producedStitches: 0),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1)
+                            demoStitchAction("mr", instruction: "mr", produced: 0),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1)
                         ]
                     ),
                     ParsedPatternRound(
@@ -156,18 +168,18 @@ struct SampleDataFactory {
                         summary: "Single crochet twice, then increase. Repeat three times.",
                         targetStitchCount: 12,
                         atomicActions: [
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "inc", producedStitches: 1)
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "inc", produced: 1),
+                            demoStitchAction("sc", instruction: "inc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "inc", produced: 1),
+                            demoStitchAction("sc", instruction: "inc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "inc", produced: 1),
+                            demoStitchAction("sc", instruction: "inc", produced: 1)
                         ]
                     )
                 ]
@@ -181,13 +193,13 @@ struct SampleDataFactory {
                         summary: "Make the eye base.",
                         targetStitchCount: 6,
                         atomicActions: [
-                            ParsedAtomicAction(type: .mr, instruction: "mr", producedStitches: 0),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1),
-                            ParsedAtomicAction(type: .sc, instruction: "sc", producedStitches: 1)
+                            demoStitchAction("mr", instruction: "mr", produced: 0),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1),
+                            demoStitchAction("sc", instruction: "sc", produced: 1)
                         ]
                     )
                 ]
@@ -201,34 +213,87 @@ struct SampleDataFactory {
                 title: "Round 1",
                 sourceText: "In a MR, sc 6. (6)",
                 expectedProducedStitches: 6,
-                nodes: [
-                    .stitch(CrochetIRStitch(type: .mr, count: 1, sourceText: "In a MR")),
-                    .stitch(CrochetIRStitch(type: .sc, count: 6, sourceText: "sc 6"))
-                ]
+                body: CrochetIRBlock(statements: [
+                    CrochetIRStatement(
+                        kind: .operation(CrochetIROperation(
+                            semantics: .stitchProducing,
+                            actionTag: "mr",
+                            stitch: "mr",
+                            count: 1
+                        )),
+                        sourceText: "In a MR"
+                    ),
+                    CrochetIRStatement(
+                        kind: .operation(CrochetIROperation(
+                            semantics: .stitchProducing,
+                            actionTag: "sc",
+                            stitch: "sc",
+                            count: 6
+                        )),
+                        sourceText: "sc 6"
+                    )
+                ])
             ),
             CrochetIRInstructionBlock(
                 title: "Round 2",
                 sourceText: "(sc 2, inc) x 3. (12)",
                 expectedProducedStitches: 12,
-                nodes: [
-                    .repeatBlock(CrochetIRRepeat(
-                        times: 3,
-                        body: [
-                            .stitch(CrochetIRStitch(type: .sc, count: 2, sourceText: "sc 2")),
-                            .stitch(CrochetIRStitch(type: .sc, count: 2, note: "inc", notePlacement: .all, sourceText: "inc"))
-                        ],
+                body: CrochetIRBlock(statements: [
+                    CrochetIRStatement(
+                        kind: .repeatBlock(CrochetIRRepeatBlock(
+                            times: 3,
+                            body: CrochetIRBlock(statements: [
+                                CrochetIRStatement(
+                                    kind: .operation(CrochetIROperation(
+                                        semantics: .stitchProducing,
+                                        actionTag: "sc",
+                                        stitch: "sc",
+                                        count: 2
+                                    )),
+                                    sourceText: "sc 2"
+                                ),
+                                CrochetIRStatement(
+                                    kind: .operation(CrochetIROperation(
+                                        semantics: .increase,
+                                        actionTag: "increase",
+                                        stitch: "sc",
+                                        count: 1,
+                                        note: "inc",
+                                        notePlacement: .all,
+                                        producedStitches: 2
+                                    )),
+                                    sourceText: "inc"
+                                )
+                            ])
+                        )),
                         sourceText: "(sc 2, inc) x 3"
-                    ))
-                ]
+                    )
+                ])
             ),
             CrochetIRInstructionBlock(
                 title: "Eye Round 1",
                 sourceText: "In a MR, sc 6. (6)",
                 expectedProducedStitches: 6,
-                nodes: [
-                    .stitch(CrochetIRStitch(type: .mr, count: 1, sourceText: "In a MR")),
-                    .stitch(CrochetIRStitch(type: .sc, count: 6, sourceText: "sc 6"))
-                ]
+                body: CrochetIRBlock(statements: [
+                    CrochetIRStatement(
+                        kind: .operation(CrochetIROperation(
+                            semantics: .stitchProducing,
+                            actionTag: "mr",
+                            stitch: "mr",
+                            count: 1
+                        )),
+                        sourceText: "In a MR"
+                    ),
+                    CrochetIRStatement(
+                        kind: .operation(CrochetIROperation(
+                            semantics: .stitchProducing,
+                            actionTag: "sc",
+                            stitch: "sc",
+                            count: 6
+                        )),
+                        sourceText: "sc 6"
+                    )
+                ])
             )
         ]
     )

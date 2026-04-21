@@ -101,7 +101,7 @@ final class ExecutionEngineTests: XCTestCase {
             atomizationStatus: .ready,
             atomizationError: nil,
             atomicActions: [
-                AtomicAction(type: .fpdc, instruction: "fpdc around next st", producedStitches: 1, note: nil, sequenceIndex: 0)
+                AtomicAction(semantics: .stitchProducing, actionTag: "fpdc", stitchTag: "fpdc", instruction: "fpdc around next st", producedStitches: 1, note: nil, sequenceIndex: 0)
             ]
         )
         let part = PatternPart(name: "Main", rounds: [round])
@@ -117,6 +117,7 @@ final class ExecutionEngineTests: XCTestCase {
             ),
             materials: [],
             confidence: 1,
+            abbreviations: [],
             parts: [part],
             activePartID: part.id,
             createdAt: .now,
@@ -139,7 +140,7 @@ final class ExecutionEngineTests: XCTestCase {
             atomizationStatus: .ready,
             atomizationError: nil,
             atomicActions: [
-                AtomicAction(type: .custom, instruction: "turn", producedStitches: 0, sequenceIndex: 0)
+                AtomicAction(semantics: .bookkeeping, actionTag: "custom", stitchTag: nil, instruction: "turn", producedStitches: 0, sequenceIndex: 0)
             ]
         )
         let part = PatternPart(name: "Body", rounds: [round])
@@ -155,6 +156,7 @@ final class ExecutionEngineTests: XCTestCase {
             ),
             materials: [],
             confidence: 1,
+            abbreviations: [],
             parts: [part],
             activePartID: part.id,
             createdAt: .now,
@@ -178,7 +180,7 @@ final class ExecutionEngineTests: XCTestCase {
             atomizationStatus: .ready,
             atomizationError: nil,
             atomicActions: [
-                AtomicAction(type: .skip, instruction: "skip the sc behind the fpdc you just made", producedStitches: 0, sequenceIndex: 0)
+                AtomicAction(semantics: .bookkeeping, actionTag: "skip", stitchTag: nil, instruction: "skip the sc behind the fpdc you just made", producedStitches: 0, sequenceIndex: 0)
             ]
         )
         let part = PatternPart(name: "Body", rounds: [round])
@@ -194,6 +196,7 @@ final class ExecutionEngineTests: XCTestCase {
             ),
             materials: [],
             confidence: 1,
+            abbreviations: [],
             parts: [part],
             activePartID: part.id,
             createdAt: .now,
@@ -281,7 +284,7 @@ final class ExecutionEngineTests: XCTestCase {
             atomizationStatus: .ready,
             atomizationError: nil,
             atomicActions: [
-                AtomicAction(type: .sc, instruction: "sc", producedStitches: 1, sequenceIndex: 0)
+                AtomicAction(semantics: .stitchProducing, actionTag: "sc", stitchTag: "sc", instruction: "sc", producedStitches: 1, sequenceIndex: 0)
             ]
         )
 
@@ -302,7 +305,7 @@ final class ExecutionEngineTests: XCTestCase {
             atomizationStatus: .ready,
             atomizationError: nil,
             atomicActions: [
-                AtomicAction(type: .sc, instruction: "sc", producedStitches: 1, sequenceIndex: 0)
+                AtomicAction(semantics: .stitchProducing, actionTag: "sc", stitchTag: "sc", instruction: "sc", producedStitches: 1, sequenceIndex: 0)
             ]
         )
 
@@ -369,6 +372,7 @@ final class ExecutionEngineTests: XCTestCase {
             ),
             materials: [],
             confidence: 1,
+            abbreviations: [],
             parts: [part],
             activePartID: part.id,
             createdAt: .now,
@@ -379,13 +383,83 @@ final class ExecutionEngineTests: XCTestCase {
 
     private func makeFoundationChainActions(chainCount: Int) -> [AtomicAction] {
         let chains = (0..<chainCount).map { index in
-            AtomicAction(type: .ch, instruction: "ch", producedStitches: 0, sequenceIndex: index)
+            AtomicAction(semantics: .stitchProducing, actionTag: "ch", stitchTag: "ch", instruction: "ch", producedStitches: 0, sequenceIndex: index)
         }
         let singleCrochets = (0..<max(chainCount - 1, 0)).map { offset in
             let sequenceIndex = chainCount + offset
-            return AtomicAction(type: .sc, instruction: "sc", producedStitches: 1, sequenceIndex: sequenceIndex)
+            return AtomicAction(semantics: .stitchProducing, actionTag: "sc", stitchTag: "sc", instruction: "sc", producedStitches: 1, sequenceIndex: sequenceIndex)
         }
         return chains + singleCrochets
+    }
+
+    // Regression for the Round 7 "Complete + 0/0 + Next: SC" bug. When the LLM atomizes
+    // a round but produces zero atomic actions (e.g. wraps every stitch in
+    // note(emitAsAction=false), or packs the whole round into a single ambiguous node —
+    // see docs/bad-cases/round7-mouse-cat-toy-notes-swallow-all.md), the round is marked
+    // .ready with atomicActions == []. The engine must NOT treat this as "awaiting next
+    // round"; otherwise the user is silently carried past the round without doing anything
+    // and the declared target stitch count disappears from the UI.
+    func testIsAwaitingNextRoundIsFalseForReadyRoundWithEmptyAtomicActions() {
+        let emptyRound = PatternRound(
+            title: "Round 7",
+            rawInstruction: "sc (both loops), bend first ear forward ...",
+            summary: "",
+            targetStitchCount: 12,
+            atomizationStatus: .ready,
+            atomizationError: nil,
+            atomizationWarning: "atomization_target_stitch_count_mismatch",
+            atomicActions: []
+        )
+        let followUpRound = PatternRound(
+            title: "Round 8",
+            rawInstruction: "sc 12.",
+            summary: "",
+            targetStitchCount: 12,
+            atomizationStatus: .ready,
+            atomizationError: nil,
+            atomicActions: [
+                AtomicAction(semantics: .stitchProducing, actionTag: "sc", stitchTag: "sc", instruction: "sc", producedStitches: 1, sequenceIndex: 0)
+            ]
+        )
+        let part = PatternPart(name: "Body", rounds: [emptyRound, followUpRound])
+        let project = CrochetProject(
+            title: "Empty Round Repro",
+            source: PatternSource(
+                type: .text,
+                displayName: "Empty",
+                sourceURL: nil,
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: .now
+            ),
+            materials: [],
+            confidence: 1,
+            abbreviations: [],
+            parts: [part],
+            activePartID: part.id,
+            createdAt: .now,
+            updatedAt: .now
+        )
+        let record = ProjectRecord(project: project, progress: .initial(for: project))
+
+        XCTAssertFalse(
+            ExecutionEngine.isAwaitingNextRound(in: record.project, progress: record.progress),
+            "A .ready round with empty atomicActions must not be treated as awaiting next round."
+        )
+
+        let snapshot = ExecutionEngine.snapshot(for: record, executionState: .idle)
+        XCTAssertNotEqual(
+            snapshot.actionTitle, "Complete",
+            "Empty-action round must not surface the 'Complete' title."
+        )
+        XCTAssertFalse(
+            snapshot.canAdvance,
+            "User must not be able to silently skip an empty-action round."
+        )
+        XCTAssertEqual(
+            snapshot.targetStitches, 12,
+            "The declared targetStitchCount must still be visible to the user."
+        )
     }
 
     private func cursorState(for progress: ExecutionProgress) -> (partID: UUID, roundIndex: Int, actionIndex: Int) {
@@ -440,6 +514,7 @@ private extension PatternImportService {
             source: source,
             materials: payload.materials,
             confidence: payload.confidence,
+            abbreviations: [],
             parts: parts,
             activePartID: parts.first?.id,
             createdAt: .now,

@@ -344,7 +344,13 @@ final class ProjectRepository: ObservableObject {
             }
 
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomicActions = update.atomicActions
-            records[projectIndex].project.parts[partIndex].rounds[roundIndex].targetStitchCount = update.resolvedTargetStitchCount
+            // Only backfill the pattern-declared target when it was not parsed from the outline stage.
+            // NEVER overwrite a non-nil target with the atomization's produced count, otherwise an
+            // LLM that expanded the round incorrectly (e.g., dropping all stitches into note nodes)
+            // would silently erase the "(12)" the user saw in the raw pattern text.
+            if records[projectIndex].project.parts[partIndex].rounds[roundIndex].targetStitchCount == nil {
+                records[projectIndex].project.parts[partIndex].rounds[roundIndex].targetStitchCount = update.producedStitchCount
+            }
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationStatus = .ready
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationError = nil
             records[projectIndex].project.parts[partIndex].rounds[roundIndex].atomizationWarning = update.warning
@@ -382,7 +388,9 @@ final class ProjectRepository: ObservableObject {
 
                     let copiedActions = update.atomicActions.map { action in
                         AtomicAction(
-                            type: action.type,
+                            semantics: action.semantics,
+                            actionTag: action.actionTag,
+                            stitchTag: action.stitchTag,
                             instruction: action.instruction,
                             producedStitches: action.producedStitches,
                             note: action.note,
@@ -391,7 +399,11 @@ final class ProjectRepository: ObservableObject {
                     }
 
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomicActions = copiedActions
-                    records[projectIndex].project.parts[pIdx].rounds[rIdx].targetStitchCount = update.resolvedTargetStitchCount
+                    // Only backfill the target for macro-repeat siblings that had no declared target —
+                    // see the matching note in applyAtomizedUpdates above.
+                    if records[projectIndex].project.parts[pIdx].rounds[rIdx].targetStitchCount == nil {
+                        records[projectIndex].project.parts[pIdx].rounds[rIdx].targetStitchCount = update.producedStitchCount
+                    }
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationStatus = .ready
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationError = nil
                     records[projectIndex].project.parts[pIdx].rounds[rIdx].atomizationWarning = update.warning
