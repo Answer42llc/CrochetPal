@@ -1,0 +1,1123 @@
+{
+  "rounds": [
+    {
+      "title": "Rnd 1",
+      "sourceText": "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "expectedProducedStitches": 6,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Create a magic ring",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "createMagicRing",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Create a magic ring",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "6 sc in the ring",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 6,
+              "instruction": null,
+              "target": "in the ring",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Close the ring",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "closeRing",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Close the ring",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 2",
+      "sourceText": "inc x 6 (12 sc)",
+      "expectedProducedStitches": 12,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "inc x 6",
+            "operation": null,
+            "repeat": {
+              "times": 6,
+              "sourceRepeatCount": 6,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "inc",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "inc",
+                    "operation": {
+                      "semantics": "increase",
+                      "actionTag": "inc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": "work 2 scs in next sc",
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": 2
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 3",
+      "sourceText": "(2 sc, 2 inc, PM X 3 (18 sc)",
+      "expectedProducedStitches": 18,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "(2 sc, 2 inc, PM) X 3",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 3,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "(2 sc, 2 inc, PM)",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 sc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 inc",
+                    "operation": {
+                      "semantics": "increase",
+                      "actionTag": "increase",
+                      "stitch": "sc",
+                      "count": 2,
+                      "instruction": "work 2 scs in next sc",
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": 2
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "PM",
+                    "operation": {
+                      "semantics": "bookkeeping",
+                      "actionTag": "placeMarker",
+                      "stitch": null,
+                      "count": 1,
+                      "instruction": "place marker",
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 4",
+      "sourceText": "(4 sc, 2 inc) x 3 (24 sc).Move Markers up as you go.",
+      "expectedProducedStitches": 24,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "(4 sc, 2 inc) x 3",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 3,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "(4 sc, 2 inc)",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "4 sc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 4,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 inc",
+                    "operation": {
+                      "semantics": "increase",
+                      "actionTag": "increase",
+                      "stitch": "sc",
+                      "count": 2,
+                      "instruction": "work 2 scs in next sc",
+                      "target": null,
+                      "note": "inc",
+                      "notePlacement": "all",
+                      "producedStitches": 2
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "note",
+            "sourceText": "Move Markers up as you go.",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "Move Markers up as you go.",
+              "sourceText": "Move Markers up as you go.",
+              "emitAsAction": false
+            }
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "7 sc, inc",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 7,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "7 sc"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "inc",
+                      "count": 1,
+                      "instruction": "work 2 scs in next sc",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": 2,
+                      "semantics": "increase",
+                      "stitch": "inc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "inc"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "(7 sc, inc) x 3"
+          }
+        ]
+      },
+      "expectedProducedStitches": 27,
+      "sourceText": "(7 sc, inc) x 3 (27 sc)",
+      "title": "FRONT - Rnd 5"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 6",
+      "sourceText": "(Work to 1 sc before marker and inc x 2) x 3 (33 sc)",
+      "expectedProducedStitches": 33,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "(Work to 1 sc before marker and inc x 2) x 3",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 3,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "Work to 1 sc before marker and inc x 2",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Work to 1 sc before marker",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "to 1 sc before marker",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "inc x 2",
+                    "operation": {
+                      "semantics": "increase",
+                      "actionTag": "inc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": "work 2 scs in next sc",
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": 2
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 7",
+      "sourceText": "(Work to marker and inc in marked stitch) x 3 (36 sc)",
+      "expectedProducedStitches": 36,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "(Work to marker and inc in marked stitch) x 3",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 3,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "Work to marker and inc in marked stitch",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Work to marker",
+                    "operation": {
+                      "semantics": "bookkeeping",
+                      "actionTag": "workToMarker",
+                      "stitch": null,
+                      "count": 1,
+                      "instruction": "Work stitches until you reach the stitch marker.",
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "inc in marked stitch",
+                    "operation": {
+                      "semantics": "increase",
+                      "actionTag": "inc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": "work 2 scs in next sc",
+                      "target": "marked stitch",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": 2
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "assembly",
+              "count": 1,
+              "instruction": "Using the tapestry needle, sew in the magic ring’s 6” tail.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "assembly",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Using the tapestry needle, sew in the magic ring’s 6” tail."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Using the tapestry needle, sew in the magic ring’s 6” tail.",
+      "title": "Sew in magic ring tail"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "A cup – Repeat Rnds 6 & 7",
+      "sourceText": "Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)",
+      "expectedProducedStitches": 63,
+      "body": {
+        "statements": [
+          {
+            "kind": "note",
+            "sourceText": "Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "Repeat Rounds 6 and 7 three times. Work until piece measures 4.5 inches across or a total of 13 rounds (approximately 63 single crochets).",
+              "sourceText": "Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)",
+              "emitAsAction": false
+            }
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "note",
+            "note": {
+              "emitAsAction": false,
+              "message": "Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc). This is a high-level instruction referencing other rounds; it cannot be compiled into a single deterministic sequence without the definitions of Rnds 6 and 7. The user should follow the referenced rounds."
+            ,
+              "sourceText": "Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc)"
+            },
+            "operation": null,
+            "repeat": null,
+            "sourceText": "Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc)"
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc)",
+      "title": "B cup – Repeat Rnds 6 & 7"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "Rnds 6 & 7",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "custom",
+                      "count": 1,
+                      "instruction": "Work Rnd 6 as previously defined.",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "bookkeeping",
+                      "stitch": "custom",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "Rnd 6"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "custom",
+                      "count": 1,
+                      "instruction": "Work Rnd 7 as previously defined.",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "bookkeeping",
+                      "stitch": "custom",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "Rnd 7"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 5,
+              "times": 5
+            },
+            "sourceText": "Repeat Rnds 6 & 7 five times"
+          },
+          {
+            "conditional": null,
+            "kind": "note",
+            "note": {
+              "emitAsAction": false,
+              "message": "Continue until piece measures 5.5” across or a total of 17 rounds (approximately 81 sc)."
+            ,
+              "sourceText": "until 5.5” across or 17 rounds (approx. 81 sc)"
+            },
+            "operation": null,
+            "repeat": null,
+            "sourceText": "until 5.5” across or 17 rounds (approx. 81 sc)"
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc)",
+      "title": "C cup – Repeat Rnds 6 & 7"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "note",
+            "note": {
+              "emitAsAction": false,
+              "message": "Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc). This is a high-level instruction referencing other rounds; it cannot be compiled into a single repeat block without the definitions of those rounds. Treat as a note."
+            ,
+              "sourceText": "Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc)"
+            },
+            "operation": null,
+            "repeat": null,
+            "sourceText": "Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc)"
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc)",
+      "title": "D cup – Repeat Rnds 6 & 7"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "DD cup – Repeat Rnds 6 & 7",
+      "sourceText": "Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+      "expectedProducedStitches": 99,
+      "body": {
+        "statements": [
+          {
+            "kind": "note",
+            "sourceText": "Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "Repeat Rounds 6 and 7 seven times. Continue until piece measures 6.5 inches across or a total of 21 rounds have been worked (approximately 99 single crochets).",
+              "sourceText": "Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+              "emitAsAction": false
+            }
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "sc around through the back loop only",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "note": "through the back loop only",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "sc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "sc around through the back loop only"
+                  }
+                ]
+              },
+              "normalizationNote": "Original instruction 'Work 2 rnds even through the back loop only.' implies a homogeneous repeat of 2 rounds.",
+              "sourceRepeatCount": 2,
+              "times": 2
+            },
+            "sourceText": "Work 2 rnds even through the back loop only."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Work 2 rnds even through the back loop only.",
+      "title": "Work 2 rnds even through back loop only"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "custom",
+              "count": 1,
+              "instruction": "Crochet until 1 sc before the first marker.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "custom",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "When the size is correct, the turning rows have been completed, and you’re ready to start decreasing, crochet until 1 sc before the first marker."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "When the size is correct, the turning rows have been completed, and you’re ready to start decreasing, crochet until 1 sc before the first marker.",
+      "title": "Crochet until 1 sc before first marker"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 1",
+      "sourceText": "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 3,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "(inv dec (PM), inv dec, then sc until 1 sc before the next marker)",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "inv dec (PM)",
+                    "operation": {
+                      "semantics": "decrease",
+                      "actionTag": "inv dec",
+                      "stitch": "inv dec",
+                      "count": 1,
+                      "instruction": "invisible decrease (like sc2tog, but only in the front loops) Invisible Decrease Tutorial",
+                      "target": null,
+                      "note": "PM",
+                      "notePlacement": "all",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "inv dec",
+                    "operation": {
+                      "semantics": "decrease",
+                      "actionTag": "inv dec",
+                      "stitch": "inv dec",
+                      "count": 1,
+                      "instruction": "invisible decrease (like sc2tog, but only in the front loops) Invisible Decrease Tutorial",
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "sc until 1 sc before the next marker",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "until 1 sc before the next marker",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "Rnd 1",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "note",
+                    "note": {
+                      "emitAsAction": false,
+                      "message": "Work Rnd 1 as previously defined in the pattern. The specific instructions for Rnd 1 are not provided in this input, so it is represented as a reference note."
+                    ,
+                      "sourceText": "Rnd 1"
+                    },
+                    "operation": null,
+                    "repeat": null,
+                    "sourceText": "Rnd 1"
+                  }
+                ]
+              },
+              "normalizationNote": "The repeat continues until a condition (15 sc left) is met. This is a conditional loop, not a fixed count. The body is a reference to a previously defined round.",
+              "sourceRepeatCount": null,
+              "times": 0
+            },
+            "sourceText": "Repeat Rnd 1 until you have 15 sc left."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Repeat Rnd 1 until you have 15 sc left.",
+      "title": "Repeat Rnd 1 until 15 sc left"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Cut yarn leaving a 10” tail.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fo",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Cut yarn leaving a 10” tail."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Cut yarn leaving a 10” tail.",
+      "title": "Cut yarn leaving 10” tail"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "sourceText": "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+      "title": "Weave through front loops of remaining 15 sc",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "operation": {
+              "target": "front loop only for the remaining 15 sc",
+              "actionTag": "custom",
+              "notePlacement": "first",
+              "instruction": "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+              "semantics": "bookkeeping",
+              "stitch": "custom",
+              "producedStitches": null,
+              "count": 1,
+              "note": null
+            },
+            "sourceText": "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+            "kind": "operation",
+            "conditional": null,
+            "repeat": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Add stuffing",
+      "sourceText": "Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "note",
+            "sourceText": "Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen.",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen.",
+              "sourceText": "Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen.",
+              "emitAsAction": false
+            }
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "sourceText": "Tuck tail into Knocker so that filling can be adjusted as needed.",
+      "body": {
+        "normalizationNote": null,
+        "statements": [
+          {
+            "note": null,
+            "operation": {
+              "stitch": "custom",
+              "notePlacement": "first",
+              "target": null,
+              "actionTag": "tuckTail",
+              "instruction": "Tuck tail into Knocker so that filling can be adjusted as needed.",
+              "semantics": "bookkeeping",
+              "count": 1,
+              "note": null,
+              "producedStitches": null
+            },
+            "sourceText": "Tuck tail into Knocker so that filling can be adjusted as needed.",
+            "conditional": null,
+            "kind": "operation",
+            "repeat": null
+          }
+        ],
+        "sourceText": null
+      },
+      "expectedProducedStitches": null,
+      "title": "Tuck tail inside"
+    }
+  ]
+}

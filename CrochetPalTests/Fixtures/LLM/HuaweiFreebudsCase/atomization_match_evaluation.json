@@ -1,0 +1,297 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_target"
+      ],
+      "missingElements" : [
+        "sc in each remaining chain"
+      ],
+      "rationale" : "The atomic actions correctly create 11 chains, turn, and make a single crochet in the second chain from the hook. However, the source instruction 'crochet to the second chain from hook' implies working into each chain up to that point, not just the second one. The atomization is missing the single crochet(s) in the intervening chains between the hook and the second chain.",
+      "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook",
+      "roundTitle" : "Foundation Chain",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.8,
+      "extraElements" : [
+        "Extra single crochet stitch"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "wrong_target"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction specifies a sequence of 9 sc, then 4 sc in the next stitch, then 8 sc, then 3 sc in the last stitch, totaling 24 stitches. The atomization correctly produces 24 stitches but misinterprets the '4sc in the next st' as four separate increase actions (which is correct) but also includes an extra regular sc action (sequence index 13) before the final 8 sc block, altering the intended target sequence. The final '3sc the the last st' is correctly atomized as three increase actions.",
+      "rawInstruction" : "9sc, 4sc in the next st, 8sc, 3sc the the last st ( 24)",
+      "roundTitle" : "1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly implement the sequence of increases and single crochets specified in the raw instruction, resulting in the correct total stitch count. The validation warnings are about internal normalization of increase stitch counts and do not affect the semantic fidelity of the compiled actions.",
+      "rawInstruction" : "Inc, 8sc, 4inc, 8sc, 3inc (32)",
+      "roundTitle" : "2",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the source instruction. The 'FLO' note is correctly applied to the first stitch, the counts of single crochets and increases are correct, and the total stitch count is 36.",
+      "rawInstruction" : "FLO 13sc, 2inc, 14sc, 2inc, 1sc (36)",
+      "roundTitle" : "3",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "Two separate increase actions where one was specified"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "wrong_order"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction 'inc' means one increase (2 sc in one stitch). The atomic actions interpret each 'inc' as two separate increase actions, effectively making four increases total. This doubles the intended increases, materially changing the stitch count and pattern.",
+      "rawInstruction" : "14sc, inc, 17sc, inc, 3sc (38)",
+      "roundTitle" : "4",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions expand the shorthand '38sc' into 38 individual single crochet actions, preserving the exact stitch count and type. No validation issues or expansion failures are present.",
+      "rawInstruction" : "38sc (38)",
+      "roundTitle" : "5",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action 'changeColor' correctly captures the instruction 'Change white' as a bookkeeping color change. The meaning is preserved exactly.",
+      "rawInstruction" : "Change white",
+      "roundTitle" : "Change white",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding '38sc' into 38 individual single crochet actions, matching the expected stitch count.",
+      "rawInstruction" : "38sc (38)",
+      "roundTitle" : "Rounds 6-9",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose finishing note. The atomic action 'Fasten off' is a standard, semantically faithful normalization for 'Finish, cut and hide the yarn.' No actionable crochet meaning is lost.",
+      "rawInstruction" : "Finish, cut and hide the yarn.",
+      "roundTitle" : "Finish, cut and hide the yarn.",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "missing_context"
+      ],
+      "missingElements" : [
+        "work the same as the bottom case",
+        "instruction for round 3 to not work in front loops only"
+      ],
+      "rationale" : "The atomic actions only represent the 'Chain 11' part of the instruction. The crucial subsequent actions to 'do the same with bottom case' and the specific modification for round 3 (do not FLO) are missing, making the atomization incomplete.",
+      "rawInstruction" : "Chain 11 and do the same with bottom case but R3 do not FLO.",
+      "roundTitle" : "Foundation Chain",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding '38sc' into 38 individual single crochet actions, matching the expected stitch count.",
+      "rawInstruction" : "38sc (38)",
+      "roundTitle" : "Rounds 5-7",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a preparatory note about not cutting yarn and a future joining action. It does not contain immediate, concrete crochet steps for the current round. The atomic result correctly leaves it non-actionable.",
+      "rawInstruction" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step.",
+      "roundTitle" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step.",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose description of a joining technique, not a direct command to execute stitches in a round. The atomic action correctly marks it as a custom bookkeeping note.",
+      "rawInstruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+      "roundTitle" : "To join",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly represent '7sc in MR' as seven single crochet actions. The note 'MR' on the first action and the produced stitch count of 7 match the instruction. The 'do not join, just tie MR' part is a prose finishing note correctly left non-actionable.",
+      "rawInstruction" : "7sc in MR,do not join, just tie MR",
+      "roundTitle" : "Foundation",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the instruction '5sc in MR' by listing five single crochet actions, with the first correctly noted as being into the magic ring. The stitch count is preserved.",
+      "rawInstruction" : "5sc in MR (5)",
+      "roundTitle" : "1",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding '5sc' into five single crochet actions, matching the expected stitch count of 5.",
+      "rawInstruction" : "5sc (5)",
+      "roundTitle" : "Rounds 2-3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_bookkeeping"
+      ],
+      "missingElements" : [
+        "target specification 'on both side'"
+      ],
+      "rationale" : "The raw instruction 'Crochet on both side 2sc' implies working 2 single crochets on each side of the piece, but the atomic actions only list two single crochets with no target specification. The 'note: both side' on the first action is insufficient to capture the distribution and count per side. The round summary correctly interprets it, but the atomic actions are missing the necessary bookkeeping to represent 'on both side'.",
+      "rawInstruction" : "Crochet on both side 2sc",
+      "roundTitle" : "Crochet on both side 2sc",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a prose-only finishing note, not a crochet action. The atomic action correctly classifies it as bookkeeping\/assembly and does not attempt to atomize it into stitch operations.",
+      "rawInstruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "roundTitle" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "verdict" : "not_actionable"
+    }
+  ]
+}

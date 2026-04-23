@@ -1,0 +1,85 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_bookkeeping"
+      ],
+      "missingElements" : [
+        "stitch count bookkeeping for 17 produced stitches"
+      ],
+      "rationale" : "The atomic actions correctly list 17 chain stitches, but the `producedStitches` field for each action is incorrectly set to 0, causing a stitch count mismatch warning. The semantic meaning of 'Ch 17' is partially preserved as the sequence of actions is correct, but the bookkeeping data is wrong.",
+      "rawInstruction" : "Ch 17",
+      "roundTitle" : "Foundation Chain",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomized actions precisely follow the stitch sequence, counts, and locations described in the instruction. The single 'dc in next 8 chains' action has been correctly expanded into eight atomic double crochet actions, which is an acceptable normalization that preserves the semantic meaning.",
+      "rawInstruction" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn (16)",
+      "roundTitle" : "Row 1",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly replicate the source instruction: a chain 1, three single crochets, one half double crochet, eight double crochets, one half double crochet, and three single crochets. The stitch counts and sequence are preserved.",
+      "rawInstruction" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+      "roundTitle" : "Rows 2-109",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions 'fastenOff' and 'assembly' directly correspond to the instruction 'Finish off and sew the 2 ends together.' The meaning is preserved, with 'fasten off' being a standard term for 'finish off'.",
+      "rawInstruction" : "Finish off and sew the 2 ends together.",
+      "roundTitle" : "Finish off and sew the 2 ends together",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only finishing note about weaving in yarn ends, not a crochet stitch operation. The atomic result correctly marks it as a non-actionable bookkeeping step.",
+      "rawInstruction" : "Weave in all ends.",
+      "roundTitle" : "Weave in all ends",
+      "verdict" : "not_actionable"
+    }
+  ]
+}

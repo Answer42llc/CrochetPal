@@ -1,0 +1,2526 @@
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 6,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "make 6 sc"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "slst",
+              "count": 1,
+              "instruction": null,
+              "note": "join to the first sc",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "slst",
+              "target": "first sc"
+            },
+            "repeat": null,
+            "sourceText": "join to the first sc with a sl st"
+          }
+        ]
+      },
+      "expectedProducedStitches": 6,
+      "sourceText": "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st.",
+      "title": "Round 1"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "note": null,
+            "sourceText": "Ch 2 (doesn't count as a st)",
+            "conditional": null,
+            "operation": {
+              "count": 2,
+              "target": null,
+              "instruction": null,
+              "semantics": "bookkeeping",
+              "note": "doesn't count as a st",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "actionTag": "ch",
+              "stitch": "ch"
+            },
+            "repeat": null
+          },
+          {
+            "kind": "operation",
+            "note": null,
+            "sourceText": "Make a Popcorn in the same st as the sl st join",
+            "conditional": null,
+            "operation": {
+              "count": 1,
+              "target": "same st as the sl st join",
+              "instruction": "Make 5 dc in the indicated st/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+              "semantics": "stitchProducing",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "actionTag": "Popcorn",
+              "stitch": "Popcorn"
+            },
+            "repeat": null
+          },
+          {
+            "kind": "repeat",
+            "note": null,
+            "sourceText": "(Ch 2, make a Popcorn in the next st) 5 times",
+            "conditional": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "note": null,
+                    "sourceText": "Ch 2",
+                    "conditional": null,
+                    "operation": {
+                      "count": 2,
+                      "target": null,
+                      "instruction": null,
+                      "semantics": "bookkeeping",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "actionTag": "ch",
+                      "stitch": "ch"
+                    },
+                    "repeat": null
+                  },
+                  {
+                    "kind": "operation",
+                    "note": null,
+                    "sourceText": "make a Popcorn in the next st",
+                    "conditional": null,
+                    "operation": {
+                      "count": -1,
+                      "target": "next st",
+                      "instruction": "Make 5 dc in the indicated st/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+                      "semantics": "stitchProducing",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "actionTag": "Popcorn",
+                      "stitch": "Popcorn"
+                    },
+                    "repeat": null
+                  }
+                ],
+                "sourceText": "(Ch 2, make a Popcorn in the next st)",
+                "normalizationNote": null
+              },
+              "times": 5,
+              "sourceRepeatCount": 5,
+              "normalizationNote": null
+            }
+          },
+          {
+            "kind": "operation",
+            "note": null,
+            "sourceText": "Ch 2",
+            "conditional": null,
+            "operation": {
+              "count": 2,
+              "target": null,
+              "instruction": null,
+              "semantics": "bookkeeping",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "actionTag": "ch",
+              "stitch": "ch"
+            },
+            "repeat": null
+          },
+          {
+            "kind": "operation",
+            "note": null,
+            "sourceText": "join to the top of the first Popcorn with a sl st",
+            "conditional": null,
+            "operation": {
+              "count": 1,
+              "target": "top of the first Popcorn",
+              "instruction": null,
+              "semantics": "bookkeeping",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "actionTag": "slst",
+              "stitch": "slst"
+            },
+            "repeat": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      },
+      "title": "Round 2",
+      "sourceText": "Ch 2 (doesn't count as a st). Make a Popcorn in the same st as the sl st join. (Ch 2, make a Popcorn in the next st) 5 times. Ch 2, join to the top of the first Popcorn with a sl st.",
+      "expectedProducedStitches": null
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 3",
+      "sourceText": "Ch 1 (doesn't count as a st). (FPhdc around the Popcorn, [hdc, 2 dc, ch 2, 2 dc, hdc] in the next ch-2 sp) 6 times. Join to the first FPhdc with a sl st.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Ch 1 (doesn't count as a st)",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 1,
+              "instruction": "doesn't count as a st",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "(FPhdc around the Popcorn, [hdc, 2 dc, ch 2, 2 dc, hdc] in the next ch-2 sp) 6 times",
+            "operation": null,
+            "repeat": {
+              "times": 6,
+              "sourceRepeatCount": 6,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "FPhdc around the Popcorn, [hdc, 2 dc, ch 2, 2 dc, hdc] in the next ch-2 sp",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "FPhdc around the Popcorn",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "FPhdc",
+                      "stitch": "FPhdc",
+                      "count": 1,
+                      "instruction": "Front post half-double crochet around the Popcorn",
+                      "target": "around the Popcorn",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "hdc in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 dc in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 2 in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 dc in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "hdc in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the first FPhdc with a sl st",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "to the first FPhdc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 4",
+      "sourceText": "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times",
+            "operation": null,
+            "repeat": {
+              "times": 6,
+              "sourceRepeatCount": 6,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4)",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "FPhdc around the FPhdc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "FPhdc",
+                      "stitch": "FPhdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "around the FPhdc",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 4",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 4,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "make a Popcorn in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "Popcorn",
+                      "stitch": "Popcorn",
+                      "count": 1,
+                      "instruction": "Make 5 dc in the indicated st/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 4",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 4,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the first FPhdc with a sl st.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "first FPhdc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 5",
+      "sourceText": "If you are using a different colour for this round, you can start this round with a standing FPdc around the first FPhdc of the previous round. If you are using the same colour for this round, we are going to start the round with a 'fake' FPdc as follows: FPsc around the FPhdc, ch 1. Inserting your hook from top to bottom into the FLO of the FPsc you just made, make a sc. Mark the top of this sc with s SM.This counts as your first (fake) FPdc. (Ch 3, FPsc around the next Popcorn, ch 3, FPdc around the next FPhdc) 6 times, omitting the last FPdc on the last repeat. Join to the top of the first FPdc with a sl st and remove the SM if you used one.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "conditional",
+            "sourceText": "If you are using a different colour for this round, you can start this round with a standing FPdc around the first FPhdc of the previous round. If you are using the same colour for this round, we are going to start the round with a 'fake' FPdc as follows: FPsc around the FPhdc, ch 1. Inserting your hook from top to bottom into the FLO of the FPsc you just made, make a sc. Mark the top of this sc with s SM.This counts as your first (fake) FPdc.",
+            "operation": null,
+            "repeat": null,
+            "conditional": {
+              "choiceID": "colorChoice",
+              "question": "Are you using a different colour for this round?",
+              "branches": [
+                {
+                  "value": "different",
+                  "label": "Different colour",
+                  "body": {
+                    "statements": [
+                      {
+                        "kind": "operation",
+                        "sourceText": "start this round with a standing FPdc around the first FPhdc of the previous round",
+                        "operation": {
+                          "semantics": "stitchProducing",
+                          "actionTag": "FPdc",
+                          "stitch": "FPdc",
+                          "count": 1,
+                          "instruction": "standing FPdc",
+                          "target": "around the first FPhdc of the previous round",
+                          "note": "This counts as your first FPdc.",
+                          "notePlacement": "all",
+                          "producedStitches": null
+                        },
+                        "repeat": null,
+                        "conditional": null,
+                        "note": null
+                      }
+                    ],
+                    "sourceText": "start this round with a standing FPdc around the first FPhdc of the previous round",
+                    "normalizationNote": null
+                  }
+                },
+                {
+                  "value": "same",
+                  "label": "Same colour",
+                  "body": {
+                    "statements": [
+                      {
+                        "kind": "operation",
+                        "sourceText": "FPsc around the FPhdc",
+                        "operation": {
+                          "semantics": "stitchProducing",
+                          "actionTag": "FPsc",
+                          "stitch": "FPsc",
+                          "count": 1,
+                          "instruction": null,
+                          "target": "around the FPhdc",
+                          "note": null,
+                          "notePlacement": "first",
+                          "producedStitches": null
+                        },
+                        "repeat": null,
+                        "conditional": null,
+                        "note": null
+                      },
+                      {
+                        "kind": "operation",
+                        "sourceText": "ch 1",
+                        "operation": {
+                          "semantics": "stitchProducing",
+                          "actionTag": "ch",
+                          "stitch": "ch",
+                          "count": 1,
+                          "instruction": null,
+                          "target": null,
+                          "note": null,
+                          "notePlacement": "first",
+                          "producedStitches": null
+                        },
+                        "repeat": null,
+                        "conditional": null,
+                        "note": null
+                      },
+                      {
+                        "kind": "operation",
+                        "sourceText": "Inserting your hook from top to bottom into the FLO of the FPsc you just made, make a sc",
+                        "operation": {
+                          "semantics": "stitchProducing",
+                          "actionTag": "sc",
+                          "stitch": "sc",
+                          "count": 1,
+                          "instruction": null,
+                          "target": "FLO of the FPsc you just made",
+                          "note": null,
+                          "notePlacement": "first",
+                          "producedStitches": null
+                        },
+                        "repeat": null,
+                        "conditional": null,
+                        "note": null
+                      },
+                      {
+                        "kind": "operation",
+                        "sourceText": "Mark the top of this sc with s SM",
+                        "operation": {
+                          "semantics": "bookkeeping",
+                          "actionTag": "placeMarker",
+                          "stitch": null,
+                          "count": 1,
+                          "instruction": null,
+                          "target": "top of this sc",
+                          "note": null,
+                          "notePlacement": "first",
+                          "producedStitches": null
+                        },
+                        "repeat": null,
+                        "conditional": null,
+                        "note": null
+                      },
+                      {
+                        "kind": "note",
+                        "sourceText": "This counts as your first (fake) FPdc",
+                        "operation": null,
+                        "repeat": null,
+                        "conditional": null,
+                        "note": {
+                          "message": "This counts as your first (fake) FPdc",
+                          "sourceText": "This counts as your first (fake) FPdc",
+                          "emitAsAction": false
+                        }
+                      }
+                    ],
+                    "sourceText": "FPsc around the FPhdc, ch 1. Inserting your hook from top to bottom into the FLO of the FPsc you just made, make a sc. Mark the top of this sc with s SM.This counts as your first (fake) FPdc.",
+                    "normalizationNote": null
+                  }
+                }
+              ],
+              "defaultBranchValue": null,
+              "commonBody": null
+            },
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "(Ch 3, FPsc around the next Popcorn, ch 3, FPdc around the next FPhdc) 6 times, omitting the last FPdc on the last repeat",
+            "operation": null,
+            "repeat": {
+              "times": 5,
+              "sourceRepeatCount": 6,
+              "normalizationNote": "Original repeat count was 6, but the final iteration differs (omits the last FPdc). Normalized to a homogeneous repeat of 5 plus the final iteration flattened below.",
+              "body": {
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Ch 3",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 3,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "FPsc around the next Popcorn",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "FPsc",
+                      "stitch": "FPsc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "around the next Popcorn",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 3",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 3,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "FPdc around the next FPhdc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "FPdc",
+                      "stitch": "FPdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "around the next FPhdc",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ],
+                "sourceText": "(Ch 3, FPsc around the next Popcorn, ch 3, FPdc around the next FPhdc)",
+                "normalizationNote": null
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Ch 3",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 3,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "FPsc around the next Popcorn",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "FPsc",
+              "stitch": "FPsc",
+              "count": 1,
+              "instruction": null,
+              "target": "around the next Popcorn",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "ch 3",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 3,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the top of the first FPdc with a sl st",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "join",
+              "stitch": null,
+              "count": 1,
+              "instruction": "sl st",
+              "target": "top of the first FPdc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "conditional",
+            "sourceText": "remove the SM if you used one",
+            "operation": null,
+            "repeat": null,
+            "conditional": {
+              "choiceID": "markerChoice",
+              "question": "Did you use a stitch marker?",
+              "branches": [
+                {
+                  "value": "yes",
+                  "label": "Yes",
+                  "body": {
+                    "statements": [
+                      {
+                        "kind": "operation",
+                        "sourceText": "remove the SM",
+                        "operation": {
+                          "semantics": "bookkeeping",
+                          "actionTag": "removeMarker",
+                          "stitch": null,
+                          "count": 1,
+                          "instruction": null,
+                          "target": null,
+                          "note": null,
+                          "notePlacement": "first",
+                          "producedStitches": null
+                        },
+                        "repeat": null,
+                        "conditional": null,
+                        "note": null
+                      }
+                    ],
+                    "sourceText": "remove the SM",
+                    "normalizationNote": null
+                  }
+                },
+                {
+                  "value": "no",
+                  "label": "No",
+                  "body": {
+                    "statements": [],
+                    "sourceText": null,
+                    "normalizationNote": null
+                  }
+                }
+              ],
+              "defaultBranchValue": null,
+              "commonBody": null
+            },
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 6",
+      "sourceText": "Ch 1 (doesn't count as a st). ([Sc, hdc, dc, ch 2, dc, hdc, sc] in the next ch-3 sp) 12 times. Join to the first sc with a sl st.",
+      "expectedProducedStitches": 72,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Ch 1 (doesn't count as a st)",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 1,
+              "instruction": "doesn't count as a st",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "([Sc, hdc, dc, ch 2, dc, hdc, sc] in the next ch-3 sp) 12 times",
+            "operation": null,
+            "repeat": {
+              "times": 12,
+              "sourceRepeatCount": 12,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "[Sc, hdc, dc, ch 2, dc, hdc, sc] in the next ch-3 sp",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Sc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "next ch-3 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "hdc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "same sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "dc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "same sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 2",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "dc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "same sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "hdc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "same sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "sc",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "same sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the first sc with a sl st",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "first sc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 7",
+      "sourceText": "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Ch 1 (doesn't count as a st)",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 1,
+              "instruction": "doesn't count as a st",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "(FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times",
+            "operation": null,
+            "repeat": {
+              "times": 12,
+              "sourceRepeatCount": 12,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "FPdc around the next st from Round 5",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "FPdc",
+                      "stitch": "FPdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "around the next st from Round 5",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "skip the first st of the next Petal from Round 6",
+                    "operation": {
+                      "semantics": "bookkeeping",
+                      "actionTag": "skip",
+                      "stitch": null,
+                      "count": 1,
+                      "instruction": null,
+                      "target": "the first st of the next Petal from Round 6",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "hdc in the next 2 sts",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "the next 2 sts",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[Hdc, ch 2, hdc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[Hdc, ch 2, hdc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[Hdc, ch 2, hdc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "in the next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "Hdc in the next 2 sts",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "the next 2 sts",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "skip the last st of the Petal",
+                    "operation": {
+                      "semantics": "bookkeeping",
+                      "actionTag": "skip",
+                      "stitch": null,
+                      "count": 1,
+                      "instruction": null,
+                      "target": "the last st of the Petal",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Mark the last ch-2 sp with a SM",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "placeMarker",
+              "stitch": null,
+              "count": 1,
+              "instruction": null,
+              "target": "the last ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the first FPdc with a sl st",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "to the first FPdc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Fasten off and work away your ends",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "fastenOff",
+              "stitch": null,
+              "count": 1,
+              "instruction": "and work away your ends",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 8",
+      "sourceText": "Join your yarn by making a standing sc in the marked ch-2 sp from the previous round. Remove the SM. (Ch 6, sc in the next ch-2 sp) 12 times, omitting the last sc on the last repeat. Join to the first sc with a sl st.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Join your yarn by making a standing sc in the marked ch-2 sp from the previous round.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "joinYarn",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Join your yarn by making a standing sc in the marked ch-2 sp from the previous round.",
+              "target": "marked ch-2 sp from the previous round",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Remove the SM.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "removeMarker",
+              "stitch": null,
+              "count": 1,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "(Ch 6, sc in the next ch-2 sp) 12 times, omitting the last sc on the last repeat",
+            "operation": null,
+            "repeat": {
+              "times": 11,
+              "sourceRepeatCount": 12,
+              "normalizationNote": "Original repeat count was 12, but the final iteration differs (omits the last sc). Normalized to a homogeneous repeat of 11 plus the final iteration flattened below.",
+              "body": {
+                "sourceText": "(Ch 6, sc in the next ch-2 sp)",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Ch 6",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 6,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "sc in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Ch 6",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 6,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the first sc with a sl st.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "join",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Join to the first sc with a sl st.",
+              "target": "first sc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 9",
+      "sourceText": "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Ch 1 (doesn't count as a st)",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 1,
+              "instruction": "doesn't count as a st",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "*Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times",
+            "operation": null,
+            "repeat": {
+              "times": 4,
+              "sourceRepeatCount": 4,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "*Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.*",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Make 7 sc in the next ch-6 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 7,
+                      "instruction": null,
+                      "target": "next ch-6 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 hdc in the next ch-6 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-6 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 dc in the next ch-6 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-6 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 edc in the next ch-6 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "edc",
+                      "stitch": "edc",
+                      "count": 2,
+                      "instruction": "Extended double crochet (Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.)",
+                      "target": "next ch-6 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 tr in the next st",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "tr",
+                      "stitch": "tr",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next st",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 2",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 tr in the next st",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "tr",
+                      "stitch": "tr",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next st",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 edc in the next ch-6 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "edc",
+                      "stitch": "edc",
+                      "count": 2,
+                      "instruction": "Extended double crochet (Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.)",
+                      "target": "next ch-6 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 dc in the next ch-6 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-6 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "2 hdc in the next ch-6 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-6 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the first sc with a sl st",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "first sc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Fasten off and work away your ends",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "fastenOff",
+              "stitch": null,
+              "count": 1,
+              "instruction": "work away your ends",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 10",
+      "sourceText": "Join your yarn by making a standing hdc in any ch-2 corner sp. [Hdc, ch 2, 2 hdc] in the same ch-2 corner sp. This is your first corner made. (Hdc in the next 23 sts, [2 hdc, ch 2, 2 hdc] in the next ch-2 sp) 3 times, omitting the last corner on the last repeat. Join to the first hdc with a sl st.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Join your yarn by making a standing hdc in any ch-2 corner sp.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "joinYarn",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Join yarn with a standing hdc in any ch-2 corner space.",
+              "target": "any ch-2 corner sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Hdc, ch 2, 2 hdc] in the same ch-2 corner sp.",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "hdc",
+              "stitch": "hdc",
+              "count": 1,
+              "instruction": null,
+              "target": "same ch-2 corner sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Hdc, ch 2, 2 hdc] in the same ch-2 corner sp.",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 2,
+              "instruction": null,
+              "target": "same ch-2 corner sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Hdc, ch 2, 2 hdc] in the same ch-2 corner sp.",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "hdc",
+              "stitch": "hdc",
+              "count": 2,
+              "instruction": null,
+              "target": "same ch-2 corner sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "note",
+            "sourceText": "This is your first corner made.",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "This is your first corner made.",
+              "sourceText": "This is your first corner made.",
+              "emitAsAction": false
+            }
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "(Hdc in the next 23 sts, [2 hdc, ch 2, 2 hdc] in the next ch-2 sp) 3 times, omitting the last corner on the last repeat.",
+            "operation": null,
+            "repeat": {
+              "times": 2,
+              "sourceRepeatCount": 3,
+              "normalizationNote": "Original repeat count was 3, but the final iteration differs (the corner is omitted). Normalized to a homogeneous repeat of 2 plus the final iteration flattened below.",
+              "body": {
+                "sourceText": "(Hdc in the next 23 sts, [2 hdc, ch 2, 2 hdc] in the next ch-2 sp)",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Hdc in the next 23 sts",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 23,
+                      "instruction": null,
+                      "target": "next sts",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 hdc, ch 2, 2 hdc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 hdc, ch 2, 2 hdc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 hdc, ch 2, 2 hdc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "hdc",
+                      "stitch": "hdc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Hdc in the next 23 sts",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "hdc",
+              "stitch": "hdc",
+              "count": 23,
+              "instruction": null,
+              "target": "next sts",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the first hdc with a sl st.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "first hdc",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 11",
+      "sourceText": "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Skip the first (hidden) st, dc in the next 26 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Sl st in the next st and the next ch-2 sp",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 2,
+              "instruction": null,
+              "target": "next st and the next ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Ch 3 (counts as dc)",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 3,
+              "instruction": "counts as dc",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Dc, ch 2, 2 dc] in the same ch-2 sp",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 1,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Dc, ch 2, 2 dc] in the same ch-2 sp",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 2,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Dc, ch 2, 2 dc] in the same ch-2 sp",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 2,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "note",
+            "sourceText": "This is your first corner made",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "This is your first corner made",
+              "sourceText": "This is your first corner made",
+              "emitAsAction": false
+            }
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "*Skip the first (hidden) st, dc in the next 26 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 4,
+              "normalizationNote": "Original repeat count was 4, but the final iteration differs (omits the last corner). Normalized to a homogeneous repeat of 3 plus the final iteration flattened below.",
+              "body": {
+                "sourceText": "*Skip the first (hidden) st, dc in the next 26 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.*",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Skip the first (hidden) st",
+                    "operation": {
+                      "semantics": "bookkeeping",
+                      "actionTag": "skip",
+                      "stitch": "skip",
+                      "count": 1,
+                      "instruction": "hidden",
+                      "target": "first st",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "dc in the next 26 sts",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 26,
+                      "instruction": null,
+                      "target": "next sts",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 dc, ch 2, 2 dc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 dc, ch 2, 2 dc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 dc, ch 2, 2 dc] in the next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Skip the first (hidden) st",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "skip",
+              "stitch": "skip",
+              "count": 1,
+              "instruction": "hidden",
+              "target": "first st",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "dc in the next 26 sts",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 26,
+              "instruction": null,
+              "target": "next sts",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the top of the beg ch-3 with a sl st",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "top of the beg ch-3",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Round 12",
+      "sourceText": "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Sl st in the next st and the next ch-2 sp.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "the next st and the next ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Ch 3 (counts as dc).",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 3,
+              "instruction": "counts as dc",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Dc, ch 2, 2 dc] in the same ch-2 sp.",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 1,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Dc, ch 2, 2 dc] in the same ch-2 sp.",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 2,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "[Dc, ch 2, 2 dc] in the same ch-2 sp.",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 2,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "note",
+            "sourceText": "This is your first corner made.",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "This is your first corner made.",
+              "sourceText": "This is your first corner made.",
+              "emitAsAction": false
+            }
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "*Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat.",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 4,
+              "normalizationNote": "Original repeat count was 4, but the final iteration differs (omits the last corner). Normalized to a homogeneous repeat of 3 plus the final iteration flattened below.",
+              "body": {
+                "sourceText": "*Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.*",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "Dc in the next 30 sts.",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 30,
+                      "instruction": null,
+                      "target": "next 30 sts",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 dc, ch 2, 2 dc] in the next ch-2 sp.",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 dc, ch 2, 2 dc] in the next ch-2 sp.",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "[2 dc, ch 2, 2 dc] in the next ch-2 sp.",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 2,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Dc in the next 30 sts.",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 30,
+              "instruction": null,
+              "target": "next 30 sts",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Join to the top of the beg ch-3 with a sl st.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "slst",
+              "count": 1,
+              "instruction": null,
+              "target": "top of the beg ch-3",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Fasten off and work away your ends.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "fastenOff",
+              "stitch": null,
+              "count": 1,
+              "instruction": "and work away your ends",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,927 @@
+{
+  "rounds": [
+    {
+      "title": "1st row",
+      "expectedProducedStitches": 10,
+      "sourceText": "Start 10 sc in a magic ring",
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Start 10 sc in a magic ring",
+            "note": null,
+            "repeat": null,
+            "operation": {
+              "semantics": "stitchProducing",
+              "instruction": "single crochet",
+              "producedStitches": null,
+              "actionTag": "sc",
+              "target": "magic ring",
+              "note": null,
+              "notePlacement": "first",
+              "stitch": "sc",
+              "count": 10
+            },
+            "conditional": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 10,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "10 sc"
+          }
+        ]
+      },
+      "expectedProducedStitches": 10,
+      "sourceText": "10 sc",
+      "title": "2-4 th"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "5 th",
+      "body": {
+        "sourceText": null,
+        "statements": [
+          {
+            "operation": {
+              "count": 4,
+              "semantics": "increase",
+              "instruction": "increase (2 crochets in 1 loop)",
+              "note": "inc.",
+              "target": null,
+              "actionTag": "increase",
+              "stitch": "sc",
+              "notePlacement": "all",
+              "producedStitches": 2
+            },
+            "kind": "operation",
+            "repeat": null,
+            "note": null,
+            "conditional": null,
+            "sourceText": "4 inc"
+          },
+          {
+            "operation": {
+              "count": 6,
+              "semantics": "stitchProducing",
+              "instruction": null,
+              "note": null,
+              "target": null,
+              "actionTag": "sc",
+              "stitch": "sc",
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "kind": "operation",
+            "repeat": null,
+            "note": null,
+            "conditional": null,
+            "sourceText": "6 sc"
+          }
+        ],
+        "normalizationNote": null
+      },
+      "sourceText": "4 inc, 6 sc = 14 sc",
+      "expectedProducedStitches": 14
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "expectedProducedStitches": 21,
+      "body": {
+        "sourceText": null,
+        "normalizationNote": null,
+        "statements": [
+          {
+            "operation": null,
+            "sourceText": "(1 sc, inc) х 7 times",
+            "kind": "repeat",
+            "repeat": {
+              "times": 7,
+              "sourceRepeatCount": 7,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "(1 sc, inc)",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "operation": {
+                      "target": null,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "semantics": "stitchProducing",
+                      "producedStitches": null,
+                      "actionTag": "sc",
+                      "stitch": "sc",
+                      "count": 1
+                    },
+                    "sourceText": "1 sc",
+                    "kind": "operation",
+                    "repeat": null,
+                    "note": null,
+                    "conditional": null
+                  },
+                  {
+                    "operation": {
+                      "target": null,
+                      "instruction": null,
+                      "note": "inc",
+                      "notePlacement": "all",
+                      "semantics": "increase",
+                      "producedStitches": 2,
+                      "actionTag": "increase",
+                      "stitch": "sc",
+                      "count": 1
+                    },
+                    "sourceText": "inc",
+                    "kind": "operation",
+                    "repeat": null,
+                    "note": null,
+                    "conditional": null
+                  }
+                ]
+              }
+            },
+            "note": null,
+            "conditional": null
+          }
+        ]
+      },
+      "title": "6 th",
+      "sourceText": "(1 sc, inc) х 7 times = 21 sc"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "7-11 th",
+      "sourceText": "21 sc",
+      "expectedProducedStitches": 21,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "21 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 21,
+              "instruction": "single crochet",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "decrease",
+              "count": 2,
+              "instruction": "decrease (2 crochets together)",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "decrease",
+              "stitch": "dec.",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "2 dec"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 10,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "10 sc"
+          }
+        ]
+      },
+      "expectedProducedStitches": 12,
+      "sourceText": "2 dec, 10 sc = 12 sc",
+      "title": "12 th"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "13 th",
+      "sourceText": "12 sc",
+      "expectedProducedStitches": 12,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "12 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 12,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Stuff (it will only be in my head)",
+      "sourceText": "Stuff (it will only be in my head)",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "note",
+            "sourceText": "Stuff (it will only be in my head)",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "Stuff (it will only be in my head)",
+              "sourceText": "Stuff (it will only be in my head)",
+              "emitAsAction": false
+            }
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "13 th",
+      "sourceText": "dec, 10 sc = 11 sc",
+      "expectedProducedStitches": 11,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "dec",
+            "operation": {
+              "semantics": "decrease",
+              "actionTag": "decrease",
+              "stitch": "sc",
+              "count": 1,
+              "instruction": "decrease (2 crochets together)",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "10 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 10,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "14-83 th",
+      "sourceText": "11 sc",
+      "expectedProducedStitches": 11,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "11 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 11,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "decrease",
+            "count": 1,
+            "instruction": "decrease (2 crochets together)",
+            "note": null,
+            "notePlacement": "first",
+            "producedStitches": null,
+            "semantics": "decrease",
+            "stitch": "dec",
+            "target": null
+          },
+          "repeat": null,
+          "sourceText": "dec"
+        },
+        {
+          "conditional": null,
+          "kind": "operation",
+          "note": null,
+          "operation": {
+            "actionTag": "sc",
+            "count": 9,
+            "instruction": null,
+            "note": null,
+            "notePlacement": "first",
+            "producedStitches": null,
+            "semantics": "stitchProducing",
+            "stitch": "sc",
+            "target": null
+          },
+          "repeat": null,
+          "sourceText": "9 sc"
+        }
+      ]
+    },
+    "expectedProducedStitches": 10,
+    "sourceText": "dec, 9 sc = 10 sc",
+    "title": "84 th"
+  }
+] 
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "85 th",
+      "sourceText": "10 sc",
+      "expectedProducedStitches": 10,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "10 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 10,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "86 th",
+      "sourceText": "dec, 8 sc = 9 sc",
+      "expectedProducedStitches": 9,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "dec",
+            "operation": {
+              "semantics": "decrease",
+              "actionTag": "decrease",
+              "stitch": "sc",
+              "count": 1,
+              "instruction": "decrease (2 crochets together)",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "8 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 8,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "87 th",
+      "sourceText": "9 sc",
+      "expectedProducedStitches": 9,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "9 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 9,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "88 th",
+      "sourceText": "dec, 7 sc = 8 sc",
+      "expectedProducedStitches": 8,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "dec",
+            "operation": {
+              "semantics": "decrease",
+              "actionTag": "decrease",
+              "stitch": "dec",
+              "count": 1,
+              "instruction": "decrease (2 crochets together)",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "7 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 7,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "assembly",
+              "count": 1,
+              "instruction": "Insert the wire into the body, pre-bend the edges of the wire",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "assembly",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Next, insert the wire into the body, pre-bend the edges of the wire"
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Next, insert the wire into the body, pre-bend the edges of the wire",
+      "title": "Next, insert the wire into the body, pre-bend the edges of the wire"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "89 th",
+      "sourceText": "dec, 6 sc = 7 sc",
+      "expectedProducedStitches": 7,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "dec",
+            "operation": {
+              "semantics": "decrease",
+              "actionTag": "decrease",
+              "stitch": "sc",
+              "count": 1,
+              "instruction": "decrease (2 crochets together)",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "6 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 6,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "decrease",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "decrease",
+              "stitch": "dec",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "dec"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sc",
+              "count": 5,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sc",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "5 sc"
+          }
+        ]
+      },
+      "expectedProducedStitches": 6,
+      "sourceText": "dec, 5 sc = 6 sc",
+      "title": "90 th"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "91-92 th",
+      "sourceText": "6 sc",
+      "expectedProducedStitches": 6,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "6 sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 6,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Close 6 loops.",
+      "sourceText": "Close 6 loops.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Close 6 loops.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "custom",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Close 6 loops.",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "sourceText": null,
+        "statements": [
+          {
+            "sourceText": "We glue the eyes and embroider the eyebrows.",
+            "repeat": null,
+            "kind": "operation",
+            "operation": {
+              "target": null,
+              "producedStitches": null,
+              "actionTag": "assembly",
+              "semantics": "bookkeeping",
+              "stitch": "assembly",
+              "instruction": "Glue the eyes and embroider the eyebrows.",
+              "count": 1,
+              "notePlacement": "first",
+              "note": null
+            },
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "normalizationNote": null
+      },
+      "sourceText": "We glue the eyes and embroider the eyebrows.",
+      "title": "We glue the eyes and embroider the eyebrows.",
+      "expectedProducedStitches": null
+    }
+  ]
+}

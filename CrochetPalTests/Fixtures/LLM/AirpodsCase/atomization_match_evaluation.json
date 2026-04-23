@@ -1,0 +1,263 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "12 produced stitches"
+      ],
+      "rationale" : "The atomic actions list 12 chain actions, but each is incorrectly marked as producing 0 stitches, causing a target stitch count mismatch. The semantic meaning of 'CH 12' is preserved in the sequence of actions, but the bookkeeping defect prevents an exact or normalized match.",
+      "rawInstruction" : "CH 12",
+      "roundTitle" : "Foundation Chain",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only setup note describing where to begin working; it contains no actionable crochet operations. The atomic result correctly contains no actions.",
+      "rawInstruction" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,",
+      "roundTitle" : "Set up for Round 1",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_context",
+        "wrong_order"
+      ],
+      "missingElements" : [
+        "context note 'working in the other side of the chain'"
+      ],
+      "rationale" : "The atomic actions correctly produce the stitch sequence and total count, and include the join and marker placement. However, the crucial contextual instruction 'working in the other side of the chain' is missing from the atomic actions, which changes the spatial understanding of the round. The order of the final two bookkeeping actions (join, then place marker) is also reversed from the typical logical order of marking first, then joining, which could cause confusion.",
+      "rawInstruction" : "Round 1: 2 HTC in first stitch, 1 HTC in each of the next 8 stitches, 2HTC in the next stitch, working in the other side of the chain, 2 HTC in the next stitch, 1HTC in each of the next 8 stitches, 2 HTC in the last stitch, join to the 1st HTC. You should have 24 stitches in total. Mark the beginning of your round with a stitch marker.",
+      "roundTitle" : "Round 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand '1 HTC in each stitch all the way around' into 24 individual half treble crochet actions, preserving the stitch type, count, and target.",
+      "rawInstruction" : "1 HTC in each stitch all the way around (24)",
+      "roundTitle" : "Rounds 2-6",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand '1 DC in each stitch all the way around' into 24 double crochet actions, preserving the exact meaning and stitch count.",
+      "rawInstruction" : "Round 7: 1 DC in each stitch all the way around (24)",
+      "roundTitle" : "Round 7",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose note describing a transition to working in rows; it contains no specific crochet actions to atomize.",
+      "rawInstruction" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+      "roundTitle" : "Begin flap",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+        "2 extra produced stitches (chain stitches counted)"
+      ],
+      "issueCodes" : [
+        "extra_operation"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly sequence the stitches and bookkeeping steps. However, the instruction's final stitch count (10) refers to the number of HTCs, but the atomization counts the chain stitches as produced stitches, leading to a total of 12. This is a semantic mismatch in stitch accounting.",
+      "rawInstruction" : "Row 1: 1DC, 1DC, CH 2, turn, 1 HTC in the next 10 stitches, CH 2, turn. (10)",
+      "roundTitle" : "Row 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand '1 HTC in each stitch all the way across' into ten HTC actions, followed by two chain actions and a turn. The total stitch count (10) matches the instruction's expected count. The meaning is preserved with acceptable normalization.",
+      "rawInstruction" : "1 HTC in each stitch all the way across, CH 2, turn (10)",
+      "roundTitle" : "Rows 2-9",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a prose note describing intent, not an actionable crochet step. The atomization correctly left it non-actionable.",
+      "rawInstruction" : "Now we will work our button hole.",
+      "roundTitle" : "Begin button hole",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "2 skipped stitches as a target for the chain-2 space"
+      ],
+      "rationale" : "The atomic actions correctly sequence the stitches, decreases, chains, skip, and turn. However, the warning indicates a stitch count mismatch: the instruction expects 8 produced stitches, but the atomization sums to 6. This is because the two chain-2 actions produce 0 stitches each, and the skip is bookkeeping. The instruction's (8) likely refers to the total stitches in the row after working into the chain-2 spaces in the next row, not the immediate produced stitches. The atomization captures the immediate actions but misses the semantic intent that the chain-2 creates a space over the skipped stitches, which is a subtle but actionable element.",
+      "rawInstruction" : "Row 10: 2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+      "roundTitle" : "Row 10",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding '1HTC in each stitch across' into eight individual HTC actions, followed by a fasten off. The stitch count matches the expected total of 8.",
+      "rawInstruction" : "Row 11: 1HTC in each stitch across, FO. (8)",
+      "roundTitle" : "Row 11",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a single bookkeeping step to begin the project. The atomic action correctly captures this as a 'mr' (magic ring) action with semantics of 'bookkeeping'.",
+      "rawInstruction" : "Start with a magic ring,",
+      "roundTitle" : "Start",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+        "join yarn operation before any stitches"
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_order"
+      ],
+      "missingElements" : [
+        "join operation after the 12 stitches"
+      ],
+      "rationale" : "The atomic actions produce 12 treble crochets correctly, but the 'join' instruction is semantically a slip stitch to close the round, placed after the 12 stitches. The atomization incorrectly places a 'join yarn' (interpreted as attaching new yarn) at the start, which is not in the source instruction, and omits the closing join.",
+      "rawInstruction" : "Round 1: work 12 treble crochet, join. (12)",
+      "roundTitle" : "Round 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "wrong_stitch",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "slip stitch into each stitch around"
+      ],
+      "rationale" : "The raw instruction says 'SS into each stitch around (12)', meaning 12 slip stitches. The atomic actions list 12 actions tagged as 'slst', but the 'producedStitches' field for each is 0, and the 'producedStitchCount' is 0, indicating the system incorrectly treats slip stitches as producing zero stitches. This changes the stitch count and meaning.",
+      "rawInstruction" : "Round 2: SS into each stitch around (12)",
+      "roundTitle" : "Round 2",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action correctly captures the core assembly instruction to position and sew the button, preserving the optional note about marking the spot. The source is a prose assembly step, not a stitch-count round.",
+      "rawInstruction" : "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place.",
+      "roundTitle" : "Sew button",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source is a bookkeeping instruction, not a stitch-making round. The atomic action correctly captures this as a custom bookkeeping step, preserving its meaning.",
+      "rawInstruction" : "Weave in the ends.",
+      "roundTitle" : "Weave in ends",
+      "verdict" : "normalized_match"
+    }
+  ]
+}

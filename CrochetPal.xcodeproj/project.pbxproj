@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B7AD5CDC00DEC0635646A7F /* PatternImportServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */; };
+		0A1B2C3D4E5F60718293A4B5D /* FixtureImportIntoSimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1E2D3C4B5A69788796A5B4 /* FixtureImportIntoSimulatorTests.swift */; };
 		0BFC80E42BB02752CA68CC75 /* WatchSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320DF2735E41A588CBD55B7 /* WatchSyncCoordinator.swift */; };
 		1E2E31572C9D8A988E230485 /* RuntimeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */; };
 		2A8D27AFD9624C5EA9D4B7D1 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */; };
@@ -75,6 +76,7 @@
 		4949DA575051101BA8291C8C /* mouse-pattern.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; path = "mouse-pattern.html"; sourceTree = "<group>"; };
 		4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrochetPalWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PatternImportServiceTests.swift; sourceTree = "<group>"; };
+		0F1E2D3C4B5A69788796A5B4 /* FixtureImportIntoSimulatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FixtureImportIntoSimulatorTests.swift; sourceTree = "<group>"; };
 		5ADCDFCBF161EC0F08EA837E /* CrochetPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrochetPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		801B75E25373489AB8A5F43D /* WatchRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchRootView.swift; sourceTree = "<group>"; };
 		81A01144F5B111A5589D9F1C /* Debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				774F3CA4C25BE7E13B7A3BB3 /* Fixtures */,
 				0348647949D35B3555E41E0C /* ExecutionEngineTests.swift */,
+				0F1E2D3C4B5A69788796A5B4 /* FixtureImportIntoSimulatorTests.swift */,
 				3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */,
 				9A7C4F01A1B2C3D4E5F60718 /* ModelNormalizationIntegrationTests.swift */,
 				4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */,
@@ -408,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3631618DE4A2EE9A615EE397 /* ExecutionEngineTests.swift in Sources */,
+				0A1B2C3D4E5F60718293A4B5D /* FixtureImportIntoSimulatorTests.swift in Sources */,
 				5E92DD73389ADD42E8A39B75 /* HTMLExtractionServiceTests.swift in Sources */,
 				8B1D5E02B3C4D5E6F708192A /* ModelNormalizationIntegrationTests.swift in Sources */,
 				0B7AD5CDC00DEC0635646A7F /* PatternImportServiceTests.swift in Sources */,

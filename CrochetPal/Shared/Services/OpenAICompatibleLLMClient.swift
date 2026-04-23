@@ -22,7 +22,29 @@ protocol PatternLLMParsing {
     ) async throws -> PatternParseResponse
 }
 
-final class OpenAICompatibleLLMClient: PatternLLMParsing {
+protocol AtomizationMatchEvaluating {
+    func evaluateAtomizedRoundMatch(
+        input: AtomizationMatchEvaluationInput,
+        context: ParseRequestContext
+    ) async throws -> AtomizationMatchEvaluation
+}
+
+struct AtomizationMatchSubagent {
+    private let evaluator: AtomizationMatchEvaluating
+
+    init(evaluator: AtomizationMatchEvaluating) {
+        self.evaluator = evaluator
+    }
+
+    func evaluate(
+        input: AtomizationMatchEvaluationInput,
+        context: ParseRequestContext
+    ) async throws -> AtomizationMatchEvaluation {
+        try await evaluator.evaluateAtomizedRoundMatch(input: input, context: context)
+    }
+}
+
+final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvaluating {
     private typealias JSONObject = [String: Any]
 
     private let configuration: RuntimeConfiguration
@@ -112,6 +134,164 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
             ],
             temperature: 0
         )
+    }
+
+    func evaluateAtomizedRoundMatch(
+        input: AtomizationMatchEvaluationInput,
+        context: ParseRequestContext
+    ) async throws -> AtomizationMatchEvaluation {
+        let prompt = PromptFactory.atomizationMatchEvaluationPrompt(input: input)
+        let messages: [[String: Any]] = [
+            ["role": "system", "content": PromptFactory.atomizationMatchEvaluationSystemPrompt()],
+            ["role": "user", "content": prompt]
+        ]
+
+        let evaluation: AtomizationMatchEvaluation = try await sendChatCompletion(
+            modelID: configuration.textModelID,
+            messagePayload: messages,
+            context: context,
+            modelKind: "atomization_match_evaluator",
+            responseFormat: PromptFactory.atomizationMatchEvaluationResponseFormat(),
+            providerPayload: textProviderPayload(for: configuration.textModelID),
+            temperature: 0,
+            repairModelID: configuration.textModelID,
+            repairProviderPayload: textProviderPayload(for: configuration.textModelID)
+        )
+
+        return try await repairAtomizationMatchEvaluationIfNeeded(
+            evaluation,
+            input: input,
+            context: context
+        )
+    }
+
+    private func repairAtomizationMatchEvaluationIfNeeded(
+        _ evaluation: AtomizationMatchEvaluation,
+        input: AtomizationMatchEvaluationInput,
+        context: ParseRequestContext
+    ) async throws -> AtomizationMatchEvaluation {
+        guard let consistencyProblems = atomizationMatchConsistencyProblems(
+            for: evaluation,
+            input: input
+        ) else {
+            return evaluation
+        }
+
+        logger.log(LogEvent(
+            timestamp: .now,
+            level: "warning",
+            traceID: context.traceID,
+            parseRequestID: context.parseRequestID,
+            projectID: nil,
+            sourceType: context.sourceType,
+            stage: "llm_repair",
+            decision: "retry",
+            reason: "atomization_match_inconsistent",
+            durationMS: nil,
+            metadata: [
+                "consistencyProblems": consistencyProblems.joined(separator: " | "),
+                "roundTitle": evaluation.roundTitle
+            ]
+        ))
+
+        let repairMessages: [[String: Any]] = [
+            ["role": "system", "content": PromptFactory.atomizationMatchEvaluationRepairSystemPrompt()],
+            [
+                "role": "user",
+                "content": PromptFactory.atomizationMatchEvaluationRepairPrompt(
+                    input: input,
+                    invalidEvaluation: evaluation,
+                    consistencyProblems: consistencyProblems
+                )
+            ]
+        ]
+
+        let repaired: AtomizationMatchEvaluation = try await sendChatCompletion(
+            modelID: configuration.textModelID,
+            messagePayload: repairMessages,
+            context: context,
+            modelKind: "atomization_match_evaluator_consistency_repair",
+            responseFormat: PromptFactory.atomizationMatchEvaluationResponseFormat(),
+            providerPayload: textProviderPayload(for: configuration.textModelID),
+            temperature: 0,
+            allowsRepair: false
+        )
+
+        return canonicalizeAtomizationMatchEvaluation(
+            repaired,
+            input: input
+        )
+    }
+
+    private func atomizationMatchConsistencyProblems(
+        for evaluation: AtomizationMatchEvaluation,
+        input: AtomizationMatchEvaluationInput
+    ) -> [String]? {
+        var problems: [String] = []
+        let hasEvidence = !evaluation.issueCodes.isEmpty
+            || !evaluation.missingElements.isEmpty
+            || !evaluation.extraElements.isEmpty
+        let hasValidationFailure = input.validationIssues.contains { $0.severity == .error }
+            || input.expansionFailure != nil
+
+        switch evaluation.verdict {
+        case .exactMatch, .normalizedMatch:
+            if hasValidationFailure {
+                problems.append("passing verdict cannot coexist with validation errors or expansion failure")
+            }
+            if hasEvidence {
+                problems.append("passing verdict must not include issueCodes, missingElements, or extraElements")
+            }
+        case .partialMatch, .mismatch:
+            if !hasEvidence {
+                problems.append("failing verdict must include at least one issue code, missing element, or extra element")
+            }
+        case .notActionable:
+            if hasEvidence {
+                problems.append("not_actionable verdict must not include issueCodes, missingElements, or extraElements")
+            }
+        }
+
+        return problems.isEmpty ? nil : problems
+    }
+
+    private func canonicalizeAtomizationMatchEvaluation(
+        _ evaluation: AtomizationMatchEvaluation,
+        input: AtomizationMatchEvaluationInput
+    ) -> AtomizationMatchEvaluation {
+        var canonical = evaluation
+        canonical.roundTitle = input.roundTitle
+        canonical.rawInstruction = input.rawInstruction
+        canonical.confidence = min(1, max(0, canonical.confidence))
+
+        let hasValidationFailure = input.validationIssues.contains { $0.severity == .error }
+            || input.expansionFailure != nil
+        let hasEvidence = !canonical.issueCodes.isEmpty
+            || !canonical.missingElements.isEmpty
+            || !canonical.extraElements.isEmpty
+
+        switch canonical.verdict {
+        case .exactMatch, .normalizedMatch:
+            if hasValidationFailure || hasEvidence {
+                canonical.verdict = .partialMatch
+            }
+        case .partialMatch, .mismatch:
+            if !hasEvidence {
+                if input.expansionFailure != nil {
+                    canonical.issueCodes = [.expansionFailure]
+                } else if input.validationIssues.contains(where: { $0.severity == .error }) {
+                    canonical.issueCodes = [.validationError]
+                } else {
+                    canonical.issueCodes = [.ambiguousSource]
+                }
+            }
+        case .notActionable:
+            canonical.issueCodes = []
+            canonical.missingElements = []
+            canonical.extraElements = []
+        }
+
+        return canonical
     }
 
     private func sendChatCompletion<Response: Decodable>(
@@ -525,7 +705,21 @@ enum PromptFactory {
               "repeatFromTitle": null,
               "repeatToTitle": null,
               "repeatUntilCount": null,
-              "repeatAfterRow": null
+              "repeatAfterRow": null,
+              "rangeStartNumber": null,
+              "rangeEndNumber": null
+            },
+            {
+              "title": "Rounds 9-10",
+              "rawInstruction": "sc around. (18)",
+              "summary": "Work a single crochet in every stitch around, for two rounds.",
+              "targetStitchCount": 18,
+              "repeatFromTitle": null,
+              "repeatToTitle": null,
+              "repeatUntilCount": null,
+              "repeatAfterRow": null,
+              "rangeStartNumber": 9,
+              "rangeEndNumber": 10
             },
             {
               "title": "Repeat Rounds 2-5",
@@ -535,7 +729,9 @@ enum PromptFactory {
               "repeatFromTitle": "Round 2",
               "repeatToTitle": "Round 5",
               "repeatUntilCount": 20,
-              "repeatAfterRow": 5
+              "repeatAfterRow": 5,
+              "rangeStartNumber": null,
+              "rangeEndNumber": null
             },
             {
               "title": "Add stuffing",
@@ -545,7 +741,9 @@ enum PromptFactory {
               "repeatFromTitle": null,
               "repeatToTitle": null,
               "repeatUntilCount": null,
-              "repeatAfterRow": null
+              "repeatAfterRow": null,
+              "rangeStartNumber": null,
+              "rangeEndNumber": null
             }
           ]
         }
@@ -636,6 +834,19 @@ enum PromptFactory {
     }
     """
 
+    private static let atomizationMatchEvaluationExampleJSON = """
+    {
+      "roundTitle": "Round 3",
+      "rawInstruction": "sc around. (9)",
+      "verdict": "normalized_match",
+      "confidence": 0.96,
+      "issueCodes": [],
+      "missingElements": [],
+      "extraElements": [],
+      "rationale": "The atomic actions preserve the instruction semantically by expanding 'sc around' into nine single crochets."
+    }
+    """
+
     static func textOutlineSystemPrompt() -> String {
         """
         You are a crochet master. Convert the provided crochet pattern text into one valid JSON object.
@@ -650,10 +861,10 @@ enum PromptFactory {
         - Keep only actionable crochet content.
         - Preserve part and round order from the source.
         - Preserve part names such as Body, Head, Eyes, Ears when present.
-        - Expand "Rounds N-M" into separate round objects, one per round number. For each expanded round, rewrite rawInstruction to describe only that single round — replace the range prefix (e.g., "Rounds 9-10:") with the individual round prefix (e.g., "Round 9:") so the instruction reads as a standalone single-round instruction. Set repeatFromTitle, repeatToTitle, and repeatUntilCount to null for these expanded rounds.
-        - Macro-repeat: When the pattern says to repeat a sequence of previously defined rows/rounds until a total row/round count is reached (e.g., "Repeat Rows 6-13 until you have a total of 118 rows", "Rep rounds 2-5 for a total of 40 rounds"), emit exactly ONE placeholder round object. Set its title to a descriptive label (e.g., "Repeat Rows 6-13"), rawInstruction to the original verbatim text, summary to a brief description, targetStitchCount to null, repeatFromTitle to the title of the first round in the repeating cycle (e.g., "Row 6"), repeatToTitle to the title of the last round in the repeating cycle (e.g., "Row 13"), repeatUntilCount to the total number of rows/rounds the pattern wants (e.g., 118), and repeatAfterRow to the row/round number of the last numbered row that appears before this macro-repeat instruction in the pattern (e.g., if the repeat comes right after Row 13, set to 13; if rows 1-14 exist before the repeat, set to 14; non-stitch instruction rounds like "Foundation Chain" or "Add stuffing" do not count). Do NOT expand the macro-repeat into individual rounds yourself — the app will handle the expansion. This is different from "Rounds N-M" range expansion: range expansion is for one instruction covering multiple consecutive rounds with the same work; macro-repeat is for re-cycling through a previously defined sequence of rounds to reach a total count.
-        - If additional instructions follow the macro-repeat in the same sentence or paragraph (such as "Then do one more row of sc" or "Weave in ends"), capture each such instruction as its own separate round object placed after the macro-repeat placeholder, following the existing rule for non-stitch instructions.
-        - For all normal rounds and non-stitch instruction rounds, set repeatFromTitle, repeatToTitle, repeatUntilCount, and repeatAfterRow to null.
+        - Range expansion: When a single instruction covers multiple consecutive rows or rounds with identical work (e.g., "Rows 2-109: Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.", "Rounds 9-10: sc around. (18)", "Rounds 15-17: sc around. (24)"), emit exactly ONE range sentinel round object. Do NOT expand it yourself into one object per row/round — the app handles the expansion locally. Set its title to the original range label (e.g., "Rows 2-109" or "Rounds 9-10"); set rawInstruction to the single-row form with the range prefix stripped (e.g., "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts." — never keep the "Rows N-M:" prefix); set summary to a brief description; set targetStitchCount from the explicit parenthesized count if present, otherwise null; set rangeStartNumber to the start number (e.g., 2 or 9); set rangeEndNumber to the end number (e.g., 109 or 10); set repeatFromTitle, repeatToTitle, repeatUntilCount, and repeatAfterRow to null. Emitting individual per-row objects for a "Rows N-M: <work>" instruction is incorrect — always use a single sentinel with rangeStartNumber and rangeEndNumber.
+        - Macro-repeat: When the pattern says to repeat a sequence of previously defined rows/rounds until a total row/round count is reached (e.g., "Repeat Rows 6-13 until you have a total of 118 rows", "Rep rounds 2-5 for a total of 40 rounds"), emit exactly ONE placeholder round object. Set its title to a descriptive label (e.g., "Repeat Rows 6-13"), rawInstruction to the original verbatim text, summary to a brief description, targetStitchCount to null, repeatFromTitle to the title of the first round in the repeating cycle (e.g., "Row 6"), repeatToTitle to the title of the last round in the repeating cycle (e.g., "Row 13"), repeatUntilCount to the total number of rows/rounds the pattern wants (e.g., 118), repeatAfterRow to the row/round number of the last numbered row that appears before this macro-repeat instruction in the pattern (e.g., if the repeat comes right after Row 13, set to 13; if rows 1-14 exist before the repeat, set to 14; non-stitch instruction rounds like "Foundation Chain" or "Add stuffing" do not count), and both rangeStartNumber and rangeEndNumber to null. Do NOT expand the macro-repeat into individual rounds yourself — the app will handle the expansion. Distinction from range expansion: range expansion is for one instruction covering multiple consecutive rows/rounds with identical work (use rangeStartNumber/rangeEndNumber); macro-repeat is for re-cycling through a previously defined sequence of rounds to reach a total count (use repeatFromTitle/repeatToTitle/repeatUntilCount). The two field sets are mutually exclusive — at most one set may be non-null on any given round object.
+        - If additional instructions follow the macro-repeat or range sentinel in the same sentence or paragraph (such as "Then do one more row of sc" or "Weave in ends"), capture each such instruction as its own separate round object placed after the sentinel, following the existing rule for non-stitch instructions.
+        - For all normal rounds and non-stitch instruction rounds, set repeatFromTitle, repeatToTitle, repeatUntilCount, repeatAfterRow, rangeStartNumber, and rangeEndNumber to null.
         - Do not generate atomicActions in this stage.
         - targetStitchCount must only be set when the pattern text explicitly states a stitch count for that round (e.g., a number in parentheses such as "(18)" or "(6 sts)" at the end of the instruction). Do NOT calculate or infer targetStitchCount from the stitch operations. If no explicit stitch count appears in the pattern text for that round, set targetStitchCount to null.
         - Non-stitch instructions that appear between rounds, before the first round, or after the last round (such as "Add stuffing", "Finish off and sew closed", "Add safety eyes", "Weave in ends") are important crafting steps. Capture each such instruction as its own separate round object with title set to the instruction text itself (e.g., "Add catnip and stuffing"), rawInstruction set to the original text, summary as a brief description, and targetStitchCount set to null. Place these instruction rounds in their correct sequential position among the stitch rounds.
@@ -701,7 +912,7 @@ enum PromptFactory {
         - An `Operation` has two fields that separate compiler behavior from UI identity:
           - `semantics` (closed 4-value enum): decides how the compiler expands the operation and counts stitches.
             - `stitchProducing`: produces `count` stitches, each occupying one stitch-slot (sc, hdc, dc, ch, slSt, fpdc, fphdc, fpsc, bpdc, ...).
-            - `increase`: produces N stitches into one stitch-slot; encode `count = 1`, put the total stitch output into `producedStitches` (default 2).
+            - `increase`: produces N stitches into one stitch-slot. `producedStitches` is the output PER SINGLE increase (default 2 — e.g. 2 for sc/hdc/dc inc; set to 3 only for triple-increase). `count` is how many consecutive increases the operation represents; the operation's total output is `count × producedStitches`. Example: 8 consecutive hdc increases producing 16 stitches total → `count = 8, producedStitches = 2` (NEVER `count = 8, producedStitches = 16`).
             - `decrease`: consumes multiple stitch-slots, produces 1 stitch; usually `stitch = dec`.
             - `bookkeeping`: does not produce stitches (turn, skip, joinYarn, fastenOff, changeColor, setWorkingLoop, placeMarker, removeMarker, moveMarker, assembly, custom, ...).
           - `actionTag` (open string): labels the action for the UI. Recommended values:
@@ -856,6 +1067,92 @@ enum PromptFactory {
         """
     }
 
+    static func atomizationMatchEvaluationSystemPrompt() -> String {
+        """
+        You are an independent crochet QA subagent. Compare ONE round's `rawInstruction` with the compiled atomic actions and determine whether the atomization preserved the instruction's meaning.
+
+        Verdicts:
+        - `exact_match`: all actionable crochet meaning is preserved with no meaningful omissions or extras.
+        - `normalized_match`: semantically faithful, but the atomic actions use acceptable normalization or expansion (for example, "sc around" expanded into repeated single crochet actions).
+        - `partial_match`: some important meaning is preserved, but one or more actionable elements are missing, extra, or unclear.
+        - `mismatch`: the atomization materially changes the instruction.
+        - `not_actionable`: the source is effectively a prose-only note and the atomic result correctly leaves it non-actionable.
+
+        Rules:
+        - Judge semantic fidelity, not stylistic wording.
+        - `rawInstruction` is the source of truth. Use `irSourceText`, `validationIssues`, `expansionFailure`, `warnings`, and `atomicActions` as evidence.
+        - If `validationIssues` contains any error or `expansionFailure` is non-null, you must not return `exact_match` or `normalized_match`.
+        - If the verdict is `exact_match` or `normalized_match`, `issueCodes`, `missingElements`, and `extraElements` must all be empty.
+        - Do not list acceptable normalization, harmless bookkeeping expansion, or prose-only finishing notes as missing or extra elements.
+        - If the verdict is `partial_match` or `mismatch`, you must provide at least one concrete defect through `issueCodes`, `missingElements`, or `extraElements`.
+        - Accept harmless normalization such as expanding "sc around" into repeated `sc` actions, or turning "2 hdc in same st" into increase semantics when the meaning is preserved.
+        - Treat missing targets, wrong stitch types, wrong counts, omitted bookkeeping steps, extra invented actions, and reordered meaning-changing steps as defects.
+        - Use only the schema's `issueCodes`.
+        - `missingElements` and `extraElements` should be short concrete phrases, not essays.
+        - Keep `rationale` concise and factual.
+        - Copy `roundTitle` and `rawInstruction` exactly from the input.
+        - Return exactly one JSON object and nothing else.
+
+        Output example:
+        \(atomizationMatchEvaluationExampleJSON)
+        """
+    }
+
+    static func atomizationMatchEvaluationPrompt(input: AtomizationMatchEvaluationInput) -> String {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let payload = (try? encoder.encode(input)).flatMap { String(data: $0, encoding: .utf8) } ?? "{}"
+
+        return """
+        Evaluate whether this atomized crochet round faithfully matches the source instruction.
+
+        Round evaluation input JSON:
+        \(payload)
+        """
+    }
+
+    static func atomizationMatchEvaluationRepairSystemPrompt() -> String {
+        """
+        You repair an atomization match evaluation JSON object so it becomes logically consistent.
+
+        Consistency rules:
+        - `exact_match` and `normalized_match` must have empty `issueCodes`, `missingElements`, and `extraElements`.
+        - `partial_match` and `mismatch` must include at least one concrete entry in `issueCodes`, `missingElements`, or `extraElements`.
+        - If the input reports validation errors or an expansion failure, the verdict must not be `exact_match` or `normalized_match`.
+        - `not_actionable` must not include defects.
+        - Acceptable normalization or prose-only finishing notes should not be listed as missing or extra elements.
+        - Keep `roundTitle` and `rawInstruction` exactly equal to the input.
+
+        The JSON schema is supplied separately via response_format.
+        Return exactly one JSON object and nothing else.
+        """
+    }
+
+    static func atomizationMatchEvaluationRepairPrompt(
+        input: AtomizationMatchEvaluationInput,
+        invalidEvaluation: AtomizationMatchEvaluation,
+        consistencyProblems: [String]
+    ) -> String {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let inputJSON = (try? encoder.encode(input)).flatMap { String(data: $0, encoding: .utf8) } ?? "{}"
+        let evaluationJSON = (try? encoder.encode(invalidEvaluation)).flatMap { String(data: $0, encoding: .utf8) } ?? "{}"
+        let problems = consistencyProblems.map { "- \($0)" }.joined(separator: "\n")
+
+        return """
+        Repair the invalid evaluation below so it satisfies the consistency rules.
+
+        Consistency problems:
+        \(problems)
+
+        Round evaluation input JSON:
+        \(inputJSON)
+
+        Invalid evaluation JSON:
+        \(evaluationJSON)
+        """
+    }
+
     static func repairSystemPrompt() -> String {
         """
         You repair malformed assistant output into a single valid JSON object.
@@ -915,6 +1212,17 @@ enum PromptFactory {
                 "name": "crochet_pattern_image_response",
                 "strict": true,
                 "schema": imageSchema()
+            ]
+        ]
+    }
+
+    static func atomizationMatchEvaluationResponseFormat() -> [String: Any] {
+        [
+            "type": "json_schema",
+            "json_schema": [
+                "name": "crochet_atomization_match_evaluation",
+                "strict": true,
+                "schema": atomizationMatchEvaluationSchema()
             ]
         ]
     }
@@ -1173,7 +1481,9 @@ enum PromptFactory {
                 "repeatFromTitle": nullableStringSchema(),
                 "repeatToTitle": nullableStringSchema(),
                 "repeatUntilCount": nullableIntegerSchema(),
-                "repeatAfterRow": nullableIntegerSchema()
+                "repeatAfterRow": nullableIntegerSchema(),
+                "rangeStartNumber": nullableIntegerSchema(),
+                "rangeEndNumber": nullableIntegerSchema()
             ],
             "required": [
                 "title",
@@ -1183,7 +1493,9 @@ enum PromptFactory {
                 "repeatFromTitle",
                 "repeatToTitle",
                 "repeatUntilCount",
-                "repeatAfterRow"
+                "repeatAfterRow",
+                "rangeStartNumber",
+                "rangeEndNumber"
             ]
         ]
     }
@@ -1243,6 +1555,42 @@ enum PromptFactory {
                 "note": nullableStringSchema()
             ],
             "required": ["semantics", "actionTag", "stitchTag", "instruction", "producedStitches", "note"]
+        ]
+    }
+
+    private static func atomizationMatchEvaluationSchema() -> [String: Any] {
+        [
+            "type": "object",
+            "additionalProperties": false,
+            "properties": [
+                "roundTitle": ["type": "string"],
+                "rawInstruction": ["type": "string"],
+                "verdict": [
+                    "type": "string",
+                    "enum": AtomizationMatchVerdict.allCases.map(\.rawValue)
+                ],
+                "confidence": ["type": "number"],
+                "issueCodes": [
+                    "type": "array",
+                    "items": [
+                        "type": "string",
+                        "enum": AtomizationMatchIssueCode.allCases.map(\.rawValue)
+                    ]
+                ],
+                "missingElements": stringArraySchema(),
+                "extraElements": stringArraySchema(),
+                "rationale": ["type": "string"]
+            ],
+            "required": [
+                "roundTitle",
+                "rawInstruction",
+                "verdict",
+                "confidence",
+                "issueCodes",
+                "missingElements",
+                "extraElements",
+                "rationale"
+            ]
         ]
     }
 

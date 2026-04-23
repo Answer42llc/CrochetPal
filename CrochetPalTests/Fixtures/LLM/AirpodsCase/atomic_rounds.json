@@ -1,0 +1,1526 @@
+{
+  "rounds" : [
+    {
+      "actions" : [
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "CH"
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 0,
+      "sourceText" : "CH 12",
+      "title" : "Foundation Chain",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 12 produced stitches, but expanded to 0.",
+          "sourceText" : "CH 12"
+        }
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,",
+      "title" : "Set up for Round 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "increase",
+          "note" : "first stitch; 2 HTC in first stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 0,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "first stitch; 2 HTC in first stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 1,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "note" : "each of the next 8 stitches",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "the next stitch; 2HTC in the next stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 10,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "the next stitch; 2HTC in the next stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 11,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "the next stitch; 2 HTC in the next stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 12,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "the next stitch; 2 HTC in the next stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 13,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "note" : "each of the next 8 stitches",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "the last stitch; 2 HTC in the last stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 22,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "the last stitch; 2 HTC in the last stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 23,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "join",
+          "instruction" : "Join",
+          "note" : "to the 1st HTC",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 24
+        },
+        {
+          "actionTag" : "placeMarker",
+          "instruction" : "Place marker",
+          "note" : "beginning of your round",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 25
+        }
+      ],
+      "expectedProducedStitches" : 24,
+      "producedStitchCount" : 24,
+      "sourceText" : "Round 1: 2 HTC in first stitch, 1 HTC in each of the next 8 stitches, 2HTC in the next stitch, working in the other side of the chain, 2 HTC in the next stitch, 1HTC in each of the next 8 stitches, 2 HTC in the last stitch, join to the 1st HTC. You should have 24 stitches in total. Mark the beginning of your round with a stitch marker.",
+      "title" : "Round 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "HTC"
+        }
+      ],
+      "expectedProducedStitches" : 24,
+      "producedStitchCount" : 24,
+      "sourceText" : "1 HTC in each stitch all the way around (24)",
+      "title" : "Rounds 2-6",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet (use pattern abbreviation DC)",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "DC"
+        }
+      ],
+      "expectedProducedStitches" : 24,
+      "producedStitchCount" : 24,
+      "sourceText" : "Round 7: 1 DC in each stitch all the way around (24)",
+      "title" : "Round 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+      "title" : "Begin flap",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "DC",
+          "instruction" : "Double Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "DC"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "turn",
+          "instruction" : "Turn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 4
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "note" : "next stitch; in the next 10 stitches",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "turn",
+          "instruction" : "Turn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 17
+        }
+      ],
+      "expectedProducedStitches" : 10,
+      "producedStitchCount" : 12,
+      "sourceText" : "Row 1: 1DC, 1DC, CH 2, turn, 1 HTC in the next 10 stitches, CH 2, turn. (10)",
+      "title" : "Row 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 10 produced stitches, but expanded to 12.",
+          "sourceText" : "Row 1: 1DC, 1DC, CH 2, turn, 1 HTC in the next 10 stitches, CH 2, turn. (10)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "turn",
+          "instruction" : "Turn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 12
+        }
+      ],
+      "expectedProducedStitches" : 10,
+      "producedStitchCount" : 10,
+      "sourceText" : "1 HTC in each stitch all the way across, CH 2, turn (10)",
+      "title" : "Rows 2-9",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Now we will work our button hole.",
+      "title" : "Begin button hole",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "decrease",
+          "instruction" : "Half Treble Crochet 2 together",
+          "note" : "2HTCtog",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 0,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "skip",
+          "instruction" : "Skip",
+          "note" : "the next 2 stitches; skip the next 2 stitches",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 5
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "decrease",
+          "instruction" : "Half Treble Crochet 2 together",
+          "note" : "2HTCtog",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 8,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "CH",
+          "instruction" : "Chain",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "CH"
+        },
+        {
+          "actionTag" : "turn",
+          "instruction" : "Turn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 11
+        }
+      ],
+      "expectedProducedStitches" : 8,
+      "producedStitchCount" : 6,
+      "sourceText" : "Row 10: 2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+      "title" : "Row 10",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 8 produced stitches, but expanded to 6.",
+          "sourceText" : "Row 10: 2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "HTC",
+          "instruction" : "Half Treble Crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "HTC"
+        },
+        {
+          "actionTag" : "FO",
+          "instruction" : "Fasten Off.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 8
+        }
+      ],
+      "expectedProducedStitches" : 8,
+      "producedStitchCount" : 8,
+      "sourceText" : "Row 11: 1HTC in each stitch across, FO. (8)",
+      "title" : "Row 11",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "mr",
+          "instruction" : "Start with a magic ring",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Start with a magic ring,",
+      "title" : "Start",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "tr",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "tr"
+        },
+        {
+          "actionTag" : "joinYarn",
+          "instruction" : "Join yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 12
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 12,
+      "sourceText" : "Round 1: work 12 treble crochet, join. (12)",
+      "title" : "Round 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "slst"
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 0,
+      "sourceText" : "Round 2: SS into each stitch around (12)",
+      "title" : "Round 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 12 produced stitches, but expanded to 0.",
+          "sourceText" : "Round 2: SS into each stitch around (12)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "assembly",
+          "instruction" : "Line up and sew the button in place.",
+          "note" : "You can mark the position with a stitch marker.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place.",
+      "title" : "Sew button",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "custom",
+          "instruction" : "Weave in the ends.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Weave in the ends.",
+      "title" : "Weave in ends",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    }
+  ]
+}

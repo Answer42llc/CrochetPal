@@ -1,0 +1,789 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 12,
+              "instruction" : "Chain",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 12"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 12,
+      "sourceText" : "CH 12",
+      "title" : "Foundation Chain"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,",
+              "sourceText" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,"
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,"
+          }
+        ]
+      },
+      "sourceText" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,",
+      "title" : "Set up for Round 1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "2 HTC in first stitch",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "HTC",
+              "target" : "first stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "2 HTC in first stitch"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC",
+              "target" : "each of the next 8 stitches"
+            },
+            "repeat" : null,
+            "sourceText" : "1 HTC in each of the next 8 stitches"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "2HTC in the next stitch",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "HTC",
+              "target" : "the next stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "2HTC in the next stitch"
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "working in the other side of the chain",
+              "sourceText" : "working in the other side of the chain"
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "working in the other side of the chain"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "2 HTC in the next stitch",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "HTC",
+              "target" : "the next stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "2 HTC in the next stitch"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC",
+              "target" : "each of the next 8 stitches"
+            },
+            "repeat" : null,
+            "sourceText" : "1HTC in each of the next 8 stitches"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "2 HTC in the last stitch",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "HTC",
+              "target" : "the last stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "2 HTC in the last stitch"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "join",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "slst",
+              "target" : "to the 1st HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "join to the 1st HTC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "You should have 24 stitches in total.",
+              "sourceText" : "You should have 24 stitches in total."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "You should have 24 stitches in total."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "placeMarker",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "beginning of your round"
+            },
+            "repeat" : null,
+            "sourceText" : "Mark the beginning of your round with a stitch marker."
+          }
+        ]
+      },
+      "expectedProducedStitches" : 24,
+      "sourceText" : "Round 1: 2 HTC in first stitch, 1 HTC in each of the next 8 stitches, 2HTC in the next stitch, working in the other side of the chain, 2 HTC in the next stitch, 1HTC in each of the next 8 stitches, 2 HTC in the last stitch, join to the 1st HTC. You should have 24 stitches in total. Mark the beginning of your round with a stitch marker.",
+      "title" : "Round 1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 24,
+              "instruction" : "Half Treble Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "1 HTC in each stitch all the way around"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 24,
+      "sourceText" : "1 HTC in each stitch all the way around (24)",
+      "title" : "Rounds 2-6"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "DC",
+              "count" : 24,
+              "instruction" : "Double Crochet (use pattern abbreviation DC)",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "DC"
+            },
+            "repeat" : null,
+            "sourceText" : "1 DC in each stitch all the way around"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 24,
+      "sourceText" : "Round 7: 1 DC in each stitch all the way around (24)",
+      "title" : "Round 7"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+              "sourceText" : "Now we will begin to work the flap, from here on we will be working in rows back and forth."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Now we will begin to work the flap, from here on we will be working in rows back and forth."
+          }
+        ]
+      },
+      "sourceText" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+      "title" : "Begin flap"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "DC",
+              "count" : 1,
+              "instruction" : "Double Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "DC"
+            },
+            "repeat" : null,
+            "sourceText" : "1DC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "DC",
+              "count" : 1,
+              "instruction" : "Double Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "DC"
+            },
+            "repeat" : null,
+            "sourceText" : "1DC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 2,
+              "instruction" : "Chain",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 10,
+              "instruction" : "Half Treble Crochet",
+              "note" : "in the next 10 stitches",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC",
+              "target" : "next stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "1 HTC in the next 10 stitches"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 2,
+              "instruction" : "Chain",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 10,
+      "sourceText" : "Row 1: 1DC, 1DC, CH 2, turn, 1 HTC in the next 10 stitches, CH 2, turn. (10)",
+      "title" : "Row 1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 10,
+              "instruction" : "Half Treble Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "1 HTC in each stitch all the way across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 2,
+              "instruction" : "Chain",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 10,
+      "sourceText" : "1 HTC in each stitch all the way across, CH 2, turn (10)",
+      "title" : "Rows 2-9"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Now we will work our button hole.",
+              "sourceText" : "Now we will work our button hole."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Now we will work our button hole."
+          }
+        ]
+      },
+      "sourceText" : "Now we will work our button hole.",
+      "title" : "Begin button hole"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "instruction" : "Half Treble Crochet 2 together",
+              "note" : "2HTCtog",
+              "notePlacement" : "all",
+              "producedStitches" : 1,
+              "semantics" : "decrease",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "2HTCtog"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 1,
+              "instruction" : "Half Treble Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "1HTC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 1,
+              "instruction" : "Half Treble Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "1HTC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 2,
+              "instruction" : "Chain",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "skip",
+              "count" : 2,
+              "note" : "skip the next 2 stitches",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping",
+              "stitch" : "skip",
+              "target" : "the next 2 stitches"
+            },
+            "repeat" : null,
+            "sourceText" : "skip the next 2 stitches"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 1,
+              "instruction" : "Half Treble Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "1HTC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 1,
+              "instruction" : "Half Treble Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "1HTC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "instruction" : "Half Treble Crochet 2 together",
+              "note" : "2HTCtog",
+              "notePlacement" : "all",
+              "producedStitches" : 1,
+              "semantics" : "decrease",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "2HTCtog"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 2,
+              "instruction" : "Chain",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 8,
+      "sourceText" : "Row 10: 2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+      "title" : "Row 10"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "HTC",
+              "count" : 8,
+              "instruction" : "Half Treble Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "HTC"
+            },
+            "repeat" : null,
+            "sourceText" : "1HTC in each stitch across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "FO",
+              "count" : 1,
+              "instruction" : "Fasten Off.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "FO"
+            },
+            "repeat" : null,
+            "sourceText" : "FO"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 8,
+      "sourceText" : "Row 11: 1HTC in each stitch across, FO. (8)",
+      "title" : "Row 11"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "mr",
+              "count" : 1,
+              "instruction" : "Start with a magic ring",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "mr"
+            },
+            "repeat" : null,
+            "sourceText" : "Start with a magic ring,"
+          }
+        ]
+      },
+      "sourceText" : "Start with a magic ring,",
+      "title" : "Start"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "tr",
+              "count" : 12,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "tr"
+            },
+            "repeat" : null,
+            "sourceText" : "work 12 treble crochet"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "joinYarn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "join"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 12,
+      "sourceText" : "Round 1: work 12 treble crochet, join. (12)",
+      "title" : "Round 1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 12,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "slst"
+            },
+            "repeat" : null,
+            "sourceText" : "SS into each stitch around"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 12,
+      "sourceText" : "Round 2: SS into each stitch around (12)",
+      "title" : "Round 2"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "assembly",
+              "count" : 1,
+              "instruction" : "Line up and sew the button in place.",
+              "note" : "You can mark the position with a stitch marker.",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place."
+          }
+        ]
+      },
+      "sourceText" : "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place.",
+      "title" : "Sew button"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "custom",
+              "count" : 1,
+              "instruction" : "Weave in the ends.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Weave in the ends."
+          }
+        ]
+      },
+      "sourceText" : "Weave in the ends.",
+      "title" : "Weave in ends"
+    }
+  ]
+}

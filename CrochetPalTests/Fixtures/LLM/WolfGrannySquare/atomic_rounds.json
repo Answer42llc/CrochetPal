@@ -1,0 +1,2010 @@
+{
+  "rounds" : [
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Change to grey yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "mr",
+          "instruction" : "Make a magic ring",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 1
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "slst",
+          "instruction" : "Join with a slip stitch to the first single crochet",
+          "note" : "first sc",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 10
+        }
+      ],
+      "expectedProducedStitches" : 7,
+      "producedStitchCount" : 7,
+      "sourceText" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+      "title" : "Round 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "ch",
+          "instruction" : "chain stitch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "same stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "same stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Change color",
+          "note" : "Change to white yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 5
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "single crochet increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Change color",
+          "note" : "Change back to grey yarn on the final yarn over of the last single crochet",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 16
+        },
+        {
+          "actionTag" : "slst",
+          "instruction" : "slip stitch for joining to a different round",
+          "note" : "first sc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "slst"
+        }
+      ],
+      "producedStitchCount" : 14,
+      "sourceText" : "Ch1, sc inc in the same st, sc inc, change to white yarn: (sc inc)x5. Change back to grey yarn on the final yo of the last sc, and slst to the first sc.",
+      "title" : "Round 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1hdc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1hdc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "in the same st to complete the first hdc inc",
+          "note" : "same st",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "in the same st to complete the first hdc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 3,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Change color",
+          "note" : "Change to white yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 7
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 9,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 11,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 12,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 19,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 20,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 22,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 23,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Change color",
+          "note" : "Change back to grey yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 24
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "slst",
+          "instruction" : "to the top of the first ch2",
+          "note" : "top of the first ch2",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 26
+        }
+      ],
+      "producedStitchCount" : 22,
+      "sourceText" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc. Hdc inc, 1hdc; Change to white yarn: Hdc inc, 1hdc, hdc inc, (1sc, sc inc) repeat 2 times, hdc inc, 1hdc, hdc inc; Change back to grey yarn: 1hdc. Slst to the top of the first ch2.",
+      "title" : "Round 3",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "hdc",
+          "note" : "count as 1hdc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "same st; to complete the first hdc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 1,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "same st; to complete the first hdc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 3,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Change color",
+          "note" : "Change to white yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 9
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 25,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 26,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Change color",
+          "note" : "Change back to grey yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 31
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 32,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 33,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "slst",
+          "note" : "top of the first ch2",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 34,
+          "stitchTag" : "slst"
+        }
+      ],
+      "producedStitchCount" : 31,
+      "sourceText" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+      "title" : "Round 4",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "sourceText" : "Ch2 (count as 1hdc), 3hdc, (hdc inc)x3; Change to white yarn: 3hdc, 2sc, (sc inc, 4sc) repeat 2 times, sc inc, 2sc, 3hdc; Change back to grey yarn: (hdc inc)x3. Slst to the top of the first ch2, and fasten off.",
+      "title" : "Round 5",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "Ch2 (count as 1hdc)"
+        }
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "joinYarn",
+          "instruction" : "Join yarn",
+          "note" : "4th grey stitch from the right",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1dc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1dc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1dc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "same st; first dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "same st; first dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 20,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 29,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 30,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 31,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 32,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 33,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 34,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 35,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 36,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 37,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 38,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 39,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 40,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 41,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 42,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 43,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 44,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 45,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 46,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 47,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 48,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 49,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 50,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 51,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 52,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 53,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 54,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 55,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 56,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 57,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 58,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 59,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "increase",
+          "note" : "dc inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 60,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 61,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "hdc",
+          "note" : "top of the first ch3",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 62,
+          "stitchTag" : "hdc"
+        }
+      ],
+      "expectedProducedStitches" : 37,
+      "producedStitchCount" : 49,
+      "sourceText" : "Third loop only. With grey stitches on top, join new yarn to the 4th grey stitch from the right. Ch3 (count as 1dc), 1dc in the same st to complete the first dc inc, 8hdc, dc inc, ch3; [dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+      "title" : "Squaring",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 37 produced stitches, but expanded to 49.",
+          "sourceText" : "Third loop only. With grey stitches on top, join new yarn to the 4th grey stitch from the right. Ch3 (count as 1dc), 1dc in the same st to complete the first dc inc, 8hdc, dc inc, ch3; [dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3."
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1dc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1dc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "count as 1dc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "each st around",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "corner",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "corner",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "corner",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "corner",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "corner",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 31,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 32,
+          "stitchTag" : "dc"
+        }
+      ],
+      "producedStitchCount" : 18,
+      "sourceText" : "Ch3 (count as 1dc), 1dc in the same corner, 1dc in each st around, (2dc, ch3, 2dc) in each corner as you go. When you return to the starting corner, work (2dc, ch3), slst to the top of the first ch3, fasten off.",
+      "title" : "Border",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "joinYarn",
+          "instruction" : "Join yarn",
+          "note" : "4th grey stitch from the left; white yarn",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "pic",
+          "instruction" : "picot stitch",
+          "note" : "ch-1 pic",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "pic"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "slst",
+          "instruction" : "slip stitch for joining to a different round",
+          "note" : "next st",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 8
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Fasten off",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 9
+        }
+      ],
+      "producedStitchCount" : 3,
+      "sourceText" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+      "title" : "Inner Ear",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "joinYarn",
+          "instruction" : "Join grey yarn to the st immediately to the right of the inner ear join (the 5th grey st from the left)",
+          "note" : "the st immediately to the right of the inner ear join (the 5th grey st from the left)",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "skip",
+          "instruction" : "skip the initial ch",
+          "note" : "the initial ch",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 2
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "work in the TLO",
+          "note" : "TLO",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "work in the TLO",
+          "note" : "TLO",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work in the TLO",
+          "note" : "sc inc, TLO",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work in the TLO",
+          "note" : "sc inc, TLO",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "work in the TLO",
+          "note" : "TLO",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "work in the TLO",
+          "note" : "TLO",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "slst",
+          "note" : "the same grey st used for the inner ear's final slst",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "slst"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Fasten off",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 11
+        }
+      ],
+      "producedStitchCount" : 6,
+      "sourceText" : "Join grey yarn to the st immediately to the right of the inner ear join (the 5th grey st from the left), ch1. Now we crochet along the inner ear part and work in the TLO: sk the initial ch, 2sc, sc inc, 2sc, ch1. Slst in the same grey st used for the inner ear's final slst. Fasten off, and weave in your ends.",
+      "title" : "Ear Edge",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Repeat the ear instructions on the opposite side, leaving a 5-stitch for symmetry. (Join white yarn for the inner ear in the 3rd grey stitch from the right.)",
+      "title" : "Wolf's Right Ear",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "mr",
+          "instruction" : "Create a magic ring.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "These 2 chains count as 1 half double crochet.",
+          "note" : "count as 1hdc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "instruction" : "These 2 chains count as 1 half double crochet.",
+          "note" : "count as 1hdc",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "hdc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "slst",
+          "instruction" : "Join to the top of the first ch2.",
+          "note" : "top of the first ch2",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 12
+        }
+      ],
+      "expectedProducedStitches" : 10,
+      "producedStitchCount" : 9,
+      "sourceText" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+      "title" : "Round 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 10 produced stitches, but expanded to 9.",
+          "sourceText" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2."
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "ch",
+          "instruction" : "chain stitch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "single crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "single crochet",
+          "note" : "each st around",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "single crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "single crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "single crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "single crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "single crochet",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "slst",
+          "instruction" : "slip stitch for joining to a different round",
+          "note" : "to the first sc",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 8
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Fasten off",
+          "note" : "leave a long tail for attaching",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 9
+        }
+      ],
+      "expectedProducedStitches" : 8,
+      "producedStitchCount" : 7,
+      "sourceText" : "Ch1+1sc, 1sc in each st around, slst to the first sc. Fasten off, leave a long tail for attaching.",
+      "title" : "Round 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 8 produced stitches, but expanded to 7.",
+          "sourceText" : "Ch1+1sc, 1sc in each st around, slst to the first sc. Fasten off, leave a long tail for attaching."
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "assembly",
+          "instruction" : "Turn the muzzle over so the wrong side faces out. Position it on the lower center of the head and sew it firmly in place. You can add a small amount of stuffing before closing.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Turn the muzzle over so the wrong side faces out. Position it on the lower center of the head and sew it firmly in place. You can add a small amount of stuffing before closing.",
+      "title" : "Attach the Muzzle",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "assembly",
+          "instruction" : "Assembly",
+          "note" : "Stitch the nose on the muzzle.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Stitch the nose on the muzzle.",
+      "title" : "The Nose",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "assembly",
+          "instruction" : "Make two French knots for the eyes.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "assembly",
+          "instruction" : "Use pink yarn to stitch the blushes just below the eyes for a finished look.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 1
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+      "title" : "Eyes & Blushes",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    }
+  ]
+}

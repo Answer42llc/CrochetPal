@@ -1,0 +1,359 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly represent 114 chain stitches with the correct color note. The validation warning about produced stitch count is a system-level bookkeeping issue that does not affect the semantic correctness of the atomization. The instruction is fully and accurately captured.",
+      "rawInstruction" : "With off white, ch 114",
+      "roundTitle" : "Foundation Chain",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully preserve the instruction's meaning: 113 single crochets (starting in the 2nd chain from hook) are correctly expanded, followed by a chain and turn. No validation issues or expansion failures exist.",
+      "rawInstruction" : "1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+      "roundTitle" : "Row 1",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "specific count of single crochets",
+        "target 'each sc across'"
+      ],
+      "rationale" : "The atomic actions capture the color change, chain, and turn, but omit the core instruction '1 sc in each sc across' which implies a specific number of stitches (not just one). The atomization only lists one single crochet action, missing the repeated action across the row.",
+      "rawInstruction" : "1 sc in each sc across, changing to teal in the last sc. Ch 1, turn.",
+      "roundTitle" : "Row 2",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the instruction: a single crochet in each stitch across, followed by a chain 1 and a turn. The semantics are preserved exactly.",
+      "rawInstruction" : "1 sc in each sc across. Ch 1, turn.",
+      "roundTitle" : "Row 3",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the instruction: a single crochet in each stitch across, a color change in the last stitch, and a chain 1 and turn. No actionable meaning is lost or added.",
+      "rawInstruction" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+      "roundTitle" : "Row 4",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.75,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "repeat of the * to * pattern across the row"
+      ],
+      "rationale" : "The atomic actions correctly list the first sequence of 2 sc, one fpdc, a skip, and 2 sc, but they omit the crucial 'repeat from * to * across' instruction. This means the atomization only shows one instance of the repeat pattern, not the full row as instructed. The produced stitch count of 5 also suggests only one repeat was modeled, not the full row.",
+      "rawInstruction" : "1 sc in the first 2 sc,*fpdc around the next sc from 3 rows below (see reference image), then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+      "roundTitle" : "Row 5",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_target"
+      ],
+      "missingElements" : [
+        "single crochet for each stitch across (implied repetition)",
+        "color change specifically in the last single crochet"
+      ],
+      "rationale" : "The atomic actions include a single 'sc' action, a color change, a chain, and a turn. The source instruction '1 sc in each st across' implies a repeated single crochet action for every stitch in the previous row, but the atomization only lists one generic 'sc' action without the repetition or count. The color change action is present but its note 'last sc' is ambiguous as the target of the color change is not clearly tied to the last of the repeated single crochets. The chain and turn are correctly captured.",
+      "rawInstruction" : "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+      "roundTitle" : "Row 6",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the source instruction: a single crochet in each stitch across, followed by a chain 1 and a turn. No meaning is lost or added.",
+      "rawInstruction" : "1 sc in each sc across. Ch 1, turn.",
+      "roundTitle" : "Row 7",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error"
+      ],
+      "missingElements" : [
+        "single crochet across",
+        "color change in last stitch",
+        "chain 1",
+        "turn"
+      ],
+      "rationale" : "The validation error 'ir_invalid_operation_count' for 'Ch 1' indicates the IR failed to process the instruction, resulting in an empty atomic action list. No actionable crochet steps are represented.",
+      "rawInstruction" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+      "roundTitle" : "Row 8",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "repeat from * to * across"
+      ],
+      "rationale" : "The atomic actions correctly execute the first instance of the pattern (2 sc, fpdc, skip, 2 sc) and the final 'Ch 1, turn'. However, the instruction includes a repeat directive '* repeat from * to * across', which is not represented in the atomic actions. The actions only show one iteration of the pattern, omitting the required repetition across the row.",
+      "rawInstruction" : "1 sc in the first 2 sc,*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+      "roundTitle" : "Row 9",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error"
+      ],
+      "missingElements" : [
+        "single crochet across",
+        "color change to teal",
+        "chain 1",
+        "turn"
+      ],
+      "rationale" : "The validation error 'ir_invalid_operation_count' on 'Ch 1' prevented any atomic actions from being generated, resulting in a complete loss of the instruction's actionable meaning.",
+      "rawInstruction" : "1 sc in each sc across,changing to teal in the last sc. Ch 1, turn.",
+      "roundTitle" : "Row 10",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.8,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "multiple single crochets across the row",
+        "count for 'each sc across'"
+      ],
+      "rationale" : "The source instruction '1 sc in each sc across' implies performing a single crochet into every stitch of the previous row, which is multiple stitches. The atomic actions list only one 'sc' action, missing the repeated operation and the implied count. The 'ch 1, turn' part is correctly represented.",
+      "rawInstruction" : "1 sc in each sc across. Ch 1, turn.",
+      "roundTitle" : "Row 11",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the instruction: a series of single crochets across, a color change on the last stitch, and a chain 1 turn. The expansion of '1 sc in each sc across' into a single atomic action with a note is an acceptable normalization.",
+      "rawInstruction" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+      "roundTitle" : "Row 12",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "ch 1, turn"
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "repeat from * to * across"
+      ],
+      "rationale" : "The atomic actions correctly execute the first iteration of the repeat pattern but omit the crucial 'repeat from * to * across' instruction, which changes the row's length and pattern. The actions also include a final 'ch 1, turn' which is not present in the source instruction.",
+      "rawInstruction" : "1 sc in the first 2 sc,*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+      "roundTitle" : "Row 13",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a high-level directive to repeat a block of rows, not a specific set of stitch actions for a single round. The atomic actions are correctly empty, as the instruction is not directly actionable within a single round's context.",
+      "rawInstruction" : "Repeat Rows 6-13 until you have a total of 118 rows.",
+      "roundTitle" : "Repeat Rows 6-13",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.75,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "count for the row of sc"
+      ],
+      "rationale" : "The atomic actions include ch 1, turn, and a single sc, but the source instruction 'do one more row of sc' implies working multiple sc stitches across the entire row, not just one. The atomization incorrectly produces only one stitch, changing the meaning.",
+      "rawInstruction" : "Then ch 1, turn, and do one more row of sc.",
+      "roundTitle" : "Final Row",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a non-actionable finishing note. The atomic action correctly marks it as bookkeeping with no crochet steps.",
+      "rawInstruction" : "Weave in ends, then move on to the border.",
+      "roundTitle" : "Weave in ends",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "3 sc in each corner (only 1 sc per corner is represented)",
+        "guidance for placing 2 sc per colored row along the sides"
+      ],
+      "rationale" : "The atomic actions include a single sc for the blanket and a single sc for each corner, plus a join. The source instruction explicitly states 'Place 3 sc in each corner' (an increase), which is missing. The detailed tip about placing 2 sc per colored row along the sides is also not represented in the atomic actions, though it is a key part of the instruction for achieving an even edge.",
+      "rawInstruction" : "With off white, place one sc evenly around the entire blanket. Place 3 sc in each corner. *Tip: while working along the sides, place two sc for each colored row, so 2 sc per white row, 2 sc for each teal row, etc. This way you won't be adding unnecessary single crochets to the sides which could result in a wavy edge. Join with sl st to the first sc you made.",
+      "roundTitle" : "Round 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the bookkeeping instructions to fasten off white and change to teal.",
+      "rawInstruction" : "Finish off white, add teal.",
+      "roundTitle" : "Finish off white, add teal.",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.75,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "specific count for 'hdc in each st around'",
+        "explicit corner increase actions (3 hdc in each corner)"
+      ],
+      "rationale" : "The atomic actions include the chain 2, a generic hdc action, a slip stitch join, and bookkeeping for color changes. However, the crucial actionable details from the source are missing: the atomic actions do not specify how many stitches to work 'in each st around' (the base count), and the corner instruction 'placing 3 hdc in each corner' is not atomized into specific increase actions. The single generic hdc action does not capture the round's structure or the required increases.",
+      "rawInstruction" : "Ch 2, 1 hdc in each st around, placing 3 hdc in each corner. Join with a sl st to the first hdc. Finish off teal, add light blue.",
+      "roundTitle" : "Round 2",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+        "single sc actions labeled as corners"
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "3 sc in each corner"
+      ],
+      "rationale" : "The raw instruction specifies placing 3 sc in each corner, which is a corner increase. The atomic actions list only three individual sc actions with a corner note, which does not capture the increase (3 sc in one stitch) semantics. The count and operation type for corners are wrong.",
+      "rawInstruction" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+      "roundTitle" : "Round 3",
+      "verdict" : "partial_match"
+    }
+  ]
+}

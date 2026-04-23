@@ -13,6 +13,11 @@ final class ProjectRepository: ObservableObject {
     private let logger: ConsoleTraceLogger
     private let filename = "projects.json"
     private var watchSync: WatchSyncCoordinator?
+    /// Per-project monotonic counter. Each `setExecutionState` increments it; long-running
+    /// tasks capture the token they produced so their terminal state writes can be skipped
+    /// when a newer operation has already taken over the state (e.g. user-initiated
+    /// regenerate overtaking a background next-round prefetch).
+    private var executionStateTokens: [UUID: Int] = [:]
 
     init(
         importer: PatternImporting,
@@ -219,12 +224,12 @@ final class ProjectRepository: ObservableObject {
             return true
         }
 
-        setExecutionState(pendingState, for: projectID)
+        let token = setExecutionState(pendingState, for: projectID)
 
         do {
             let updates = try await importer.atomizeRounds(in: record.project, targets: targets)
             applyAtomizedUpdates(updates, to: projectID)
-            setExecutionState(.idle, for: projectID)
+            setExecutionStateIfCurrent(.idle, for: projectID, expectedToken: token)
             if prefetchNext {
                 startAutoParseOfNextRound(for: projectID)
             }
@@ -237,9 +242,9 @@ final class ProjectRepository: ObservableObject {
                 in: projectID,
                 pendingState: pendingState
             ) {
-                setExecutionState(.idle, for: projectID)
+                setExecutionStateIfCurrent(.idle, for: projectID, expectedToken: token)
             } else {
-                setExecutionState(.failed(message), for: projectID)
+                setExecutionStateIfCurrent(.failed(message), for: projectID, expectedToken: token)
             }
             return false
         }
@@ -363,9 +368,11 @@ final class ProjectRepository: ObservableObject {
         pushActiveSnapshot()
     }
 
-    /// Propagates atomization results to pending rounds that share the same
-    /// macroRepeatSourceIndex as newly atomized rounds. Only macro-repeat expanded
-    /// rounds (non-nil index) are eligible — regular rounds are never propagated.
+    /// Propagates atomization results to pending rounds that share both the same
+    /// macroRepeatGroupID and macroRepeatSourceIndex as newly atomized rounds. Only
+    /// expanded rounds (non-nil group + index, set by macro-repeat or range expansion)
+    /// are eligible — regular rounds are never propagated. Matching by groupID keeps
+    /// independent expansion groups isolated even when they share a sourceIndex value.
     private func propagateAtomizationToMatchingRounds(_ updates: [AtomizedRoundUpdate], in projectIndex: Int) {
         for update in updates {
             guard let partIndex = records[projectIndex].project.parts.firstIndex(where: { $0.id == update.reference.partID }),
@@ -374,7 +381,8 @@ final class ProjectRepository: ObservableObject {
             }
 
             let atomizedRound = records[projectIndex].project.parts[partIndex].rounds[roundIndex]
-            guard let sourceIndex = atomizedRound.macroRepeatSourceIndex else {
+            guard let sourceIndex = atomizedRound.macroRepeatSourceIndex,
+                  let groupID = atomizedRound.macroRepeatGroupID else {
                 continue
             }
 
@@ -382,6 +390,7 @@ final class ProjectRepository: ObservableObject {
                 for rIdx in records[projectIndex].project.parts[pIdx].rounds.indices {
                     let candidate = records[projectIndex].project.parts[pIdx].rounds[rIdx]
                     guard candidate.atomizationStatus == .pending,
+                          candidate.macroRepeatGroupID == groupID,
                           candidate.macroRepeatSourceIndex == sourceIndex else {
                         continue
                     }
@@ -431,7 +440,24 @@ final class ProjectRepository: ObservableObject {
         pushActiveSnapshot()
     }
 
-    private func setExecutionState(_ state: ProjectExecutionState, for projectID: UUID) {
+    @discardableResult
+    private func setExecutionState(_ state: ProjectExecutionState, for projectID: UUID) -> Int {
+        let nextToken = (executionStateTokens[projectID] ?? 0) &+ 1
+        executionStateTokens[projectID] = nextToken
+        executionStates[projectID] = state
+        pushActiveSnapshot()
+        return nextToken
+    }
+
+    /// Writes `state` only when `expectedToken` is still the latest token for `projectID`.
+    /// Used by `atomizeTargets` to ensure its terminal state write does not clobber a
+    /// newer operation that has already taken control of the project's state.
+    private func setExecutionStateIfCurrent(
+        _ state: ProjectExecutionState,
+        for projectID: UUID,
+        expectedToken: Int
+    ) {
+        guard executionStateTokens[projectID] == expectedToken else { return }
         executionStates[projectID] = state
         pushActiveSnapshot()
     }
@@ -453,7 +479,7 @@ final class ProjectRepository: ObservableObject {
         } else {
             records.insert(record, at: 0)
         }
-        executionStates[record.project.id] = .idle
+        setExecutionState(.idle, for: record.project.id)
         activeProjectID = record.project.id
         persist()
         pushActiveSnapshot()

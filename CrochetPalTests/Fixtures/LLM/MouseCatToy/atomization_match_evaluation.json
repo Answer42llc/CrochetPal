@@ -1,0 +1,296 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the instruction: a magic ring followed by six single crochets. The stitch count matches exactly.",
+      "rawInstruction" : "in a MR, sc 6. (6)",
+      "roundTitle" : "Round 1",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully expand the repeat pattern (sc, inc) three times into nine single crochet actions, correctly representing the increase semantics and producing the expected stitch count.",
+      "rawInstruction" : "(sc, inc) x3. (9)",
+      "roundTitle" : "Round 2",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding 'sc around' into nine single crochet actions, matching the expected stitch count.",
+      "rawInstruction" : "sc around. (9)",
+      "roundTitle" : "Round 3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand the repeat pattern (sc 2, inc) x3 into the sequence of 12 stitches: two single crochets followed by an increase, repeated three times. The total stitch count matches the expected 12.",
+      "rawInstruction" : "(sc 2, inc) x3. (12)",
+      "roundTitle" : "Round 4",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding 'sc around' into twelve single crochet actions, matching the expected stitch count.",
+      "rawInstruction" : "sc around. (12)",
+      "roundTitle" : "Round 5",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly implement the complex instruction. The sequence of stitches (sc, hdc, 2 dc, hdc, 3 sc, hdc, 2 dc, hdc, 6 sc) matches the source, with appropriate notes for 'both loops' and 'flo' where specified. The stitch count is correct.",
+      "rawInstruction" : "sc (both loops), in flo of next st (hdc, 2 dc, hdc) to form first ear, sc 3 (both loops), in flo of next st (hdc, 2 dc, hdc) to form second ear, sc 6 (both loops). (18)",
+      "roundTitle" : "Round 6",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+        "extra sc actions beyond specified counts"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_bookkeeping"
+      ],
+      "missingElements" : [
+        "explicit count for first sc (both loops)",
+        "bookkeeping for ear placement"
+      ],
+      "rationale" : "The atomic actions produce 12 sc total, matching the final count. However, the instruction specifies a sequence of grouped counts: 1 sc (both loops), 1 sc in blo (ear), 3 sc (both loops), 1 sc in blo (ear), 6 sc (both loops). The atomization incorrectly expands the first 'sc (both loops)' into 2 sc actions (sequence 0 and 2) and the final 'sc 6' into 7 sc actions (sequence 6-12), altering the specified grouping and stitch placement. The ear-bending notes are preserved but the precise stitch-by-stitch mapping is wrong.",
+      "rawInstruction" : "sc (both loops), bend first ear forward and sc in blo of st from round 5, sc 3 (both loops), bend second ear forward and sc in blo of st from round 5, sc 6 (both loops). (12)",
+      "roundTitle" : "Round 7",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "all stitch actions (sc and inc) for the repeat"
+      ],
+      "rationale" : "The validation error 'ir_invalid_operation_count' on 'inc' indicates the increase operation could not be parsed, resulting in zero atomic actions. The instruction's actionable meaning (18 stitches via repeated sc and increase) is completely missing.",
+      "rawInstruction" : "(sc, inc) x6. (18)",
+      "roundTitle" : "Round 8",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand 'sc around' into 18 single crochet actions, matching the target stitch count. The round summary indicates this pattern is repeated for two rounds, but the atomization correctly captures the single-round instruction.",
+      "rawInstruction" : "sc around. (18)",
+      "roundTitle" : "Rounds 9-10",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand the instruction's repeat pattern: five single crochets followed by two increase actions (representing one 'inc' each) repeated three times for a total of 21 stitches. All meaning is preserved.",
+      "rawInstruction" : "(sc 5, inc) x3. (21)",
+      "roundTitle" : "Round 11",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand the instruction 'sc around' into 21 single crochet actions, matching the target stitch count. The round summary indicates this pattern is repeated for two rounds, but the atomization correctly represents a single round's instruction.",
+      "rawInstruction" : "sc around. (21)",
+      "roundTitle" : "Rounds 12-13",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "extra single crochet actions",
+        "extra increase actions"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "extra_operation"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction '(sc 6, inc) x4' means to work a total of 4 groups, each group consisting of 6 single crochets and 1 increase (2 sc in one stitch). This yields 7 stitches per group, for a total of 28 stitches. The atomic actions list 32 stitches (24 sc actions and 8 increase actions), which is a different stitch count and pattern. The warning about target stitch count mismatch confirms the error.",
+      "rawInstruction" : "(sc 6, inc) x4. (24)",
+      "roundTitle" : "Round 14",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding 'sc around' into 24 single crochet actions, matching the expected stitch count.",
+      "rawInstruction" : "sc around. (24)",
+      "roundTitle" : "Rounds 15-17",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly implement the pattern '(sc 2, dec) x6' as a sequence of 18 stitches: six repeats of two single crochets followed by a decrease, matching the expected stitch count and semantics.",
+      "rawInstruction" : "(sc 2, dec) x6. (18)",
+      "roundTitle" : "Round 18",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly implement the pattern '(sc, dec) x6' as a sequence of 12 actions alternating sc and dec, matching the expected stitch count and meaning.",
+      "rawInstruction" : "(sc, dec) x6. (12)",
+      "roundTitle" : "Round 19",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose note for material preparation, not a crochet stitch action. The atomic result correctly marks it as a non-actionable bookkeeping step.",
+      "rawInstruction" : "Add catnip and stuffing.",
+      "roundTitle" : "Add catnip and stuffing",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly represent the instruction: three decreases, 15 chains, 14 single crochets across the chain (implied by 'starting in 2nd ch from hook sc across chs'), and three more decreases. The total stitch count matches the expected 20.",
+      "rawInstruction" : "dec 3, ch 15, starting in 2nd ch from hook sc across chs, dec 3. (20)",
+      "roundTitle" : "Round 20",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a bookkeeping and assembly directive. The atomic actions correctly capture this as 'fastenOff' and 'assembly' steps, preserving the meaning.",
+      "rawInstruction" : "Finish off and sew closed.",
+      "roundTitle" : "Finish off and sew closed",
+      "verdict" : "normalized_match"
+    }
+  ]
+}

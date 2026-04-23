@@ -1,0 +1,171 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Increase",
+      "term" : "Inc"
+    },
+    {
+      "definition" : "Stitch",
+      "term" : "St"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "Slst"
+    },
+    {
+      "definition" : "back loop only",
+      "term" : "BLO"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "FLO"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "Hook: 3mm",
+    "Yarn: Drops paris",
+    "Needle and thread for sewing eyes, nose..."
+  ],
+  "parts" : [
+    {
+      "name" : "Top case (Yellow)",
+      "rounds" : [
+        {
+          "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook",
+          "summary" : "Create a foundation chain of 11, turn, and start working into the second chain from the hook.",
+          "title" : "Foundation Chain"
+        },
+        {
+          "rawInstruction" : "9sc, 4sc in the next st, 8sc, 3sc the the last st ( 24)",
+          "summary" : "Work 9 single crochets, 4 single crochets in the next stitch, 8 single crochets, 3 single crochets in the last stitch.",
+          "targetStitchCount" : 24,
+          "title" : "1"
+        },
+        {
+          "rawInstruction" : "Inc, 8sc, 4inc, 8sc, 3inc (32)",
+          "summary" : "Increase, 8 single crochets, 4 increases, 8 single crochets, 3 increases.",
+          "targetStitchCount" : 32,
+          "title" : "2"
+        },
+        {
+          "rawInstruction" : "FLO 13sc, 2inc, 14sc, 2inc, 1sc (36)",
+          "summary" : "In the front loops only, work 13 single crochets, 2 increases, 14 single crochets, 2 increases, 1 single crochet.",
+          "targetStitchCount" : 36,
+          "title" : "3"
+        },
+        {
+          "rawInstruction" : "14sc, inc, 17sc, inc, 3sc (38)",
+          "summary" : "Work 14 single crochets, 1 increase, 17 single crochets, 1 increase, 3 single crochets.",
+          "targetStitchCount" : 38,
+          "title" : "4"
+        },
+        {
+          "rawInstruction" : "38sc (38)",
+          "summary" : "Work 38 single crochets around.",
+          "targetStitchCount" : 38,
+          "title" : "5"
+        },
+        {
+          "rawInstruction" : "Change white",
+          "summary" : "Change yarn color to white.",
+          "title" : "Change white"
+        },
+        {
+          "rangeEndNumber" : 9,
+          "rangeStartNumber" : 6,
+          "rawInstruction" : "38sc (38)",
+          "summary" : "Work 38 single crochets around for four rounds.",
+          "targetStitchCount" : 38,
+          "title" : "Rounds 6-9"
+        },
+        {
+          "rawInstruction" : "Finish, cut and hide the yarn.",
+          "summary" : "Finish off, cut the yarn, and weave in the end.",
+          "title" : "Finish, cut and hide the yarn."
+        }
+      ]
+    },
+    {
+      "name" : "Top case (White\/Join)",
+      "rounds" : [
+        {
+          "rawInstruction" : "Chain 11 and do the same with bottom case but R3 do not FLO.",
+          "summary" : "Create a foundation chain of 11 and work the same as the bottom case (yellow top case) but for round 3, do not work in the front loops only.",
+          "title" : "Foundation Chain"
+        },
+        {
+          "rangeEndNumber" : 7,
+          "rangeStartNumber" : 5,
+          "rawInstruction" : "38sc (38)",
+          "summary" : "Work 38 single crochets around for three rounds.",
+          "targetStitchCount" : 38,
+          "title" : "Rounds 5-7"
+        },
+        {
+          "rawInstruction" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step.",
+          "summary" : "Do not cut the yarn. Work 2 more single crochets, then prepare to join the two case pieces.",
+          "title" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step."
+        },
+        {
+          "rawInstruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+          "summary" : "Join the two case pieces using 10 slip stitches, working through the front loops of the top piece and the back loops of the bottom piece.",
+          "title" : "To join"
+        }
+      ]
+    },
+    {
+      "name" : "Ears",
+      "rounds" : [
+        {
+          "rawInstruction" : "7sc in MR,do not join, just tie MR",
+          "summary" : "Work 7 single crochets into a magic ring. Do not join in a round; just tighten the ring.",
+          "title" : "Foundation"
+        }
+      ]
+    },
+    {
+      "name" : "Arms",
+      "rounds" : [
+        {
+          "rawInstruction" : "5sc in MR (5)",
+          "summary" : "Work 5 single crochets into a magic ring.",
+          "targetStitchCount" : 5,
+          "title" : "1"
+        },
+        {
+          "rangeEndNumber" : 3,
+          "rangeStartNumber" : 2,
+          "rawInstruction" : "5sc (5)",
+          "summary" : "Work 5 single crochets around for two rounds.",
+          "targetStitchCount" : 5,
+          "title" : "Rounds 2-3"
+        },
+        {
+          "rawInstruction" : "Crochet on both side 2sc",
+          "summary" : "Work 2 single crochets on both sides of the piece.",
+          "title" : "Crochet on both side 2sc"
+        }
+      ]
+    },
+    {
+      "name" : "Assembly",
+      "rounds" : [
+        {
+          "rawInstruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+          "summary" : "Sew the ears, arms, nose, eyes, and cheeks onto the case to complete the project.",
+          "title" : "Sew all parts, nose, eyes and cheeks to finish."
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Huawei Freebuds Pro airpods case"
+}

@@ -1,0 +1,3130 @@
+{
+  "rounds" : [
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Make 46 (68).",
+      "title" : "Make 46 (68)",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "sourceText" : "Begin with a sliding loop.",
+      "title" : "Begin with a sliding loop.",
+      "validationIssues" : [
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got sliding loop).",
+          "severity" : "error",
+          "sourceText" : "Begin with a sliding loop."
+        }
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Join CC1",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "slSt",
+          "instruction" : "Sl st",
+          "note" : "top of beginning ch 3",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 23
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC1",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 24
+        }
+      ],
+      "expectedProducedStitches" : 15,
+      "producedStitchCount" : 11,
+      "sourceText" : "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "title" : "Rnd 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 15 produced stitches, but expanded to 11.",
+          "sourceText" : "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1."
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Join CC2 in any ch-2 sp.",
+          "note" : "any ch-2 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 31,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 32,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 33,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 34,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 35,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 36,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 37,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 38,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "slst",
+          "instruction" : "Slst",
+          "note" : "top of beginning ch 3",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 39
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC2.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 40
+        }
+      ],
+      "producedStitchCount" : 23,
+      "sourceText" : "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+      "title" : "Rnd 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Join CC1 in any ch-2 sp.",
+          "note" : "any ch-2 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 31,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 32,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 33,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 34,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 35,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 36,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 37,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 38,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 39,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 40,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 41,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 42,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 43,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 44,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 45,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 46,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 47,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 48,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 49,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 50,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 51,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 52,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 53,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 54,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "slst",
+          "note" : "top of beginning ch 3",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 55,
+          "stitchTag" : "sl st"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC1.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 56
+        }
+      ],
+      "producedStitchCount" : 35,
+      "sourceText" : "Join CC1 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "title" : "Rnd 3",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "sourceText" : "Join CC3 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice; rep from * twice more, join with sl st in top of beginning ch 3. Break CC3.",
+      "title" : "Rnd 4",
+      "validationIssues" : [
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got sl st).",
+          "severity" : "error",
+          "sourceText" : "join with sl st in top of beginning ch 3."
+        }
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "sourceText" : "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+      "title" : "Rnd 5",
+      "validationIssues" : [
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got sl st).",
+          "severity" : "error",
+          "sourceText" : "join with sl st in top of beginning ch 3"
+        }
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "weaveInEnds",
+          "instruction" : "Weave in ends.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Weave in ends.",
+      "title" : "Weave in ends.",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Make 14 (18).",
+      "title" : "Make 14 (18)",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "custom",
+          "instruction" : "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Begin with a sliding loop.",
+      "title" : "Begin with a sliding loop.",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "break",
+          "instruction" : "Break",
+          "note" : "CC1",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 14
+        }
+      ],
+      "producedStitchCount" : 7,
+      "sourceText" : "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 2, 3 dc in loop, ch 1, dc in loop. Break CC1.",
+      "title" : "Row 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Join CC2 in first ch-1 sp.",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Fasten off",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 23
+        }
+      ],
+      "producedStitchCount" : 13,
+      "sourceText" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "title" : "Row 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "joinYarn",
+          "instruction" : "Join CC1 in first ch-1 sp.",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC1.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 31
+        }
+      ],
+      "producedStitchCount" : 19,
+      "sourceText" : "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+      "title" : "Rnd 3",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "With RS still facing, join CC3 in first ch-1 sp.",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp; in same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp; in same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp; in same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp; in next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 31,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp; in next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 32,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 33,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp; in last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 34,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp; in last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 35,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp; in last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 36,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "last ch-1 sp; in last ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 37,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp; in last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 38,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC3.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 39
+        }
+      ],
+      "producedStitchCount" : 25,
+      "sourceText" : "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+      "title" : "Rnd 4",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "With RS still facing, join CC2 in first ch-1 sp.",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-2 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 31,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 32,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 33,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 34,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 35,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 36,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 37,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 38,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 39,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 40,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 41,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 42,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 43,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 44,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 45,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 46,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC2.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 47
+        }
+      ],
+      "producedStitchCount" : 31,
+      "sourceText" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "title" : "Rnd 5",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "weaveInEnds",
+          "instruction" : "Weave in ends.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Weave in ends.",
+      "title" : "Weave in ends.",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Make 2.",
+      "title" : "Make 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "slidingLoop",
+          "instruction" : "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Begin with a sliding loop.",
+      "title" : "Begin with a sliding loop.",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "counts as dc + ch 1 throughout",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "loop",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "breakYarn",
+          "instruction" : "Break yarn",
+          "note" : "CC1",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 9
+        }
+      ],
+      "producedStitchCount" : 4,
+      "sourceText" : "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 1, dc in loop. Break CC1.",
+      "title" : "Row 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Join CC2 in first ch-1 sp.",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC2.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 14
+        }
+      ],
+      "producedStitchCount" : 7,
+      "sourceText" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "title" : "Row 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Join CC1 in first ch-1 sp.",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Fasten off",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 18
+        }
+      ],
+      "producedStitchCount" : 10,
+      "sourceText" : "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+      "title" : "Rnd 3",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "changeColor",
+          "instruction" : "Join CC3 in first ch-1 sp.",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Break CC3.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 22
+        }
+      ],
+      "producedStitchCount" : 13,
+      "sourceText" : "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+      "title" : "Rnd 4",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "joinYarn",
+          "instruction" : "Join yarn",
+          "note" : "first ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "same ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "next ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "ch",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "last ch-1 sp",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Fasten off",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 26
+        }
+      ],
+      "producedStitchCount" : 16,
+      "sourceText" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "title" : "Rnd 5",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "custom",
+          "instruction" : "Weave in ends.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Weave in ends.",
+      "title" : "Weave in ends.",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    }
+  ]
+}

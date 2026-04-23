@@ -1,0 +1,345 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the instruction's meaning: creating a magic ring, working six single crochets into it, and closing the ring. The expansion of '6 sc' into six individual stitch actions is acceptable normalization.",
+      "rawInstruction" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "roundTitle" : "Rnd 1",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "6 extra increase actions"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "extra_operation"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction 'inc x 6' means perform 6 increases, resulting in 12 stitches. The atomic actions list 12 separate increase actions, which would double the stitch count incorrectly. This is a material change to the instruction's meaning.",
+      "rawInstruction" : "inc x 6 (12 sc)",
+      "roundTitle" : "Rnd 2",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly implement the pattern '2 sc, 2 inc, PM' repeated three times, producing 18 stitches. The expansion of 'inc' into two single crochets in the same stitch and the explicit placement of markers are acceptable normalizations.",
+      "rawInstruction" : "(2 sc, 2 inc, PM X 3 (18 sc)",
+      "roundTitle" : "Rnd 3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the repeat pattern (4 sc, 2 inc) x 3, producing 24 sc as specified. The 'Move Markers up as you go' is a prose-only finishing note correctly omitted from atomic actions. No validation issues or expansion failures.",
+      "rawInstruction" : "(4 sc, 2 inc) x 3 (24 sc).Move Markers up as you go.",
+      "roundTitle" : "Rnd 4",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the repeat pattern (7 sc, inc) three times, resulting in the specified 27 stitches. The meaning is preserved.",
+      "rawInstruction" : "(7 sc, inc) x 3 (27 sc)",
+      "roundTitle" : "Rnd 5",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "stitches to reach '1 sc before marker'",
+        "total stitch count of 33"
+      ],
+      "rationale" : "The atomic actions capture the increase pattern (inc x 2) and the three repeats, but they omit the crucial 'work to 1 sc before marker' step, which involves an unspecified number of single crochets. The atomization only produces 9 stitches (the increases), while the source expects 33 total stitches, indicating the missing sc operations are a significant omission.",
+      "rawInstruction" : "(Work to 1 sc before marker and inc x 2) x 3 (33 sc)",
+      "roundTitle" : "Rnd 6",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "Work stitches between markers"
+      ],
+      "rationale" : "The raw instruction 'Work to marker and inc in marked stitch' implies working stitches to reach the marker, then increasing in the marked stitch. The atomic actions correctly include 'workToMarker' and 'inc' for the marked stitch, but also include a second 'inc' after each marker without a corresponding 'work stitches' segment. This creates extra increases and omits the intended work between markers, leading to a significant stitch count mismatch (6 vs 36). The warning confirms the count is wrong.",
+      "rawInstruction" : "(Work to marker and inc in marked stitch) x 3 (36 sc)",
+      "roundTitle" : "Rnd 7",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a non-stitch bookkeeping step. The atomic action correctly captures it as a 'bookkeeping' assembly action with no meaningful omissions or extras.",
+      "rawInstruction" : "Using the tapestry needle, sew in the magic ring’s 6” tail.",
+      "roundTitle" : "Sew in magic ring tail",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "repetition of rounds 6 and 7",
+        "stitch production"
+      ],
+      "rationale" : "The raw instruction is a conditional repeat directive, but the atomic actions list is empty, producing zero stitches. The warning confirms a stitch count mismatch. The instruction is actionable but was not expanded.",
+      "rawInstruction" : "Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)",
+      "roundTitle" : "A cup – Repeat Rnds 6 & 7",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The instruction is a high-level directive to repeat previous rounds until a condition is met. It does not specify new, actionable crochet steps for this round. The atomization correctly leaves it non-actionable.",
+      "rawInstruction" : "Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc)",
+      "roundTitle" : "B cup – Repeat Rnds 6 & 7",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "specific stitch operations for Rnds 6 and 7"
+      ],
+      "rationale" : "The raw instruction is a repeat directive, but the atomic actions are only bookkeeping placeholders. The actionable meaning—the specific stitch operations of Rounds 6 and 7—is missing. The atomization fails to preserve the core crochet instruction.",
+      "rawInstruction" : "Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc)",
+      "roundTitle" : "C cup – Repeat Rnds 6 & 7",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only note describing a repeating pattern and a size condition, not a direct stitch sequence for this round. The atomic result correctly contains no actions, as the instruction is not directly executable.",
+      "rawInstruction" : "Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc)",
+      "roundTitle" : "D cup – Repeat Rnds 6 & 7",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a prose note describing a multi-round repeat and a target measurement or round count. It is not a single actionable round, so the correct atomization is an empty list of atomic actions.",
+      "rawInstruction" : "Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+      "roundTitle" : "DD cup – Repeat Rnds 6 & 7",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.75,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "second round of stitches"
+      ],
+      "rationale" : "The source instruction calls for working two complete rounds even (i.e., without increases) in the back loop only. The atomic actions only represent two single crochet stitches, which is insufficient for two rounds. The stitch type and back-loop-only detail are correct, but the count of actions is wrong, and the multi-round structure is missing.",
+      "rawInstruction" : "Work 2 rnds even through the back loop only.",
+      "roundTitle" : "Work 2 rnds even through back loop only",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a conditional prose note describing when to perform a crochet action, not an immediate actionable step. The atomic action correctly treats it as a custom bookkeeping note with no stitches produced, preserving its non-actionable nature.",
+      "rawInstruction" : "When the size is correct, the turning rows have been completed, and you’re ready to start decreasing, crochet until 1 sc before the first marker.",
+      "roundTitle" : "Crochet until 1 sc before first marker",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error"
+      ],
+      "missingElements" : [
+        "All stitch actions (invisible decreases, place marker, single crochets)"
+      ],
+      "rationale" : "The source instruction contains actionable crochet steps, but validation errors prevented any atomic actions from being generated, resulting in a complete loss of actionable meaning.",
+      "rawInstruction" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+      "roundTitle" : "Rnd 1",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "decrease sequence from Rnd 1"
+      ],
+      "rationale" : "The source instruction 'Repeat Rnd 1 until you have 15 sc left' is a conditional repeat of a previous round's pattern, but the atomic actions list is empty. The validation error indicates the repeat condition could not be processed, resulting in no actionable output. This omits the core crochet operation.",
+      "rawInstruction" : "Repeat Rnd 1 until you have 15 sc left.",
+      "roundTitle" : "Repeat Rnd 1 until 15 sc left",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action is a direct, semantically faithful representation of the source instruction. It is a bookkeeping step, correctly identified as non-actionable in terms of crochet stitches, and no meaning is lost or altered.",
+      "rawInstruction" : "Cut yarn leaving a 10” tail.",
+      "roundTitle" : "Cut yarn leaving 10” tail",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a finishing step, not a crochet action that produces stitches. The atomic action correctly marks it as a bookkeeping 'custom' action with no produced stitches, preserving its meaning.",
+      "rawInstruction" : "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+      "roundTitle" : "Weave through front loops of remaining 15 sc",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a prose-only note about stuffing and not closing a hole, containing no crochet stitches or structural actions. The atomic actions correctly left it non-actionable.",
+      "rawInstruction" : "Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen.",
+      "roundTitle" : "Add stuffing",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only finishing note about tucking a yarn tail, not a crochet operation that produces stitches. The atomic result correctly marks it as non-actionable bookkeeping.",
+      "rawInstruction" : "Tuck tail into Knocker so that filling can be adjusted as needed.",
+      "roundTitle" : "Tuck tail inside",
+      "verdict" : "not_actionable"
+    }
+  ]
+}

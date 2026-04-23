@@ -1,0 +1,102 @@
+You are here: Home
+/Crafts
+/Yarn
+/Crochet
+/Free Crochet Patterns
+/ Mary's Moment - Free Floral Crochet Square Pattern
+Welcome to the free pattern for Mary's Moment, a floral crochet square. The pattern includes round-by-round photos, as well as charts by Masako Kawahara.
+This design is a nod to the moment in Downton Abbey when Matthew proposes to Mary in the snow (Series 2, Episode 10). I feel like that was the moment we first glimpsed the softness beneath her guarded exterior. The floral element was inspired by a deep purple top she wore in one of the episodes - I am in love with that top and its crochet lace neckline!
+As you have probably noticed, I am a little obsessed with flowers and colour-change yarn at the moment. To that end, I have designed this motif so that the flower can be made without cutting the yarn or interrupting the flow of the colour change. It also works beautifully in a single colour or in multiple colours (as you will see in the photos for each round).
+This square joins my other two Downton-inspired designs: Daisy's Bouquet and Rose's Rebellion.
+I was so excited about this design that I shared an unpolished, written-only version of it with my newsletter subscribers a few weeks ago. Thank you to those precious souls who reached out with clarifying questions, suggestions, and photos of their squares. I appreciate your help and enthusiasm :)
+For this design, I used 8.5g of Yarnsmiths Pebble Haze Prints DK (2D350) for the Flower (Rounds 1 - 7) and 13.5g of Yarnsmiths Pebble Haze DK (2C010) for the background. I also used a 5mm crochet hook because I crochet tightly. My finished square is 20.5cm blocked and weighs 22g.
+This specific colourway of Pebble Haze Prints DK is a gorgeous slow-colour-change rainbow yarn. You may recognise this yarn as the one I used for the Hearts in my Little Love Notes blanket.
+Each Flower is different, with a colour gradient effect from the inside to the outside. I got 6 flowers from each full colour-repeat, and 17 from the entire 150g ball.
+I also made one with 20g of Scheepjes Stonewashed Flow XL (12) for the Flower (Rounds 1 - 7) and 32.5g of Scheepjes Stonewashed XL (841) for the background. I used a 5.5mm crochet hook for this one. My finished square is 24cm blocked and weighs 52.5g.
+This colourway of Stonewashed Flow XL is a gorgeous gradient of very light through medium pinks. It has a shorter colour-change, so as the rounds get bigger (and depending on how your colours fall), it may be more obvious that a colour-change has occurred somewhere in the round. I wanted to make more flowers in this colourway to show you how they change, but I'm afraid I got sidetracked by designing something specifically for shorter colour changes…
+More about that in another post :)
+Finally, I made one in Scheepjes Softfun for the photo tutorial below, using a 4mm hook. This one is 18.5cm blocked and weighs 21.7g. I will pop the colours I used for each round of this one at the bottom of this post.
+Mary's Moment (Free Crochet Square Pattern)
+The proposal in the snow…
+©Dedri Uys 2026. Charts by Masako Kawahara from Crochet_hmmm. All Rights Reserved.
+Information
+Resources
+Ravelry: Add this pattern to your Ravelry Queue
+Hashtag: #marysmomentcrochet
+Materials
+You can use any hook/yarn combination you are comfortable with. You can see some of the combinations I used (and how big they turned out) in the examples above.
+I suggest:
+4mm or 4.5mm crochet hook
+Double-knit yarn
+Abbreviations
+US Terminology
+Beg- Beginning
+Ch- Chain
+Dc- Double crochet
+FLO - Front loop only
+FP - Front post
+Hdc- Half-double crochet
+Rep - Repeat
+Sc - Single crochet
+SM - Stitch marker
+Sp/sps- Space/spaces
+St/sts- Stitch/stitches
+Tr- Treble crochet
+*- Repeat instructions between asterisks the number of times specified
+()- Repeat instructions between brackets the number of times specified.
+[] - Used to indicate stitches made into the same st/sp
+Chart Legend
+Special Stitches
+Extended double crochet (Edc)
+Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.
+Popcorn
+Make 5 dc in the indicated st/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.
+Instructions
+Round 1
+Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}
+Round 2
+Ch 2 (doesn't count as a st). Make a Popcorn in the same st as the sl st join. (Ch 2, make a Popcorn in the next st) 5 times. Ch 2, join to the top of the first Popcorn with a sl st. {6 Popcorns and 6 ch-2 sps}
+Round 3
+Ch 1 (doesn't count as a st). (FPhdc around the Popcorn, [hdc, 2 dc, ch 2, 2 dc, hdc] in the next ch-2 sp) 6 times. Join to the first FPhdc with a sl st. {12 hdc, 24 dc, 6 FPhdc, and 6 ch-2 sps}
+Round 4
+(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}
+Round 5
+If you are using a different colour for this round, you can start this round with a standing FPdc around the first FPhdc of the previous round. If you are using the same colour for this round, we are going to start the round with a 'fake' FPdc as follows:
+FPsc around the FPhdc {Photo 1}, ch 1 {Photo 2}. Inserting your hook from top to bottom into the FLO of the FPsc you just made {indicated with an arrow in Photo 2 and illustrated in Photo 3}, make a sc {Photo 4}. Mark the top of this sc with s SM.This counts as your first (fake) FPdc.
+(Ch 3, FPsc around the next Popcorn, ch 3, FPdc around the next FPhdc) 6 times, omitting the last FPdc on the last repeat. Join to the top of the first FPdc with a sl st and remove the SM if you used one. {6 FPsc, 6 FPdc, and 12 ch-3 sps}
+Round 6
+Ch 1 (doesn't count as a st). ([Sc, hdc, dc, ch 2, dc, hdc, sc] in the next ch-3 sp) 12 times. Join to the first sc with a sl st. {24 sc, 24 hdc, 24 dc, and 12 ch-2 sps}
+Round 7
+Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}
+Round 8
+Join your yarn by making a standing sc in the marked ch-2 sp from the previous round. Remove the SM. (Ch 6, sc in the next ch-2 sp) 12 times, omitting the last sc on the last repeat. Join to the first sc with a sl st. {12 sc and 12 ch-6 sps}
+Round 9
+Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends.
+Stitch Count per Side: 23 sts {7 sc, 4 hdc, 4 dc, 4 edc, and 4 tr, not including ch-2 corner sps}
+Round 10
+Join your yarn by making a standing hdc in any ch-2 corner sp. [Hdc, ch 2, 2 hdc] in the same ch-2 corner sp. This is your first corner made.
+(Hdc in the next 23 sts, [2 hdc, ch 2, 2 hdc] in the next ch-2 sp) 3 times, omitting the last corner on the last repeat. Join to the first hdc with a sl st. {27 hdc, not including ch-2 corner sps}
+Round 11
+Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made.
+*Skip the first (hidden) st, dc in the next 26 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. {30 dc, not including ch-2 corner sps}
+Round 12
+Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made.
+*Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends. {34 dc, not including ch-2 corner sps}
+Colours per Round Used in the Photo Tutorial
+Scheepjes Softfun (60% cotton/40% acrylic), 50g/140m/153yds
+Rounds 1 and 2 - Bumblebee (2634)
+Round 3 - Pumpkin (2651)
+Round 4 - Soft Coral (2636)
+Rounds 5 and 6 - Pink (2480)
+Round 7 - Hot Pink (2495)
+Rounds 8 and 9 - Apple (2516)
+Round 10 - Emerald (2605)
+Round 11 - Cool Blue (2603)
+Round 12 - Dark Turquoise (2511)
+I hope you enjoy making Mary's Moment. Whether you choose soft, romantic tones or something a little more unexpected, I would love to see your versions take shape.
+If you share your squares, please tag me so I can admire them (#lookatwhatimadedotnet and #marysmomentcrochet). It is always such a joy to see your creativity bring these designs to life.
+This square forms part of my growing Downton-inspired collection, alongside Daisy's Bouquet and Rose's Rebellion - each one capturing a moment, a mood, or a memory.
+You can find me on Facebook, Bloglovin, Pinterest, Twitter, or Instagram.
+Love,
+This blog post contains affiliate links. I only link to products I personally use or would use. All opinions are my own.
+Leave a Reply Cancel reply

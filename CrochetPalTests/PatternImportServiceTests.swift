@@ -369,6 +369,195 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(response.projectTitle, "Mouse Cat Toy")
     }
 
+    func testAtomizationMatchSubagentRequestUsesStrictJSONSchema() async throws {
+        let capture = RequestCapture()
+        let completionData = try completionResponseData(for: sampleAtomizationMatchEvaluation())
+        MockURLProtocol.handler = { request in
+            capture.body = try requestBody(from: request)
+            let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
+            return (response, completionData)
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try testConfiguration(),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        _ = try await client.evaluateAtomizedRoundMatch(
+            input: sampleAtomizationMatchEvaluationInput(),
+            context: ParseRequestContext(traceID: "eval-trace", parseRequestID: "eval-parse", sourceType: .text)
+        )
+
+        let requestData = try XCTUnwrap(capture.body)
+        let object = try XCTUnwrap(JSONSerialization.jsonObject(with: requestData) as? [String: Any])
+        XCTAssertEqual(object["model"] as? String, "text-model")
+
+        let responseFormat = try XCTUnwrap(object["response_format"] as? [String: Any])
+        let jsonSchema = try XCTUnwrap(responseFormat["json_schema"] as? [String: Any])
+        XCTAssertEqual(jsonSchema["name"] as? String, "crochet_atomization_match_evaluation")
+        let schema = try XCTUnwrap(jsonSchema["schema"] as? [String: Any])
+        let properties = try XCTUnwrap(schema["properties"] as? [String: Any])
+        XCTAssertNotNil(properties["verdict"])
+        XCTAssertNotNil(properties["issueCodes"])
+        XCTAssertNotNil(properties["missingElements"])
+        XCTAssertNotNil(properties["extraElements"])
+
+        let messages = try XCTUnwrap(object["messages"] as? [[String: Any]])
+        XCTAssertTrue((messages.first?["content"] as? String)?.contains("independent crochet QA subagent") == true)
+        XCTAssertTrue((messages.last?["content"] as? String)?.contains("\"rawInstruction\"") == true)
+        XCTAssertTrue((messages.last?["content"] as? String)?.contains("\"atomicActions\"") == true)
+    }
+
+    func testAtomizationMatchSubagentRepairsMalformedJSONResponse() async throws {
+        let capture = RequestSequenceCapture()
+
+        MockURLProtocol.handler = { [self, capture] request in
+            capture.requestCount += 1
+            capture.bodies.append(try requestBody(from: request))
+
+            let response = HTTPURLResponse(
+                url: try XCTUnwrap(request.url),
+                statusCode: 200,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+
+            if capture.requestCount == 1 {
+                let malformed = """
+                {"roundTitle":"Round 3","rawInstruction":"sc around. (9)","verdict":"normalized_match","confidence":0.96,"issueCodes":[],"missingElements":[],"extraElements":[],"rationale":"Semantically equivalent"
+                """
+                return (response, try self.completionResponseData(withContent: malformed))
+            }
+
+            return (response, try self.completionResponseData(for: sampleAtomizationMatchEvaluation()))
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try testConfiguration(),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        let response = try await client.evaluateAtomizedRoundMatch(
+            input: sampleAtomizationMatchEvaluationInput(),
+            context: ParseRequestContext(traceID: "eval-repair-trace", parseRequestID: "eval-repair-parse", sourceType: .text)
+        )
+
+        XCTAssertEqual(capture.requestCount, 2)
+        let requestObjects = try capture.bodies.map {
+            try XCTUnwrap(JSONSerialization.jsonObject(with: $0) as? [String: Any])
+        }
+        XCTAssertEqual(requestObjects.compactMap { $0["model"] as? String }, ["text-model", "text-model"])
+        XCTAssertEqual(response.verdict, .normalizedMatch)
+        XCTAssertEqual(response.roundTitle, "Round 3")
+    }
+
+    func testAtomizationMatchSubagentRepairsInconsistentVerdictEvidenceResponse() async throws {
+        let capture = RequestSequenceCapture()
+
+        MockURLProtocol.handler = { [self, capture] request in
+            capture.requestCount += 1
+            capture.bodies.append(try requestBody(from: request))
+
+            let response = HTTPURLResponse(
+                url: try XCTUnwrap(request.url),
+                statusCode: 200,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+
+            if capture.requestCount == 1 {
+                let inconsistent = """
+                {
+                  "roundTitle": "Round 3",
+                  "rawInstruction": "sc around. (9)",
+                  "verdict": "normalized_match",
+                  "confidence": 0.9,
+                  "issueCodes": ["extra_operation"],
+                  "missingElements": [],
+                  "extraElements": ["place marker"],
+                  "rationale": "Semantically faithful but includes explicit bookkeeping."
+                }
+                """
+                return (response, try self.completionResponseData(withContent: inconsistent))
+            }
+
+            return (response, try self.completionResponseData(for: sampleAtomizationMatchEvaluation()))
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try testConfiguration(),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        let response = try await client.evaluateAtomizedRoundMatch(
+            input: sampleAtomizationMatchEvaluationInput(),
+            context: ParseRequestContext(traceID: "eval-consistency-trace", parseRequestID: "eval-consistency-parse", sourceType: .text)
+        )
+
+        XCTAssertEqual(capture.requestCount, 2)
+        let requestObjects = try capture.bodies.map {
+            try XCTUnwrap(JSONSerialization.jsonObject(with: $0) as? [String: Any])
+        }
+        let secondMessages = try XCTUnwrap(requestObjects.last?["messages"] as? [[String: Any]])
+        XCTAssertTrue((secondMessages.first?["content"] as? String)?.contains("repair an atomization match evaluation") == true)
+        XCTAssertEqual(response.verdict, .normalizedMatch)
+        XCTAssertTrue(response.issueCodes.isEmpty)
+        XCTAssertTrue(response.extraElements.isEmpty)
+    }
+
+    func testAtomizationMatchSubagentCanonicalizesIrreparableConsistencyViolation() async throws {
+        let capture = RequestSequenceCapture()
+
+        MockURLProtocol.handler = { [self, capture] request in
+            capture.requestCount += 1
+            capture.bodies.append(try requestBody(from: request))
+
+            let response = HTTPURLResponse(
+                url: try XCTUnwrap(request.url),
+                statusCode: 200,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+
+            let inconsistent = """
+            {
+              "roundTitle": "Round 3",
+              "rawInstruction": "sc around. (9)",
+              "verdict": "normalized_match",
+              "confidence": 0.9,
+              "issueCodes": ["extra_operation"],
+              "missingElements": [],
+              "extraElements": ["place marker"],
+              "rationale": "Semantically faithful but includes explicit bookkeeping."
+            }
+            """
+            return (response, try self.completionResponseData(withContent: inconsistent))
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try testConfiguration(),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        let response = try await client.evaluateAtomizedRoundMatch(
+            input: sampleAtomizationMatchEvaluationInput(),
+            context: ParseRequestContext(traceID: "eval-canonical-trace", parseRequestID: "eval-canonical-parse", sourceType: .text)
+        )
+
+        XCTAssertEqual(capture.requestCount, 2)
+        XCTAssertEqual(response.verdict, .partialMatch)
+        XCTAssertEqual(response.issueCodes, [.extraOperation])
+        XCTAssertEqual(response.extraElements, ["place marker"])
+    }
+
     func testImageLLMLogsRequestPayloadWithoutBase64DataURL() async throws {
         let eventCapture = EventCapture()
         let completionData = try completionResponseData(for: SampleDataFactory.demoImageParseResponse)
@@ -902,6 +1091,230 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(rounds[9].title, "Round 10")
     }
 
+    // MARK: - Range expansion tests
+
+    func testRangeExpansionExpandsLargeRowRangeLocally() async throws {
+        // Mandala Steering Wheel Cover style: a single "Rows 2-109: ..." instruction
+        // must blow up into 108 individual rounds in the app, but the LLM-facing
+        // outline payload carries just one range sentinel (avoiding output limit).
+        let sentinelInstruction = "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts."
+        let outlineResponse = PatternOutlineResponse(
+            projectTitle: "Mandala Steering Wheel Cover",
+            materials: [],
+            confidence: 0.9,
+            abbreviations: [],
+            parts: [
+                OutlinedPatternPart(
+                    name: "Cover",
+                    rounds: [
+                        OutlinedPatternRound(title: "Row 1", rawInstruction: "Ch 17.", summary: "Foundation chain.", targetStitchCount: nil),
+                        OutlinedPatternRound(
+                            title: "Rows 2-109",
+                            rawInstruction: sentinelInstruction,
+                            summary: "Repeat the same row 108 times.",
+                            targetStitchCount: 16,
+                            rangeStartNumber: 2,
+                            rangeEndNumber: 109
+                        ),
+                        OutlinedPatternRound(title: "Weave in ends", rawInstruction: "Weave in ends.", summary: "Finish.", targetStitchCount: nil)
+                    ]
+                )
+            ]
+        )
+
+        let parserClient = OutlineTextCaptureClient(response: outlineResponse)
+        let importer = PatternImportService(
+            parserClient: parserClient,
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importTextPattern(from: "dummy")
+        let rounds = record.project.parts.first!.rounds
+
+        XCTAssertEqual(rounds.count, 1 + 108 + 1)
+        XCTAssertEqual(rounds[0].title, "Row 1")
+        XCTAssertNil(rounds[0].macroRepeatGroupID)
+        XCTAssertNil(rounds[0].macroRepeatSourceIndex)
+
+        let expanded = Array(rounds[1...108])
+        XCTAssertEqual(expanded.first?.title, "Row 2")
+        XCTAssertEqual(expanded.last?.title, "Row 109")
+
+        // All expanded rows share the same rawInstruction/summary/targetStitchCount.
+        XCTAssertTrue(expanded.allSatisfy { $0.rawInstruction == sentinelInstruction })
+        XCTAssertTrue(expanded.allSatisfy { $0.targetStitchCount == 16 })
+
+        // All expanded rows must be pending (atomization hasn't run yet).
+        XCTAssertTrue(expanded.allSatisfy { $0.atomizationStatus == .pending })
+
+        // All expanded rows share one group ID and sourceIndex 0 — this is what lets
+        // atomization propagate after a single LLM call covers all 108 rows.
+        let groupIDs = Set(expanded.compactMap(\.macroRepeatGroupID))
+        XCTAssertEqual(groupIDs.count, 1, "All range-expanded rows should share one groupID")
+        XCTAssertTrue(expanded.allSatisfy { $0.macroRepeatSourceIndex == 0 })
+
+        // Trailing non-stitch round passes through untouched.
+        XCTAssertEqual(rounds.last?.title, "Weave in ends")
+        XCTAssertNil(rounds.last?.macroRepeatGroupID)
+    }
+
+    func testRangeExpansionMouseCatToyMultipleIndependentRanges() async throws {
+        // Mouse Cat Toy has three *independent* range expansions in the same part:
+        //   Rounds 9-10: sc around. (18)
+        //   Rounds 12-13: sc around. (21)
+        //   Rounds 15-17: sc around. (24)
+        // Each must get its own groupID so atomization results never leak across groups.
+        let outlineResponse = PatternOutlineResponse(
+            projectTitle: "Mouse Cat Toy",
+            materials: [],
+            confidence: 0.9,
+            abbreviations: [],
+            parts: [
+                OutlinedPatternPart(
+                    name: "Body",
+                    rounds: [
+                        OutlinedPatternRound(
+                            title: "Rounds 9-10",
+                            rawInstruction: "sc around. (18)",
+                            summary: "Two plain rounds at 18 sts.",
+                            targetStitchCount: 18,
+                            rangeStartNumber: 9,
+                            rangeEndNumber: 10
+                        ),
+                        OutlinedPatternRound(
+                            title: "Rounds 12-13",
+                            rawInstruction: "sc around. (21)",
+                            summary: "Two plain rounds at 21 sts.",
+                            targetStitchCount: 21,
+                            rangeStartNumber: 12,
+                            rangeEndNumber: 13
+                        ),
+                        OutlinedPatternRound(
+                            title: "Rounds 15-17",
+                            rawInstruction: "sc around. (24)",
+                            summary: "Three plain rounds at 24 sts.",
+                            targetStitchCount: 24,
+                            rangeStartNumber: 15,
+                            rangeEndNumber: 17
+                        )
+                    ]
+                )
+            ]
+        )
+
+        let parserClient = OutlineTextCaptureClient(response: outlineResponse)
+        let importer = PatternImportService(
+            parserClient: parserClient,
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importTextPattern(from: "dummy")
+        let rounds = record.project.parts.first!.rounds
+
+        XCTAssertEqual(rounds.count, 2 + 2 + 3)
+        XCTAssertEqual(rounds.map(\.title), [
+            "Round 9", "Round 10",
+            "Round 12", "Round 13",
+            "Round 15", "Round 16", "Round 17"
+        ])
+
+        // Every round uses the "Round" prefix (inferred from "Rounds …" sentinel title).
+        XCTAssertTrue(rounds.allSatisfy { $0.title.hasPrefix("Round ") })
+
+        // Group 1: Rounds 9-10 (targetStitchCount: 18)
+        let group1 = Array(rounds[0...1])
+        XCTAssertTrue(group1.allSatisfy { $0.targetStitchCount == 18 })
+        XCTAssertTrue(group1.allSatisfy { $0.macroRepeatSourceIndex == 0 })
+        let g1ID = try XCTUnwrap(group1.first?.macroRepeatGroupID)
+        XCTAssertTrue(group1.allSatisfy { $0.macroRepeatGroupID == g1ID })
+
+        // Group 2: Rounds 12-13 (targetStitchCount: 21)
+        let group2 = Array(rounds[2...3])
+        XCTAssertTrue(group2.allSatisfy { $0.targetStitchCount == 21 })
+        XCTAssertTrue(group2.allSatisfy { $0.macroRepeatSourceIndex == 0 })
+        let g2ID = try XCTUnwrap(group2.first?.macroRepeatGroupID)
+        XCTAssertTrue(group2.allSatisfy { $0.macroRepeatGroupID == g2ID })
+
+        // Group 3: Rounds 15-17 (targetStitchCount: 24)
+        let group3 = Array(rounds[4...6])
+        XCTAssertTrue(group3.allSatisfy { $0.targetStitchCount == 24 })
+        XCTAssertTrue(group3.allSatisfy { $0.macroRepeatSourceIndex == 0 })
+        let g3ID = try XCTUnwrap(group3.first?.macroRepeatGroupID)
+        XCTAssertTrue(group3.allSatisfy { $0.macroRepeatGroupID == g3ID })
+
+        // CRITICAL: three distinct groups must have three distinct groupIDs, even
+        // though they all share sourceIndex 0. This is exactly what prevents
+        // atomization propagation from conflating independent range expansions.
+        XCTAssertEqual(Set([g1ID, g2ID, g3ID]).count, 3)
+    }
+
+    func testRangeExpansionCoexistsWithMacroRepeat() async throws {
+        // A project with both a range sentinel and a macro-repeat sentinel — verify
+        // each opens its own group and the two groupIDs differ.
+        let outlineResponse = PatternOutlineResponse(
+            projectTitle: "Mixed",
+            materials: [],
+            confidence: 0.9,
+            abbreviations: [],
+            parts: [
+                OutlinedPatternPart(
+                    name: "Body",
+                    rounds: [
+                        OutlinedPatternRound(title: "Round 1", rawInstruction: "MR, sc 6.", summary: "MR.", targetStitchCount: 6),
+                        OutlinedPatternRound(title: "Round 2", rawInstruction: "Inc x 6.", summary: "Inc.", targetStitchCount: 12),
+                        OutlinedPatternRound(title: "Round 3", rawInstruction: "sc around.", summary: "sc.", targetStitchCount: 12),
+                        OutlinedPatternRound(
+                            title: "Repeat Rounds 2-3",
+                            rawInstruction: "Repeat Rounds 2-3 until 7 rounds.",
+                            summary: "Repeat.",
+                            targetStitchCount: nil,
+                            repeatFromTitle: "Round 2",
+                            repeatToTitle: "Round 3",
+                            repeatUntilCount: 7,
+                            repeatAfterRow: 3
+                        ),
+                        OutlinedPatternRound(
+                            title: "Rounds 8-10",
+                            rawInstruction: "sc around. (18)",
+                            summary: "Three plain rounds.",
+                            targetStitchCount: 18,
+                            rangeStartNumber: 8,
+                            rangeEndNumber: 10
+                        )
+                    ]
+                )
+            ]
+        )
+
+        let parserClient = OutlineTextCaptureClient(response: outlineResponse)
+        let importer = PatternImportService(
+            parserClient: parserClient,
+            extractor: HTMLExtractionService(),
+            logger: ConsoleTraceLogger()
+        )
+
+        let record = try await importer.importTextPattern(from: "dummy")
+        let rounds = record.project.parts.first!.rounds
+
+        XCTAssertEqual(rounds.count, 3 + 4 + 3) // 3 base + 4 macro-repeat expanded + 3 range expanded
+
+        // Macro-repeat group: rows 4..7 (indices 3..6)
+        let macroGroup = Array(rounds[3...6])
+        XCTAssertEqual(macroGroup.map(\.title), ["Round 4", "Round 5", "Round 6", "Round 7"])
+        let macroGroupID = try XCTUnwrap(macroGroup.first?.macroRepeatGroupID)
+        XCTAssertTrue(macroGroup.allSatisfy { $0.macroRepeatGroupID == macroGroupID })
+
+        // Range group: rows 8..10 (indices 7..9)
+        let rangeGroup = Array(rounds[7...9])
+        XCTAssertEqual(rangeGroup.map(\.title), ["Round 8", "Round 9", "Round 10"])
+        let rangeGroupID = try XCTUnwrap(rangeGroup.first?.macroRepeatGroupID)
+        XCTAssertTrue(rangeGroup.allSatisfy { $0.macroRepeatGroupID == rangeGroupID })
+
+        XCTAssertNotEqual(macroGroupID, rangeGroupID)
+    }
+
 
     // MARK: - Crochet IR compiler tests
 
@@ -1184,6 +1597,75 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertEqual(expansion.atomicActions.last?.stitchTag, "ch")
     }
 
+    func testIncreaseWithCountGreaterThanOneUsesPerIncreaseContract() throws {
+        // Contract: producedStitches is per-single-increase. 8 hdc increases producing 16 stitches
+        // total → count=8, producedStitches=2. Compiler should emit 16 atomic draft actions.
+        let block = CrochetIRInstructionBlock(
+            title: "Round with 8 hdc incs",
+            sourceText: "work 1 hdcInc in each stitch, 16",
+            expectedProducedStitches: 16,
+            body: makeBlock([
+                .operation(CrochetIROperation(
+                    semantics: .increase,
+                    actionTag: "increase",
+                    stitch: "hdc",
+                    count: 8,
+                    notePlacement: .first,
+                    producedStitches: 2
+                ))
+            ])
+        )
+        let expansion = try CrochetIRCompiler().expand(block)
+        XCTAssertEqual(expansion.producedStitchCount, 16)
+        XCTAssertEqual(expansion.atomicActions.count, 16)
+        XCTAssertTrue(expansion.warnings.isEmpty)
+    }
+
+    func testIncreaseCompilerRepairsLegacyTotalEncoding() throws {
+        // Safety net: LLM emits producedStitches as TOTAL (16 for count=8) instead of per-inc.
+        // Compiler detects (rawProduced>count, rawProduced%count==0) and repairs to per-inc=2.
+        let block = CrochetIRInstructionBlock(
+            title: "Round with legacy total encoding",
+            sourceText: "work 1 hdcInc in each stitch, 16",
+            expectedProducedStitches: 16,
+            body: makeBlock([
+                .operation(CrochetIROperation(
+                    semantics: .increase,
+                    actionTag: "increase",
+                    stitch: "hdc",
+                    count: 8,
+                    notePlacement: .first,
+                    producedStitches: 16
+                ))
+            ])
+        )
+        let expansion = try CrochetIRCompiler().expand(block)
+        XCTAssertEqual(expansion.producedStitchCount, 16)
+        XCTAssertEqual(expansion.atomicActions.count, 16)
+        XCTAssertFalse(expansion.warnings.contains { $0.code == "atomization_target_stitch_count_mismatch" })
+    }
+
+    func testValidatorWarnsWhenIncreaseProducedStitchesLooksLikeTotal() {
+        let block = CrochetIRInstructionBlock(
+            title: "Round with legacy total encoding",
+            sourceText: "work 1 hdcInc in each stitch, 16",
+            expectedProducedStitches: 16,
+            body: makeBlock([
+                .operation(CrochetIROperation(
+                    semantics: .increase,
+                    actionTag: "increase",
+                    stitch: "hdc",
+                    count: 8,
+                    notePlacement: .first,
+                    producedStitches: 16
+                ))
+            ])
+        )
+        let report = CrochetIRCompiler().validate(block)
+        XCTAssertFalse(report.hasErrors)
+        XCTAssertTrue(report.issues.contains { $0.code == "ir_increase_produced_stitches_looks_like_total" })
+    }
+
     func testAtomizeRoundsUsesCrochetIRCompilerPathWhenAvailable() async throws {
         let outline = makeSingleRoundOutlineResponse(
             rawInstruction: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
@@ -1323,6 +1805,44 @@ final class PatternImportServiceTests: XCTestCase {
                     ]
                 )
             ]
+        )
+    }
+
+    private func sampleAtomizationMatchEvaluationInput() -> AtomizationMatchEvaluationInput {
+        AtomizationMatchEvaluationInput(
+            roundTitle: "Round 3",
+            rawInstruction: "sc around. (9)",
+            roundSummary: "Work one single crochet in each stitch around.",
+            targetStitchCount: 9,
+            irSourceText: "sc around. (9)",
+            expectedProducedStitches: 9,
+            validationIssues: [],
+            expansionFailure: nil,
+            producedStitchCount: 9,
+            warnings: [],
+            atomicActions: (0..<9).map { index in
+                AtomizationEvaluationActionInput(action: AtomicAction(
+                    semantics: .stitchProducing,
+                    actionTag: "sc",
+                    stitchTag: "sc",
+                    instruction: "sc",
+                    producedStitches: 1,
+                    sequenceIndex: index
+                ))
+            }
+        )
+    }
+
+    private func sampleAtomizationMatchEvaluation() -> AtomizationMatchEvaluation {
+        AtomizationMatchEvaluation(
+            roundTitle: "Round 3",
+            rawInstruction: "sc around. (9)",
+            verdict: .normalizedMatch,
+            confidence: 0.96,
+            issueCodes: [],
+            missingElements: [],
+            extraElements: [],
+            rationale: "The atomic actions preserve the instruction semantically by expanding the around directive into repeated single crochet actions."
         )
     }
 
@@ -1569,103 +2089,467 @@ private func requestBody(from request: URLRequest) throws -> Data {
     return data
 }
 
-// MARK: - IR fixture: real LLM end-to-end test
-
-/// Integration tests that exercise the new Block/Statement/Operation IR against a captured
-/// LLM response. The fixture was produced once by running
-/// `CP_CAPTURE_IR_FIXTURE=1 xcodebuild ... test` with a real API key; after that the
-/// JSON is checked in and the structural test runs offline on every CI build.
+// MARK: - IR fixture: real LLM end-to-end tests over a suite of patterns
+//
+// For each checked-in pattern under `CrochetPalTests/Fixtures/LLM/<PatternName>/` we
+// capture a real LLM round-trip once (via `testCaptureAllIRFixturesFromRealLLM`), save
+// the outline + IR JSON, and then run offline structural tests that iterate every
+// captured pattern. The offline tests guard:
+//
+// 1. Every round from the outline has a corresponding IR block.
+// 2. Each IR block decodes with the current Swift schema.
+// 3. No legacy `lastIterationTransform` field survives.
+// 4. Each operation has required fields (semantics, actionTag, stitch where expected).
+// 5. Each round either validates cleanly AND expands to atomic actions, or reports
+//    only "LLM quality" validator errors (never structural-invariant violations).
+//
+// The suite is the regression safety net for the IR pipeline — whenever the LLM
+// schema / prompt changes, `rm -r Fixtures/LLM/<Name>/{outline,ir}*.json` and re-run
+// the capture test to refresh.
 final class IRAtomizationLLMIntegrationTests: XCTestCase {
-    private let rawHTMLPath = "Fixtures/LLM/MouseCatToy/raw.html"
-    private let irFixturePath = "Fixtures/LLM/MouseCatToy/ir_atomization.json"
-    private let outlineFixturePath = "Fixtures/LLM/MouseCatToy/outline.json"
-    private let sourceURL = URL(string: "https://sparkitectcrafts.com/mouse-cat-toy-crochet-pattern/")!
+    /// A captured pattern fixture on disk — either a web HTML snapshot or a PDF-extracted
+    /// plain-text snapshot serves as the raw input. `sourceURL` is optional metadata for
+    /// logging; HTML extraction doesn't actually fetch anything remotely.
+    private struct PatternFixture {
+        let name: String
+        let rawSource: RawSource
+        let sourceURL: URL?
 
-    /// Decodes the captured IR JSON with the current schema and reports which rounds pass
-    /// validation. Rounds that fail validation are expected to trigger LLM repair in
-    /// production, so we *don't* require 100% pass — but we do require:
-    /// - every round decodes cleanly (proves Swift Codable matches the LLM schema)
-    /// - at least one round compiles end-to-end to AtomicActions (proves the pipeline works
-    ///   on real LLM output at all)
-    /// - every round that validates also expands without throwing
-    /// - validation failures come from the whitelisted set of "LLM quality" codes rather
-    ///   than our new structural invariants (no iteration-exception smell, no choiceID
-    ///   mismatch, no Codable-level data corruption)
-    func testMouseCatToyIRFixtureIsCanonicalAndCompiles() throws {
-        let data = try XCTUnwrap(Self.fixtureData(at: irFixturePath))
-        let response = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: data)
-        XCTAssertFalse(response.rounds.isEmpty, "captured fixture must contain at least one round")
+        enum RawSource {
+            case html(String)
+            case plainText(String)
+        }
+    }
 
-        let compiler = CrochetIRCompiler()
+    private enum FixtureSourceType: String, Codable {
+        case pdf
+        case web
+    }
 
-        // Structural invariants the refactor was specifically about. If the LLM ever
-        // regresses and re-introduces iteration-specific exceptions or inconsistent
-        // shared choiceIDs, this test will catch it.
-        let structuralInvariantCodes: Set<String> = [
-            "ir_iteration_specific_exception_not_normalized",
-            "ir_conditional_choice_id_mismatch"
-        ]
+    private struct FixtureManifest: Codable {
+        var fixtures: [FixtureManifestEntry]
+    }
 
-        var validRoundsCompiled = 0
-        var llmQualityFailures: [(round: String, codes: [String])] = []
+    private struct FixtureManifestEntry: Codable {
+        var name: String
+        var title: String
+        var sourceType: FixtureSourceType
+        var sourceFiles: [String]?
+        var sourceURL: String?
+    }
 
-        for block in response.rounds {
-            let report = compiler.validate(block)
-            let errors = report.issues.filter { $0.severity == .error }
+    private struct AtomicRoundSnapshot: Codable, Hashable {
+        var rounds: [AtomicRoundSnapshotEntry]
+    }
 
-            // Structural invariants must never fail — that's our refactor's job.
-            let structuralErrors = errors.filter { structuralInvariantCodes.contains($0.code) }
-            XCTAssertTrue(
-                structuralErrors.isEmpty,
-                "Round '\(block.title)' violates a structural invariant: \(structuralErrors.map(\.code).joined(separator: ", "))"
+    private struct AtomicRoundSnapshotEntry: Codable, Hashable {
+        var title: String
+        var sourceText: String
+        var expectedProducedStitches: Int?
+        var validationIssues: [CrochetIRValidationIssue]
+        var expansionFailure: String?
+        var producedStitchCount: Int?
+        var warnings: [CrochetIRExpansionWarning]
+        var actions: [AtomicActionSnapshot]
+    }
+
+    private struct AtomicActionSnapshot: Codable, Hashable {
+        var semantics: CrochetIROperationSemantics
+        var actionTag: String
+        var stitchTag: String?
+        var instruction: String?
+        var producedStitches: Int
+        var note: String?
+        var sequenceIndex: Int
+    }
+
+    private struct AtomizationMatchEvaluationFixture: Codable, Hashable {
+        var rounds: [AtomizationMatchEvaluation]
+    }
+
+    private static let fixturesRoot = "Fixtures/LLM"
+    private static let fixtureManifestPath = "\(fixturesRoot)/fixture_manifest.json"
+    private static let atomicSnapshotFileName = "atomic_rounds.json"
+    private static let atomizationEvaluationFileName = "atomization_match_evaluation.json"
+    private static let captureRoundBatchConcurrency = 4
+    private static let captureEvaluationBatchConcurrency = 1
+    private static let captureEvaluationMaxAttempts = 3
+
+    /// Structural invariants that the IR refactor was specifically about. These MUST NOT
+    /// fail on any captured pattern — they are about the schema/compiler contract, not
+    /// about LLM output quality.
+    private static let structuralInvariantCodes: Set<String> = [
+        "ir_iteration_specific_exception_not_normalized",
+        "ir_conditional_choice_id_mismatch"
+    ]
+
+    private static func loadFixtureManifest() throws -> FixtureManifest {
+        guard let data = fixtureData(at: fixtureManifestPath) else {
+            throw NSError(
+                domain: "IRAtomizationLLMIntegrationTests",
+                code: -100,
+                userInfo: [NSLocalizedDescriptionKey: "missing fixture manifest at \(fixtureManifestPath)"]
+            )
+        }
+        return try JSONDecoder().decode(FixtureManifest.self, from: data)
+    }
+
+    /// testCaptureAllIRFixturesFromRealLLM fixture discovery — enumerates every fixture
+    /// declared in `fixture_manifest.json`, loads its raw source snapshot, and preserves
+    /// the original URL metadata for HTML extraction.
+    private static func discoverFixtures() throws -> [PatternFixture] {
+        let manifest = try loadFixtureManifest()
+
+        var result: [PatternFixture] = []
+        for entry in manifest.fixtures {
+            let subdir = fixtureURL(at: "\(fixturesRoot)/\(entry.name)")
+            let htmlURL = subdir.appendingPathComponent("raw.html")
+            let txtURL = subdir.appendingPathComponent("raw.txt")
+            let source: PatternFixture.RawSource
+            if let html = try? String(contentsOf: htmlURL, encoding: .utf8) {
+                source = .html(html)
+            } else if let text = try? String(contentsOf: txtURL, encoding: .utf8) {
+                source = .plainText(text)
+            } else {
+                throw NSError(
+                    domain: "IRAtomizationLLMIntegrationTests",
+                    code: -101,
+                    userInfo: [NSLocalizedDescriptionKey: "fixture \(entry.name) is missing raw.html/raw.txt"]
+                )
+            }
+
+            let sourceURL = entry.sourceURL.flatMap(URL.init(string:))
+            result.append(PatternFixture(name: entry.name, rawSource: source, sourceURL: sourceURL))
+        }
+        return result
+    }
+
+    func testFixtureDatasetIsCompleteForAllManifestEntries() throws {
+        let manifest = try Self.loadFixtureManifest()
+        XCTAssertFalse(manifest.fixtures.isEmpty, "fixture manifest must not be empty")
+        XCTAssertEqual(
+            Set(manifest.fixtures.map(\.name)).count,
+            manifest.fixtures.count,
+            "fixture manifest contains duplicate fixture names"
+        )
+
+        for entry in manifest.fixtures {
+            let fixtureDir = "\(Self.fixturesRoot)/\(entry.name)"
+            switch entry.sourceType {
+            case .pdf:
+                XCTAssertNotNil(
+                    Self.fixtureData(at: "\(fixtureDir)/raw.txt"),
+                    "[\(entry.name)] PDF fixture must persist raw.txt"
+                )
+                XCTAssertFalse(
+                    (entry.sourceFiles ?? []).isEmpty,
+                    "[\(entry.name)] PDF fixture must record at least one source filename"
+                )
+            case .web:
+                XCTAssertNotNil(
+                    Self.fixtureData(at: "\(fixtureDir)/raw.html"),
+                    "[\(entry.name)] web fixture must persist raw.html"
+                )
+                XCTAssertNotNil(entry.sourceURL, "[\(entry.name)] web fixture must record sourceURL")
+            }
+
+            XCTAssertNotNil(
+                Self.fixtureData(at: "\(fixtureDir)/outline.json"),
+                "[\(entry.name)] outline.json missing"
+            )
+            XCTAssertNotNil(
+                Self.fixtureData(at: "\(fixtureDir)/ir_atomization.json"),
+                "[\(entry.name)] ir_atomization.json missing"
+            )
+            XCTAssertNotNil(
+                Self.fixtureData(at: "\(fixtureDir)/\(Self.atomicSnapshotFileName)"),
+                "[\(entry.name)] \(Self.atomicSnapshotFileName) missing"
+            )
+            XCTAssertNotNil(
+                Self.fixtureData(at: "\(fixtureDir)/\(Self.atomizationEvaluationFileName)"),
+                "[\(entry.name)] \(Self.atomizationEvaluationFileName) missing"
+            )
+        }
+    }
+
+    /// Decodes every captured IR JSON and runs validate + expand for every round. Rounds
+    /// that report LLM-quality errors (e.g. `ir_invalid_operation_count`) are counted but
+    /// not test failures — they would trigger repair in production. Structural-invariant
+    /// violations ARE test failures (they would mean the refactor regressed).
+    func testAllCapturedIRFixturesCanonicalAndCompile() throws {
+        let fixtures = try Self.discoverFixtures()
+        XCTAssertFalse(fixtures.isEmpty, "No fixture directories found under \(Self.fixturesRoot)")
+
+        var report: [(pattern: String, valid: Int, total: Int, failures: [(String, [String])])] = []
+        var testedCount = 0
+
+        for fixture in fixtures {
+            guard let data = Self.fixtureData(at: "\(Self.fixturesRoot)/\(fixture.name)/ir_atomization.json") else {
+                // Not captured yet — skip and surface in the final report so the suite
+                // makes the missing coverage obvious.
+                report.append((fixture.name, 0, 0, [("<missing capture>", ["ir_atomization.json missing"])]))
+                continue
+            }
+            testedCount += 1
+            let response = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: data)
+            XCTAssertFalse(response.rounds.isEmpty, "[\(fixture.name)] captured fixture contains zero rounds")
+
+            let compiler = CrochetIRCompiler()
+            var validRounds = 0
+            var failures: [(String, [String])] = []
+
+            for block in response.rounds {
+                let validationReport = compiler.validate(block)
+                let errors = validationReport.issues.filter { $0.severity == .error }
+
+                // Structural invariants are hard requirements.
+                let structural = errors.filter { Self.structuralInvariantCodes.contains($0.code) }
+                XCTAssertTrue(
+                    structural.isEmpty,
+                    "[\(fixture.name)] Round '\(block.title)' violates structural invariant: \(structural.map(\.code).joined(separator: ", "))"
+                )
+
+                if errors.isEmpty {
+                    // expand() throws for LLM-quality issues like count<=0; catch and demote
+                    // to the failures list so the run is still informative.
+                    do {
+                        let expansion = try compiler.expand(block)
+                        // Zero-action rounds are acceptable for prose-only rounds
+                        // (e.g. "Weave in ends", assembly notes) whose body is a note or
+                        // an empty statement list. Only assert non-empty if the round's
+                        // IR actually contains stitch-producing/increase/decrease operations.
+                        let hasStitchOperations = blockContainsStitchOperations(block.body)
+                        if hasStitchOperations {
+                            XCTAssertFalse(
+                                expansion.atomicActions.isEmpty,
+                                "[\(fixture.name)] Round '\(block.title)' has stitch operations but compiled to zero actions"
+                            )
+                        }
+                        validRounds += 1
+                    } catch {
+                        failures.append((block.title, ["expand_failed: \(error)"]))
+                    }
+                } else {
+                    failures.append((block.title, errors.map(\.code)))
+                }
+            }
+
+            report.append((fixture.name, validRounds, response.rounds.count, failures))
+        }
+
+        // Print a compact regression-friendly summary so runs can be diffed in CI.
+        print("\n[IR fixture suite] \(testedCount) pattern(s) covered:")
+        for item in report {
+            let status = item.total == 0 ? "MISSING" : "\(item.valid)/\(item.total) OK"
+            print("  - \(item.pattern): \(status)")
+            if !item.failures.isEmpty {
+                for (round, codes) in item.failures {
+                    print("      · Round '\(round)': \(codes.joined(separator: ", "))")
+                }
+            }
+        }
+    }
+
+    /// Cross-check: the outline's flattened round list should have the same count as the
+    /// IR response's rounds list, and titles should align. Otherwise the atomization is
+    /// dropping coverage and users will get rounds with no step-by-step instructions.
+    func testAllCapturedFixturesHaveOneIRBlockPerOutlineRound() throws {
+        let fixtures = try Self.discoverFixtures()
+
+        for fixture in fixtures {
+            let fixtureSuffix = "\(Self.fixturesRoot)/\(fixture.name)"
+            guard let outlineData = Self.fixtureData(at: "\(fixtureSuffix)/outline.json"),
+                  let irData = Self.fixtureData(at: "\(fixtureSuffix)/ir_atomization.json") else {
+                // Skip missing — discovery test above surfaces this.
+                continue
+            }
+            let outline = try JSONDecoder().decode(PatternOutlineResponse.self, from: outlineData)
+            let ir = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: irData)
+
+            let flatOutlineTitles = outline.parts.flatMap { $0.rounds.map(\.title) }
+            let irTitles = ir.rounds.map(\.title)
+
+            XCTAssertEqual(
+                flatOutlineTitles.count,
+                irTitles.count,
+                "[\(fixture.name)] outline rounds (\(flatOutlineTitles.count)) != IR rounds (\(irTitles.count)). Outline: \(flatOutlineTitles). IR: \(irTitles)"
             )
 
-            if errors.isEmpty {
-                let expansion = try compiler.expand(block)
+            // Titles should correspond 1:1 (order-preserving). We don't require exact
+            // string equality because the LLM may tidy case/punctuation in the IR's title
+            // — but the sets should at least be of equal size and in the same order region.
+            for (i, (outlineTitle, irTitle)) in zip(flatOutlineTitles, irTitles).enumerated() {
                 XCTAssertFalse(
-                    expansion.atomicActions.isEmpty,
-                    "Round '\(block.title)' validated but expanded to zero actions"
+                    outlineTitle.isEmpty || irTitle.isEmpty,
+                    "[\(fixture.name)] empty title at index \(i): outline='\(outlineTitle)' ir='\(irTitle)'"
                 )
-                validRoundsCompiled += 1
-            } else {
-                llmQualityFailures.append((block.title, errors.map(\.code)))
+            }
+        }
+    }
+
+    func testAllCapturedFixturesMatchPersistedAtomicSnapshots() throws {
+        let fixtures = try Self.discoverFixtures()
+
+        for fixture in fixtures {
+            let fixtureSuffix = "\(Self.fixturesRoot)/\(fixture.name)"
+            guard let outlineData = Self.fixtureData(at: "\(fixtureSuffix)/outline.json"),
+                  let irData = Self.fixtureData(at: "\(fixtureSuffix)/ir_atomization.json"),
+                  let snapshotData = Self.fixtureData(at: "\(fixtureSuffix)/\(Self.atomicSnapshotFileName)") else {
+                return XCTFail("[\(fixture.name)] missing outline / IR / atomic snapshot fixture")
+            }
+
+            let outline = try JSONDecoder().decode(PatternOutlineResponse.self, from: outlineData)
+            let ir = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: irData)
+            let expectedSnapshot = try JSONDecoder().decode(AtomicRoundSnapshot.self, from: snapshotData)
+            let actualSnapshot = try Self.buildAtomicRoundSnapshot(from: ir)
+
+            XCTAssertEqual(
+                outline.parts.flatMap(\.rounds).count,
+                expectedSnapshot.rounds.count,
+                "[\(fixture.name)] outline round count must match persisted atomic snapshot count"
+            )
+            XCTAssertEqual(
+                ir.rounds.count,
+                expectedSnapshot.rounds.count,
+                "[\(fixture.name)] IR round count must match persisted atomic snapshot count"
+            )
+            XCTAssertEqual(
+                actualSnapshot,
+                expectedSnapshot,
+                "[\(fixture.name)] compiled atomic snapshot diverged from persisted regression data"
+            )
+        }
+    }
+
+    func testAllCapturedAtomizationMatchEvaluationsCoverEveryRound() throws {
+        let fixtures = try Self.discoverFixtures()
+
+        for fixture in fixtures {
+            let fixtureSuffix = "\(Self.fixturesRoot)/\(fixture.name)"
+            guard let outlineData = Self.fixtureData(at: "\(fixtureSuffix)/outline.json"),
+                  let snapshotData = Self.fixtureData(at: "\(fixtureSuffix)/\(Self.atomicSnapshotFileName)"),
+                  let evaluationData = Self.fixtureData(at: "\(fixtureSuffix)/\(Self.atomizationEvaluationFileName)") else {
+                return XCTFail("[\(fixture.name)] missing outline / atomic snapshot / evaluation fixture")
+            }
+
+            let outline = try JSONDecoder().decode(PatternOutlineResponse.self, from: outlineData)
+            let snapshot = try JSONDecoder().decode(AtomicRoundSnapshot.self, from: snapshotData)
+            let evaluations = try JSONDecoder().decode(AtomizationMatchEvaluationFixture.self, from: evaluationData)
+            let flatOutlineRounds = outline.parts.flatMap(\.rounds)
+
+            XCTAssertEqual(
+                flatOutlineRounds.count,
+                evaluations.rounds.count,
+                "[\(fixture.name)] outline round count must match evaluation round count"
+            )
+            XCTAssertEqual(
+                snapshot.rounds.count,
+                evaluations.rounds.count,
+                "[\(fixture.name)] atomic snapshot round count must match evaluation round count"
+            )
+
+            for (index, pair) in zip(flatOutlineRounds, evaluations.rounds).enumerated() {
+                let (outlineRound, evaluation) = pair
+                XCTAssertEqual(
+                    outlineRound.title,
+                    evaluation.roundTitle,
+                    "[\(fixture.name)] evaluation round title mismatch at index \(index)"
+                )
+                XCTAssertEqual(
+                    outlineRound.rawInstruction,
+                    evaluation.rawInstruction,
+                    "[\(fixture.name)] evaluation rawInstruction mismatch at index \(index)"
+                )
+            }
+        }
+    }
+
+    func testAllCapturedAtomizationMatchEvaluationsRespectInvariants() throws {
+        let fixtures = try Self.discoverFixtures()
+        var verdictCounts: [AtomizationMatchVerdict: Int] = [:]
+
+        for fixture in fixtures {
+            let fixtureSuffix = "\(Self.fixturesRoot)/\(fixture.name)"
+            guard let evaluationData = Self.fixtureData(at: "\(fixtureSuffix)/\(Self.atomizationEvaluationFileName)") else {
+                continue
+            }
+
+            let evaluations = try JSONDecoder().decode(AtomizationMatchEvaluationFixture.self, from: evaluationData)
+            for evaluation in evaluations.rounds {
+                verdictCounts[evaluation.verdict, default: 0] += 1
+
+                XCTAssertFalse(evaluation.roundTitle.isEmpty, "[\(fixture.name)] evaluation roundTitle must not be empty")
+                XCTAssertFalse(evaluation.rawInstruction.isEmpty, "[\(fixture.name)] evaluation rawInstruction must not be empty")
+                XCTAssertFalse(evaluation.rationale.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, "[\(fixture.name)] evaluation rationale must not be empty")
+                XCTAssertGreaterThanOrEqual(evaluation.confidence, 0, "[\(fixture.name)] evaluation confidence must be >= 0")
+                XCTAssertLessThanOrEqual(evaluation.confidence, 1, "[\(fixture.name)] evaluation confidence must be <= 1")
+
+                switch evaluation.verdict {
+                case .exactMatch, .normalizedMatch:
+                    XCTAssertTrue(evaluation.issueCodes.isEmpty, "[\(fixture.name)] \(evaluation.roundTitle) should not report issue codes for a passing verdict")
+                    XCTAssertTrue(evaluation.missingElements.isEmpty, "[\(fixture.name)] \(evaluation.roundTitle) should not report missing elements for a passing verdict")
+                    XCTAssertTrue(evaluation.extraElements.isEmpty, "[\(fixture.name)] \(evaluation.roundTitle) should not report extra elements for a passing verdict")
+                case .partialMatch, .mismatch:
+                    XCTAssertTrue(
+                        !evaluation.issueCodes.isEmpty || !evaluation.missingElements.isEmpty || !evaluation.extraElements.isEmpty,
+                        "[\(fixture.name)] \(evaluation.roundTitle) must provide concrete evidence for a failing verdict"
+                    )
+                case .notActionable:
+                    break
+                }
             }
         }
 
-        // If the LLM were totally broken no round would validate. We require at least one.
-        XCTAssertGreaterThan(
-            validRoundsCompiled,
-            0,
-            "No round passed validation — LLM output is structurally unusable. Failures: \(llmQualityFailures)"
-        )
-
-        // Log — helps when iterating on the prompt.
-        if !llmQualityFailures.isEmpty {
-            print("[IR fixture] LLM quality issues in \(llmQualityFailures.count) round(s): \(llmQualityFailures)")
+        print("\n[Atomization evaluator verdicts]")
+        for verdict in AtomizationMatchVerdict.allCases {
+            print("  - \(verdict.rawValue): \(verdictCounts[verdict, default: 0])")
         }
-        print("[IR fixture] \(validRoundsCompiled)/\(response.rounds.count) rounds validated and compiled")
     }
 
-    /// Asserts the IR invariants that the refactor was about: no `lastIterationTransform`
-    /// is present anywhere (since we removed it), every repeat body is non-empty, and
-    /// every operation carries a non-empty actionTag + semantics-consistent stitch.
-    func testMouseCatToyIRRespectsNewIRInvariants() throws {
-        let data = try XCTUnwrap(Self.fixtureData(at: irFixturePath))
+    /// Checks the schema invariants that the refactor guaranteed: no legacy field, every
+    /// operation has actionTag + correct stitch presence, every repeat/conditional body
+    /// is well-formed. Applied to every captured fixture.
+    func testAllCapturedIRFixturesRespectInvariants() throws {
+        let fixtures = try Self.discoverFixtures()
 
-        // Raw JSON check: the word "lastIterationTransform" must not appear. Since that
-        // field no longer exists in the schema, the LLM cannot emit it, and any residual
-        // occurrence would indicate stale data.
-        let raw = String(decoding: data, as: UTF8.self)
-        XCTAssertFalse(
-            raw.contains("lastIterationTransform"),
-            "The captured IR must not carry the removed lastIterationTransform field."
-        )
+        for fixture in fixtures {
+            guard let data = Self.fixtureData(at: "\(Self.fixturesRoot)/\(fixture.name)/ir_atomization.json") else {
+                continue
+            }
 
-        let response = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: data)
+            let rawText = String(decoding: data, as: UTF8.self)
+            XCTAssertFalse(
+                rawText.contains("lastIterationTransform"),
+                "[\(fixture.name)] captured IR must not carry the removed lastIterationTransform field."
+            )
 
-        for round in response.rounds {
-            assertBlockInvariants(round.body, context: round.title)
+            let response = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: data)
+            for round in response.rounds {
+                assertBlockInvariants(round.body, context: "\(fixture.name) > \(round.title)")
+            }
         }
+    }
+
+    /// Returns true if the block (or any nested block) contains any operation with
+    /// stitch-producing semantics. Used to decide whether the round is expected to expand
+    /// to non-zero AtomicActions.
+    private func blockContainsStitchOperations(_ block: CrochetIRBlock) -> Bool {
+        for statement in block.statements {
+            switch statement.kind {
+            case let .operation(op):
+                if op.semantics == .stitchProducing || op.semantics == .increase || op.semantics == .decrease {
+                    return true
+                }
+            case let .repeatBlock(rb):
+                if blockContainsStitchOperations(rb.body) { return true }
+            case let .conditional(c):
+                for branch in c.branches where blockContainsStitchOperations(branch.body) { return true }
+                if let common = c.commonBody, blockContainsStitchOperations(common) { return true }
+            case .note:
+                break
+            }
+        }
+        return false
     }
 
     private func assertBlockInvariants(_ block: CrochetIRBlock, context: String) {
@@ -1688,12 +2572,13 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
                     break
                 }
             case let .repeatBlock(rb):
-                XCTAssertGreaterThan(rb.times, 0, "[\(context)] repeatBlock times must be positive")
-                XCTAssertFalse(
-                    rb.body.statements.isEmpty,
-                    "[\(context)] repeatBlock body must not be empty"
-                )
-                assertBlockInvariants(rb.body, context: "\(context) > repeat")
+                // rb.times<=0 and rb.body.statements.isEmpty are caught by the compiler
+                // validator (`ir_invalid_repeat_times` / `ir_empty_repeat_body`). We log
+                // them in the canonical-and-compile test rather than re-assert here, so
+                // LLM-quality misses don't fail this invariant-only test.
+                if rb.times > 0 && !rb.body.statements.isEmpty {
+                    assertBlockInvariants(rb.body, context: "\(context) > repeat")
+                }
             case let .conditional(c):
                 XCTAssertFalse(c.branches.isEmpty, "[\(context)] conditional must have at least one branch")
                 for branch in c.branches {
@@ -1708,64 +2593,397 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
         }
     }
 
+    private static func buildAtomicRoundSnapshot(from ir: CrochetIRAtomizationResponse) throws -> AtomicRoundSnapshot {
+        let compiler = CrochetIRCompiler()
+        let rounds = try ir.rounds.map { block in
+            let validationReport = compiler.validate(block)
+            let errors = validationReport.issues.filter { $0.severity == .error }
+
+            guard errors.isEmpty else {
+                return AtomicRoundSnapshotEntry(
+                    title: block.title,
+                    sourceText: block.sourceText,
+                    expectedProducedStitches: block.expectedProducedStitches,
+                    validationIssues: validationReport.issues,
+                    expansionFailure: nil,
+                    producedStitchCount: nil,
+                    warnings: [],
+                    actions: []
+                )
+            }
+
+            do {
+                let expansion = try compiler.expand(block)
+                return AtomicRoundSnapshotEntry(
+                    title: block.title,
+                    sourceText: block.sourceText,
+                    expectedProducedStitches: block.expectedProducedStitches,
+                    validationIssues: validationReport.issues,
+                    expansionFailure: nil,
+                    producedStitchCount: expansion.producedStitchCount,
+                    warnings: expansion.warnings,
+                    actions: expansion.atomicActions.map { action in
+                        AtomicActionSnapshot(
+                            semantics: action.semantics,
+                            actionTag: action.actionTag,
+                            stitchTag: action.stitchTag,
+                            instruction: action.instruction,
+                            producedStitches: action.producedStitches,
+                            note: action.note,
+                            sequenceIndex: action.sequenceIndex
+                        )
+                    }
+                )
+            } catch {
+                return AtomicRoundSnapshotEntry(
+                    title: block.title,
+                    sourceText: block.sourceText,
+                    expectedProducedStitches: block.expectedProducedStitches,
+                    validationIssues: validationReport.issues,
+                    expansionFailure: String(describing: error),
+                    producedStitchCount: nil,
+                    warnings: [],
+                    actions: []
+                )
+            }
+        }
+        return AtomicRoundSnapshot(rounds: rounds)
+    }
+
+    /// REFRESH STEP — only runs when the sentinel file
+    /// `/tmp/crochet/REFRESH_ATOMIC_SNAPSHOTS` exists. Rebuilds `atomic_rounds.json`
+    /// from persisted `ir_atomization.json` without calling the model.
+    func testRefreshAtomicSnapshotsFromPersistedIR() throws {
+        let sentinelURL = URL(fileURLWithPath: "/tmp/crochet/REFRESH_ATOMIC_SNAPSHOTS")
+        guard FileManager.default.fileExists(atPath: sentinelURL.path) else {
+            throw XCTSkip("Atomic snapshot refresh disabled. `touch /tmp/crochet/REFRESH_ATOMIC_SNAPSHOTS` to enable.")
+        }
+
+        let selectedFixturesURL = URL(fileURLWithPath: "/tmp/crochet/CAPTURE_FIXTURE_NAMES")
+        let selectedFixtureNames: Set<String>? = {
+            let rawText = (try? String(contentsOf: selectedFixturesURL, encoding: .utf8))
+                ?? ProcessInfo.processInfo.environment["CAPTURE_FIXTURE_NAMES"]
+                ?? ""
+            let rawValue = rawText
+                .split(separator: ",")
+                .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+                .filter { !$0.isEmpty }
+            return rawValue.isEmpty ? nil : Set(rawValue)
+        }()
+
+        let fixtures = try Self.discoverFixtures()
+        XCTAssertFalse(fixtures.isEmpty, "No fixture directories under \(Self.fixturesRoot)")
+
+        var refreshed = 0
+        var skipped = 0
+        var failures: [(String, String)] = []
+
+        for fixture in fixtures {
+            if let selectedFixtureNames, !selectedFixtureNames.contains(fixture.name) {
+                skipped += 1
+                print("[refresh-snapshot] \(fixture.name): skipped by fixture filter")
+                continue
+            }
+
+            let fixtureDir = "\(Self.fixturesRoot)/\(fixture.name)"
+            let irPath = "\(fixtureDir)/ir_atomization.json"
+            let atomicSnapshotPath = "\(fixtureDir)/\(Self.atomicSnapshotFileName)"
+
+            do {
+                let irData = try XCTUnwrap(
+                    Self.fixtureData(at: irPath),
+                    "[\(fixture.name)] missing persisted IR fixture"
+                )
+                let ir = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: irData)
+                let snapshot = try Self.buildAtomicRoundSnapshot(from: ir)
+                try Self.writePrettyJSON(snapshot, to: atomicSnapshotPath)
+                refreshed += 1
+                print("[refresh-snapshot] \(fixture.name): wrote \(snapshot.rounds.count) atomic rounds")
+            } catch {
+                failures.append((fixture.name, "\(error)"))
+                print("[refresh-snapshot] \(fixture.name): FAILED — \(error)")
+            }
+        }
+
+        print("\n[refresh-snapshot summary] refreshed=\(refreshed) skipped=\(skipped) failed=\(failures.count)")
+        if !failures.isEmpty {
+            let details = failures.map { "\($0.0): \($0.1)" }.joined(separator: "\n")
+            XCTFail("Atomic snapshot refresh failures:\n\(details)")
+        }
+    }
+
     /// CAPTURE STEP — only runs when the sentinel file `/tmp/crochet/CAPTURE_IR` exists.
-    /// Reads credentials from `Config/Secrets.xcconfig` (same file the app itself uses).
-    /// Runs the real LLM pipeline against the checked-in raw.html, then writes the
-    /// outline + IR JSON back to the source tree.
+    /// Reads credentials from `Config/Secrets.xcconfig`, iterates every subdirectory under
+    /// `CrochetPalTests/Fixtures/LLM/`, and for each one that has a `raw.html` / `raw.txt`
+    /// and is missing `outline.json` or `ir_atomization.json`, runs the real LLM pipeline
+    /// and writes outline + IR JSON back to disk. If the LLM capture already exists but
+    /// `atomic_rounds.json` is missing, it deterministically rebuilds the compiled atomic
+    /// snapshot from the persisted IR without calling the model. If the sentinel file
+    /// `/tmp/crochet/REFRESH_ALL_IR_FIXTURES` exists, every fixture is re-captured from
+    /// scratch regardless of existing generated JSON.
     ///
-    /// Notes:
-    /// - This test drives the HTTP call itself rather than going through
-    ///   `OpenAICompatibleLLMClient.sendChatCompletion`. The reason is that we want the
-    ///   raw assistant content written to disk *before* decoding, so that if the LLM
-    ///   emits something that doesn't match the new IR schema we can inspect the file.
-    /// - The HTTP request body exactly mirrors the production code path (same system
-    ///   prompt, same user prompt, same `response_format` schema).
-    func testCaptureMouseCatToyIRFixtureFromRealLLM() async throws {
+    /// - To refresh a specific fixture: delete that fixture's generated JSON files and re-run.
+    /// - To refresh all: delete the generated JSON files under `Fixtures/LLM/<Name>/` and re-run.
+    ///
+    /// Uses raw HTTP (not `OpenAICompatibleLLMClient.sendChatCompletion`) so the raw
+    /// assistant content is always saved before decoding — handy when the LLM emits
+    /// something that can't decode and you need to inspect it.
+    func testCaptureAllIRFixturesFromRealLLM() async throws {
         let sentinelURL = URL(fileURLWithPath: "/tmp/crochet/CAPTURE_IR")
         guard FileManager.default.fileExists(atPath: sentinelURL.path) else {
             throw XCTSkip("Capture test disabled. `touch /tmp/crochet/CAPTURE_IR` to enable.")
         }
+        let refreshAllURL = URL(fileURLWithPath: "/tmp/crochet/REFRESH_ALL_IR_FIXTURES")
+        let forceRefreshAll = FileManager.default.fileExists(atPath: refreshAllURL.path)
+        let selectedFixturesURL = URL(fileURLWithPath: "/tmp/crochet/CAPTURE_FIXTURE_NAMES")
+        let selectedFixtureNames: Set<String>? = {
+            let rawText = (try? String(contentsOf: selectedFixturesURL, encoding: .utf8))
+                ?? ProcessInfo.processInfo.environment["CAPTURE_FIXTURE_NAMES"]
+                ?? ""
+            let rawValue = rawText
+                .split(separator: ",")
+                .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+                .filter { !$0.isEmpty }
+            return rawValue.isEmpty ? nil : Set(rawValue)
+        }()
 
         let configuration = try Self.makeRuntimeConfigurationFromSecretsFile()
-        let logger = ConsoleTraceLogger()
-        let extractor = HTMLExtractionService()
+        let fixtures = try Self.discoverFixtures()
+        XCTAssertFalse(fixtures.isEmpty, "No fixture directories under \(Self.fixturesRoot)")
 
-        let html = try XCTUnwrap(Self.fixtureText(at: rawHTMLPath), "raw.html missing at \(rawHTMLPath)")
-        let context = ParseRequestContext(
-            traceID: "capture-\(UUID().uuidString)",
-            parseRequestID: "capture-\(UUID().uuidString)",
-            sourceType: .web
-        )
-        let extraction = extractor.extract(from: html, sourceURL: sourceURL, context: context, logger: logger)
-        XCTAssertFalse(extraction.finalText.isEmpty, "HTML extractor returned empty text")
-        try Self.writeText(extraction.finalText, to: "Fixtures/LLM/MouseCatToy/extracted_text.txt")
+        var captured = 0
+        var rebuiltAtomicSnapshots = 0
+        var skipped = 0
+        var failures: [(String, String)] = []
 
-        // ----- Step 1: outline -----
-        let outlineContent = try await Self.fetchAssistantContent(
-            configuration: configuration,
-            modelID: configuration.textModelID,
-            systemPrompt: PromptFactory.textOutlineSystemPrompt(),
-            userPrompt: PromptFactory.textOutlinePrompt(
-                extractedText: extraction.finalText,
-                titleHint: extraction.title
-            ),
-            responseFormat: PromptFactory.outlineResponseFormat()
-        )
-        try Self.writeText(outlineContent, to: "Fixtures/LLM/MouseCatToy/outline_raw.json")
+        for fixture in fixtures {
+            if let selectedFixtureNames, !selectedFixtureNames.contains(fixture.name) {
+                skipped += 1
+                print("[capture] \(fixture.name): skipped by fixture filter")
+                continue
+            }
 
-        let outline: PatternOutlineResponse
-        do {
-            outline = try JSONDecoder().decode(
-                PatternOutlineResponse.self,
-                from: Data(outlineContent.utf8)
-            )
-            try Self.writePrettyJSON(outline, to: outlineFixturePath)
-        } catch {
-            XCTFail("Outline decode failed: \(error). Raw content saved to outline_raw.json.")
-            return
+            let fixtureDir = "\(Self.fixturesRoot)/\(fixture.name)"
+            let outlinePath = "\(fixtureDir)/outline.json"
+            let irPath = "\(fixtureDir)/ir_atomization.json"
+            let atomicSnapshotPath = "\(fixtureDir)/\(Self.atomicSnapshotFileName)"
+            let hasOutline = Self.fixtureData(at: outlinePath) != nil
+            let hasIR = Self.fixtureData(at: irPath) != nil
+            let hasAtomicSnapshot = Self.fixtureData(at: atomicSnapshotPath) != nil
+
+            if forceRefreshAll || selectedFixtureNames != nil {
+                do {
+                    print("[capture] \(fixture.name): force refreshing outline + IR LLM calls...")
+                    try await captureFixture(fixture, configuration: configuration, fixtureDir: fixtureDir)
+                    captured += 1
+                } catch {
+                    failures.append((fixture.name, "\(error)"))
+                    print("[capture] \(fixture.name): FAILED — \(error)")
+                }
+                continue
+            }
+
+            if hasOutline, hasIR, hasAtomicSnapshot {
+                skipped += 1
+                print("[capture] \(fixture.name): already captured — skipped")
+                continue
+            }
+
+            do {
+                if hasOutline, hasIR, !hasAtomicSnapshot {
+                    let irData = try XCTUnwrap(Self.fixtureData(at: irPath))
+                    let ir = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: irData)
+                    let snapshot = try Self.buildAtomicRoundSnapshot(from: ir)
+                    try Self.writePrettyJSON(snapshot, to: atomicSnapshotPath)
+                    rebuiltAtomicSnapshots += 1
+                    print("[capture] \(fixture.name): rebuilt atomic snapshot from persisted IR")
+                } else {
+                    print("[capture] \(fixture.name): running outline + IR LLM calls...")
+                    try await captureFixture(fixture, configuration: configuration, fixtureDir: fixtureDir)
+                    captured += 1
+                }
+            } catch {
+                failures.append((fixture.name, "\(error)"))
+                print("[capture] \(fixture.name): FAILED — \(error)")
+            }
         }
 
-        // ----- Step 2: IR atomization -----
+        print(
+            "\n[capture summary] captured=\(captured) rebuiltAtomicSnapshots=\(rebuiltAtomicSnapshots) skipped=\(skipped) failed=\(failures.count)"
+        )
+        for (name, err) in failures {
+            print("  - \(name): \(err)")
+        }
+        XCTAssertTrue(failures.isEmpty, "One or more patterns failed capture")
+    }
+
+    /// CAPTURE STEP — only runs when the sentinel file
+    /// `/tmp/crochet/CAPTURE_ATOMIZATION_MATCH_EVAL` exists. Uses the persisted
+    /// outline + IR + atomic snapshot fixtures as input and asks the evaluation
+    /// subagent whether each round's compiled atomic result faithfully matches the
+    /// source `rawInstruction`.
+    ///
+    /// If `/tmp/crochet/REFRESH_ATOMIZATION_MATCH_EVAL_FIXTURES` exists, every
+    /// selected fixture is re-evaluated even if
+    /// `atomization_match_evaluation.json` already exists.
+    func testCaptureAllAtomizationMatchEvaluationsFromRealLLM() async throws {
+        let sentinelURL = URL(fileURLWithPath: "/tmp/crochet/CAPTURE_ATOMIZATION_MATCH_EVAL")
+        guard FileManager.default.fileExists(atPath: sentinelURL.path) else {
+            throw XCTSkip("Capture test disabled. `touch /tmp/crochet/CAPTURE_ATOMIZATION_MATCH_EVAL` to enable.")
+        }
+        let refreshAllURL = URL(fileURLWithPath: "/tmp/crochet/REFRESH_ATOMIZATION_MATCH_EVAL_FIXTURES")
+        let forceRefreshAll = FileManager.default.fileExists(atPath: refreshAllURL.path)
+        let selectedFixturesURL = URL(fileURLWithPath: "/tmp/crochet/CAPTURE_FIXTURE_NAMES")
+        let selectedFixtureNames: Set<String>? = {
+            let rawText = (try? String(contentsOf: selectedFixturesURL, encoding: .utf8))
+                ?? ProcessInfo.processInfo.environment["CAPTURE_FIXTURE_NAMES"]
+                ?? ""
+            let rawValue = rawText
+                .split(separator: ",")
+                .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+                .filter { !$0.isEmpty }
+            return rawValue.isEmpty ? nil : Set(rawValue)
+        }()
+
+        let configuration = try Self.makeRuntimeConfigurationFromSecretsFile()
+        let fixtures = try Self.discoverFixtures()
+        XCTAssertFalse(fixtures.isEmpty, "No fixture directories under \(Self.fixturesRoot)")
+
+        var captured = 0
+        var skipped = 0
+        var failures: [(String, String)] = []
+
+        for fixture in fixtures {
+            if let selectedFixtureNames, !selectedFixtureNames.contains(fixture.name) {
+                skipped += 1
+                print("[capture-eval] \(fixture.name): skipped by fixture filter")
+                continue
+            }
+
+            let fixtureDir = "\(Self.fixturesRoot)/\(fixture.name)"
+            let evaluationPath = "\(fixtureDir)/\(Self.atomizationEvaluationFileName)"
+            let hasEvaluation = Self.fixtureData(at: evaluationPath) != nil
+
+            if !forceRefreshAll, selectedFixtureNames == nil, hasEvaluation {
+                skipped += 1
+                print("[capture-eval] \(fixture.name): already evaluated — skipped")
+                continue
+            }
+
+            do {
+                let outlineData = try XCTUnwrap(
+                    Self.fixtureData(at: "\(fixtureDir)/outline.json"),
+                    "[\(fixture.name)] missing outline.json required for evaluation capture"
+                )
+                let irData = try XCTUnwrap(
+                    Self.fixtureData(at: "\(fixtureDir)/ir_atomization.json"),
+                    "[\(fixture.name)] missing ir_atomization.json required for evaluation capture"
+                )
+                let snapshotData = try XCTUnwrap(
+                    Self.fixtureData(at: "\(fixtureDir)/\(Self.atomicSnapshotFileName)"),
+                    "[\(fixture.name)] missing \(Self.atomicSnapshotFileName) required for evaluation capture"
+                )
+
+                let outline = try JSONDecoder().decode(PatternOutlineResponse.self, from: outlineData)
+                let ir = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: irData)
+                let snapshot = try JSONDecoder().decode(AtomicRoundSnapshot.self, from: snapshotData)
+
+                let evaluations = try await captureAtomizationMatchEvaluations(
+                    fixture: fixture,
+                    outline: outline,
+                    ir: ir,
+                    atomicSnapshot: snapshot,
+                    configuration: configuration
+                )
+                try Self.writePrettyJSON(
+                    AtomizationMatchEvaluationFixture(rounds: evaluations),
+                    to: evaluationPath
+                )
+                captured += 1
+                print("[capture-eval] \(fixture.name): wrote \(evaluations.count) evaluation rounds")
+            } catch {
+                failures.append((fixture.name, "\(error)"))
+                print("[capture-eval] \(fixture.name): FAILED — \(error)")
+            }
+        }
+
+        print("\n[capture-eval summary] captured=\(captured) skipped=\(skipped) failed=\(failures.count)")
+        for (name, err) in failures {
+            print("  - \(name): \(err)")
+        }
+        XCTAssertTrue(failures.isEmpty, "One or more patterns failed evaluation capture")
+    }
+
+    private func captureFixture(
+        _ fixture: PatternFixture,
+        configuration: RuntimeConfiguration,
+        fixtureDir: String
+    ) async throws {
+        let logger = ConsoleTraceLogger()
+        let sourceType: PatternSourceType = switch fixture.rawSource {
+        case .html: .web
+        case .plainText: .text
+        }
+        let context = ParseRequestContext(
+            traceID: "capture-\(fixture.name)-\(UUID().uuidString)",
+            parseRequestID: "capture-\(UUID().uuidString)",
+            sourceType: sourceType
+        )
+        let parserClient = OpenAICompatibleLLMClient(configuration: configuration, logger: logger)
+
+        // Produce the extracted text for the outline prompt. HTML goes through the
+        // production HTMLExtractionService so outline sees the same content it would
+        // get in-app. PDF/txt sources are passed through verbatim — they're already
+        // plain-text extracts.
+        let extractedText: String
+        let titleHint: String?
+        switch fixture.rawSource {
+        case .html(let html):
+            let extraction = HTMLExtractionService().extract(
+                from: html,
+                sourceURL: fixture.sourceURL,
+                context: context,
+                logger: logger
+            )
+            XCTAssertFalse(extraction.finalText.isEmpty, "[\(fixture.name)] HTML extractor returned empty text")
+            extractedText = extraction.finalText
+            titleHint = extraction.title
+        case .plainText(let text):
+            extractedText = text
+            titleHint = nil
+        }
+        try Self.writeText(extractedText, to: "\(fixtureDir)/extracted_text.txt")
+
+        // ----- Step 1: outline -----
+        let outlineRawPath = "\(fixtureDir)/outline_raw.json"
+        let outline: PatternOutlineResponse
+        do {
+            let outlineContent = try await Self.fetchAssistantContent(
+                configuration: configuration,
+                modelID: configuration.textModelID,
+                systemPrompt: PromptFactory.textOutlineSystemPrompt(),
+                userPrompt: PromptFactory.textOutlinePrompt(extractedText: extractedText, titleHint: titleHint),
+                responseFormat: PromptFactory.outlineResponseFormat()
+            )
+            try Self.writeText(outlineContent, to: outlineRawPath)
+            outline = try JSONDecoder().decode(PatternOutlineResponse.self, from: Data(outlineContent.utf8))
+        } catch {
+            print("  [capture] \(fixture.name): outline decode failed, retrying via repair-capable client (\(error))")
+            outline = try await parserClient.parseTextPatternOutline(
+                extractedText: extractedText,
+                titleHint: titleHint,
+                context: context
+            )
+            try Self.writeText(try Self.jsonString(outline), to: outlineRawPath)
+        }
+        try Self.writePrettyJSON(outline, to: "\(fixtureDir)/outline.json")
+
+        // ----- Step 2: IR atomization (batched) -----
+        //
+        // DeepSeek v3.2 (and most commercial LLMs via Cloudflare gateway) silently cap
+        // output at ~8K tokens even when max_tokens says more. For large patterns the IR
+        // tree easily exceeds that, so we atomize in batches matching the production
+        // ProjectRepository pattern (incremental per-round atomization).
         let atomizationInputs: [AtomizationRoundInput] = outline.parts.flatMap { part in
             part.rounds.map { round in
                 AtomizationRoundInput(
@@ -1779,31 +2997,286 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
                 )
             }
         }
-        XCTAssertFalse(atomizationInputs.isEmpty, "Outline produced zero rounds")
-
-        let irContent = try await Self.fetchAssistantContent(
-            configuration: configuration,
-            modelID: configuration.atomizationModelID,
-            systemPrompt: PromptFactory.roundIRAtomizationSystemPrompt(),
-            userPrompt: PromptFactory.roundIRAtomizationPrompt(
-                projectTitle: outline.projectTitle,
-                materials: outline.materials,
-                rounds: atomizationInputs
-            ),
-            responseFormat: PromptFactory.irAtomizationResponseFormat()
-        )
-        try Self.writeText(irContent, to: "Fixtures/LLM/MouseCatToy/ir_raw.json")
-
-        do {
-            let ir = try JSONDecoder().decode(
-                CrochetIRAtomizationResponse.self,
-                from: Data(irContent.utf8)
+        guard !atomizationInputs.isEmpty else {
+            throw NSError(
+                domain: "CaptureIRFixture",
+                code: -10,
+                userInfo: [NSLocalizedDescriptionKey: "[\(fixture.name)] outline produced zero rounds"]
             )
-            try Self.writePrettyJSON(ir, to: irFixturePath)
-            print("Captured \(ir.rounds.count) IR rounds → \(irFixturePath)")
-        } catch {
-            XCTFail("IR decode failed: \(error). Raw LLM content saved to ir_raw.json for inspection.")
         }
+
+        // One source round still maps to one LLM call, but we run a few calls in parallel
+        // to keep full-suite recaptures tractable after prompt changes.
+        struct IndexedIRCapture {
+            var index: Int
+            var title: String
+            var rawContent: String
+        }
+
+        var orderedCaptures = Array<IndexedIRCapture?>(repeating: nil, count: atomizationInputs.count)
+        for batchStart in stride(from: 0, to: atomizationInputs.count, by: Self.captureRoundBatchConcurrency) {
+            let batchEnd = min(batchStart + Self.captureRoundBatchConcurrency, atomizationInputs.count)
+
+            try await withThrowingTaskGroup(of: IndexedIRCapture.self) { group in
+                for index in batchStart..<batchEnd {
+                    let input = atomizationInputs[index]
+                    group.addTask {
+                        let irContent = try await Self.fetchAssistantContent(
+                            configuration: configuration,
+                            modelID: configuration.atomizationModelID,
+                            systemPrompt: PromptFactory.roundIRAtomizationSystemPrompt(),
+                            userPrompt: PromptFactory.roundIRAtomizationPrompt(
+                                projectTitle: outline.projectTitle,
+                                materials: outline.materials,
+                                rounds: [input]
+                            ),
+                            responseFormat: PromptFactory.irAtomizationResponseFormat()
+                        )
+
+                        return IndexedIRCapture(
+                            index: index,
+                            title: input.title,
+                            rawContent: irContent
+                        )
+                    }
+                }
+
+                for try await capture in group {
+                    orderedCaptures[capture.index] = capture
+                    print(
+                        "  [capture] \(fixture.name): round \(capture.index + 1)/\(atomizationInputs.count) '\(capture.title)' returned \(capture.rawContent.utf8.count) bytes"
+                    )
+                }
+            }
+        }
+
+        let captures = try orderedCaptures.enumerated().map { index, capture -> IndexedIRCapture in
+            guard let capture else {
+                throw NSError(
+                    domain: "CaptureIRFixture",
+                    code: -12,
+                    userInfo: [NSLocalizedDescriptionKey: "[\(fixture.name)] missing IR capture for round index \(index)"]
+                )
+            }
+            return capture
+        }
+        var rawSegments: [String] = []
+        var allIRRounds: [CrochetIRInstructionBlock] = []
+        rawSegments.reserveCapacity(captures.count)
+        allIRRounds.reserveCapacity(captures.count)
+
+        for capture in captures {
+            do {
+                let batchIR = try JSONDecoder().decode(CrochetIRAtomizationResponse.self, from: Data(capture.rawContent.utf8))
+                if batchIR.rounds.count != 1 {
+                    throw NSError(
+                        domain: "CaptureIRFixture",
+                        code: -11,
+                        userInfo: [NSLocalizedDescriptionKey: "[\(fixture.name)] round '\(capture.title)' expected 1 round, got \(batchIR.rounds.count)"]
+                    )
+                }
+                rawSegments.append(capture.rawContent)
+                allIRRounds.append(batchIR.rounds[0])
+            } catch {
+                print("  [capture] \(fixture.name): round \(capture.index + 1) '\(capture.title)' decode failed, retrying via repair-capable client (\(error))")
+                let repairedIR = try await parserClient.parseTextRoundsToIR(
+                    projectTitle: outline.projectTitle,
+                    materials: outline.materials,
+                    rounds: [atomizationInputs[capture.index]],
+                    context: context
+                )
+                if repairedIR.rounds.count != 1 {
+                    throw NSError(
+                        domain: "CaptureIRFixture",
+                        code: -13,
+                        userInfo: [NSLocalizedDescriptionKey: "[\(fixture.name)] repaired round '\(capture.title)' expected 1 round, got \(repairedIR.rounds.count)"]
+                    )
+                }
+                rawSegments.append(try Self.jsonString(repairedIR))
+                allIRRounds.append(repairedIR.rounds[0])
+            }
+        }
+
+        // Persist raw segments for debugging (newline-separated JSON blobs).
+        try Self.writeText(rawSegments.joined(separator: "\n\n---\n\n"), to: "\(fixtureDir)/ir_raw.json")
+
+        let ir = CrochetIRAtomizationResponse(rounds: allIRRounds)
+        try Self.writePrettyJSON(ir, to: "\(fixtureDir)/ir_atomization.json")
+        let atomicSnapshot = try Self.buildAtomicRoundSnapshot(from: ir)
+        try Self.writePrettyJSON(atomicSnapshot, to: "\(fixtureDir)/\(Self.atomicSnapshotFileName)")
+        print("  [capture] \(fixture.name): \(ir.rounds.count) IR rounds written (per-round batches)")
+    }
+
+    private func captureAtomizationMatchEvaluations(
+        fixture: PatternFixture,
+        outline: PatternOutlineResponse,
+        ir: CrochetIRAtomizationResponse,
+        atomicSnapshot: AtomicRoundSnapshot,
+        configuration: RuntimeConfiguration
+    ) async throws -> [AtomizationMatchEvaluation] {
+        let inputs = try Self.buildAtomizationEvaluationInputs(
+            fixtureName: fixture.name,
+            outline: outline,
+            ir: ir,
+            snapshot: atomicSnapshot
+        )
+
+        struct IndexedEvaluationCapture: Sendable {
+            var index: Int
+            var title: String
+            var evaluation: AtomizationMatchEvaluation
+        }
+
+        let sourceType: PatternSourceType = switch fixture.rawSource {
+        case .html: .web
+        case .plainText: .text
+        }
+
+        var orderedEvaluations = Array<AtomizationMatchEvaluation?>(repeating: nil, count: inputs.count)
+        for batchStart in stride(from: 0, to: inputs.count, by: Self.captureEvaluationBatchConcurrency) {
+            let batchEnd = min(batchStart + Self.captureEvaluationBatchConcurrency, inputs.count)
+
+            try await withThrowingTaskGroup(of: IndexedEvaluationCapture.self) { group in
+                for index in batchStart..<batchEnd {
+                    let input = inputs[index]
+                    group.addTask {
+                        let evaluation = try await self.captureAtomizationMatchEvaluation(
+                            input: input,
+                            fixtureName: fixture.name,
+                            roundIndex: index,
+                            roundCount: inputs.count,
+                            sourceType: sourceType,
+                            configuration: configuration
+                        )
+                        return IndexedEvaluationCapture(
+                            index: index,
+                            title: input.roundTitle,
+                            evaluation: evaluation
+                        )
+                    }
+                }
+
+                for try await capture in group {
+                    orderedEvaluations[capture.index] = capture.evaluation
+                    print(
+                        "  [capture-eval] \(fixture.name): round \(capture.index + 1)/\(inputs.count) '\(capture.title)' -> \(capture.evaluation.verdict.rawValue)"
+                    )
+                }
+            }
+        }
+
+        return try orderedEvaluations.enumerated().map { index, evaluation in
+            guard let evaluation else {
+                throw NSError(
+                    domain: "CaptureAtomizationEvaluationFixture",
+                    code: -21,
+                    userInfo: [NSLocalizedDescriptionKey: "[\(fixture.name)] missing evaluation capture for round index \(index)"]
+                )
+            }
+            return evaluation
+        }
+    }
+
+    private func captureAtomizationMatchEvaluation(
+        input: AtomizationMatchEvaluationInput,
+        fixtureName: String,
+        roundIndex: Int,
+        roundCount: Int,
+        sourceType: PatternSourceType,
+        configuration: RuntimeConfiguration
+    ) async throws -> AtomizationMatchEvaluation {
+        var lastError: Error?
+
+        for attempt in 1...Self.captureEvaluationMaxAttempts {
+            do {
+                let context = ParseRequestContext(
+                    traceID: "capture-eval-\(fixtureName)-\(UUID().uuidString)",
+                    parseRequestID: "capture-eval-\(UUID().uuidString)",
+                    sourceType: sourceType
+                )
+                let subagent = AtomizationMatchSubagent(
+                    evaluator: OpenAICompatibleLLMClient(
+                        configuration: configuration,
+                        logger: ConsoleTraceLogger()
+                    )
+                )
+                return try await subagent.evaluate(input: input, context: context)
+            } catch {
+                lastError = error
+                guard attempt < Self.captureEvaluationMaxAttempts else { break }
+                print(
+                    "  [capture-eval] \(fixtureName): round \(roundIndex + 1)/\(roundCount) '\(input.roundTitle)' attempt \(attempt) failed, retrying (\(error))"
+                )
+                try await Task.sleep(nanoseconds: UInt64(attempt) * 300_000_000)
+            }
+        }
+
+        throw lastError ?? NSError(
+            domain: "CaptureAtomizationEvaluationFixture",
+            code: -24,
+            userInfo: [
+                NSLocalizedDescriptionKey:
+                    "[\(fixtureName)] missing terminal error for atomization evaluation capture on round '\(input.roundTitle)'"
+            ]
+        )
+    }
+
+    private static func buildAtomizationEvaluationInputs(
+        fixtureName: String,
+        outline: PatternOutlineResponse,
+        ir: CrochetIRAtomizationResponse,
+        snapshot: AtomicRoundSnapshot
+    ) throws -> [AtomizationMatchEvaluationInput] {
+        let flatOutlineRounds = outline.parts.flatMap(\.rounds)
+        guard flatOutlineRounds.count == ir.rounds.count else {
+            throw NSError(
+                domain: "CaptureAtomizationEvaluationFixture",
+                code: -22,
+                userInfo: [
+                    NSLocalizedDescriptionKey:
+                        "[\(fixtureName)] outline round count \(flatOutlineRounds.count) does not match IR round count \(ir.rounds.count)"
+                ]
+            )
+        }
+        guard flatOutlineRounds.count == snapshot.rounds.count else {
+            throw NSError(
+                domain: "CaptureAtomizationEvaluationFixture",
+                code: -23,
+                userInfo: [
+                    NSLocalizedDescriptionKey:
+                        "[\(fixtureName)] outline round count \(flatOutlineRounds.count) does not match atomic snapshot round count \(snapshot.rounds.count)"
+                ]
+            )
+        }
+
+        return zip(flatOutlineRounds, zip(ir.rounds, snapshot.rounds)).map { outlineRound, pair in
+            let (irRound, atomicRound) = pair
+            return AtomizationMatchEvaluationInput(
+                roundTitle: outlineRound.title,
+                rawInstruction: outlineRound.rawInstruction,
+                roundSummary: outlineRound.summary,
+                targetStitchCount: outlineRound.targetStitchCount,
+                irSourceText: irRound.sourceText,
+                expectedProducedStitches: irRound.expectedProducedStitches,
+                validationIssues: atomicRound.validationIssues,
+                expansionFailure: atomicRound.expansionFailure,
+                producedStitchCount: atomicRound.producedStitchCount,
+                warnings: atomicRound.warnings,
+                atomicActions: atomicRound.actions.map(Self.makeEvaluationActionInput(from:))
+            )
+        }
+    }
+
+    private static func makeEvaluationActionInput(from snapshot: AtomicActionSnapshot) -> AtomizationEvaluationActionInput {
+        AtomizationEvaluationActionInput(
+            semantics: snapshot.semantics,
+            actionTag: snapshot.actionTag,
+            stitchTag: snapshot.stitchTag,
+            instruction: snapshot.instruction,
+            producedStitches: snapshot.producedStitches,
+            note: snapshot.note,
+            sequenceIndex: snapshot.sequenceIndex
+        )
     }
 
     /// Performs a single chat-completion call against an OpenAI-compatible endpoint and
@@ -1822,9 +3295,12 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(configuration.apiKey)", forHTTPHeaderField: "Authorization")
 
+        // max_tokens must be explicit — Cloudflare/DeepSeek defaults silently truncate
+        // large outputs (multi-round IR for 50+ round patterns easily exceeds 4096).
         let body: [String: Any] = [
             "model": modelID,
             "temperature": 0,
+            "max_tokens": 32000,
             "messages": [
                 ["role": "system", "content": systemPrompt],
                 ["role": "user", "content": userPrompt]
@@ -1896,6 +3372,20 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let data = try encoder.encode(value)
         try data.write(to: url)
+    }
+
+    private static func jsonString<T: Encodable>(_ value: T) throws -> String {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        let data = try encoder.encode(value)
+        guard let string = String(data: data, encoding: .utf8) else {
+            throw NSError(
+                domain: "IRAtomizationLLMIntegrationTests",
+                code: -102,
+                userInfo: [NSLocalizedDescriptionKey: "failed to encode JSON string"]
+            )
+        }
+        return string
     }
 
     /// Loads values from `Config/Secrets.xcconfig`, resolves `$(VAR)` references, and

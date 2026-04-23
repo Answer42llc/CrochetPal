@@ -1,0 +1,559 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "stitch production for 4 chains"
+      ],
+      "rationale" : "The atomic actions list four 'ch' actions but each has `producedStitches: 0`, which contradicts the instruction to create a foundation chain of 4 stitches. The validation warning confirms a stitch count mismatch. The meaning of producing 4 chains is not preserved.",
+      "rawInstruction" : "FOUNDATION: CH 4",
+      "roundTitle" : "FOUNDATION: CH 4",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions are three single crochets, exactly matching the instruction '3 SC (3)'. The stitch count and meaning are preserved.",
+      "rawInstruction" : "3 SC (3)",
+      "roundTitle" : "ROW 1",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+        "extra increase action"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "wrong_order"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction 'INC, 1 SC, INC' implies two increases and one single crochet, totaling three actions. The atomic actions list five actions: two increases, one sc, then two more increases. This changes the stitch pattern order and introduces extra increases not specified in the source. The total stitch count matches (5), but the sequence is wrong.",
+      "rawInstruction" : "INC, 1 SC, INC (5)",
+      "roundTitle" : "ROW 2",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+        "extra single crochet stitches"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "wrong_order"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction 'INC, - SC, INC (7)' likely means: increase in first stitch, single crochet in the next 3 stitches, increase in the last stitch, for a total of 7 stitches. The atomic actions produce 9 stitches (two increases, then five single crochets, then two more increases), which changes the stitch count and stitch placement order. The warning indicates a target stitch count mismatch.",
+      "rawInstruction" : "INC, - SC, INC (7)",
+      "roundTitle" : "ROW 3",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the instruction 'INC, 5 SC, INC' by expanding it into two increases, five single crochets, and two more increases, preserving the stitch count and order.",
+      "rawInstruction" : "INC, 5 SC, INC (9)",
+      "roundTitle" : "ROW 4",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions are nine single crochets, which exactly matches the instruction '9 SC (9)'. The stitch count and meaning are preserved.",
+      "rawInstruction" : "9 SC (9)",
+      "roundTitle" : "ROW 5-6",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly implement the instruction 'DEC, 5 SC, DEC (7)' as one decrease, five single crochets, and a final decrease, producing the correct stitch count.",
+      "rawInstruction" : "DEC, 5 SC, DEC (7)",
+      "roundTitle" : "ROW 7",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "decrease over first two stitches",
+        "3 single crochets",
+        "decrease over last two stitches"
+      ],
+      "rationale" : "The validationIssues contains an error (ir_invalid_operation_count), which prevents a faithful atomization. The atomicActions list is empty, so all actionable crochet meaning from the source instruction is missing.",
+      "rawInstruction" : "DEC, 3 SC, DEC (5)",
+      "roundTitle" : "ROW 8",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the sequence of one decrease, one single crochet, and another decrease, producing the correct total of 3 stitches. The decrease action is appropriately expanded to 'single crochet 2 stitches together' which is the standard meaning of DEC.",
+      "rawInstruction" : "DEC, 1 SC, DEC (3)",
+      "roundTitle" : "ROW 9",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+        "extra increase action"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "wrong_order"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction 'INC, 1 SC, INC' implies two increases and one single crochet, totaling 5 stitches from 3 actions. The atomic actions list five actions: two increases, one sc, then two more increases. This results in four increases and one sc, which is a different stitch pattern and count from the source. The order and number of operations are incorrect.",
+      "rawInstruction" : "INC, 1 SC, INC (5)",
+      "roundTitle" : "ROW 10",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.6,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "increase in first stitch",
+        "3 single crochets",
+        "increase in last stitch"
+      ],
+      "rationale" : "The validationIssues contains an error (ir_invalid_operation_count), which prevents a faithful atomization. The atomicActions list is empty, meaning all actionable elements from the source instruction are missing.",
+      "rawInstruction" : "INC, 3 SC, INC (7)",
+      "roundTitle" : "ROW 11",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly implement the instruction 'INC, 5 SC, INC' as two increases, five single crochets, and two more increases, producing the correct stitch count. The meaning is preserved without omission or addition.",
+      "rawInstruction" : "INC, 5 SC, INC (9)",
+      "roundTitle" : "ROW 12",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action is a direct, semantically identical representation of the source instruction, which is a bookkeeping step.",
+      "rawInstruction" : "Place a stitch marker in the space between Row 11 and Row 12. (This is where you will begin working the first arm)",
+      "roundTitle" : "Place stitch marker for arm",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the source instruction 'INC, 7 SC, INC (11)'. The sequence is two increases, seven single crochets, and two increases, producing 11 stitches as specified.",
+      "rawInstruction" : "INC, 7 SC, INC (11)",
+      "roundTitle" : "ROW 13",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly expand the instruction '11 SC' into eleven single crochet actions, preserving the stitch count and type. The round summary indicates this pattern is repeated for six rows, but the atomic actions correctly represent a single row's instruction.",
+      "rawInstruction" : "11 SC (11)",
+      "roundTitle" : "ROW 14–19",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action correctly captures the bookkeeping step of placing a marker at the specified location. The note preserves the explanatory parenthetical text.",
+      "rawInstruction" : "Place a stitch marker in the space between Row 14 and Row 15. (This is where you will begin working the second arm)",
+      "roundTitle" : "Place stitch marker for second arm",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the instruction: a decrease, then seven single crochets, then another decrease, producing the expected 9 stitches.",
+      "rawInstruction" : "DEC, 7 SC, DEC (9)",
+      "roundTitle" : "ROW 20",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions are four single crochets, matching the instruction '4 SC' and the expected count of 4 stitches. The meaning is preserved exactly.",
+      "rawInstruction" : "4 SC (4)",
+      "roundTitle" : "ROW 21 (Leg 1)",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly represent '4 SC' as four single crochet stitches, matching the count and stitch type. The row context is preserved in the round summary.",
+      "rawInstruction" : "4 SC (4)",
+      "roundTitle" : "ROWS 22–25",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action 'fastenOff' exactly matches the source instruction 'Fasten off.' with no omissions or extras.",
+      "rawInstruction" : "Fasten off.",
+      "roundTitle" : "FO",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly capture the two bookkeeping steps: skipping a stitch and joining yarn. The meaning is preserved, though the source's prose is normalized into discrete atomic actions.",
+      "rawInstruction" : "Return to the body. Skip 1 stitch next to Leg 1, and join yarn in the following stitch.",
+      "roundTitle" : "Join yarn for Leg 2",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions are four single crochets, which exactly matches the instruction '4 SC' and the expected stitch count of 4.",
+      "rawInstruction" : "4 SC (4)",
+      "roundTitle" : "ROW 21 (Leg 2)",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly produce four single crochets, matching the instruction's count and stitch type. The expansion from '4 SC' into four separate 'sc' actions is an acceptable normalization.",
+      "rawInstruction" : "4 SC (4)",
+      "roundTitle" : "ROW 22–25",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action 'fastenOff' exactly matches the source instruction.",
+      "rawInstruction" : "Fasten off.",
+      "roundTitle" : "FO",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "increase actions for 3 DC in next sp"
+      ],
+      "issueCodes" : [
+        "extra_operation"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions include three 'increase' actions for '3 DC in next sp', which incorrectly treats it as three separate increases rather than a single cluster of three double crochets in one space. The source instruction '3 DC in next sp' is a single operation, not three separate increases. The join, chain, sc, hdc, ch 2, ss, and fasten off are correctly represented.",
+      "rawInstruction" : "Attach yarn between Rows 11–12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO",
+      "roundTitle" : "Arm 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "all stitch operations (CH 2, 3 DC, HDC, SC, SS, FO)"
+      ],
+      "rationale" : "The validation error 'ir_invalid_operation_count' indicates the IR could not process '3 DC in same sp', resulting in no atomic actions. The atomization failed to produce any actionable steps, so the instruction's meaning is not preserved.",
+      "rawInstruction" : "Attach yarn on opposite side between Rows 14–15. CH 2, 3 DC in same sp, HDC in next sp, SC in next sp, SS. FO",
+      "roundTitle" : "Arm 2",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "extra chain stitch (sequenceIndex 1)"
+      ],
+      "issueCodes" : [
+        "extra_operation"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction begins with 'CH 2', but the atomic actions start with a custom attach action followed by two separate chain actions (sequenceIndex 1 and 2). This creates an extra chain stitch (two chains instead of one chain-2). The rest of the instruction (2 DC increase, CH 2, SS, FO) is correctly atomized.",
+      "rawInstruction" : "Attach yarn in the top corner of the head. CH 2, 2 DC in the next sp, CH 2, SS into the same sp. FO",
+      "roundTitle" : "Ear 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_count"
+      ],
+      "missingElements" : [
+        "yarn attachment action",
+        "target specification for 'same sp'"
+      ],
+      "rationale" : "The atomic actions omit the 'Attach yarn' step and the target for 'same sp' is unspecified. The instruction '2 DC in the same sp' is atomized as only one DC action, resulting in a wrong stitch count (should be 2 DC, but only 1 is present). The order and other stitches (CH 2, SS, FO) are correctly represented.",
+      "rawInstruction" : "Move to the opposite top corner, at the same level as the last st of the first ear. Attach yarn. CH 2, 2 DC in the same sp, CH 2, SS into the same sp. FO",
+      "roundTitle" : "Ear 2",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a high-level directive to create a second piece, not a specific crochet action for a round. The atomic result correctly leaves it non-actionable.",
+      "rawInstruction" : "Repeat the entire pattern to create a second identical piece.",
+      "roundTitle" : "MAKE A SECOND PANEL",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a bookkeeping step for finishing, not a crochet action that produces stitches. The atomic action correctly represents it as a custom bookkeeping step with no stitch production.",
+      "rawInstruction" : "Using a yarn needle, weave in all loose ends securely on the wrong side of the work.",
+      "roundTitle" : "Weave in Ends",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose note about attaching or embroidering features, not a sequence of crochet stitches to be worked. The atomization correctly yields no atomic actions.",
+      "rawInstruction" : "Use safety eyes, or Embroider using yarn (suggested position of the eyes - between row 4 and 5)",
+      "roundTitle" : "Add eyes and nose",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_bookkeeping"
+      ],
+      "missingElements" : [
+        "Place both panels together with wrong sides facing each other"
+      ],
+      "rationale" : "The atomic actions omit the initial setup step of placing panels together with wrong sides facing, which is a meaningful preparatory instruction. The slip stitch joining is correctly captured.",
+      "rawInstruction" : "Place both panels together with wrong sides facing each other. Attach yarn at any point along the edge. Work slip stitches evenly around, inserting your hook through both layers Continue around the entire shape to join",
+      "roundTitle" : "Joining the Pieces",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose note about finishing options, not a set of crochet actions to perform. The atomization correctly produced no atomic actions.",
+      "rawInstruction" : "Optional: Lightly stuff the bear before fully closing, or leave flat for a keychain-style finish.",
+      "roundTitle" : "Optional stuffing",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a bookkeeping step, not a crochet round. The atomic action correctly captures it as a 'fastenOff' action with the same semantics.",
+      "rawInstruction" : "Fasten off and weave in all ends securely.",
+      "roundTitle" : "Fasten off and weave in ends",
+      "verdict" : "normalized_match"
+    }
+  ]
+}

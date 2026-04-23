@@ -1,0 +1,740 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 11,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Chain 11"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc",
+              "target" : "second chain from hook"
+            },
+            "repeat" : null,
+            "sourceText" : "crochet to the second chain from hook"
+          }
+        ]
+      },
+      "sourceText" : "Chain 11, turn and crochet to the second chain from hook",
+      "title" : "Foundation Chain"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 9,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "9sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "4sc in the next st",
+              "notePlacement" : "all",
+              "producedStitches" : 4,
+              "semantics" : "increase",
+              "stitch" : "Sc",
+              "target" : "the next st"
+            },
+            "repeat" : null,
+            "sourceText" : "4sc in the next st"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "8sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "3sc the the last st",
+              "notePlacement" : "all",
+              "producedStitches" : 3,
+              "semantics" : "increase",
+              "stitch" : "Sc",
+              "target" : "the last st"
+            },
+            "repeat" : null,
+            "sourceText" : "3sc the the last st"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 24,
+      "sourceText" : "9sc, 4sc in the next st, 8sc, 3sc the the last st ( 24)",
+      "title" : "1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "instruction" : "Increase",
+              "notePlacement" : "first",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "Inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "8sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 4,
+              "instruction" : "Increase",
+              "notePlacement" : "first",
+              "producedStitches" : 8,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "4inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "8sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 3,
+              "instruction" : "Increase",
+              "notePlacement" : "first",
+              "producedStitches" : 6,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "3inc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 32,
+      "sourceText" : "Inc, 8sc, 4inc, 8sc, 3inc (32)",
+      "title" : "2"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 13,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc",
+              "target" : "FLO"
+            },
+            "repeat" : null,
+            "sourceText" : "FLO 13sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Inc",
+              "count" : 1,
+              "instruction" : "Increase (2 single crochet in one stitch)",
+              "notePlacement" : "first",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "2inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Inc",
+              "count" : 1,
+              "instruction" : "Increase (2 single crochet in one stitch)",
+              "notePlacement" : "first",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "2inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 14,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "14sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Inc",
+              "count" : 1,
+              "instruction" : "Increase (2 single crochet in one stitch)",
+              "notePlacement" : "first",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "2inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Inc",
+              "count" : 1,
+              "instruction" : "Increase (2 single crochet in one stitch)",
+              "notePlacement" : "first",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "2inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 36,
+      "sourceText" : "FLO 13sc, 2inc, 14sc, 2inc, 1sc (36)",
+      "title" : "3"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 14,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "14sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "instruction" : "Increase",
+              "note" : "inc",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 17,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "17sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "instruction" : "Increase",
+              "note" : "inc",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 3,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "3sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 38,
+      "sourceText" : "14sc, inc, 17sc, inc, 3sc (38)",
+      "title" : "4"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 38,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "38sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 38,
+      "sourceText" : "38sc (38)",
+      "title" : "5"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Change white"
+          }
+        ]
+      },
+      "sourceText" : "Change white",
+      "title" : "Change white"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 38,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "38sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 38,
+      "sourceText" : "38sc (38)",
+      "title" : "Rounds 6-9"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Finish, cut and hide the yarn."
+          }
+        ]
+      },
+      "sourceText" : "Finish, cut and hide the yarn.",
+      "title" : "Finish, cut and hide the yarn."
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 11,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Chain 11"
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "and do the same with bottom case but R3 do not FLO.",
+              "sourceText" : "and do the same with bottom case but R3 do not FLO."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "and do the same with bottom case but R3 do not FLO."
+          }
+        ]
+      },
+      "sourceText" : "Chain 11 and do the same with bottom case but R3 do not FLO.",
+      "title" : "Foundation Chain"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 38,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "38sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 38,
+      "sourceText" : "38sc (38)",
+      "title" : "Rounds 5-7"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step.",
+              "sourceText" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step."
+          }
+        ]
+      },
+      "sourceText" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step.",
+      "title" : "Do not cut the yarn, crochet 2sc more and join with the bottom case on the next step."
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "custom",
+              "count" : 1,
+              "instruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+              "note" : "FLO from the top shell, BLO from bottom shell.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "custom"
+            },
+            "repeat" : null,
+            "sourceText" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell."
+          }
+        ]
+      },
+      "sourceText" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+      "title" : "To join"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 7,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc",
+              "target" : "MR"
+            },
+            "repeat" : null,
+            "sourceText" : "7sc in MR"
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Do not join, just tie the magic ring.",
+              "sourceText" : "do not join, just tie MR"
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "do not join, just tie MR"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 7,
+      "sourceText" : "7sc in MR,do not join, just tie MR",
+      "title" : "Foundation"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 5,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc",
+              "target" : "MR"
+            },
+            "repeat" : null,
+            "sourceText" : "5sc in MR"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 5,
+      "sourceText" : "5sc in MR (5)",
+      "title" : "Arms - 1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 5,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "5sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 5,
+      "sourceText" : "5sc (5)",
+      "title" : "Rounds 2-3"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 2,
+              "instruction" : "single crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc",
+              "target" : "both side"
+            },
+            "repeat" : null,
+            "sourceText" : "Crochet on both side 2sc"
+          }
+        ]
+      },
+      "sourceText" : "Crochet on both side 2sc",
+      "title" : "Crochet on both side 2sc"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "assembly",
+              "count" : 1,
+              "instruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "assembly"
+            },
+            "repeat" : null,
+            "sourceText" : "Sew all parts, nose, eyes and cheeks to finish."
+          }
+        ]
+      },
+      "sourceText" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "title" : "Sew all parts, nose, eyes and cheeks to finish."
+    }
+  ]
+}

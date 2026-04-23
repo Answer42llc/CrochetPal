@@ -125,9 +125,21 @@ struct CrochetIRCompiler {
             guard CrochetStitchCatalog.isValidStitchTag(stitch) else {
                 throw PatternImportFailure.atomizationFailed("atomization_contains_non_action_type:\(stitch)")
             }
-            // "1 sc inc" = 2 sc into same stitch. Represented as (count * producedPerInc)
-            // draft actions, each with producedStitches=1.
-            let producedPerInc = op.producedStitches ?? 2
+            // Contract: producedStitches is PER-SINGLE-increase (e.g. 2 for sc inc).
+            // "1 sc inc" = 2 sc into same stitch, represented as producedPerInc draft actions
+            // each carrying producedStitches=1. For count>1, we emit count * producedPerInc drafts.
+            //
+            // Safety net: older/confused LLM responses sometimes emit producedStitches as the
+            // operation's TOTAL output instead of per-inc. Detect and repair when count>1 and
+            // rawProduced is a clean multiple of count that exceeds count (a per-inc value of
+            // 1 is impossible for an increase, so rawProduced>count is a reliable signal).
+            let rawProduced = op.producedStitches ?? 2
+            let producedPerInc: Int = {
+                guard op.count > 1, rawProduced > op.count, rawProduced % op.count == 0 else {
+                    return rawProduced
+                }
+                return rawProduced / op.count
+            }()
             var actions: [CrochetIRActionDraft] = []
             for _ in 0..<op.count {
                 for _ in 0..<producedPerInc {
@@ -364,6 +376,22 @@ struct CrochetIRCompiler {
                     severity: .error,
                     code: "ir_contains_non_action_type",
                     message: "\(stitch) is a descriptor/meta tag, not a stitch.",
+                    sourceText: sourceText
+                ))
+            }
+            if op.semantics == .increase,
+               op.count > 1,
+               let produced = op.producedStitches,
+               produced > op.count,
+               produced % op.count == 0 {
+                // producedStitches is defined as PER-SINGLE-increase. When it looks like a
+                // clean multiple of count that exceeds 2-per-inc, the LLM most likely emitted
+                // the operation's TOTAL output instead. The compiler will auto-repair on expand,
+                // but we surface a warning so the miscalibration is observable in traces.
+                issues.append(CrochetIRValidationIssue(
+                    severity: .warning,
+                    code: "ir_increase_produced_stitches_looks_like_total",
+                    message: "producedStitches (\(produced)) looks like the total output for count \(op.count); expected a per-increase value. Compiler will normalize to \(produced / op.count).",
                     sourceText: sourceText
                 ))
             }

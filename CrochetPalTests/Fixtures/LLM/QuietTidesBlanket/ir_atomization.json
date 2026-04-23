@@ -1,0 +1,1353 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 114,
+              "note" : "With off white",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "With off white, ch 114"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 114,
+      "sourceText" : "With off white, ch 114",
+      "title" : "Foundation Chain"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 113,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "the 2nd ch from the hook and in each ch across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in the 2nd ch from the hook and in each ch across. (113 sc)"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 113,
+      "sourceText" : "1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+      "title" : "Row 1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each sc across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "instruction" : "Change to teal yarn while working the last sc",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "last sc"
+            },
+            "repeat" : null,
+            "sourceText" : "changing to teal in the last sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across, changing to teal in the last sc. Ch 1, turn.",
+      "title" : "Row 2"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each sc across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across. Ch 1, turn.",
+      "title" : "Row 3"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each sc across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "instruction" : "changing to off white in the last sc",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "changeColor",
+              "target" : "last sc"
+            },
+            "repeat" : null,
+            "sourceText" : "changing to off white in the last sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+      "title" : "Row 4"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "first 2 sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in the first 2 sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "fpdc around the next sc from 3 rows below (see reference image), then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "fpdc",
+                      "count" : 1,
+                      "instruction" : "around the next sc from 3 rows below (see reference image)",
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "fpdc",
+                      "target" : "next sc from 3 rows below"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "fpdc around the next sc from 3 rows below (see reference image)"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "skip",
+                      "count" : 1,
+                      "instruction" : "the sc behind the fpdc you just made",
+                      "notePlacement" : "first",
+                      "semantics" : "bookkeeping",
+                      "stitch" : "skip",
+                      "target" : "sc behind the fpdc you just made"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "sk the sc behind the fpdc you just made"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc",
+                      "target" : "each of the next 2 sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "1 sc in each of the next 2 sc"
+                  }
+                ]
+              },
+              "times" : 1
+            },
+            "sourceText" : "*fpdc around the next sc from 3 rows below (see reference image), then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in the first 2 sc,*fpdc around the next sc from 3 rows below (see reference image), then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+      "title" : "Row 5"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each st across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each st across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "note" : "changing to light blue",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "sc",
+              "target" : "last sc"
+            },
+            "repeat" : null,
+            "sourceText" : "changing to light blue in the last sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+      "title" : "Row 6"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each sc across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across. Ch 1, turn.",
+      "title" : "Row 7"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each sc across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "note" : "changing to off white in the last sc",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "changeColor",
+              "target" : "last sc"
+            },
+            "repeat" : null,
+            "sourceText" : "changing to off white in the last sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : -1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+      "title" : "Row 8"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "first 2 sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in the first 2 sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "fpdc",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "fpdc",
+                      "target" : "around the top of the fpdc from 4 rows below"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "fpdc around the top of the fpdc from 4 rows below"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "skip",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "bookkeeping",
+                      "target" : "the sc behind the fpdc you just made"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "sk the sc behind the fpdc you just made"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc",
+                      "target" : "each of the next 2 sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "1 sc in each of the next 2 sc"
+                  }
+                ]
+              },
+              "normalizationNote" : "Repeat count 'across' is variable based on previous row stitch count. Represented as a single homogeneous repeat block.",
+              "times" : 1
+            },
+            "sourceText" : "*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in the first 2 sc,*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+      "title" : "Row 9"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "note" : "changing to teal in the last sc",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping",
+              "stitch" : "changeColor",
+              "target" : "last sc"
+            },
+            "repeat" : null,
+            "sourceText" : "changing to teal in the last sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : -1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across,changing to teal in the last sc. Ch 1, turn.",
+      "title" : "Row 10"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each sc across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across. Ch 1, turn.",
+      "title" : "Row 11"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each sc across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each sc across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "note" : "changing to off white",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping",
+              "target" : "last sc"
+            },
+            "repeat" : null,
+            "sourceText" : "changing to off white in the last sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+      "title" : "Row 12"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "first 2 sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in the first 2 sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "fpdc",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "fpdc",
+                      "target" : "around the top of the fpdc from 4 rows below"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "fpdc around the top of the fpdc from 4 rows below"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "skip",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "bookkeeping",
+                      "target" : "the sc behind the fpdc you just made"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "sk the sc behind the fpdc you just made"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc",
+                      "target" : "each of the next 2 sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "1 sc in each of the next 2 sc"
+                  }
+                ]
+              },
+              "normalizationNote" : "Repeat count 'across' is variable based on previous row stitch count. Represented as a single repeatable group.",
+              "times" : 1
+            },
+            "sourceText" : "*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in the first 2 sc,*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+      "title" : "Row 13"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "Rows 6-13",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "note",
+                    "note" : {
+                      "emitAsAction" : false,
+                      "message" : "Work Rows 6 through 13 as previously defined.",
+                      "sourceText" : "Rows 6-13"
+                    },
+                    "operation" : null,
+                    "repeat" : null,
+                    "sourceText" : "Rows 6-13"
+                  }
+                ]
+              },
+              "normalizationNote" : "The repeat is homogeneous; the body is a placeholder reference to the row range.",
+              "times" : 1
+            },
+            "sourceText" : "Repeat Rows 6-13 until you have a total of 118 rows."
+          }
+        ]
+      },
+      "sourceText" : "Repeat Rows 6-13 until you have a total of 118 rows.",
+      "title" : "Repeat Rows 6-13"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "turn"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "instruction" : "do one more row of sc",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "do one more row of sc"
+          }
+        ]
+      },
+      "sourceText" : "Then ch 1, turn, and do one more row of sc.",
+      "title" : "Final Row"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "custom",
+              "count" : 1,
+              "instruction" : "Weave in ends, then move on to the border.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Weave in ends, then move on to the border."
+          }
+        ]
+      },
+      "sourceText" : "Weave in ends, then move on to the border.",
+      "title" : "Weave in ends"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "note" : "With off white",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "evenly around the entire blanket"
+            },
+            "repeat" : null,
+            "sourceText" : "With off white, place one sc evenly around the entire blanket."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each corner"
+            },
+            "repeat" : null,
+            "sourceText" : "Place 3 sc in each corner."
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Tip: while working along the sides, place two sc for each colored row, so 2 sc per white row, 2 sc for each teal row, etc. This way you won't be adding unnecessary single crochets to the sides which could result in a wavy edge.",
+              "sourceText" : "*Tip: while working along the sides, place two sc for each colored row, so 2 sc per white row, 2 sc for each teal row, etc. This way you won't be adding unnecessary single crochets to the sides which could result in a wavy edge."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "*Tip: while working along the sides, place two sc for each colored row, so 2 sc per white row, 2 sc for each teal row, etc. This way you won't be adding unnecessary single crochets to the sides which could result in a wavy edge."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "slst",
+              "target" : "to the first sc you made"
+            },
+            "repeat" : null,
+            "sourceText" : "Join with sl st to the first sc you made."
+          }
+        ]
+      },
+      "sourceText" : "With off white, place one sc evenly around the entire blanket. Place 3 sc in each corner. *Tip: while working along the sides, place two sc for each colored row, so 2 sc per white row, 2 sc for each teal row, etc. This way you won't be adding unnecessary single crochets to the sides which could result in a wavy edge. Join with sl st to the first sc you made.",
+      "title" : "Round 1"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "instruction" : "Finish off white",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "fastenOff"
+            },
+            "repeat" : null,
+            "sourceText" : "Finish off white"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "instruction" : "add teal",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "changeColor"
+            },
+            "repeat" : null,
+            "sourceText" : "add teal"
+          }
+        ]
+      },
+      "sourceText" : "Finish off white, add teal.",
+      "title" : "Finish off white, add teal."
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "instruction" : "in each st around, placing 3 hdc in each corner",
+              "note" : "placing 3 hdc in each corner",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc",
+              "target" : "each st around"
+            },
+            "repeat" : null,
+            "sourceText" : "1 hdc in each st around, placing 3 hdc in each corner"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "slst",
+              "target" : "to the first hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "Join with a sl st to the first hdc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "instruction" : "teal",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "fo"
+            },
+            "repeat" : null,
+            "sourceText" : "Finish off teal"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "instruction" : "add light blue",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "changeColor"
+            },
+            "repeat" : null,
+            "sourceText" : "add light blue"
+          }
+        ]
+      },
+      "sourceText" : "Ch 2, 1 hdc in each st around, placing 3 hdc in each corner. Join with a sl st to the first hdc. Finish off teal, add light blue.",
+      "title" : "Round 2"
+    },
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each st around"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each st around"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 3,
+              "note" : "in each corner",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "each corner"
+            },
+            "repeat" : null,
+            "sourceText" : "place 3 sc in each corner"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "slst",
+              "target" : "to the first sc"
+            },
+            "repeat" : null,
+            "sourceText" : "Join with a sl st to the first sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "fo"
+            },
+            "repeat" : null,
+            "sourceText" : "Finish off"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "weaveInEnds",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "custom"
+            },
+            "repeat" : null,
+            "sourceText" : "Weave in ends"
+          }
+        ]
+      },
+      "sourceText" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+      "title" : "Round 3"
+    }
+  ]
+}

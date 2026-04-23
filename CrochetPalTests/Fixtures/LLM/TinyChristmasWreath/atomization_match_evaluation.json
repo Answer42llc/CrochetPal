@@ -1,0 +1,68 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the instruction: 14 chains, a slip stitch to join, then 14 repeats of (ch 3, sl st in next chain). The final slip stitch target is correctly specified. The slip knot is a setup step not required in atomic actions.",
+      "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle)",
+      "roundTitle" : "Rnd 1",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "weave in ends"
+      ],
+      "rationale" : "The atomic actions include only 'fasten off', omitting the primary instruction to 'weave in the ends'. The parenthetical note about sewing is non-actionable prose and correctly omitted.",
+      "rawInstruction" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+      "roundTitle" : "Fasten off and weave in the ends",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only assembly note describing a finishing step. The atomic result correctly treats it as non-actionable bookkeeping with no crochet stitches to execute.",
+      "rawInstruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "roundTitle" : "Add red yarn bow",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only note about optional finishing, not a crochet operation. The atomic result correctly contains no actions.",
+      "rawInstruction" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+      "roundTitle" : "Optionally secure knot and ends",
+      "verdict" : "not_actionable"
+    }
+  ]
+}

@@ -1,0 +1,2176 @@
+{
+  "rounds" : [
+    {
+      "actions" : [
+        {
+          "actionTag" : "MR",
+          "instruction" : "magic ring",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 6,
+      "producedStitchCount" : 6,
+      "sourceText" : "in a MR, sc 6. (6)",
+      "title" : "Round 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 9,
+      "producedStitchCount" : 9,
+      "sourceText" : "(sc, inc) x3. (9)",
+      "title" : "Body - Round 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 9,
+      "producedStitchCount" : 9,
+      "sourceText" : "sc around. (9)",
+      "title" : "Round 3",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 12,
+      "sourceText" : "(sc 2, inc) x3. (12)",
+      "title" : "Round 4",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 12,
+      "sourceText" : "sc around. (12)",
+      "title" : "Round 5",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "note" : "both loops",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "hdc",
+          "note" : "flo of next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "flo of next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "hdc",
+          "note" : "flo of next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "both loops",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "hdc",
+          "note" : "flo of next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "dc",
+          "note" : "flo of next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "dc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "dc"
+        },
+        {
+          "actionTag" : "hdc",
+          "note" : "flo of next st",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "hdc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "both loops",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 18,
+      "producedStitchCount" : 18,
+      "sourceText" : "sc (both loops), in flo of next st (hdc, 2 dc, hdc) to form first ear, sc 3 (both loops), in flo of next st (hdc, 2 dc, hdc) to form second ear, sc 6 (both loops). (18)",
+      "title" : "Round 6",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "note" : "both loops",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "blo of st from round 5; bend first ear forward and sc in blo of st from round 5",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "both loops",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "blo of st from round 5; bend second ear forward and sc in blo of st from round 5",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "both loops",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 12,
+      "sourceText" : "sc (both loops), bend first ear forward and sc in blo of st from round 5, sc 3 (both loops), bend second ear forward and sc in blo of st from round 5, sc 6 (both loops). (12)",
+      "title" : "Round 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "expectedProducedStitches" : 18,
+      "sourceText" : "(sc, inc) x6. (18)",
+      "title" : "Round 8",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "inc"
+        }
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 18,
+      "producedStitchCount" : 18,
+      "sourceText" : "sc around. (18)",
+      "title" : "Rounds 9-10",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 21,
+      "producedStitchCount" : 21,
+      "sourceText" : "(sc 5, inc) x3. (21)",
+      "title" : "Round 11",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 21,
+      "producedStitchCount" : 21,
+      "sourceText" : "sc around. (21)",
+      "title" : "Rounds 12-13",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 22,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 23,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 30,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "increase (2 single crochet in one stitch)",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 31,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 24,
+      "producedStitchCount" : 32,
+      "sourceText" : "(sc 6, inc) x4. (24)",
+      "title" : "Round 14",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 24 produced stitches, but expanded to 32.",
+          "sourceText" : "(sc 6, inc) x4. (24)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 24,
+      "producedStitchCount" : 24,
+      "sourceText" : "sc around. (24)",
+      "title" : "Rounds 15-17",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 2,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 8,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 14,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 17,
+          "stitchTag" : "dec"
+        }
+      ],
+      "expectedProducedStitches" : 18,
+      "producedStitchCount" : 18,
+      "sourceText" : "(sc 2, dec) x6. (18)",
+      "title" : "Round 18",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 1,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 3,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 5,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 7,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 9,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 11,
+          "stitchTag" : "dec"
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 12,
+      "sourceText" : "(sc, dec) x6. (12)",
+      "title" : "Round 19",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "custom",
+          "instruction" : "Add catnip and stuffing.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Add catnip and stuffing.",
+      "title" : "Add catnip and stuffing",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 0,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 1,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 2,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "ch",
+          "producedStitches" : 0,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "ch"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "note" : "across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 25,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 26,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 27,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 28,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 29,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 30,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "instruction" : "starting in 2nd ch from hook sc across chs",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 31,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 32,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 33,
+          "stitchTag" : "dec"
+        },
+        {
+          "actionTag" : "decrease",
+          "producedStitches" : 1,
+          "semantics" : "decrease",
+          "sequenceIndex" : 34,
+          "stitchTag" : "dec"
+        }
+      ],
+      "expectedProducedStitches" : 20,
+      "producedStitchCount" : 20,
+      "sourceText" : "dec 3, ch 15, starting in 2nd ch from hook sc across chs, dec 3. (20)",
+      "title" : "Round 20",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Fasten off",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "assembly",
+          "instruction" : "Assembly",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 1
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Finish off and sew closed.",
+      "title" : "Finish off and sew closed",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4066 @@
+{
+  "rounds": [
+    {
+      "title": "Make 46 (68)",
+      "sourceText": "Make 46 (68).",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "note",
+            "sourceText": "Make 46 (68).",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "Make 46 (68).",
+              "sourceText": "Make 46 (68).",
+              "emitAsAction": false
+            }
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sliding loop",
+              "count": 1,
+              "instruction": "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "sliding loop",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Begin with a sliding loop."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Begin with a sliding loop.",
+      "title": "Begin with a sliding loop."
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 1",
+      "sourceText": "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "expectedProducedStitches": 15,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "With CC1",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "changeColor",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Join CC1",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "ch 3",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 3,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "2 dc in loop",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 2,
+              "instruction": null,
+              "target": "loop",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "ch 2",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 2,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "* 3 dc in loop, ch 2; rep from * twice more",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 3,
+              "normalizationNote": null,
+              "body": {
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "3 dc in loop",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "target": "loop",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 2",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ],
+                "sourceText": "3 dc in loop, ch 2",
+                "normalizationNote": null
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "join with sl st in top of beginning ch 3",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slSt",
+              "stitch": "sl st",
+              "count": 1,
+              "instruction": null,
+              "target": "top of beginning ch 3",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Break CC1",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "fastenOff",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Break CC1",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Rnd 2",
+      "sourceText": "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Join CC2 in any ch-2 sp.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "changeColor",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Join CC2 in any ch-2 sp.",
+              "target": "any ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Ch 3",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 3,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "2 dc in same ch-2 sp",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 2,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "ch 2",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 2,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "3 dc in same ch-2 sp",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "dc",
+              "stitch": "dc",
+              "count": 3,
+              "instruction": null,
+              "target": "same ch-2 sp",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "ch 1",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 1,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "* [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1; rep from * twice more",
+            "operation": null,
+            "repeat": {
+              "times": 3,
+              "sourceRepeatCount": 3,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "[3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "3 dc in next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 2",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "3 dc in next ch-2 sp",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "dc",
+                      "stitch": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "target": "next ch-2 sp",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 1",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "join with sl st in top of beginning ch 3.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slst",
+              "stitch": "sl st",
+              "count": 1,
+              "instruction": null,
+              "target": "top of beginning ch 3",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Break CC2.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "fastenOff",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Break CC2.",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "Join CC1 in any ch-2 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "any ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "Join CC1 in any ch-2 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 3"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "2 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 2"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-2 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-2 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 2"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "same ch-2 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in same ch-2 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "* [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1; rep from * twice more"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "slst",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sl st",
+              "target": "top of beginning ch 3"
+            },
+            "repeat": null,
+            "sourceText": "join with sl st in top of beginning ch 3"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Break CC1.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC1."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Join CC1 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "title": "Rnd 3"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "Join CC3 in any ch-2 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "any ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "Join CC3 in any ch-2 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 3"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 2,
+              "instruction": null,
+              "note": "in same ch-2 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "2 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 2"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": "in same ch-2 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in next ch-1 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 2,
+              "times": 2
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] twice"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "* [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice; rep from * twice more",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in next ch-2 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-2 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-2 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 2"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in same ch-2 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "same ch-2 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in same ch-2 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "repeat",
+                    "note": null,
+                    "operation": null,
+                    "repeat": {
+                      "body": {
+                        "normalizationNote": null,
+                        "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                        "statements": [
+                          {
+                            "conditional": null,
+                            "kind": "operation",
+                            "note": null,
+                            "operation": {
+                              "actionTag": "dc",
+                              "count": 3,
+                              "instruction": null,
+                              "note": "in next ch-1 sp",
+                              "notePlacement": "all",
+                              "producedStitches": null,
+                              "semantics": "stitchProducing",
+                              "stitch": "dc",
+                              "target": "next ch-1 sp"
+                            },
+                            "repeat": null,
+                            "sourceText": "3 dc in next ch-1 sp"
+                          },
+                          {
+                            "conditional": null,
+                            "kind": "operation",
+                            "note": null,
+                            "operation": {
+                              "actionTag": "ch",
+                              "count": 1,
+                              "instruction": null,
+                              "note": null,
+                              "notePlacement": "first",
+                              "producedStitches": null,
+                              "semantics": "stitchProducing",
+                              "stitch": "ch",
+                              "target": null
+                            },
+                            "repeat": null,
+                            "sourceText": "ch 1"
+                          }
+                        ]
+                      },
+                      "normalizationNote": null,
+                      "sourceRepeatCount": 2,
+                      "times": 2
+                    },
+                    "sourceText": "[3 dc in next ch-1 sp, ch 1] twice"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "* [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice; rep from * twice more"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sl st",
+              "count": 1,
+              "instruction": "join with sl st in top of beginning ch 3.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "sl st",
+              "target": "top of beginning ch 3"
+            },
+            "repeat": null,
+            "sourceText": "join with sl st in top of beginning ch 3."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Break CC3.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC3."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Join CC3 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice; rep from * twice more, join with sl st in top of beginning ch 3. Break CC3.",
+      "title": "Rnd 4"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "Join CC2 in any ch-2 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "any ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "Join CC2 in any ch-2 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 3"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 2,
+              "instruction": null,
+              "note": "in same ch-2 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "2 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 2"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": "in same ch-2 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in next ch-1 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] 3 times"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "* [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times; rep from * twice more",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in next ch-2 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-2 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-2 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 2,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 2"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in same ch-2 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "same ch-2 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in same ch-2 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "repeat",
+                    "note": null,
+                    "operation": null,
+                    "repeat": {
+                      "body": {
+                        "normalizationNote": null,
+                        "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                        "statements": [
+                          {
+                            "conditional": null,
+                            "kind": "operation",
+                            "note": null,
+                            "operation": {
+                              "actionTag": "dc",
+                              "count": 3,
+                              "instruction": null,
+                              "note": "in next ch-1 sp",
+                              "notePlacement": "all",
+                              "producedStitches": null,
+                              "semantics": "stitchProducing",
+                              "stitch": "dc",
+                              "target": "next ch-1 sp"
+                            },
+                            "repeat": null,
+                            "sourceText": "3 dc in next ch-1 sp"
+                          },
+                          {
+                            "conditional": null,
+                            "kind": "operation",
+                            "note": null,
+                            "operation": {
+                              "actionTag": "ch",
+                              "count": 1,
+                              "instruction": null,
+                              "note": null,
+                              "notePlacement": "first",
+                              "producedStitches": null,
+                              "semantics": "stitchProducing",
+                              "stitch": "ch",
+                              "target": null
+                            },
+                            "repeat": null,
+                            "sourceText": "ch 1"
+                          }
+                        ]
+                      },
+                      "normalizationNote": null,
+                      "sourceRepeatCount": 3,
+                      "times": 3
+                    },
+                    "sourceText": "[3 dc in next ch-1 sp, ch 1] 3 times"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "* [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times; rep from * twice more"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "sl st",
+              "count": 1,
+              "instruction": null,
+              "note": "join with sl st in top of beginning ch 3",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "sl st",
+              "target": "top of beginning ch 3"
+            },
+            "repeat": null,
+            "sourceText": "join with sl st in top of beginning ch 3"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Break CC2.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC2."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+      "title": "Rnd 5"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "weaveInEnds",
+              "count": 1,
+              "instruction": "Weave in ends.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "custom",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Weave in ends."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Weave in ends.",
+      "title": "Weave in ends."
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "title": "Make 14 (18)",
+      "sourceText": "Make 14 (18).",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "note",
+            "sourceText": "Make 14 (18).",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "Make 14 (18).",
+              "sourceText": "Make 14 (18).",
+              "emitAsAction": false
+            }
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "custom",
+              "count": 1,
+              "instruction": "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "sliding loop",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Begin with a sliding loop."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Begin with a sliding loop.",
+      "title": "Begin with a sliding loop."
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": "counts as dc + ch 1 throughout",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 4 (counts as dc + ch 1 throughout)"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "loop"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in loop"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 2"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "loop"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in loop"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "loop"
+            },
+            "repeat": null,
+            "sourceText": "dc in loop"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "break",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": null,
+              "target": "CC1"
+            },
+            "repeat": null,
+            "sourceText": "Break CC1"
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 2, 3 dc in loop, ch 1, dc in loop. Break CC1.",
+      "title": "Row 1"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "Join CC2 in first ch-1 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC2 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 2"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC2."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "title": "Row 2"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "joinYarn",
+              "count": 1,
+              "instruction": "Join CC1 in first ch-1 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "joinYarn",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC1 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 2, 3 dc] in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 2, 3 dc] in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 2, 3 dc] in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 1, dc] in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 1, dc] in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 1, dc] in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Break CC1.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC1."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+      "title": "Rnd 3"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "With RS still facing, join CC3 in first ch-1 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC3 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": "in same ch-1 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in next ch-1 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 2,
+              "times": 2
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] twice"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": "in next ch-2 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": "in next ch-2 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "ch 2 in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": "in next ch-2 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": "in next ch-1 sp",
+                      "notePlacement": "all",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 2,
+              "times": 2
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] twice"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": "in last ch-1 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": "in last ch-1 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "ch 1 in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": "in last ch-1 sp",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "dc in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Break CC3.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC3."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+      "title": "Rnd 4"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "With RS still facing, join CC2 in first ch-1 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC2 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] 3 times"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 2,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 2"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-2 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-2 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] 3 times"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in last ch-1 sp"
+            },
+            {
+              "conditional": null,
+              "kind": "operation",
+              "note": null,
+              "operation": {
+                "actionTag": "ch",
+                "count": 1,
+                "instruction": null,
+                "note": null,
+                "notePlacement": "first",
+                "producedStitches": null,
+                "semantics": "stitchProducing",
+                "stitch": "ch",
+                "target": null
+              },
+              "repeat": null,
+              "sourceText": "ch 1 in last ch-1 sp"
+            },
+            {
+              "conditional": null,
+              "kind": "operation",
+              "note": null,
+              "operation": {
+                "actionTag": "dc",
+                "count": 1,
+                "instruction": null,
+                "note": null,
+                "notePlacement": "first",
+                "producedStitches": null,
+                "semantics": "stitchProducing",
+                "stitch": "dc",
+                "target": "last ch-1 sp"
+              },
+              "repeat": null,
+              "sourceText": "dc in last ch-1 sp"
+            },
+            {
+              "conditional": null,
+              "kind": "operation",
+              "note": null,
+              "operation": {
+                "actionTag": "fastenOff",
+                "count": 1,
+                "instruction": "Break CC2.",
+                "note": null,
+                "notePlacement": "first",
+                "producedStitches": null,
+                "semantics": "bookkeeping",
+                "stitch": "fastenOff",
+                "target": null
+              },
+              "repeat": null,
+              "sourceText": "Break CC2."
+            }
+          ]
+        },
+        "expectedProducedStitches": null,
+        "sourceText": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+        "title": "Rnd 5"
+      }
+    ]
+  }
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "weaveInEnds",
+              "count": 1,
+              "instruction": "Weave in ends.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "custom",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Weave in ends."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Weave in ends.",
+      "title": "Weave in ends."
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "note",
+            "note": {
+              "emitAsAction": false,
+              "message": "Make 2."
+            ,
+              "sourceText": "Make 2."
+            },
+            "operation": null,
+            "repeat": null,
+            "sourceText": "Make 2."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Make 2.",
+      "title": "Make 2"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "slidingLoop",
+              "count": 1,
+              "instruction": "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "slidingLoop",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Begin with a sliding loop."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Begin with a sliding loop.",
+      "title": "Begin with a sliding loop."
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": "counts as dc + ch 1 throughout",
+              "notePlacement": "all",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 4 (counts as dc + ch 1 throughout)"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "loop"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in loop"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "loop"
+            },
+            "repeat": null,
+            "sourceText": "dc in loop"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "breakYarn",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": null,
+              "target": "CC1"
+            },
+            "repeat": null,
+            "sourceText": "Break CC1."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 1, dc in loop. Break CC1.",
+      "title": "Row 1"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "Join CC2 in first ch-1 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC2 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc, ch 1, dc]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "dc"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 1,
+              "times": 1
+            },
+            "sourceText": "[3 dc, ch 1, dc] in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Break CC2.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC2."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "title": "Row 2"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "Join CC1 in first ch-1 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC1 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "next ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in next ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 1, dc] in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 1, dc] in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "[3 dc, ch 1, dc] in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC1."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+      "title": "Rnd 3"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "changeColor",
+              "count": 1,
+              "instruction": "Join CC3 in first ch-1 sp.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "changeColor",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC3 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 2,
+              "times": 2
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] twice"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "ch 1 in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "dc in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": "Break CC3.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC3."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+      "title": "Rnd 4"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "joinYarn",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "joinYarn",
+              "target": "first ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "With RS still facing, join CC2 in first ch-1 sp."
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 4,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Ch 4"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "same ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in same ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "ch 1"
+          },
+          {
+            "conditional": null,
+            "kind": "repeat",
+            "note": null,
+            "operation": null,
+            "repeat": {
+              "body": {
+                "normalizationNote": null,
+                "sourceText": "[3 dc in next ch-1 sp, ch 1]",
+                "statements": [
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "dc",
+                      "count": 3,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "dc",
+                      "target": "next ch-1 sp"
+                    },
+                    "repeat": null,
+                    "sourceText": "3 dc in next ch-1 sp"
+                  },
+                  {
+                    "conditional": null,
+                    "kind": "operation",
+                    "note": null,
+                    "operation": {
+                      "actionTag": "ch",
+                      "count": 1,
+                      "instruction": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null,
+                      "semantics": "stitchProducing",
+                      "stitch": "ch",
+                      "target": null
+                    },
+                    "repeat": null,
+                    "sourceText": "ch 1"
+                  }
+                ]
+              },
+              "normalizationNote": null,
+              "sourceRepeatCount": 3,
+              "times": 3
+            },
+            "sourceText": "[3 dc in next ch-1 sp, ch 1] 3 times"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 3,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "3 dc in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "ch",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "ch",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "ch 1 in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "dc",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "stitchProducing",
+              "stitch": "dc",
+              "target": "last ch-1 sp"
+            },
+            "repeat": null,
+            "sourceText": "dc in last ch-1 sp"
+          },
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fastenOff",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Break CC2."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "title": "Rnd 5"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "custom",
+              "count": 1,
+              "instruction": "Weave in ends.",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "custom",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Weave in ends."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Weave in ends.",
+      "title": "Weave in ends."
+    }
+  ]
+}

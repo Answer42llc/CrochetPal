@@ -1,0 +1,340 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly represent the instruction to work 10 single crochets into a magic ring. The first action's note 'magic ring' captures the starting location, and the total stitch count matches.",
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "roundTitle" : "1st row",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions consist of exactly ten single crochet (sc) actions, which matches the source instruction '10 sc' precisely. No validation issues or warnings are present.",
+      "rawInstruction" : "10 sc",
+      "roundTitle" : "2-4 th",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly implement '4 inc, 6 sc' as eight increase actions (each producing 2 sc) followed by six single crochet actions, resulting in the specified 14 stitches. The meaning is preserved.",
+      "rawInstruction" : "4 inc, 6 sc = 14 sc",
+      "roundTitle" : "5 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly implement the repeat pattern of (1 sc, inc) seven times, producing the expected 21 stitches. The expansion from a concise repeat instruction into explicit atomic actions is a faithful normalization.",
+      "rawInstruction" : "(1 sc, inc) х 7 times = 21 sc",
+      "roundTitle" : "6 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the instruction '21 sc' by producing 21 single crochet actions with no extra or missing elements.",
+      "rawInstruction" : "21 sc",
+      "roundTitle" : "7-11 th",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly represent two decreases followed by ten single crochets, matching the source instruction's meaning and stitch count.",
+      "rawInstruction" : "2 dec, 10 sc = 12 sc",
+      "roundTitle" : "12 th",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding '12 sc' into twelve single crochet actions, resulting in the correct stitch count.",
+      "rawInstruction" : "12 sc",
+      "roundTitle" : "13 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose note about stuffing, not a sequence of crochet stitches. The atomic result correctly contains no actions.",
+      "rawInstruction" : "Stuff (it will only be in my head)",
+      "roundTitle" : "Stuff (it will only be in my head)",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly implement a decrease followed by ten single crochets, matching the source instruction's meaning and stitch count.",
+      "rawInstruction" : "dec, 10 sc = 11 sc",
+      "roundTitle" : "13 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction '11 sc' is atomized into exactly eleven single crochet actions, producing the correct stitch count. No validation issues or warnings are present.",
+      "rawInstruction" : "11 sc",
+      "roundTitle" : "14-83 th",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly implement the instruction: one decrease followed by nine single crochets, resulting in 10 stitches. The meaning is fully preserved.",
+      "rawInstruction" : "dec, 9 sc = 10 sc",
+      "roundTitle" : "84 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding '10 sc' into ten individual single crochet actions, which is an acceptable normalization.",
+      "rawInstruction" : "10 sc",
+      "roundTitle" : "85 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions correctly implement one decrease followed by eight single crochets, matching the source instruction's meaning and stitch count.",
+      "rawInstruction" : "dec, 8 sc = 9 sc",
+      "roundTitle" : "86 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions preserve the instruction's meaning by expanding the shorthand '9 sc' into nine individual single crochet actions, which is a standard and acceptable normalization.",
+      "rawInstruction" : "9 sc",
+      "roundTitle" : "87 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly implement the instruction: one decrease followed by seven single crochets, producing the correct total of 8 stitches.",
+      "rawInstruction" : "dec, 7 sc = 8 sc",
+      "roundTitle" : "88 th",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only note describing assembly and shaping steps, not a crochet stitch operation. The atomic result correctly treats it as non-actionable bookkeeping.",
+      "rawInstruction" : "Next, insert the wire into the body, pre-bend the edges of the wire",
+      "roundTitle" : "Next, insert the wire into the body, pre-bend the edges of the wire",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions exactly match the instruction: one decrease followed by six single crochets, producing 7 stitches total.",
+      "rawInstruction" : "dec, 6 sc = 7 sc",
+      "roundTitle" : "89 th",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions (one decrease followed by five single crochets) exactly match the instruction's meaning and produce the correct stitch count (6). The '= 6 sc' is a count verification, which is preserved in the round summary and stitch counts.",
+      "rawInstruction" : "dec, 5 sc = 6 sc",
+      "roundTitle" : "90 th",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions consist of exactly six single crochet stitches, which matches the source instruction '6 sc' precisely in both count and stitch type.",
+      "rawInstruction" : "6 sc",
+      "roundTitle" : "91-92 th",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic action correctly interprets the source as a bookkeeping step (closing loops) and does not attempt to generate stitches, preserving the instruction's meaning.",
+      "rawInstruction" : "Close 6 loops.",
+      "roundTitle" : "Close 6 loops.",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a non-crochet assembly step. The atomic action correctly marks it as 'assembly' and 'bookkeeping', preserving its meaning without attempting to turn it into a crochet stitch action.",
+      "rawInstruction" : "We glue the eyes and embroider the eyebrows.",
+      "roundTitle" : "We glue the eyes and embroider the eyebrows.",
+      "verdict" : "not_actionable"
+    }
+  ]
+}

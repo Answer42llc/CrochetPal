@@ -1,0 +1,93 @@
+{
+  "fixtures" : [
+    {
+      "name" : "AirpodsCase",
+      "sourceFiles" : [
+        "appc_.pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Airpods Case"
+    },
+    {
+      "name" : "ArianaWrap",
+      "sourceFiles" : [
+        "Berroco-Ariana-v2.pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Ariana Wrap"
+    },
+    {
+      "name" : "HuaweiFreebudsCase",
+      "sourceFiles" : [
+        "Huawei__Freebods__airpod_case.pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Huawei Freebuds Case"
+    },
+    {
+      "name" : "KKCrochet",
+      "sourceFiles" : [
+        "KK-Crochet-Pattern-6-10-23-rev8.pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Crochet Knockers"
+    },
+    {
+      "name" : "MandalaSteeringWheelCover",
+      "sourceFiles" : [
+        "Mandala_Steering_Wheel_Cover.pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Mandala Steering Wheel Cover"
+    },
+    {
+      "name" : "MarysMomentFloralSquare",
+      "sourceType" : "web",
+      "sourceURL" : "https://lookatwhatimade.net/crafts/yarn/crochet/free-crochet-patterns/marys-moment-free-floral-crochet-square-pattern/",
+      "title" : "Mary's Moment Floral Square"
+    },
+    {
+      "name" : "MochiBear",
+      "sourceFiles" : [
+        "Mochi_Bear_Crochet_Pattern_.pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Mochi Bear"
+    },
+    {
+      "name" : "MouseCatToy",
+      "sourceType" : "web",
+      "sourceURL" : "https://sparkitectcrafts.com/mouse-cat-toy-crochet-pattern/",
+      "title" : "Mouse Cat Toy"
+    },
+    {
+      "name" : "QuietTidesBlanket",
+      "sourceType" : "web",
+      "sourceURL" : "https://www.circuloyarns.com/post/quiet-tides-baby-blanket",
+      "title" : "Quiet Tides Baby Blanket"
+    },
+    {
+      "name" : "Snake",
+      "sourceFiles" : [
+        "1.pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Snake"
+    },
+    {
+      "name" : "TinyChristmasWreath",
+      "sourceFiles" : [
+        "tiny_christmas_wreath.pdf",
+        "tiny_christmas_wreath (1).pdf"
+      ],
+      "sourceType" : "pdf",
+      "title" : "Tiny Christmas Wreath"
+    },
+    {
+      "name" : "WolfGrannySquare",
+      "sourceType" : "web",
+      "sourceURL" : "https://grannysquare.me/wolf-granny-square/#pattern",
+      "title" : "Wolf Granny Square"
+    }
+  ]
+}

@@ -52,12 +52,18 @@ enum ExecutionEngine {
             return false
         }
 
-        // A `.ready` round with zero expanded actions is a malformed atomization result —
-        // not a completed round. Without this guard, `actionIndex (0) == atomicActions.count (0)`
-        // would be true on entry, silently putting the user into the "tap Enter Next Round"
-        // state and letting them skip the round without doing anything.
-        guard !round.atomicActions.isEmpty else {
-            return false
+        // A `.ready` round with zero expanded actions is ambiguous: it is either a
+        // legitimate narrative-only round (e.g. "Begin flap — transition to rows"), or a
+        // malformed atomization result that dropped all declared stitches. We distinguish
+        // by `targetStitchCount`: if the pattern declared a stitch count we still expect
+        // actions, so keep the user blocked for regeneration; if no count was declared
+        // we trust the empty atomization and let the user advance to the next round.
+        if round.atomicActions.isEmpty {
+            guard (round.targetStitchCount ?? 0) == 0,
+                  nextRoundCursor(in: project, progress: progress) != nil else {
+                return false
+            }
+            return true
         }
 
         return progress.cursor.actionIndex == round.atomicActions.count &&

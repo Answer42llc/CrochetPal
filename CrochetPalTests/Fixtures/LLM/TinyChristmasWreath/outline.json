@@ -1,0 +1,53 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain or chains",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "sl st"
+    },
+    {
+      "definition" : "stitch",
+      "term" : "st"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "Yarn in green (about 2m\/2.2yd)",
+    "Yarn in red (34-40cm\/12-16\")",
+    "Hook matching your chosen yarn weight (suggest 3.5mm\/E for worsted yarn)",
+    "Yarn needle",
+    "Pair of scissors",
+    "Optional: clear nail polish or white glue"
+  ],
+  "parts" : [
+    {
+      "name" : "Wreath",
+      "rounds" : [
+        {
+          "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle)",
+          "summary" : "Create a foundation chain and join into a circle, then make 14 chain loops around it.",
+          "title" : "Rnd 1"
+        },
+        {
+          "rawInstruction" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+          "summary" : "Fasten off the green yarn and weave in the ends.",
+          "title" : "Fasten off and weave in the ends"
+        },
+        {
+          "rawInstruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+          "summary" : "Weave red yarn through the chain loops to create a bow.",
+          "title" : "Add red yarn bow"
+        },
+        {
+          "rawInstruction" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+          "summary" : "Optionally secure the bow knot and ends with clear nail polish or glue.",
+          "title" : "Optionally secure knot and ends"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Tiny Christmas Wreath"
+}

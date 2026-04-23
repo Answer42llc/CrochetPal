@@ -1,0 +1,389 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a high-level project note to make a quantity of granny squares, not a specific crochet operation for a round. The atomic result correctly contains no actionable steps.",
+      "rawInstruction" : "Make 46 (68).",
+      "roundTitle" : "Make 46 (68)",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.9,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error"
+      ],
+      "missingElements" : [
+        "sliding loop start"
+      ],
+      "rationale" : "The source instruction is a setup step to begin with a sliding loop. The validation error indicates the system could not parse it into a standard action, resulting in no atomic actions. This is a meaningful omission of the actionable start method.",
+      "rawInstruction" : "Begin with a sliding loop.",
+      "roundTitle" : "Begin with a sliding loop.",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "wrong_stitch"
+      ],
+      "missingElements" : [
+        "1 dc stitch (from initial ch 3, 2 dc)"
+      ],
+      "rationale" : "The raw instruction begins with 'ch 3, 2 dc in loop', which is a standard granny square start where the ch-3 counts as the first dc, followed by 2 more dc, for a total of 3 dc in the loop. The atomization incorrectly treats the initial ch-3 as three separate chains and then makes only 2 dc, resulting in a total of 2 dc instead of 3. This is a material error in stitch count and type. The warning about stitch count mismatch confirms this defect.",
+      "rawInstruction" : "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "roundTitle" : "Rnd 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly implement the source instruction. The repeat pattern '* [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1; rep from * twice more' is expanded into the explicit sequence of stitches and chains across the four ch-2 spaces, which is an acceptable normalization. All bookkeeping steps (color join, slip stitch join, fasten off) are present.",
+      "rawInstruction" : "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+      "roundTitle" : "Rnd 2",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly implement the source instruction, including the initial join, the starting sequence, the repeated pattern, and the final join and fasten off. The expansion of the repeat and the stitch groupings is semantically faithful.",
+      "rawInstruction" : "Join CC1 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "roundTitle" : "Rnd 3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error"
+      ],
+      "missingElements" : [
+        "All stitch actions"
+      ],
+      "rationale" : "The validationIssues contains an error (ir_operation_invalid_action_tag), which prevents the generation of any atomicActions. Therefore, the entire instruction's actionable meaning is missing.",
+      "rawInstruction" : "Join CC3 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice; rep from * twice more, join with sl st in top of beginning ch 3. Break CC3.",
+      "roundTitle" : "Rnd 4",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error"
+      ],
+      "missingElements" : [
+        "All stitch actions (join, ch, dc, sl st, break)"
+      ],
+      "rationale" : "The validationIssues contain an error (ir_operation_invalid_action_tag), preventing successful atomization. The atomicActions list is empty, meaning no actionable content was generated from the instruction. Therefore, the atomization fails to preserve any of the stitch work.",
+      "rawInstruction" : "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+      "roundTitle" : "Rnd 5",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a non-actionable finishing note. The atomic action correctly marks it as bookkeeping with no crochet stitches produced.",
+      "rawInstruction" : "Weave in ends.",
+      "roundTitle" : "Weave in ends.",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a high-level directive to create a quantity of pieces (half granny triangles), not a stitch-by-stitch crochet action. The atomic result correctly contains no stitch actions, preserving the instruction's non-actionable nature.",
+      "rawInstruction" : "Make 14 (18).",
+      "roundTitle" : "Make 14 (18)",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a setup note, not an actionable crochet step. The atomic action correctly interprets it as a bookkeeping custom instruction describing how to form the starting loop, preserving the meaning without adding or omitting actionable content.",
+      "rawInstruction" : "Begin with a sliding loop.",
+      "roundTitle" : "Begin with a sliding loop.",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly represent the source instruction. The initial chain 4 is expanded into four chain actions with the correct note, the '3 dc in loop' groups are expanded into three dc actions each, and the final break action is included. The stitch count and sequence are preserved.",
+      "rawInstruction" : "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 2, 3 dc in loop, ch 1, dc in loop. Break CC1.",
+      "roundTitle" : "Row 1",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly implement the source instruction. The 'Ch 4' is expanded into four chain actions, the bracketed repeats are expanded into the correct sequence of stitches and chains, and the color join and fasten off are present. The stitch count matches the semantics of the instruction.",
+      "rawInstruction" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "roundTitle" : "Row 2",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the source instruction. The 'Ch 4' is broken into four chain actions, and each grouped stitch set (e.g., '3 dc in same ch-1 sp') is expanded into three individual dc actions with correct target notes. The final group '[3 dc, ch 1, dc]' is correctly atomized. All bookkeeping steps (join, break) are present. No actionable meaning is omitted, added, or altered.",
+      "rawInstruction" : "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+      "roundTitle" : "Rnd 3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+        "extra chain stitch after the first 3 dc in the last ch-1 sp"
+      ],
+      "issueCodes" : [
+        "extra_operation"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomization correctly expands repeats and handles most stitch placements. However, the source instruction '[3 dc, ch 1, dc] in last ch-1 sp' is rendered as 3 dc, ch, 3 dc, ch, dc in the atomic actions (sequence indices 34-38). This adds an extra 3 dc and an extra chain, materially altering the stitch count and pattern. The bookkeeping steps (join, fasten off) are correctly included.",
+      "rawInstruction" : "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+      "roundTitle" : "Rnd 4",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the source instruction, including the initial chain 4, all double crochet groups, chain spaces, and the final special group with 3 dc, ch 1, dc. The bookkeeping actions for color change and fasten off are present. No actionable meaning is lost or altered.",
+      "rawInstruction" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "roundTitle" : "Rnd 5",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only finishing note, not a crochet action that produces stitches. The atomic result correctly marks it as bookkeeping with no stitch production.",
+      "rawInstruction" : "Weave in ends.",
+      "roundTitle" : "Weave in ends.",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction 'Make 2.' is a high-level directive to create two pieces, not a specific crochet stitch sequence. The atomic result correctly contains no actionable crochet steps, as it is a prose-only note.",
+      "rawInstruction" : "Make 2.",
+      "roundTitle" : "Make 2",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a preparatory step, not a crochet round. The atomic action correctly captures this as a bookkeeping step for forming the starting loop, with no actionable crochet stitches to count.",
+      "rawInstruction" : "Begin with a sliding loop.",
+      "roundTitle" : "Begin with a sliding loop.",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+        "Extra chain actions (4 individual chains instead of one 'ch 4' group)"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "Target 'loop' for the initial chain of 4"
+      ],
+      "rationale" : "The atomization breaks 'ch 4' into four separate chain actions, which is an acceptable normalization, but it omits the target 'in loop' for that initial chain group. The '3 dc in loop' is correctly expanded into three dc actions, but the target 'loop' is only noted on the first and last dc, not all three. The final 'dc in loop' and break yarn are correctly represented. The missing target for the starting chain and inconsistent target annotation for the 3-dc group are actionable defects.",
+      "rawInstruction" : "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 1, dc in loop. Break CC1.",
+      "roundTitle" : "Row 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "ch 4 (four chains) instead of ch 4 (three chains plus a turning chain)"
+      ],
+      "issueCodes" : [
+        "wrong_stitch"
+      ],
+      "missingElements" : [
+        "dc in last ch-1 sp (the final dc of the bracket)"
+      ],
+      "rationale" : "The atomic actions incorrectly treat 'Ch 4' as four separate chain stitches, but in granny-style patterns, 'Ch 4' often functions as a turning chain (counts as first dc) plus three chains. This changes the stitch count and structure. Additionally, the final action in the bracket '[3 dc, ch 1, dc]' is missing the last 'dc', as the atomic actions only show three dc after the ch 1, not the required four dc total (3 dc + 1 dc).",
+      "rawInstruction" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "roundTitle" : "Row 2",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly implement the source instruction. The 'Ch 4' is expanded into four chain actions, and the grouped instructions for each chain-1 space are correctly broken down into individual stitches. The bookkeeping actions for color join and fasten off are present. No actionable meaning is lost, added, or changed.",
+      "rawInstruction" : "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+      "roundTitle" : "Rnd 3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly implement the source instruction. The 'ch 4' is expanded into four chain actions, the repeated groups are expanded, and the final cluster '[3 dc, ch 1, dc] in last ch-1 sp' is correctly atomized. All bookkeeping steps (join, fasten off) are present.",
+      "rawInstruction" : "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+      "roundTitle" : "Rnd 4",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the source instruction, including the initial join, ch 4, repeated groups of 3 dc and ch 1, and the final special group of 3 dc, ch 1, dc in the last space, followed by fastening off. No actionable meaning is lost or added.",
+      "rawInstruction" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "roundTitle" : "Rnd 5",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 1,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only finishing note, not a crochet operation that produces stitches. The atomic result correctly marks it as a bookkeeping action.",
+      "rawInstruction" : "Weave in ends.",
+      "roundTitle" : "Weave in ends.",
+      "verdict" : "not_actionable"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "ch action"
+      ],
+      "issueCodes" : [
+        "extra_operation"
+      ],
+      "missingElements" : [
+        "magic ring creation"
+      ],
+      "rationale" : "The atomic actions include a 'ch' action not explicitly stated in the source instruction, which says 'Into a magic ring: ch 1'. The magic ring creation itself is not represented as an atomic action, but this is acceptable as it's a setup step. The 'make 6 sc' and 'join' are correctly atomized. The extra chain is a minor deviation.",
+      "rawInstruction" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st.",
+      "roundTitle" : "Round 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "all stitch actions (popcorns, chains, slip stitch join)"
+      ],
+      "rationale" : "The validation error 'ir_invalid_operation_count' indicates the IR failed to parse the popcorn operation, resulting in zero atomic actions. No crochet actions are represented.",
+      "rawInstruction" : "Ch 2 (doesn't count as a st). Make a Popcorn in the same st as the sl st join. (Ch 2, make a Popcorn in the next st) 5 times. Ch 2, join to the top of the first Popcorn with a sl st.",
+      "roundTitle" : "Round 2",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the repeated pattern. The initial chain-1 bookkeeping, six repeats of the FPhdc and cluster sequence, and the final slip stitch join are all present and semantically correct.",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). (FPhdc around the Popcorn, [hdc, 2 dc, ch 2, 2 dc, hdc] in the next ch-2 sp) 6 times. Join to the first FPhdc with a sl st.",
+      "roundTitle" : "Round 3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the repeated pattern of (FPhdc, ch 4, Popcorn, ch 4) six times, followed by the specified slip stitch join. The stitch types, counts, and sequence are preserved.",
+      "rawInstruction" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st.",
+      "roundTitle" : "Round 4",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+        "A series of 3 chain stitches at the very start of the atomic actions"
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_operation_type",
+        "missing_bookkeeping",
+        "ambiguous_source"
+      ],
+      "missingElements" : [
+        "The 'fake' FPdc construction (FPsc, ch1, sc into FLO of FPsc, place marker)",
+        "Omission of the last FPdc on the last repeat"
+      ],
+      "rationale" : "The atomic actions omit the detailed 'fake' FPdc start for the same-color case and the instruction to omit the last FPdc. It also incorrectly begins with 3 chains, which are not specified in the source. The conditional prompts are present, but the core stitch sequence is incomplete and misordered.",
+      "rawInstruction" : "If you are using a different colour for this round, you can start this round with a standing FPdc around the first FPhdc of the previous round. If you are using the same colour for this round, we are going to start the round with a 'fake' FPdc as follows: FPsc around the FPhdc, ch 1. Inserting your hook from top to bottom into the FLO of the FPsc you just made, make a sc. Mark the top of this sc with s SM.This counts as your first (fake) FPdc. (Ch 3, FPsc around the next Popcorn, ch 3, FPdc around the next FPhdc) 6 times, omitting the last FPdc on the last repeat. Join to the top of the first FPdc with a sl st and remove the SM if you used one.",
+      "roundTitle" : "Round 5",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the repeated cluster pattern (sc, hdc, dc, ch 2, dc, hdc, sc) into 12 sequences, each targeting the next ch-3 sp. The initial ch 1 bookkeeping and final slst join are correctly represented. The expansion is semantically faithful.",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). ([Sc, hdc, dc, ch 2, dc, hdc, sc] in the next ch-3 sp) 12 times. Join to the first sc with a sl st.",
+      "roundTitle" : "Round 6",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the 12-repeat pattern, including the initial chain, all stitches, skips, and final bookkeeping steps. The expansion of the grouped '[Hdc, ch 2, hdc] in the next ch-2 sp' into individual actions is a faithful normalization.",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends.",
+      "roundTitle" : "Round 7",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "initial 6 chains before first sc"
+      ],
+      "issueCodes" : [
+        "extra_operation"
+      ],
+      "missingElements" : [
+        "omission of last sc on last repeat"
+      ],
+      "rationale" : "The atomic actions include a 'joinYarn' and 'removeMarker' matching the start, and a final 'join'. However, the source instruction specifies '(Ch 6, sc in the next ch-2 sp) 12 times, omitting the last sc on the last repeat.' The atomization expands the repeat into 12 groups of ch6 and sc, but it does NOT omit the last sc. It includes 12 sc actions, which is an extra sc. The initial 6 chains before the first sc are also extra, as the pattern likely starts with the standing sc, not a separate ch6 group.",
+      "rawInstruction" : "Join your yarn by making a standing sc in the marked ch-2 sp from the previous round. Remove the SM. (Ch 6, sc in the next ch-2 sp) 12 times, omitting the last sc on the last repeat. Join to the first sc with a sl st.",
+      "roundTitle" : "Round 8",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully and correctly expand the repeated pattern of stitches into individual actions, preserving all stitch types, counts, targets, and the four repetitions. The bookkeeping actions (ch 1 note, slst join, fasten off) are correctly included.",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends.",
+      "roundTitle" : "Round 9",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+        "Extra hdc stitches (total count is 80, but instruction implies 79 hdc plus corners)"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_bookkeeping"
+      ],
+      "missingElements" : [
+        "Omission of the last corner on the last repeat"
+      ],
+      "rationale" : "The atomization correctly captures the join, first corner, and side stitches, but fails to implement 'omitting the last corner on the last repeat'. The atomic actions work a full corner in the last repeat, resulting in an extra hdc and ch-2. The total hdc count is 80, but the instruction's pattern (23 hdc per side, 2 hdc per corner) with one corner omitted should yield a different total.",
+      "rawInstruction" : "Join your yarn by making a standing hdc in any ch-2 corner sp. [Hdc, ch 2, 2 hdc] in the same ch-2 corner sp. This is your first corner made. (Hdc in the next 23 sts, [2 hdc, ch 2, 2 hdc] in the next ch-2 sp) 3 times, omitting the last corner on the last repeat. Join to the first hdc with a sl st.",
+      "roundTitle" : "Round 10",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "numerous extra dc and ch actions not in the pattern",
+        "extra skip actions",
+        "sequence does not form clear corners and sides as per repeat structure"
+      ],
+      "issueCodes" : [
+        "wrong_operation_type",
+        "wrong_target",
+        "wrong_count",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "first corner pattern after slst\/ch3 (dc, ch2, 2dc)",
+        "omitting the last corner on the last repeat"
+      ],
+      "rationale" : "The raw instruction defines a clear repeat pattern for creating sides and four corners, with a special instruction to omit the last corner on the final repeat. The atomic actions include a slst and ch 3, but then proceed with a long series of 135 dc and ch actions that do not correspond to the 'dc, ch 2, 2 dc' corner pattern, the 'dc in the next 26 sts' side pattern, or the four-repeat structure. The atomization fails to capture the correct stitch placement, counts, and the explicit 'omit last corner' instruction, resulting in a fundamentally different round.",
+      "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Skip the first (hidden) st, dc in the next 26 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st.",
+      "roundTitle" : "Round 11",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.75,
+      "extraElements" : [
+        "many extra double crochets beyond the specified 30 per side",
+        "extra chains",
+        "extra slip stitch not in the instruction"
+      ],
+      "issueCodes" : [
+        "wrong_operation_type",
+        "missing_operation",
+        "extra_operation"
+      ],
+      "missingElements" : [
+        "single slip stitch into the next stitch",
+        "the first corner's second dc in the same ch-2 sp (as part of the [dc, ch2, 2dc])",
+        "omission of the last corner on the final repeat"
+      ],
+      "rationale" : "The atomization incorrectly expands the first corner from '[Dc, ch 2, 2 dc]' into a series of actions starting with chains 'counts as dc' which are not in the source, and introduces extra slip stitch and extra chains. It also fails to correctly interpret the instruction 'omitting the last corner on the last repeat' by including all four corners. The core pattern structure is roughly followed but with many stitch count errors and misinterpretations.",
+      "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends.",
+      "roundTitle" : "Round 12",
+      "verdict" : "partial_match"
+    }
+  ]
+}

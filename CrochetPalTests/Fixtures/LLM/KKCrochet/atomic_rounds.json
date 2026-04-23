@@ -1,0 +1,1303 @@
+{
+  "rounds" : [
+    {
+      "actions" : [
+        {
+          "actionTag" : "createMagicRing",
+          "instruction" : "Create a magic ring",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "in the ring",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "closeRing",
+          "instruction" : "Close the ring",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 7
+        }
+      ],
+      "expectedProducedStitches" : 6,
+      "producedStitchCount" : 6,
+      "sourceText" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "title" : "Rnd 1",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 12,
+      "producedStitchCount" : 12,
+      "sourceText" : "inc x 6 (12 sc)",
+      "title" : "Rnd 2",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "placeMarker",
+          "instruction" : "place marker",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 6
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "placeMarker",
+          "instruction" : "place marker",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 13
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "placeMarker",
+          "instruction" : "place marker",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 20
+        }
+      ],
+      "expectedProducedStitches" : 18,
+      "producedStitchCount" : 18,
+      "sourceText" : "(2 sc, 2 inc, PM X 3 (18 sc)",
+      "title" : "Rnd 3",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 16,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 17,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 21,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 22,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "increase",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 23,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 24,
+      "producedStitchCount" : 24,
+      "sourceText" : "(4 sc, 2 inc) x 3 (24 sc).Move Markers up as you go.",
+      "title" : "Rnd 4",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "inc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "inc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 9,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 10,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 11,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 12,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 13,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 14,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 15,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 16,
+          "stitchTag" : "inc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 17,
+          "stitchTag" : "inc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 18,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 19,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 20,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 21,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 22,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 23,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 24,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 25,
+          "stitchTag" : "inc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 26,
+          "stitchTag" : "inc"
+        }
+      ],
+      "expectedProducedStitches" : 27,
+      "producedStitchCount" : 27,
+      "sourceText" : "(7 sc, inc) x 3 (27 sc)",
+      "title" : "FRONT - Rnd 5",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "note" : "to 1 sc before marker",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "to 1 sc before marker",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 3,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "to 1 sc before marker",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 6,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "inc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 33,
+      "producedStitchCount" : 9,
+      "sourceText" : "(Work to 1 sc before marker and inc x 2) x 3 (33 sc)",
+      "title" : "Rnd 6",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 33 produced stitches, but expanded to 9.",
+          "sourceText" : "(Work to 1 sc before marker and inc x 2) x 3 (33 sc)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "workToMarker",
+          "instruction" : "Work stitches until you reach the stitch marker.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "marked stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 2,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "workToMarker",
+          "instruction" : "Work stitches until you reach the stitch marker.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 3
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "marked stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 4,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 5,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "workToMarker",
+          "instruction" : "Work stitches until you reach the stitch marker.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 6
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "note" : "marked stitch",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 7,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "inc",
+          "instruction" : "work 2 scs in next sc",
+          "producedStitches" : 1,
+          "semantics" : "increase",
+          "sequenceIndex" : 8,
+          "stitchTag" : "sc"
+        }
+      ],
+      "expectedProducedStitches" : 36,
+      "producedStitchCount" : 6,
+      "sourceText" : "(Work to marker and inc in marked stitch) x 3 (36 sc)",
+      "title" : "Rnd 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 36 produced stitches, but expanded to 6.",
+          "sourceText" : "(Work to marker and inc in marked stitch) x 3 (36 sc)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "assembly",
+          "instruction" : "Using the tapestry needle, sew in the magic ring’s 6” tail.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Using the tapestry needle, sew in the magic ring’s 6” tail.",
+      "title" : "Sew in magic ring tail",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "expectedProducedStitches" : 63,
+      "producedStitchCount" : 0,
+      "sourceText" : "Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)",
+      "title" : "A cup – Repeat Rnds 6 & 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 63 produced stitches, but expanded to 0.",
+          "sourceText" : "Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc)",
+      "title" : "B cup – Repeat Rnds 6 & 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 6 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 7 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 1
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 6 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 2
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 7 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 3
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 6 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 4
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 7 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 5
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 6 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 6
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 7 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 7
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 6 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 8
+        },
+        {
+          "actionTag" : "custom",
+          "instruction" : "Work Rnd 7 as previously defined.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 9
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc)",
+      "title" : "C cup – Repeat Rnds 6 & 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc)",
+      "title" : "D cup – Repeat Rnds 6 & 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "expectedProducedStitches" : 99,
+      "producedStitchCount" : 0,
+      "sourceText" : "Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+      "title" : "DD cup – Repeat Rnds 6 & 7",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+        {
+          "code" : "atomization_target_stitch_count_mismatch",
+          "message" : "Expected 99 produced stitches, but expanded to 0.",
+          "sourceText" : "Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)"
+        }
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "sc",
+          "note" : "through the back loop only",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 0,
+          "stitchTag" : "sc"
+        },
+        {
+          "actionTag" : "sc",
+          "note" : "through the back loop only",
+          "producedStitches" : 1,
+          "semantics" : "stitchProducing",
+          "sequenceIndex" : 1,
+          "stitchTag" : "sc"
+        }
+      ],
+      "producedStitchCount" : 2,
+      "sourceText" : "Work 2 rnds even through the back loop only.",
+      "title" : "Work 2 rnds even through back loop only",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "custom",
+          "instruction" : "Crochet until 1 sc before the first marker.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "When the size is correct, the turning rows have been completed, and you’re ready to start decreasing, crochet until 1 sc before the first marker.",
+      "title" : "Crochet until 1 sc before first marker",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "sourceText" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+      "title" : "Rnd 1",
+      "validationIssues" : [
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got inv dec).",
+          "severity" : "error",
+          "sourceText" : "inv dec (PM)"
+        },
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got inv dec).",
+          "severity" : "error",
+          "sourceText" : "inv dec"
+        }
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "sourceText" : "Repeat Rnd 1 until you have 15 sc left.",
+      "title" : "Repeat Rnd 1 until 15 sc left",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_repeat_times",
+          "message" : "Repeat times must be positive.",
+          "severity" : "error",
+          "sourceText" : "Repeat Rnd 1 until you have 15 sc left."
+        }
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "fastenOff",
+          "instruction" : "Cut yarn leaving a 10” tail.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Cut yarn leaving a 10” tail.",
+      "title" : "Cut yarn leaving 10” tail",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "custom",
+          "instruction" : "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+          "note" : "front loop only for the remaining 15 sc",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+      "title" : "Weave through front loops of remaining 15 sc",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen.",
+      "title" : "Add stuffing",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    },
+    {
+      "actions" : [
+        {
+          "actionTag" : "tuckTail",
+          "instruction" : "Tuck tail into Knocker so that filling can be adjusted as needed.",
+          "producedStitches" : 0,
+          "semantics" : "bookkeeping",
+          "sequenceIndex" : 0
+        }
+      ],
+      "producedStitchCount" : 0,
+      "sourceText" : "Tuck tail into Knocker so that filling can be adjusted as needed.",
+      "title" : "Tuck tail inside",
+      "validationIssues" : [
+
+      ],
+      "warnings" : [
+
+      ]
+    }
+  ]
+}

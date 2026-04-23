@@ -1,0 +1,260 @@
+{
+  "rounds" : [
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "All semantic elements are preserved: color change to grey, creating a magic ring (magic loop), one chain, seven single crochets (7sc), and a slip stitch join to the first sc. The atomic actions are in correct order with no missing or extra operations, and there are no validation issues.",
+      "rawInstruction" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+      "roundTitle" : "Round 1",
+      "verdict" : "exact_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "Excessive sc increase actions (total of 15 present)"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "extra_operation"
+      ],
+      "missingElements" : [
+        "Correct count of sc increases (should be 7 total)"
+      ],
+      "rationale" : "The source instruction specifies a chain 1, then two sc increases (one explicitly 'in the same st' and one implied in the next st), followed by a color change and 5 sc increases in white. This totals 7 sc increase actions (2+5). The atomization erroneously includes 15 sc increase actions, a material change to the stitch count and pattern. The bookkeeping steps are correctly captured, but the core stitch operations are wrong.",
+      "rawInstruction" : "Ch1, sc inc in the same st, sc inc, change to white yarn: (sc inc)x5. Change back to grey yarn on the final yo of the last sc, and slst to the first sc.",
+      "roundTitle" : "Round 2",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomic actions fully capture the source instruction, including the initial chain-2 counted as an hdc, the first increase, all subsequent increases and single stitches, the two color changes, the repeated (1sc, sc inc) twice, and the final slip stitch. The expansion of repeats and grouping into atomic actions is a faithful normalization.",
+      "rawInstruction" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc. Hdc inc, 1hdc; Change to white yarn: Hdc inc, 1hdc, hdc inc, (1sc, sc inc) repeat 2 times, hdc inc, 1hdc, hdc inc; Change back to grey yarn: 1hdc. Slst to the top of the first ch2.",
+      "roundTitle" : "Round 3",
+      "verdict" : "normalized_match"
+    },
+    {
+      "confidence" : 0.8,
+      "extraElements" : [
+        "Extra sc stitches beyond the specified 9sc"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "wrong_order",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "1hdc+1sc as a combined stitch instruction",
+        "1sc+1hdc as a combined stitch instruction"
+      ],
+      "rationale" : "The atomization misinterprets the combined stitch instructions '1hdc+1sc' and '1sc+1hdc' as separate stitches, altering the sequence and stitch count. It also adds extra single crochets (11 sc actions where the source specifies '9sc'), and the order of operations after the color changes does not fully match the source grouping.",
+      "rawInstruction" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+      "roundTitle" : "Round 4",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.5,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "validation_error",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "All crochet stitches and yarn changes",
+        "Slip stitch and fasten off"
+      ],
+      "rationale" : "The validationIssues contains an error (ir_invalid_operation_count), which prevents a faithful atomization. The atomicActions list is empty, meaning the entire actionable instruction is missing, including all stitches, yarn changes, and the final finishing steps.",
+      "rawInstruction" : "Ch2 (count as 1hdc), 3hdc, (hdc inc)x3; Change to white yarn: 3hdc, 2sc, (sc inc, 4sc) repeat 2 times, sc inc, 2sc, 3hdc; Change back to grey yarn: (hdc inc)x3. Slst to the top of the first ch2, and fasten off.",
+      "roundTitle" : "Round 5",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+        "extra ch3 groups (3 extra sets of 3 chains)",
+        "extra dc increases (3 extra sets of 2 dc inc)"
+      ],
+      "issueCodes" : [
+        "wrong_count"
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The atomization incorrectly repeats the bracketed pattern 4 times instead of 3, adding an extra full repeat. This results in extra stitches and chains, changing the stitch count and structure. The warning about stitch count mismatch confirms the error.",
+      "rawInstruction" : "Third loop only. With grey stitches on top, join new yarn to the 4th grey stitch from the right. Ch3 (count as 1dc), 1dc in the same st to complete the first dc inc, 8hdc, dc inc, ch3; [dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+      "roundTitle" : "Squaring",
+      "verdict" : "mismatch"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+        "explicit dc actions where source has 'each st around' without specifying count"
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "wrong_target",
+        "missing_bookkeeping"
+      ],
+      "missingElements" : [
+        "slip stitch join",
+        "fasten off",
+        "context for number of stitches around"
+      ],
+      "rationale" : "The atomization correctly expands the initial ch3 and dc in the same corner, and handles corner groups. However, it omits the final slip stitch join and fasten off instructions. It also explicitly lists many 'dc' actions without specifying the count implied by 'each st around', and the target for the 'dc in each st around' is unclear. The total stitch count of 18 produced does not match a typical border pattern, indicating a potential misinterpretation of the source instruction's scope or count.",
+      "rawInstruction" : "Ch3 (count as 1dc), 1dc in the same corner, 1dc in each st around, (2dc, ch3, 2dc) in each corner as you go. When you return to the starting corner, work (2dc, ch3), slst to the top of the first ch3, fasten off.",
+      "roundTitle" : "Border",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "missing_operation",
+        "missing_bookkeeping"
+      ],
+      "missingElements" : [
+        "weave in the ends",
+        "target for the (1dc, ch-1 pic, 1dc) group is 'in the next st'"
+      ],
+      "rationale" : "The atomization omits the final 'weave in the ends' instruction and the target note for the main stitch group ('in the next st') is only partially attached to the first dc. The join location and fasten off are correctly captured, but the omission of finishing steps and incomplete target semantics makes this a partial match.",
+      "rawInstruction" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+      "roundTitle" : "Inner Ear",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.85,
+      "extraElements" : [
+        "Extra sc action (sequence index 4)",
+        "Extra increase action (sequence index 6)"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "Weave in ends"
+      ],
+      "rationale" : "The raw instruction specifies '2sc, sc inc, 2sc', which should produce 2 single crochets, one increase (2 sc in one stitch), and then 2 more single crochets, totaling 6 stitches. The atomic actions list two separate 'sc' actions, then two separate 'increase' actions, then two more 'sc' actions. This results in 2 sc, 2 increases (which are 4 sc), and 2 sc, totaling 8 produced stitches, which is a wrong count. The 'weave in your ends' instruction is missing from the atomic actions. The join, ch1, skip, slst, and fasten off are correctly represented.",
+      "rawInstruction" : "Join grey yarn to the st immediately to the right of the inner ear join (the 5th grey st from the left), ch1. Now we crochet along the inner ear part and work in the TLO: sk the initial ch, 2sc, sc inc, 2sc, ch1. Slst in the same grey st used for the inner ear's final slst. Fasten off, and weave in your ends.",
+      "roundTitle" : "Ear Edge",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is a prose note directing the crocheter to repeat a previous section and providing a yarn join hint. It does not contain any new, actionable crochet steps for this round. The atomic actions are correctly empty, as the instruction is non-actionable bookkeeping.",
+      "rawInstruction" : "Repeat the ear instructions on the opposite side, leaving a 5-stitch for symmetry. (Join white yarn for the inner ear in the 3rd grey stitch from the right.)",
+      "roundTitle" : "Wolf's Right Ear",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+        "wrong_stitch"
+      ],
+      "missingElements" : [
+        "1 hdc-equivalent stitch (total should be 10)"
+      ],
+      "rationale" : "The atomization correctly creates a magic ring, interprets the ch2 as counting as 1 hdc, and includes the join. However, the atomic actions produce only 9 hdc stitches (2 chains + 9 hdc = 10 hdc equivalents), but the source instruction '9hdc' after the ch2 implies a total of 10 hdc-equivalent stitches. The atomization's produced stitch count (9) does not match the expected count (10), indicating a misinterpretation of the stitch count.",
+      "rawInstruction" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+      "roundTitle" : "Round 1",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.7,
+      "extraElements" : [
+        "extra single crochet stitch"
+      ],
+      "issueCodes" : [
+        "wrong_count",
+        "missing_operation"
+      ],
+      "missingElements" : [
+        "ch1 stitch as a turning chain or base"
+      ],
+      "rationale" : "The instruction 'Ch1+1sc' likely means a turning chain of 1 followed by 1 sc in the same stitch (or the first stitch). The atomic actions show a 'ch' and then seven 'sc' actions, totaling 7 produced stitches, with a warning about a stitch count mismatch (expected 8, produced 7). This suggests the 'Ch1' was not counted as a produced stitch, but its function as a turning chain or base for the first sc may have been misinterpreted, and the total stitch count is incorrect. The fasten off and slip stitch are correctly represented.",
+      "rawInstruction" : "Ch1+1sc, 1sc in each st around, slst to the first sc. Fasten off, leave a long tail for attaching.",
+      "roundTitle" : "Round 2",
+      "verdict" : "partial_match"
+    },
+    {
+      "confidence" : 0.99,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only assembly note describing sewing and optional stuffing, not a crochet round that produces stitches. The atomic result correctly treats it as non-actionable bookkeeping.",
+      "rawInstruction" : "Turn the muzzle over so the wrong side faces out. Position it on the lower center of the head and sew it firmly in place. You can add a small amount of stuffing before closing.",
+      "roundTitle" : "Attach the Muzzle",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.95,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The source instruction is a prose-only assembly note, not a crochet round. The atomic result correctly treats it as non-actionable bookkeeping.",
+      "rawInstruction" : "Stitch the nose on the muzzle.",
+      "roundTitle" : "The Nose",
+      "verdict" : "not_actionable"
+    },
+    {
+      "confidence" : 0.98,
+      "extraElements" : [
+
+      ],
+      "issueCodes" : [
+
+      ],
+      "missingElements" : [
+
+      ],
+      "rationale" : "The raw instruction is purely assembly\/embroidery steps with no crochet stitches to produce. The atomic actions correctly capture these as non-actionable bookkeeping steps.",
+      "rawInstruction" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+      "roundTitle" : "Eyes & Blushes",
+      "verdict" : "not_actionable"
+    }
+  ]
+}

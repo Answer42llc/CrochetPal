@@ -30,6 +30,12 @@ struct OutlinedPatternRound: Codable, Hashable {
     /// The row/round number of the last numbered row before this repeat instruction.
     /// E.g. if rows 1-13 precede "Repeat Rows 6-13 until 118", set to 13.
     var repeatAfterRow: Int?
+    /// For range expansion instructions (e.g. "Rows 2-109: Ch 1, sc in first 3 sts..."):
+    /// the start number of the range (e.g. 2). Must be paired with `rangeEndNumber`.
+    /// Mutually exclusive with the `repeat*` fields.
+    var rangeStartNumber: Int?
+    /// The end number of the range (e.g. 109). Must be paired with `rangeStartNumber`.
+    var rangeEndNumber: Int?
 }
 
 struct PatternParseResponse: Codable, Hashable {
@@ -80,6 +86,93 @@ struct AtomizationRoundInput: Codable, Hashable {
     /// Pattern-level abbreviations forwarded from the outline stage so the IR LLM can
     /// honor author-defined terminology (e.g. `cs = cap stitch`).
     var abbreviations: [PatternAbbreviation]
+}
+
+struct AtomizationEvaluationActionInput: Codable, Hashable {
+    var semantics: CrochetIROperationSemantics
+    var actionTag: String
+    var stitchTag: String?
+    var instruction: String?
+    var producedStitches: Int
+    var note: String?
+    var sequenceIndex: Int
+
+    init(
+        semantics: CrochetIROperationSemantics,
+        actionTag: String,
+        stitchTag: String?,
+        instruction: String?,
+        producedStitches: Int,
+        note: String?,
+        sequenceIndex: Int
+    ) {
+        self.semantics = semantics
+        self.actionTag = actionTag
+        self.stitchTag = stitchTag
+        self.instruction = instruction
+        self.producedStitches = producedStitches
+        self.note = note
+        self.sequenceIndex = sequenceIndex
+    }
+
+    init(action: AtomicAction) {
+        self.semantics = action.semantics
+        self.actionTag = action.actionTag
+        self.stitchTag = action.stitchTag
+        self.instruction = action.instruction
+        self.producedStitches = action.producedStitches
+        self.note = action.note
+        self.sequenceIndex = action.sequenceIndex
+    }
+}
+
+struct AtomizationMatchEvaluationInput: Codable, Hashable {
+    var roundTitle: String
+    var rawInstruction: String
+    var roundSummary: String
+    var targetStitchCount: Int?
+    var irSourceText: String
+    var expectedProducedStitches: Int?
+    var validationIssues: [CrochetIRValidationIssue]
+    var expansionFailure: String?
+    var producedStitchCount: Int?
+    var warnings: [CrochetIRExpansionWarning]
+    var atomicActions: [AtomizationEvaluationActionInput]
+}
+
+enum AtomizationMatchVerdict: String, Codable, CaseIterable, Hashable {
+    case exactMatch = "exact_match"
+    case normalizedMatch = "normalized_match"
+    case partialMatch = "partial_match"
+    case mismatch
+    case notActionable = "not_actionable"
+}
+
+enum AtomizationMatchIssueCode: String, Codable, CaseIterable, Hashable {
+    case missingOperation = "missing_operation"
+    case extraOperation = "extra_operation"
+    case wrongOperationType = "wrong_operation_type"
+    case wrongStitch = "wrong_stitch"
+    case wrongCount = "wrong_count"
+    case wrongTarget = "wrong_target"
+    case wrongOrder = "wrong_order"
+    case missingBookkeeping = "missing_bookkeeping"
+    case extraBookkeeping = "extra_bookkeeping"
+    case missingContext = "missing_context"
+    case validationError = "validation_error"
+    case expansionFailure = "expansion_failure"
+    case ambiguousSource = "ambiguous_source"
+}
+
+struct AtomizationMatchEvaluation: Codable, Hashable {
+    var roundTitle: String
+    var rawInstruction: String
+    var verdict: AtomizationMatchVerdict
+    var confidence: Double
+    var issueCodes: [AtomizationMatchIssueCode]
+    var missingElements: [String]
+    var extraElements: [String]
+    var rationale: String
 }
 
 struct ParseRequestContext: Codable, Hashable {

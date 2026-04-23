@@ -1,0 +1,256 @@
+{
+  "rounds": [
+    {
+      "title": "Rnd 1",
+      "sourceText": "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle)",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "note",
+            "sourceText": "with green, make a slip knot",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": {
+              "message": "with green, make a slip knot",
+              "sourceText": "with green, make a slip knot",
+              "emitAsAction": false
+            }
+          },
+          {
+            "kind": "operation",
+            "sourceText": "ch 14",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 14,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "sl st in the first ch you made, to join the piece in a circle",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slSt",
+              "stitch": "sl st",
+              "count": 1,
+              "instruction": null,
+              "target": "first ch you made",
+              "note": "to join the piece in a circle",
+              "notePlacement": "all",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "repeat",
+            "sourceText": "[ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle)",
+            "operation": null,
+            "repeat": {
+              "times": 13,
+              "sourceRepeatCount": 14,
+              "normalizationNote": "Original repeat count was 14, but the final iteration has a different target for the sl st. Normalized to a homogeneous repeat of 13 plus the final iteration flattened below.",
+              "body": {
+                "sourceText": "[ch 3, sl st in the next ch of the circle]",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "ch 3",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "ch",
+                      "stitch": "ch",
+                      "count": 3,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "sl st in the next ch of the circle",
+                    "operation": {
+                      "semantics": "bookkeeping",
+                      "actionTag": "slSt",
+                      "stitch": "sl st",
+                      "count": 1,
+                      "instruction": null,
+                      "target": "next ch of the circle",
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "ch 3",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 3,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "sl st into the st that joined the circle",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "slSt",
+              "stitch": "sl st",
+              "count": 1,
+              "instruction": null,
+              "target": "st that joined the circle",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "operation",
+            "note": null,
+            "operation": {
+              "actionTag": "fastenOff",
+              "count": 1,
+              "instruction": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null,
+              "semantics": "bookkeeping",
+              "stitch": "fo",
+              "target": null
+            },
+            "repeat": null,
+            "sourceText": "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique)."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+      "title": "Fasten off and weave in the ends"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "sourceText": "Take a 30-40cm/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "expectedProducedStitches": null,
+      "body": {
+        "normalizationNote": null,
+        "statements": [
+          {
+            "operation": {
+              "semantics": "bookkeeping",
+              "note": "Take a 30-40cm/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+              "producedStitches": null,
+              "count": 1,
+              "notePlacement": "all",
+              "target": null,
+              "actionTag": "assembly",
+              "stitch": "assembly",
+              "instruction": null
+            },
+            "kind": "operation",
+            "sourceText": "Take a 30-40cm/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+            "note": null,
+            "repeat": null,
+            "conditional": null
+          }
+        ],
+        "sourceText": null
+      },
+      "title": "Add red yarn bow"
+    }
+  ]
+}
+
+---
+
+{
+  "rounds": [
+    {
+      "body": {
+        "normalizationNote": null,
+        "sourceText": null,
+        "statements": [
+          {
+            "conditional": null,
+            "kind": "note",
+            "note": {
+              "emitAsAction": false,
+              "message": "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them."
+            ,
+              "sourceText": "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them."
+            },
+            "operation": null,
+            "repeat": null,
+            "sourceText": "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them."
+          }
+        ]
+      },
+      "expectedProducedStitches": null,
+      "sourceText": "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+      "title": "Optionally secure knot and ends"
+    }
+  ]
+}

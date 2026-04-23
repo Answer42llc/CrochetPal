@@ -1,0 +1,472 @@
+{
+  "materials": ["Crochet hook, size F / 3.75 mm", "32\" / 80 cm circular needle, size 5 / 3.75 mm", "Four 1\" / 2.5 cm buttons", "BERROCO LANAS yarn: 3 (4) balls #95102 Steel Cut Oats (MC); 2 (3) balls each #95113 Lilac (CC1), #95115 Lime Light (CC2), and #95116 Sandalwood (CC3)"],
+  "parts": [
+    {
+      "rounds": [
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Make 46 (68)",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Make 46 (68).",
+          "summary": "Make the specified number of granny squares."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Begin with a sliding loop.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Begin with a sliding loop.",
+          "summary": "Start with a sliding loop."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 1",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+          "summary": "Work the first round of the granny square with CC1."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 2",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+          "summary": "Work the second round of the granny square with CC2."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 3",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Join CC1 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+          "summary": "Work the third round of the granny square with CC1."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 4",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Join CC3 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice; rep from * twice more, join with sl st in top of beginning ch 3. Break CC3.",
+          "summary": "Work the fourth round of the granny square with CC3."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 5",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Join CC2 in any ch-2 sp. Ch 3, 2 dc in same ch-2 sp, ch 2, 3 dc in same ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, * [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times; rep from * twice more, join with sl st in top of beginning ch 3. Break CC2.",
+          "summary": "Work the fifth round of the granny square with CC2."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Weave in ends.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Weave in ends.",
+          "summary": "Weave in the yarn ends."
+        }
+      ],
+      "name": "GRANNY SQUARE"
+    },
+    {
+      "rounds": [
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Make 14 (18)",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Make 14 (18).",
+          "summary": "Make the specified number of half granny triangles."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Begin with a sliding loop.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Begin with a sliding loop.",
+          "summary": "Start with a sliding loop."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Row 1",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 2, 3 dc in loop, ch 1, dc in loop. Break CC1.",
+          "summary": "Work the first row of the half granny triangle with CC1."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Row 2",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+          "summary": "Work the second row of the half granny triangle with CC2."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 3",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+          "summary": "Work the third round of the half granny triangle with CC1."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 4",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+          "summary": "Work the fourth round of the half granny triangle with CC3."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 5",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+          "summary": "Work the fifth round of the half granny triangle with CC2."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Weave in ends.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Weave in ends.",
+          "summary": "Weave in the yarn ends."
+        }
+      ],
+      "name": "HALF GRANNY TRIANGLE"
+    },
+    {
+      "rounds": [
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Make 2",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Make 2.",
+          "summary": "Make two quarter granny triangles."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Begin with a sliding loop.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Begin with a sliding loop.",
+          "summary": "Start with a sliding loop."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Row 1",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With CC1, ch 4 (counts as dc + ch 1 throughout), 3 dc in loop, ch 1, dc in loop. Break CC1.",
+          "summary": "Work the first row of the quarter granny triangle with CC1."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Row 2",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+          "summary": "Work the second row of the quarter granny triangle with CC2."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 3",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC1 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, 3 dc in next ch-1 sp, ch 1, [3 dc, ch 1, dc] in last ch-1 sp. Break CC1.",
+          "summary": "Work the third round of the quarter granny triangle with CC1."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 4",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC3 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] twice, [3 dc, ch 1, dc] in last ch-1 sp. Break CC3.",
+          "summary": "Work the fourth round of the quarter granny triangle with CC3."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Rnd 5",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+          "summary": "Work the fifth round of the quarter granny triangle with CC2."
+        },
+        {
+          "rangeEndNumber": null,
+          "repeatToTitle": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "title": "Weave in ends.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatUntilCount": null,
+          "rawInstruction": "Weave in ends.",
+          "summary": "Weave in the yarn ends."
+        }
+      ],
+      "name": "QUARTER GRANNY TRIANGLE"
+    }
+  ],
+  "abbreviations": [
+    {
+      "definition": "beginning",
+      "term": "beg"
+    },
+    {
+      "definition": "back loop only",
+      "term": "BLO"
+    },
+    {
+      "definition": "back post",
+      "term": "BP"
+    },
+    {
+      "definition": "back post double crochet",
+      "term": "BPdc"
+    },
+    {
+      "definition": "back post half double crochet",
+      "term": "BPhdc"
+    },
+    {
+      "definition": "back post single crochet",
+      "term": "BPsc"
+    },
+    {
+      "definition": "back post treble crochet",
+      "term": "BPtc"
+    },
+    {
+      "definition": "contrasting color",
+      "term": "CC"
+    },
+    {
+      "definition": "continue",
+      "term": "cont"
+    },
+    {
+      "definition": "chain",
+      "term": "ch"
+    },
+    {
+      "definition": "decrease",
+      "term": "dec"
+    },
+    {
+      "definition": "double crochet",
+      "term": "dc"
+    },
+    {
+      "definition": "double crochet 2 stitches together",
+      "term": "dc2tog"
+    },
+    {
+      "definition": "double treble crochet",
+      "term": "dtr"
+    },
+    {
+      "definition": "established",
+      "term": "est"
+    },
+    {
+      "definition": "front loop only",
+      "term": "FLO"
+    },
+    {
+      "definition": "front post",
+      "term": "FP"
+    },
+    {
+      "definition": "front post double crochet",
+      "term": "FPdc"
+    },
+    {
+      "definition": "front post half double crochet",
+      "term": "FPhdc"
+    },
+    {
+      "definition": "front post single crochet",
+      "term": "FPsc"
+    },
+    {
+      "definition": "front post treble crochet",
+      "term": "FPtc"
+    },
+    {
+      "definition": "half double crochet",
+      "term": "hdc"
+    },
+    {
+      "definition": "half double crochet 2 stitches together",
+      "term": "hdc2tog"
+    },
+    {
+      "definition": "increase",
+      "term": "inc"
+    },
+    {
+      "definition": "main color",
+      "term": "MC"
+    },
+    {
+      "definition": "pattern(s)",
+      "term": "pat(s)"
+    },
+    {
+      "definition": "place marker",
+      "term": "pm"
+    },
+    {
+      "definition": "repeat",
+      "term": "rep"
+    },
+    {
+      "definition": "round(s)",
+      "term": "rnd(s)"
+    },
+    {
+      "definition": "right side",
+      "term": "RS"
+    },
+    {
+      "definition": "single crochet",
+      "term": "sc"
+    },
+    {
+      "definition": "single crochet 2 stitches together",
+      "term": "sc2tog"
+    },
+    {
+      "definition": "slip stitch",
+      "term": "sl st"
+    },
+    {
+      "definition": "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+      "term": "sliding loop"
+    },
+    {
+      "definition": "space",
+      "term": "sp"
+    },
+    {
+      "definition": "stitch(es)",
+      "term": "st(s)"
+    },
+    {
+      "definition": "together",
+      "term": "tog"
+    },
+    {
+      "definition": "treble",
+      "term": "tr"
+    },
+    {
+      "definition": "wrong side",
+      "term": "WS"
+    },
+    {
+      "definition": "yarn over",
+      "term": "yo"
+    }
+  ],
+  "confidence": 0.95,
+  "projectTitle": "Ariana"
+}

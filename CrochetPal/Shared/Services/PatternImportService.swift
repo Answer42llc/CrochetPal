@@ -488,6 +488,51 @@ struct PatternImportService: PatternImporting {
         var result: [PatternRound] = []
 
         for round in outlinedRounds {
+            // Range expansion sentinel: a single instruction covers N..M consecutive rows.
+            // Must come before the macro-repeat guard so range fields take precedence when
+            // both happen to be set; the `repeatFromTitle == nil` check enforces mutual
+            // exclusion (LLM is instructed never to set both).
+            if let startN = round.rangeStartNumber,
+               let endN = round.rangeEndNumber,
+               endN >= startN,
+               round.repeatFromTitle == nil {
+                let count = endN - startN + 1
+                let titlePrefix = inferRangeTitlePrefix(from: round.title)
+                let groupID = UUID()
+                for i in 0..<count {
+                    let rowNumber = startN + i
+                    result.append(PatternRound(
+                        title: "\(titlePrefix) \(rowNumber)",
+                        rawInstruction: round.rawInstruction,
+                        summary: round.summary,
+                        targetStitchCount: round.targetStitchCount,
+                        atomizationStatus: .pending,
+                        atomizationError: nil,
+                        atomicActions: [],
+                        macroRepeatSourceIndex: 0,
+                        macroRepeatGroupID: groupID
+                    ))
+                }
+                logger.log(LogEvent(
+                    timestamp: .now,
+                    level: "debug",
+                    traceID: context.traceID,
+                    parseRequestID: context.parseRequestID,
+                    projectID: nil,
+                    sourceType: nil,
+                    stage: "range_expansion",
+                    decision: "expanded",
+                    reason: "range_expanded",
+                    durationMS: nil,
+                    metadata: [
+                        "rangeStartNumber": "\(startN)",
+                        "rangeEndNumber": "\(endN)",
+                        "expandedRoundCount": "\(count)"
+                    ]
+                ))
+                continue
+            }
+
             guard let fromTitle = round.repeatFromTitle,
                   let toTitle = round.repeatToTitle,
                   let untilCount = round.repeatUntilCount else {
@@ -577,6 +622,7 @@ struct PatternImportService: PatternImporting {
             }
 
             let cycleLength = sourceRounds.count
+            let groupID = UUID()
             for i in 0..<needed {
                 let sourceIndex = i % cycleLength
                 let source = sourceRounds[sourceIndex]
@@ -593,7 +639,8 @@ struct PatternImportService: PatternImporting {
                     atomizationStatus: .pending,
                     atomizationError: nil,
                     atomicActions: [],
-                    macroRepeatSourceIndex: sourceIndex
+                    macroRepeatSourceIndex: sourceIndex,
+                    macroRepeatGroupID: groupID
                 ))
             }
 
@@ -657,6 +704,15 @@ struct PatternImportService: PatternImporting {
 
         let end = title.index(after: lastDigitIndex)
         return String(title[title.startIndex..<start]) + "\(newNumber)" + String(title[end..<title.endIndex])
+    }
+
+    /// Infers the single-row title prefix from a range sentinel title.
+    /// "Rows 2-109" → "Row", "Rounds 9-10" → "Round". Falls back to "Row".
+    static func inferRangeTitlePrefix(from title: String) -> String {
+        let lower = title.lowercased()
+        if lower.hasPrefix("rounds") || lower.hasPrefix("round") { return "Round" }
+        if lower.hasPrefix("rows") || lower.hasPrefix("row") { return "Row" }
+        return "Row"
     }
 }
 
