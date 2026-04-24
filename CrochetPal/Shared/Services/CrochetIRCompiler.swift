@@ -5,7 +5,7 @@ struct CrochetIRCompiler {
         _ block: CrochetIRInstructionBlock,
         choices: [String: String] = [:]
     ) throws -> CrochetIRExpansion {
-        let expanded = try expand(block: block.body, choices: choices)
+        let expanded = try expand(block: block.body, choices: choices, inheritedRepeatSourceText: nil)
         let atomicActions = try expanded.actions.enumerated().map { index, draft in
             try makeAtomicAction(from: draft, sequenceIndex: index)
         }
@@ -53,13 +53,18 @@ struct CrochetIRCompiler {
 
     private func expand(
         block: CrochetIRBlock,
-        choices: [String: String]
+        choices: [String: String],
+        inheritedRepeatSourceText: String?
     ) throws -> (actions: [CrochetIRActionDraft], warnings: [CrochetIRExpansionWarning]) {
         var actions: [CrochetIRActionDraft] = []
         var warnings: [CrochetIRExpansionWarning] = []
 
         for statement in block.statements {
-            let result = try expand(statement: statement, choices: choices)
+            let result = try expand(
+                statement: statement,
+                choices: choices,
+                inheritedRepeatSourceText: inheritedRepeatSourceText
+            )
             actions.append(contentsOf: result.actions)
             warnings.append(contentsOf: result.warnings)
         }
@@ -67,17 +72,30 @@ struct CrochetIRCompiler {
         return (actions, warnings)
     }
 
+    /// When `inheritedRepeatSourceText` is non-nil, we are expanding inside a repeat whose
+    /// body (or a further-outer body) exposed a structural sourceText — use that as the
+    /// highlight anchor for every action instead of the leaf statement's finer-grained
+    /// sourceText. This keeps the UI highlight stable on a unique phrase (e.g.
+    /// `"(2dc, ch3, 2dc) in each corner as you go"`) throughout all iterations, avoiding
+    /// `AttributedString.range(of:)` hitting the first occurrence of an ambiguous short
+    /// string like `"2dc"` that appears multiple times in the raw instruction.
     private func expand(
         statement: CrochetIRStatement,
-        choices: [String: String]
+        choices: [String: String],
+        inheritedRepeatSourceText: String?
     ) throws -> (actions: [CrochetIRActionDraft], warnings: [CrochetIRExpansionWarning]) {
+        let effectiveSourceText = inheritedRepeatSourceText ?? statement.sourceText
         switch statement.kind {
         case let .operation(operation):
-            return (try expand(operation: operation), [])
+            return (try expand(operation: operation, sourceText: effectiveSourceText), [])
         case let .repeatBlock(repeatBlock):
-            return try expand(repeatBlock: repeatBlock, choices: choices)
+            return try expand(
+                repeatBlock: repeatBlock,
+                choices: choices,
+                inheritedRepeatSourceText: inheritedRepeatSourceText
+            )
         case let .conditional(conditional):
-            return try expand(conditional: conditional, choices: choices)
+            return try expand(conditional: conditional, choices: choices, sourceText: effectiveSourceText)
         case let .note(note):
             guard note.emitAsAction else { return ([], []) }
             return ([CrochetIRActionDraft(
@@ -86,12 +104,13 @@ struct CrochetIRCompiler {
                 stitchTag: nil,
                 instruction: note.message,
                 producedStitches: 0,
-                note: nil
+                note: nil,
+                sourceText: effectiveSourceText ?? note.sourceText
             )], [])
         }
     }
 
-    private func expand(operation op: CrochetIROperation) throws -> [CrochetIRActionDraft] {
+    private func expand(operation op: CrochetIROperation, sourceText: String?) throws -> [CrochetIRActionDraft] {
         guard op.count > 0 else {
             throw PatternImportFailure.invalidResponse("ir_invalid_operation_count")
         }
@@ -112,7 +131,8 @@ struct CrochetIRCompiler {
                     stitchTag: stitch,
                     instruction: op.instruction,
                     producedStitches: perStitch,
-                    note: nil
+                    note: nil,
+                    sourceText: sourceText
                 )
             }
             apply(note: composedNote(for: op), placement: op.notePlacement, to: &actions)
@@ -149,7 +169,8 @@ struct CrochetIRCompiler {
                         stitchTag: stitch,
                         instruction: op.instruction,
                         producedStitches: 1,
-                        note: nil
+                        note: nil,
+                        sourceText: sourceText
                     ))
                 }
             }
@@ -169,7 +190,8 @@ struct CrochetIRCompiler {
                     stitchTag: stitchTag,
                     instruction: op.instruction,
                     producedStitches: perStitch,
-                    note: nil
+                    note: nil,
+                    sourceText: sourceText
                 )
             }
             apply(note: composedNote(for: op), placement: op.notePlacement, to: &actions)
@@ -182,7 +204,8 @@ struct CrochetIRCompiler {
                 stitchTag: nil,
                 instruction: resolvedBookkeepingInstruction(for: op),
                 producedStitches: 0,
-                note: composedNote(for: op)
+                note: composedNote(for: op),
+                sourceText: sourceText
             )]
         }
     }
@@ -232,7 +255,8 @@ struct CrochetIRCompiler {
 
     private func expand(
         repeatBlock: CrochetIRRepeatBlock,
-        choices: [String: String]
+        choices: [String: String],
+        inheritedRepeatSourceText: String?
     ) throws -> (actions: [CrochetIRActionDraft], warnings: [CrochetIRExpansionWarning]) {
         guard repeatBlock.times > 0 else {
             throw PatternImportFailure.invalidResponse("ir_invalid_repeat_times")
@@ -244,8 +268,17 @@ struct CrochetIRCompiler {
         var actions: [CrochetIRActionDraft] = []
         var warnings: [CrochetIRExpansionWarning] = []
 
+        // Prefer the repeat body's own sourceText; fall back to whatever outer repeat
+        // already inherited. Nested repeats therefore always anchor to the nearest
+        // non-nil structural phrase.
+        let innerInherited = repeatBlock.body.sourceText ?? inheritedRepeatSourceText
+
         for _ in 0..<repeatBlock.times {
-            let result = try expand(block: repeatBlock.body, choices: choices)
+            let result = try expand(
+                block: repeatBlock.body,
+                choices: choices,
+                inheritedRepeatSourceText: innerInherited
+            )
             actions.append(contentsOf: result.actions)
             warnings.append(contentsOf: result.warnings)
         }
@@ -255,7 +288,8 @@ struct CrochetIRCompiler {
 
     private func expand(
         conditional: CrochetIRConditional,
-        choices: [String: String]
+        choices: [String: String],
+        sourceText: String?
     ) throws -> (actions: [CrochetIRActionDraft], warnings: [CrochetIRExpansionWarning]) {
         let selectedValue = choices[conditional.choiceID] ?? conditional.defaultBranchValue
         guard let selectedValue else {
@@ -265,7 +299,8 @@ struct CrochetIRCompiler {
                 stitchTag: nil,
                 instruction: conditional.question,
                 producedStitches: 0,
-                note: nil
+                note: nil,
+                sourceText: sourceText
             )], [CrochetIRExpansionWarning(
                 code: "ir_missing_choice",
                 message: "A choice is required for \(conditional.choiceID).",
@@ -279,7 +314,8 @@ struct CrochetIRCompiler {
                 stitchTag: nil,
                 instruction: conditional.question,
                 producedStitches: 0,
-                note: nil
+                note: nil,
+                sourceText: sourceText
             )], [CrochetIRExpansionWarning(
                 code: "ir_unknown_choice",
                 message: "No branch matched choice value \(selectedValue).",
@@ -290,12 +326,12 @@ struct CrochetIRCompiler {
         var out: [CrochetIRActionDraft] = []
         var warnings: [CrochetIRExpansionWarning] = []
 
-        let branchResult = try expand(block: branch.body, choices: choices)
+        let branchResult = try expand(block: branch.body, choices: choices, inheritedRepeatSourceText: nil)
         out.append(contentsOf: branchResult.actions)
         warnings.append(contentsOf: branchResult.warnings)
 
         if let commonBody = conditional.commonBody {
-            let commonResult = try expand(block: commonBody, choices: choices)
+            let commonResult = try expand(block: commonBody, choices: choices, inheritedRepeatSourceText: nil)
             out.append(contentsOf: commonResult.actions)
             warnings.append(contentsOf: commonResult.warnings)
         }
@@ -583,6 +619,7 @@ struct CrochetIRCompiler {
             instruction: AtomicAction.normalizedInstruction(draft.instruction),
             producedStitches: draft.producedStitches,
             note: normalized(draft.note),
+            sourceText: normalized(draft.sourceText),
             sequenceIndex: sequenceIndex
         )
     }
@@ -601,4 +638,5 @@ private struct CrochetIRActionDraft: Hashable {
     var instruction: String?
     var producedStitches: Int
     var note: String?
+    var sourceText: String?
 }

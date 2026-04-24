@@ -346,6 +346,12 @@ struct AtomicAction: Codable, Hashable, Identifiable {
     var instruction: String?
     var producedStitches: Int
     var note: String? = nil
+    /// The segment of the enclosing round's `rawInstruction` that produced this action.
+    /// Threaded through from `CrochetIRStatement.sourceText`; used by the UI to highlight
+    /// the matching phrase while stepping through a round. May be nil for actions emitted
+    /// by error-fallback paths (e.g., missing conditional choice) or for actions loaded
+    /// from fixtures captured before this field existed.
+    var sourceText: String? = nil
     var sequenceIndex: Int
 
     var shortDisplay: String {

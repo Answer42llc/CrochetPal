@@ -53,6 +53,7 @@ final class FixtureImportIntoSimulatorTests: XCTestCase {
         var instruction: String?
         var producedStitches: Int
         var note: String?
+        var sourceText: String?
         var sequenceIndex: Int
     }
 
@@ -120,6 +121,7 @@ final class FixtureImportIntoSimulatorTests: XCTestCase {
                         instruction: snapshot.instruction,
                         producedStitches: snapshot.producedStitches,
                         note: snapshot.note,
+                        sourceText: snapshot.sourceText,
                         sequenceIndex: snapshot.sequenceIndex
                     )
                 }

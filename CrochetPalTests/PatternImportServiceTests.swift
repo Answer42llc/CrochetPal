@@ -1666,6 +1666,349 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertTrue(report.issues.contains { $0.code == "ir_increase_produced_stitches_looks_like_total" })
     }
 
+    func testCompilerPropagatesSourceTextFromStatementToAtomicAction() throws {
+        let stitchStatement = CrochetIRStatement(
+            kind: .operation(CrochetIROperation(
+                semantics: .stitchProducing,
+                actionTag: "sc",
+                stitch: "sc",
+                count: 3
+            )),
+            sourceText: "3 sc in the next ch"
+        )
+        let increaseStatement = CrochetIRStatement(
+            kind: .operation(CrochetIROperation(
+                semantics: .increase,
+                actionTag: "increase",
+                stitch: "sc",
+                count: 2,
+                producedStitches: 2
+            )),
+            sourceText: "2 sc inc evenly"
+        )
+        let bookkeepingStatement = CrochetIRStatement(
+            kind: .operation(CrochetIROperation(
+                semantics: .bookkeeping,
+                actionTag: "turn",
+                count: 1,
+                instruction: "turn"
+            )),
+            sourceText: "turn"
+        )
+        let noteStatement = CrochetIRStatement(
+            kind: .note(CrochetIRNote(message: "You should have 10 stitches.", emitAsAction: true)),
+            sourceText: "You should have 10 stitches."
+        )
+        let block = CrochetIRInstructionBlock(
+            title: "Source text propagation",
+            sourceText: "3 sc in the next ch, 2 sc inc evenly, turn. You should have 10 stitches.",
+            body: CrochetIRBlock(statements: [
+                stitchStatement,
+                increaseStatement,
+                bookkeepingStatement,
+                noteStatement
+            ])
+        )
+
+        let expansion = try CrochetIRCompiler().expand(block)
+
+        // 3 sc + 2 sc inc (each inc → 2 producedStitches=1 actions) + 1 turn + 1 note = 3 + 4 + 1 + 1 = 9
+        XCTAssertEqual(expansion.atomicActions.count, 9)
+
+        // The first three stitch actions all share the stitch statement's sourceText.
+        XCTAssertEqual(expansion.atomicActions[0].sourceText, "3 sc in the next ch")
+        XCTAssertEqual(expansion.atomicActions[1].sourceText, "3 sc in the next ch")
+        XCTAssertEqual(expansion.atomicActions[2].sourceText, "3 sc in the next ch")
+
+        // Next four actions come from the increase statement (2 inc × 2 producedStitches each).
+        XCTAssertEqual(expansion.atomicActions[3].sourceText, "2 sc inc evenly")
+        XCTAssertEqual(expansion.atomicActions[6].sourceText, "2 sc inc evenly")
+
+        // Bookkeeping and note each carry their own statement sourceText.
+        XCTAssertEqual(expansion.atomicActions[7].sourceText, "turn")
+        XCTAssertEqual(expansion.atomicActions[8].sourceText, "You should have 10 stitches.")
+    }
+
+    /// Inside a repeat whose body exposes a structural sourceText, every expanded action
+    /// must inherit the body's sourceText — NOT the fine-grained leaf statement sourceText.
+    /// This keeps the UI highlight anchored on a phrase that is unique in the raw
+    /// instruction, avoiding first-occurrence collisions on ambiguous short strings
+    /// (e.g. `"2dc"` appearing multiple times in `"(2dc, ch3, 2dc) in each corner..."`).
+    func testCompilerUsesRepeatBodySourceTextForInnerActions() throws {
+        let repeatStatement = CrochetIRStatement(
+            kind: .repeatBlock(CrochetIRRepeatBlock(
+                times: 4,
+                body: CrochetIRBlock(
+                    statements: [
+                        CrochetIRStatement(
+                            kind: .operation(CrochetIROperation(
+                                semantics: .stitchProducing,
+                                actionTag: "sc",
+                                stitch: "sc",
+                                count: 1
+                            )),
+                            sourceText: "sc"
+                        ),
+                        CrochetIRStatement(
+                            kind: .operation(CrochetIROperation(
+                                semantics: .stitchProducing,
+                                actionTag: "ch",
+                                stitch: "ch",
+                                count: 1
+                            )),
+                            sourceText: "ch1"
+                        )
+                    ],
+                    sourceText: "(sc, ch1) in each corner"
+                )
+            )),
+            sourceText: "[(sc, ch1) in each corner] × 4"
+        )
+        let block = CrochetIRInstructionBlock(
+            title: "Repeat body sourceText override",
+            sourceText: "[(sc, ch1) in each corner] × 4",
+            body: CrochetIRBlock(statements: [repeatStatement])
+        )
+
+        let expansion = try CrochetIRCompiler().expand(block)
+
+        XCTAssertEqual(expansion.atomicActions.count, 8)
+        XCTAssertTrue(
+            expansion.atomicActions.allSatisfy { $0.sourceText == "(sc, ch1) in each corner" },
+            "All actions inside the repeat should inherit the body sourceText, not the per-statement `sc`/`ch1` strings."
+        )
+    }
+
+    /// When the repeat body does not carry its own sourceText, we do NOT force-override —
+    /// the leaf statement's sourceText wins. This preserves today's behavior for IR that
+    /// only annotates at the statement level.
+    func testCompilerFallsBackToStatementSourceTextWhenRepeatBodyHasNone() throws {
+        let repeatStatement = CrochetIRStatement(
+            kind: .repeatBlock(CrochetIRRepeatBlock(
+                times: 3,
+                body: CrochetIRBlock(
+                    statements: [
+                        CrochetIRStatement(
+                            kind: .operation(CrochetIROperation(
+                                semantics: .stitchProducing,
+                                actionTag: "sc",
+                                stitch: "sc",
+                                count: 2
+                            )),
+                            sourceText: "2 sc"
+                        )
+                    ]
+                    // body.sourceText intentionally nil
+                )
+            )),
+            sourceText: "[2 sc] × 3"
+        )
+        let block = CrochetIRInstructionBlock(
+            title: "Repeat body without sourceText",
+            sourceText: "[2 sc] × 3",
+            body: CrochetIRBlock(statements: [repeatStatement])
+        )
+
+        let expansion = try CrochetIRCompiler().expand(block)
+
+        XCTAssertEqual(expansion.atomicActions.count, 6)
+        XCTAssertTrue(expansion.atomicActions.allSatisfy { $0.sourceText == "2 sc" })
+    }
+
+    // MARK: - HighlightRangeResolver
+
+    /// Scenario modeled after Wolf Granny Square's Border round: the `(2dc, ch3, 2dc)`
+    /// repeat is compiled so every inner action shares the repeat body's structural
+    /// sourceText, and after the repeat a flat `(2dc, ch3)` tail emits actions with
+    /// short sourceTexts `"2dc"` and `"ch3"`. Forward-scan must advance the cursor past
+    /// the repeat phrase and land on the tail occurrences rather than re-hitting the
+    /// first `2dc` / `ch3` at the top of the instruction.
+    func testHighlightResolverAdvancesThroughAmbiguousTailAfterRepeat() {
+        let raw = "Ch3 (count as 1dc), 1dc in each st around, (2dc, ch3, 2dc) in each corner as you go. When you return, work (2dc, ch3), slst."
+
+        let chopen = AtomicAction(
+            semantics: .stitchProducing,
+            actionTag: "ch", stitchTag: "ch",
+            producedStitches: 3,
+            sourceText: "Ch3 (count as 1dc)",
+            sequenceIndex: 0
+        )
+        let baseDc = AtomicAction(
+            semantics: .stitchProducing,
+            actionTag: "dc", stitchTag: "dc",
+            producedStitches: 1,
+            sourceText: "1dc in each st around",
+            sequenceIndex: 1
+        )
+        // 3 actions inside the repeat; all share the repeat body phrase.
+        let repeatBodyPhrase = "(2dc, ch3, 2dc) in each corner as you go"
+        let repeatDc1 = AtomicAction(
+            semantics: .stitchProducing, actionTag: "dc", stitchTag: "dc",
+            producedStitches: 1, sourceText: repeatBodyPhrase, sequenceIndex: 2
+        )
+        let repeatCh = AtomicAction(
+            semantics: .stitchProducing, actionTag: "ch", stitchTag: "ch",
+            producedStitches: 1, sourceText: repeatBodyPhrase, sequenceIndex: 3
+        )
+        let repeatDc2 = AtomicAction(
+            semantics: .stitchProducing, actionTag: "dc", stitchTag: "dc",
+            producedStitches: 1, sourceText: repeatBodyPhrase, sequenceIndex: 4
+        )
+        // Tail flat statements with ambiguous short sourceTexts.
+        let tailDc = AtomicAction(
+            semantics: .stitchProducing, actionTag: "dc", stitchTag: "dc",
+            producedStitches: 1, sourceText: "2dc", sequenceIndex: 5
+        )
+        let tailCh = AtomicAction(
+            semantics: .stitchProducing, actionTag: "ch", stitchTag: "ch",
+            producedStitches: 1, sourceText: "ch3", sequenceIndex: 6
+        )
+        let ordered = [chopen, baseDc, repeatDc1, repeatCh, repeatDc2, tailDc, tailCh]
+
+        // Repeat-interior actions all resolve to the repeat body phrase.
+        let repeatPhraseRange = (raw as NSString).range(of: repeatBodyPhrase)
+        XCTAssertEqual(
+            HighlightRangeResolver.resolveNSRange(currentActionID: repeatDc1.id, orderedActions: ordered, rawInstruction: raw),
+            repeatPhraseRange
+        )
+        XCTAssertEqual(
+            HighlightRangeResolver.resolveNSRange(currentActionID: repeatCh.id, orderedActions: ordered, rawInstruction: raw),
+            repeatPhraseRange
+        )
+        XCTAssertEqual(
+            HighlightRangeResolver.resolveNSRange(currentActionID: repeatDc2.id, orderedActions: ordered, rawInstruction: raw),
+            repeatPhraseRange
+        )
+
+        // Tail 2dc must land on the `(2dc, ch3)` AFTER the repeat phrase, not the
+        // first `2dc` inside `(2dc, ch3, 2dc)`.
+        let tailDcRange = HighlightRangeResolver.resolveNSRange(
+            currentActionID: tailDc.id, orderedActions: ordered, rawInstruction: raw
+        )
+        XCTAssertNotNil(tailDcRange)
+        let tailScanStart = repeatPhraseRange.location + repeatPhraseRange.length
+        XCTAssertGreaterThanOrEqual(tailDcRange!.location, tailScanStart)
+
+        // Tail ch3 advances past tail 2dc.
+        let tailChRange = HighlightRangeResolver.resolveNSRange(
+            currentActionID: tailCh.id, orderedActions: ordered, rawInstruction: raw
+        )
+        XCTAssertNotNil(tailChRange)
+        XCTAssertGreaterThan(tailChRange!.location, tailDcRange!.location)
+    }
+
+    /// When a parent-like action's sourceText covers a larger phrase and the next
+    /// action's sourceText is a substring inside that range, the resolver must
+    /// highlight the **nested** substring (inside the previous range), not scan
+    /// forward past it. Mirrors the Wolf Granny Square tail bug where the DC
+    /// action carried the full `(2dc+ch3)` phrase and the following CH action's
+    /// sourceText `"ch3"` must land inside that same parenthesized group.
+    func testHighlightResolverFindsChildSourceTextInsidePreviousRange() {
+        let raw = "Ch3, (2dc, ch3, 2dc) in each corner. When you return, work (2dc+ch3), slst to the first ch3."
+        let parentDc = AtomicAction(
+            semantics: .stitchProducing, actionTag: "dc", stitchTag: "dc",
+            producedStitches: 2, sourceText: "(2dc+ch3)", sequenceIndex: 0
+        )
+        let childCh = AtomicAction(
+            semantics: .stitchProducing, actionTag: "ch", stitchTag: "ch",
+            producedStitches: 3, sourceText: "ch3", sequenceIndex: 1
+        )
+        let ordered = [parentDc, childCh]
+
+        let parentRange = HighlightRangeResolver.resolveNSRange(
+            currentActionID: parentDc.id, orderedActions: ordered, rawInstruction: raw
+        )
+        XCTAssertEqual(parentRange, (raw as NSString).range(of: "(2dc+ch3)"))
+
+        let childRange = HighlightRangeResolver.resolveNSRange(
+            currentActionID: childCh.id, orderedActions: ordered, rawInstruction: raw
+        )
+        XCTAssertNotNil(childRange)
+        // Must be INSIDE the parent's parenthesized phrase, not the first `ch3`
+        // in `(2dc, ch3, 2dc)` and not the trailing `first ch3`.
+        let parentStart = parentRange!.location
+        let parentEnd = parentRange!.location + parentRange!.length
+        XCTAssertGreaterThanOrEqual(childRange!.location, parentStart)
+        XCTAssertLessThanOrEqual(childRange!.location + childRange!.length, parentEnd)
+    }
+
+    /// When an action has nil `sourceText`, it should not advance the cursor and should
+    /// produce no highlight, but subsequent actions must still resolve correctly.
+    func testHighlightResolverSkipsActionsWithNilSourceText() {
+        let raw = "Ch3, 1dc, 2dc."
+        let first = AtomicAction(
+            semantics: .stitchProducing, actionTag: "ch", stitchTag: "ch",
+            producedStitches: 3, sourceText: "Ch3", sequenceIndex: 0
+        )
+        let middle = AtomicAction(
+            semantics: .bookkeeping, actionTag: "note",
+            producedStitches: 0, sourceText: nil, sequenceIndex: 1
+        )
+        let last = AtomicAction(
+            semantics: .stitchProducing, actionTag: "dc", stitchTag: "dc",
+            producedStitches: 2, sourceText: "2dc", sequenceIndex: 2
+        )
+        let ordered = [first, middle, last]
+
+        XCTAssertNil(HighlightRangeResolver.resolveNSRange(
+            currentActionID: middle.id, orderedActions: ordered, rawInstruction: raw
+        ))
+        let lastRange = HighlightRangeResolver.resolveNSRange(
+            currentActionID: last.id, orderedActions: ordered, rawInstruction: raw
+        )
+        XCTAssertEqual(lastRange, (raw as NSString).range(of: "2dc"))
+    }
+
+    /// Nested repeats anchor to the nearest non-nil body sourceText. If an inner repeat
+    /// body has no sourceText of its own, actions fall through to the outer repeat's
+    /// body sourceText — not to the leaf statement sourceText.
+    func testCompilerNestedRepeatsInheritNearestBodySourceText() throws {
+        let innerRepeat = CrochetIRStatement(
+            kind: .repeatBlock(CrochetIRRepeatBlock(
+                times: 2,
+                body: CrochetIRBlock(
+                    statements: [
+                        CrochetIRStatement(
+                            kind: .operation(CrochetIROperation(
+                                semantics: .stitchProducing,
+                                actionTag: "sc",
+                                stitch: "sc",
+                                count: 1
+                            )),
+                            sourceText: "sc"
+                        )
+                    ]
+                    // inner body.sourceText intentionally nil
+                )
+            )),
+            sourceText: "(sc, sc)"
+        )
+        let outerRepeat = CrochetIRStatement(
+            kind: .repeatBlock(CrochetIRRepeatBlock(
+                times: 3,
+                body: CrochetIRBlock(
+                    statements: [innerRepeat],
+                    sourceText: "outer body phrase"
+                )
+            )),
+            sourceText: "[outer body phrase] × 3"
+        )
+        let block = CrochetIRInstructionBlock(
+            title: "Nested repeat inheritance",
+            sourceText: "nested",
+            body: CrochetIRBlock(statements: [outerRepeat])
+        )
+
+        let expansion = try CrochetIRCompiler().expand(block)
+
+        // 3 outer × 2 inner × 1 sc per iter = 6 actions
+        XCTAssertEqual(expansion.atomicActions.count, 6)
+        XCTAssertTrue(
+            expansion.atomicActions.allSatisfy { $0.sourceText == "outer body phrase" },
+            "Inner repeat without its own body sourceText should inherit the outer repeat's body sourceText."
+        )
+    }
+
     func testAtomizeRoundsUsesCrochetIRCompilerPathWhenAvailable() async throws {
         let outline = makeSingleRoundOutlineResponse(
             rawInstruction: "[dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",

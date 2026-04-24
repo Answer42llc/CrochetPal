@@ -29,7 +29,7 @@
       "term" : "inv dec"
     }
   ],
-  "confidence" : 0.9,
+  "confidence" : 0.95,
   "materials" : [
     "1 (1, 1, 2, 2) skeins of yarn from the Knitted Knocker approved yarn list.",
     "Size G (4.5mm) crochet hook (or size needed to get gauge)",
@@ -71,64 +71,69 @@
         },
         {
           "rawInstruction" : "(Work to 1 sc before marker and inc x 2) x 3 (33 sc)",
-          "summary" : "Work to 1 sc before marker, increase twice, repeat three times.",
+          "summary" : "Work to 1 sc before marker, inc twice, repeat three times.",
           "targetStitchCount" : 33,
           "title" : "Rnd 6"
         },
         {
           "rawInstruction" : "(Work to marker and inc in marked stitch) x 3 (36 sc)",
-          "summary" : "Work to marker, increase in the marked stitch, repeat three times.",
+          "summary" : "Work to marker, inc in marked stitch, repeat three times.",
           "targetStitchCount" : 36,
           "title" : "Rnd 7"
         },
         {
           "rawInstruction" : "Using the tapestry needle, sew in the magic ring’s 6” tail.",
           "summary" : "Weave in the magic ring tail.",
-          "title" : "Sew in magic ring tail"
+          "title" : "Using the tapestry needle, sew in the magic ring’s 6” tail."
         },
         {
-          "rawInstruction" : "Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)",
+          "rawInstruction" : "Select the cup size and continue.",
+          "summary" : "Choose cup size and follow corresponding instructions.",
+          "title" : "Select the cup size and continue."
+        },
+        {
+          "rawInstruction" : "A cup – Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc)",
           "repeatAfterRow" : 7,
           "repeatFromTitle" : "Rnd 6",
           "repeatToTitle" : "Rnd 7",
           "repeatUntilCount" : 13,
-          "summary" : "Cycle through rounds 6 and 7 until reaching 13 total rounds for size A.",
+          "summary" : "For A cup, repeat rounds 6 and 7 until reaching 13 total rounds.",
           "title" : "A cup – Repeat Rnds 6 & 7"
         },
         {
-          "rawInstruction" : "Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc)",
+          "rawInstruction" : "B cup – Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc)",
           "repeatAfterRow" : 7,
           "repeatFromTitle" : "Rnd 6",
           "repeatToTitle" : "Rnd 7",
           "repeatUntilCount" : 15,
-          "summary" : "Cycle through rounds 6 and 7 until reaching 15 total rounds for size B.",
+          "summary" : "For B cup, repeat rounds 6 and 7 until reaching 15 total rounds.",
           "title" : "B cup – Repeat Rnds 6 & 7"
         },
         {
-          "rawInstruction" : "Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc)",
+          "rawInstruction" : "C cup – Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc)",
           "repeatAfterRow" : 7,
           "repeatFromTitle" : "Rnd 6",
           "repeatToTitle" : "Rnd 7",
           "repeatUntilCount" : 17,
-          "summary" : "Cycle through rounds 6 and 7 until reaching 17 total rounds for size C.",
+          "summary" : "For C cup, repeat rounds 6 and 7 until reaching 17 total rounds.",
           "title" : "C cup – Repeat Rnds 6 & 7"
         },
         {
-          "rawInstruction" : "Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc)",
+          "rawInstruction" : "D cup – Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc)",
           "repeatAfterRow" : 7,
           "repeatFromTitle" : "Rnd 6",
           "repeatToTitle" : "Rnd 7",
           "repeatUntilCount" : 19,
-          "summary" : "Cycle through rounds 6 and 7 until reaching 19 total rounds for size D.",
+          "summary" : "For D cup, repeat rounds 6 and 7 until reaching 19 total rounds.",
           "title" : "D cup – Repeat Rnds 6 & 7"
         },
         {
-          "rawInstruction" : "Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+          "rawInstruction" : "DD cup – Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
           "repeatAfterRow" : 7,
           "repeatFromTitle" : "Rnd 6",
           "repeatToTitle" : "Rnd 7",
           "repeatUntilCount" : 21,
-          "summary" : "Cycle through rounds 6 and 7 until reaching 21 total rounds for size DD.",
+          "summary" : "For DD cup, repeat rounds 6 and 7 until reaching 21 total rounds.",
           "title" : "DD cup – Repeat Rnds 6 & 7"
         }
       ]
@@ -139,7 +144,7 @@
         {
           "rawInstruction" : "Work 2 rnds even through the back loop only.",
           "summary" : "Work two rounds of single crochet in the back loop only, without increasing.",
-          "title" : "Work 2 rnds even through back loop only"
+          "title" : "Work 2 rnds even through the back loop only."
         }
       ]
     },
@@ -148,12 +153,12 @@
       "rounds" : [
         {
           "rawInstruction" : "When the size is correct, the turning rows have been completed, and you’re ready to start decreasing, crochet until 1 sc before the first marker.",
-          "summary" : "Work single crochet until 1 stitch before the first marker.",
-          "title" : "Crochet until 1 sc before first marker"
+          "summary" : "Work even until 1 stitch before the first marker.",
+          "title" : "When the size is correct, the turning rows have been completed, and you’re ready to start decreasing, crochet until 1 sc before the first marker."
         },
         {
-          "rawInstruction" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
-          "summary" : "Work invisible decrease, place marker, another invisible decrease, then single crochet to 1 stitch before the next marker; repeat three times.",
+          "rawInstruction" : "Rnd 1: (inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+          "summary" : "Decrease round: inv dec, place marker, inv dec, sc to 1 before next marker, repeat three times.",
           "title" : "Rnd 1"
         },
         {
@@ -161,29 +166,28 @@
           "repeatAfterRow" : 1,
           "repeatFromTitle" : "Rnd 1",
           "repeatToTitle" : "Rnd 1",
-          "repeatUntilCount" : 15,
-          "summary" : "Repeat the previous round's decrease sequence until only 15 stitches remain.",
-          "title" : "Repeat Rnd 1 until 15 sc left"
+          "summary" : "Repeat the decrease round until only 15 stitches remain.",
+          "title" : "Repeat Rnd 1"
         },
         {
           "rawInstruction" : "Cut yarn leaving a 10” tail.",
           "summary" : "Cut the yarn, leaving a long tail.",
-          "title" : "Cut yarn leaving 10” tail"
+          "title" : "Cut yarn leaving a 10” tail."
         },
         {
-          "rawInstruction" : "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
-          "summary" : "Weave the yarn tail through the front loops of the remaining stitches.",
-          "title" : "Weave through front loops of remaining 15 sc"
+          "rawInstruction" : "Important! Do Not Miss This Step! Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+          "summary" : "Thread the tail and weave through the front loops of the remaining stitches.",
+          "title" : "Important! Do Not Miss This Step! Thread tapestry needle and weave through the front loop only for the remaining 15 sc."
         },
         {
-          "rawInstruction" : "Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen.",
-          "summary" : "Add stuffing to the Knocker.",
-          "title" : "Add stuffing"
+          "rawInstruction" : "If stuffing the Knocker: Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen. Stuffing will not come out when worn or washed. Tuck tail into Knocker so that filling can be adjusted as needed.",
+          "summary" : "Overstuff the knocker and tuck the tail inside.",
+          "title" : "If stuffing the Knocker"
         },
         {
-          "rawInstruction" : "Tuck tail into Knocker so that filling can be adjusted as needed.",
-          "summary" : "Tuck the yarn tail inside.",
-          "title" : "Tuck tail inside"
+          "rawInstruction" : "If mailing in unstuffed: Leave the hole open and the yarn tail outside of the Knocker. If your yarn tends to fray easily, tie a loose knot at the end of the tail.",
+          "summary" : "For mailing unstuffed, leave the hole open and tail outside.",
+          "title" : "If mailing in unstuffed"
         }
       ]
     }

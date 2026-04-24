@@ -1,134 +1,233 @@
 {
-  "abbreviations" : [
+  "abbreviations": [
     {
-      "definition" : "Chain",
-      "term" : "CH"
+      "definition": "Chain",
+      "term": "CH"
     },
     {
-      "definition" : "Half Treble Crochet",
-      "term" : "HTC"
+      "definition": "Half Treble Crochet",
+      "term": "HTC"
     },
     {
-      "definition" : "Double Crochet",
-      "term" : "DC"
+      "definition": "Double Crochet",
+      "term": "DC"
     },
     {
-      "definition" : "Fasten Off.",
-      "term" : "FO"
+      "definition": "Fasten Off.",
+      "term": "FO"
     }
   ],
-  "confidence" : 0.95,
-  "materials" : [
+  "confidence": 0.95,
+  "materials": [
     "DK yarn in the colour(s) of your choice",
     "A 3mm crochet hook",
     "A stitch marker",
     "A darning needle",
     "A button if you aren’t going to crochet one"
   ],
-  "parts" : [
+  "parts": [
     {
-      "name" : "Body",
-      "rounds" : [
+      "name": "Body",
+      "rounds": [
         {
-          "rawInstruction" : "CH 12",
-          "summary" : "Chain 12.",
-          "title" : "Foundation Chain"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "CH 12",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Chain 12.",
+          "targetStitchCount": null,
+          "title": "Foundation Chain"
         },
         {
-          "rawInstruction" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,",
-          "summary" : "Set up for the first round.",
-          "title" : "Set up for Round 1"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows,",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Set up for round 1.",
+          "targetStitchCount": null,
+          "title": "Setup"
         },
         {
-          "rawInstruction" : "Round 1: 2 HTC in first stitch, 1 HTC in each of the next 8 stitches, 2HTC in the next stitch, working in the other side of the chain, 2 HTC in the next stitch, 1HTC in each of the next 8 stitches, 2 HTC in the last stitch, join to the 1st HTC. You should have 24 stitches in total. Mark the beginning of your round with a stitch marker.",
-          "summary" : "Work increases to form an oval, join, and mark the round.",
-          "targetStitchCount" : 24,
-          "title" : "Round 1"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "2 HTC in first stitch, 1 HTC in each of the next 8 stitches, 2HTC in the next stitch, working in the other side of the chain, 2 HTC in the next stitch, 1HTC in each of the next 8 stitches, 2 HTC in the last stitch, join to the 1st HTC. You should have 24 stitches in total. Mark the beginning of your round with a stitch marker.",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Work increases around the chain to form a ring of 24 half treble crochets.",
+          "targetStitchCount": 24,
+          "title": "Round 1"
         },
         {
-          "rangeEndNumber" : 6,
-          "rangeStartNumber" : 2,
-          "rawInstruction" : "1 HTC in each stitch all the way around (24)",
-          "summary" : "Work one half treble crochet in each stitch for five rounds.",
-          "targetStitchCount" : 24,
-          "title" : "Rounds 2-6"
+          "rangeEndNumber": 6,
+          "rangeStartNumber": 2,
+          "rawInstruction": "1 HTC in each stitch all the way around (24)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Work one half treble crochet in each stitch for five rounds.",
+          "targetStitchCount": 24,
+          "title": "Rounds 2-6"
         },
         {
-          "rawInstruction" : "Round 7: 1 DC in each stitch all the way around (24)",
-          "summary" : "Work one double crochet in each stitch around.",
-          "targetStitchCount" : 24,
-          "title" : "Round 7"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "1 DC in each stitch all the way around (24)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Work one double crochet in each stitch around.",
+          "targetStitchCount": 24,
+          "title": "Round 7"
         },
         {
-          "rawInstruction" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
-          "summary" : "Transition to working in rows for the flap.",
-          "title" : "Begin flap"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Transition to working in rows for the flap.",
+          "targetStitchCount": null,
+          "title": "Begin Flap"
         },
         {
-          "rawInstruction" : "Row 1: 1DC, 1DC, CH 2, turn, 1 HTC in the next 10 stitches, CH 2, turn. (10)",
-          "summary" : "Work two double crochets, chain and turn, then work ten half treble crochets, chain and turn.",
-          "targetStitchCount" : 10,
-          "title" : "Row 1"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "1DC, 1DC, CH 2, turn, 1 HTC in the next 10 stitches, CH 2, turn. (10)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Work two double crochets, chain two, turn, then work ten half treble crochets, chain two, and turn.",
+          "targetStitchCount": 10,
+          "title": "Row 1"
         },
         {
-          "rangeEndNumber" : 9,
-          "rangeStartNumber" : 2,
-          "rawInstruction" : "1 HTC in each stitch all the way across, CH 2, turn (10)",
-          "summary" : "Work one half treble crochet in each stitch across, chain and turn, for eight rows.",
-          "targetStitchCount" : 10,
-          "title" : "Rows 2-9"
+          "rangeEndNumber": 9,
+          "rangeStartNumber": 2,
+          "rawInstruction": "1 HTC in each stitch all the way across, CH 2, turn (10)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Work one half treble crochet in each stitch across, chain two, and turn for eight rows.",
+          "targetStitchCount": 10,
+          "title": "Rows 2-9"
         },
         {
-          "rawInstruction" : "Now we will work our button hole.",
-          "summary" : "Begin the button hole section.",
-          "title" : "Begin button hole"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "Now we will work our button hole.",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Begin button hole section.",
+          "targetStitchCount": null,
+          "title": "Begin Button Hole"
         },
         {
-          "rawInstruction" : "Row 10: 2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
-          "summary" : "Decrease, work stitches, chain, skip stitches, work stitches, decrease, chain and turn to create button hole.",
-          "targetStitchCount" : 8,
-          "title" : "Row 10"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Decrease, work stitches, chain two, skip stitches, work stitches, decrease, chain two, and turn to create button hole.",
+          "targetStitchCount": 8,
+          "title": "Row 10"
         },
         {
-          "rawInstruction" : "Row 11: 1HTC in each stitch across, FO. (8)",
-          "summary" : "Work one half treble crochet in each stitch across and fasten off.",
-          "targetStitchCount" : 8,
-          "title" : "Row 11"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "1HTC in each stitch across, FO. (8)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Work one half treble crochet in each stitch across and fasten off.",
+          "targetStitchCount": 8,
+          "title": "Row 11"
         }
       ]
     },
     {
-      "name" : "Button",
-      "rounds" : [
+      "name": "Button",
+      "rounds": [
         {
-          "rawInstruction" : "Start with a magic ring,",
-          "summary" : "Begin with a magic ring.",
-          "title" : "Start"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "Start with a magic ring,",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Begin with a magic ring.",
+          "targetStitchCount": null,
+          "title": "Start"
         },
         {
-          "rawInstruction" : "Round 1: work 12 treble crochet, join. (12)",
-          "summary" : "Work twelve treble crochets into the magic ring and join.",
-          "targetStitchCount" : 12,
-          "title" : "Round 1"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "work 12 treble crochet, join. (12)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Work 12 treble crochets into the magic ring and join.",
+          "targetStitchCount": 12,
+          "title": "Round 1"
         },
         {
-          "rawInstruction" : "Round 2: SS into each stitch around (12)",
-          "summary" : "Work a slip stitch into each stitch around.",
-          "targetStitchCount" : 12,
-          "title" : "Round 2"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "SS into each stitch around (12)",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Slip stitch into each stitch around.",
+          "targetStitchCount": 12,
+          "title": "Round 2"
         },
         {
-          "rawInstruction" : "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place.",
-          "summary" : "Position and sew the button onto the pouch body.",
-          "title" : "Sew button"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place.",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Position and sew the button onto the pouch body.",
+          "targetStitchCount": null,
+          "title": "Sew Button"
         },
         {
-          "rawInstruction" : "Weave in the ends.",
-          "summary" : "Weave in all loose ends.",
-          "title" : "Weave in ends"
+          "rangeEndNumber": null,
+          "rangeStartNumber": null,
+          "rawInstruction": "Weave in the ends.",
+          "repeatAfterRow": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "summary": "Weave in all loose ends.",
+          "targetStitchCount": null,
+          "title": "Weave in ends"
         }
       ]
     }
   ],
-  "projectTitle" : "Pouch with Flap and Button"
+  "projectTitle": "Pouch with Flap and Button"
 }

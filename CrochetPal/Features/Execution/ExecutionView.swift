@@ -5,6 +5,8 @@ struct ExecutionView: View {
     let projectID: UUID
 
     @State private var isShowingEditor = false
+    @State private var continueHapticTrigger = 0
+    @State private var undoHapticTrigger = 0
 
     private var record: ProjectRecord? {
         container.repository.records.first(where: { $0.project.id == projectID })
@@ -44,6 +46,7 @@ struct ExecutionView: View {
             if let record, let snapshot {
                 let nextAction = ExecutionEngine.nextAction(in: record.project, progress: record.progress)
                 let round = ExecutionEngine.currentRound(in: record.project, progress: record.progress)
+                let currentAction = ExecutionEngine.currentAction(in: record.project, progress: record.progress)
                 let isAwaitingNextRound = ExecutionEngine.isAwaitingNextRound(
                     in: record.project,
                     progress: record.progress
@@ -65,13 +68,11 @@ struct ExecutionView: View {
                                 Text(round?.summary ?? "This project is complete.")
                                     .font(.body)
                                 if let rawInstruction = round?.rawInstruction, !rawInstruction.isEmpty {
-                                    Text(rawInstruction)
-                                        .font(.callout)
-                                        .foregroundStyle(.secondary)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .padding(10)
-                                        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 10))
+                                    HighlightedInstructionText(
+                                        rawInstruction: rawInstruction,
+                                        actions: round?.atomicActions ?? [],
+                                        currentActionID: currentAction?.id
+                                    )
                                 }
                             }
 
@@ -111,9 +112,13 @@ struct ExecutionView: View {
                                     )
                                 }
                                 Label("Stitch progress: \(snapshot.stitchProgress)/\(snapshot.targetStitches ?? 0)", systemImage: "number")
-                                if round?.atomizationWarning != nil {
+                                if let round,
+                                   let warning = round.atomizationWarning,
+                                   warning.split(separator: ";").contains("atomization_target_stitch_count_mismatch") {
+                                    let actualStitches = round.atomicActions.reduce(0) { $0 + $1.producedStitches }
+                                    let targetText = round.targetStitchCount.map(String.init) ?? "未知"
                                     Label(
-                                        "目标针数与实际展开不一致，已按指令展开",
+                                        "目标针数与实际展开不一致（目标 \(targetText)，实际 \(actualStitches)），已按指令展开",
                                         systemImage: "exclamationmark.triangle.fill"
                                     )
                                     .font(.caption)
@@ -149,6 +154,7 @@ struct ExecutionView: View {
 
                     HStack(spacing: 16) {
                         Button {
+                            undoHapticTrigger &+= 1
                             container.repository.undoExecution(projectID: projectID, source: .phoneButton)
                         } label: {
                             Label("Undo", systemImage: "arrow.uturn.backward.circle")
@@ -161,6 +167,7 @@ struct ExecutionView: View {
                         )
 
                         Button {
+                            continueHapticTrigger &+= 1
                             Task {
                                 await container.repository.continueExecution(projectID: projectID, source: .phoneButton)
                             }
@@ -176,6 +183,8 @@ struct ExecutionView: View {
                     .padding(.top, 12)
                     .padding(.bottom, 8)
                     .background(.bar)
+                    .sensoryFeedback(.impact(weight: .medium), trigger: continueHapticTrigger)
+                    .sensoryFeedback(.impact(weight: .light), trigger: undoHapticTrigger)
                 }
                 .navigationTitle(record.project.title)
                 .navigationBarTitleDisplayMode(.inline)
