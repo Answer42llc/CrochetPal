@@ -89,6 +89,12 @@ final class ProjectRepository: ObservableObject {
         return record
     }
 
+    func importPDFPattern(data: Data, fileName: String) async throws -> ProjectRecord {
+        let record = try await importer.importPDFPattern(data: data, fileName: fileName)
+        upsert(record)
+        return record
+    }
+
     func setActiveProject(_ projectID: UUID) {
         activeProjectID = projectID
         pushActiveSnapshot()

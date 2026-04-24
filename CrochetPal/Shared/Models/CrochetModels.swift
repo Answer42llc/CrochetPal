@@ -34,10 +34,11 @@ enum PatternSourceType: String, Codable, Hashable {
     case web
     case text
     case image
+    case pdf
 
     var supportsDeferredAtomization: Bool {
         switch self {
-        case .web, .text:
+        case .web, .text, .pdf:
             return true
         case .image:
             return false
@@ -439,6 +440,12 @@ struct PatternRound: Codable, Hashable, Identifiable {
     /// prevents cross-contamination when a project contains multiple independent groups
     /// that happen to share a sourceIndex value.
     var macroRepeatGroupID: UUID?
+
+    /// 原子化展开后的实际产出针数（atomicActions 的 producedStitches 求和）。
+    /// 与 targetStitchCount 语义区分：target 是 pattern/用户声明的目标，resolved 是本次展开结果。
+    var resolvedStitchCount: Int {
+        atomicActions.reduce(0) { $0 + $1.producedStitches }
+    }
 }
 
 struct PatternPart: Codable, Hashable, Identifiable {

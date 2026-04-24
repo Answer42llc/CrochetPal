@@ -74,7 +74,8 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
             modelKind: "text_outline_parser",
             responseFormat: PromptFactory.outlineResponseFormat(),
             providerPayload: textProviderPayload(for: configuration.textModelID),
-            temperature: 0
+            temperature: 0,
+            reasoning: ["effort": "none"]
         )
     }
 
@@ -302,6 +303,7 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
         responseFormat: JSONObject,
         providerPayload: JSONObject? = nil,
         temperature: Double = 0.1,
+        reasoning: JSONObject? = nil,
         allowsRepair: Bool = true,
         repairModelID: String? = nil,
         repairProviderPayload: JSONObject? = nil
@@ -324,6 +326,9 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
         }
         if let providerPayload {
             body["provider"] = providerPayload
+        }
+        if let reasoning {
+            body["reasoning"] = reasoning
         }
         let requestBody = try JSONSerialization.data(withJSONObject: body)
         request.httpBody = requestBody

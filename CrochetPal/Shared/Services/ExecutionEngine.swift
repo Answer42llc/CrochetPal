@@ -117,7 +117,7 @@ enum ExecutionEngine {
             actionSequenceProgress: actionSequence?.progress,
             actionSequenceTotal: actionSequence?.total,
             stitchProgress: stitchProgress,
-            targetStitches: currentRound?.targetStitchCount,
+            targetStitches: currentRound?.targetStitchCount ?? currentRound?.resolvedStitchCount,
             executionState: isComplete ? .complete : executionState.snapshotState,
             statusMessage: isComplete ? "已完成" : executionState.statusMessage,
             canAdvance: !isComplete && (isAwaitingNextRound || (executionState.canAdvance && currentAction != nil)),

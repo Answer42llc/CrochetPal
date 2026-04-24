@@ -44,6 +44,7 @@ struct ConsoleTraceLogger: TraceLogging {
     func log(_ event: LogEvent) {
         Self.sinks[sinkID]?(event)
         guard !Self.isRunningTests else { return }
+        FileTraceLogSink.shared.write(event)
 #if DEBUG
         if let data = try? JSONEncoder.traceEncoder.encode(event),
            let text = String(data: data, encoding: .utf8) {

@@ -36,9 +36,11 @@ final class AppContainer: ObservableObject {
             parserClient = FailingPatternClient()
         }
 
+        let pdfExtractor = PDFExtractionService()
         let importer = PatternImportService(
             parserClient: parserClient,
             extractor: extractor,
+            pdfExtractor: pdfExtractor,
             session: makeURLSession(isUITesting: isUITesting),
             logger: logger
         )

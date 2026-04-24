@@ -16,23 +16,27 @@ protocol PatternImporting {
     func importWebPattern(from urlString: String) async throws -> ProjectRecord
     func importTextPattern(from rawText: String) async throws -> ProjectRecord
     func importImagePattern(data: Data, fileName: String) async throws -> ProjectRecord
+    func importPDFPattern(data: Data, fileName: String) async throws -> ProjectRecord
     func atomizeRounds(in project: CrochetProject, targets: [RoundReference]) async throws -> [AtomizedRoundUpdate]
 }
 
 struct PatternImportService: PatternImporting {
     private let parserClient: PatternLLMParsing
     private let extractor: HTMLExtracting
+    private let pdfExtractor: PDFExtracting
     private let session: URLSession
     private let logger: TraceLogging
 
     init(
         parserClient: PatternLLMParsing,
         extractor: HTMLExtracting,
+        pdfExtractor: PDFExtracting = PDFExtractionService(),
         session: URLSession = .shared,
         logger: TraceLogging
     ) {
         self.parserClient = parserClient
         self.extractor = extractor
+        self.pdfExtractor = pdfExtractor
         self.session = session
         self.logger = logger
     }
@@ -198,6 +202,69 @@ struct PatternImportService: PatternImporting {
             source: PatternSource(
                 type: .image,
                 displayName: fileName,
+                sourceURL: nil,
+                fileName: fileName,
+                fileSizeBytes: data.count,
+                importedAt: .now
+            ),
+            context: context
+        )
+    }
+
+    func importPDFPattern(data: Data, fileName: String) async throws -> ProjectRecord {
+        let context = ParseRequestContext(
+            traceID: UUID().uuidString,
+            parseRequestID: UUID().uuidString,
+            sourceType: .pdf
+        )
+
+        logger.log(LogEvent(
+            timestamp: .now,
+            level: "debug",
+            traceID: context.traceID,
+            parseRequestID: context.parseRequestID,
+            projectID: nil,
+            sourceType: .pdf,
+            stage: "pdf_import",
+            decision: "start",
+            reason: "received_pdf_data",
+            durationMS: nil,
+            metadata: ["fileName": fileName, "bytes": "\(data.count)"]
+        ))
+
+        let extraction = try await pdfExtractor.extract(from: data, context: context, logger: logger)
+
+        logger.log(LogEvent(
+            timestamp: .now,
+            level: "debug",
+            traceID: context.traceID,
+            parseRequestID: context.parseRequestID,
+            projectID: nil,
+            sourceType: .pdf,
+            stage: "pdf_outline_payload",
+            decision: "prepared_final_text",
+            reason: "sending_outline_text_to_llm",
+            durationMS: nil,
+            metadata: [
+                "fileName": fileName,
+                "titleHint": extraction.title ?? "",
+                "pageCount": "\(extraction.perPageStats.count)",
+                "truncated": "\(extraction.truncated)",
+                "finalText": extraction.finalText
+            ]
+        ))
+
+        let responsePayload = try await parserClient.parseTextPatternOutline(
+            extractedText: extraction.finalText,
+            titleHint: extraction.title,
+            context: context
+        )
+
+        return makeOutlineRecord(
+            from: responsePayload,
+            source: PatternSource(
+                type: .pdf,
+                displayName: extraction.title ?? fileName,
                 sourceURL: nil,
                 fileName: fileName,
                 fileSizeBytes: data.count,
