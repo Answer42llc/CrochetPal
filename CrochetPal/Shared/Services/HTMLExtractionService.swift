@@ -165,18 +165,6 @@ struct HTMLExtractionService: HTMLExtracting {
     }
 
     private func normalizeExtractedText(_ text: String) -> String {
-        text
-            .replacingOccurrences(of: "\r\n", with: " ")
-            .replacingOccurrences(of: "\n", with: " ")
-            .replacingOccurrences(of: "\u{00a0}", with: " ")
-            .replacingOccurrences(of: "\u{00d7}", with: "x")
-            .replacingOccurrences(of: "\u{2013}", with: "-")
-            .replacingOccurrences(of: "\u{2014}", with: "-")
-            .replacingOccurrences(of: "\u{2018}", with: "'")
-            .replacingOccurrences(of: "\u{2019}", with: "'")
-            .replacingOccurrences(of: "\u{201c}", with: "\"")
-            .replacingOccurrences(of: "\u{201d}", with: "\"")
-            .replacingOccurrences(of: #"\s+"#, with: " ", options: .regularExpression)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        TextNormalizer.normalize(text)
     }
 }

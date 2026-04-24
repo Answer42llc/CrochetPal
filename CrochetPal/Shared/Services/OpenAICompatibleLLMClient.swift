@@ -52,7 +52,8 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing {
             modelKind: "text_outline_parser",
             responseFormat: PromptFactory.outlineResponseFormat(),
             providerPayload: textProviderPayload(for: configuration.textModelID),
-            temperature: 0
+            temperature: 0,
+            reasoning: ["effort": "none"]
         )
     }
 

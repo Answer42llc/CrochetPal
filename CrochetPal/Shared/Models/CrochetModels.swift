@@ -4,10 +4,11 @@ enum PatternSourceType: String, Codable, Hashable {
     case web
     case text
     case image
+    case pdf
 
     var supportsDeferredAtomization: Bool {
         switch self {
-        case .web, .text:
+        case .web, .text, .pdf:
             return true
         case .image:
             return false

@@ -10,7 +10,6 @@
 		0B7AD5CDC00DEC0635646A7F /* PatternImportServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BBAF5B6A61F55AD2790ED /* PatternImportServiceTests.swift */; };
 		0BFC80E42BB02752CA68CC75 /* WatchSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D320DF2735E41A588CBD55B7 /* WatchSyncCoordinator.swift */; };
 		1E2E31572C9D8A988E230485 /* RuntimeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */; };
-		F11E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift */; };
 		2A8D27AFD9624C5EA9D4B7D1 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 2A8D27AED9624C5EA9D4B7D1 /* SwiftSoup */; };
 		354BBC5EDADE0DE60C2342E1 /* mouse-pattern.html in Resources */ = {isa = PBXBuildFile; fileRef = 4949DA575051101BA8291C8C /* mouse-pattern.html */; };
 		3631618DE4A2EE9A615EE397 /* ExecutionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0348647949D35B3555E41E0C /* ExecutionEngineTests.swift */; };
@@ -26,7 +25,9 @@
 		990F8C694AC658F8FD4B05CC /* CrochetPalWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED8A99A8F5C52988061EB1 /* CrochetPalWatchApp.swift */; };
 		A1B2C3D4E5F60718293A4B5C /* ProjectRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */; };
 		B7BBC63AD8041694849030D7 /* WatchMotionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DADBCB38B91BDAAB320FE /* WatchMotionInput.swift */; };
+		C9415B342F9A00E3002860D7 /* PDFAtomizationEvalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9415B332F9A00E3002860D7 /* PDFAtomizationEvalTests.swift */; };
 		CD621F6F4E8AE0578AF563BD /* CrochetPalWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4B06C068A96D06E1D7C4CAF0 /* CrochetPalWatchApp.app */; };
+		F11E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,6 @@
 /* Begin PBXFileReference section */
 		0348647949D35B3555E41E0C /* ExecutionEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExecutionEngineTests.swift; sourceTree = "<group>"; };
 		0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RuntimeConfigurationTests.swift; sourceTree = "<group>"; };
-		F22E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LLMAtomizationDebugTests.swift; sourceTree = "<group>"; };
 		21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TraceLoggerTests.swift; sourceTree = "<group>"; };
 		3C495908B9D552B3695C3CDD /* CrochetModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrochetModels.swift; path = CrochetPal/Shared/Models/CrochetModels.swift; sourceTree = SOURCE_ROOT; };
 		3D4E1525A7A5D80D187AA354 /* HTMLExtractionServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTMLExtractionServiceTests.swift; sourceTree = "<group>"; };
@@ -86,11 +86,13 @@
 		A3ED8A99A8F5C52988061EB1 /* CrochetPalWatchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrochetPalWatchApp.swift; sourceTree = "<group>"; };
 		B1C2D3E4F5061728394A5B6C /* ProjectRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProjectRepositoryTests.swift; sourceTree = "<group>"; };
 		C2AEC3D5E10C424E8532A207 /* CrochetPalUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrochetPalUITests.swift; sourceTree = "<group>"; };
+		C9415B332F9A00E3002860D7 /* PDFAtomizationEvalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFAtomizationEvalTests.swift; sourceTree = "<group>"; };
 		C9E34DFB2F86418A0029DD25 /* CrochetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrochetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6DADBCB38B91BDAAB320FE /* WatchMotionInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WatchMotionInput.swift; sourceTree = "<group>"; };
 		D320DF2735E41A588CBD55B7 /* WatchSyncCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WatchSyncCoordinator.swift; path = CrochetPal/Shared/Services/WatchSyncCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		DB6A93657B24C203B25E2972 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E04D8597EB881AA1A9470E3B /* Release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		F22E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LLMAtomizationDebugTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -156,6 +158,7 @@
 				0CB6715EF2AFA8C784A241D9 /* RuntimeConfigurationTests.swift */,
 				21DA5071FAB8CC0B77FC8B3D /* TraceLoggerTests.swift */,
 				F22E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift */,
+				C9415B332F9A00E3002860D7 /* PDFAtomizationEvalTests.swift */,
 			);
 			path = CrochetPalTests;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				0B7AD5CDC00DEC0635646A7F /* PatternImportServiceTests.swift in Sources */,
 				A1B2C3D4E5F60718293A4B5C /* ProjectRepositoryTests.swift in Sources */,
 				1E2E31572C9D8A988E230485 /* RuntimeConfigurationTests.swift in Sources */,
+				C9415B342F9A00E3002860D7 /* PDFAtomizationEvalTests.swift in Sources */,
 				4C9884A1E573445F3A8F7C2B /* TraceLoggerTests.swift in Sources */,
 				F11E00AA00BB00CC00DD00EE /* LLMAtomizationDebugTests.swift in Sources */,
 			);

@@ -1,5 +1,6 @@
 import PhotosUI
 import SwiftUI
+import UniformTypeIdentifiers
 
 @MainActor
 struct ImportSheet: View {
@@ -8,6 +9,7 @@ struct ImportSheet: View {
     @State private var urlText = ""
     @State private var patternText = ""
     @State private var photoItem: PhotosPickerItem?
+    @State private var showPDFImporter = false
     @State private var isImporting = false
     @State private var errorMessage: String?
 
@@ -62,6 +64,15 @@ struct ImportSheet: View {
                     }
                 }
 
+                Section("Import From PDF") {
+                    Button {
+                        showPDFImporter = true
+                    } label: {
+                        Label("Choose PDF File", systemImage: "doc.richtext")
+                    }
+                    .disabled(isImporting)
+                }
+
                 if let errorMessage {
                     Section("Error") {
                         Text(errorMessage)
@@ -88,6 +99,13 @@ struct ImportSheet: View {
                 guard let photoItem else { return }
                 await importFromPhotoPicker(photoItem)
             }
+            .fileImporter(
+                isPresented: $showPDFImporter,
+                allowedContentTypes: [.pdf],
+                allowsMultipleSelection: false
+            ) { result in
+                Task { await importFromPDFPicker(result) }
+            }
         }
     }
 
@@ -112,6 +130,23 @@ struct ImportSheet: View {
     private func importFromText() async {
         await performImport {
             let record = try await container.repository.importTextPattern(from: patternText)
+            onImported(record.project.id)
+        }
+    }
+
+    private func importFromPDFPicker(_ result: Result<[URL], Error>) async {
+        await performImport {
+            let urls = try result.get()
+            guard let url = urls.first else {
+                throw PatternImportFailure.invalidResponse("empty_pdf_selection")
+            }
+            let accessing = url.startAccessingSecurityScopedResource()
+            defer {
+                if accessing { url.stopAccessingSecurityScopedResource() }
+            }
+            let data = try Data(contentsOf: url)
+            let fileName = url.lastPathComponent
+            let record = try await container.repository.importPDFPattern(data: data, fileName: fileName)
             onImported(record.project.id)
         }
     }

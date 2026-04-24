@@ -360,6 +360,10 @@ private final class FakePatternImporter: PatternImporting {
         record
     }
 
+    func importPDFPattern(data: Data, fileName: String) async throws -> ProjectRecord {
+        record
+    }
+
     func atomizeRounds(in project: CrochetProject, targets: [RoundReference]) async throws -> [AtomizedRoundUpdate] {
         let callIndex = atomizeRequestCounts.count
         atomizeRequestCounts.append(targets.count)
