@@ -1,0 +1,24 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "conditionalPrompt",
+      "instruction" : "Select the cup size and continue.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5\" across or 13 rounds (approx. 63 sc). B cup – Repeat Rnds 6 & 7 four times until 5\" across or 15 rounds (approx.72 sc). C cup – Repeat Rnds 6 & 7 five times until 5.5\" across or 17 rounds (approx. 81 sc). D cup – Repeat Rnds 6 & 7 six times until 6\" across or 19 rounds (approx 90 sc). DD cup – Repeat Rnds 6 & 7 seven times until 6.5\" across or 21 rounds (approx. 99 sc)."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5\" across or 13 rounds (approx. 63 sc). B cup – Repeat Rnds 6 & 7 four times until 5\" across or 15 rounds (approx.72 sc). C cup – Repeat Rnds 6 & 7 five times until 5.5\" across or 17 rounds (approx. 81 sc). D cup – Repeat Rnds 6 & 7 six times until 6\" across or 19 rounds (approx 90 sc). DD cup – Repeat Rnds 6 & 7 seven times until 6.5\" across or 21 rounds (approx. 99 sc).",
+  "title" : "Repeat Rnds 6 & 7 for cup size",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+    {
+      "code" : "ir_missing_choice",
+      "message" : "A choice is required for cupSize."
+    }
+  ]
+}

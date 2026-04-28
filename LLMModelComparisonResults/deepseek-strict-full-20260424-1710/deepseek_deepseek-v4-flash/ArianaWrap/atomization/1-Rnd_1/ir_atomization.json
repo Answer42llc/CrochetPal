@@ -1,0 +1,143 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "joinYarn",
+              "count" : 0,
+              "instruction" : "With CC1",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "With CC1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "ch 3"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "dc",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "dc",
+              "target" : "sliding loop"
+            },
+            "repeat" : null,
+            "sourceText" : "2 dc in loop"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "ch 2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "3 dc in loop, ch 2",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "dc",
+                      "count" : 3,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "dc",
+                      "target" : "sliding loop"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "3 dc in loop"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "ch",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "ch"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "ch 2"
+                  }
+                ]
+              },
+              "sourceRepeatCount" : 3,
+              "times" : 3
+            },
+            "sourceText" : "* 3 dc in loop, ch 2; rep from * twice more"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sl st",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sl st",
+              "target" : "top of beginning ch 3"
+            },
+            "repeat" : null,
+            "sourceText" : "join with sl st in top of beginning ch 3"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 0,
+              "instruction" : "Break CC1",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Break CC1"
+          }
+        ]
+      },
+      "sourceText" : "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "title" : "Rnd 1"
+    }
+  ]
+}

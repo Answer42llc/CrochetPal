@@ -1,0 +1,37 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "place marker",
+      "term" : "pm"
+    },
+    {
+      "definition" : "round",
+      "term" : "rnd"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "work 2 scs in next sc",
+      "term" : "inc"
+    },
+    {
+      "definition" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "term" : "inv dec"
+    }
+  ],
+  "partName" : "Front",
+  "rawInstruction" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+  "summary" : "Create a magic ring and work six single crochets into it, then close the ring.",
+  "targetStitchCount" : 6,
+  "title" : "Rnd 1"
+}

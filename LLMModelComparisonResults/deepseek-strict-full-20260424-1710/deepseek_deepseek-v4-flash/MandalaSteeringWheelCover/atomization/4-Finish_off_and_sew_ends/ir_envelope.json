@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this input. It's a single round (or part) with a finish-off and sewing instruction. This is a bookkeeping operation - no stitches are being produced.\n\nLet me parse it carefully.\n\nThe raw instruction is: \"Finish off and sew the 2 ends together.\"\n\nThis is a single bookkeeping operation. There are two main actions here:\n1. \"Finish off\" (fasten off the yarn)\n2. \"Sew the 2 ends together\" (assembly\/sewing)\n\nI could split it into two statements, but looking at the instruction as a whole, it says \"Finish off and sew the 2 ends together\" - this is a single cohesive instruction. Let me think about how to represent this.\n\nActually, \"Finish off\" and \"sew the 2 ends together\" are two distinct actions. But the source text is one line. Let me represent it as a single bookkeeping operation with an appropriate actionTag.\n\nI'll use `actionTag = \"fastenOff\"` for the finishing off part, and maybe include sewing too. Actually, looking at the list of recommended bookkeeping action tags: `fastenOff` and `assembly` are both listed. But since it's one source instruction, I could either:\n\n1. Split into two operations (fastenOff, then assembly)\n2. Use one operation with a combined tag\n\nI think split makes more sense since they're two distinct actions, but let me keep it as one statement since the source text is one line. Actually, the instruction says \"Finish off and sew the 2 ends together\" - these are two sequential actions. Let me split them.\n\nWait, the source text is one piece of text. Let me keep it as one operation with `actionTag = \"fastenOff\"` and put the sewing in the instruction\/note. Or actually, let me use `actionTag = \"assembly\"` since sewing ends together is assembly.\n\nHmm, I think the best approach is:\n\nOption 1: One bookkeeping operation\n- actionTag: \"fastenOff\" \n- instruction: \"Finish off and sew the 2 ends together.\"\n- semantics: bookkeeping\n\nOption 2: Two operations\n1. fastenOff\n2. assembly (sew ends together)\n\nLet me go with one operation since the source text is a single line. I'll use actionTag \"fastenOff\" as the primary action, but include the sewing in the instruction.\n\nActually, re-reading: \"Finish off and sew the 2 ends together\" - this is two actions combined. Let me keep it as one operation with a combined description. actionTag could be \"fastenOff\" to capture the finish off, and the instruction covers both.\n\nLet me go with actionTag = \"fastenOff\" and semantics = \"bookkeeping\".\n\nWait, actually looking more carefully at the expected output format... the sourceText for the round is the raw instruction. Let me produce the output.\n\nThe round doesn't have an explicit `expectedProducedStitches` since it's not stitch-producing. So null.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Finish off and sew ends\", \"sourceText\": \"Finish off and sew the 2 ends together.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Finish off and sew the 2 ends together.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"fastenOff\", \"stitch\": null, \"count\": 1, \"instruction\": \"Finish off and sew the 2 ends together.\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_79GxC3VvqfbTCIfR2yllgHT6",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029241,
+  "id" : "438d762b-d49a-4f26-9e14-69a4b46b8a34",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 852,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 635
+    },
+    "prompt_cache_hit_tokens" : 11520,
+    "prompt_cache_miss_tokens" : 122,
+    "prompt_tokens" : 11642,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11520
+    },
+    "total_tokens" : 12494
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "assembly",
+      "instruction" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.",
+  "title" : "Sew buttons",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

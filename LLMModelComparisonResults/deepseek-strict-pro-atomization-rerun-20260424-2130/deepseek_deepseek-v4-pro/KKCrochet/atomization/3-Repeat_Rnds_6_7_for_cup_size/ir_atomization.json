@@ -1,0 +1,295 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : {
+              "branches" : [
+                {
+                  "body" : {
+                    "sourceText" : "A cup – Repeat Rnds 6 & 7 three times until 4.5\" across or 13 rounds (approx. 63 sc)",
+                    "statements" : [
+                      {
+                        "conditional" : null,
+                        "kind" : "repeat",
+                        "note" : null,
+                        "operation" : null,
+                        "repeat" : {
+                          "body" : {
+                            "sourceText" : "Rnds 6 & 7",
+                            "statements" : [
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 6",
+                                  "note" : "until 4.5\" across or 13 rounds (approx. 63 sc)",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 6"
+                              },
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 7",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 7"
+                              }
+                            ]
+                          },
+                          "sourceRepeatCount" : 3,
+                          "times" : 3
+                        },
+                        "sourceText" : "Repeat Rnds 6 & 7 three times"
+                      }
+                    ]
+                  },
+                  "label" : "A cup",
+                  "value" : "A"
+                },
+                {
+                  "body" : {
+                    "sourceText" : "B cup – Repeat Rnds 6 & 7 four times until 5\" across or 15 rounds (approx. 72 sc)",
+                    "statements" : [
+                      {
+                        "conditional" : null,
+                        "kind" : "repeat",
+                        "note" : null,
+                        "operation" : null,
+                        "repeat" : {
+                          "body" : {
+                            "sourceText" : "Rnds 6 & 7",
+                            "statements" : [
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 6",
+                                  "note" : "until 5\" across or 15 rounds (approx. 72 sc)",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 6"
+                              },
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 7",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 7"
+                              }
+                            ]
+                          },
+                          "sourceRepeatCount" : 4,
+                          "times" : 4
+                        },
+                        "sourceText" : "Repeat Rnds 6 & 7 four times"
+                      }
+                    ]
+                  },
+                  "label" : "B cup",
+                  "value" : "B"
+                },
+                {
+                  "body" : {
+                    "sourceText" : "C cup – Repeat Rnds 6 & 7 five times until 5.5\" across or 17 rounds (approx. 81 sc)",
+                    "statements" : [
+                      {
+                        "conditional" : null,
+                        "kind" : "repeat",
+                        "note" : null,
+                        "operation" : null,
+                        "repeat" : {
+                          "body" : {
+                            "sourceText" : "Rnds 6 & 7",
+                            "statements" : [
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 6",
+                                  "note" : "until 5.5\" across or 17 rounds (approx. 81 sc)",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 6"
+                              },
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 7",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 7"
+                              }
+                            ]
+                          },
+                          "sourceRepeatCount" : 5,
+                          "times" : 5
+                        },
+                        "sourceText" : "Repeat Rnds 6 & 7 five times"
+                      }
+                    ]
+                  },
+                  "label" : "C cup",
+                  "value" : "C"
+                },
+                {
+                  "body" : {
+                    "sourceText" : "D cup – Repeat Rnds 6 & 7 six times until 6\" across or 19 rounds (approx. 90 sc)",
+                    "statements" : [
+                      {
+                        "conditional" : null,
+                        "kind" : "repeat",
+                        "note" : null,
+                        "operation" : null,
+                        "repeat" : {
+                          "body" : {
+                            "sourceText" : "Rnds 6 & 7",
+                            "statements" : [
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 6",
+                                  "note" : "until 6\" across or 19 rounds (approx. 90 sc)",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 6"
+                              },
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 7",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 7"
+                              }
+                            ]
+                          },
+                          "sourceRepeatCount" : 6,
+                          "times" : 6
+                        },
+                        "sourceText" : "Repeat Rnds 6 & 7 six times"
+                      }
+                    ]
+                  },
+                  "label" : "D cup",
+                  "value" : "D"
+                },
+                {
+                  "body" : {
+                    "sourceText" : "DD cup – Repeat Rnds 6 & 7 seven times until 6.5\" across or 21 rounds (approx. 99 sc)",
+                    "statements" : [
+                      {
+                        "conditional" : null,
+                        "kind" : "repeat",
+                        "note" : null,
+                        "operation" : null,
+                        "repeat" : {
+                          "body" : {
+                            "sourceText" : "Rnds 6 & 7",
+                            "statements" : [
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 6",
+                                  "note" : "until 6.5\" across or 21 rounds (approx. 99 sc)",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 6"
+                              },
+                              {
+                                "conditional" : null,
+                                "kind" : "operation",
+                                "note" : null,
+                                "operation" : {
+                                  "actionTag" : "custom",
+                                  "count" : 1,
+                                  "instruction" : "Work Rnd 7",
+                                  "notePlacement" : "all",
+                                  "semantics" : "bookkeeping"
+                                },
+                                "repeat" : null,
+                                "sourceText" : "Rnd 7"
+                              }
+                            ]
+                          },
+                          "sourceRepeatCount" : 7,
+                          "times" : 7
+                        },
+                        "sourceText" : "Repeat Rnds 6 & 7 seven times"
+                      }
+                    ]
+                  },
+                  "label" : "DD cup",
+                  "value" : "DD"
+                }
+              ],
+              "choiceID" : "cupSize",
+              "question" : "Select the cup size and continue."
+            },
+            "kind" : "conditional",
+            "note" : null,
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5\" across or 13 rounds (approx. 63 sc). B cup – Repeat Rnds 6 & 7 four times until 5\" across or 15 rounds (approx.72 sc). C cup – Repeat Rnds 6 & 7 five times until 5.5\" across or 17 rounds (approx. 81 sc). D cup – Repeat Rnds 6 & 7 six times until 6\" across or 19 rounds (approx 90 sc). DD cup – Repeat Rnds 6 & 7 seven times until 6.5\" across or 21 rounds (approx. 99 sc)."
+          }
+        ]
+      },
+      "sourceText" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5\" across or 13 rounds (approx. 63 sc). B cup – Repeat Rnds 6 & 7 four times until 5\" across or 15 rounds (approx.72 sc). C cup – Repeat Rnds 6 & 7 five times until 5.5\" across or 17 rounds (approx. 81 sc). D cup – Repeat Rnds 6 & 7 six times until 6\" across or 19 rounds (approx 90 sc). DD cup – Repeat Rnds 6 & 7 seven times until 6.5\" across or 21 rounds (approx. 99 sc).",
+      "title" : "Repeat Rnds 6 & 7 for cup size"
+    }
+  ]
+}

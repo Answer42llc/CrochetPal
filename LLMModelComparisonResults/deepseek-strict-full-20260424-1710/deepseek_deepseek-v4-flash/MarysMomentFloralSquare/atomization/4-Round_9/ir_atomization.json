@@ -1,0 +1,222 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "note" : "doesn't count as a st",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1 (doesn't count as a st)"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 7,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc",
+                      "target" : "next ch-6 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "7 sc in the next ch-6 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "hdc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "hdc",
+                      "target" : "next ch-6 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 hdc] in the next ch-6 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "dc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "dc",
+                      "target" : "next ch-6 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 dc] in the next ch-6 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "edc",
+                      "count" : 2,
+                      "instruction" : "Extended double crochet – Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.",
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "edc",
+                      "target" : "next ch-6 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 edc] in the next ch-6 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "tr",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "tr",
+                      "target" : "next st"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 tr] in the next st"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "ch",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "ch"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "ch 2"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "tr",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "tr",
+                      "target" : "next st"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 tr] in the next st"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "edc",
+                      "count" : 2,
+                      "instruction" : "Extended double crochet – Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.",
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "edc",
+                      "target" : "next ch-6 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 edc] in the next ch-6 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "dc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "dc",
+                      "target" : "next ch-6 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 dc] in the next ch-6 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "hdc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "hdc",
+                      "target" : "next ch-6 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[2 hdc] in the next ch-6 sp"
+                  }
+                ]
+              },
+              "sourceRepeatCount" : 4,
+              "times" : 4
+            },
+            "sourceText" : "*Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "slst",
+              "target" : "first sc"
+            },
+            "repeat" : null,
+            "sourceText" : "Join to the first sc with a sl st"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 0,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Fasten off and work away your ends"
+          }
+        ]
+      },
+      "sourceText" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends.",
+      "title" : "Round 9"
+    }
+  ]
+}

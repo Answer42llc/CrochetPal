@@ -1,0 +1,43 @@
+{
+  "atomizationResults" : [
+
+  ],
+  "baseURL" : "https:\/\/api.deepseek.com\/beta",
+  "fixtures" : [
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake"
+    }
+  ],
+  "generatedAt" : "2026-04-24T10:15:04Z",
+  "models" : [
+    "deepseek\/deepseek-v4-flash",
+    "deepseek\/deepseek-v4-pro"
+  ],
+  "outlineResults" : [
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"deepseek-reasoner does not support this tool_choice\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "requestModel" : "deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"deepseek-reasoner does not support this tool_choice\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "requestModel" : "deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1635",
+  "sampleCount" : 1
+}

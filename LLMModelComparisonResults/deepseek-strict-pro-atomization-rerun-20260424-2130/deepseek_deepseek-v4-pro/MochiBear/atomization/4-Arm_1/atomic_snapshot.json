@@ -1,0 +1,106 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "joinYarn",
+      "instruction" : "Attach yarn between Rows 11-12.",
+      "note" : "between Rows 11-12",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Attach yarn between Rows 11-12."
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "CH 1",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "same sp",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "SC in same sp",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "hdc",
+      "note" : "next sp",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "HDC in next sp",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "dc",
+      "note" : "next sp",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "3 DC in next sp",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "3 DC in next sp",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "3 DC in next sp",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "CH 2",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "CH 2",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ss",
+      "note" : "same sp",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "SS in same sp",
+      "stitchTag" : "ss"
+    },
+    {
+      "actionTag" : "FO",
+      "instruction" : "fasten off",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 10,
+      "sourceText" : "FO"
+    }
+  ],
+  "producedStitchCount" : 6,
+  "sourceText" : "Attach yarn between Rows 11-12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO.",
+  "title" : "Arm 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

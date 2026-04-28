@@ -1,0 +1,31 @@
+{
+  "actions" : [
+
+  ],
+  "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+  "sourceText" : "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+  "title" : "Rnd 1",
+  "validationIssues" : [
+    {
+      "code" : "ir_invalid_operation_count",
+      "message" : "Operation count must be positive.",
+      "severity" : "error",
+      "sourceText" : "With CC1"
+    },
+    {
+      "code" : "ir_operation_invalid_action_tag",
+      "message" : "actionTag must be camelCase letters or digits (got sl st).",
+      "severity" : "error",
+      "sourceText" : "join with sl st in top of beginning ch 3"
+    },
+    {
+      "code" : "ir_invalid_operation_count",
+      "message" : "Operation count must be positive.",
+      "severity" : "error",
+      "sourceText" : "Break CC1"
+    }
+  ],
+  "warnings" : [
+
+  ]
+}

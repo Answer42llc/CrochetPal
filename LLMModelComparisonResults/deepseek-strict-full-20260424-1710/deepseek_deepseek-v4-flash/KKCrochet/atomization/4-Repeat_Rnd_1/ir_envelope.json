@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input carefully.\n\nThe input has:\n- Project title: Crochet Knockers\n- Materials info\n- Pattern abbreviations (author-defined):\n  - ch = chain\n  - pm = place marker\n  - rnd = round\n  - sc = single crochet\n  - rep = repeat\n  - inc = work 2 scs in next sc\n  - inv dec = invisible decrease (like sc2tog, but only in the front loops)\n\n- Input rounds: \n  - Part: \"Back\"\n  - Title: \"Repeat Rnd 1\"\n  - Raw instruction: \"Repeat Rnd 1 until you have 15 sc left.\"\n\nThis seems incomplete. The instruction says \"Repeat Rnd 1\" but we don't have Rnd 1 defined in the input. However, the user is asking me to compile what's given.\n\nLet me think about this... The instruction is \"Repeat Rnd 1 until you have 15 sc left.\" This is a bit unusual - it's referencing a round that's not provided. But I need to compile what's given.\n\nActually, looking more carefully, the entire input is just one round with a vague instruction. But I should still produce valid IR for what's given.\n\nThe instruction \"Repeat Rnd 1 until you have 15 sc left.\" - this is telling the maker to keep repeating Round 1 until there are only 15 stitches remaining. But since Rnd 1 itself isn't defined in this input, I need to handle what's provided.\n\nWait, let me re-read. The user input provides pattern abbreviations. The abbreviation for \"sc\" is \"single crochet\", and \"rep\" is \"repeat\". But the instruction \"Repeat Rnd 1 until you have 15 sc left\" - this seems like a general instruction to keep repeating some round (Rnd 1) until a condition is met.\n\nActually, I think the issue here is that the input is incomplete - it references \"Rnd 1\" which isn't defined. But as a compiler, I should just compile what's given to me.\n\nLet me interpret this as a bookkeeping\/instruction kind of operation - it's telling the user to repeat a previous round until a certain number of stitches remain. \n\nI could treat this as a `note` statement since it's essentially a general instruction. Or I could try to make it an operation.\n\nActually, looking at this more carefully - \"Repeat Rnd 1 until you have 15 sc left\" - this is a single instruction that means: keep working the pattern of Rnd 1 (which would be decreases presumably, since you're going from some number down to 15) over and over until only 15 stitches remain.\n\nI think the best approach here is to treat this as a note statement, since the actual content of \"Rnd 1\" isn't provided. Let me create a note that communicates the instruction.\n\nActually wait - I should think about this differently. The user wants me to compile these rounds into Crochet IR. The round title is \"Repeat Rnd 1\" and the raw instruction is \"Repeat Rnd 1 until you have 15 sc left.\" \n\nSince this is a general instruction that doesn't have a specific stitch-by-stitch breakdown, I'll represent it as a note with `emitAsAction: true` so the user sees it as an actionable instruction.\n\nLet me structure this properly.\n\nRound:\n- title: \"Repeat Rnd 1\"\n- sourceText: \"Repeat Rnd 1 until you have 15 sc left.\"\n- expectedProducedStitches: null (we don't know the exact count)\n- body.statements: a single note statement\n\nLet me think about what makes sense. The instruction is saying to repeat Rnd 1 until 15 sc remain. This is a process instruction, not a stitch-by-stitch instruction.\n\nI'll use a `note` statement with `emitAsAction: true` so it appears in the action list, and the message will communicate what to do.\n\nLet me build the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Repeat Rnd 1\", \"sourceText\": \"Repeat Rnd 1 until you have 15 sc left.\", \"expectedProducedStitches\": null, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"note\", \"sourceText\": \"Repeat Rnd 1 until you have 15 sc left.\", \"operation\": null, \"repeat\": null, \"conditional\": null, \"note\": {\"sourceText\": \"Repeat Rnd 1 until you have 15 sc left.\", \"emitAsAction\": true, \"message\": \"Repeat Rnd 1 until you have 15 sc left.\"}}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_AoLUDsE5i7ZJrlVBvlShFsho",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029174,
+  "id" : "da6369b4-d3c6-4a86-ac32-7755bba39f4d",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1043,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 845
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 91,
+    "prompt_tokens" : 11739,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12782
+  }
+}

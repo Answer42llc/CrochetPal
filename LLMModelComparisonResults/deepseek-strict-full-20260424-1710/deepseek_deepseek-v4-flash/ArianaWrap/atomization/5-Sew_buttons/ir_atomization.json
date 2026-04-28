@@ -1,0 +1,26 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "assembly",
+              "count" : 1,
+              "instruction" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired."
+          }
+        ]
+      },
+      "sourceText" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.",
+      "title" : "Sew buttons"
+    }
+  ]
+}

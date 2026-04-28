@@ -1,0 +1,110 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "sc around",
+      "stitchTag" : "sc"
+    }
+  ],
+  "expectedProducedStitches" : 12,
+  "producedStitchCount" : 12,
+  "sourceText" : "sc around. (12)",
+  "title" : "Round 5",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

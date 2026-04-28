@@ -1,0 +1,80 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "sl st"
+    },
+    {
+      "definition" : "space",
+      "term" : "sp"
+    },
+    {
+      "definition" : "stitch(es)",
+      "term" : "st(s)"
+    },
+    {
+      "definition" : "repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "round(s)",
+      "term" : "rnd(s)"
+    },
+    {
+      "definition" : "right side",
+      "term" : "RS"
+    },
+    {
+      "definition" : "wrong side",
+      "term" : "WS"
+    },
+    {
+      "definition" : "main color",
+      "term" : "MC"
+    },
+    {
+      "definition" : "contrasting color",
+      "term" : "CC"
+    },
+    {
+      "definition" : "yarn over",
+      "term" : "yo"
+    },
+    {
+      "definition" : "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+      "term" : "sliding loop"
+    },
+    {
+      "definition" : "double crochet 2 stitches together",
+      "term" : "dc2tog"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "treble",
+      "term" : "tr"
+    },
+    {
+      "definition" : "double treble crochet",
+      "term" : "dtr"
+    }
+  ],
+  "partName" : "Half Granny Triangle",
+  "rawInstruction" : "Weave in ends.",
+  "summary" : "Weave in all loose ends from the half granny triangle.",
+  "title" : "Weave in ends"
+}

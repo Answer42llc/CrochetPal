@@ -1,0 +1,36 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "place marker",
+      "term" : "pm"
+    },
+    {
+      "definition" : "round",
+      "term" : "rnd"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "work 2 scs in next sc",
+      "term" : "inc"
+    },
+    {
+      "definition" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "term" : "inv dec"
+    }
+  ],
+  "partName" : "Back",
+  "rawInstruction" : "If stuffing: slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker. If mailing unstuffed: leave hole open and yarn tail outside.",
+  "summary" : "Either stuff the Knocker or leave open for mailing, depending on distribution method.",
+  "title" : "Stuff or leave open"
+}

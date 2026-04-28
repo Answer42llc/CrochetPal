@@ -1,0 +1,149 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "Ch 1",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "sc in first 3 sts.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "sc in first 3 sts.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "sc in first 3 sts.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "Hdc in next st.",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "dc in next 8 sts.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "Hdc in next st.",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 14,
+      "sourceText" : "sc in last 3 sts.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "sc in last 3 sts.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 16,
+      "sourceText" : "sc in last 3 sts.",
+      "stitchTag" : "sc"
+    }
+  ],
+  "producedStitchCount" : 16,
+  "sourceText" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+  "title" : "Rows 2-109",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

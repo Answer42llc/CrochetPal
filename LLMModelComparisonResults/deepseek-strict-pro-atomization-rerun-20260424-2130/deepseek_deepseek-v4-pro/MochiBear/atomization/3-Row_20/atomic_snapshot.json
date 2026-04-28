@@ -1,0 +1,86 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 0,
+      "sourceText" : "DEC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "7 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "7 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "7 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "7 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "7 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "7 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "7 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 8,
+      "sourceText" : "DEC",
+      "stitchTag" : "sc"
+    }
+  ],
+  "expectedProducedStitches" : 9,
+  "producedStitchCount" : 9,
+  "sourceText" : "DEC, 7 SC, DEC (9)",
+  "title" : "Row 20",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "ch",
+      "instruction" : "chain 1 (does not count as a stitch)",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Ch 1"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "1 sc in each st around",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 2,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 3,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 4,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 5,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 6,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 7,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 8,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 9,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 10,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 11,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 12,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "each corner; 3 sc in each corner",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 13,
+      "sourceText" : "place 3 sc in each corner",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "joinYarn",
+      "instruction" : "join with a slip stitch to the first sc",
+      "note" : "first sc",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 14,
+      "sourceText" : "Join with a sl st to the first sc"
+    },
+    {
+      "actionTag" : "fastenOff",
+      "instruction" : "Fasten off",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 15,
+      "sourceText" : "Finish off"
+    },
+    {
+      "actionTag" : "weaveInEnds",
+      "instruction" : "weave in all yarn ends",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 16,
+      "sourceText" : "Weave in ends"
+    }
+  ],
+  "producedStitchCount" : 13,
+  "sourceText" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+  "title" : "Round 3",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

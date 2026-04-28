@@ -1,0 +1,19 @@
+{
+  "actions" : [
+
+  ],
+  "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+  "sourceText" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends.",
+  "title" : "Round 9",
+  "validationIssues" : [
+    {
+      "code" : "ir_invalid_operation_count",
+      "message" : "Operation count must be positive.",
+      "severity" : "error",
+      "sourceText" : "Fasten off and work away your ends"
+    }
+  ],
+  "warnings" : [
+
+  ]
+}

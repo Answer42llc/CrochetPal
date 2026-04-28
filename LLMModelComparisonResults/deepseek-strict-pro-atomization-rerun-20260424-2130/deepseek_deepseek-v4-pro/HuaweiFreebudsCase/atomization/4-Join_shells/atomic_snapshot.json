@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "assembly",
+      "instruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+  "title" : "Join shells",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

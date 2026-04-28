@@ -1,0 +1,76 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Beginning",
+      "term" : "Beg"
+    },
+    {
+      "definition" : "Chain",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "Double crochet",
+      "term" : "Dc"
+    },
+    {
+      "definition" : "Front loop only",
+      "term" : "FLO"
+    },
+    {
+      "definition" : "Front post",
+      "term" : "FP"
+    },
+    {
+      "definition" : "Half-double crochet",
+      "term" : "Hdc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "Rep"
+    },
+    {
+      "definition" : "Single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Stitch marker",
+      "term" : "SM"
+    },
+    {
+      "definition" : "Space\/spaces",
+      "term" : "Sp\/sps"
+    },
+    {
+      "definition" : "Stitch\/stitches",
+      "term" : "St\/sts"
+    },
+    {
+      "definition" : "Treble crochet",
+      "term" : "Tr"
+    },
+    {
+      "definition" : "Repeat instructions between asterisks the number of times specified",
+      "term" : "*"
+    },
+    {
+      "definition" : "Repeat instructions between brackets the number of times specified",
+      "term" : "()"
+    },
+    {
+      "definition" : "Used to indicate stitches made into the same st\/sp",
+      "term" : "[]"
+    },
+    {
+      "definition" : "Extended double crochet – Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.",
+      "term" : "Edc"
+    },
+    {
+      "definition" : "Make 5 dc in the indicated st\/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+      "term" : "Popcorn"
+    }
+  ],
+  "partName" : "Square",
+  "rawInstruction" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends.",
+  "summary" : "Work corner and side stitches to form the square shape.",
+  "title" : "Round 9"
+}

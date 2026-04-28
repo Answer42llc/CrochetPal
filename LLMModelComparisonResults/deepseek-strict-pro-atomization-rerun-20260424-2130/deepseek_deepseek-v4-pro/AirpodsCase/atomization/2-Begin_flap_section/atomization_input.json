@@ -1,0 +1,24 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Flap",
+  "rawInstruction" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+  "summary" : "Transition to working the flap in rows instead of rounds.",
+  "title" : "Begin flap section"
+}

@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input:\n\n- Part: \"Top case\"\n- Round title: \"Round 5\"\n- Raw instruction: \"38sc. (38)\"\n- Target stitch count: 38\n\nThis is straightforward. \"38sc\" means 38 single crochet stitches. The abbreviation \"Sc\" means single crochet (as defined in the abbreviations). So `stitch = \"Sc\"` (honoring the author's capitalization), `actionTag = \"Sc\"`, `semantics = \"stitchProducing\"`, `count = 38`.\n\nSince the target stitch count is 38 and the instruction says 38sc, the count should be 38, and `expectedProducedStitches` is 38.\n\nLet me construct the IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"body\":{\"normalizationNote\":null,\"sourceText\":null,\"statements\":[{\"conditional\":null,\"kind\":\"operation\",\"note\":null,\"operation\":{\"actionTag\":\"Sc\",\"count\":38,\"instruction\":null,\"note\":null,\"notePlacement\":\"first\",\"producedStitches\":null,\"semantics\":\"stitchProducing\",\"stitch\":\"Sc\",\"target\":null},\"repeat\":null,\"sourceText\":\"38sc. (38)\"}]},\"expectedProducedStitches\":38,\"sourceText\":\"38sc. (38)\",\"title\":\"Round 5\"}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_0VsI72R6Aw0CEMa7DECxULYU",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777042863,
+  "id" : "585572b0-0b10-450c-9c24-d485536c8cc7",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 329,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 156
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 42,
+    "prompt_tokens" : 11690,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12019
+  }
+}

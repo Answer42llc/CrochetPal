@@ -1,0 +1,188 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 5,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 6,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 12,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 13,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 14,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 16,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 17,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 18,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 19,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 20,
+      "sourceText" : "(sc 5, inc)",
+      "stitchTag" : "sc"
+    }
+  ],
+  "expectedProducedStitches" : 21,
+  "producedStitchCount" : 21,
+  "sourceText" : "(sc 5, inc) x3. (21)",
+  "title" : "Round 11",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : true,
+              "message" : "Create a magic ring to begin",
+              "sourceText" : "Into a magic ring"
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Into a magic ring"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch",
+              "target" : "magic ring"
+            },
+            "repeat" : null,
+            "sourceText" : "ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 6,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "magic ring"
+            },
+            "repeat" : null,
+            "sourceText" : "make 6 sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "slst",
+              "target" : "first sc"
+            },
+            "repeat" : null,
+            "sourceText" : "join to the first sc with a sl st"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 6,
+      "sourceText" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+      "title" : "Round 1"
+    }
+  ]
+}

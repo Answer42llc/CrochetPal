@@ -1,0 +1,45 @@
+{
+  "atomizationResults" : [
+
+  ],
+  "fixtureRoot" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM",
+  "fixtures" : [
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/outline.json",
+      "baselineRoundCount" : 21,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake",
+      "titleHint" : "Snake"
+    }
+  ],
+  "generatedAt" : "2026-04-24T06:47:02Z",
+  "models" : [
+    "deepseek\/deepseek-v4-flash",
+    "deepseek\/deepseek-v4-pro"
+  ],
+  "outlineResults" : [
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-deepseek-snake",
+  "repoRoot" : "\/Users\/lw\/Projects\/CrochetPal",
+  "sampleCount" : 1
+}

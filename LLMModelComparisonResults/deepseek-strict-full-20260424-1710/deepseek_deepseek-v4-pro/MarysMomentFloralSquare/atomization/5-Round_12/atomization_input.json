@@ -1,0 +1,76 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Beginning",
+      "term" : "Beg"
+    },
+    {
+      "definition" : "Chain",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "Double crochet",
+      "term" : "Dc"
+    },
+    {
+      "definition" : "Front loop only",
+      "term" : "FLO"
+    },
+    {
+      "definition" : "Front post",
+      "term" : "FP"
+    },
+    {
+      "definition" : "Half-double crochet",
+      "term" : "Hdc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "Rep"
+    },
+    {
+      "definition" : "Single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Stitch marker",
+      "term" : "SM"
+    },
+    {
+      "definition" : "Space\/spaces",
+      "term" : "Sp\/sps"
+    },
+    {
+      "definition" : "Stitch\/stitches",
+      "term" : "St\/sts"
+    },
+    {
+      "definition" : "Treble crochet",
+      "term" : "Tr"
+    },
+    {
+      "definition" : "Repeat instructions between asterisks the number of times specified",
+      "term" : "*"
+    },
+    {
+      "definition" : "Repeat instructions between brackets the number of times specified",
+      "term" : "()"
+    },
+    {
+      "definition" : "Used to indicate stitches made into the same st\/sp",
+      "term" : "[]"
+    },
+    {
+      "definition" : "Extended double crochet: Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.",
+      "term" : "Edc"
+    },
+    {
+      "definition" : "Make 5 dc in the indicated st\/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+      "term" : "Popcorn"
+    }
+  ],
+  "partName" : "Square",
+  "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends. {34 dc, not including ch-2 corner sps}",
+  "summary" : "Slip stitch to corner, work dc in each stitch around with corner increases, repeated 4 times, then fasten off.",
+  "title" : "Round 12"
+}

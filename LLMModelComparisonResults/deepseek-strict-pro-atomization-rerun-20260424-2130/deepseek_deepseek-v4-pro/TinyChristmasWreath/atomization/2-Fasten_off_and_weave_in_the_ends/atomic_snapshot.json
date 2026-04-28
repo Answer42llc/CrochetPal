@@ -1,0 +1,29 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "fastenOff",
+      "instruction" : "Fasten off",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Fasten off"
+    },
+    {
+      "actionTag" : "weaveInEnds",
+      "instruction" : "Weave in ends",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 1,
+      "sourceText" : "weave in the ends"
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+  "title" : "Fasten off and weave in the ends",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

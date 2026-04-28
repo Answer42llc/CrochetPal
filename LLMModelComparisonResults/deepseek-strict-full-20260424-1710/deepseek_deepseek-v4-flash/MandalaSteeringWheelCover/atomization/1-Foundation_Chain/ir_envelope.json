@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me parse this input. There's one round:\n\n1. **Foundation Chain**: \"Ch 17\"\n\nThis is a straightforward foundation chain. Let me compile it into Crochet IR.\n\n- `semantics`: `stitchProducing` (chain stitches are stitch-producing)\n- `stitch`: \"ch\"\n- `count`: 17\n- `actionTag`: \"ch\"\n- No `target` needed\n- `notePlacement`: \"first\" (for chain stitches, this is standard)\n- `producedStitches`: null (since stitchProducing produces count stitches)\n- `expectedProducedStitches`: 17 (since ch17 produces 17 chain stitches)\n\nLet me construct the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Foundation Chain\", \"sourceText\": \"Ch 17\", \"expectedProducedStitches\": 17, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Ch 17\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"ch\", \"stitch\": \"ch\", \"count\": 17, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_QQ3xLuY9RaPqrqyuHgyIjKvx",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029188,
+  "id" : "0e4a2059-988c-4d27-9d01-866f8e3e5bc4",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 342,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 147
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11633,
+    "prompt_tokens" : 11633,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 11975
+  }
+}

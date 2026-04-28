@@ -1,0 +1,24 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Body",
+  "rawInstruction" : "CH 12",
+  "summary" : "Chain 12 stitches to form the foundation of the case.",
+  "title" : "Foundation Chain"
+}

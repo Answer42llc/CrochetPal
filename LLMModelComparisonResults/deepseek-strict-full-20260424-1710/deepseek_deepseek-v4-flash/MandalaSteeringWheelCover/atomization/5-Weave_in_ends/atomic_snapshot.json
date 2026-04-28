@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "weaveInEnds",
+      "instruction" : "Weave in all ends.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Weave in all ends."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Weave in all ends.",
+  "title" : "Weave in ends",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

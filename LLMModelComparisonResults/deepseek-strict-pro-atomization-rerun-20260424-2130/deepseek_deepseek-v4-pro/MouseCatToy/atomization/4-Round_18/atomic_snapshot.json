@@ -1,0 +1,158 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 2,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "dec"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 5,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "dec"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 8,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "dec"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 11,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "dec"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 14,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "dec"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 16,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 17,
+      "sourceText" : "sc 2, dec",
+      "stitchTag" : "dec"
+    }
+  ],
+  "expectedProducedStitches" : 18,
+  "producedStitchCount" : 18,
+  "sourceText" : "(sc 2, dec) x6. (18)",
+  "title" : "Round 18",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

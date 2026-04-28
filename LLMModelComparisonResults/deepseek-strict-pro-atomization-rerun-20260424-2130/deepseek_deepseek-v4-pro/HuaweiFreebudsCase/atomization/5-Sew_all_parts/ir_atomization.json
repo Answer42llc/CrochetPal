@@ -1,0 +1,26 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "assembly",
+              "count" : 1,
+              "instruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Sew all parts, nose, eyes and cheeks to finish."
+          }
+        ]
+      },
+      "sourceText" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "title" : "Sew all parts"
+    }
+  ]
+}

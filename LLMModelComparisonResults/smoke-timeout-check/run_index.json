@@ -1,0 +1,35 @@
+{
+  "atomizationResults" : [
+
+  ],
+  "fixtureRoot" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM",
+  "fixtures" : [
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/outline.json",
+      "baselineRoundCount" : 21,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake",
+      "titleHint" : "Snake"
+    }
+  ],
+  "generatedAt" : "2026-04-24T07:11:09Z",
+  "models" : [
+    "qwen\/qwen3.6-plus"
+  ],
+  "outlineResults" : [
+    {
+      "error" : "request timed out for qwen\/qwen3.6-plus after 2s",
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-timeout-check",
+  "repoRoot" : "\/Users\/lw\/Projects\/CrochetPal",
+  "sampleCount" : 1
+}

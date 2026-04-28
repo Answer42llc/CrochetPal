@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input. This is a single part\/round called \"Stuff Knocker\" with a non-stitch instruction about stuffing. Since there are no stitch counts or stitch-producing operations, this is a bookkeeping\/assembly operation.\n\nLet me also note the abbreviations:\n- ch = chain\n- pm = place marker\n- rnd = round\n- sc = single crochet\n- rep = repeat\n- inc = work 2 scs in next sc\n- inv dec = invisible decrease (like sc2tog, but only in the front loops)\n\nThe instruction is about stuffing the knocker - this is an assembly instruction, so `semantics = bookkeeping`, `actionTag = \"assembly\"`.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Stuff Knocker\", \"sourceText\": \"Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed.\", \"expectedProducedStitches\": null, \"body\": {\"normalizationNote\": null, \"sourceText\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 0, \"instruction\": \"Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed.\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_m5lGIwZRoMfUw3IeTT8uvb7u",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029188,
+  "id" : "1564a739-470f-4d3d-af69-46c21eb345a5",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 451,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 148
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 116,
+    "prompt_tokens" : 11764,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12215
+  }
+}

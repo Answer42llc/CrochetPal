@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a single round into Crochet IR. Let me analyze the input:\n\n- Part: Assembly\n- Raw instruction: \"Fasten off and weave in all ends securely.\"\n- Title: \"Fasten off and weave in ends\"\n\nThis is a bookkeeping operation - no stitches produced. It's two actions: fasten off and weave in ends. Let me think about how to represent this.\n\nLooking at the semantics options:\n- `bookkeeping` is appropriate since no stitches are produced.\n\nThe action is \"Fasten off and weave in all ends securely.\" I could represent this as:\n- One operation with `actionTag = \"fastenOff\"` and then perhaps a note about weaving in ends? Or I could combine them.\n\nActually, looking at the instruction more carefully: \"Fasten off and weave in all ends securely.\" This could be two separate bookkeeping operations:\n1. Fasten off\n2. Weave in ends\n\nBut the pattern is one instruction. Let me think about canonical representation. The \"FO\" abbreviation is \"fasten off\". Weaving in ends is a separate finishing step. \n\nI think I should represent this as two operations or one operation with a note. Let me consider: the instruction says both fasten off AND weave in ends. I'll make one operation for fasten off and one for weaving in ends.\n\nActually, let me look at the IR spec again. It says \"If the input round contains only a non-stitch instruction, emit a single operation with semantics = bookkeeping and an appropriate actionTag.\"\n\nBut we have two actions here. Let me think... \"Fasten off\" is clearly a bookkeeping action. \"Weave in all ends\" is also bookkeeping. I could represent them as two separate operations in the same round's body.\n\nLet me structure it:\n\nRound:\n- title: \"Fasten off and weave in ends\"\n- sourceText: \"Fasten off and weave in all ends securely.\"\n- expectedProducedStitches: null (no stitches produced)\n- body statements:\n  1. operation: fasten off (bookkeeping)\n  2. operation: weave in ends (bookkeeping)\n\nFor the fasten off:\n- semantics: bookkeeping\n- actionTag: \"fastenOff\"\n- stitch: null\n- count: 1\n- instruction: null\n- target: null\n- note: null\n- notePlacement: \"all\"\n- producedStitches: null\n\nFor weave in ends:\n- semantics: bookkeeping\n- actionTag: \"weaveInEnds\"\n- stitch: null\n- count: 1\n- instruction: null\n- target: null\n- note: null\n- notePlacement: \"all\"\n- producedStitches: null\n\nWait, but the spec says \"If the input round contains only a non-stitch instruction, emit a single operation with semantics = bookkeeping and an appropriate actionTag.\" That suggests ONE operation. But \"Fasten off and weave in all ends securely\" is really two distinct actions. \n\nLet me re-read: \"When an instruction names a single supported stitch type... emit exactly one operation.\" But this is about non-stitch instructions. I think the intent is that for really simple cases you emit one, but for two distinct actions like this, two operations is fine.\n\nActually, I could also combine them into one operation with actionTag \"fastenOffAndWeaveInEnds\" but that seems like overloading. Let me just use two operations. The IR body is a list of statements and two sequential bookkeeping operations makes sense.\n\nLet me also consider: maybe I should use a note for \"weave in all ends\" since it's more of a finishing note. But \"weave in ends\" is an actual action. I'll keep both as operations.\n\nLet me construct the JSON now.\n\nActually, looking more carefully at the operation structure requirements - the `operation` field when non-null must include ALL fields: instruction, semantics, stitch, count, note, actionTag, target, notePlacement, producedStitches.\n\nLet me also double-check: for bookkeeping, `count` should be 1 (a single action). `producedStitches` should be null. `stitch` should be null. \n\nFor the first operation (fasten off):\n- semantics: \"bookkeeping\"\n- actionTag: \"fastenOff\" \n- stitch: null\n- count: 1\n- instruction: null\n- target: null\n- note: null\n- notePlacement: \"all\"\n- producedStitches: null\n\nFor the second operation (weave in ends):\n- semantics: \"bookkeeping\"\n- actionTag: \"weaveInEnds\"\n- stitch: null\n- count: 1\n- instruction: null\n- target: null\n- note: null\n- notePlacement: \"all\"\n- producedStitches: null\n\nNow let me construct the full JSON.\n\nThe body has no normalizationNote and no sourceText (or I could set sourceText to the raw instruction). Actually looking at the example, the body has sourceText: null and normalizationNote: null. The statements within the body have their own sourceText.\n\nFor statement sourceTexts:\n- First: \"Fasten off\"\n- Second: \"weave in all ends securely\"\n\nOr I could keep the full text for each. Let me just split them naturally.\n\nActually, the source text is \"Fasten off and weave in all ends securely.\" I'll split:\n- Statement 1 sourceText: \"Fasten off\"\n- Statement 2 sourceText: \"weave in all ends securely\"\n\nLet me also handle the `note` field in operations. For \"weave in all ends securely\", \"securely\" is kind of a note. But I'll keep it simple.\n\nLet me now write the full JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"expectedProducedStitches\":null,\"body\":{\"normalizationNote\":null,\"sourceText\":null,\"statements\":[{\"kind\":\"operation\",\"sourceText\":\"Fasten off\",\"operation\":{\"semantics\":\"bookkeeping\",\"actionTag\":\"fastenOff\",\"stitch\":null,\"count\":1,\"instruction\":null,\"target\":null,\"note\":null,\"notePlacement\":\"all\",\"producedStitches\":null},\"repeat\":null,\"conditional\":null,\"note\":null},{\"kind\":\"operation\",\"sourceText\":\"weave in all ends securely\",\"operation\":{\"semantics\":\"bookkeeping\",\"actionTag\":\"weaveInEnds\",\"stitch\":null,\"count\":1,\"instruction\":null,\"target\":null,\"note\":null,\"notePlacement\":\"all\",\"producedStitches\":null},\"repeat\":null,\"conditional\":null,\"note\":null}]},\"sourceText\":\"Fasten off and weave in all ends securely.\",\"title\":\"Fasten off and weave in ends\"}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_w6wfUgP4X2qKFvDXtT6k9lv4",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777044476,
+  "id" : "4b59b392-58ee-444c-953f-fe848812ef8d",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1475,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 1219
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 83,
+    "prompt_tokens" : 11731,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 13206
+  }
+}

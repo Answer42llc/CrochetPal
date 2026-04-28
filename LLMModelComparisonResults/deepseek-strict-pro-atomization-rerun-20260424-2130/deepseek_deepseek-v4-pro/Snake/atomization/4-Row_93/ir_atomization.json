@@ -1,0 +1,41 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "decrease",
+              "stitch" : "dec"
+            },
+            "repeat" : null,
+            "sourceText" : "dec"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 13,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "13 sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 14,
+      "sourceText" : "dec, 13 sc = 14 sc",
+      "title" : "Row 93"
+    }
+  ]
+}

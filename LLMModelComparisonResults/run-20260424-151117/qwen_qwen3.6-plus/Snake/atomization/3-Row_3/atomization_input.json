@@ -1,0 +1,33 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "increase (2 crochets in 1 loop)",
+      "term" : "inc."
+    },
+    {
+      "definition" : "decrease (2 crochets together)",
+      "term" : "dec."
+    },
+    {
+      "definition" : "repeat the sequence of loops in brackets L times",
+      "term" : "(….) - L times"
+    }
+  ],
+  "partName" : "Body (Large ~68 cm)",
+  "rawInstruction" : "12 sc",
+  "summary" : "Work 12 single crochets.",
+  "targetStitchCount" : 12,
+  "title" : "Row 3"
+}

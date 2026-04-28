@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this input. It's a finishing step, not a crochet round with stitches. I need to convert this into Crochet IR.\n\nThe instruction is \"Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.\"\n\nThis is a bookkeeping\/assembly operation. Let me create the appropriate IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Sew buttons\", \"sourceText\": \"Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 1, \"producedStitches\": null, \"instruction\": \"Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.\", \"target\": null, \"note\": null, \"notePlacement\": \"first\"}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_SQifoa2dH28SS5AgBqrZW0iV",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029143,
+  "id" : "78371f47-0683-493b-a51c-a3ec5f66a601",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 309,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 69
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11944,
+    "prompt_tokens" : 11944,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 12253
+  }
+}

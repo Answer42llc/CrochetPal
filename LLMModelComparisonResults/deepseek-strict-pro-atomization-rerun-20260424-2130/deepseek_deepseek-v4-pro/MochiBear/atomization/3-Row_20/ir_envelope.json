@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input round:\n\n- Part: Body\n- Raw instruction: \"DEC, 7 SC, DEC (9)\"\n- Target stitch count: 9\n- Title: \"Row 20\"\n\nLet me parse this:\n\n\"DEC, 7 SC, DEC (9)\"\n\nThis is a sequence of operations:\n1. DEC - decrease (sc2tog)\n2. 7 SC - 7 single crochets\n3. DEC - decrease (sc2tog)\n\nTotal stitches: 9 (as indicated by targetStitchCount)\n\nEach dec consumes 2 stitches and produces 1. Let's verify: start with some number, do dec (2 consumed, 1 produced), 7 sc (7 produced), dec (2 consumed, 1 produced) = 9 produced. The previous round should have had 11 stitches (2 consumed by first dec + 7 stitches worked into + 2 consumed by second dec = 11).\n\nLet me construct the IR:\n\nStatements:\n1. Operation: decrease, stitch \"sc\", count 1, actionTag \"decrease\", semantics \"decrease\"\n2. Operation: stitchProducing, stitch \"sc\", count 7, actionTag \"sc\"\n3. Operation: decrease, stitch \"sc\", count 1, actionTag \"decrease\", semantics \"decrease\"\n\nAll these are flat statements in the body.\n\nLet me also think about the note field. The instruction just says \"DEC\", no additional notes needed. The note is null.\n\nFor the decrease operation, `producedStitches` is null (it's always 1 for a decrease by definition... actually let me check the schema. For decrease semantics, `producedStitches` - I think it should be null since decrease always produces 1 stitch. Let me check the example: in the example output, decrease isn't shown. Let me use null for producedStitches on decrease operations.\n\nFor stitchProducing operations, `producedStitches` is null.\n\nNow let me build the full IR.\n\nThe round:\n- title: \"Row 20\"\n- sourceText: \"DEC, 7 SC, DEC (9)\"\n- expectedProducedStitches: 9\n- body with statements\n\nLet me also think about sourceText for individual statements. The raw instruction is \"DEC, 7 SC, DEC (9)\". I'll split it:\n- \"DEC\" → first statement\n- \"7 SC\" → second statement\n- \"DEC\" → third statement\n\nActually, the (9) is just the stitch count, not part of the instructions. So sourceText for each should be the relevant part.\n\nLet me construct each operation:\n\nStatement 1:\n- kind: \"operation\"\n- sourceText: \"DEC\"\n- operation: { semantics: \"decrease\", actionTag: \"decrease\", stitch: \"sc\", count: 1, instruction: null, target: null, note: null, notePlacement: \"first\", producedStitches: null }\n\nStatement 2:\n- kind: \"operation\"\n- sourceText: \"7 SC\"\n- operation: { semantics: \"stitchProducing\", actionTag: \"sc\", stitch: \"sc\", count: 7, instruction: null, target: null, note: null, notePlacement: \"first\", producedStitches: null }\n\nStatement 3:\n- kind: \"operation\"\n- sourceText: \"DEC\"\n- operation: { semantics: \"decrease\", actionTag: \"decrease\", stitch: \"sc\", count: 1, instruction: null, target: null, note: null, notePlacement: \"first\", producedStitches: null }\n\nFor decreases, should I put stitch as \"sc\" or \"dec\"? The abbreviation says dec = decrease (single crochet 2 stitches together). I think stitch should be \"sc\" since that's the base stitch being decreased, and actionTag should be \"decrease\". Looking at the semantic enum, decrease is one of the values. The stitch field should contain the base stitch.\n\nLet me finalize and call the tool.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Row 20\", \"sourceText\": \"DEC, 7 SC, DEC (9)\", \"expectedProducedStitches\": 9, \"body\": {\"normalizationNote\": null, \"sourceText\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"DEC\", \"operation\": {\"semantics\": \"decrease\", \"actionTag\": \"decrease\", \"stitch\": \"sc\", \"count\": 1, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"7 SC\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 7, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"DEC\", \"operation\": {\"semantics\": \"decrease\", \"actionTag\": \"decrease\", \"stitch\": \"sc\", \"count\": 1, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_MjvcM7O1hAKotiDNKmjo2MBn",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777044336,
+  "id" : "e3cc8eb2-05ee-42c7-bd0a-f42e1d3f190c",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1231,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 848
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 90,
+    "prompt_tokens" : 11738,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12969
+  }
+}

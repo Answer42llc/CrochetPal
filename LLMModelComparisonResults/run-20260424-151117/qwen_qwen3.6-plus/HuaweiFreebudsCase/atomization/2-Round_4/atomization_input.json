@@ -1,0 +1,37 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Increase",
+      "term" : "Inc"
+    },
+    {
+      "definition" : "Stitch",
+      "term" : "St"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "Slst"
+    },
+    {
+      "definition" : "back loop only",
+      "term" : "BLO"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "FLO"
+    }
+  ],
+  "partName" : "Top case (Yellow)",
+  "rawInstruction" : "14sc, inc, 17sc, inc, 3sc",
+  "summary" : "Work single crochets and increases.",
+  "targetStitchCount" : 38,
+  "title" : "Round 4"
+}

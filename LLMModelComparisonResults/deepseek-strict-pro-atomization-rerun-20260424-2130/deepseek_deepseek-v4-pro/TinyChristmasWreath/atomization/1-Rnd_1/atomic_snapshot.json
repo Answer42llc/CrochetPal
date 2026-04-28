@@ -1,0 +1,620 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "slipKnot",
+      "instruction" : "make a slip knot with green yarn",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "with green, make a slip knot"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 14,
+      "sourceText" : "ch 14",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "first ch; to join the piece in a circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "sl st in the first ch you made, to join the piece in a circle",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 16,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 17,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 18,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 19,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 20,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 21,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 22,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 23,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 24,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 25,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 26,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 27,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 28,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 29,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 30,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 31,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 32,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 33,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 34,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 35,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 36,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 37,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 38,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 39,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 40,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 41,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 42,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 43,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 44,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 45,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 46,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 47,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 48,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 49,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 50,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 51,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 52,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 53,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 54,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 55,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 56,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 57,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 58,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 59,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 60,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 61,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 62,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 63,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 64,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 65,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 66,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 67,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 68,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 69,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 70,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sl st",
+      "note" : "next ch of the circle",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 71,
+      "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+      "stitchTag" : "sl st"
+    }
+  ],
+  "expectedProducedStitches" : 14,
+  "producedStitchCount" : 0,
+  "sourceText" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+  "title" : "Rnd 1",
+  "validationIssues" : [
+    {
+      "code" : "ir_operation_invalid_action_tag",
+      "message" : "actionTag must be camelCase letters or digits (got sl st).",
+      "severity" : "error",
+      "sourceText" : "sl st in the first ch you made, to join the piece in a circle"
+    },
+    {
+      "code" : "ir_operation_invalid_action_tag",
+      "message" : "actionTag must be camelCase letters or digits (got sl st).",
+      "severity" : "error",
+      "sourceText" : "sl st in the next ch of the circle"
+    }
+  ],
+  "warnings" : [
+    {
+      "code" : "atomization_target_stitch_count_mismatch",
+      "message" : "Expected 14 produced stitches, but expanded to 0.",
+      "sourceText" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)"
+    }
+  ]
+}

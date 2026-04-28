@@ -1,0 +1,69 @@
+{
+  "rounds": [
+    {
+      "title": "Foundation Chain",
+      "sourceText": "Chain 11, turn and crochet to the second chain from hook",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Chain 11",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 11,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "turn",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "turn",
+              "stitch": null,
+              "count": 1,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "crochet to the second chain from hook",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 10,
+              "instruction": null,
+              "target": "2nd ch from hook",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

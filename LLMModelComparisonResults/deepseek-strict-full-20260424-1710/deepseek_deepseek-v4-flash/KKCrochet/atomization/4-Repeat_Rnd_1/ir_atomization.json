@@ -1,0 +1,24 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : true,
+              "message" : "Repeat Rnd 1 until you have 15 sc left.",
+              "sourceText" : "Repeat Rnd 1 until you have 15 sc left."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Repeat Rnd 1 until you have 15 sc left."
+          }
+        ]
+      },
+      "sourceText" : "Repeat Rnd 1 until you have 15 sc left.",
+      "title" : "Repeat Rnd 1"
+    }
+  ]
+}

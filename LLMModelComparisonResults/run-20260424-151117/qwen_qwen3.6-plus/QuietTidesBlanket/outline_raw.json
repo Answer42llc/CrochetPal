@@ -1,0 +1,276 @@
+{
+  "projectTitle": "Quiet Tides Baby Blanket",
+  "materials": [
+    "Crochet Hook size I/5.5mm",
+    "Circulo's Alpaya Yarn - 3 hanks of off white, 2 hanks of teal, 2 hanks of light blue",
+    "Scissors",
+    "Yarn needle",
+    "Blocking mat or thick towel and pins"
+  ],
+  "confidence": 0.95,
+  "abbreviations": [],
+  "parts": [
+    {
+      "name": "Main Blanket",
+      "rounds": [
+        {
+          "title": "Foundation Chain",
+          "rawInstruction": "With off white, ch 114",
+          "summary": "Chain 114 with off white yarn.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 1",
+          "rawInstruction": "1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+          "summary": "Work single crochet across the foundation chain.",
+          "targetStitchCount": 113,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 2",
+          "rawInstruction": "1 sc in each sc across, changing to teal in the last sc. Ch 1, turn.",
+          "summary": "Single crochet across, changing to teal yarn on the last stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 3",
+          "rawInstruction": "1 sc in each sc across. Ch 1, turn.",
+          "summary": "Single crochet across.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 4",
+          "rawInstruction": "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+          "summary": "Single crochet across, changing to off white yarn on the last stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 5",
+          "rawInstruction": "1 sc in the first 2 sc,*fpdc around the next sc from 3 rows below (see reference image), then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+          "summary": "Work single crochets and front post double crochets into the row below, repeating across.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 6",
+          "rawInstruction": "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+          "summary": "Single crochet across, changing to light blue yarn on the last stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 7",
+          "rawInstruction": "1 sc in each sc across. Ch 1, turn.",
+          "summary": "Single crochet across.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 8",
+          "rawInstruction": "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+          "summary": "Single crochet across, changing to off white yarn on the last stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 9",
+          "rawInstruction": "1 sc in the first 2 sc,*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+          "summary": "Work single crochets and front post double crochets into the post from 4 rows below, repeating across.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 10",
+          "rawInstruction": "1 sc in each sc across,changing to teal in the last sc. Ch 1, turn.",
+          "summary": "Single crochet across, changing to teal yarn on the last stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 11",
+          "rawInstruction": "1 sc in each sc across. Ch 1, turn.",
+          "summary": "Single crochet across.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 12",
+          "rawInstruction": "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+          "summary": "Single crochet across, changing to off white yarn on the last stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 13",
+          "rawInstruction": "1 sc in the first 2 sc,*fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+          "summary": "Work single crochets and front post double crochets into the post from 4 rows below, repeating across.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Repeat Rows 6-13",
+          "rawInstruction": "Repeat Rows 6-13 until you have a total of 118 rows.",
+          "summary": "Cycle through rows 6-13 until the blanket reaches 118 rows total.",
+          "targetStitchCount": null,
+          "repeatFromTitle": "Row 6",
+          "repeatToTitle": "Row 13",
+          "repeatUntilCount": 118,
+          "repeatAfterRow": 13,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Then ch 1, turn, and do one more row of sc.",
+          "rawInstruction": "Then ch 1, turn, and do one more row of sc.",
+          "summary": "Chain 1, turn, and work a final row of single crochet.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Weave in ends, then move on to the border.",
+          "rawInstruction": "Weave in ends, then move on to the border.",
+          "summary": "Secure yarn ends before starting the border.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Border",
+      "rounds": [
+        {
+          "title": "Round 1",
+          "rawInstruction": "With off white, place one sc evenly around the entire blanket. Place 3 sc in each corner. *Tip: while working along the sides, place two sc for each colored row, so 2 sc per white row, 2 sc for each teal row, etc. This way you won't be adding unnecessary single crochets to the sides which could result in a wavy edge. Join with sl st to the first sc you made.",
+          "summary": "Work single crochet evenly around the blanket, placing 3 in each corner.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Finish off white, add teal.",
+          "rawInstruction": "Finish off white, add teal.",
+          "summary": "Fasten off white yarn and join teal yarn.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Round 2",
+          "rawInstruction": "Ch 2, 1 hdc in each st around, placing 3 hdc in each corner. Join with a sl st to the first hdc. Finish off teal, add light blue.",
+          "summary": "Chain 2, work half double crochet around with 3 in each corner, then change to light blue.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Round 3",
+          "rawInstruction": "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+          "summary": "Chain 1, work single crochet around with 3 in each corner, then finish off and weave in ends.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    }
+  ]
+}

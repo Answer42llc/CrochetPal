@@ -1,0 +1,169 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "back loop only",
+      "term" : "blo"
+    },
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "decrease (single crochet 2 together or invisible decrease)",
+      "term" : "dec"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "flo"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "increase (2 single crochet in one stitch)",
+      "term" : "inc"
+    },
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    }
+  ],
+  "confidence" : 0.98,
+  "materials" : [
+    "Worsted\/aran (#4) weight yarn in your choice of color",
+    "3.75 mm crochet hook",
+    "Polyester fiber fill stuffing",
+    "Dried catnip (optional)",
+    "Stitch marker",
+    "Yarn needle"
+  ],
+  "parts" : [
+    {
+      "name" : "Body",
+      "rounds" : [
+        {
+          "rawInstruction" : "in a MR, sc 6. (6)",
+          "summary" : "Create a magic ring and work six single crochets into it.",
+          "targetStitchCount" : 6,
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "(sc, inc) x3. (9)",
+          "summary" : "Alternate single crochet and increase three times.",
+          "targetStitchCount" : 9,
+          "title" : "Round 2"
+        },
+        {
+          "rawInstruction" : "sc around. (9)",
+          "summary" : "Work a single crochet in every stitch around.",
+          "targetStitchCount" : 9,
+          "title" : "Round 3"
+        },
+        {
+          "rawInstruction" : "(sc 2, inc) x3. (12)",
+          "summary" : "Work two single crochets then an increase, repeated three times.",
+          "targetStitchCount" : 12,
+          "title" : "Round 4"
+        },
+        {
+          "rawInstruction" : "sc around. (12)",
+          "summary" : "Work a single crochet in every stitch around.",
+          "targetStitchCount" : 12,
+          "title" : "Round 5"
+        },
+        {
+          "rawInstruction" : "sc (both loops), in flo of next st (hdc, 2 dc, hdc) to form first ear, sc 3 (both loops), in flo of next st (hdc, 2 dc, hdc) to form second ear, sc 6 (both loops). (18)",
+          "summary" : "Single crochet, work an ear in front loops, sc 3, work a second ear in front loops, sc 6.",
+          "targetStitchCount" : 18,
+          "title" : "Round 6"
+        },
+        {
+          "rawInstruction" : "sc (both loops), bend first ear forward and sc in blo of st from round 5, sc 3 (both loops), bend second ear forward and sc in blo of st from round 5, sc 6 (both loops). (12)",
+          "summary" : "Single crochet, bend ear forward and sc in back loop of round 5, sc 3, bend second ear forward and sc in back loop of round 5, sc 6.",
+          "targetStitchCount" : 12,
+          "title" : "Round 7"
+        },
+        {
+          "rawInstruction" : "(sc, inc) x6. (18)",
+          "summary" : "Alternate single crochet and increase six times.",
+          "targetStitchCount" : 18,
+          "title" : "Round 8"
+        },
+        {
+          "rangeEndNumber" : 10,
+          "rangeStartNumber" : 9,
+          "rawInstruction" : "sc around. (18)",
+          "summary" : "Work a single crochet in every stitch around, for two rounds.",
+          "targetStitchCount" : 18,
+          "title" : "Rounds 9-10"
+        },
+        {
+          "rawInstruction" : "(sc 5, inc) x3. (21)",
+          "summary" : "Work five single crochets then an increase, repeated three times.",
+          "targetStitchCount" : 21,
+          "title" : "Round 11"
+        },
+        {
+          "rangeEndNumber" : 13,
+          "rangeStartNumber" : 12,
+          "rawInstruction" : "sc around. (21)",
+          "summary" : "Work a single crochet in every stitch around, for two rounds.",
+          "targetStitchCount" : 21,
+          "title" : "Rounds 12-13"
+        },
+        {
+          "rawInstruction" : "(sc 6, inc) x4. (24)",
+          "summary" : "Work six single crochets then an increase, repeated four times.",
+          "targetStitchCount" : 24,
+          "title" : "Round 14"
+        },
+        {
+          "rangeEndNumber" : 17,
+          "rangeStartNumber" : 15,
+          "rawInstruction" : "sc around. (24)",
+          "summary" : "Work a single crochet in every stitch around, for three rounds.",
+          "targetStitchCount" : 24,
+          "title" : "Rounds 15-17"
+        },
+        {
+          "rawInstruction" : "(sc 2, dec) x6. (18)",
+          "summary" : "Work two single crochets then a decrease, repeated six times.",
+          "targetStitchCount" : 18,
+          "title" : "Round 18"
+        },
+        {
+          "rawInstruction" : "(sc, dec) x6. (12)",
+          "summary" : "Alternate single crochet and decrease six times.",
+          "targetStitchCount" : 12,
+          "title" : "Round 19"
+        },
+        {
+          "rawInstruction" : "Add catnip and stuffing.",
+          "summary" : "Add dried catnip and polyester fiber fill stuffing to the mouse body.",
+          "title" : "Add catnip and stuffing"
+        },
+        {
+          "rawInstruction" : "dec 3, ch 15, starting in 2nd ch from hook sc across chs, dec 3. (20)",
+          "summary" : "Decrease three times, chain 15, work single crochets back along the chain, decrease three times.",
+          "targetStitchCount" : 20,
+          "title" : "Round 20"
+        },
+        {
+          "rawInstruction" : "Finish off and sew closed.",
+          "summary" : "Finish off the yarn and sew the opening closed.",
+          "title" : "Finish off and sew closed"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Mouse Cat Toy"
+}

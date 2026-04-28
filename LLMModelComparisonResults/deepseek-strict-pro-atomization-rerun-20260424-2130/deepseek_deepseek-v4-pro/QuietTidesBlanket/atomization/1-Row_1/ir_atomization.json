@@ -1,0 +1,42 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 113,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "2nd ch from hook and each ch across"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in the 2nd ch from the hook and in each ch across. (113 sc)"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "instruction" : "Ch 1, turn",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1, turn"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 113,
+      "sourceText" : "1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+      "title" : "Row 1"
+    }
+  ]
+}

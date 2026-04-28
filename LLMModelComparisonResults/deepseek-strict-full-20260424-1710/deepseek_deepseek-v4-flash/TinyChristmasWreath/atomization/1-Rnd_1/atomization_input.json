@@ -1,0 +1,21 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain or chains",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "sl st"
+    },
+    {
+      "definition" : "stitch",
+      "term" : "st"
+    }
+  ],
+  "partName" : "Wreath",
+  "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+  "summary" : "Chain 14, join in a circle, then work [ch 3, sl st in next ch] 14 times around to form chain-loops.",
+  "targetStitchCount" : 14,
+  "title" : "Rnd 1"
+}

@@ -1,0 +1,46 @@
+{
+  "abbreviations" : [
+
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "1 skein of Mandala yarn of your choice",
+    "Crochet hook size G or 4.25 mm"
+  ],
+  "parts" : [
+    {
+      "name" : "Cover",
+      "rounds" : [
+        {
+          "rawInstruction" : "Ch 17",
+          "summary" : "Create a foundation chain of 17 stitches.",
+          "title" : "Ch 17"
+        },
+        {
+          "rawInstruction" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn",
+          "summary" : "Work single crochets, half double crochets, and double crochets across the foundation chain.",
+          "targetStitchCount" : 16,
+          "title" : "Row 1"
+        },
+        {
+          "rangeEndNumber" : 109,
+          "rangeStartNumber" : 2,
+          "rawInstruction" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+          "summary" : "Repeat the established stitch pattern across for 108 rows.",
+          "title" : "Rows 2-109"
+        },
+        {
+          "rawInstruction" : "Finish off and sew the 2 ends together.",
+          "summary" : "Fasten off yarn and seam the ends together.",
+          "title" : "Finish off and sew the 2 ends together."
+        },
+        {
+          "rawInstruction" : "Weave in all ends.",
+          "summary" : "Secure loose yarn tails.",
+          "title" : "Weave in all ends."
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Mandala Steering Wheel Cover"
+}

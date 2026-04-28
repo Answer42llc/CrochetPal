@@ -1,0 +1,2169 @@
+{
+  "atomizationResults" : [
+    {
+      "actionCount" : 12,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/1-Foundation_Chain\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/1-Foundation_Chain\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "CH 12",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 24,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/2-Round_7\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/2-Round_7\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/2-Round_7\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 24,
+      "rawInstruction" : "1 DC in each stitch all the way around (24)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 3,
+      "roundTitle" : "Round 7",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/2-Round_7\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 12,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/3-Row_10\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/3-Row_10\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/3-Row_10\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 6,
+      "rawInstruction" : "2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 7,
+      "roundTitle" : "Row 10",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/3-Row_10\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 13,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/4-Round_1\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/4-Round_1\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/4-Round_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 12,
+      "rawInstruction" : "work 12 treble crochet, join. (12)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 10,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/4-Round_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Weave in the ends.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 13,
+      "roundTitle" : "Weave in ends",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/atomization\/5-Weave_in_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/1-Rnd_1\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/1-Rnd_1\/ir_envelope.json",
+      "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+      "fixtureName" : "ArianaWrap",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/1-Rnd_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/1-Rnd_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "With CC1"
+        },
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got sl st).",
+          "severity" : "error",
+          "sourceText" : "join with sl st in top of beginning ch 3"
+        },
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "Break CC1"
+        }
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/2-Weave_in_ends\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/2-Weave_in_ends\/ir_envelope.json",
+      "fixtureName" : "ArianaWrap",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/2-Weave_in_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Weave in ends.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 11,
+      "roundTitle" : "Weave in ends",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/2-Weave_in_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/3-Join_Fourth_Tier\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/3-Join_Fourth_Tier\/ir_envelope.json",
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1daa0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <74FCCF1F-F5AD-4C8B-B8A1-3C5900C66E8D>.<3>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <74FCCF1F-F5AD-4C8B-B8A1-3C5900C66E8D>.<3>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Size S\/M\/L ONLY: Work across two sides of square 21, joining to triangle 14 and square 15, and one side of square 22, joining to square 15. Size XL\/2X\/3X ONLY: Work across two sides of square 33, joining to triangle 22 and square 23, then across two sides of square 34, joining to squares 23 and 24, and one side of square 35, joining to square 24. Both sizes: Work across the next side of square 22 (35) without joining, then work across one side of square 23 (36), joining to the side you just worked on square 22 (35). Continue across the next side of square 23 (36), and two sides of squares 24 and 25 (37–40), joining to the squares below, then work one side of square 26 (41) joining to square 18 (29). Work across the next side of square 26 (41) without joining, then work across one side of square 27 (42), joining to the side you just worked on square 26 (41). Work second side of square 27 (42) and last 1 (2) squares of this tier as established, ending with square 28 (44). Work across tops of all squares in this tier beginning with square 28 (44) and ending with square 21 (33). Fasten off.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 21,
+      "roundTitle" : "Join Fourth Tier",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/4-Hem_Repeat_rows_for_length\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/4-Hem_Repeat_rows_for_length\/ir_envelope.json",
+      "fixtureName" : "ArianaWrap",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/4-Hem_Repeat_rows_for_length\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 32,
+      "roundTitle" : "Hem — Repeat rows for length",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/4-Hem_Repeat_rows_for_length\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/5-Sew_buttons\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/5-Sew_buttons\/ir_envelope.json",
+      "fixtureName" : "ArianaWrap",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/5-Sew_buttons\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 42,
+      "roundTitle" : "Sew buttons",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/atomization\/5-Sew_buttons\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/1-Rnd_1\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/1-Rnd_1\/ir_envelope.json",
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1cc90 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <8234E550-0FAD-4532-971F-0EBC4B06D302>.<4>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <8234E550-0FAD-4532-971F-0EBC4B06D302>.<4>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 27,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/2-Rnd_5\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/2-Rnd_5\/ir_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/2-Rnd_5\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 27,
+      "rawInstruction" : "(7 sc, inc) x 3 (27 sc)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 4,
+      "roundTitle" : "Rnd 5",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/2-Rnd_5\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/3-Sew_in_magic_ring_tail\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/3-Sew_in_magic_ring_tail\/ir_envelope.json",
+      "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/3-Sew_in_magic_ring_tail\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Using the tapestry needle, sew in the magic ring's 6\" tail.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 7,
+      "roundTitle" : "Sew in magic ring tail",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/3-Sew_in_magic_ring_tail\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "Using the tapestry needle, sew in the magic ring's 6\" tail."
+        }
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/4-Repeat_Rnd_1\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/4-Repeat_Rnd_1\/ir_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/4-Repeat_Rnd_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Repeat Rnd 1 until you have 15 sc left.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 11,
+      "roundTitle" : "Repeat Rnd 1",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/4-Repeat_Rnd_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/5-Stuff_Knocker\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/5-Stuff_Knocker\/ir_envelope.json",
+      "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/5-Stuff_Knocker\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 14,
+      "roundTitle" : "Stuff Knocker",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/atomization\/5-Stuff_Knocker\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed."
+        }
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 17,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Ch 17",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_envelope.json",
+      "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn (16)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 1,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "Turn"
+        }
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 17,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 16,
+      "rawInstruction" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 2,
+      "roundTitle" : "Rows 2-109",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_ends\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_ends\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Finish off and sew the 2 ends together.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 3,
+      "roundTitle" : "Finish off and sew ends",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_ends\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_ends\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Weave in all ends.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 4,
+      "roundTitle" : "Weave in ends",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 9,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/1-Round_1\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/1-Round_1\/ir_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/1-Round_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 6,
+      "rawInstruction" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/1-Round_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/2-Round_4\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/2-Round_4\/ir_envelope.json",
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1d3b0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <B28CCBD7-A283-4B2C-9021-0F4F44F5F165>.<5>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <B28CCBD7-A283-4B2C-9021-0F4F44F5F165>.<5>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 3,
+      "roundTitle" : "Round 4",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/3-Round_7\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/3-Round_7\/ir_envelope.json",
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1d350 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <CE3DD612-1A6A-4CD3-8D31-D36728FDFCA3>.<6>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <CE3DD612-1A6A-4CD3-8D31-D36728FDFCA3>.<6>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 6,
+      "roundTitle" : "Round 7",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/4-Round_9\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/4-Round_9\/ir_envelope.json",
+      "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/4-Round_9\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 8,
+      "roundTitle" : "Round 9",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/atomization\/4-Round_9\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "Fasten off and work away your ends"
+        }
+      ],
+      "warningCount" : 0
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1cb70 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <3B4382DE-8CB5-46B2-87C9-D54962DBE7FE>.<7>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <3B4382DE-8CB5-46B2-87C9-D54962DBE7FE>.<7>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends. {34 dc, not including ch-2 corner sps}",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 12",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 4,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MochiBear\/atomization\/1-Foundation_Chain\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MochiBear\/atomization\/1-Foundation_Chain\/ir_envelope.json",
+      "fixtureName" : "MochiBear",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MochiBear\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "CH 4",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MochiBear\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1dc50 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <1BEB02B9-55D5-48A5-BE54-924010ECD88A>.<8>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <1BEB02B9-55D5-48A5-BE54-924010ECD88A>.<8>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "DEC, 1 SC, DEC (3)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 8,
+      "roundTitle" : "Row 9",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1e280 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <43845020-3793-40B4-8107-B718E808E090>.<9>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <43845020-3793-40B4-8107-B718E808E090>.<9>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Place a stitch marker in the space between Row 14 and Row 15. (This is where you will begin working the second arm)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 15,
+      "roundTitle" : "Place stitch marker for second arm",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1e340 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <B70F176A-BF43-4770-AE48-76558BE98AAB>.<10>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <B70F176A-BF43-4770-AE48-76558BE98AAB>.<10>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Attach yarn between Rows 11–12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 23,
+      "roundTitle" : "Arm 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1e460 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <27220349-7967-44ED-A2C3-32B2E948809F>.<11>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <27220349-7967-44ED-A2C3-32B2E948809F>.<11>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Place both panels together with wrong sides facing each other. Attach yarn at any point along the edge. Work slip stitches evenly around, inserting your hook through both layers. Continue around the entire shape to join. Optional: Lightly stuff the bear before fully closing, or leave flat for a keychain-style finish. Fasten off and weave in all ends securely.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 30,
+      "roundTitle" : "Joining the Pieces",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1c720 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F4322AF6-D7AB-4BC5-BA42-8852F89DCB3D>.<12>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F4322AF6-D7AB-4BC5-BA42-8852F89DCB3D>.<12>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "in a MR, sc 6. (6)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1dd10 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <672B5F5B-F301-433D-9EC6-4F664F8D2268>.<13>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <672B5F5B-F301-433D-9EC6-4F664F8D2268>.<13>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "sc around. (12)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 4,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1eb20 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <6BD29A7B-505C-44FB-95EA-D8B14B2E49C8>.<14>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <6BD29A7B-505C-44FB-95EA-D8B14B2E49C8>.<14>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "(sc 5, inc) x3. (21)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 9,
+      "roundTitle" : "Round 11",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1ea00 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <5F97E9BA-0F7C-444C-AAB0-A2851D646658>.<15>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <5F97E9BA-0F7C-444C-AAB0-A2851D646658>.<15>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "(sc 2, dec) x6. (18)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 13,
+      "roundTitle" : "Round 18",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1dbc0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <96630476-4834-4A6C-8372-3802BECC1D14>.<16>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <96630476-4834-4A6C-8372-3802BECC1D14>.<16>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Finish off and sew closed.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 17,
+      "roundTitle" : "Finish off and sew closed",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1e940 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <7A5578D5-CB7B-41CC-B9D7-75B55225E100>.<17>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <7A5578D5-CB7B-41CC-B9D7-75B55225E100>.<17>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "With off white, ch 114. 1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1eb80 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <4388EC53-6E75-4270-8AF4-3F15CB87441F>.<18>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <4388EC53-6E75-4270-8AF4-3F15CB87441F>.<18>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 5,
+      "roundTitle" : "Row 6",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1ebe0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <DB68B03E-4962-494F-AE37-4F9928D031C9>.<19>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <DB68B03E-4962-494F-AE37-4F9928D031C9>.<19>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "1 sc in each sc across. Ch 1, turn.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 10,
+      "roundTitle" : "Row 11",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1ec10 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <B7D4F49E-F61B-4905-B969-867A102D88A8>.<20>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <B7D4F49E-F61B-4905-B969-867A102D88A8>.<20>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Weave in ends, then move on to the border.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 15,
+      "roundTitle" : "Weave in ends",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1ec70 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <9914BEB4-0E44-4527-A16B-22ED887DF061>.<21>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <9914BEB4-0E44-4527-A16B-22ED887DF061>.<21>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 20,
+      "roundTitle" : "Round 3",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1da10 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <99199D02-A411-45AB-A48B-83101DB15783>.<22>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <99199D02-A411-45AB-A48B-83101DB15783>.<22>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f1e0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <47D80B36-F344-442A-AE83-2E154B9D4491>.<23>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <47D80B36-F344-442A-AE83-2E154B9D4491>.<23>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "2 dec, 10 sc = 12 sc",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 5,
+      "roundTitle" : "Row 12",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f030 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <9CB74CC5-81F5-45E7-AD81-CB08E6F5A880>.<24>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <9CB74CC5-81F5-45E7-AD81-CB08E6F5A880>.<24>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "dec, 9 sc = 10 sc",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 10,
+      "roundTitle" : "Row 84",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f0f0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <EDFCE759-D44B-4E3D-9F5E-010536819596>.<25>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <EDFCE759-D44B-4E3D-9F5E-010536819596>.<25>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Next, insert the wire into the body, pre-bend the edges of the wire",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 15,
+      "roundTitle" : "Insert wire",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f3c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <21FBEF1B-27D6-4407-8E9D-8F9A64469D10>.<26>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <21FBEF1B-27D6-4407-8E9D-8F9A64469D10>.<26>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "We glue the eyes and embroider the eyebrows.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 20,
+      "roundTitle" : "Glue eyes and embroider eyebrows",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f420 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 2ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <DE70684D-2FC6-4F1F-85CB-A1F0A3769B17>.<27>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <DE70684D-2FC6-4F1F-85CB-A1F0A3769B17>.<27>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f450 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 2ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <86D5182C-49F8-42F6-8E6F-E4A8ED4A4D3A>.<28>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <86D5182C-49F8-42F6-8E6F-E4A8ED4A4D3A>.<28>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 1,
+      "roundTitle" : "Fasten off and weave in ends",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f5d0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <E0874AF9-6FB0-43B3-8DFD-0EB33920E097>.<29>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <E0874AF9-6FB0-43B3-8DFD-0EB33920E097>.<29>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 2,
+      "roundTitle" : "Add red bow",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f180 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <3850A663-6FF4-41CE-B2BD-68FE44469B4E>.<30>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <3850A663-6FF4-41CE-B2BD-68FE44469B4E>.<30>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 3,
+      "roundTitle" : "Secure ends (optional)",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f900 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <E4B5E966-245C-4A21-9E7C-A695CBF202E4>.<31>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <E4B5E966-245C-4A21-9E7C-A695CBF202E4>.<31>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f810 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F874F818-B29A-422A-A562-E63D5DEB577D>.<32>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F874F818-B29A-422A-A562-E63D5DEB577D>.<32>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Ch2 (count as 1hdc), 3hdc, (hdc inc)x3; Change to white yarn: 3hdc, 2sc, (sc inc, 4sc) repeat 2 times, sc inc, 2sc, 3hdc; Change back to grey yarn: (hdc inc)x3. Slst to the top of the first ch2, and fasten off.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 4,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1f9f0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <A935A298-0A5A-45EC-9A47-05167E7CBFBD>.<33>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <A935A298-0A5A-45EC-9A47-05167E7CBFBD>.<33>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 7,
+      "roundTitle" : "Inner Ear",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cdebc90 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <AD5B8C71-7523-411F-A50A-9AA59B034B5C>.<34>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <AD5B8C71-7523-411F-A50A-9AA59B034B5C>.<34>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Ch1+1sc, 1sc in each st around, slst to the first sc. Fasten off, leave a long tail for attaching.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 2",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1fb10 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F249CB30-A49C-46A9-BCCE-33868DB3E375>.<35>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F249CB30-A49C-46A9-BCCE-33868DB3E375>.<35>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "rawInstruction" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+      "requestModel" : "deepseek-v4-flash",
+      "roundIndex" : 14,
+      "roundTitle" : "Eyes & Blushes",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1fa20 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 4ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <4A629AA2-A528-4330-9E7E-DA5DF9091261>.<36>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <4A629AA2-A528-4330-9E7E-DA5DF9091261>.<36>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cdebe10 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <7215C69D-57B2-4060-B4A9-F4BD5EF5A20F>.<37>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <7215C69D-57B2-4060-B4A9-F4BD5EF5A20F>.<37>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 4,
+      "roundTitle" : "Begin flap section",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cdebd50 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 2ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <9F4EE28B-1064-40DE-A0D4-0D70331BF05D>.<38>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <9F4EE28B-1064-40DE-A0D4-0D70331BF05D>.<38>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Now we will work our button hole.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 7,
+      "roundTitle" : "Button hole",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1fc60 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <AF344C0B-E498-4C1E-A9D8-5F42E240FFAA>.<39>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <AF344C0B-E498-4C1E-A9D8-5F42E240FFAA>.<39>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "work 12 treble crochet, join.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1ffc0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <5068EC7A-87F0-4B62-A12C-1E488C8D8B72>.<40>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <5068EC7A-87F0-4B62-A12C-1E488C8D8B72>.<40>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Weave in the ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 14,
+      "roundTitle" : "Weave in ends",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc390 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <3F062E7A-F1C3-406E-957A-069ED6B1A17C>.<41>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <3F062E7A-F1C3-406E-957A-069ED6B1A17C>.<41>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc120 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <CB531CFE-F19A-499E-8F84-DA9718C92FE6>.<42>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <CB531CFE-F19A-499E-8F84-DA9718C92FE6>.<42>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "38sc. (38)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 5,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc1e0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <24507BDC-92D0-4076-A31D-48E2A35CA625>.<43>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <24507BDC-92D0-4076-A31D-48E2A35CA625>.<43>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Inc, 8sc, 4inc, 8sc, 3inc. (32)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 2",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc180 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <600A17A5-312F-49BC-AB6F-7CFC8E4E9ADC>.<44>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <600A17A5-312F-49BC-AB6F-7CFC8E4E9ADC>.<44>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 16,
+      "roundTitle" : "Join shells",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc330 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <2996EE62-8CED-4A22-8A33-09BC1D2B4BAA>.<45>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <2996EE62-8CED-4A22-8A33-09BC1D2B4BAA>.<45>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 21,
+      "roundTitle" : "Sew all parts",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc300 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <30CBBD54-1116-47FA-8A90-08384077C841>.<46>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <30CBBD54-1116-47FA-8A90-08384077C841>.<46>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc480 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <40F1B3C1-FC6B-4A7F-982B-1071EB71455B>.<47>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <40F1B3C1-FC6B-4A7F-982B-1071EB71455B>.<47>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "(7 sc, inc) x 3 (27 sc)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 4,
+      "roundTitle" : "Rnd 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc5a0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <0B00C2AA-82CD-4271-A885-5AA66351246B>.<48>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <0B00C2AA-82CD-4271-A885-5AA66351246B>.<48>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5\" across or 13 rounds (approx. 63 sc). B cup – Repeat Rnds 6 & 7 four times until 5\" across or 15 rounds (approx.72 sc). C cup – Repeat Rnds 6 & 7 five times until 5.5\" across or 17 rounds (approx. 81 sc). D cup – Repeat Rnds 6 & 7 six times until 6\" across or 19 rounds (approx 90 sc). DD cup – Repeat Rnds 6 & 7 seven times until 6.5\" across or 21 rounds (approx. 99 sc).",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 8,
+      "roundTitle" : "Repeat Rnds 6 & 7 for cup size",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc6c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <8EAB1388-10F2-45E4-AAFF-D0556648D457>.<49>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <8EAB1388-10F2-45E4-AAFF-D0556648D457>.<49>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 11,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc930 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <C4ADEE6B-0CFA-447D-BDF2-AEF159CC5A78>.<50>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <C4ADEE6B-0CFA-447D-BDF2-AEF159CC5A78>.<50>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "If stuffing: slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker. If mailing unstuffed: leave hole open and yarn tail outside.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 15,
+      "roundTitle" : "Stuff or leave open",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc900 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <00B0EAC7-9A2E-4AFB-AA87-508EC63C9949>.<51>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <00B0EAC7-9A2E-4AFB-AA87-508EC63C9949>.<51>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch 17",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc9c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <1CD1BB59-35D5-477E-A390-C14C2F62A7E9>.<52>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <1CD1BB59-35D5-477E-A390-C14C2F62A7E9>.<52>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn (16)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 1,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbcae0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <0800FBDD-560C-4326-AF97-D796B667C244>.<53>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <0800FBDD-560C-4326-AF97-D796B667C244>.<53>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 2,
+      "roundTitle" : "Rows 2-109",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbcc60 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <BCCC43A6-9D87-48F4-9C4A-5463ECB2CE41>.<54>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <BCCC43A6-9D87-48F4-9C4A-5463ECB2CE41>.<54>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Finish off and sew the 2 ends together.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 3,
+      "roundTitle" : "Finish off and sew the 2 ends together",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbc0f0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F43EA745-A48F-4D17-93AE-79DF103353BC>.<55>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F43EA745-A48F-4D17-93AE-79DF103353BC>.<55>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Weave in all ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 4,
+      "roundTitle" : "Weave in all ends",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbce40 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <3C03CF46-A115-4D5A-A035-CB5BD2B8A0CC>.<56>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <3C03CF46-A115-4D5A-A035-CB5BD2B8A0CC>.<56>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbcf60 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <3440049C-11C1-4EE6-A6F1-BA702AF4D292>.<57>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <3440049C-11C1-4EE6-A6F1-BA702AF4D292>.<57>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 3,
+      "roundTitle" : "Round 4",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbd230 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F6BC2E9F-6F82-40C5-9D63-4781990D5874>.<58>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F6BC2E9F-6F82-40C5-9D63-4781990D5874>.<58>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 6,
+      "roundTitle" : "Round 7",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbd200 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <ECD52AB4-8711-40DB-9FBA-A13016CDED1E>.<59>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <ECD52AB4-8711-40DB-9FBA-A13016CDED1E>.<59>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends. Stitch Count per Side: 23 sts {7 sc, 4 hdc, 4 dc, 4 edc, and 4 tr, not including ch-2 corner sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 8,
+      "roundTitle" : "Round 9",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbd1a0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <BBFDBC91-AC59-4F55-8F2D-F7DB2A27CBEE>.<60>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <BBFDBC91-AC59-4F55-8F2D-F7DB2A27CBEE>.<60>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends. {34 dc, not including ch-2 corner sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 12",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbd920 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <3A616120-3753-4F4E-BD98-9CD91113064A>.<61>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <3A616120-3753-4F4E-BD98-9CD91113064A>.<61>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch 4.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cde44e0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <DCFE9224-0238-46E2-BAEF-413ABA1AB974>.<62>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <DCFE9224-0238-46E2-BAEF-413ABA1AB974>.<62>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "DEC, 1 SC, DEC (3)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 8,
+      "roundTitle" : "Row 9",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbd650 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <361278E7-FB92-4D98-AE87-058DD2FBD5E3>.<63>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <361278E7-FB92-4D98-AE87-058DD2FBD5E3>.<63>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "DEC, 7 SC, DEC (9)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 16,
+      "roundTitle" : "Row 20",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbd860 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F90FA590-7DFA-4C0A-B84E-F3F08C24AAEB>.<64>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F90FA590-7DFA-4C0A-B84E-F3F08C24AAEB>.<64>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Attach yarn between Rows 11-12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 24,
+      "roundTitle" : "Arm 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbd9b0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 6ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <26D82359-B489-4C46-BA0E-B97B2963F2C9>.<65>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <26D82359-B489-4C46-BA0E-B97B2963F2C9>.<65>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Fasten off and weave in all ends securely.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 32,
+      "roundTitle" : "Fasten off and weave in ends",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbde90 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <FC86E412-A506-4923-BA93-F6D077474FA6>.<66>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <FC86E412-A506-4923-BA93-F6D077474FA6>.<66>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "in a MR, sc 6. (6)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbdd40 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <86DBBD1F-49C8-483D-ADF5-578EB7A8D205>.<67>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <86DBBD1F-49C8-483D-ADF5-578EB7A8D205>.<67>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "sc around. (12)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 4,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cde4090 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <718AE7A3-994B-4440-8551-5B2670D280C8>.<68>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <718AE7A3-994B-4440-8551-5B2670D280C8>.<68>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "(sc 5, inc) x3. (21)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 9,
+      "roundTitle" : "Round 11",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbdf50 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <E643DB49-7E1B-4D24-A5F7-8B20EEAD62D3>.<69>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <E643DB49-7E1B-4D24-A5F7-8B20EEAD62D3>.<69>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "(sc 2, dec) x6. (18)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 13,
+      "roundTitle" : "Round 18",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cde40c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <DC9DE18F-2C2E-4398-B92C-CDC22D3588DC>.<70>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <DC9DE18F-2C2E-4398-B92C-CDC22D3588DC>.<70>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Finish off and sew closed.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 17,
+      "roundTitle" : "Finish off and sew closed",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe1c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 2ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <AF34A235-5F21-4339-8ABB-862E3D8544F9>.<71>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <AF34A235-5F21-4339-8ABB-862E3D8544F9>.<71>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe160 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <4E22498C-5C14-4A8A-A128-8C942D0A93A9>.<72>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <4E22498C-5C14-4A8A-A128-8C942D0A93A9>.<72>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 5,
+      "roundTitle" : "Row 6",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe3a0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <0A571702-015D-4DA8-9F9C-C6F3B85E97F1>.<73>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <0A571702-015D-4DA8-9F9C-C6F3B85E97F1>.<73>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "1 sc in each sc across,changing to teal in the last sc. Ch 1, turn.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 9,
+      "roundTitle" : "Row 10",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe4c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <88EECBF6-DB47-4B54-B225-67172D3AF088>.<74>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <88EECBF6-DB47-4B54-B225-67172D3AF088>.<74>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch 1, turn, and do one more row of sc.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 14,
+      "roundTitle" : "Final Row",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe4f0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <50A883BC-241B-4CF5-B537-A636B76760E3>.<75>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <50A883BC-241B-4CF5-B537-A636B76760E3>.<75>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 18,
+      "roundTitle" : "Round 3",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe400 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <D5FD7D23-75DB-4D79-96AC-BC49B141A4E7>.<76>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <D5FD7D23-75DB-4D79-96AC-BC49B141A4E7>.<76>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe5b0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <10C25BDD-9E4B-4D18-ADE2-500C733482BA>.<77>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <10C25BDD-9E4B-4D18-ADE2-500C733482BA>.<77>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "dec, 8 sc = 9 sc",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 12,
+      "roundTitle" : "Row 86",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbe5e0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <2A602ABF-46EB-4BC5-A756-A5C76E8DD329>.<78>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <2A602ABF-46EB-4BC5-A756-A5C76E8DD329>.<78>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "12 sc",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 23,
+      "roundTitle" : "Row 3",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbebb0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <562F5B35-FD69-41E4-A221-8DD70DEB0B73>.<79>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <562F5B35-FD69-41E4-A221-8DD70DEB0B73>.<79>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "dec, 13 sc = 14 sc",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 35,
+      "roundTitle" : "Row 93",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbeac0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <461D6064-6BE5-4246-8023-516670F120CD>.<80>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <461D6064-6BE5-4246-8023-516670F120CD>.<80>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops. We embroider eyebrows over the eyes.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 46,
+      "roundTitle" : "Glue eyes and embroider eyebrows",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbeb80 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <18999717-D17D-4599-8AE0-37689D771AEB>.<81>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <18999717-D17D-4599-8AE0-37689D771AEB>.<81>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbea30 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 3ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <74C2F73A-F666-4C03-811D-B6391F93657D>.<82>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <74C2F73A-F666-4C03-811D-B6391F93657D>.<82>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 1,
+      "roundTitle" : "Fasten off and weave in the ends",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbeca0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <FE0423CF-BF61-47C9-8C14-66DE4FBA48CE>.<83>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <FE0423CF-BF61-47C9-8C14-66DE4FBA48CE>.<83>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 2,
+      "roundTitle" : "Weave red yarn through chain loops and tie a bow",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbec10 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <17D67E78-5C38-4473-97E5-A4E921322D87>.<84>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <17D67E78-5C38-4473-97E5-A4E921322D87>.<84>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 3,
+      "roundTitle" : "Optional: secure knot with nail polish or glue",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbee50 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <655316AA-23B4-4476-BF75-B7DD10823AE7>.<85>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <655316AA-23B4-4476-BF75-B7DD10823AE7>.<85>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1 - Foundation loop",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbf090 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <6928255C-BDE9-481B-91D9-DC8F44EB822D>.<86>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <6928255C-BDE9-481B-91D9-DC8F44EB822D>.<86>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 4,
+      "roundTitle" : "Round 4 - Finish the face base",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbf030 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F721FD3E-6637-42EE-AD1F-2D87777EDDC9>.<87>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F721FD3E-6637-42EE-AD1F-2D87777EDDC9>.<87>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 8,
+      "roundTitle" : "Inner Ear",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cfbebe0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <88651175-BF64-45AA-9766-5B945F509F48>.<88>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <88651175-BF64-45AA-9766-5B945F509F48>.<88>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89cde4db0 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 0ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F1CCDB15-D077-45FB-9DB2-7E563E34D0B8>.<89>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F1CCDB15-D077-45FB-9DB2-7E563E34D0B8>.<89>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 15,
+      "roundTitle" : "Eyes & Blushes",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    }
+  ],
+  "baseURL" : "https:\/\/api.deepseek.com\/beta",
+  "fixtures" : [
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/AirpodsCase\/extracted_text.txt",
+      "name" : "AirpodsCase",
+      "sourceType" : "pdf",
+      "title" : "Airpods Case"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/ArianaWrap\/extracted_text.txt",
+      "name" : "ArianaWrap",
+      "sourceType" : "pdf",
+      "title" : "Ariana Wrap"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/HuaweiFreebudsCase\/extracted_text.txt",
+      "name" : "HuaweiFreebudsCase",
+      "sourceType" : "pdf",
+      "title" : "Huawei Freebuds Case"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/KKCrochet\/extracted_text.txt",
+      "name" : "KKCrochet",
+      "sourceType" : "pdf",
+      "title" : "Crochet Knockers"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MandalaSteeringWheelCover\/extracted_text.txt",
+      "name" : "MandalaSteeringWheelCover",
+      "sourceType" : "pdf",
+      "title" : "Mandala Steering Wheel Cover"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MarysMomentFloralSquare\/extracted_text.txt",
+      "name" : "MarysMomentFloralSquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/lookatwhatimade.net\/crafts\/yarn\/crochet\/free-crochet-patterns\/marys-moment-free-floral-crochet-square-pattern\/",
+      "title" : "Mary's Moment Floral Square"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MochiBear\/extracted_text.txt",
+      "name" : "MochiBear",
+      "sourceType" : "pdf",
+      "title" : "Mochi Bear"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/extracted_text.txt",
+      "name" : "MouseCatToy",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/sparkitectcrafts.com\/mouse-cat-toy-crochet-pattern\/",
+      "title" : "Mouse Cat Toy"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/QuietTidesBlanket\/extracted_text.txt",
+      "name" : "QuietTidesBlanket",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/www.circuloyarns.com\/post\/quiet-tides-baby-blanket",
+      "title" : "Quiet Tides Baby Blanket"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/TinyChristmasWreath\/extracted_text.txt",
+      "name" : "TinyChristmasWreath",
+      "sourceType" : "pdf",
+      "title" : "Tiny Christmas Wreath"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/WolfGrannySquare\/extracted_text.txt",
+      "name" : "WolfGrannySquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/grannysquare.me\/wolf-granny-square\/#pattern",
+      "title" : "Wolf Granny Square"
+    }
+  ],
+  "generatedAt" : "2026-04-24T13:25:43Z",
+  "models" : [
+    "deepseek\/deepseek-v4-flash",
+    "deepseek\/deepseek-v4-pro"
+  ],
+  "outlineResults" : [
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/outline_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/AirpodsCase\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 14,
+      "sampledRoundIndices" : [
+        0,
+        3,
+        7,
+        10,
+        13
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/outline_envelope.json",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/ArianaWrap\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 43,
+      "sampledRoundIndices" : [
+        0,
+        11,
+        21,
+        32,
+        42
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/HuaweiFreebudsCase\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/HuaweiFreebudsCase\/outline_envelope.json",
+      "error" : "Error Domain=NSURLErrorDomain Code=-1005 \"The network connection was lost.\" UserInfo={_kCFStreamErrorCodeKey=54, NSUnderlyingError=0x89ce1d5f0 {Error Domain=kCFErrorDomainCFNetwork Code=-1005 \"(null)\" UserInfo={_kCFStreamErrorCodeKey=54, _kCFStreamErrorDomainKey=1}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <34A91523-A3C0-4DA0-93A4-E32E1C5F9E8F>.<1>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <34A91523-A3C0-4DA0-93A4-E32E1C5F9E8F>.<1>\"\n), NSLocalizedDescription=The network connection was lost., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "requestModel" : "deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/outline_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/KKCrochet\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 15,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        7,
+        11,
+        14
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/outline_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MandalaSteeringWheelCover\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 5,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/outline_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MarysMomentFloralSquare\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 12,
+      "sampledRoundIndices" : [
+        0,
+        3,
+        6,
+        8,
+        11
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MochiBear\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MochiBear\/outline_envelope.json",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MochiBear\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 31,
+      "sampledRoundIndices" : [
+        0,
+        8,
+        15,
+        23,
+        30
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MouseCatToy\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MouseCatToy\/outline_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/MouseCatToy\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 18,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        9,
+        13,
+        17
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/QuietTidesBlanket\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/QuietTidesBlanket\/outline_envelope.json",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/QuietTidesBlanket\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 21,
+      "sampledRoundIndices" : [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/Snake\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/Snake\/outline_envelope.json",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/Snake\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 21,
+      "sampledRoundIndices" : [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/TinyChristmasWreath\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/TinyChristmasWreath\/outline_envelope.json",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/TinyChristmasWreath\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 4,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/WolfGrannySquare\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/WolfGrannySquare\/outline_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-flash\/WolfGrannySquare\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 15,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        7,
+        11,
+        14
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/AirpodsCase\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/AirpodsCase\/outline_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/AirpodsCase\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 15,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        7,
+        11,
+        14
+      ],
+      "status" : "success"
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1009 \"The Internet connection appears to be offline.\" UserInfo={_kCFStreamErrorCodeKey=50, NSUnderlyingError=0x89ce1db30 {Error Domain=kCFErrorDomainCFNetwork Code=-1009 \"(null)\" UserInfo={_kCFStreamErrorDomainKey=1, _kCFStreamErrorCodeKey=50, _NSURLErrorNWResolutionReportKey=Resolved 0 endpoints in 1ms using unknown from cache, _NSURLErrorNWPathKey=unsatisfied (No network route)}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <B5D94633-BF69-442F-BDD7-143284EBE15F>.<2>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <B5D94633-BF69-442F-BDD7-143284EBE15F>.<2>\"\n), NSLocalizedDescription=The Internet connection appears to be offline., NSErrorFailingURLStringKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, NSErrorFailingURLKey=https:\/\/api.deepseek.com\/beta\/chat\/completions, _kCFStreamErrorDomainKey=1}",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "requestModel" : "deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/outline_envelope.json",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 22,
+      "sampledRoundIndices" : [
+        0,
+        5,
+        11,
+        16,
+        21
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/KKCrochet\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/KKCrochet\/outline_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/KKCrochet\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 16,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        8,
+        11,
+        15
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/outline_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 5,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/outline_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 12,
+      "sampledRoundIndices" : [
+        0,
+        3,
+        6,
+        8,
+        11
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MochiBear\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MochiBear\/outline_envelope.json",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MochiBear\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 33,
+      "sampledRoundIndices" : [
+        0,
+        8,
+        16,
+        24,
+        32
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MouseCatToy\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MouseCatToy\/outline_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/MouseCatToy\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 18,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        9,
+        13,
+        17
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/outline_envelope.json",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 19,
+      "sampledRoundIndices" : [
+        0,
+        5,
+        9,
+        14,
+        18
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/Snake\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/Snake\/outline_envelope.json",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/Snake\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 47,
+      "sampledRoundIndices" : [
+        0,
+        12,
+        23,
+        35,
+        46
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/outline_envelope.json",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 4,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/outline_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 16,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        8,
+        11,
+        15
+      ],
+      "status" : "success"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-full-20260424-1710",
+  "sampleCount" : 5
+}

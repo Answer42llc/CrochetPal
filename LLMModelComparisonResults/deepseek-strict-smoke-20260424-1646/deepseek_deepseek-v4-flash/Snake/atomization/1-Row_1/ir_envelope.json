@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "I'll parse the instruction \"Start 10 sc in a magic ring\" into canonical Crochet IR.\n\nThe magic ring creation is a bookkeeping action (it sets up the ring), followed by 10 single crochet stitches worked into the ring.",
+        "reasoning_content" : "Let me analyze the input. I have a single round with:\n\n- Part name: \"Body\"\n- Raw instruction: \"Start 10 sc in a magic ring\"\n- Title: \"Row 1\"\n\nLet me parse this:\n\n\"Start 10 sc in a magic ring\" - This means we start with a magic ring and work 10 single crochet stitches into it.\n\nLet me break it down:\n- First, we create a magic ring (bookkeeping operation)\n- Then, we work 10 sc into the magic ring (stitchProducing)\n\nActually, looking at the instruction more carefully: \"Start 10 sc in a magic ring\" - this includes both creating the magic ring and working 10 sc into it.\n\nLet me think about how to model this:\n\n1. The magic ring creation - this is a bookkeeping operation (mr - magic ring)\n2. 10 sc in the magic ring - stitchProducing, count=10, stitch=sc\n\nActually, the magic ring itself... In crochet, \"mr\" is often used as a stitch\/technique. Let me check the abbreviations:\n- The pattern defines: ch, sc, dc, inc., dec.\n- It does NOT define \"mr\" as a custom abbreviation.\n\nSince \"magic ring\" is a standard technique and the abbreviation \"mr\" isn't in the custom abbreviations list, I should use standard values. The magic ring doesn't produce stitches by itself - the 10 sc do.\n\nLet me think about this differently. \"Start 10 sc in a magic ring\" could be seen as:\n1. Make a magic ring (bookkeeping, actionTag = \"mr\")\n2. Work 10 sc into the ring (stitchProducing, count=10, stitch=\"sc\")\n\nOr it could be a single instruction combining both. Let me think...\n\nActually, in most patterns, \"Start X sc in a magic ring\" means: create a magic ring and work X single crochets into it. So I'll represent it as:\n\n1. First, a bookkeeping operation for making the magic ring\n2. Then, 10 sc worked into the magic ring\n\nFor round 1, there's no \"expectedProducedStitches\" explicitly stated, but typically 10 sc in a magic ring produces 10 stitches.\n\nLet me construct the IR:\n\nRound:\n- title: \"Row 1\"\n- sourceText: \"Start 10 sc in a magic ring\"\n- expectedProducedStitches: null (not explicitly stated, but could be 10)\n\nBody statements:\n1. Operation: make magic ring (bookkeeping, actionTag = \"mr\", stitch = \"mr\")\n2. Operation: 10 sc (stitchProducing, actionTag = \"sc\", stitch = \"sc\", count = 10)\n\nActually, let me reconsider. Some people might argue the magic ring is implied in the \"10 sc in a magic ring\" and it's one action. But the IR should be detailed enough for tap-by-tap instructions.\n\nI'll split it into two operations:\n1. Make a magic ring (bookkeeping)\n2. 10 sc in the magic ring (stitchProducing, count=10)\n\nFor the magic ring, I'll use `stitch = \"mr\"` (standard value from the recommended vocabulary), `actionTag = \"mr\"`, `semantics = \"bookkeeping\"`.\n\nFor the 10 sc: `stitch = \"sc\"` (it's in the pattern's abbreviations, and matches the standard), `actionTag = \"sc\"`, `semantics = \"stitchProducing\"`, `count = 10`.\n\nLet me now build the full output.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Row 1\", \"sourceText\": \"Start 10 sc in a magic ring\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Start 10 sc in a magic ring\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"mr\", \"stitch\": \"mr\", \"count\": 1, \"instruction\": \"Create a magic ring\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"Start 10 sc in a magic ring\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 10, \"instruction\": null, \"target\": \"magic ring\", \"note\": \"10 sc in magic ring\", \"notePlacement\": \"all\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_uRJFeL3F5Sgip9LZB7Mw0n13",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777026843,
+  "id" : "f8040bf9-b946-4fe3-9bc9-83b4d0bd0d28",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1124,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 761
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11712,
+    "prompt_tokens" : 11712,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 12836
+  }
+}

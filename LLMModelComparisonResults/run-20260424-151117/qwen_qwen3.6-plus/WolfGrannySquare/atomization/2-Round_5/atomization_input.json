@@ -1,0 +1,52 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "slip stitch for joining to a different round",
+      "term" : "slst"
+    },
+    {
+      "definition" : "stitch",
+      "term" : "st"
+    },
+    {
+      "definition" : "yarn over",
+      "term" : "yo"
+    },
+    {
+      "definition" : "skip",
+      "term" : "sk"
+    },
+    {
+      "definition" : "increase",
+      "term" : "inc"
+    },
+    {
+      "definition" : "picot stitch",
+      "term" : "pic"
+    },
+    {
+      "definition" : "third loop only",
+      "term" : "TLO"
+    }
+  ],
+  "partName" : "Wolf Head",
+  "rawInstruction" : "Ch2 (count as 1hdc), 3hdc, (hdc inc)x3; Change to white yarn: 3hdc, 2sc, (sc inc, 4sc) repeat 2 times, sc inc, 2sc, 3hdc; Change back to grey yarn: (hdc inc)x3. Slst to the top of the first ch2, and fasten off.",
+  "summary" : "Complete the wolf head shape and fasten off.",
+  "title" : "Round 5"
+}

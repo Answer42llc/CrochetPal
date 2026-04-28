@@ -1,0 +1,169 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "increase (2 crochets in 1 loop)",
+      "term" : "inc."
+    },
+    {
+      "definition" : "decrease (2 crochets together)",
+      "term" : "dec."
+    },
+    {
+      "definition" : "repeat the sequence of loops in brackets L times",
+      "term" : "(….) - L times"
+    }
+  ],
+  "confidence" : 0.87,
+  "materials" : [
+    "YarnArt JEANS (55% cotton, 45% Polyacrylic) Color No.:29",
+    "Filler",
+    "Spine",
+    "Hook: 2mm",
+    "Scissors",
+    "Second Glue",
+    "Black eyes – 2 pieces",
+    "Thin wire"
+  ],
+  "parts" : [
+    {
+      "name" : "Body",
+      "rounds" : [
+        {
+          "rawInstruction" : "Start 10 sc in a magic ring",
+          "summary" : "Create a magic ring and work 10 single crochets into it.",
+          "title" : "Row 1"
+        },
+        {
+          "rangeEndNumber" : 4,
+          "rangeStartNumber" : 2,
+          "rawInstruction" : "10 sc",
+          "summary" : "Work 10 single crochets in each row.",
+          "title" : "Rows 2-4"
+        },
+        {
+          "rawInstruction" : "4 inc, 6 sc = 14 sc",
+          "summary" : "Work 4 increases then 6 single crochets.",
+          "targetStitchCount" : 14,
+          "title" : "Row 5"
+        },
+        {
+          "rawInstruction" : "(1 sc, inc) х 7 times = 21 sc",
+          "summary" : "Repeat (1 sc, inc) 7 times around.",
+          "targetStitchCount" : 21,
+          "title" : "Row 6"
+        },
+        {
+          "rangeEndNumber" : 11,
+          "rangeStartNumber" : 7,
+          "rawInstruction" : "21 sc",
+          "summary" : "Work 21 single crochets in each row.",
+          "title" : "Rows 7-11"
+        },
+        {
+          "rawInstruction" : "2 dec, 10 sc = 12 sc",
+          "summary" : "Work 2 decreases then 10 single crochets.",
+          "targetStitchCount" : 12,
+          "title" : "Row 12"
+        },
+        {
+          "rawInstruction" : "12 sc",
+          "summary" : "Work 12 single crochets around.",
+          "title" : "Row 13"
+        },
+        {
+          "rawInstruction" : "Stuff (it will only be in my head)",
+          "summary" : "Stuff the body section.",
+          "title" : "Stuff"
+        },
+        {
+          "rawInstruction" : "dec, 10 sc = 11 sc",
+          "summary" : "Work 1 decrease then 10 single crochets.",
+          "targetStitchCount" : 11,
+          "title" : "Row 13"
+        },
+        {
+          "rangeEndNumber" : 83,
+          "rangeStartNumber" : 14,
+          "rawInstruction" : "11 sc",
+          "summary" : "Work 11 single crochets in each row.",
+          "title" : "Rows 14-83"
+        },
+        {
+          "rawInstruction" : "dec, 9 sc = 10 sc",
+          "summary" : "Work 1 decrease then 9 single crochets.",
+          "targetStitchCount" : 10,
+          "title" : "Row 84"
+        },
+        {
+          "rawInstruction" : "10 sc",
+          "summary" : "Work 10 single crochets around.",
+          "title" : "Row 85"
+        },
+        {
+          "rawInstruction" : "dec, 8 sc = 9 sc",
+          "summary" : "Work 1 decrease then 8 single crochets.",
+          "targetStitchCount" : 9,
+          "title" : "Row 86"
+        },
+        {
+          "rawInstruction" : "9 sc",
+          "summary" : "Work 9 single crochets around.",
+          "title" : "Row 87"
+        },
+        {
+          "rawInstruction" : "dec, 7 sc = 8 sc",
+          "summary" : "Work 1 decrease then 7 single crochets.",
+          "targetStitchCount" : 8,
+          "title" : "Row 88"
+        },
+        {
+          "rawInstruction" : "Next, insert the wire into the body, pre-bend the edges of the wire",
+          "summary" : "Insert the wire into the body, pre-bending the edges first.",
+          "title" : "Insert wire"
+        },
+        {
+          "rawInstruction" : "dec, 6 sc = 7 sc",
+          "summary" : "Work 1 decrease then 6 single crochets.",
+          "targetStitchCount" : 7,
+          "title" : "Row 89"
+        },
+        {
+          "rawInstruction" : "dec, 5 sc = 6 sc",
+          "summary" : "Work 1 decrease then 5 single crochets.",
+          "targetStitchCount" : 6,
+          "title" : "Row 90"
+        },
+        {
+          "rangeEndNumber" : 92,
+          "rangeStartNumber" : 91,
+          "rawInstruction" : "6 sc",
+          "summary" : "Work 6 single crochets in each row.",
+          "title" : "Rows 91-92"
+        },
+        {
+          "rawInstruction" : "Close 6 loops.",
+          "summary" : "Close the remaining 6 loops to finish.",
+          "title" : "Close 6 loops"
+        },
+        {
+          "rawInstruction" : "We glue the eyes and embroider the eyebrows.",
+          "summary" : "Glue on the eyes and embroider the eyebrows.",
+          "title" : "Glue eyes and embroider eyebrows"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Snake"
+}

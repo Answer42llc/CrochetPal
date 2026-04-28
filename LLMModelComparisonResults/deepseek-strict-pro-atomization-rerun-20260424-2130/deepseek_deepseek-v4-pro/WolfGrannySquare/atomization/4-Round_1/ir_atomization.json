@@ -1,0 +1,71 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "magicLoop",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Magic loop"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 2,
+              "note" : "counts as 1 hdc",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "ch2(count as 1hdc)"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 9,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "9hdc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "note" : "join to different round",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping",
+              "stitch" : "slst",
+              "target" : "top of the first ch2"
+            },
+            "repeat" : null,
+            "sourceText" : "slst to the top of the first ch2"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 10,
+      "sourceText" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+      "title" : "Round 1"
+    }
+  ]
+}

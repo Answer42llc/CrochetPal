@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this instruction carefully.\n\nThe input is a single round titled \"Glue eyes and embroider eyebrows\" with the raw instruction about gluing eyes and embroidering eyebrows.\n\nThis is a non-stitch instruction - it's about assembly\/finishing work. It involves:\n1. Gluing eyes - inserting them in 10 rows from the beginning of the head, distance between eyes is 10 loops\n2. Embroidering eyebrows over the eyes\n\nThese are bookkeeping\/assembly actions. Let me think about how to represent this.\n\nThe instruction is about gluing eyes (assembly) and embroidering eyebrows. These are not crochet stitches. I'll represent them as `operation` statements with `semantics = bookkeeping`.\n\nLet me break it down:\n1. \"Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops.\" - this is assembly (gluing eyes)\n2. \"We embroider eyebrows over the eyes.\" - this is also a bookkeeping\/assembly action\n\nI'll create two operations:\n1. Gluing eyes - `actionTag = \"assembly\"`, `semantics = \"bookkeeping\"`, with appropriate instruction text\n2. Embroider eyebrows - `actionTag = \"custom\"` or maybe `assembly` as well, with appropriate instruction text\n\nActually, let me reconsider. The raw instruction is one string. I should split it into meaningful parts.\n\nLooking at it again:\n- \"Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops.\"\n- \"We embroider eyebrows over the eyes.\"\n\nThese are two distinct actions. I'll create two operations.\n\nFor the first: actionTag could be \"assembly\" or \"glueEyes\". Since the recommended vocab includes \"assembly\", I'll use that.\nFor the second: actionTag could be \"embroider\" or \"custom\". \"Embroider\" seems appropriate.\n\nLet me construct the IR.\n\nRound:\n- title: \"Glue eyes and embroider eyebrows\"\n- sourceText: the full raw instruction\n- expectedProducedStitches: null (no stitches produced)\n- body.statements: two operations\n\nFirst operation:\n- kind: \"operation\"\n- sourceText: \"Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops.\"\n- operation: semantics: \"bookkeeping\", actionTag: \"assembly\", stitch: null, count: 1, instruction: \"Glue the eyes: smear the tips with glue and insert them in 10 rows from the beginning of the head, distance between the eyes is 10 loops.\", target: null, note: null, notePlacement: \"all\", producedStitches: null\n\nSecond operation:\n- kind: \"operation\"\n- sourceText: \"We embroider eyebrows over the eyes.\"\n- operation: semantics: \"bookkeeping\", actionTag: \"embroider\", stitch: null, count: 1, instruction: \"Embroider eyebrows over the eyes.\", target: null, note: null, notePlacement: \"all\", producedStitches: null\n\nWait, let me double-check: should these be a single operation or two? The raw instruction has two sentences in one string. I think two operations is cleaner since they're distinct actions.\n\nActually, looking more carefully, I need to make sure the repeat, conditional, and note fields are null for operation statements. And the conditional, note, repeat fields at the top level of the statement need to be null when kind is \"operation\".\n\nLet me also ensure I fill all required fields properly.\n\nLet me structure the JSON now.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\":\"Glue eyes and embroider eyebrows\",\"sourceText\":\"Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops. We embroider eyebrows over the eyes.\",\"expectedProducedStitches\":null,\"body\":{\"sourceText\":null,\"normalizationNote\":null,\"statements\":[{\"kind\":\"operation\",\"sourceText\":\"Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops.\",\"operation\":{\"semantics\":\"bookkeeping\",\"actionTag\":\"assembly\",\"stitch\":null,\"count\":1,\"instruction\":\"Glue the eyes: smear the tips with glue and insert them 10 rows from the beginning of the head, with a distance of 10 loops between the eyes.\",\"target\":null,\"note\":null,\"notePlacement\":\"all\",\"producedStitches\":null},\"repeat\":null,\"conditional\":null,\"note\":null},{\"kind\":\"operation\",\"sourceText\":\"We embroider eyebrows over the eyes.\",\"operation\":{\"semantics\":\"bookkeeping\",\"actionTag\":\"embroider\",\"stitch\":null,\"count\":1,\"instruction\":\"Embroider eyebrows over the eyes.\",\"target\":null,\"note\":null,\"notePlacement\":\"all\",\"producedStitches\":null},\"repeat\":null,\"conditional\":null,\"note\":null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_XkjbndQkptHtENYBhVIMTGo5",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777045299,
+  "id" : "43fafcb3-32e1-4a03-a543-21c9647acc73",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1177,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 810
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 156,
+    "prompt_tokens" : 11804,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12981
+  }
+}

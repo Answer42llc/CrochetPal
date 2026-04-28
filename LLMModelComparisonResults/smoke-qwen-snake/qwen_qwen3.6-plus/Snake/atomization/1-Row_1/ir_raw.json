@@ -1,0 +1,33 @@
+{
+  "rounds": [
+    {
+      "title": "Row 1",
+      "sourceText": "Start 10 sc in a magic ring",
+      "expectedProducedStitches": 10,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Start 10 sc in a magic ring",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 10,
+              "instruction": "single crochet",
+              "target": "magic ring",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

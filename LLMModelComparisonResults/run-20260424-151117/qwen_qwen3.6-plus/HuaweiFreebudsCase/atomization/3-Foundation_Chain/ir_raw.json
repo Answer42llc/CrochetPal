@@ -1,0 +1,41 @@
+{
+  "rounds": [
+    {
+      "title": "Foundation Chain",
+      "sourceText": "Chain 11 and do the same with bottom case but R3 do not FLO.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Chain 11",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "ch",
+              "stitch": "ch",
+              "count": 11,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "note",
+            "sourceText": "and do the same with bottom case but R3 do not FLO.",
+            "operation": null,
+            "repeat": null,
+            "conditional": null,
+            "note": "do the same with bottom case but R3 do not FLO."
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

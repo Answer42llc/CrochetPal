@@ -1,0 +1,1 @@
+HTTP 400: {"error":{"message":"Provider returned error","code":400,"metadata":{"raw":"{\"error\":{\"message\":\"This response_format type is unavailable now\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}","provider_name":"DeepSeek","is_byok":false}},"user_id":"user_31lwWQq2Xd1pKRMlEWPVarPsWLA"}

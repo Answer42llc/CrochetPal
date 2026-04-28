@@ -1,0 +1,27 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 17,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 17"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 17,
+      "sourceText" : "Ch 17",
+      "title" : "Foundation Chain"
+    }
+  ]
+}

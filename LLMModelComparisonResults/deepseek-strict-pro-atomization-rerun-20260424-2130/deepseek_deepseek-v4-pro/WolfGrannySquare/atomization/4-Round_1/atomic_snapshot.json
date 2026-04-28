@@ -1,0 +1,125 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "magicLoop",
+      "instruction" : "Magic loop",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Magic loop"
+    },
+    {
+      "actionTag" : "ch",
+      "note" : "counts as 1 hdc",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "ch2(count as 1hdc)",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "note" : "counts as 1 hdc",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "ch2(count as 1hdc)",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "9hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "slst",
+      "instruction" : "Slst",
+      "note" : "top of the first ch2; join to different round",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 12,
+      "sourceText" : "slst to the top of the first ch2"
+    }
+  ],
+  "expectedProducedStitches" : 10,
+  "producedStitchCount" : 9,
+  "sourceText" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+  "title" : "Round 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+    {
+      "code" : "atomization_target_stitch_count_mismatch",
+      "message" : "Expected 10 produced stitches, but expanded to 9.",
+      "sourceText" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2."
+    }
+  ]
+}

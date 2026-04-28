@@ -1,0 +1,24 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : true,
+              "message" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib.",
+              "sourceText" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib."
+          }
+        ]
+      },
+      "sourceText" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib.",
+      "title" : "Hem — Repeat rows for length"
+    }
+  ]
+}

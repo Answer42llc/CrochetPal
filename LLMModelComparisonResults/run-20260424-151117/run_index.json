@@ -1,0 +1,1410 @@
+{
+  "atomizationResults" : [
+    {
+      "actionCount" : 12,
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/1-CH_12\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "CH 12",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/1-CH_12\/ir_raw.json",
+      "roundIndex" : 0,
+      "roundTitle" : "CH 12",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/1-CH_12\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 24,
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/2-Round_7\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 24,
+      "rawInstruction" : "1 DC in each stitch all the way around (24)",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/2-Round_7\/ir_raw.json",
+      "roundIndex" : 3,
+      "roundTitle" : "Round 7",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/2-Round_7\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 12,
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/3-Row_10\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 6,
+      "rawInstruction" : "2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/3-Row_10\/ir_raw.json",
+      "roundIndex" : 6,
+      "roundTitle" : "Row 10",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/3-Row_10\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 13,
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/4-Round_1\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 12,
+      "rawInstruction" : "work 12 treble crochet, join. (12)",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/4-Round_1\/ir_raw.json",
+      "roundIndex" : 9,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/4-Round_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Weave in the ends.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_raw.json",
+      "roundIndex" : 12,
+      "roundTitle" : "Weave in ends",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/atomization\/5-Weave_in_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "error" : "request timed out for qwen\/qwen3.6-plus after 120s",
+      "fixtureName" : "ArianaWrap",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "With CC1, ch 3, 2 dc in loop, ch 2, * 3 dc in loop, ch 2; rep from * twice more, join with sl st in top of beginning ch 3. Break CC1.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/atomization\/1-Rnd_1\/ir_raw.json",
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 48,
+      "fixtureName" : "ArianaWrap",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/atomization\/2-Rnd_5\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 31,
+      "rawInstruction" : "With RS still facing, join CC2 in first ch-1 sp. Ch 4, 3 dc in same ch-1 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 2, 3 dc] in next ch-2 sp, ch 1, [3 dc in next ch-1 sp, ch 1] 3 times, [3 dc, ch 1, dc] in last ch-1 sp. Break CC2.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/atomization\/2-Rnd_5\/ir_raw.json",
+      "roundIndex" : 10,
+      "roundTitle" : "Rnd 5",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/atomization\/2-Rnd_5\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "error" : "request timed out for qwen\/qwen3.6-plus after 120s",
+      "fixtureName" : "ArianaWrap",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Size S\/M\/L ONLY: Work across two sides of square 21, joining to triangle 14 and square 15, and one side of square 22, joining to square 15. Size XL\/2X\/3X ONLY: Work across two sides of square 33, joining to triangle 22 and square 23, then across two sides of square 34, joining to squares 23 and 24, and one side of square 35, joining to square 24. Both sizes: Work across the next side of square 22 (35) without joining, then work across one side of square 23 (36), joining to the side you just worked on square 22 (35). Continue across the next side of square 23 (36), and two sides of squares 24 and 25 (37–40), joining to the squares below, then work one side of square 26 (41) joining to square 18 (29). Work across the next side of square 26 (41) without joining, then work across one side of square 27 (42), joining to the side you just worked on square 26 (41). Work second side of square 27 (42) and last 1 (2) squares of this tier as established, ending with square 28 (44). Work across tops of all squares in this tier beginning with square 28 (44) and ending with square 21 (33). Fasten off.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/atomization\/3-Fourth_Tier\/ir_raw.json",
+      "roundIndex" : 21,
+      "roundTitle" : "Fourth Tier",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "valueNotFound(Swift.Int, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: \"rounds\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"body\", intValue: nil), CodingKeys(stringValue: \"statements\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"repeat\", intValue: nil), CodingKeys(stringValue: \"times\", intValue: nil)], debugDescription: \"Cannot get value of type Int -- found null value instead\", underlyingError: nil))",
+      "fixtureName" : "ArianaWrap",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "* K1, p2, k1, repeat from * to the end of the round.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/atomization\/4-Set_Up_Rib_Rnd_1\/ir_raw.json",
+      "roundIndex" : 31,
+      "roundTitle" : "Set Up Rib: Rnd 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "valueNotFound(Swift.String, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: \"rounds\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"body\", intValue: nil), CodingKeys(stringValue: \"statements\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"operation\", intValue: nil), CodingKeys(stringValue: \"notePlacement\", intValue: nil)], debugDescription: \"Cannot get value of type String -- found null value instead\", underlyingError: nil))",
+      "fixtureName" : "ArianaWrap",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/atomization\/5-Sew_buttons_and_finish\/ir_raw.json",
+      "roundIndex" : 41,
+      "roundTitle" : "Sew buttons and finish",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 22,
+      "durationMS" : 84616,
+      "fixtureName" : "HuaweiFreebudsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 10,
+      "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/1-Foundation_Chain\/ir_raw.json",
+      "responseBytes" : 35777,
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 38,
+      "durationMS" : 98918,
+      "fixtureName" : "HuaweiFreebudsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/2-Round_4\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 38,
+      "rawInstruction" : "14sc, inc, 17sc, inc, 3sc",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/2-Round_4\/ir_raw.json",
+      "responseBytes" : 43058,
+      "roundIndex" : 4,
+      "roundTitle" : "Round 4",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/2-Round_4\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "error" : "typeMismatch(Swift.Dictionary<Swift.String, Any>, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: \"rounds\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"body\", intValue: nil), CodingKeys(stringValue: \"statements\", intValue: nil), _CodingKey(stringValue: \"Index 1\", intValue: 1), CodingKeys(stringValue: \"note\", intValue: nil)], debugDescription: \"Expected to decode Dictionary<String, Any> but found a string instead.\", underlyingError: nil))",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Chain 11 and do the same with bottom case but R3 do not FLO.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/3-Foundation_Chain\/ir_raw.json",
+      "roundIndex" : 9,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "valueNotFound(Swift.Int, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: \"rounds\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"body\", intValue: nil), CodingKeys(stringValue: \"statements\", intValue: nil), _CodingKey(stringValue: \"Index 1\", intValue: 1), CodingKeys(stringValue: \"operation\", intValue: nil), CodingKeys(stringValue: \"count\", intValue: nil)], debugDescription: \"Cannot get value of type Int -- found null value instead\", underlyingError: nil))",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "7sc in MR,do not join, just tie MR",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/4-Ears\/ir_raw.json",
+      "roundIndex" : 13,
+      "roundTitle" : "Ears",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "valueNotFound(Swift.String, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: \"rounds\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"body\", intValue: nil), CodingKeys(stringValue: \"statements\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"operation\", intValue: nil), CodingKeys(stringValue: \"notePlacement\", intValue: nil)], debugDescription: \"Cannot get value of type String -- found null value instead\", underlyingError: nil))",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/atomization\/5-Sew_all_parts_nose_eyes_and_cheeks_to_finish.\/ir_raw.json",
+      "roundIndex" : 17,
+      "roundTitle" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "valueNotFound(Swift.Int, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: \"rounds\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"body\", intValue: nil), CodingKeys(stringValue: \"statements\", intValue: nil), _CodingKey(stringValue: \"Index 0\", intValue: 0), CodingKeys(stringValue: \"operation\", intValue: nil), CodingKeys(stringValue: \"count\", intValue: nil)], debugDescription: \"Cannot get value of type Int -- found null value instead\", underlyingError: nil))",
+      "fixtureName" : "KKCrochet",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/atomization\/1-Rnd_1\/ir_raw.json",
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 27,
+      "durationMS" : 71001,
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/atomization\/2-Rnd_5\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 27,
+      "rawInstruction" : "(7 sc, inc) x 3 (27 sc)",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/atomization\/2-Rnd_5\/ir_raw.json",
+      "responseBytes" : 31162,
+      "roundIndex" : 4,
+      "roundTitle" : "Rnd 5",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/atomization\/2-Rnd_5\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "error" : "request timed out for qwen\/qwen3.6-plus after 120s",
+      "fixtureName" : "KKCrochet",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc) B cup – Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc) C cup – Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc) D cup – Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc) DD cup – Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+      "roundIndex" : 8,
+      "roundTitle" : "Size Selection & Repeat",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "request timed out for qwen\/qwen3.6-plus after 120s",
+      "fixtureName" : "KKCrochet",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+      "roundIndex" : 11,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 1,
+      "durationMS" : 65327,
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/atomization\/5-Stuffing_or_Mailing_Instructions\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "If stuffing the Knocker: Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen. Stuffing will not come out when worn or washed. Tuck tail into Knocker so that filling can be adjusted as needed. If mailing in unstuffed: Leave the hole open and the yarn tail outside of the Knocker. If your yarn tends to fray easily, tie a loose knot at the end of the tail.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/atomization\/5-Stuffing_or_Mailing_Instructions\/ir_raw.json",
+      "responseBytes" : 27744,
+      "roundIndex" : 15,
+      "roundTitle" : "Stuffing or Mailing Instructions",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/atomization\/5-Stuffing_or_Mailing_Instructions\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 17,
+      "durationMS" : 35854,
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/1-Ch_17\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Ch 17",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/1-Ch_17\/ir_raw.json",
+      "responseBytes" : 15099,
+      "roundIndex" : 0,
+      "roundTitle" : "Ch 17",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/1-Ch_17\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 17,
+      "durationMS" : 76689,
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 16,
+      "rawInstruction" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_raw.json",
+      "responseBytes" : 28528,
+      "roundIndex" : 1,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 17,
+      "durationMS" : 99234,
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 16,
+      "rawInstruction" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_raw.json",
+      "responseBytes" : 41630,
+      "roundIndex" : 2,
+      "roundTitle" : "Rows 2-109",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "durationMS" : 58746,
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_the_2_ends_together.\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Finish off and sew the 2 ends together.",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_the_2_ends_together.\/ir_raw.json",
+      "responseBytes" : 25877,
+      "roundIndex" : 3,
+      "roundTitle" : "Finish off and sew the 2 ends together.",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_the_2_ends_together.\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "error" : "Error Domain=NSCocoaErrorDomain Code=3840 \"JSON text did not have any content around line 43, column 0.\" UserInfo={NSDebugDescription=JSON text did not have any content around line 43, column 0., NSJSONSerializationErrorIndex=231}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Weave in all ends.",
+      "roundIndex" : 4,
+      "roundTitle" : "Weave in all ends.",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSCocoaErrorDomain Code=3840 \"JSON text did not have any content around line 43, column 0.\" UserInfo={NSDebugDescription=JSON text did not have any content around line 43, column 0., NSJSONSerializationErrorIndex=231}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSCocoaErrorDomain Code=3840 \"JSON text did not have any content around line 43, column 0.\" UserInfo={NSDebugDescription=JSON text did not have any content around line 43, column 0., NSJSONSerializationErrorIndex=231}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}",
+      "roundIndex" : 3,
+      "roundTitle" : "Round 4",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSCocoaErrorDomain Code=3840 \"JSON text did not have any content around line 41, column 0.\" UserInfo={NSDebugDescription=JSON text did not have any content around line 41, column 0., NSJSONSerializationErrorIndex=220}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}",
+      "roundIndex" : 6,
+      "roundTitle" : "Round 7",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e9cb0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <BBF5690C-4902-48B5-8171-624779511978>.<48>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <BBF5690C-4902-48B5-8171-624779511978>.<48>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends. Stitch Count per Side: 23 sts {7 sc, 4 hdc, 4 dc, 4 edc, and 4 tr, not including ch-2 corner sps}",
+      "roundIndex" : 8,
+      "roundTitle" : "Round 9",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e9e60 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <6FB4CD6D-7642-4B7E-B134-6EAC4AF20A76>.<47>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <6FB4CD6D-7642-4B7E-B134-6EAC4AF20A76>.<47>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends. {34 dc, not including ch-2 corner sps}",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 12",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e9c20 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <2BEDD1CE-FCBF-4AE1-8C8A-55AFECD1E88D>.<50>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <2BEDD1CE-FCBF-4AE1-8C8A-55AFECD1E88D>.<50>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MochiBear",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "CH 4",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e9d70 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <CC5AEFA2-623C-49FC-BDE6-0EBBD77A2E36>.<49>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <CC5AEFA2-623C-49FC-BDE6-0EBBD77A2E36>.<49>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MochiBear",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Don't FO, keep going to BODY",
+      "roundIndex" : 9,
+      "roundTitle" : "Continue to Body",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbea494a0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <14F06586-88AC-421E-8A35-374F7ABF2795>.<52>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <14F06586-88AC-421E-8A35-374F7ABF2795>.<52>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MochiBear",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Don't FO, keep going to LEG 1",
+      "roundIndex" : 18,
+      "roundTitle" : "Continue to Leg 1",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e9c50 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <053E7DE0-7422-49CC-A3C9-5091AD03E493>.<53>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <053E7DE0-7422-49CC-A3C9-5091AD03E493>.<53>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MochiBear",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Attach yarn between Rows 11–12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO",
+      "roundIndex" : 26,
+      "roundTitle" : "Arm 1",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbea4a0d0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <C55613D7-9FEE-4E84-AFFC-04A8EFDAE3A0>.<51>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <C55613D7-9FEE-4E84-AFFC-04A8EFDAE3A0>.<51>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MochiBear",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Fasten off and weave in all ends securely.",
+      "roundIndex" : 35,
+      "roundTitle" : "Fasten off and weave in ends",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e9dd0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <220C6E78-2F6C-49FF-B664-D16B26C29968>.<54>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <220C6E78-2F6C-49FF-B664-D16B26C29968>.<54>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "in a MR, sc 6. (6)",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e8b10 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F5BBB0EA-4B5C-41DE-A9A1-BF212DC2FC02>.<57>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F5BBB0EA-4B5C-41DE-A9A1-BF212DC2FC02>.<57>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "sc around. (12)",
+      "roundIndex" : 4,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e9f20 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <A39FE7EE-00F3-49EF-BB9C-8E88580FBE87>.<56>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <A39FE7EE-00F3-49EF-BB9C-8E88580FBE87>.<56>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "(sc 5, inc) x3. (21)",
+      "roundIndex" : 9,
+      "roundTitle" : "Round 11",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e8ed0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <52BBDB11-836C-4167-9CE0-9CFD223CD1D1>.<58>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <52BBDB11-836C-4167-9CE0-9CFD223CD1D1>.<58>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "(sc 2, dec) x6. (18)",
+      "roundIndex" : 13,
+      "roundTitle" : "Round 18",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e8f60 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <3515BBF6-AABB-4B59-9792-C5091D148106>.<55>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <3515BBF6-AABB-4B59-9792-C5091D148106>.<55>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Finish off and sew closed.",
+      "roundIndex" : 17,
+      "roundTitle" : "Finish off and sew closed.",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e8ae0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F7717127-F492-4F7E-B521-876293F2974B>.<59>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F7717127-F492-4F7E-B521-876293F2974B>.<59>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "With off white, ch 114",
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e8c60 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <D07289E3-E74B-4113-9E35-829B9BC80E51>.<62>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <D07289E3-E74B-4113-9E35-829B9BC80E51>.<62>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "1 sc in the first 2 sc,*fpdc around the next sc from 3 rows below (see reference image), then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+      "roundIndex" : 5,
+      "roundTitle" : "Row 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e85a0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <20F01950-A449-4B92-A157-CA8FC10DD5B7>.<61>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <20F01950-A449-4B92-A157-CA8FC10DD5B7>.<61>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "1 sc in each sc across,changing to teal in the last sc. Ch 1, turn.",
+      "roundIndex" : 10,
+      "roundTitle" : "Row 10",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e8030 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <333B00F5-9B6A-4D7E-A55F-F2A62DA1C791>.<60>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <333B00F5-9B6A-4D7E-A55F-F2A62DA1C791>.<60>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Then ch 1, turn, and do one more row of sc.",
+      "roundIndex" : 15,
+      "roundTitle" : "Then ch 1, turn, and do one more row of sc.",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9eb4e0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <4EE99D0A-8E2E-42CD-B86E-EFD00CF19AA5>.<64>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <4EE99D0A-8E2E-42CD-B86E-EFD00CF19AA5>.<64>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+      "roundIndex" : 20,
+      "roundTitle" : "Round 3",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ea5e0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <C2A23BA9-4716-4706-9E4A-1779CE16C297>.<63>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <C2A23BA9-4716-4706-9E4A-1779CE16C297>.<63>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ea8b0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <808D4A64-0B17-455D-833C-BDB10F8DF1AA>.<65>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <808D4A64-0B17-455D-833C-BDB10F8DF1AA>.<65>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "dec, 8 sc = 9 sc",
+      "roundIndex" : 12,
+      "roundTitle" : "Row 86",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9e88a0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <27D027C3-A392-42CD-B1CF-A246F655F08B>.<66>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <27D027C3-A392-42CD-B1CF-A246F655F08B>.<66>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "12 sc",
+      "roundIndex" : 23,
+      "roundTitle" : "Row 3",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ea3a0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <7A99E14F-9C7F-4DEC-930C-66F2D28DC09B>.<68>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <7A99E14F-9C7F-4DEC-930C-66F2D28DC09B>.<68>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "dec, 13 sc = 14 sc",
+      "roundIndex" : 35,
+      "roundTitle" : "Row 93",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ea1c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <D5B012AC-2D67-4781-87F1-D2D7AEC7E904>.<67>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <D5B012AC-2D67-4781-87F1-D2D7AEC7E904>.<67>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops. We embroider eyebrows over the eyes:",
+      "roundIndex" : 46,
+      "roundTitle" : "Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops. We embroider eyebrows over the eyes:",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ea370 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <6132CE71-3DD2-4E45-8F08-6B842566974A>.<70>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <6132CE71-3DD2-4E45-8F08-6B842566974A>.<70>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9eb030 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <F5BC013D-A439-42E6-934C-CBB4E6DDE985>.<69>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <F5BC013D-A439-42E6-934C-CBB4E6DDE985>.<69>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+      "roundIndex" : 1,
+      "roundTitle" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ebd50 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <68870C3C-2DF5-4B12-A8A6-ED78C10920E8>.<71>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <68870C3C-2DF5-4B12-A8A6-ED78C10920E8>.<71>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "roundIndex" : 2,
+      "roundTitle" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9eff00 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <86A92D89-109C-4C0B-A11F-AE5F8BBABE99>.<74>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <86A92D89-109C-4C0B-A11F-AE5F8BBABE99>.<74>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+      "roundIndex" : 3,
+      "roundTitle" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ef960 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <603E0E48-8BF7-4920-827E-8376E1E7D259>.<73>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <603E0E48-8BF7-4920-827E-8376E1E7D259>.<73>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbea49f20 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <62B26440-00EA-4AC1-96C4-7144110C509B>.<72>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <62B26440-00EA-4AC1-96C4-7144110C509B>.<72>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Ch2 (count as 1hdc), 3hdc, (hdc inc)x3; Change to white yarn: 3hdc, 2sc, (sc inc, 4sc) repeat 2 times, sc inc, 2sc, 3hdc; Change back to grey yarn: (hdc inc)x3. Slst to the top of the first ch2, and fasten off.",
+      "roundIndex" : 4,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ea520 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <FE3CA682-EA77-4B9F-81EF-5DE638632DC0>.<76>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <FE3CA682-EA77-4B9F-81EF-5DE638632DC0>.<76>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+      "roundIndex" : 7,
+      "roundTitle" : "Inner Ear",
+      "sampleOrdinal" : 3,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ebd80 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <7B5525DD-B776-4CF6-A3D6-81C02CCB5D7D>.<77>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <7B5525DD-B776-4CF6-A3D6-81C02CCB5D7D>.<77>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Ch1+1sc, 1sc in each st around, slst to the first sc. Fasten off, leave a long tail for attaching.",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 2",
+      "sampleOrdinal" : 4,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "error" : "Error Domain=NSURLErrorDomain Code=-1200 \"A TLS error caused the secure connection to fail.\" UserInfo={_kCFStreamErrorCodeKey=-9816, NSUnderlyingError=0xbbe9ebe10 {Error Domain=kCFErrorDomainCFNetwork Code=-1200 \"(null)\" UserInfo={_kCFStreamPropertySSLClientCertificateState=0, _kCFNetworkCFStreamSSLErrorOriginalValue=-9816, _kCFStreamErrorDomainKey=3, _kCFStreamErrorCodeKey=-9816, _NSURLErrorNWPathKey=satisfied (Path is satisfied), viable, interface: lo0}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <BE124FC3-5221-407B-9191-F72FC9E9293B>.<75>, _NSURLErrorRelatedURLSessionTaskErrorKey=(\n    \"LocalDataTask <BE124FC3-5221-407B-9191-F72FC9E9293B>.<75>\"\n), NSLocalizedDescription=A TLS error caused the secure connection to fail., NSErrorFailingURLStringKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, NSErrorFailingURLKey=https:\/\/gateway.ai.cloudflare.com\/v1\/a0ad899a5847234934db5c6a4647a764\/1\/openrouter\/v1\/chat\/completions, _kCFStreamErrorDomainKey=3}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "rawInstruction" : "Eyes & Blushes: Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+      "roundIndex" : 14,
+      "roundTitle" : "Eyes & Blushes",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    }
+  ],
+  "fixtureRoot" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM",
+  "fixtures" : [
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/AirpodsCase\/outline.json",
+      "baselineRoundCount" : 16,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/AirpodsCase\/extracted_text.txt",
+      "name" : "AirpodsCase",
+      "sourceType" : "pdf",
+      "title" : "Airpods Case",
+      "titleHint" : "Airpods Case"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/ArianaWrap\/outline.json",
+      "baselineRoundCount" : 54,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/ArianaWrap\/extracted_text.txt",
+      "name" : "ArianaWrap",
+      "sourceType" : "pdf",
+      "title" : "Ariana Wrap",
+      "titleHint" : "Ariana Wrap"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/HuaweiFreebudsCase\/outline.json",
+      "baselineRoundCount" : 18,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/HuaweiFreebudsCase\/extracted_text.txt",
+      "name" : "HuaweiFreebudsCase",
+      "sourceType" : "pdf",
+      "title" : "Huawei Freebuds Case",
+      "titleHint" : "Huawei Freebuds Case"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/KKCrochet\/outline.json",
+      "baselineRoundCount" : 22,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/KKCrochet\/extracted_text.txt",
+      "name" : "KKCrochet",
+      "sourceType" : "pdf",
+      "title" : "Crochet Knockers",
+      "titleHint" : "Crochet Knockers"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MandalaSteeringWheelCover\/outline.json",
+      "baselineRoundCount" : 5,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MandalaSteeringWheelCover\/extracted_text.txt",
+      "name" : "MandalaSteeringWheelCover",
+      "sourceType" : "pdf",
+      "title" : "Mandala Steering Wheel Cover",
+      "titleHint" : "Mandala Steering Wheel Cover"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MarysMomentFloralSquare\/outline.json",
+      "baselineRoundCount" : 12,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MarysMomentFloralSquare\/extracted_text.txt",
+      "name" : "MarysMomentFloralSquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/lookatwhatimade.net\/crafts\/yarn\/crochet\/free-crochet-patterns\/marys-moment-free-floral-crochet-square-pattern\/",
+      "title" : "Mary's Moment Floral Square",
+      "titleHint" : "Mary's Moment Floral Square"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MochiBear\/outline.json",
+      "baselineRoundCount" : 34,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MochiBear\/extracted_text.txt",
+      "name" : "MochiBear",
+      "sourceType" : "pdf",
+      "title" : "Mochi Bear",
+      "titleHint" : "Mochi Bear"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/outline.json",
+      "baselineRoundCount" : 18,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/extracted_text.txt",
+      "name" : "MouseCatToy",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/sparkitectcrafts.com\/mouse-cat-toy-crochet-pattern\/",
+      "title" : "Mouse Cat Toy",
+      "titleHint" : "Mouse Cat Toy"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/QuietTidesBlanket\/outline.json",
+      "baselineRoundCount" : 21,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/QuietTidesBlanket\/extracted_text.txt",
+      "name" : "QuietTidesBlanket",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/www.circuloyarns.com\/post\/quiet-tides-baby-blanket",
+      "title" : "Quiet Tides Baby Blanket",
+      "titleHint" : "Quiet Tides Baby Blanket"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/outline.json",
+      "baselineRoundCount" : 21,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake",
+      "titleHint" : "Snake"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/TinyChristmasWreath\/outline.json",
+      "baselineRoundCount" : 4,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/TinyChristmasWreath\/extracted_text.txt",
+      "name" : "TinyChristmasWreath",
+      "sourceType" : "pdf",
+      "title" : "Tiny Christmas Wreath",
+      "titleHint" : "Tiny Christmas Wreath"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/WolfGrannySquare\/outline.json",
+      "baselineRoundCount" : 15,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/WolfGrannySquare\/extracted_text.txt",
+      "name" : "WolfGrannySquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/grannysquare.me\/wolf-granny-square\/#pattern",
+      "title" : "Wolf Granny Square",
+      "titleHint" : "Wolf Granny Square"
+    }
+  ],
+  "generatedAt" : "2026-04-24T07:55:47Z",
+  "models" : [
+    "qwen\/qwen3.6-plus",
+    "deepseek\/deepseek-v4-flash",
+    "deepseek\/deepseek-v4-pro"
+  ],
+  "outlineResults" : [
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 404: {\"error\":{\"message\":\"No endpoints available matching your guardrail restrictions and data policy. Configure: https:\/\/openrouter.ai\/settings\/privacy\",\"code\":404}}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "fixtureName" : "AirpodsCase",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/outline.json",
+      "partCount" : 2,
+      "projectTitle" : "Airpods Case",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/AirpodsCase\/outline_raw.json",
+      "roundCount" : 13,
+      "sampledRoundIndices" : [
+        0,
+        3,
+        6,
+        9,
+        12
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "ArianaWrap",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/outline.json",
+      "partCount" : 5,
+      "projectTitle" : "Ariana Wrap",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/ArianaWrap\/outline_raw.json",
+      "roundCount" : 42,
+      "sampledRoundIndices" : [
+        0,
+        10,
+        21,
+        31,
+        41
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/outline.json",
+      "partCount" : 6,
+      "projectTitle" : "Huawei Freebuds Case",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/HuaweiFreebudsCase\/outline_raw.json",
+      "roundCount" : 18,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        9,
+        13,
+        17
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "KKCrochet",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/outline.json",
+      "partCount" : 3,
+      "projectTitle" : "Crochet Knockers",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/KKCrochet\/outline_raw.json",
+      "roundCount" : 16,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        8,
+        11,
+        15
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/outline.json",
+      "partCount" : 1,
+      "projectTitle" : "Mandala Steering Wheel Cover",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MandalaSteeringWheelCover\/outline_raw.json",
+      "roundCount" : 5,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MarysMomentFloralSquare\/outline.json",
+      "partCount" : 1,
+      "projectTitle" : "Mary's Moment Floral Square",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MarysMomentFloralSquare\/outline_raw.json",
+      "roundCount" : 12,
+      "sampledRoundIndices" : [
+        0,
+        3,
+        6,
+        8,
+        11
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "MochiBear",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MochiBear\/outline.json",
+      "partCount" : 6,
+      "projectTitle" : "Mochi Bear",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MochiBear\/outline_raw.json",
+      "roundCount" : 36,
+      "sampledRoundIndices" : [
+        0,
+        9,
+        18,
+        26,
+        35
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "MouseCatToy",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MouseCatToy\/outline.json",
+      "partCount" : 1,
+      "projectTitle" : "Mouse Cat Toy",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/MouseCatToy\/outline_raw.json",
+      "roundCount" : 18,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        9,
+        13,
+        17
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/QuietTidesBlanket\/outline.json",
+      "partCount" : 2,
+      "projectTitle" : "Quiet Tides Baby Blanket",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/QuietTidesBlanket\/outline_raw.json",
+      "roundCount" : 21,
+      "sampledRoundIndices" : [
+        0,
+        5,
+        10,
+        15,
+        20
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/Snake\/outline.json",
+      "partCount" : 2,
+      "projectTitle" : "Snake",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/Snake\/outline_raw.json",
+      "roundCount" : 47,
+      "sampledRoundIndices" : [
+        0,
+        12,
+        23,
+        35,
+        46
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/TinyChristmasWreath\/outline.json",
+      "partCount" : 1,
+      "projectTitle" : "Tiny Christmas Wreath",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/TinyChristmasWreath\/outline_raw.json",
+      "roundCount" : 4,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status" : "success"
+    },
+    {
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/WolfGrannySquare\/outline.json",
+      "partCount" : 7,
+      "projectTitle" : "Wolf Granny Square",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117\/qwen_qwen3.6-plus\/WolfGrannySquare\/outline_raw.json",
+      "roundCount" : 15,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        7,
+        11,
+        14
+      ],
+      "status" : "success"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/run-20260424-151117",
+  "repoRoot" : "\/Users\/lw\/Projects\/CrochetPal",
+  "sampleCount" : 5
+}

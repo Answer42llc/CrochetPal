@@ -1,0 +1,44 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "sourceText" : "Start 10 sc in a magic ring",
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "magicRing",
+              "count" : 1,
+              "instruction" : "Make a magic ring",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping",
+              "stitch" : "mr"
+            },
+            "repeat" : null,
+            "sourceText" : "magic ring"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 10,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "magic ring"
+            },
+            "repeat" : null,
+            "sourceText" : "10 sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 10,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "title" : "Row 1"
+    }
+  ]
+}

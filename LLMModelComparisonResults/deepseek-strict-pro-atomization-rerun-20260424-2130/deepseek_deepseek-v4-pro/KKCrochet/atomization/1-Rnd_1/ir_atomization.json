@@ -1,0 +1,56 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "magicRing",
+              "count" : 1,
+              "instruction" : "Create a magic ring",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Create a magic ring"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 6,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "magic ring"
+            },
+            "repeat" : null,
+            "sourceText" : "6 sc in the ring"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "closeRing",
+              "count" : 1,
+              "instruction" : "Close the ring",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Close the ring"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 6,
+      "sourceText" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "title" : "Rnd 1"
+    }
+  ]
+}

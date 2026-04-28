@@ -1,0 +1,114 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "Chain 11",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "turn",
+      "instruction" : "Turn",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 11,
+      "sourceText" : "turn"
+    }
+  ],
+  "expectedProducedStitches" : 11,
+  "producedStitchCount" : 0,
+  "sourceText" : "Chain 11, turn and crochet to the second chain from hook.",
+  "title" : "Foundation Chain",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+    {
+      "code" : "atomization_target_stitch_count_mismatch",
+      "message" : "Expected 11 produced stitches, but expanded to 0.",
+      "sourceText" : "Chain 11, turn and crochet to the second chain from hook."
+    }
+  ]
+}

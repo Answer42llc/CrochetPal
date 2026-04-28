@@ -1,0 +1,28 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "DC",
+              "count" : 24,
+              "instruction" : "Double Crochet",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "DC"
+            },
+            "repeat" : null,
+            "sourceText" : "1 DC in each stitch all the way around (24)"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 24,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "title" : "Round 7"
+    }
+  ]
+}

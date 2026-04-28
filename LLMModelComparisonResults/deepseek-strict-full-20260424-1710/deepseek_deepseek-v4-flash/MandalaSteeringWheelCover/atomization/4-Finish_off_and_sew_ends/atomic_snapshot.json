@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "fastenOff",
+      "instruction" : "Finish off and sew the 2 ends together.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Finish off and sew the 2 ends together."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Finish off and sew the 2 ends together.",
+  "title" : "Finish off and sew ends",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

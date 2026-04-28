@@ -1,0 +1,24 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+              "sourceText" : "Now we will begin to work the flap, from here on we will be working in rows back and forth."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Now we will begin to work the flap, from here on we will be working in rows back and forth."
+          }
+        ]
+      },
+      "sourceText" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+      "title" : "Begin flap section"
+    }
+  ]
+}

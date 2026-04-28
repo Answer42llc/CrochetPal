@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input:\n\nRound title: \"Row 93\"\nRaw instruction: \"dec, 13 sc = 14 sc\"\nTarget stitch count: 14\n\nThe instruction is: dec (decrease - 2 stitches together), then 13 sc. The total output is 14 sc.\n\nWait, let's think about this. \"dec, 13 sc = 14 sc\" — a decrease consumes 2 stitches and produces 1, then 13 sc produce 13 more. The total produced is 14 stitches. But if we had 15 stitches before (the decrease consumes 2, the 13 sc consume 13, total 15 consumed), then we get 14 produced.\n\nSo the statements are:\n1. decrease (dec) — consumes 2, produces 1\n2. 13 sc — produces 13\n\nThis is straightforward. No repeats, no conditionals.\n\nLet me build the IR:\n\nStatements:\n1. Operation: dec, semantics = decrease, actionTag = \"decrease\", stitch = \"sc\" (since dec is decrease of sc — actually \"dec.\" is defined as \"decrease (2 crochets together)\" and doesn't specify which stitch type, but given the context is sc, I'll use stitch = \"dec\"), count = 1\n2. Operation: 13 sc, semantics = stitchProducing, actionTag = \"sc\", stitch = \"sc\", count = 13\n\nWait, for the decrease: the pattern defines \"dec. = decrease (2 crochets together)\". The stitch field should probably be \"dec\" since that's the abbreviation. But actually, the stitch field is an open string. Let me use \"dec\" as the stitch and actionTag \"decrease\".\n\nNow, expectedProducedStitches = 14.\n\nLet me construct the JSON.\n\nFor the decrease:\n- semantics: \"decrease\"\n- actionTag: \"decrease\"\n- stitch: \"dec\"\n- count: 1\n- instruction: null\n- target: null\n- note: null\n- notePlacement: \"first\" (or \"all\"? I'll put \"first\" as default)\n- producedStitches: null (it's a decrease, so producedStitches is not set for the operation itself, the semantics handles it)\n\nFor the 13 sc:\n- semantics: \"stitchProducing\"\n- actionTag: \"sc\"\n- stitch: \"sc\"\n- count: 13\n- instruction: null\n- target: null\n- note: null\n- notePlacement: \"first\"\n- producedStitches: null\n\nLet me also consider: the sourceText for the decrease is \"dec\" and for the sc is \"13 sc\".\n\nNow building the full IR.\n\nActually, wait: for decrease, the producedStitches field - should I set it? The semantics is \"decrease\" which means it consumes multiple and produces 1. I'll leave producedStitches as null since the semantics already encodes this behavior.\n\nLet me build the JSON now.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Row 93\", \"sourceText\": \"dec, 13 sc = 14 sc\", \"expectedProducedStitches\": 14, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"dec\", \"operation\": {\"semantics\": \"decrease\", \"actionTag\": \"decrease\", \"stitch\": \"dec\", \"count\": 1, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"13 sc\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 13, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_81wyOK1vPJ5zp2vyUUFYZKVn",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777045273,
+  "id" : "1bf7d4f1-ff71-4906-9003-046e21900db7",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 919,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 627
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 125,
+    "prompt_tokens" : 11773,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12692
+  }
+}

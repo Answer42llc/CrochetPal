@@ -1,0 +1,24 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Button",
+  "rawInstruction" : "Weave in the ends.",
+  "summary" : "Weave in all remaining yarn ends to finish the project.",
+  "title" : "Weave in ends"
+}

@@ -1,0 +1,70 @@
+{
+  "projectTitle": "Tiny Christmas Wreath",
+  "materials": [
+    "Yarn in green (about 2m/2.2yd, shown in Caron Simply Soft Kelly Green) and red (34-40cm/12-16”, shown in Red Heart Soft Really Red)- any weight including thread will work, it will only influence the finished size",
+    "Hook matching your chosen yarn weight (I suggest 3.5mm/E for worsted yarn)",
+    "Yarn needle, pair of scissors",
+    "Optional: clear nail polish or white glue"
+  ],
+  "confidence": 0.95,
+  "abbreviations": [
+    { "term": "Ch", "definition": "chain or chains" },
+    { "term": "sl st", "definition": "slip stitch" },
+    { "term": "st", "definition": "stitch" }
+  ],
+  "parts": [
+    {
+      "name": "Wreath",
+      "rounds": [
+        {
+          "title": "Round 1",
+          "rawInstruction": "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+          "summary": "Create a foundation chain, join into a circle, and work 14 chain-3 loops around.",
+          "targetStitchCount": 14,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+          "rawInstruction": "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+          "summary": "Secure yarn and hide ends.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Take a 30-40cm/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+          "rawInstruction": "Take a 30-40cm/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+          "summary": "Thread red yarn through chain loops and tie in a bow.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+          "rawInstruction": "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+          "summary": "Apply glue or nail polish to secure knots and ends.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    }
+  ]
+}

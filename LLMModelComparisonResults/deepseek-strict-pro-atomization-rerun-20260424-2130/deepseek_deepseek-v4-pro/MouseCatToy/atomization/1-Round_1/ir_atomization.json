@@ -1,0 +1,43 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "mr",
+              "count" : 1,
+              "instruction" : "magic ring",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "mr"
+            },
+            "repeat" : null,
+            "sourceText" : "in a MR"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 6,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "magic ring"
+            },
+            "repeat" : null,
+            "sourceText" : "sc 6"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 6,
+      "sourceText" : "in a MR, sc 6. (6)",
+      "title" : "Round 1"
+    }
+  ]
+}

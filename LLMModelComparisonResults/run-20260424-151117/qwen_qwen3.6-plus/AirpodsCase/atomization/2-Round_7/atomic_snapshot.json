@@ -1,0 +1,230 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 14,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 16,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 17,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 18,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 19,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 20,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 21,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 22,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    },
+    {
+      "actionTag" : "DC",
+      "instruction" : "Double Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 23,
+      "sourceText" : "1 DC in each stitch all the way around (24)",
+      "stitchTag" : "DC"
+    }
+  ],
+  "expectedProducedStitches" : 24,
+  "producedStitchCount" : 24,
+  "sourceText" : "1 DC in each stitch all the way around (24)",
+  "title" : "Round 7",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

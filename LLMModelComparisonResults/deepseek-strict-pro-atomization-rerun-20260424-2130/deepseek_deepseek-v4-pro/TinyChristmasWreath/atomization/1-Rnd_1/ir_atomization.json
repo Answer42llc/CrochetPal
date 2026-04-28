@@ -1,0 +1,125 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slipKnot",
+              "count" : 1,
+              "instruction" : "make a slip knot with green yarn",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "with green, make a slip knot"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 14,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "ch 14"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sl st",
+              "count" : 1,
+              "note" : "to join the piece in a circle",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "sl st",
+              "target" : "first ch"
+            },
+            "repeat" : null,
+            "sourceText" : "sl st in the first ch you made, to join the piece in a circle"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "[ch 3, sl st in the next ch of the circle]",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "ch",
+                      "count" : 3,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "ch"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "ch 3"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sl st",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sl st",
+                      "target" : "next ch of the circle"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "sl st in the next ch of the circle"
+                  }
+                ]
+              },
+              "times" : 14
+            },
+            "sourceText" : "[ch 3, sl st in the next ch of the circle] 14 times"
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "work your last sl st into the st that joined the circle",
+              "sourceText" : "work your last sl st into the st that joined the circle"
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "work your last sl st into the st that joined the circle"
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "14 chain-loops made",
+              "sourceText" : "14 chain-loops made"
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "14 chain-loops made"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 14,
+      "sourceText" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+      "title" : "Rnd 1"
+    }
+  ]
+}

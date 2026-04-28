@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input. I have a single round with:\n- partName: \"Body\"\n- rawInstruction: \"CH 12\"\n- title: \"Foundation Chain\"\n\nThe abbreviations tell me:\n- CH = Chain (author-defined abbreviation)\n- HTC = Half Treble Crochet\n- DC = Double Crochet\n- FO = Fasten Off\n\nSince the pattern defines \"CH\" as an abbreviation, I should use \"CH\" as the stitch value and actionTag, not \"ch\". Let me also put the author's definition into instruction.\n\nCH 12 means 12 chain stitches. This is stitch producing. Count = 12. Stitch = \"CH\" (author's abbreviation). Semantics = stitchProducing.\n\nExpected produced stitches should be null since it's a foundation chain and the count isn't given as a target.\n\nLet me construct the IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Foundation Chain\", \"sourceText\": \"CH 12\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"CH 12\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"CH\", \"stitch\": \"CH\", \"count\": 12, \"instruction\": \"Chain\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_hXhfJw4TauY0nGb3yxJYGrB3",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777028946,
+  "id" : "91ebb5a2-0509-4e79-9c17-ea7d2b9e55e1",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 374,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 179
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11670,
+    "prompt_tokens" : 11670,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 12044
+  }
+}

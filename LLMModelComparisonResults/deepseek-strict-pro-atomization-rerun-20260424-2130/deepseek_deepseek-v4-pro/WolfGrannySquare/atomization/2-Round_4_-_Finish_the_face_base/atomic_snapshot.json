@@ -1,0 +1,312 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "ch",
+      "note" : "count as 1hdc",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "Ch2 (count as 1hdc)",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "Ch2 (count as 1hdc)",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "hdc",
+      "note" : "same st; to complete the first hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "1hdc in the same st to complete the first hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 3,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 4,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 5,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 6,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 7,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 8,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "changeColor",
+      "instruction" : "Change to white yarn",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 9,
+      "sourceText" : "Change to white yarn:"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "1hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "note" : "first part, into next st",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "1hdc+1sc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "same st; second part, into same st",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "1hdc+1sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "1sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "sc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 14,
+      "sourceText" : "sc inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "sc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 15,
+      "sourceText" : "sc inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 16,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 17,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 18,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 19,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 20,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 21,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 22,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 23,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 24,
+      "sourceText" : "9sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "sc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 25,
+      "sourceText" : "sc inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "sc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 26,
+      "sourceText" : "sc inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 27,
+      "sourceText" : "1sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "first part, into next st",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 28,
+      "sourceText" : "1sc+1hdc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "hdc",
+      "note" : "same st; second part, into same st",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 29,
+      "sourceText" : "1sc+1hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "hdc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 30,
+      "sourceText" : "1hdc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "changeColor",
+      "instruction" : "Change back to grey yarn",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 31,
+      "sourceText" : "Change back to grey yarn:"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 32,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "hdc inc",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 33,
+      "sourceText" : "hdc inc",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "slst",
+      "note" : "top of the first ch2",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 34,
+      "sourceText" : "Slst to the top of the first ch2",
+      "stitchTag" : "slst"
+    }
+  ],
+  "producedStitchCount" : 30,
+  "sourceText" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+  "title" : "Round 4 - Finish the face base",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

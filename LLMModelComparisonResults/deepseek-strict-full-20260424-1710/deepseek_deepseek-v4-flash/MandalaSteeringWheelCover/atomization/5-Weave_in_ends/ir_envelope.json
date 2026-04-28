@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input. It's a single round with a bookkeeping instruction - \"Weave in all ends.\" This is a finishing step, not a stitch-producing operation. Let me compile it into Crochet IR.\n\nThe instruction \"Weave in all ends\" is a bookkeeping operation (bookkeeping - does not produce stitches). The actionTag should be something like \"weaveInEnds\" or similar.\n\nLet me construct the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Weave in ends\", \"sourceText\": \"Weave in all ends.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Weave in all ends.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"weaveInEnds\", \"stitch\": null, \"count\": 1, \"instruction\": \"Weave in all ends.\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_MhwQejFo4afm6ysYOFIE2f7o",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029241,
+  "id" : "57a5d36d-fc5d-4613-a43b-dcc56cef0c94",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 297,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 91
+    },
+    "prompt_cache_hit_tokens" : 11520,
+    "prompt_cache_miss_tokens" : 117,
+    "prompt_tokens" : 11637,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11520
+    },
+    "total_tokens" : 11934
+  }
+}

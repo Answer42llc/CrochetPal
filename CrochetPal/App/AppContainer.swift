@@ -5,11 +5,17 @@ import Foundation
 final class AppContainer: ObservableObject {
     let repository: ProjectRepository
     let watchSync: WatchSyncCoordinator
+    let sourceFileStore: SourceFileStoring
     private var cancellables: Set<AnyCancellable> = []
 
-    init(repository: ProjectRepository, watchSync: WatchSyncCoordinator) {
+    init(
+        repository: ProjectRepository,
+        watchSync: WatchSyncCoordinator,
+        sourceFileStore: SourceFileStoring
+    ) {
         self.repository = repository
         self.watchSync = watchSync
+        self.sourceFileStore = sourceFileStore
         repository.objectWillChange
             .sink { [weak self] _ in
                 self?.objectWillChange.send()
@@ -37,11 +43,13 @@ final class AppContainer: ObservableObject {
         }
 
         let pdfExtractor = PDFExtractionService()
+        let sourceFileStore = makeSourceFileStore(isUITesting: isUITesting)
         let importer = PatternImportService(
             parserClient: parserClient,
             extractor: extractor,
             pdfExtractor: pdfExtractor,
             session: makeURLSession(isUITesting: isUITesting),
+            sourceFileStore: sourceFileStore,
             logger: logger
         )
         let repository = ProjectRepository(
@@ -50,7 +58,22 @@ final class AppContainer: ObservableObject {
             logger: logger
         )
         let watchSync = WatchSyncCoordinator()
-        return AppContainer(repository: repository, watchSync: watchSync)
+        return AppContainer(
+            repository: repository,
+            watchSync: watchSync,
+            sourceFileStore: sourceFileStore
+        )
+    }
+
+    private static func makeSourceFileStore(isUITesting: Bool) -> SourceFileStoring {
+        guard isUITesting else {
+            return SourceFileStore()
+        }
+
+        let directoryURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("CrochetPal-UITests-Sources", isDirectory: true)
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        return SourceFileStore(baseDirectoryURL: directoryURL)
     }
 
     private static func makeStorage(isUITesting: Bool) -> JSONFileStore {

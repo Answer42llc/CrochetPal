@@ -1,0 +1,131 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "joinYarn",
+              "count" : 1,
+              "instruction" : "join white yarn to the 4th grey stitch from the left",
+              "note" : "With grey stitches on top",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "4th grey stitch from the left"
+            },
+            "repeat" : null,
+            "sourceText" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "dc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "dc",
+              "target" : "next st"
+            },
+            "repeat" : null,
+            "sourceText" : "1dc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "pic",
+              "count" : 1,
+              "instruction" : "ch-1 picot stitch",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "pic",
+              "target" : "same stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "ch-1 pic"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "dc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "dc",
+              "target" : "same stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "1dc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "ch2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "slst",
+              "target" : "next st"
+            },
+            "repeat" : null,
+            "sourceText" : "slst to the next st"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "instruction" : "Fasten off and weave in the ends.",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Fasten off and weave in the ends."
+          }
+        ]
+      },
+      "sourceText" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+      "title" : "Inner Ear"
+    }
+  ]
+}

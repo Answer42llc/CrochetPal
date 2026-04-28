@@ -1,0 +1,73 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "magicRing",
+              "count" : 1,
+              "instruction" : "Create a magic ring to work into",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Into a magic ring"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch",
+              "target" : "into magic ring"
+            },
+            "repeat" : null,
+            "sourceText" : "ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 6,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "into magic ring"
+            },
+            "repeat" : null,
+            "sourceText" : "make 6 sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "join",
+              "count" : 1,
+              "instruction" : "join to the first sc with a sl st",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "slSt",
+              "target" : "first sc"
+            },
+            "repeat" : null,
+            "sourceText" : "join to the first sc with a sl st"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 6,
+      "sourceText" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+      "title" : "Round 1"
+    }
+  ]
+}

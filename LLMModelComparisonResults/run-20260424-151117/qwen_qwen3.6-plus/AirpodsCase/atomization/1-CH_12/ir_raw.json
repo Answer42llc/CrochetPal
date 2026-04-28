@@ -1,0 +1,33 @@
+{
+  "rounds": [
+    {
+      "title": "CH 12",
+      "sourceText": "CH 12",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "CH 12",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "CH",
+              "stitch": "CH",
+              "count": 12,
+              "instruction": "Chain",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

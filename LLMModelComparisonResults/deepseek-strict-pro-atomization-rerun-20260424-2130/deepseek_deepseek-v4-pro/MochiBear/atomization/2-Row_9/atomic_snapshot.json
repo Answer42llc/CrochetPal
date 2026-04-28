@@ -1,0 +1,40 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "decrease",
+      "instruction" : "single crochet 2 stitches together",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 0,
+      "sourceText" : "DEC",
+      "stitchTag" : "dec"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "1 SC",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "decrease",
+      "instruction" : "single crochet 2 stitches together",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 2,
+      "sourceText" : "DEC",
+      "stitchTag" : "dec"
+    }
+  ],
+  "expectedProducedStitches" : 3,
+  "producedStitchCount" : 3,
+  "sourceText" : "DEC, 1 SC, DEC (3)",
+  "title" : "Row 9",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

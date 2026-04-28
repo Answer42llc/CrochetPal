@@ -1,0 +1,318 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 14,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 16,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 17,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 18,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 19,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 20,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 21,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 22,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 23,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 24,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 25,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 26,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 27,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 28,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 29,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 30,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 31,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 32,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 33,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 34,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 35,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 36,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    },
+    {
+      "actionTag" : "Sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 37,
+      "sourceText" : "38sc. (38)",
+      "stitchTag" : "Sc"
+    }
+  ],
+  "expectedProducedStitches" : 38,
+  "producedStitchCount" : 38,
+  "sourceText" : "38sc. (38)",
+  "title" : "Round 5",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

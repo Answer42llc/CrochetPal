@@ -1,0 +1,79 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "magicRing",
+      "instruction" : "Create a magic ring",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Create a magic ring"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "magic ring",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "6 sc in the ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "6 sc in the ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "6 sc in the ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "6 sc in the ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "6 sc in the ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "6 sc in the ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "closeRing",
+      "instruction" : "Close the ring",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 7,
+      "sourceText" : "Close the ring"
+    }
+  ],
+  "expectedProducedStitches" : 6,
+  "producedStitchCount" : 6,
+  "sourceText" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+  "title" : "Rnd 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

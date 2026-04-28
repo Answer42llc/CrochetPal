@@ -1,0 +1,19 @@
+{
+  "actions" : [
+
+  ],
+  "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+  "sourceText" : "Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed.",
+  "title" : "Stuff Knocker",
+  "validationIssues" : [
+    {
+      "code" : "ir_invalid_operation_count",
+      "message" : "Operation count must be positive.",
+      "severity" : "error",
+      "sourceText" : "Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed."
+    }
+  ],
+  "warnings" : [
+
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "joinYarn",
+      "instruction" : "join white yarn to the 4th grey stitch from the left",
+      "note" : "4th grey stitch from the left; With grey stitches on top",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left."
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "Ch2",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "Ch2",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "dc",
+      "note" : "next st",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "1dc",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "pic",
+      "instruction" : "ch-1 picot stitch",
+      "note" : "same stitch",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "ch-1 pic",
+      "stitchTag" : "pic"
+    },
+    {
+      "actionTag" : "dc",
+      "note" : "same stitch",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "1dc",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "ch2",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "ch2",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "slst",
+      "note" : "next st",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "slst to the next st",
+      "stitchTag" : "slst"
+    },
+    {
+      "actionTag" : "fastenOff",
+      "instruction" : "Fasten off and weave in the ends.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 9,
+      "sourceText" : "Fasten off and weave in the ends."
+    }
+  ],
+  "producedStitchCount" : 3,
+  "sourceText" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+  "title" : "Inner Ear",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

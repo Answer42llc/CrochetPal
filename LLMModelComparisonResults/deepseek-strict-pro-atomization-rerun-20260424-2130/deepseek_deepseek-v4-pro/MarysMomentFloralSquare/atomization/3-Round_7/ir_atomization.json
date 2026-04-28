@@ -1,0 +1,208 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "note" : "doesn't count as a st",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1 (doesn't count as a st)"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "fpdc",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "fpdc",
+                      "target" : "next st from Round 5"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "FPdc around the next st from Round 5"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "skip",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "bookkeeping",
+                      "stitch" : "skip",
+                      "target" : "first st of the next Petal from Round 6"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "skip the first st of the next Petal from Round 6"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "hdc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "hdc",
+                      "target" : "next 2 sts"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "hdc in the next 2 sts"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "hdc",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "hdc",
+                      "target" : "next ch-2 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "[Hdc, ch 2, hdc] in the next ch-2 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "ch",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "ch",
+                      "target" : "next ch-2 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "ch 2"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "hdc",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "hdc",
+                      "target" : "next ch-2 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "hdc"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "hdc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "hdc",
+                      "target" : "next 2 sts"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "Hdc in the next 2 sts"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "skip",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "bookkeeping",
+                      "stitch" : "skip",
+                      "target" : "last st of the Petal"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "skip the last st of the Petal"
+                  }
+                ]
+              },
+              "sourceRepeatCount" : 12,
+              "times" : 12
+            },
+            "sourceText" : "(FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "placeMarker",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "last ch-2 sp"
+            },
+            "repeat" : null,
+            "sourceText" : "Mark the last ch-2 sp with a SM"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slSt",
+              "count" : 1,
+              "note" : "join",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "slSt",
+              "target" : "first FPdc"
+            },
+            "repeat" : null,
+            "sourceText" : "Join to the first FPdc with a sl st"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "instruction" : "work away your ends",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Fasten off and work away your ends"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 108,
+      "sourceText" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}",
+      "title" : "Round 7"
+    }
+  ]
+}

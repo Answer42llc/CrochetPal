@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants to compile a single crochet round into Crochet IR. Let me analyze the input:\n\n- Part: Head\n- Title: \"Foundation Chain\"\n- Raw instruction: \"Ch 4.\"\n\nThis is a simple instruction: chain 4. The abbreviation \"ch\" is defined in the pattern abbreviations as \"chain\". So `stitch = \"ch\"`, `actionTag = \"ch\"`.\n\nThe semantics is `stitchProducing` — chains produce stitches (they occupy stitch slots).\n\nCount is 4.\n\nThere's no target mentioned, no expectedProducedStitches given, no repeat, no conditional. This is a straightforward operation.\n\nLet me construct the IR:\n\n```json\n{\n  \"rounds\": [\n    {\n      \"title\": \"Foundation Chain\",\n      \"sourceText\": \"Ch 4.\",\n      \"expectedProducedStitches\": null,\n      \"body\": {\n        \"statements\": [\n          {\n            \"kind\": \"operation\",\n            \"sourceText\": \"Ch 4.\",\n            \"operation\": {\n              \"semantics\": \"stitchProducing\",\n              \"actionTag\": \"ch\",\n              \"stitch\": \"ch\",\n              \"count\": 4,\n              \"instruction\": null,\n              \"target\": null,\n              \"note\": null,\n              \"notePlacement\": \"first\",\n              \"producedStitches\": null\n            },\n            \"repeat\": null,\n            \"conditional\": null,\n            \"note\": null\n          }\n        ],\n        \"sourceText\": null,\n        \"normalizationNote\": null\n      }\n    }\n  ]\n}\n```\n\nThis seems straightforward. Let me verify: \"Ch 4.\" means chain 4. The pattern defines ch = chain. So stitch is \"ch\", actionTag is \"ch\", count is 4, semantics is stitchProducing. No abbreviations list mentions anything unusual about this — \"ch\" maps to \"chain\" but the stitch value should be \"ch\" as per the abbreviation.\n\nWait, the abbreviation says `ch = chain`. But looking at the rules: \"Use the author's abbreviation as the stitch (and actionTag) value.\" So stitch = \"ch\", actionTag = \"ch\". That's correct.\n\nThere's no `expectedProducedStitches` provided in the input, so it remains null.\n\nLet me also check: should there be a note? The abbreviation says ch = chain, so we could put the instruction as \"chain\" — but the rules say `instruction` is for when there's a custom abbreviation definition to explain. Since \"ch\" is a standard abbreviation and the definition just says \"chain\", we can leave instruction as null. Actually, looking more carefully at the rules: \"Put the author's definition (or a short rephrasing of it) into instruction so the user sees what the abbreviation actually means.\" But \"ch\" for \"chain\" is so standard that it seems unnecessary. However, the rule says for pattern-level abbreviations to do this. Let me just leave instruction null since \"chain\" is very standard and the pattern confirms it.\n\nActually, I think I'm overthinking this. The instruction field says \"chain\" which is what \"ch\" stands for. Let me keep it null as it's a standard stitch.\n\nLet me now call the tool.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Foundation Chain\", \"sourceText\": \"Ch 4.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Ch 4.\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"ch\", \"stitch\": \"ch\", \"count\": 4, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_z5qxlrrkZ7DmoylvMTnhUVE7",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777044298,
+  "id" : "fef40318-97de-4136-b00a-a019b9bc1c29",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 875,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 681
+    },
+    "prompt_cache_hit_tokens" : 11520,
+    "prompt_cache_miss_tokens" : 200,
+    "prompt_tokens" : 11720,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11520
+    },
+    "total_tokens" : 12595
+  }
+}

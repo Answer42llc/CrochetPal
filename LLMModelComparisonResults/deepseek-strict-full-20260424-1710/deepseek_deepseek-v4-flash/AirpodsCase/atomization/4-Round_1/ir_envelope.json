@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input carefully.\n\nThe pattern has these abbreviations:\n- CH = Chain\n- HTC = Half Treble Crochet\n- DC = Double Crochet\n- FO = Fasten Off\n\nThe instruction says: \"work 12 treble crochet, join. (12)\"\n\nThe term \"treble crochet\" is used - this is not one of the author-defined abbreviations (CH, HTC, DC, FO). \"Treble crochet\" is a standard stitch, typically abbreviated \"tr\" in standard crochet terminology. Since it's not in the author-defined abbreviations list, I should use a standard stitch identifier.\n\nLet me think about this more carefully. The author-defined abbreviations are:\n- CH = Chain\n- HTC = Half Treble Crochet\n- DC = Double Crochet\n- FO = Fasten Off\n\nThe instruction says \"treble crochet\" which is different from \"half treble crochet\" (HTC). So \"treble crochet\" is not a custom abbreviation defined by the author - it's just written out in plain English. Since the author hasn't given it a custom abbreviation, I should use standard vocabulary.\n\nStandard stitch for treble crochet is \"tr\".\n\nSo: 12 treble crochet = 12 tr stitches. This is stitchProducing, stitch = \"tr\", actionTag = \"tr\", count = 12.\n\nThen \"join\" - this means joining with a slip stitch to close the round. That's bookkeeping, stitch = \"slst\", actionTag = \"join\".\n\nLet me structure this:\n\nRound 1: \"work 12 treble crochet, join. (12)\"\n- expectedProducedStitches: 12\n- body.statements:\n  1. operation: 12 treble crochet (stitchProducing, stitch=\"tr\", actionTag=\"tr\", count=12)\n  2. operation: join (bookkeeping, actionTag=\"join\", stitch=\"slst\", count=1)\n\nWait, for \"join\" - should this be a slip stitch? Typically \"join\" in crochet means slip stitch to join. Let me use bookkeeping with actionTag \"join\" and stitch \"slst\".\n\nActually, thinking about it more, \"join\" could be a slip stitch which does produce a stitch... but typically a \"join\" in the round is a slip stitch to close, which doesn't really count as a stitch in the stitch count. The stitch count of 12 suggests the 12 treble crochet are the only stitches counted. So the join is bookkeeping.\n\nLet me also consider - the instruction says \"work 12 treble crochet, join\" - this likely means starting with a magic ring or ch, working 12 tr into it, then joining with a sl st to close.\n\nLet me build the IR now.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Round 1\", \"sourceText\": \"work 12 treble crochet, join. (12)\", \"expectedProducedStitches\": 12, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"12 treble crochet\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"tr\", \"stitch\": \"tr\", \"count\": 12, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"join\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"join\", \"stitch\": \"slst\", \"count\": 1, \"instruction\": null, \"target\": null, \"note\": \"join with a slip stitch to close the round\", \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_2eBONuvaRyqm8KHjXJEu0qVs",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777028955,
+  "id" : "e6755049-79ac-4ab8-990c-3525d3033ba7",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 896,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 589
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11691,
+    "prompt_tokens" : 11691,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 12587
+  }
+}

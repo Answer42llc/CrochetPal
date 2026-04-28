@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this crochet pattern carefully.\n\n**Project Title:** Tiny Christmas Wreath\n\n**Materials:**\n- Yarn in green (about 2m\/2.2yd)\n- Yarn in red (34-40cm\/12-16\")\n- Hook matching your chosen yarn weight (suggest 3.5mm\/E for worsted)\n- Yarn needle, pair of scissors\n- Optional: clear nail polish or white glue\n\n**Abbreviations:**\n- Ch: chain or chains\n- sl st: slip stitch\n- st: stitch\n\n**Parts:** Since this is a simple wreath in one piece, there's one part. Let me see if there are named parts... The pattern just has \"Rnd 1\" and then some non-stitch instructions. So I'll use a generic part name like \"Wreath\" or \"Body\".\n\nActually, looking more carefully, there's only one round (Rnd 1) and then post-round instructions. Let me structure this.\n\nPart name could be \"Wreath\" or \"Main Piece\".\n\nLet me think about the rounds:\n\n1. \"Rnd 1: with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)\"\n\n2. \"Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).\"\n\n3. \"Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\"\n\n4. \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\"\n\nSo rounds:\n- Round 1 (stitch round)\n- \"Fasten off and weave in ends\" (non-stitch instruction)\n- \"Add red bow\" or similar (non-stitch instruction)\n- \"Secure ends\" (optional, non-stitch instruction)\n\nLet me build the JSON now.\n\nFor Round 1, the target stitch count - the pattern says \"(14 chain-loops made)\". That's 14 chain loops, not exactly a stitch count of sc stitches. But it is an explicit count. I'll set targetStitchCount to 14 since it says \"14 chain-loops made\".\n\nActually, looking at the schema more carefully, targetStitchCount should be set when the pattern text explicitly states a stitch count. \"(14 chain-loops made)\" is an explicit count, so I'll set it to 14.\n\nLet me also check - the pattern doesn't have named parts like Body, Head, etc. So I'll use \"Wreath\" or \"Main\" as the part name.\n\nLet me also calculate confidence. The pattern is straightforward - one round, clear instructions, standard abbreviations. I'd say confidence is high, like 0.95 or 0.97. Let me go with 0.97.\n\nFor abbreviations, the pattern lists:\n- Ch: chain or chains\n- sl st: slip stitch\n- st: stitch\n\nThese are all standard but the author chose to spell them out in an Abbreviations section, so I should include them.\n\nLet me construct the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"confidence\": 0.97, \"abbreviations\": [{\"term\": \"Ch\", \"definition\": \"chain or chains\"}, {\"term\": \"sl st\", \"definition\": \"slip stitch\"}, {\"term\": \"st\", \"definition\": \"stitch\"}], \"parts\": [{\"name\": \"Wreath\", \"rounds\": [{\"title\": \"Rnd 1\", \"rawInstruction\": \"with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)\", \"summary\": \"Chain 14, join in a circle, then work [ch 3, sl st in next ch] 14 times around to form chain-loops.\", \"targetStitchCount\": 14, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}, {\"title\": \"Fasten off and weave in ends\", \"rawInstruction\": \"Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).\", \"summary\": \"Fasten off and weave in the green yarn ends, or keep them for sewing if using as an applique.\", \"targetStitchCount\": null, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}, {\"title\": \"Add red bow\", \"rawInstruction\": \"Take a 30-40cm\/12-16\\\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\", \"summary\": \"Weave red yarn through the chain loops around the wreath and tie into a bow.\", \"targetStitchCount\": null, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}, {\"title\": \"Secure ends (optional)\", \"rawInstruction\": \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\", \"summary\": \"Optionally apply clear nail polish or white glue to the knot and ends to secure them.\", \"targetStitchCount\": null, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}]}], \"projectTitle\": \"Tiny Christmas Wreath\", \"materials\": [\"Yarn in green (about 2m\/2.2yd)\", \"Yarn in red (34-40cm\/12-16\\\")\", \"Hook matching your chosen yarn weight (3.5mm\/E suggested for worsted)\", \"Yarn needle\", \"Pair of scissors\", \"Optional: clear nail polish or white glue\"]}",
+              "name" : "return_crochet_pattern_outline"
+            },
+            "id" : "call_00_gPOwHDNJX3ls0qEYBOeVq9sJ",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777027474,
+  "id" : "591ad5a6-57fa-45b5-aa76-b291894204d6",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1557,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 752
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 3135,
+    "prompt_tokens" : 3135,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 4692
+  }
+}

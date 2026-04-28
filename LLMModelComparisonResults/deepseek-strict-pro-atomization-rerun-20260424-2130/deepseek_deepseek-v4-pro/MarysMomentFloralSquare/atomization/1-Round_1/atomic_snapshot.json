@@ -1,0 +1,89 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "magicRing",
+      "instruction" : "Create a magic ring to work into",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Into a magic ring"
+    },
+    {
+      "actionTag" : "ch",
+      "note" : "into magic ring",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "ch 1",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "into magic ring",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "make 6 sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "make 6 sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "make 6 sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "make 6 sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "make 6 sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "make 6 sc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "join",
+      "instruction" : "join to the first sc with a sl st",
+      "note" : "first sc",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 8,
+      "sourceText" : "join to the first sc with a sl st"
+    }
+  ],
+  "expectedProducedStitches" : 6,
+  "producedStitchCount" : 6,
+  "sourceText" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+  "title" : "Round 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this input. It's a single round with:\n\n- partName: \"Head\"\n- rawInstruction: \"CH 4\"\n- title: \"Foundation Chain\"\n\nThe abbreviation list says:\n- ch = chain\n- fc = foundation chain\n\nThe instruction says \"CH 4\" which is clearly \"chain 4\" (ch 4). This is a stitch-producing operation: 4 chains.\n\nLet me build the IR.\n\nSince there's only one round and it's straightforward, I'll produce:\n- A round with title \"Foundation Chain\"\n- sourceText: \"CH 4\"\n- expectedProducedStitches: null (not explicitly given in the input, though we could infer 4)\n- body with one operation: stitchProducing, stitch=\"ch\", actionTag=\"ch\", count=4\n\nLet me construct this carefully.\n\nThe raw instruction is \"CH 4\" - using the abbreviation \"ch\" which is defined as \"chain\". So stitch = \"ch\", actionTag = \"ch\".\n\nexpectedProducedStitches: The input doesn't explicitly provide this (the JSON just has partName, rawInstruction, title). So it should be null.\n\nLet me create the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Foundation Chain\", \"sourceText\": \"CH 4\", \"expectedProducedStitches\": null, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"CH 4\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"ch\", \"stitch\": \"ch\", \"count\": 4, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_F1boXKbM1D4puNZR9eBxr1oS",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029369,
+  "id" : "67b70934-70c7-49ff-998d-dda5fed9f9d9",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 442,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 248
+    },
+    "prompt_cache_hit_tokens" : 11520,
+    "prompt_cache_miss_tokens" : 183,
+    "prompt_tokens" : 11703,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11520
+    },
+    "total_tokens" : 12145
+  }
+}

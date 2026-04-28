@@ -1,0 +1,27 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "Sc",
+              "count" : 38,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "Sc"
+            },
+            "repeat" : null,
+            "sourceText" : "38sc. (38)"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 38,
+      "sourceText" : "38sc. (38)",
+      "title" : "Round 5"
+    }
+  ]
+}

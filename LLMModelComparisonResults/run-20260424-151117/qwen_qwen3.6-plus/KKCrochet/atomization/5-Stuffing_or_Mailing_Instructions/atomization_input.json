@@ -1,0 +1,36 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "place marker",
+      "term" : "pm"
+    },
+    {
+      "definition" : "round",
+      "term" : "rnd"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "work 2 scs in next sc",
+      "term" : "inc"
+    },
+    {
+      "definition" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "term" : "inv dec"
+    }
+  ],
+  "partName" : "Back",
+  "rawInstruction" : "If stuffing the Knocker: Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen. Stuffing will not come out when worn or washed. Tuck tail into Knocker so that filling can be adjusted as needed. If mailing in unstuffed: Leave the hole open and the yarn tail outside of the Knocker. If your yarn tends to fray easily, tie a loose knot at the end of the tail.",
+  "summary" : "Follow stuffing or mailing instructions based on intended use.",
+  "title" : "Stuffing or Mailing Instructions"
+}

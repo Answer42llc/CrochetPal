@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a single crochet round into Crochet IR. Let me analyze the input.\n\nInput round:\n- partName: \"Assembly\"\n- rawInstruction: \"Sew all parts, nose, eyes and cheeks to finish.\"\n- title: \"Sew all parts\"\n\nThis is an assembly instruction - it's bookkeeping, not stitch-producing. It describes sewing parts together. Let me encode this.\n\nThe instruction \"Sew all parts, nose, eyes and cheeks to finish.\" is an assembly instruction. I'll use `semantics = bookkeeping`, `actionTag = assembly`, and put the full instruction text in `instruction`.\n\nThere's no explicit stitch count given, so `expectedProducedStitches` = null.\n\nLet me construct the JSON:\n\n```json\n{\n  \"rounds\": [\n    {\n      \"title\": \"Sew all parts\",\n      \"sourceText\": \"Sew all parts, nose, eyes and cheeks to finish.\",\n      \"expectedProducedStitches\": null,\n      \"body\": {\n        \"statements\": [\n          {\n            \"kind\": \"operation\",\n            \"sourceText\": \"Sew all parts, nose, eyes and cheeks to finish.\",\n            \"operation\": {\n              \"semantics\": \"bookkeeping\",\n              \"actionTag\": \"assembly\",\n              \"stitch\": null,\n              \"count\": 1,\n              \"instruction\": \"Sew all parts, nose, eyes and cheeks to finish.\",\n              \"target\": null,\n              \"note\": null,\n              \"notePlacement\": \"all\",\n              \"producedStitches\": null\n            },\n            \"repeat\": null,\n            \"conditional\": null,\n            \"note\": null\n          }\n        ],\n        \"sourceText\": null,\n        \"normalizationNote\": null\n      }\n    }\n  ]\n}\n```\n\nThat looks correct. This is a simple bookkeeping operation for assembly.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Sew all parts\", \"sourceText\": \"Sew all parts, nose, eyes and cheeks to finish.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Sew all parts, nose, eyes and cheeks to finish.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 1, \"instruction\": \"Sew all parts, nose, eyes and cheeks to finish.\", \"target\": null, \"note\": null, \"notePlacement\": \"all\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_bmLevp8QZPDBQsffo675Uz5k",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777042964,
+  "id" : "45ae6d9a-63a1-44bc-b3a6-3009dbc31dcf",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 615,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 392
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 38,
+    "prompt_tokens" : 11686,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12301
+  }
+}

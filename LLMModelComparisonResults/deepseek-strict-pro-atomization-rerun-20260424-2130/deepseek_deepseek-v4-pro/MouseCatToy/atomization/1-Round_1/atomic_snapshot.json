@@ -1,0 +1,71 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "mr",
+      "instruction" : "magic ring",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "in a MR"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "magic ring",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "sc 6",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "sc 6",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "sc 6",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "sc 6",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "sc 6",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "sc 6",
+      "stitchTag" : "sc"
+    }
+  ],
+  "expectedProducedStitches" : 6,
+  "producedStitchCount" : 6,
+  "sourceText" : "in a MR, sc 6. (6)",
+  "title" : "Round 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "assembly",
+              "count" : 0,
+              "note" : "Using the tapestry needle, sew in the magic ring's 6\" tail.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Using the tapestry needle, sew in the magic ring's 6\" tail."
+          }
+        ]
+      },
+      "sourceText" : "Using the tapestry needle, sew in the magic ring's 6\" tail.",
+      "title" : "Sew in magic ring tail"
+    }
+  ]
+}

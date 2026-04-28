@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this input carefully.\n\nThe input is a single round with title \"Foundation Chain\" and raw instruction: \"CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"\n\nThis is a foundation chain. Let me break it down:\n\n1. \"CH 12\" - Chain 12. This produces 12 chain stitches.\n2. \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\" - This is a bookkeeping instruction that sets up where to work next, but doesn't produce stitches itself. It's essentially a note\/instruction about how to proceed.\n\nNow let me think about how to represent this in IR.\n\nThe first part \"CH 12\" is a stitchProducing operation: 12 chains.\n\nThe second part \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\" is essentially a setup instruction. It doesn't produce stitches. It's a bookkeeping operation that tells the user where to start working. I think this should be a note or a bookkeeping operation.\n\nActually, \"Starting in the 2nd chain from the hook\" could be interpreted as placing a marker or setting the working loop. But more naturally, it's just an instruction to the user. Let me make it a note statement.\n\nWait, let me reconsider. The pattern says \"CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"\n\nThis is two parts:\n1. CH 12 - make 12 chains\n2. Starting in the 2nd chain from the hook... - this is telling the user where to begin working in the next round. It's essentially a setup instruction.\n\nI think the best approach is:\n- Operation: CH 12 (stitchProducing, 12 chains)\n- Note: \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"\n\nOr maybe the \"Starting in the 2nd chain from the hook\" is more of a bookkeeping operation about where to place the hook. Let me think about this differently.\n\nActually, in crochet IR, \"starting in the 2nd chain from the hook\" could be seen as a \"skip 1 chain\" instruction combined with a target specification. When you chain 12 and start in the 2nd chain from the hook, you're skipping the first chain and working into the other 11 chains (on one side).\n\nBut the pattern says \"working in one side of the chain\" and then says \"work as follows\" - implying the work hasn't started yet, it's just setting up. So the actual stitches to work will come in the next round\/instruction.\n\nSo this round is just:\n1. Chain 12\n2. A note about where to start working\n\nLet me structure this as:\n- Statement 1: operation - ch 12 (stitchProducing)\n- Statement 2: note - \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"\n\nBut wait, the note could also be a bookkeeping operation. Let me consider... \"Starting in the 2nd chain from the hook\" is direction for the next step. It could be a note (informational) or a bookkeeping operation like a \"skip\" for the first chain.\n\nActually, I think the most natural interpretation is:\n- CH 12: stitchProducing operation\n- The \"Starting in...\" part is telling the user to skip the first chain (effectively) and prepare to work in the remaining chains. But since the actual work (stitches) is going to be in the next instruction, this is just a setup note.\n\nLet me go with a note for the setup instruction.\n\nLet me now construct the IR.\n\nRound:\n- title: \"Foundation Chain\"\n- sourceText: \"CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"\n- expectedProducedStitches: 12 (the 12 chains)\n\nBody statements:\n1. operation: semantics=stitchProducing, actionTag=\"CH\", stitch=\"CH\", count=12, sourceText=\"CH 12\"\n2. note: message=\"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\", sourceText=\"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"\n\nWait, but the note should have `emitAsAction`. Since it's just informational text to guide the user, `emitAsAction` should be false.\n\nHmm, actually let me reconsider. Maybe the whole thing is one statement... no, the semicolons\/periods suggest separate parts.\n\nLet me also double-check: the abbreviation says \"CH = Chain\". So `stitch` should be \"CH\" (the author's abbreviation), not \"ch\".\n\nNow for the note, should `emitAsAction` be true or false? I think it's false - it's not an action to be performed, it's instructional text guiding the user.\n\nLet me finalize the IR structure.\n\nActually wait - I need to reconsider. The pattern says \"Starting in the 2nd chain from the hook\". In crochet, when you chain and then start working in the 2nd chain from the hook, the first chain effectively becomes a turning chain. But the instruction \"work as follows\" implies the actual stitch work is in the next round.\n\nSo this round produces 12 chains. The note is guiding how to proceed.\n\nLet me structure this properly now.\n\nFor the note statement:\n- kind: \"note\"\n- sourceText: \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"\n- note: { message: \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\", sourceText: \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\", emitAsAction: false }\n\nAnd for the CH 12:\n- kind: \"operation\"\n- sourceText: \"CH 12\"\n- operation: { semantics: \"stitchProducing\", actionTag: \"CH\", stitch: \"CH\", count: 12, instruction: null, target: null, note: null, notePlacement: \"first\", producedStitches: null }\n\nNow let me assemble the full JSON.\n\nWait, one more thing. Let me check if the \"Starting in the 2nd chain...\" could also be interpreted as a bookkeeping operation. For example, it could be a \"setWorkingLoop\" or \"skip\" operation. But the instruction says \"work as follows\" at the end, meaning the actual stitches to work come next. So I think a note is most appropriate.\n\nLet me also consider: maybe I should split the source text more carefully. \"CH 12.\" is one sentence. \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\" is another.\n\nOK, I'm going with two statements: operation for CH 12 and note for the setup guidance.\n\nLet me now construct the complete JSON output.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Foundation Chain\", \"sourceText\": \"CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\", \"expectedProducedStitches\": 12, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"CH 12\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"CH\", \"stitch\": \"CH\", \"count\": 12, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"note\", \"sourceText\": \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\", \"operation\": null, \"repeat\": null, \"conditional\": null, \"note\": {\"sourceText\": \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\", \"emitAsAction\": false, \"message\": \"Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.\"}}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_0SYvhNiRB4wYdjFRDPCB6I1t",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777042593,
+  "id" : "75fe4f3d-4a8d-4e35-bdb7-8a4e939d22e1",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1873,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 1540
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11700,
+    "prompt_tokens" : 11700,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 13573
+  }
+}

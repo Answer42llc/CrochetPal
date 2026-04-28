@@ -1,0 +1,145 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "place marker",
+      "term" : "pm"
+    },
+    {
+      "definition" : "round",
+      "term" : "rnd"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "work 2 scs in next sc",
+      "term" : "inc"
+    },
+    {
+      "definition" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "term" : "inv dec"
+    }
+  ],
+  "confidence" : 0.85,
+  "materials" : [
+    "1 (1, 1, 2, 2) skeins of yarn from the Knitted Knocker approved yarn list",
+    "Size G (4.5mm) crochet hook (or size needed to get gauge)",
+    "3 locking stitch markers (1 in a different color for start of round)",
+    "Tapestry needle"
+  ],
+  "parts" : [
+    {
+      "name" : "Front",
+      "rounds" : [
+        {
+          "rawInstruction" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+          "summary" : "Create a magic ring and work six single crochets into it, then close the ring.",
+          "targetStitchCount" : 6,
+          "title" : "Rnd 1"
+        },
+        {
+          "rawInstruction" : "inc x 6 (12 sc)",
+          "summary" : "Increase in every stitch around.",
+          "targetStitchCount" : 12,
+          "title" : "Rnd 2"
+        },
+        {
+          "rawInstruction" : "(2 sc, 2 inc) x 3 (18 sc)",
+          "summary" : "Work 2 sc, then 2 increases; repeat 3 times.",
+          "targetStitchCount" : 18,
+          "title" : "Rnd 3"
+        },
+        {
+          "rawInstruction" : "(4 sc, 2 inc) x 3 (24 sc)",
+          "summary" : "Work 4 sc, then 2 increases; repeat 3 times.",
+          "targetStitchCount" : 24,
+          "title" : "Rnd 4"
+        },
+        {
+          "rawInstruction" : "(7 sc, inc) x 3 (27 sc)",
+          "summary" : "Work 7 sc, then 1 increase; repeat 3 times.",
+          "targetStitchCount" : 27,
+          "title" : "Rnd 5"
+        },
+        {
+          "rawInstruction" : "(Work to 1 sc before marker and inc x 2) x 3 (33 sc)",
+          "summary" : "Work to one stitch before marker, then do 2 increases; repeat 3 times.",
+          "targetStitchCount" : 33,
+          "title" : "Rnd 6"
+        },
+        {
+          "rawInstruction" : "(Work to marker and inc in marked stitch) x 3 (36 sc)",
+          "summary" : "Work to marker and increase in the marked stitch; repeat 3 times.",
+          "targetStitchCount" : 36,
+          "title" : "Rnd 7"
+        },
+        {
+          "rawInstruction" : "Using the tapestry needle, sew in the magic ring's 6\" tail.",
+          "summary" : "Weave in the magic ring tail with a tapestry needle.",
+          "title" : "Sew in magic ring tail"
+        },
+        {
+          "rawInstruction" : "Repeat Rnds 6 & 7 until the correct cup size measurement is reached. A cup: 3 repeats to 13 rounds (~63 sc). B cup: 4 repeats to 15 rounds (~72 sc). C cup: 5 repeats to 17 rounds (~81 sc). D cup: 6 repeats to 19 rounds (~90 sc). DD cup: 7 repeats to 21 rounds (~99 sc).",
+          "repeatAfterRow" : 7,
+          "repeatFromTitle" : "Rnd 6",
+          "repeatToTitle" : "Rnd 7",
+          "summary" : "Cycle through Rounds 6 and 7 until the front measures the correct size for your chosen cup.",
+          "title" : "Repeat Rnds 6 & 7"
+        }
+      ]
+    },
+    {
+      "name" : "Turning Rows",
+      "rounds" : [
+        {
+          "rawInstruction" : "Work 2 rnds even through the back loop only.",
+          "summary" : "Work two rounds of single crochet in the back loop only, without increasing or decreasing.",
+          "title" : "Turning Rounds"
+        }
+      ]
+    },
+    {
+      "name" : "Back",
+      "rounds" : [
+        {
+          "rawInstruction" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3",
+          "summary" : "Work invisible decrease, place marker, another invisible decrease, then sc to one stitch before next marker; repeat 3 times.",
+          "title" : "Rnd 1"
+        },
+        {
+          "rawInstruction" : "Repeat Rnd 1 until you have 15 sc left.",
+          "repeatAfterRow" : 1,
+          "repeatFromTitle" : "Rnd 1",
+          "repeatToTitle" : "Rnd 1",
+          "summary" : "Repeat the decrease round until only 15 stitches remain.",
+          "title" : "Repeat Rnd 1"
+        },
+        {
+          "rawInstruction" : "Cut yarn leaving a 10\" tail.",
+          "summary" : "Cut the yarn, leaving a 10-inch tail for finishing.",
+          "title" : "Cut yarn"
+        },
+        {
+          "rawInstruction" : "Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+          "summary" : "Thread the tapestry needle and weave through the front loop only of the remaining 15 stitches.",
+          "title" : "Weave through front loops"
+        },
+        {
+          "rawInstruction" : "Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed.",
+          "summary" : "Slightly overstuff the Knocker with fiber fill, leaving the hole open for adjustment.",
+          "title" : "Stuff Knocker"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Crochet Knockers"
+}

@@ -1,0 +1,38 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Fasten off"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "weaveInEnds",
+              "count" : 1,
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "weave in all ends securely"
+          }
+        ]
+      },
+      "sourceText" : "Fasten off and weave in all ends securely.",
+      "title" : "Fasten off and weave in ends"
+    }
+  ]
+}

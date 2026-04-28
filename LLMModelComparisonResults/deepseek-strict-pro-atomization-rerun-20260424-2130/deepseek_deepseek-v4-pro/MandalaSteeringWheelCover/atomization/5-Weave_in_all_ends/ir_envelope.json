@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a single crochet round into Crochet IR. Let's analyze the input:\n\n- Title: \"Weave in all ends\"\n- rawInstruction: \"Weave in all ends.\"\n- This is a finishing instruction, no stitches are produced.\n\nThis is a bookkeeping operation - \"weave in all ends\" is a finishing step. It produces no stitches. Let me encode it properly.\n\nThe instruction is \"Weave in all ends.\" - this is a purely bookkeeping operation. I'll use `actionTag = \"weaveInEnds\"` and `semantics = \"bookkeeping\"`.\n\nLet me construct the IR:\n\n- `expectedProducedStitches`: null (no stitches produced)\n- `body.statements`: one operation statement\n  - `kind`: \"operation\"\n  - `sourceText`: \"Weave in all ends.\"\n  - `operation`:\n    - `semantics`: \"bookkeeping\"\n    - `actionTag`: \"weaveInEnds\"\n    - `stitch`: null\n    - `count`: 1\n    - `instruction`: \"Weave in all ends.\"\n    - `target`: null\n    - `note`: null\n    - `notePlacement`: \"all\"\n    - `producedStitches`: null\n  - `repeat`: null\n  - `conditional`: null\n  - `note`: null\n\nThis seems straightforward.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\":\"Weave in all ends\",\"sourceText\":\"Weave in all ends.\",\"expectedProducedStitches\":null,\"body\":{\"statements\":[{\"kind\":\"operation\",\"sourceText\":\"Weave in all ends.\",\"operation\":{\"semantics\":\"bookkeeping\",\"actionTag\":\"weaveInEnds\",\"stitch\":null,\"count\":1,\"instruction\":\"Weave in all ends.\",\"target\":null,\"note\":null,\"notePlacement\":\"all\",\"producedStitches\":null},\"repeat\":null,\"conditional\":null,\"note\":null}],\"sourceText\":null,\"normalizationNote\":null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_5efc8FSixAdgufFnNk2udsjI",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777043557,
+  "id" : "f418b624-2dc6-4cd9-b189-79ea95048dbc",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 477,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 296
+    },
+    "prompt_cache_hit_tokens" : 11520,
+    "prompt_cache_miss_tokens" : 124,
+    "prompt_tokens" : 11644,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11520
+    },
+    "total_tokens" : 12121
+  }
+}

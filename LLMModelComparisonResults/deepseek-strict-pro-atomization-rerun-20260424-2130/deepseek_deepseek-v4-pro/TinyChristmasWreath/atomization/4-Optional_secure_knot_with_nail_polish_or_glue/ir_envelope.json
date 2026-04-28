@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The input is a single round with a non-stitch instruction about optionally securing knots with nail polish or glue. This is a bookkeeping\/note type instruction. Let me analyze it.\n\nThe instruction says: \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\"\n\nThis is purely advisory\/optional and does not produce any stitches. It's a note, not an operation. The title suggests it's optional. \n\nI think this should be a `note` statement, with `emitAsAction: false` since it's just informational\/optional advice. But wait, looking at the schema, `note` statements have `emitAsAction` boolean. If this is just a note to the user that doesn't need to be tracked as an action, `emitAsAction` should be `false`.\n\nActually, let me think about this more carefully. The `note` statement kind is for informational text. This fits perfectly. It doesn't produce stitches, doesn't need to be an operation. It's just a tip.\n\nThe round has no `expectedProducedStitches` - it should be null since no stitches are produced.\n\nLet me construct the IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Optional: secure knot with nail polish or glue\", \"sourceText\": \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\", \"expectedProducedStitches\": null, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"note\", \"sourceText\": \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\", \"operation\": null, \"repeat\": null, \"conditional\": null, \"note\": {\"sourceText\": null, \"message\": \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\", \"emitAsAction\": false}}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_V2di610NGYphsQ7ODduDbiSt",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777045553,
+  "id" : "2d996c12-9879-404b-954d-c29a31c462a5",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 522,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 261
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 103,
+    "prompt_tokens" : 11751,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12273
+  }
+}

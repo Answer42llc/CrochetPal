@@ -25,6 +25,7 @@ struct PatternImportService: PatternImporting {
     private let extractor: HTMLExtracting
     private let pdfExtractor: PDFExtracting
     private let session: URLSession
+    private let sourceFileStore: SourceFileStoring?
     private let logger: TraceLogging
 
     init(
@@ -32,12 +33,14 @@ struct PatternImportService: PatternImporting {
         extractor: HTMLExtracting,
         pdfExtractor: PDFExtracting = PDFExtractionService(),
         session: URLSession = .shared,
+        sourceFileStore: SourceFileStoring? = nil,
         logger: TraceLogging
     ) {
         self.parserClient = parserClient
         self.extractor = extractor
         self.pdfExtractor = pdfExtractor
         self.session = session
+        self.sourceFileStore = sourceFileStore
         self.logger = logger
     }
 
@@ -197,6 +200,13 @@ struct PatternImportService: PatternImporting {
             context: context
         )
 
+        let localFilePath = persistSourceFile(
+            data: data,
+            fileName: fileName,
+            sourceType: .image,
+            context: context
+        )
+
         return try makeImageRecord(
             from: responsePayload,
             source: PatternSource(
@@ -205,7 +215,8 @@ struct PatternImportService: PatternImporting {
                 sourceURL: nil,
                 fileName: fileName,
                 fileSizeBytes: data.count,
-                importedAt: .now
+                importedAt: .now,
+                localFilePath: localFilePath
             ),
             context: context
         )
@@ -260,6 +271,13 @@ struct PatternImportService: PatternImporting {
             context: context
         )
 
+        let localFilePath = persistSourceFile(
+            data: data,
+            fileName: fileName,
+            sourceType: .pdf,
+            context: context
+        )
+
         return makeOutlineRecord(
             from: responsePayload,
             source: PatternSource(
@@ -268,7 +286,8 @@ struct PatternImportService: PatternImporting {
                 sourceURL: nil,
                 fileName: fileName,
                 fileSizeBytes: data.count,
-                importedAt: .now
+                importedAt: .now,
+                localFilePath: localFilePath
             ),
             context: context
         )
@@ -530,6 +549,38 @@ struct PatternImportService: PatternImporting {
         guard let note else { return nil }
         let trimmed = note.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? nil : trimmed
+    }
+
+    /// Persists a copy of an imported binary source (image/PDF) so the Execution UI can
+    /// later present the original to the user. Returns the relative path for storage on
+    /// `PatternSource`, or `nil` if no store is configured (tests) or the write fails —
+    /// in either case the import itself still succeeds because the saved file is a UX
+    /// convenience, not a correctness requirement.
+    private func persistSourceFile(
+        data: Data,
+        fileName: String,
+        sourceType: PatternSourceType,
+        context: ParseRequestContext
+    ) -> String? {
+        guard let store = sourceFileStore else { return nil }
+        do {
+            return try store.saveSourceFile(data: data, fileName: fileName)
+        } catch {
+            logger.log(LogEvent(
+                timestamp: .now,
+                level: "warn",
+                traceID: context.traceID,
+                parseRequestID: context.parseRequestID,
+                projectID: nil,
+                sourceType: sourceType,
+                stage: "source_file_persist",
+                decision: "failed",
+                reason: "write_error",
+                durationMS: nil,
+                metadata: ["fileName": fileName, "error": "\(error)"]
+            ))
+            return nil
+        }
     }
 
     private func mimeType(for fileName: String) -> String {

@@ -1,0 +1,36 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Increase",
+      "term" : "Inc"
+    },
+    {
+      "definition" : "Stitch",
+      "term" : "St"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "Slst"
+    },
+    {
+      "definition" : "back loop only",
+      "term" : "BLO"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "FLO"
+    }
+  ],
+  "partName" : "Top case (Yellow)",
+  "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook",
+  "summary" : "Create a foundation chain of 11 stitches.",
+  "title" : "Foundation Chain"
+}

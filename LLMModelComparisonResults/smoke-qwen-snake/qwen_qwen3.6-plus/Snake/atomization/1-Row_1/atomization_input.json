@@ -1,0 +1,32 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "increase (2 crochets in 1 loop)",
+      "term" : "inc."
+    },
+    {
+      "definition" : "decrease (2 crochets together)",
+      "term" : "dec."
+    },
+    {
+      "definition" : "repeat the sequence of loops in brackets L times",
+      "term" : "(….) - L times"
+    }
+  ],
+  "partName" : "Body (Small ~31 cm)",
+  "rawInstruction" : "Start 10 sc in a magic ring",
+  "summary" : "Begin with a magic ring and work 10 single crochets.",
+  "title" : "Row 1"
+}

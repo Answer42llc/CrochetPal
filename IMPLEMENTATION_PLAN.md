@@ -1,23 +1,29 @@
-## 阶段 1: 评估链路设计
-**目标**: 梳理 `rawInstruction`、IR、atomic actions 的数据模型与现有 LLM/repair 能力，确定评估 subagent 的输入输出契约。
-**成功标准**: 明确评估结果的数据结构、接入层级，以及测试如何消费该结果。
-**测试**: 人工核对评估模型输入覆盖 `rawInstruction`、IR `sourceText`、atomic actions；为新类型补最小单测。
+## 阶段 1: DeepSeek strict mode 适配确认
+**目标**: 基于官方文档确认 `/beta` strict tool mode 的请求形态和 schema 限制。
+**成功标准**: 明确不再使用 `response_format: json_schema`，改用 `tools[].function.strict=true`。
+**测试**: 检查本地 DeepSeek 官方 key 是否存在，并记录缺失时无法实测。
 **状态**: 已完成
 
-## 阶段 2: 实现评估 subagent
-**目标**: 新增一个专门判断“原子化结果是否与 `rawInstruction` 匹配”的评估 subagent/LLM 客户端入口。
-**成功标准**: 能对单个 round 输出结构化评估结论，包括是否匹配、问题分类和解释。
-**测试**: 新增针对 prompt/schema/client 的单元测试，覆盖成功与 malformed repair 场景。
+## 阶段 2: strict tool runner 实现
+**目标**: 新增 DeepSeek 官方 strict tool mode 专用 runner，复用现有 prompt/schema 与 IR compiler。
+**成功标准**: runner 能生成 DeepSeek strict tool schema，支持 outline 与 sampled atomization。
+**测试**: 编译 runner，并执行 dry-run schema 输出。
 **状态**: 已完成
 
-## 阶段 3: 数据集评估与回归测试
-**目标**: 对现有 LLM fixture 数据集运行评估 subagent，并把结果持久化为可回归的测试数据。
-**成功标准**: 每个 Pattern 的每个 round/row 都有评估结果；测试能校验覆盖、结果一致性，并输出汇总。
-**测试**: 运行新增评估捕获测试与离线回归测试。
+## 阶段 3: 可用性验证
+**目标**: 若配置了 `DEEPSEEK_API_KEY`，用 `deepseek-v4-flash` 与 `deepseek-v4-pro` 跑 smoke/full 测试。
+**成功标准**: 成功写出 run_index，或明确记录官方 API 返回的阻塞原因。
+**测试**: 先单 fixture smoke，再按全部 fixture 执行。
 **状态**: 已完成
 
-## 阶段 4: 验证与收尾
-**目标**: 运行相关测试与编译检查，确认新增评估链路不破坏工程。
-**成功标准**: 相关测试通过，项目在选定 target device 上编译成功。
-**测试**: `xcodebuild test` + `xcodebuild build`
+## 阶段 4: 编译检查与收尾
+**目标**: 运行 Swift 编译与 Xcode build 检查，整理最终结论。
+**成功标准**: runner 编译通过，主工程构建通过或阻塞原因明确。
+**测试**: `xcrun swiftc` + `xcodebuild build`。
+**状态**: 已完成
+
+## 阶段 5: deepseek-v4-pro atomization 补跑
+**目标**: 复用已有 outline，单独补跑 `deepseek/deepseek-v4-pro` 的 atomization 样本。
+**成功标准**: 成功写出 pro atomization snapshot，或明确记录失败原因。
+**测试**: 使用同一结果目录、`concurrency=1` 重跑 pro，并汇总 run_index。
 **状态**: 已完成

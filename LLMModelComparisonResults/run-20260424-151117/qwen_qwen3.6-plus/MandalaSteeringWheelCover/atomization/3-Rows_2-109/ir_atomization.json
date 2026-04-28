@@ -1,0 +1,96 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "sc in first 3 sts."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "Hdc in next st."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "dc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "dc"
+            },
+            "repeat" : null,
+            "sourceText" : "dc in next 8 sts."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "Hdc in next st."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "sc in last 3 sts."
+          }
+        ]
+      },
+      "sourceText" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+      "title" : "Rows 2-109"
+    }
+  ]
+}

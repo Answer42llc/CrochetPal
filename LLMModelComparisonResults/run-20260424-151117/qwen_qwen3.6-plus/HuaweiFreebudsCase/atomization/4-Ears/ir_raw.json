@@ -1,0 +1,69 @@
+{
+  "rounds": [
+    {
+      "title": "Ears",
+      "sourceText": "7sc in MR,do not join, just tie MR",
+      "expectedProducedStitches": 7,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "7sc in MR",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 7,
+              "instruction": null,
+              "target": "MR",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "do not join",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "doNotJoin",
+              "stitch": null,
+              "count": null,
+              "instruction": "do not join",
+              "target": null,
+              "note": null,
+              "notePlacement": null,
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "just tie MR",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "closeMagicRing",
+              "stitch": null,
+              "count": null,
+              "instruction": "pull yarn tail to tighten magic ring",
+              "target": null,
+              "note": null,
+              "notePlacement": null,
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

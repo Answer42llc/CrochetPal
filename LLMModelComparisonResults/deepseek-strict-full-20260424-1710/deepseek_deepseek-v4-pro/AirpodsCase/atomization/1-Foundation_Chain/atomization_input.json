@@ -1,0 +1,24 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Body",
+  "rawInstruction" : "CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.",
+  "summary" : "Chain 12 to create the foundation, then prepare to work into one side of the chain starting from the second chain from the hook.",
+  "title" : "Foundation Chain"
+}

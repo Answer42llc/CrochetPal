@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "note",
+      "instruction" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib.",
+  "title" : "Hem — Repeat rows for length",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

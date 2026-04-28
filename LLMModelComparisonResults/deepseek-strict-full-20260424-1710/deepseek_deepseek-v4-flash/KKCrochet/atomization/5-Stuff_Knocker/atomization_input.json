@@ -1,0 +1,36 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "place marker",
+      "term" : "pm"
+    },
+    {
+      "definition" : "round",
+      "term" : "rnd"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "work 2 scs in next sc",
+      "term" : "inc"
+    },
+    {
+      "definition" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "term" : "inv dec"
+    }
+  ],
+  "partName" : "Back",
+  "rawInstruction" : "Slightly overstuff with Poly-fil (or other fiber fill). Do not close hole as it is difficult to reopen. Tuck tail into Knocker so that filling can be adjusted as needed.",
+  "summary" : "Slightly overstuff the Knocker with fiber fill, leaving the hole open for adjustment.",
+  "title" : "Stuff Knocker"
+}

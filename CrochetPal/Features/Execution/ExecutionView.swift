@@ -5,6 +5,7 @@ struct ExecutionView: View {
     let projectID: UUID
 
     @State private var isShowingEditor = false
+    @State private var originalPatternPreview: OriginalPatternPreview?
     @State private var continueHapticTrigger = 0
     @State private var undoHapticTrigger = 0
 
@@ -39,6 +40,38 @@ struct ExecutionView: View {
         round: PatternRound?
     ) -> Bool {
         sourceType.supportsDeferredAtomization && round != nil
+    }
+
+    private func hasOpenableOriginal(for source: PatternSource) -> Bool {
+        switch source.type {
+        case .web:
+            guard let urlString = source.sourceURL,
+                  let url = URL(string: urlString),
+                  let scheme = url.scheme?.lowercased() else { return false }
+            return scheme == "http" || scheme == "https"
+        case .image, .pdf:
+            guard let path = source.localFilePath else { return false }
+            return container.sourceFileStore.resolveURL(forRelativePath: path) != nil
+        case .text:
+            return false
+        }
+    }
+
+    private func openOriginalPattern(for source: PatternSource) {
+        switch source.type {
+        case .web:
+            guard let urlString = source.sourceURL,
+                  let url = URL(string: urlString),
+                  let scheme = url.scheme?.lowercased(),
+                  scheme == "http" || scheme == "https" else { return }
+            originalPatternPreview = .web(url)
+        case .image, .pdf:
+            guard let path = source.localFilePath,
+                  let url = container.sourceFileStore.resolveURL(forRelativePath: path) else { return }
+            originalPatternPreview = .file(url)
+        case .text:
+            break
+        }
     }
 
     var body: some View {
@@ -130,23 +163,6 @@ struct ExecutionView: View {
                             }
                             .font(.headline)
 
-                            if shouldShowRegenerateButton, let round {
-                                Button {
-                                    Task {
-                                        await container.repository.regenerateRound(
-                                            projectID: projectID,
-                                            partID: record.progress.cursor.partID,
-                                            roundID: round.id
-                                        )
-                                    }
-                                } label: {
-                                    Label("Regenerate", systemImage: "arrow.clockwise")
-                                        .frame(maxWidth: .infinity)
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .accessibilityIdentifier("regenerateCurrentRound")
-                                .disabled(isRegenerateDisabled)
-                            }
                         }
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -199,11 +215,42 @@ struct ExecutionView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            isShowingEditor = true
+                            openOriginalPattern(for: record.project.source)
                         } label: {
-                            Image(systemName: "slider.horizontal.3")
+                            Image(systemName: "doc.text.magnifyingglass")
                         }
-                        .disabled(round?.atomizationStatus != .ready || isAwaitingNextRound)
+                        .accessibilityIdentifier("openOriginalPattern")
+                        .accessibilityLabel("Open Original Pattern")
+                        .disabled(!hasOpenableOriginal(for: record.project.source))
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Menu {
+                            Button {
+                                isShowingEditor = true
+                            } label: {
+                                Label("Edit Round", systemImage: "slider.horizontal.3")
+                            }
+                            .disabled(round?.atomizationStatus != .ready || isAwaitingNextRound)
+
+                            if shouldShowRegenerateButton, let round {
+                                Button {
+                                    Task {
+                                        await container.repository.regenerateRound(
+                                            projectID: projectID,
+                                            partID: record.progress.cursor.partID,
+                                            roundID: round.id
+                                        )
+                                    }
+                                } label: {
+                                    Label("Regenerate", systemImage: "arrow.clockwise")
+                                }
+                                .accessibilityIdentifier("regenerateCurrentRound")
+                                .disabled(isRegenerateDisabled)
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
+                        .accessibilityIdentifier("executionActionsMenu")
                     }
                 }
                 .sheet(isPresented: $isShowingEditor) {
@@ -214,9 +261,30 @@ struct ExecutionView: View {
                             .environmentObject(container)
                     }
                 }
+                .sheet(item: $originalPatternPreview) { preview in
+                    switch preview {
+                    case .file(let url):
+                        SourceFilePreviewSheet(url: url)
+                    case .web(let url):
+                        WebPagePreviewSheet(url: url)
+                            .ignoresSafeArea()
+                    }
+                }
             } else {
                 ContentUnavailableView("Execution Missing", systemImage: "xmark.circle")
             }
+        }
+    }
+}
+
+private enum OriginalPatternPreview: Identifiable {
+    case file(URL)
+    case web(URL)
+
+    var id: String {
+        switch self {
+        case .file(let url): return "file:\(url.absoluteString)"
+        case .web(let url): return "web:\(url.absoluteString)"
         }
     }
 }

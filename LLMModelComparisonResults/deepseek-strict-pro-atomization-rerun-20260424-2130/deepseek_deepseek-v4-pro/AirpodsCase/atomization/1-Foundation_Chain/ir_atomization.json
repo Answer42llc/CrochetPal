@@ -1,0 +1,39 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 12,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 12"
+          },
+          {
+            "conditional" : null,
+            "kind" : "note",
+            "note" : {
+              "emitAsAction" : false,
+              "message" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.",
+              "sourceText" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows."
+            },
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows."
+          }
+        ]
+      },
+      "expectedProducedStitches" : 12,
+      "sourceText" : "CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.",
+      "title" : "Foundation Chain"
+    }
+  ]
+}

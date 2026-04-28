@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input. I have one round\/part called \"Button\" with the instruction \"Weave in the ends.\" and title \"Weave in ends\".\n\nThis is a non-stitch bookkeeping instruction - it's an assembly\/finishing action. Let me convert it to Crochet IR.\n\nThe instruction \"Weave in the ends.\" is a finishing action, so it should be a bookkeeping operation with actionTag \"assembly\" or something like \"weaveInEnds\". Let me check the recommended values for bookkeeping: turn, skip, joinYarn, fastenOff, changeColor, setWorkingLoop, placeMarker, removeMarker, moveMarker, assembly, custom.\n\n\"Weave in the ends\" sounds like an assembly\/finishing action. I'll use \"assembly\" as the actionTag and put a descriptive instruction.\n\nNo expectedProducedStitches since this isn't a stitch-producing round.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"sourceText\": \"Weave in the ends.\", \"title\": \"Weave in ends\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Weave in the ends.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 1, \"instruction\": \"Weave in the ends.\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_P61QcuQYdD2iDu4uHW031f5y",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777028999,
+  "id" : "ae7e4826-507c-4b06-9efe-cfa7607b8fd3",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 391,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 189
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 26,
+    "prompt_tokens" : 11674,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12065
+  }
+}

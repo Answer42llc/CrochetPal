@@ -1,0 +1,236 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc (work 2 scs in next sc)",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 7,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc (work 2 scs in next sc)",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 8,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 14,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc (work 2 scs in next sc)",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 16,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc (work 2 scs in next sc)",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 17,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 18,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 19,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 20,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 21,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 22,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 23,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 24,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc (work 2 scs in next sc)",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 25,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "increase",
+      "note" : "inc (work 2 scs in next sc)",
+      "producedStitches" : 1,
+      "semantics" : "increase",
+      "sequenceIndex" : 26,
+      "sourceText" : "7 sc, inc",
+      "stitchTag" : "sc"
+    }
+  ],
+  "expectedProducedStitches" : 27,
+  "producedStitchCount" : 27,
+  "sourceText" : "(7 sc, inc) x 3 (27 sc)",
+  "title" : "Rnd 5",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

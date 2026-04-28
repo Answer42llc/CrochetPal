@@ -1,0 +1,25 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Body",
+  "rawInstruction" : "1 DC in each stitch all the way around (24)",
+  "summary" : "Work a double crochet in every stitch around to create a decorative row.",
+  "targetStitchCount" : 24,
+  "title" : "Round 7"
+}

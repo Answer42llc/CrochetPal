@@ -1,0 +1,33 @@
+{
+  "rounds": [
+    {
+      "title": "Finish off and sew the 2 ends together.",
+      "sourceText": "Finish off and sew the 2 ends together.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Finish off and sew the 2 ends together.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "assembly",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Finish off and sew the 2 ends together.",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

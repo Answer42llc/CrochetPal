@@ -1,0 +1,97 @@
+{
+  "atomizationResults" : [
+    {
+      "actionCount" : 11,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-flash\/Snake\/atomization\/1-Row_1\/ir_tool_arguments.json",
+      "durationMS" : 15963,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-flash\/Snake\/atomization\/1-Row_1\/ir_envelope.json",
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-flash\/Snake\/atomization\/1-Row_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "producedStitchCount" : 10,
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "requestModel" : "deepseek-v4-flash",
+      "responseBytes" : 4862,
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-flash\/Snake\/atomization\/1-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/ir_tool_arguments.json",
+      "durationMS" : 62662,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/ir_envelope.json",
+      "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 9676,
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "magic ring"
+        }
+      ],
+      "warningCount" : 0
+    }
+  ],
+  "baseURL" : "https:\/\/api.deepseek.com\/beta",
+  "fixtures" : [
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake"
+    }
+  ],
+  "generatedAt" : "2026-04-24T10:35:21Z",
+  "models" : [
+    "deepseek\/deepseek-v4-flash",
+    "deepseek\/deepseek-v4-pro"
+  ],
+  "outlineResults" : [
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-flash\/Snake\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-flash\/Snake\/outline_envelope.json",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-flash\/Snake\/outline.json",
+      "requestModel" : "deepseek-v4-flash",
+      "roundCount" : 21,
+      "sampledRoundIndices" : [
+        0
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-pro\/Snake\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-pro\/Snake\/outline_envelope.json",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646\/deepseek_deepseek-v4-pro\/Snake\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 27,
+      "sampledRoundIndices" : [
+        0
+      ],
+      "status" : "success"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-smoke-20260424-1646",
+  "sampleCount" : 1
+}

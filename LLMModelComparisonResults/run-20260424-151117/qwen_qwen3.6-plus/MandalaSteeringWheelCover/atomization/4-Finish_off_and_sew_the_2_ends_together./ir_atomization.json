@@ -1,0 +1,26 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "assembly",
+              "count" : 1,
+              "instruction" : "Finish off and sew the 2 ends together.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Finish off and sew the 2 ends together."
+          }
+        ]
+      },
+      "sourceText" : "Finish off and sew the 2 ends together.",
+      "title" : "Finish off and sew the 2 ends together."
+    }
+  ]
+}

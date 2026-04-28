@@ -1,0 +1,68 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 0,
+              "note" : "one sc in each stitch across; exact count depends on previous row",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each st across"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "instruction" : "change to light blue in the last sc",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "changing to light blue in the last sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "turn"
+          }
+        ]
+      },
+      "sourceText" : "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+      "title" : "Row 6"
+    }
+  ]
+}

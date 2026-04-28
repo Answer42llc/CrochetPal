@@ -1,0 +1,88 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "inv dec",
+                      "count" : 1,
+                      "instruction" : "invisible decrease (like sc2tog, but only in the front loops)",
+                      "notePlacement" : "first",
+                      "producedStitches" : 1,
+                      "semantics" : "decrease",
+                      "stitch" : "inv dec"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "inv dec"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "placeMarker",
+                      "count" : 1,
+                      "instruction" : "place marker",
+                      "notePlacement" : "first",
+                      "semantics" : "bookkeeping"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "PM"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "inv dec",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "producedStitches" : 1,
+                      "semantics" : "decrease",
+                      "stitch" : "inv dec"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "inv dec"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 1,
+                      "note" : "until 1 sc before the next marker",
+                      "notePlacement" : "all",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "sc until 1 sc before the next marker"
+                  }
+                ]
+              },
+              "sourceRepeatCount" : 3,
+              "times" : 3
+            },
+            "sourceText" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3."
+          }
+        ]
+      },
+      "sourceText" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+      "title" : "Rnd 1"
+    }
+  ]
+}

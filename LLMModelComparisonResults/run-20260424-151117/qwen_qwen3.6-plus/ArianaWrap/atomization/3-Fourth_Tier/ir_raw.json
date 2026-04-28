@@ -1,0 +1,144 @@
+{
+  "rounds": [
+    {
+      "title": "Fourth Tier",
+      "sourceText": "Size S/M/L ONLY: Work across two sides of square 21, joining to triangle 14 and square 15, and one side of square 22, joining to square 15. Size XL/2X/3X ONLY: Work across two sides of square 33, joining to triangle 22 and square 23, then across two sides of square 34, joining to squares 23 and 24, and one side of square 35, joining to square 24. Both sizes: Work across the next side of square 22 (35) without joining, then work across one side of square 23 (36), joining to the side you just worked on square 22 (35). Continue across the next side of square 23 (36), and two sides of squares 24 and 25 (37–40), joining to the squares below, then work one side of square 26 (41) joining to square 18 (29). Work across the next side of square 26 (41) without joining, then work across one side of square 27 (42), joining to the side you just worked on square 26 (41). Work second side of square 27 (42) and last 1 (2) squares of this tier as established, ending with square 28 (44). Work across tops of all squares in this tier beginning with square 28 (44) and ending with square 21 (33). Fasten off.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "conditional",
+            "sourceText": "Size S/M/L ONLY: Work across two sides of square 21, joining to triangle 14 and square 15, and one side of square 22, joining to square 15. Size XL/2X/3X ONLY: Work across two sides of square 33, joining to triangle 22 and square 23, then across two sides of square 34, joining to squares 23 and 24, and one side of square 35, joining to square 24.",
+            "operation": null,
+            "repeat": null,
+            "conditional": {
+              "choiceID": "size_selection",
+              "branches": [
+                {
+                  "value": "S/M/L",
+                  "instruction": "Work across two sides of square 21, joining to triangle 14 and square 15, and one side of square 22, joining to square 15."
+                },
+                {
+                  "value": "XL/2X/3X",
+                  "instruction": "Work across two sides of square 33, joining to triangle 22 and square 23, then across two sides of square 34, joining to squares 23 and 24, and one side of square 35, joining to square 24."
+                }
+              ],
+              "defaultBranchValue": "S/M/L"
+            },
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Both sizes: Work across the next side of square 22 (35) without joining, then work across one side of square 23 (36), joining to the side you just worked on square 22 (35).",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "assembly",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Work across the next side of square 22 (35) without joining, then work across one side of square 23 (36), joining to the side you just worked on square 22 (35).",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Continue across the next side of square 23 (36), and two sides of squares 24 and 25 (37–40), joining to the squares below, then work one side of square 26 (41) joining to square 18 (29).",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "assembly",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Continue across the next side of square 23 (36), and two sides of squares 24 and 25 (37–40), joining to the squares below, then work one side of square 26 (41) joining to square 18 (29).",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Work across the next side of square 26 (41) without joining, then work across one side of square 27 (42), joining to the side you just worked on square 26 (41).",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "assembly",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Work across the next side of square 26 (41) without joining, then work across one side of square 27 (42), joining to the side you just worked on square 26 (41).",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Work second side of square 27 (42) and last 1 (2) squares of this tier as established, ending with square 28 (44).",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "assembly",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Work second side of square 27 (42) and last 1 (2) squares of this tier as established, ending with square 28 (44).",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Work across tops of all squares in this tier beginning with square 28 (44) and ending with square 21 (33).",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "assembly",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Work across tops of all squares in this tier beginning with square 28 (44) and ending with square 21 (33).",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Fasten off.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "fastenOff",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Fasten off.",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Flap",
+  "rawInstruction" : "Now we will work our button hole.",
+  "summary" : "Prepare to create the button hole in the next row.",
+  "title" : "Button hole"
+}

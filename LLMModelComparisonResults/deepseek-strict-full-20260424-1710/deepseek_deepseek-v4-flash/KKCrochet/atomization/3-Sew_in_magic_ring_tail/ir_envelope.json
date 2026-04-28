@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input. There's one round with a sewing instruction (not crochet stitches). This is a bookkeeping\/assembly operation.\n\nLet me parse:\n\n1. Round: \"Sew in magic ring tail\" - \"Using the tapestry needle, sew in the magic ring's 6\\\" tail.\"\n   - This is not a crochet stitch-producing round. It's an assembly\/finishing step.\n   - semantics: bookkeeping\n   - actionTag: \"assembly\" (or \"sewInTail\")\n   - instruction: \"Using the tapestry needle, sew in the magic ring's 6\\\" tail.\"\n\nNo stitch count expected.\n\nAlso need to check: there are no custom abbreviations used in this instruction.\n\nLet me compile this.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Sew in magic ring tail\", \"sourceText\": \"Using the tapestry needle, sew in the magic ring's 6\\\" tail.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Using the tapestry needle, sew in the magic ring's 6\\\" tail.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 0, \"instruction\": null, \"target\": null, \"note\": \"Using the tapestry needle, sew in the magic ring's 6\\\" tail.\", \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_dvw2irTzHWAYxFooOrXVgkB2",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029174,
+  "id" : "0aa69075-f665-4c37-886f-3de502dd9190",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 387,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 153
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 95,
+    "prompt_tokens" : 11743,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12130
+  }
+}

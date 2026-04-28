@@ -1,0 +1,124 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "decrease",
+      "instruction" : "Half Treble Crochet 2 together",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 0,
+      "sourceText" : "2HTCtog",
+      "stitchTag" : "HTC"
+    },
+    {
+      "actionTag" : "HTC",
+      "instruction" : "Half Treble Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "1HTC",
+      "stitchTag" : "HTC"
+    },
+    {
+      "actionTag" : "HTC",
+      "instruction" : "Half Treble Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "1HTC",
+      "stitchTag" : "HTC"
+    },
+    {
+      "actionTag" : "CH",
+      "instruction" : "Chain",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "CH2",
+      "stitchTag" : "CH"
+    },
+    {
+      "actionTag" : "CH",
+      "instruction" : "Chain",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "CH2",
+      "stitchTag" : "CH"
+    },
+    {
+      "actionTag" : "skip",
+      "instruction" : "skip the next 2 stitches",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 5,
+      "sourceText" : "skip the next 2 stitches"
+    },
+    {
+      "actionTag" : "HTC",
+      "instruction" : "Half Treble Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "1HTC",
+      "stitchTag" : "HTC"
+    },
+    {
+      "actionTag" : "HTC",
+      "instruction" : "Half Treble Crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "1HTC",
+      "stitchTag" : "HTC"
+    },
+    {
+      "actionTag" : "decrease",
+      "instruction" : "Half Treble Crochet 2 together",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 8,
+      "sourceText" : "2HTCtog",
+      "stitchTag" : "HTC"
+    },
+    {
+      "actionTag" : "CH",
+      "instruction" : "Chain",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "CH2",
+      "stitchTag" : "CH"
+    },
+    {
+      "actionTag" : "CH",
+      "instruction" : "Chain",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "CH2",
+      "stitchTag" : "CH"
+    },
+    {
+      "actionTag" : "turn",
+      "instruction" : "turn work",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 11,
+      "sourceText" : "turn"
+    }
+  ],
+  "expectedProducedStitches" : 8,
+  "producedStitchCount" : 6,
+  "sourceText" : "2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+  "title" : "Row 10",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+    {
+      "code" : "atomization_target_stitch_count_mismatch",
+      "message" : "Expected 8 produced stitches, but expanded to 6.",
+      "sourceText" : "2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)"
+    }
+  ]
+}

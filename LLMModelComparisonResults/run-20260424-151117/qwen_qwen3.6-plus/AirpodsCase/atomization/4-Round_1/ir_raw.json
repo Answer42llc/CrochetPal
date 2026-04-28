@@ -1,0 +1,51 @@
+{
+  "rounds": [
+    {
+      "title": "Round 1",
+      "sourceText": "work 12 treble crochet, join. (12)",
+      "expectedProducedStitches": 12,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "work 12 treble crochet",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "tr",
+              "stitch": "tr",
+              "count": 12,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "join",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "join",
+              "stitch": null,
+              "count": 1,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

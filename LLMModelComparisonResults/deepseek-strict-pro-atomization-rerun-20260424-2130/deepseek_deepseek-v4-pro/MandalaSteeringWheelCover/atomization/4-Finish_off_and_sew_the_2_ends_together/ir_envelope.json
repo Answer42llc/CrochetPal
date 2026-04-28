@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input request.\n\nWe have a single round with:\n- Part name: \"Cover\"\n- Raw instruction: \"Finish off and sew the 2 ends together.\"\n- Title: \"Finish off and sew the 2 ends together.\"\n\nThis is a finishing instruction. Let me break it down:\n\n\"Finish off\" = fasten off (bookkeeping operation)\n\"and sew the 2 ends together\" = assembly (bookkeeping operation)\n\nThese are two distinct bookkeeping operations:\n1. \"Finish off\" → fastenOff\n2. \"sew the 2 ends together\" → assembly\n\nLet me construct the IR. \n\nFor \"Finish off and sew the 2 ends together.\" - this is a single source text but contains two actions. I should represent them as two separate operation statements in the block.\n\nLet me check: the source text is one instruction, but it contains two distinct actions. I'll split them:\n\nStatement 1: \"Finish off\" → operation, semantics: bookkeeping, actionTag: \"fastenOff\", stitch: null, count: 1, instruction: \"Finish off\"\nStatement 2: \"sew the 2 ends together\" → operation, semantics: bookkeeping, actionTag: \"assembly\", stitch: null, count: 1, instruction: \"Sew the 2 ends together\"\n\nNo expectedProducedStitches since this is finishing.\n\nLet me construct the full IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Finish off and sew the 2 ends together\", \"sourceText\": \"Finish off and sew the 2 ends together.\", \"expectedProducedStitches\": null, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Finish off\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"fastenOff\", \"stitch\": null, \"count\": 1, \"instruction\": \"Finish off\", \"target\": null, \"note\": null, \"notePlacement\": \"all\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"sew the 2 ends together\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 1, \"instruction\": \"Sew the 2 ends together\", \"target\": null, \"note\": null, \"notePlacement\": \"all\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_OCPvzLOxTY0uqTIkVBxc1C7z",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777043540,
+  "id" : "ee8b6c45-fa35-4661-bd23-f6c0619a75f7",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 604,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 295
+    },
+    "prompt_cache_hit_tokens" : 11520,
+    "prompt_cache_miss_tokens" : 132,
+    "prompt_tokens" : 11652,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11520
+    },
+    "total_tokens" : 12256
+  }
+}

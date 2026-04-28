@@ -1,0 +1,76 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Beginning",
+      "term" : "Beg"
+    },
+    {
+      "definition" : "Chain",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "Double crochet",
+      "term" : "Dc"
+    },
+    {
+      "definition" : "Front loop only",
+      "term" : "FLO"
+    },
+    {
+      "definition" : "Front post",
+      "term" : "FP"
+    },
+    {
+      "definition" : "Half-double crochet",
+      "term" : "Hdc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "Rep"
+    },
+    {
+      "definition" : "Single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Stitch marker",
+      "term" : "SM"
+    },
+    {
+      "definition" : "Space\/spaces",
+      "term" : "Sp\/sps"
+    },
+    {
+      "definition" : "Stitch\/stitches",
+      "term" : "St\/sts"
+    },
+    {
+      "definition" : "Treble crochet",
+      "term" : "Tr"
+    },
+    {
+      "definition" : "Repeat instructions between asterisks the number of times specified",
+      "term" : "*"
+    },
+    {
+      "definition" : "Repeat instructions between brackets the number of times specified",
+      "term" : "()"
+    },
+    {
+      "definition" : "Used to indicate stitches made into the same st\/sp",
+      "term" : "[]"
+    },
+    {
+      "definition" : "Extended double crochet: Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.",
+      "term" : "Edc"
+    },
+    {
+      "definition" : "Make 5 dc in the indicated st\/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+      "term" : "Popcorn"
+    }
+  ],
+  "partName" : "Square",
+  "rawInstruction" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}",
+  "summary" : "Work front post double crochets around Round 5 stitches and half-double crochets around the petals, then fasten off.",
+  "title" : "Round 7"
+}

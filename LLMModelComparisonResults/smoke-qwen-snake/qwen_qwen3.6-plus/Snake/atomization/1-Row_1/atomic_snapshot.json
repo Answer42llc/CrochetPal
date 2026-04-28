@@ -1,0 +1,105 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "note" : "magic ring",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "single crochet",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "Start 10 sc in a magic ring",
+      "stitchTag" : "sc"
+    }
+  ],
+  "expectedProducedStitches" : 10,
+  "producedStitchCount" : 10,
+  "sourceText" : "Start 10 sc in a magic ring",
+  "title" : "Row 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

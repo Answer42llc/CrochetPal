@@ -1,0 +1,155 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "sc",
+      "note" : "2nd ch from hook and next 2 chs",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "Sc in 2nd ch from hook and in next 2 chs.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "Sc in 2nd ch from hook and in next 2 chs.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "Sc in 2nd ch from hook and in next 2 chs.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "hdc",
+      "note" : "next ch",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "Hdc in next ch,",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "dc",
+      "note" : "next 8 chains",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "dc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "dc in next 8 chains.",
+      "stitchTag" : "dc"
+    },
+    {
+      "actionTag" : "hdc",
+      "note" : "next ch",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 12,
+      "sourceText" : "Hdc in next ch.",
+      "stitchTag" : "hdc"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "last 3 chains",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 13,
+      "sourceText" : "Sc in last 3 chains.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 14,
+      "sourceText" : "Sc in last 3 chains.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 15,
+      "sourceText" : "Sc in last 3 chains.",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "turn",
+      "instruction" : "Turn",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 16,
+      "sourceText" : "Turn"
+    }
+  ],
+  "expectedProducedStitches" : 16,
+  "producedStitchCount" : 16,
+  "sourceText" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn",
+  "title" : "Row 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

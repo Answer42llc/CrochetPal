@@ -1,0 +1,240 @@
+{
+  "projectTitle": "Wolf Granny Square",
+  "materials": [
+    "Yarn of Your Choice - 5 Colors",
+    "3.00 mm Crochet Hook",
+    "Darning Needle",
+    "Scissors"
+  ],
+  "confidence": 0.95,
+  "abbreviations": [
+    { "term": "ch", "definition": "chain stitch" },
+    { "term": "sc", "definition": "single crochet" },
+    { "term": "hdc", "definition": "half double crochet" },
+    { "term": "dc", "definition": "double crochet" },
+    { "term": "slst", "definition": "slip stitch for joining to a different round" },
+    { "term": "st", "definition": "stitch" },
+    { "term": "yo", "definition": "yarn over" },
+    { "term": "sk", "definition": "skip" },
+    { "term": "inc", "definition": "increase" },
+    { "term": "pic", "definition": "picot stitch" },
+    { "term": "TLO", "definition": "third loop only" }
+  ],
+  "parts": [
+    {
+      "name": "Wolf Head",
+      "rounds": [
+        {
+          "title": "Round 1",
+          "rawInstruction": "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+          "summary": "Create a magic ring and work 7 single crochets, join with slip stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Round 2",
+          "rawInstruction": "Ch1, sc inc in the same st, sc inc, change to white yarn: (sc inc)x5. Change back to grey yarn on the final yo of the last sc, and slst to the first sc.",
+          "summary": "Increase stitches and change colors to shape the face.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Round 3",
+          "rawInstruction": "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc. Hdc inc, 1hdc; Change to white yarn: Hdc inc, 1hdc, hdc inc, (1sc, sc inc) repeat 2 times, hdc inc, 1hdc, hdc inc; Change back to grey yarn: 1hdc. Slst to the top of the first ch2.",
+          "summary": "Expand the head with hdc and sc increases, maintaining color alignment.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Round 4",
+          "rawInstruction": "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+          "summary": "Continue shaping the face base with mixed hdc and sc stitches.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Round 5",
+          "rawInstruction": "Ch2 (count as 1hdc), 3hdc, (hdc inc)x3; Change to white yarn: 3hdc, 2sc, (sc inc, 4sc) repeat 2 times, sc inc, 2sc, 3hdc; Change back to grey yarn: (hdc inc)x3. Slst to the top of the first ch2, and fasten off.",
+          "summary": "Complete the wolf head shape and fasten off.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Squaring",
+      "rounds": [
+        {
+          "title": "Squaring",
+          "rawInstruction": "Third loop only. With grey stitches on top, join new yarn to the 4th grey stitch from the right. Ch3 (count as 1dc), 1dc in the same st to complete the first dc inc, 8hdc, dc inc, ch3; [dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+          "summary": "Work in the third loop only to square off the circular head.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Border",
+      "rounds": [
+        {
+          "title": "Border",
+          "rawInstruction": "Ch3 (count as 1dc), 1dc in the same corner, 1dc in each st around, (2dc, ch3, 2dc) in each corner as you go. When you return to the starting corner, work (2dc, ch3), slst to the top of the first ch3, fasten off.",
+          "summary": "Add a double crochet border with corner clusters to complete the square.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Wolf's Left Ear",
+      "rounds": [
+        {
+          "title": "Inner Ear",
+          "rawInstruction": "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+          "summary": "Create the inner ear detail with a picot stitch.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Ear Edge",
+          "rawInstruction": "Join grey yarn to the st immediately to the right of the inner ear join (the 5th grey st from the left), ch1. Now we crochet along the inner ear part and work in the TLO: sk the initial ch, 2sc, sc inc, 2sc, ch1. Slst in the same grey st used for the inner ear's final slst. Fasten off, and weave in your ends.",
+          "summary": "Crochet along the inner ear edge in the third loop only to finish the ear.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Wolf's Right Ear",
+      "rounds": [
+        {
+          "title": "Right Ear",
+          "rawInstruction": "Repeat the ear instructions on the opposite side, leaving a 5-stitch for symmetry. (Join white yarn for the inner ear in the 3rd grey stitch from the right.)",
+          "summary": "Mirror the left ear instructions on the opposite side.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Wolf's Muzzle",
+      "rounds": [
+        {
+          "title": "Round 1",
+          "rawInstruction": "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+          "summary": "Create a magic ring and work 9 half double crochets.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Round 2",
+          "rawInstruction": "Ch1+1sc, 1sc in each st around, slst to the first sc. Fasten off, leave a long tail for attaching.",
+          "summary": "Work single crochets around and fasten off, leaving a tail for sewing.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Final Assembly and Details",
+      "rounds": [
+        {
+          "title": "Attach the Muzzle",
+          "rawInstruction": "Attach the Muzzle: Turn the muzzle over so the wrong side faces out. Position it on the lower center of the head and sew it firmly in place. You can add a small amount of stuffing before closing.",
+          "summary": "Sew the muzzle to the lower center of the head.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "The Nose",
+          "rawInstruction": "The Nose: Stitch the nose on the muzzle.",
+          "summary": "Embroider the nose onto the muzzle.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Eyes & Blushes",
+          "rawInstruction": "Eyes & Blushes: Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+          "summary": "Embroider eyes and add pink blushes below them.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    }
+  ]
+}

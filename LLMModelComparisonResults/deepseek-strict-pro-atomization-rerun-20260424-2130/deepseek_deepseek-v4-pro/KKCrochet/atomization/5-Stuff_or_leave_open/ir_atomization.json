@@ -1,0 +1,69 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : {
+              "branches" : [
+                {
+                  "body" : {
+                    "statements" : [
+                      {
+                        "conditional" : null,
+                        "kind" : "operation",
+                        "note" : null,
+                        "operation" : {
+                          "actionTag" : "overstuff",
+                          "count" : 1,
+                          "instruction" : "Slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker",
+                          "notePlacement" : "all",
+                          "semantics" : "bookkeeping"
+                        },
+                        "repeat" : null,
+                        "sourceText" : "slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker"
+                      }
+                    ]
+                  },
+                  "label" : "Stuffing",
+                  "value" : "stuffing"
+                },
+                {
+                  "body" : {
+                    "statements" : [
+                      {
+                        "conditional" : null,
+                        "kind" : "operation",
+                        "note" : null,
+                        "operation" : {
+                          "actionTag" : "leaveOpen",
+                          "count" : 1,
+                          "instruction" : "Leave hole open and yarn tail outside",
+                          "notePlacement" : "all",
+                          "semantics" : "bookkeeping"
+                        },
+                        "repeat" : null,
+                        "sourceText" : "leave hole open and yarn tail outside"
+                      }
+                    ]
+                  },
+                  "label" : "Mailing unstuffed",
+                  "value" : "mailingUnstuffed"
+                }
+              ],
+              "choiceID" : "stuffOrMail",
+              "question" : "Are you stuffing or mailing unstuffed?"
+            },
+            "kind" : "conditional",
+            "note" : null,
+            "operation" : null,
+            "repeat" : null,
+            "sourceText" : "If stuffing: slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker. If mailing unstuffed: leave hole open and yarn tail outside."
+          }
+        ]
+      },
+      "sourceText" : "If stuffing: slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker. If mailing unstuffed: leave hole open and yarn tail outside.",
+      "title" : "Stuff or leave open"
+    }
+  ]
+}

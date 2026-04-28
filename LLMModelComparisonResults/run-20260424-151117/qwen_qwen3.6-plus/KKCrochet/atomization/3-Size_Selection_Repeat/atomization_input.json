@@ -1,0 +1,36 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "place marker",
+      "term" : "pm"
+    },
+    {
+      "definition" : "round",
+      "term" : "rnd"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "work 2 scs in next sc",
+      "term" : "inc"
+    },
+    {
+      "definition" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "term" : "inv dec"
+    }
+  ],
+  "partName" : "Front",
+  "rawInstruction" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc) B cup – Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc) C cup – Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc) D cup – Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc) DD cup – Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+  "summary" : "Repeat rounds 6 and 7 based on desired cup size.",
+  "title" : "Size Selection & Repeat"
+}

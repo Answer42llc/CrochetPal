@@ -1,0 +1,54 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain or chains",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "sl st"
+    },
+    {
+      "definition" : "stitch",
+      "term" : "st"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "Green yarn (about 2m\/2.2yd, e.g., Caron Simply Soft Kelly Green)",
+    "Red yarn (34-40cm\/12-16\", e.g., Red Heart Soft Really Red)",
+    "Hook matching chosen yarn weight (suggested 3.5mm\/E for worsted yarn)",
+    "Yarn needle",
+    "Scissors",
+    "Optional: clear nail polish or white glue"
+  ],
+  "parts" : [
+    {
+      "name" : "Wreath",
+      "rounds" : [
+        {
+          "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+          "summary" : "Chain 14, join to form a circle, then create 14 chain-3 loops around the circle with slip stitches.",
+          "targetStitchCount" : 14,
+          "title" : "Rnd 1"
+        },
+        {
+          "rawInstruction" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+          "summary" : "Fasten off green yarn and weave in ends, or keep them for sewing if using as an applique.",
+          "title" : "Fasten off and weave in the ends"
+        },
+        {
+          "rawInstruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+          "summary" : "Weave red yarn through all 14 chain loops, tie ends into a bow, and trim.",
+          "title" : "Weave red yarn through chain loops and tie a bow"
+        },
+        {
+          "rawInstruction" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+          "summary" : "Optionally apply clear nail polish or white glue to the bow knot and yarn ends to prevent fraying.",
+          "title" : "Optional: secure knot with nail polish or glue"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Tiny Christmas Wreath"
+}

@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a single round\/instruction into Crochet IR. Let me analyze the input:\n\n- Part: Mouse\n- rawInstruction: \"Finish off and sew closed.\"\n- title: \"Finish off and sew closed\"\n\nThis is a bookkeeping instruction. \"Finish off\" means fasten off, and \"sew closed\" means sewing\/assembly. Let me think about how to represent this.\n\n\"Finish off and sew closed\" contains two actions:\n1. Finish off (fasten off) - bookkeeping\n2. Sew closed - assembly\/bookkeeping\n\nSince these are two distinct actions, I should probably split them into two operations. But let me think about whether they should be combined or separate.\n\nThe pattern says \"Finish off and sew closed.\" - this is two sequential bookkeeping actions:\n1. fastenOff - finish off the yarn\n2. assembly - sew closed\n\nI'll make them two separate operation statements.\n\nLet me construct the IR:\n\nFor \"Finish off\":\n- semantics: bookkeeping\n- actionTag: \"fastenOff\"\n- stitch: null\n- count: 1\n- instruction: null (or could describe)\n- target: null\n- note: null\n\nFor \"sew closed\":\n- semantics: bookkeeping\n- actionTag: \"assembly\"\n- stitch: null\n- count: 1\n- instruction: \"Sew closed\"\n- target: null\n- note: null\n\nWait, let me reconsider. The source text is \"Finish off and sew closed.\" as a single instruction. Should I split it into two statements or keep as one? The pattern treats it as one line. But semantically these are two different actions. I think splitting into two statements makes more sense for the IR, as they are separate bookkeeping actions.\n\nexpectedProducedStitches: null (no stitches are produced)\n\nLet me construct the full JSON now.\n\nRound:\n- title: \"Finish off and sew closed\"\n- sourceText: \"Finish off and sew closed.\"\n- expectedProducedStitches: null\n- body with two statements\n\nStatement 1: \"Finish off\"\n- kind: operation\n- sourceText: \"Finish off\"\n- operation: semantics=bookkeeping, actionTag=\"fastenOff\", stitch=null, count=1, instruction=null, target=null, note=null, notePlacement=\"first\", producedStitches=null\n\nStatement 2: \"sew closed\"\n- kind: operation\n- sourceText: \"sew closed\"\n- operation: semantics=bookkeeping, actionTag=\"assembly\", stitch=null, count=1, instruction=\"Sew closed\", target=null, note=null, notePlacement=\"first\", producedStitches=null\n\nActually, I can also keep the sourceText as the full \"Finish off and sew closed.\" for the body's sourceText, and split the individual statement sourceTexts accordingly. But the statements should probably have their own sourceText that corresponds to their part.\n\nHmm, let me think about this differently. The instruction says \"Finish off and sew closed.\" - I could treat this as a single operation with semantics=bookkeeping, actionTag=\"custom\" and instruction describing everything. But the system prefers to use canonical tags like fastenOff and assembly.\n\nI'll split into two operations, which I think is the cleanest approach.\n\nLet me also consider: should the \"sew closed\" have instruction text? I think \"Sew closed\" is fine for the instruction field, or I could leave it null since the actionTag \"assembly\" already communicates it.\n\nActually, looking at the spec more carefully - for bookkeeping actions, the instruction field is optional. I'll put a brief descriptive instruction for assembly.\n\nLet me finalize:\n\nStatement 1:\n- kind: \"operation\"\n- sourceText: \"Finish off\"\n- operation: { semantics: \"bookkeeping\", actionTag: \"fastenOff\", stitch: null, count: 1, instruction: null, target: null, note: null, notePlacement: \"first\", producedStitches: null }\n- repeat: null, conditional: null, note: null\n\nStatement 2:\n- kind: \"operation\"\n- sourceText: \"sew closed\"\n- operation: { semantics: \"bookkeeping\", actionTag: \"assembly\", stitch: null, count: 1, instruction: \"Sew closed\", target: null, note: null, notePlacement: \"first\", producedStitches: null }\n- repeat: null, conditional: null, note: null\n\nThis looks good. Let me now construct the full JSON and call the function.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Finish off and sew closed\", \"sourceText\": \"Finish off and sew closed.\", \"expectedProducedStitches\": null, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Finish off\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"fastenOff\", \"stitch\": null, \"count\": 1, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"sew closed\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 1, \"instruction\": \"Sew closed\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_1bYCHxZgzpgo5c5hvn0a40dp",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777044651,
+  "id" : "c79fd50e-27ee-4e94-b103-6bc1106ab567",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1249,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 958
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 82,
+    "prompt_tokens" : 11730,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12979
+  }
+}

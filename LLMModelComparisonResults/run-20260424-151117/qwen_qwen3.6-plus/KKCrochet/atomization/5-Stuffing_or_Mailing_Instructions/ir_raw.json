@@ -1,0 +1,33 @@
+{
+  "rounds": [
+    {
+      "title": "Stuffing or Mailing Instructions",
+      "sourceText": "If stuffing the Knocker: Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen. Stuffing will not come out when worn or washed. Tuck tail into Knocker so that filling can be adjusted as needed. If mailing in unstuffed: Leave the hole open and the yarn tail outside of the Knocker. If your yarn tends to fray easily, tie a loose knot at the end of the tail.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "If stuffing the Knocker: Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen. Stuffing will not come out when worn or washed. Tuck tail into Knocker so that filling can be adjusted as needed. If mailing in unstuffed: Leave the hole open and the yarn tail outside of the Knocker. If your yarn tends to fray easily, tie a loose knot at the end of the tail.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "assembly",
+              "stitch": "",
+              "count": 1,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

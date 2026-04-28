@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "assembly",
+      "instruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+  "title" : "Weave red yarn through chain loops and tie a bow",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "atomizationResults" : [
+
+  ],
+  "fixtureRoot" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM",
+  "fixtures" : [
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/AirpodsCase\/outline.json",
+      "baselineRoundCount" : 16,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/AirpodsCase\/extracted_text.txt",
+      "name" : "AirpodsCase",
+      "sourceType" : "pdf",
+      "title" : "Airpods Case",
+      "titleHint" : "Airpods Case"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/ArianaWrap\/outline.json",
+      "baselineRoundCount" : 54,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/ArianaWrap\/extracted_text.txt",
+      "name" : "ArianaWrap",
+      "sourceType" : "pdf",
+      "title" : "Ariana Wrap",
+      "titleHint" : "Ariana Wrap"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/HuaweiFreebudsCase\/outline.json",
+      "baselineRoundCount" : 18,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/HuaweiFreebudsCase\/extracted_text.txt",
+      "name" : "HuaweiFreebudsCase",
+      "sourceType" : "pdf",
+      "title" : "Huawei Freebuds Case",
+      "titleHint" : "Huawei Freebuds Case"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/KKCrochet\/outline.json",
+      "baselineRoundCount" : 22,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/KKCrochet\/extracted_text.txt",
+      "name" : "KKCrochet",
+      "sourceType" : "pdf",
+      "title" : "Crochet Knockers",
+      "titleHint" : "Crochet Knockers"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MandalaSteeringWheelCover\/outline.json",
+      "baselineRoundCount" : 5,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MandalaSteeringWheelCover\/extracted_text.txt",
+      "name" : "MandalaSteeringWheelCover",
+      "sourceType" : "pdf",
+      "title" : "Mandala Steering Wheel Cover",
+      "titleHint" : "Mandala Steering Wheel Cover"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MarysMomentFloralSquare\/outline.json",
+      "baselineRoundCount" : 12,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MarysMomentFloralSquare\/extracted_text.txt",
+      "name" : "MarysMomentFloralSquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/lookatwhatimade.net\/crafts\/yarn\/crochet\/free-crochet-patterns\/marys-moment-free-floral-crochet-square-pattern\/",
+      "title" : "Mary's Moment Floral Square",
+      "titleHint" : "Mary's Moment Floral Square"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MochiBear\/outline.json",
+      "baselineRoundCount" : 34,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MochiBear\/extracted_text.txt",
+      "name" : "MochiBear",
+      "sourceType" : "pdf",
+      "title" : "Mochi Bear",
+      "titleHint" : "Mochi Bear"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/outline.json",
+      "baselineRoundCount" : 18,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/extracted_text.txt",
+      "name" : "MouseCatToy",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/sparkitectcrafts.com\/mouse-cat-toy-crochet-pattern\/",
+      "title" : "Mouse Cat Toy",
+      "titleHint" : "Mouse Cat Toy"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/QuietTidesBlanket\/outline.json",
+      "baselineRoundCount" : 21,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/QuietTidesBlanket\/extracted_text.txt",
+      "name" : "QuietTidesBlanket",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/www.circuloyarns.com\/post\/quiet-tides-baby-blanket",
+      "title" : "Quiet Tides Baby Blanket",
+      "titleHint" : "Quiet Tides Baby Blanket"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/outline.json",
+      "baselineRoundCount" : 21,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake",
+      "titleHint" : "Snake"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/TinyChristmasWreath\/outline.json",
+      "baselineRoundCount" : 4,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/TinyChristmasWreath\/extracted_text.txt",
+      "name" : "TinyChristmasWreath",
+      "sourceType" : "pdf",
+      "title" : "Tiny Christmas Wreath",
+      "titleHint" : "Tiny Christmas Wreath"
+    },
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/WolfGrannySquare\/outline.json",
+      "baselineRoundCount" : 15,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/WolfGrannySquare\/extracted_text.txt",
+      "name" : "WolfGrannySquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/grannysquare.me\/wolf-granny-square\/#pattern",
+      "title" : "Wolf Granny Square",
+      "titleHint" : "Wolf Granny Square"
+    }
+  ],
+  "generatedAt" : "2026-04-24T08:43:52Z",
+  "models" : [
+    "deepseek\/deepseek-v4-flash",
+    "deepseek\/deepseek-v4-pro"
+  ],
+  "outlineResults" : [
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-flash",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "error" : "HTTP 400: {\"error\":{\"message\":\"Provider returned error\",\"code\":400,\"metadata\":{\"raw\":\"{\\\"error\\\":{\\\"message\\\":\\\"This response_format type is unavailable now\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":null,\\\"code\\\":\\\"invalid_request_error\\\"}}\",\"provider_name\":\"DeepSeek\",\"is_byok\":false}},\"user_id\":\"user_31lwWQq2Xd1pKRMlEWPVarPsWLA\"}",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/retry-deepseek-20260424-1620",
+  "repoRoot" : "\/Users\/lw\/Projects\/CrochetPal",
+  "sampleCount" : 5
+}

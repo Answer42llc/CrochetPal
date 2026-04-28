@@ -1,0 +1,87 @@
+{
+  "rounds": [
+    {
+      "title": "Set Up Rib: Rnd 1",
+      "sourceText": "* K1, p2, k1, repeat from * to the end of the round.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "repeat",
+            "sourceText": "* K1, p2, k1, repeat from * to the end of the round.",
+            "operation": null,
+            "repeat": {
+              "times": null,
+              "sourceRepeatCount": null,
+              "normalizationNote": null,
+              "body": {
+                "sourceText": "K1, p2, k1",
+                "normalizationNote": null,
+                "statements": [
+                  {
+                    "kind": "operation",
+                    "sourceText": "K1",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "k",
+                      "stitch": "k",
+                      "count": 1,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "p2",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "p",
+                      "stitch": "p",
+                      "count": 2,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  },
+                  {
+                    "kind": "operation",
+                    "sourceText": "k1",
+                    "operation": {
+                      "semantics": "stitchProducing",
+                      "actionTag": "k",
+                      "stitch": "k",
+                      "count": 1,
+                      "instruction": null,
+                      "target": null,
+                      "note": null,
+                      "notePlacement": "first",
+                      "producedStitches": null
+                    },
+                    "repeat": null,
+                    "conditional": null,
+                    "note": null
+                  }
+                ]
+              }
+            },
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

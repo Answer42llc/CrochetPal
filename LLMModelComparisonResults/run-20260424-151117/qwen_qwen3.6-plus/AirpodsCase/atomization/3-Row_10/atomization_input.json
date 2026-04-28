@@ -1,0 +1,25 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off.",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Body",
+  "rawInstruction" : "2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+  "summary" : "Create the buttonhole by decreasing and chaining to skip stitches.",
+  "targetStitchCount" : 8,
+  "title" : "Row 10"
+}

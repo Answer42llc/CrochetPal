@@ -1,0 +1,36 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Increase",
+      "term" : "Inc"
+    },
+    {
+      "definition" : "Stitch",
+      "term" : "St"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "Slst"
+    },
+    {
+      "definition" : "back loop only",
+      "term" : "BLO"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "FLO"
+    }
+  ],
+  "partName" : "Ears",
+  "rawInstruction" : "7sc in MR,do not join, just tie MR",
+  "summary" : "Work seven single crochets in a magic ring and tie closed.",
+  "title" : "Ears"
+}

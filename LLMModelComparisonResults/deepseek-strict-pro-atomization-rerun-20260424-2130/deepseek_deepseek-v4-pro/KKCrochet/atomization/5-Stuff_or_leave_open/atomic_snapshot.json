@@ -1,0 +1,24 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "conditionalPrompt",
+      "instruction" : "Are you stuffing or mailing unstuffed?",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "If stuffing: slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker. If mailing unstuffed: leave hole open and yarn tail outside."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "If stuffing: slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker. If mailing unstuffed: leave hole open and yarn tail outside.",
+  "title" : "Stuff or leave open",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+    {
+      "code" : "ir_missing_choice",
+      "message" : "A choice is required for stuffOrMail."
+    }
+  ]
+}

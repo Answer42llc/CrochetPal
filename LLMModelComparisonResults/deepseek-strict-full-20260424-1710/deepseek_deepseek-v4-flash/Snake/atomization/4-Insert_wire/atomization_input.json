@@ -1,0 +1,32 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "increase (2 crochets in 1 loop)",
+      "term" : "inc."
+    },
+    {
+      "definition" : "decrease (2 crochets together)",
+      "term" : "dec."
+    },
+    {
+      "definition" : "repeat the sequence of loops in brackets L times",
+      "term" : "(....) - L times"
+    }
+  ],
+  "partName" : "Body",
+  "rawInstruction" : "Next, insert the wire into the body, pre-bend the edges of the wire",
+  "summary" : "Insert a wire into the body for poseability, pre-bending the edges for safety.",
+  "title" : "Insert wire"
+}

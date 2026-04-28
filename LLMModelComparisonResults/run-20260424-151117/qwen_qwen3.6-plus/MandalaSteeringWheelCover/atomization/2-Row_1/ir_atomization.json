@@ -1,0 +1,101 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "2nd ch from hook and next 2 chs"
+            },
+            "repeat" : null,
+            "sourceText" : "Sc in 2nd ch from hook and in next 2 chs."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc",
+              "target" : "next ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Hdc in next ch,"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "dc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "dc",
+              "target" : "next 8 chains"
+            },
+            "repeat" : null,
+            "sourceText" : "dc in next 8 chains."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc",
+              "target" : "next ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Hdc in next ch."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "last 3 chains"
+            },
+            "repeat" : null,
+            "sourceText" : "Sc in last 3 chains."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "turn",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Turn"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 16,
+      "sourceText" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn",
+      "title" : "Row 1"
+    }
+  ]
+}

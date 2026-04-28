@@ -1,0 +1,48 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "foundation chain",
+      "term" : "fc"
+    },
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "space",
+      "term" : "sp"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "ss"
+    },
+    {
+      "definition" : "increase (2 sc in same stitch)",
+      "term" : "inc"
+    },
+    {
+      "definition" : "decrease (single crochet 2 stitches together)",
+      "term" : "dec"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "fasten off",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Arms",
+  "rawInstruction" : "Attach yarn between Rows 11-12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO.",
+  "summary" : "Attach yarn at the marked space between Rows 11-12. Chain 1, single crochet, half double crochet, 3 double crochets, chain 2, slip stitch in same space. Fasten off.",
+  "title" : "Arm 1"
+}

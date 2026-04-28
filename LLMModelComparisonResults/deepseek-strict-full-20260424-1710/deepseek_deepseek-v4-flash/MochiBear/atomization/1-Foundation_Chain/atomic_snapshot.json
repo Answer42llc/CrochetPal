@@ -1,0 +1,45 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "CH 4",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "CH 4",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "CH 4",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "CH 4",
+      "stitchTag" : "ch"
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "CH 4",
+  "title" : "Foundation Chain",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

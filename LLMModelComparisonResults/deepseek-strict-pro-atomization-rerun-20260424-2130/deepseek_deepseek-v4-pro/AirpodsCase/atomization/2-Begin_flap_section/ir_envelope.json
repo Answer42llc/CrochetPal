@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this input carefully.\n\nThe input is a single round with:\n- partName: \"Flap\"\n- rawInstruction: \"Now we will begin to work the flap, from here on we will be working in rows back and forth.\"\n- title: \"Begin flap section\"\n\nThis is purely a bookkeeping\/instructional statement. There are no stitches being produced. It's telling the user that we're transitioning to working in rows for the flap section.\n\nThis doesn't produce any stitches. It's a note or a bookkeeping operation. Let me think about what this should be:\n\n- It's not producing stitches\n- It's instructional - telling the user about the change in working direction\n- There's no explicit stitch count mentioned\n\nI think the best approach is to represent this as a `note` statement since it's purely informational. But it could also be a `bookkeeping` operation. Let me think...\n\nThe instruction says \"from here on we will be working in rows back and forth.\" This is somewhat like a \"turn\" instruction conceptually, but it's more of an informational note about the change in working mode. \n\nI'll make it a `note` statement with `emitAsAction: false` since it's just informational and doesn't require a tap\/action. The note captures the instructional text.\n\nBut wait - looking at the pattern, this is the beginning of a new section. The instruction is telling the user that we're switching from rounds to rows. This could be considered a bookkeeping operation with `actionTag = \"setWorkingLoop\"` or similar, but I think a note is more appropriate here since no specific action is being directed - it's just informing about the mode change.\n\nLet me also consider: `expectedProducedStitches` should be null since no stitches are produced.\n\nLet me construct the IR:\n\n- round with title \"Begin flap section\"\n- sourceText: the raw instruction\n- expectedProducedStitches: null\n- body with one statement: a note\n\nThe note:\n- kind: \"note\"\n- sourceText: the raw instruction\n- operation: null\n- repeat: null\n- conditional: null\n- note: { message: \"Now we will begin to work the flap, from here on we will be working in rows back and forth.\", sourceText: the raw instruction, emitAsAction: false }\n\nWait, I need to check the schema more carefully. The note message field is required, and sourceText and emitAsAction are required.\n\nLet me also consider: could this be a bookkeeping operation instead? Looking at the semantics options: `bookkeeping` includes things like turn, skip, joinYarn, fastenOff, changeColor, setWorkingLoop, placeMarker, removeMarker, moveMarker, assembly, custom.\n\nThis could be a `bookkeeping` operation with `actionTag = \"custom\"` or perhaps `actionTag = \"setWorkingLoop\"` since it's about changing the working direction. But I think a note is cleaner for purely informational text.\n\nActually, I'll go with a note statement. The message will be the raw instruction text.\n\nLet me also consider: should there be an `actionTag` note about turning? The instruction says \"working in rows back and forth\" - this implies turning at the end of each row, but it's not an explicit turn instruction. It's more of a section header\/intro.\n\nI'll go with a note.\n\nLet me double-check the structure requirements...\n\nFor the round:\n- title: \"Begin flap section\"\n- sourceText: \"Now we will begin to work the flap, from here on we will be working in rows back and forth.\"\n- expectedProducedStitches: null\n- body: { statements: [...], sourceText: null, normalizationNote: null }\n\nFor the statement:\n- kind: \"note\"\n- sourceText: the raw instruction\n- operation: null\n- repeat: null\n- conditional: null\n- note: { message: \"...\", sourceText: \"...\", emitAsAction: false }\n\nThis looks right. Let me produce the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Begin flap section\", \"sourceText\": \"Now we will begin to work the flap, from here on we will be working in rows back and forth.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"note\", \"sourceText\": \"Now we will begin to work the flap, from here on we will be working in rows back and forth.\", \"operation\": null, \"repeat\": null, \"conditional\": null, \"note\": {\"message\": \"Now we will begin to work the flap, from here on we will be working in rows back and forth.\", \"sourceText\": \"Now we will begin to work the flap, from here on we will be working in rows back and forth.\", \"emitAsAction\": false}}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_zAGDCPjcZU1lW8ujS067QCGf",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777042633,
+  "id" : "809a82ad-6aa2-4232-aeb5-57f6e96947c6",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1074,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 844
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 49,
+    "prompt_tokens" : 11697,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12771
+  }
+}

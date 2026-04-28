@@ -1,0 +1,26 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "assembly",
+              "count" : 1,
+              "instruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell."
+          }
+        ]
+      },
+      "sourceText" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+      "title" : "Join shells"
+    }
+  ]
+}

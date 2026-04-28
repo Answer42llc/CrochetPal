@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a single crochet round into Crochet IR. Let me analyze the input:\n\n- Pattern: Mouse Cat Toy\n- Round 5: \"sc around. (12)\"\n- targetStitchCount: 12\n- Title: \"Round 5\"\n\n\"sc around\" means single crochet in each stitch around, producing 12 stitches total. This is a simple stitchProducing operation with count = 12.\n\nLet me construct the IR:\n\n- title: \"Round 5\"\n- sourceText: \"sc around. (12)\"\n- expectedProducedStitches: 12\n- body with one statement:\n  - kind: \"operation\"\n  - sourceText: \"sc around\"\n  - operation:\n    - semantics: \"stitchProducing\"\n    - actionTag: \"sc\"\n    - stitch: \"sc\"\n    - count: 12\n    - instruction: null\n    - target: null\n    - note: null\n    - notePlacement: \"first\"\n    - producedStitches: null\n\nThat's it. Let me construct the full JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Round 5\", \"sourceText\": \"sc around. (12)\", \"expectedProducedStitches\": 12, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"sc around\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 12, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_tzXuzy3cYkADZ5GPBgsBkDB0",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777044567,
+  "id" : "376c7056-86ec-4a84-a6fc-cac58903a375",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 427,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 230
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 91,
+    "prompt_tokens" : 11739,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12166
+  }
+}

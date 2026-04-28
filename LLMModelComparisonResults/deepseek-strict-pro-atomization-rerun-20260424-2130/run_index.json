@@ -1,0 +1,1496 @@
+{
+  "atomizationResults" : [
+    {
+      "actionCount" : 12,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/1-Foundation_Chain\/ir_tool_arguments.json",
+      "durationMS" : 40192,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/1-Foundation_Chain\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "CH 12. Starting in the 2nd chain from the hook and working in one side of the chain, work as follows.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 8275,
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/2-Begin_flap_section\/ir_tool_arguments.json",
+      "durationMS" : 29856,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/2-Begin_flap_section\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/2-Begin_flap_section\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 5232,
+      "roundIndex" : 4,
+      "roundTitle" : "Begin flap section",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/2-Begin_flap_section\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/3-Button_hole\/ir_tool_arguments.json",
+      "durationMS" : 16206,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/3-Button_hole\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/3-Button_hole\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Now we will work our button hole.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 2998,
+      "roundIndex" : 7,
+      "roundTitle" : "Button hole",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/3-Button_hole\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 13,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/4-Round_1\/ir_tool_arguments.json",
+      "durationMS" : 43403,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/4-Round_1\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/4-Round_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 12,
+      "rawInstruction" : "work 12 treble crochet, join.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 6781,
+      "roundIndex" : 11,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/4-Round_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_tool_arguments.json",
+      "durationMS" : 30191,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/5-Weave_in_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Weave in the ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 5031,
+      "roundIndex" : 14,
+      "roundTitle" : "Weave in ends",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/atomization\/5-Weave_in_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 12,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/1-Foundation_Chain\/ir_tool_arguments.json",
+      "durationMS" : 110202,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/1-Foundation_Chain\/ir_envelope.json",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 17354,
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 38,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/2-Round_5\/ir_tool_arguments.json",
+      "durationMS" : 9940,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/2-Round_5\/ir_envelope.json",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/2-Round_5\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 38,
+      "rawInstruction" : "38sc. (38)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 1785,
+      "roundIndex" : 5,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/2-Round_5\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 32,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/3-Round_2\/ir_tool_arguments.json",
+      "durationMS" : 44119,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/3-Round_2\/ir_envelope.json",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/3-Round_2\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 32,
+      "rawInstruction" : "Inc, 8sc, 4inc, 8sc, 3inc. (32)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 7030,
+      "roundIndex" : 11,
+      "roundTitle" : "Round 2",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/3-Round_2\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/4-Join_shells\/ir_tool_arguments.json",
+      "durationMS" : 47194,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/4-Join_shells\/ir_envelope.json",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/4-Join_shells\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 7855,
+      "roundIndex" : 16,
+      "roundTitle" : "Join shells",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/4-Join_shells\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/5-Sew_all_parts\/ir_tool_arguments.json",
+      "durationMS" : 16240,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/5-Sew_all_parts\/ir_envelope.json",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/5-Sew_all_parts\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 3158,
+      "roundIndex" : 21,
+      "roundTitle" : "Sew all parts",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/atomization\/5-Sew_all_parts\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 8,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/1-Rnd_1\/ir_tool_arguments.json",
+      "durationMS" : 23236,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/1-Rnd_1\/ir_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/1-Rnd_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 6,
+      "rawInstruction" : "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 3789,
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/1-Rnd_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 27,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/2-Rnd_5\/ir_tool_arguments.json",
+      "durationMS" : 17222,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/2-Rnd_5\/ir_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/2-Rnd_5\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 27,
+      "rawInstruction" : "(7 sc, inc) x 3 (27 sc)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 2934,
+      "roundIndex" : 4,
+      "roundTitle" : "Rnd 5",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/2-Rnd_5\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/3-Repeat_Rnds_6_7_for_cup_size\/ir_tool_arguments.json",
+      "durationMS" : 172259,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/3-Repeat_Rnds_6_7_for_cup_size\/ir_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/3-Repeat_Rnds_6_7_for_cup_size\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5\" across or 13 rounds (approx. 63 sc). B cup – Repeat Rnds 6 & 7 four times until 5\" across or 15 rounds (approx.72 sc). C cup – Repeat Rnds 6 & 7 five times until 5.5\" across or 17 rounds (approx. 81 sc). D cup – Repeat Rnds 6 & 7 six times until 6\" across or 19 rounds (approx 90 sc). DD cup – Repeat Rnds 6 & 7 seven times until 6.5\" across or 21 rounds (approx. 99 sc).",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 26906,
+      "roundIndex" : 8,
+      "roundTitle" : "Repeat Rnds 6 & 7 for cup size",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/3-Repeat_Rnds_6_7_for_cup_size\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 12,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/4-Rnd_1\/ir_tool_arguments.json",
+      "durationMS" : 143535,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/4-Rnd_1\/ir_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/4-Rnd_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 9,
+      "rawInstruction" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 23825,
+      "roundIndex" : 11,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/4-Rnd_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got inv dec).",
+          "severity" : "error",
+          "sourceText" : "inv dec"
+        },
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got inv dec).",
+          "severity" : "error",
+          "sourceText" : "inv dec"
+        }
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/5-Stuff_or_leave_open\/ir_tool_arguments.json",
+      "durationMS" : 59372,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/5-Stuff_or_leave_open\/ir_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/5-Stuff_or_leave_open\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "If stuffing: slightly overstuff with Poly-fil, do not close hole, tuck tail into Knocker. If mailing unstuffed: leave hole open and yarn tail outside.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 10237,
+      "roundIndex" : 15,
+      "roundTitle" : "Stuff or leave open",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/atomization\/5-Stuff_or_leave_open\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 17,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/ir_tool_arguments.json",
+      "durationMS" : 13212,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Ch 17",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 1792,
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 17,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_tool_arguments.json",
+      "durationMS" : 64750,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 16,
+      "rawInstruction" : "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn (16)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 11973,
+      "roundIndex" : 1,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/2-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 17,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_tool_arguments.json",
+      "durationMS" : 65530,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 16,
+      "rawInstruction" : "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 9253,
+      "roundIndex" : 2,
+      "roundTitle" : "Rows 2-109",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/3-Rows_2-109\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 2,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_the_2_ends_together\/ir_tool_arguments.json",
+      "durationMS" : 16848,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_the_2_ends_together\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_the_2_ends_together\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Finish off and sew the 2 ends together.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 2933,
+      "roundIndex" : 3,
+      "roundTitle" : "Finish off and sew the 2 ends together",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/4-Finish_off_and_sew_the_2_ends_together\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_all_ends\/ir_tool_arguments.json",
+      "durationMS" : 13666,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_all_ends\/ir_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_all_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Weave in all ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 2353,
+      "roundIndex" : 4,
+      "roundTitle" : "Weave in all ends",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/atomization\/5-Weave_in_all_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 9,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/1-Round_1\/ir_tool_arguments.json",
+      "durationMS" : 81252,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/1-Round_1\/ir_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/1-Round_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 6,
+      "rawInstruction" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 12298,
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/1-Round_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 61,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/2-Round_4\/ir_tool_arguments.json",
+      "durationMS" : 107462,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/2-Round_4\/ir_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/2-Round_4\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 12,
+      "rawInstruction" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 16998,
+      "roundIndex" : 3,
+      "roundTitle" : "Round 4",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/2-Round_4\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 136,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/3-Round_7\/ir_tool_arguments.json",
+      "durationMS" : 171069,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/3-Round_7\/ir_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/3-Round_7\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 84,
+      "rawInstruction" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 24283,
+      "roundIndex" : 6,
+      "roundTitle" : "Round 7",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/3-Round_7\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 103,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/4-Round_9\/ir_tool_arguments.json",
+      "durationMS" : 184919,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/4-Round_9\/ir_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/4-Round_9\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 92,
+      "rawInstruction" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends. Stitch Count per Side: 23 sts {7 sc, 4 hdc, 4 dc, 4 edc, and 4 tr, not including ch-2 corner sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 24433,
+      "roundIndex" : 8,
+      "roundTitle" : "Round 9",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/4-Round_9\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/5-Round_12\/ir_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/atomization\/5-Round_12\/ir_envelope.json",
+      "error" : "dataCorrupted(Swift.DecodingError.Context(codingPath: [], debugDescription: \"The given data was not valid JSON.\", underlyingError: Optional(Error Domain=NSCocoaErrorDomain Code=3840 \"Unexpected character '}' after top-level value around line 1, column 5457.\" UserInfo={NSDebugDescription=Unexpected character '}' after top-level value around line 1, column 5457., NSJSONSerializationErrorIndex=5456})))",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends. {34 dc, not including ch-2 corner sps}",
+      "requestModel" : "deepseek-v4-pro",
+      "roundIndex" : 11,
+      "roundTitle" : "Round 12",
+      "sampleOrdinal" : 5,
+      "status" : "failed",
+      "validationIssues" : [
+
+      ]
+    },
+    {
+      "actionCount" : 4,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/1-Foundation_Chain\/ir_tool_arguments.json",
+      "durationMS" : 18458,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/1-Foundation_Chain\/ir_envelope.json",
+      "fixtureName" : "MochiBear",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/1-Foundation_Chain\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Ch 4.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 4303,
+      "roundIndex" : 0,
+      "roundTitle" : "Foundation Chain",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/1-Foundation_Chain\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 3,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/2-Row_9\/ir_tool_arguments.json",
+      "durationMS" : 19113,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/2-Row_9\/ir_envelope.json",
+      "fixtureName" : "MochiBear",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/2-Row_9\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 3,
+      "rawInstruction" : "DEC, 1 SC, DEC (3)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 3101,
+      "roundIndex" : 8,
+      "roundTitle" : "Row 9",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/2-Row_9\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 9,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/3-Row_20\/ir_tool_arguments.json",
+      "durationMS" : 33457,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/3-Row_20\/ir_envelope.json",
+      "fixtureName" : "MochiBear",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/3-Row_20\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 9,
+      "rawInstruction" : "DEC, 7 SC, DEC (9)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 5208,
+      "roundIndex" : 16,
+      "roundTitle" : "Row 20",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/3-Row_20\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 11,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/4-Arm_1\/ir_tool_arguments.json",
+      "durationMS" : 106767,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/4-Arm_1\/ir_envelope.json",
+      "fixtureName" : "MochiBear",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/4-Arm_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 6,
+      "rawInstruction" : "Attach yarn between Rows 11-12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 15961,
+      "roundIndex" : 24,
+      "roundTitle" : "Arm 1",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/4-Arm_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 2,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/5-Fasten_off_and_weave_in_ends\/ir_tool_arguments.json",
+      "durationMS" : 40232,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/5-Fasten_off_and_weave_in_ends\/ir_envelope.json",
+      "fixtureName" : "MochiBear",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/5-Fasten_off_and_weave_in_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Fasten off and weave in all ends securely.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 6726,
+      "roundIndex" : 32,
+      "roundTitle" : "Fasten off and weave in ends",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/atomization\/5-Fasten_off_and_weave_in_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 7,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/1-Round_1\/ir_tool_arguments.json",
+      "durationMS" : 50587,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/1-Round_1\/ir_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/1-Round_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 6,
+      "rawInstruction" : "in a MR, sc 6. (6)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 7954,
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/1-Round_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 12,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/2-Round_5\/ir_tool_arguments.json",
+      "durationMS" : 11893,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/2-Round_5\/ir_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/2-Round_5\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 12,
+      "rawInstruction" : "sc around. (12)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 2090,
+      "roundIndex" : 4,
+      "roundTitle" : "Round 5",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/2-Round_5\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 21,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/3-Round_11\/ir_tool_arguments.json",
+      "durationMS" : 37436,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/3-Round_11\/ir_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/3-Round_11\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 21,
+      "rawInstruction" : "(sc 5, inc) x3. (21)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 6104,
+      "roundIndex" : 9,
+      "roundTitle" : "Round 11",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/3-Round_11\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 18,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/4-Round_18\/ir_tool_arguments.json",
+      "durationMS" : 34411,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/4-Round_18\/ir_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/4-Round_18\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 18,
+      "rawInstruction" : "(sc 2, dec) x6. (18)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 6054,
+      "roundIndex" : 13,
+      "roundTitle" : "Round 18",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/4-Round_18\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 2,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/5-Finish_off_and_sew_closed\/ir_tool_arguments.json",
+      "durationMS" : 33048,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/5-Finish_off_and_sew_closed\/ir_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/5-Finish_off_and_sew_closed\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Finish off and sew closed.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 5733,
+      "roundIndex" : 17,
+      "roundTitle" : "Finish off and sew closed",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/atomization\/5-Finish_off_and_sew_closed\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 114,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/1-Row_1\/ir_tool_arguments.json",
+      "durationMS" : 103717,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/1-Row_1\/ir_envelope.json",
+      "fixtureName" : "QuietTidesBlanket",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/1-Row_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 113,
+      "rawInstruction" : "1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 15616,
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/1-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/2-Row_6\/ir_tool_arguments.json",
+      "durationMS" : 92973,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/2-Row_6\/ir_envelope.json",
+      "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+      "fixtureName" : "QuietTidesBlanket",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/2-Row_6\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "rawInstruction" : "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 15275,
+      "roundIndex" : 5,
+      "roundTitle" : "Row 6",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/2-Row_6\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_invalid_operation_count",
+          "message" : "Operation count must be positive.",
+          "severity" : "error",
+          "sourceText" : "1 sc in each st across"
+        }
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 4,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/3-Row_10\/ir_tool_arguments.json",
+      "durationMS" : 128318,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/3-Row_10\/ir_envelope.json",
+      "fixtureName" : "QuietTidesBlanket",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/3-Row_10\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 1,
+      "rawInstruction" : "1 sc in each sc across,changing to teal in the last sc. Ch 1, turn.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 20862,
+      "roundIndex" : 9,
+      "roundTitle" : "Row 10",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/3-Row_10\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 3,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/4-Final_Row\/ir_tool_arguments.json",
+      "durationMS" : 43373,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/4-Final_Row\/ir_envelope.json",
+      "fixtureName" : "QuietTidesBlanket",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/4-Final_Row\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 1,
+      "rawInstruction" : "Ch 1, turn, and do one more row of sc.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 6613,
+      "roundIndex" : 14,
+      "roundTitle" : "Final Row",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/4-Final_Row\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 17,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/5-Round_3\/ir_tool_arguments.json",
+      "durationMS" : 146147,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/5-Round_3\/ir_envelope.json",
+      "fixtureName" : "QuietTidesBlanket",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/5-Round_3\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 13,
+      "rawInstruction" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 22857,
+      "roundIndex" : 18,
+      "roundTitle" : "Round 3",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/atomization\/5-Round_3\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 11,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/ir_tool_arguments.json",
+      "durationMS" : 37395,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/ir_envelope.json",
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 10,
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 5899,
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/1-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 9,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/2-Row_86\/ir_tool_arguments.json",
+      "durationMS" : 26995,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/2-Row_86\/ir_envelope.json",
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/2-Row_86\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 9,
+      "rawInstruction" : "dec, 8 sc = 9 sc",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 4350,
+      "roundIndex" : 12,
+      "roundTitle" : "Row 86",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/2-Row_86\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 12,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/3-Row_3\/ir_tool_arguments.json",
+      "durationMS" : 10616,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/3-Row_3\/ir_envelope.json",
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/3-Row_3\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 12,
+      "rawInstruction" : "12 sc",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 1909,
+      "roundIndex" : 23,
+      "roundTitle" : "Row 3",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/3-Row_3\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 14,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/4-Row_93\/ir_tool_arguments.json",
+      "durationMS" : 25092,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/4-Row_93\/ir_envelope.json",
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/4-Row_93\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 14,
+      "rawInstruction" : "dec, 13 sc = 14 sc",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 3988,
+      "roundIndex" : 35,
+      "roundTitle" : "Row 93",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/4-Row_93\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 2,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/5-Glue_eyes_and_embroider_eyebrows\/ir_tool_arguments.json",
+      "durationMS" : 32310,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/5-Glue_eyes_and_embroider_eyebrows\/ir_envelope.json",
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/5-Glue_eyes_and_embroider_eyebrows\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops. We embroider eyebrows over the eyes.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 5603,
+      "roundIndex" : 46,
+      "roundTitle" : "Glue eyes and embroider eyebrows",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/atomization\/5-Glue_eyes_and_embroider_eyebrows\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 72,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/1-Rnd_1\/ir_tool_arguments.json",
+      "durationMS" : 117185,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/1-Rnd_1\/ir_envelope.json",
+      "fixtureName" : "TinyChristmasWreath",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/1-Rnd_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 19312,
+      "roundIndex" : 0,
+      "roundTitle" : "Rnd 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/1-Rnd_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got sl st).",
+          "severity" : "error",
+          "sourceText" : "sl st in the first ch you made, to join the piece in a circle"
+        },
+        {
+          "code" : "ir_operation_invalid_action_tag",
+          "message" : "actionTag must be camelCase letters or digits (got sl st).",
+          "severity" : "error",
+          "sourceText" : "sl st in the next ch of the circle"
+        }
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 2,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/2-Fasten_off_and_weave_in_the_ends\/ir_tool_arguments.json",
+      "durationMS" : 65421,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/2-Fasten_off_and_weave_in_the_ends\/ir_envelope.json",
+      "fixtureName" : "TinyChristmasWreath",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/2-Fasten_off_and_weave_in_the_ends\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 11573,
+      "roundIndex" : 1,
+      "roundTitle" : "Fasten off and weave in the ends",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/2-Fasten_off_and_weave_in_the_ends\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 1,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/3-Weave_red_yarn_through_chain_loops_and_tie_a_bow\/ir_tool_arguments.json",
+      "durationMS" : 39596,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/3-Weave_red_yarn_through_chain_loops_and_tie_a_bow\/ir_envelope.json",
+      "fixtureName" : "TinyChristmasWreath",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/3-Weave_red_yarn_through_chain_loops_and_tie_a_bow\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 6794,
+      "roundIndex" : 2,
+      "roundTitle" : "Weave red yarn through chain loops and tie a bow",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/3-Weave_red_yarn_through_chain_loops_and_tie_a_bow\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 0,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/4-Optional_secure_knot_with_nail_polish_or_glue\/ir_tool_arguments.json",
+      "durationMS" : 14863,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/4-Optional_secure_knot_with_nail_polish_or_glue\/ir_envelope.json",
+      "fixtureName" : "TinyChristmasWreath",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/4-Optional_secure_knot_with_nail_polish_or_glue\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 2747,
+      "roundIndex" : 3,
+      "roundTitle" : "Optional: secure knot with nail polish or glue",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/atomization\/4-Optional_secure_knot_with_nail_polish_or_glue\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 10,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/1-Round_1_-_Foundation_loop\/ir_tool_arguments.json",
+      "durationMS" : 69711,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/1-Round_1_-_Foundation_loop\/ir_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/1-Round_1_-_Foundation_loop\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 7,
+      "rawInstruction" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 10945,
+      "roundIndex" : 0,
+      "roundTitle" : "Round 1 - Foundation loop",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/1-Round_1_-_Foundation_loop\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 35,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/2-Round_4_-_Finish_the_face_base\/ir_tool_arguments.json",
+      "durationMS" : 191128,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/2-Round_4_-_Finish_the_face_base\/ir_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/2-Round_4_-_Finish_the_face_base\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 30,
+      "rawInstruction" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 26707,
+      "roundIndex" : 4,
+      "roundTitle" : "Round 4 - Finish the face base",
+      "sampleOrdinal" : 2,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/2-Round_4_-_Finish_the_face_base\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 10,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/3-Inner_Ear\/ir_tool_arguments.json",
+      "durationMS" : 75448,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/3-Inner_Ear\/ir_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/3-Inner_Ear\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 3,
+      "rawInstruction" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 15040,
+      "roundIndex" : 8,
+      "roundTitle" : "Inner Ear",
+      "sampleOrdinal" : 3,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/3-Inner_Ear\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    },
+    {
+      "actionCount" : 13,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/4-Round_1\/ir_tool_arguments.json",
+      "durationMS" : 63244,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/4-Round_1\/ir_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/4-Round_1\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 9,
+      "rawInstruction" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 10104,
+      "roundIndex" : 11,
+      "roundTitle" : "Round 1",
+      "sampleOrdinal" : 4,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/4-Round_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 1
+    },
+    {
+      "actionCount" : 2,
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/5-Eyes_Blushes\/ir_tool_arguments.json",
+      "durationMS" : 31335,
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/5-Eyes_Blushes\/ir_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/5-Eyes_Blushes\/ir_atomization.json",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "producedStitchCount" : 0,
+      "rawInstruction" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+      "requestModel" : "deepseek-v4-pro",
+      "responseBytes" : 5494,
+      "roundIndex" : 15,
+      "roundTitle" : "Eyes & Blushes",
+      "sampleOrdinal" : 5,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/atomization\/5-Eyes_Blushes\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    }
+  ],
+  "baseURL" : "https:\/\/api.deepseek.com\/beta",
+  "fixtures" : [
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/AirpodsCase\/extracted_text.txt",
+      "name" : "AirpodsCase",
+      "sourceType" : "pdf",
+      "title" : "Airpods Case"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/ArianaWrap\/extracted_text.txt",
+      "name" : "ArianaWrap",
+      "sourceType" : "pdf",
+      "title" : "Ariana Wrap"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/HuaweiFreebudsCase\/extracted_text.txt",
+      "name" : "HuaweiFreebudsCase",
+      "sourceType" : "pdf",
+      "title" : "Huawei Freebuds Case"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/KKCrochet\/extracted_text.txt",
+      "name" : "KKCrochet",
+      "sourceType" : "pdf",
+      "title" : "Crochet Knockers"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MandalaSteeringWheelCover\/extracted_text.txt",
+      "name" : "MandalaSteeringWheelCover",
+      "sourceType" : "pdf",
+      "title" : "Mandala Steering Wheel Cover"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MarysMomentFloralSquare\/extracted_text.txt",
+      "name" : "MarysMomentFloralSquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/lookatwhatimade.net\/crafts\/yarn\/crochet\/free-crochet-patterns\/marys-moment-free-floral-crochet-square-pattern\/",
+      "title" : "Mary's Moment Floral Square"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MochiBear\/extracted_text.txt",
+      "name" : "MochiBear",
+      "sourceType" : "pdf",
+      "title" : "Mochi Bear"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/extracted_text.txt",
+      "name" : "MouseCatToy",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/sparkitectcrafts.com\/mouse-cat-toy-crochet-pattern\/",
+      "title" : "Mouse Cat Toy"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/QuietTidesBlanket\/extracted_text.txt",
+      "name" : "QuietTidesBlanket",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/www.circuloyarns.com\/post\/quiet-tides-baby-blanket",
+      "title" : "Quiet Tides Baby Blanket"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/TinyChristmasWreath\/extracted_text.txt",
+      "name" : "TinyChristmasWreath",
+      "sourceType" : "pdf",
+      "title" : "Tiny Christmas Wreath"
+    },
+    {
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/WolfGrannySquare\/extracted_text.txt",
+      "name" : "WolfGrannySquare",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/grannysquare.me\/wolf-granny-square\/#pattern",
+      "title" : "Wolf Granny Square"
+    }
+  ],
+  "generatedAt" : "2026-04-24T15:53:19Z",
+  "models" : [
+    "deepseek\/deepseek-v4-pro"
+  ],
+  "outlineResults" : [
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/outline_envelope.json",
+      "fixtureName" : "AirpodsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/AirpodsCase\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 15,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        7,
+        11,
+        14
+      ],
+      "status" : "success"
+    },
+    {
+      "error" : "Error Domain=DeepSeekStrictToolComparisonRunner Code=-33 \"request timed out after 300s\" UserInfo={NSLocalizedDescription=request timed out after 300s}",
+      "fixtureName" : "ArianaWrap",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "requestModel" : "deepseek-v4-pro",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/outline_envelope.json",
+      "fixtureName" : "HuaweiFreebudsCase",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/HuaweiFreebudsCase\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 22,
+      "sampledRoundIndices" : [
+        0,
+        5,
+        11,
+        16,
+        21
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/outline_envelope.json",
+      "fixtureName" : "KKCrochet",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/KKCrochet\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 16,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        8,
+        11,
+        15
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/outline_envelope.json",
+      "fixtureName" : "MandalaSteeringWheelCover",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MandalaSteeringWheelCover\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 5,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/outline_envelope.json",
+      "fixtureName" : "MarysMomentFloralSquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MarysMomentFloralSquare\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 12,
+      "sampledRoundIndices" : [
+        0,
+        3,
+        6,
+        8,
+        11
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/outline_envelope.json",
+      "fixtureName" : "MochiBear",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MochiBear\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 33,
+      "sampledRoundIndices" : [
+        0,
+        8,
+        16,
+        24,
+        32
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/outline_envelope.json",
+      "fixtureName" : "MouseCatToy",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/MouseCatToy\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 18,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        9,
+        13,
+        17
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/outline_envelope.json",
+      "fixtureName" : "QuietTidesBlanket",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/QuietTidesBlanket\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 19,
+      "sampledRoundIndices" : [
+        0,
+        5,
+        9,
+        14,
+        18
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/outline_envelope.json",
+      "fixtureName" : "Snake",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/Snake\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 47,
+      "sampledRoundIndices" : [
+        0,
+        12,
+        23,
+        35,
+        46
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/outline_envelope.json",
+      "fixtureName" : "TinyChristmasWreath",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/TinyChristmasWreath\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 4,
+      "sampledRoundIndices" : [
+        0,
+        1,
+        2,
+        3
+      ],
+      "status" : "success"
+    },
+    {
+      "argumentsPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/outline_tool_arguments.json",
+      "envelopePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/outline_envelope.json",
+      "fixtureName" : "WolfGrannySquare",
+      "model" : "deepseek\/deepseek-v4-pro",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130\/deepseek_deepseek-v4-pro\/WolfGrannySquare\/outline.json",
+      "requestModel" : "deepseek-v4-pro",
+      "roundCount" : 16,
+      "sampledRoundIndices" : [
+        0,
+        4,
+        8,
+        11,
+        15
+      ],
+      "status" : "success"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/deepseek-strict-pro-atomization-rerun-20260424-2130",
+  "sampleCount" : 5
+}

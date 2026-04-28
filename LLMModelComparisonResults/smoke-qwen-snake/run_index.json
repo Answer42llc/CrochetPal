@@ -1,0 +1,60 @@
+{
+  "atomizationResults" : [
+    {
+      "actionCount" : 10,
+      "durationMS" : 86475,
+      "fixtureName" : "Snake",
+      "irPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-qwen-snake\/qwen_qwen3.6-plus\/Snake\/atomization\/1-Row_1\/ir_atomization.json",
+      "model" : "qwen\/qwen3.6-plus",
+      "producedStitchCount" : 10,
+      "rawInstruction" : "Start 10 sc in a magic ring",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-qwen-snake\/qwen_qwen3.6-plus\/Snake\/atomization\/1-Row_1\/ir_raw.json",
+      "responseBytes" : 37554,
+      "roundIndex" : 0,
+      "roundTitle" : "Row 1",
+      "sampleOrdinal" : 1,
+      "snapshotPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-qwen-snake\/qwen_qwen3.6-plus\/Snake\/atomization\/1-Row_1\/atomic_snapshot.json",
+      "status" : "success",
+      "validationIssues" : [
+
+      ],
+      "warningCount" : 0
+    }
+  ],
+  "fixtureRoot" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM",
+  "fixtures" : [
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/outline.json",
+      "baselineRoundCount" : 21,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/Snake\/extracted_text.txt",
+      "name" : "Snake",
+      "sourceType" : "pdf",
+      "title" : "Snake",
+      "titleHint" : "Snake"
+    }
+  ],
+  "generatedAt" : "2026-04-24T06:46:52Z",
+  "models" : [
+    "qwen\/qwen3.6-plus"
+  ],
+  "outlineResults" : [
+    {
+      "durationMS" : 297069,
+      "fixtureName" : "Snake",
+      "model" : "qwen\/qwen3.6-plus",
+      "outlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-qwen-snake\/qwen_qwen3.6-plus\/Snake\/outline.json",
+      "partCount" : 2,
+      "projectTitle" : "Snake",
+      "rawPath" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-qwen-snake\/qwen_qwen3.6-plus\/Snake\/outline_raw.json",
+      "responseBytes" : 97672,
+      "roundCount" : 47,
+      "sampledRoundIndices" : [
+        0
+      ],
+      "status" : "success"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-qwen-snake",
+  "repoRoot" : "\/Users\/lw\/Projects\/CrochetPal",
+  "sampleCount" : 1
+}

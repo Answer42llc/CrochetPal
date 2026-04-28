@@ -1,0 +1,146 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Beginning",
+      "term" : "Beg"
+    },
+    {
+      "definition" : "Chain",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "Double crochet",
+      "term" : "Dc"
+    },
+    {
+      "definition" : "Front loop only",
+      "term" : "FLO"
+    },
+    {
+      "definition" : "Front post",
+      "term" : "FP"
+    },
+    {
+      "definition" : "Half-double crochet",
+      "term" : "Hdc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "Rep"
+    },
+    {
+      "definition" : "Single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Stitch marker",
+      "term" : "SM"
+    },
+    {
+      "definition" : "Space\/spaces",
+      "term" : "Sp\/sps"
+    },
+    {
+      "definition" : "Stitch\/stitches",
+      "term" : "St\/sts"
+    },
+    {
+      "definition" : "Treble crochet",
+      "term" : "Tr"
+    },
+    {
+      "definition" : "Repeat instructions between asterisks the number of times specified",
+      "term" : "*"
+    },
+    {
+      "definition" : "Repeat instructions between brackets the number of times specified",
+      "term" : "()"
+    },
+    {
+      "definition" : "Used to indicate stitches made into the same st\/sp",
+      "term" : "[]"
+    },
+    {
+      "definition" : "Extended double crochet: Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.",
+      "term" : "Edc"
+    },
+    {
+      "definition" : "Make 5 dc in the indicated st\/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+      "term" : "Popcorn"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "4mm or 4.5mm crochet hook",
+    "Double-knit yarn"
+  ],
+  "parts" : [
+    {
+      "name" : "Square",
+      "rounds" : [
+        {
+          "rawInstruction" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+          "summary" : "Create a magic ring and work 6 single crochets into it, then join with a slip stitch.",
+          "targetStitchCount" : 6,
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "Ch 2 (doesn't count as a st). Make a Popcorn in the same st as the sl st join. (Ch 2, make a Popcorn in the next st) 5 times. Ch 2, join to the top of the first Popcorn with a sl st. {6 Popcorns and 6 ch-2 sps}",
+          "summary" : "Work 6 Popcorns with ch-2 spaces between them around the circle.",
+          "title" : "Round 2"
+        },
+        {
+          "rawInstruction" : "Ch 1 (doesn't count as a st). (FPhdc around the Popcorn, [hdc, 2 dc, ch 2, 2 dc, hdc] in the next ch-2 sp) 6 times. Join to the first FPhdc with a sl st. {12 hdc, 24 dc, 6 FPhdc, and 6 ch-2 sps}",
+          "summary" : "Work front post half-double crochets around each Popcorn and a shell into each ch-2 space, repeated 6 times.",
+          "title" : "Round 3"
+        },
+        {
+          "rawInstruction" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}",
+          "summary" : "Work front post half-double crochets around previous FPhdc, ch-4, Popcorn in ch-2 space, ch-4, repeated 6 times.",
+          "title" : "Round 4"
+        },
+        {
+          "rawInstruction" : "If you are using a different colour for this round, you can start this round with a standing FPdc around the first FPhdc of the previous round. If you are using the same colour for this round, we are going to start the round with a 'fake' FPdc as follows: FPsc around the FPhdc {Photo 1}, ch 1 {Photo 2}. Inserting your hook from top to bottom into the FLO of the FPsc you just made {indicated with an arrow in Photo 2 and illustrated in Photo 3}, make a sc {Photo 4}. Mark the top of this sc with s SM.This counts as your first (fake) FPdc. (Ch 3, FPsc around the next Popcorn, ch 3, FPdc around the next FPhdc) 6 times, omitting the last FPdc on the last repeat. Join to the top of the first FPdc with a sl st and remove the SM if you used one. {6 FPsc, 6 FPdc, and 12 ch-3 sps}",
+          "summary" : "Work front post stitches around previous round's FPhdc and Popcorns with ch-3 spaces, using either a standing FPdc or a fake FPdc start.",
+          "title" : "Round 5"
+        },
+        {
+          "rawInstruction" : "Ch 1 (doesn't count as a st). ([Sc, hdc, dc, ch 2, dc, hdc, sc] in the next ch-3 sp) 12 times. Join to the first sc with a sl st. {24 sc, 24 hdc, 24 dc, and 12 ch-2 sps}",
+          "summary" : "Work a petal stitch sequence into each of the 12 ch-3 spaces around.",
+          "title" : "Round 6"
+        },
+        {
+          "rawInstruction" : "Ch 1 (doesn't count as a st). (FPdc around the next st from Round 5, skip the first st of the next Petal from Round 6 and hdc in the next 2 sts. [Hdc, ch 2, hdc] in the next ch-2 sp. Hdc in the next 2 sts, skip the last st of the Petal) 12 times. Mark the last ch-2 sp with a SM. Join to the first FPdc with a sl st. Fasten off and work away your ends. {72 hdc, 12 FPdc, and 12 ch-2 sps}",
+          "summary" : "Work front post double crochets around Round 5 stitches and half-double crochets around the petals, then fasten off.",
+          "title" : "Round 7"
+        },
+        {
+          "rawInstruction" : "Join your yarn by making a standing sc in the marked ch-2 sp from the previous round. Remove the SM. (Ch 6, sc in the next ch-2 sp) 12 times, omitting the last sc on the last repeat. Join to the first sc with a sl st. {12 sc and 12 ch-6 sps}",
+          "summary" : "Join new yarn with a standing single crochet and create ch-6 loops in each ch-2 space around.",
+          "title" : "Round 8"
+        },
+        {
+          "rawInstruction" : "Ch 1 (doesn't count as a st). *Make 7 sc in the next ch-6 sp, [2 hdc, 2 dc, 2 edc] in the next ch-6 sp. [2 tr, ch 2, 2 tr] in the next st. [2 edc, 2 dc, 2 hdc] in the next ch-6 sp.* Rep from * to * 3 more times. Join to the first sc with a sl st. Fasten off and work away your ends. Stitch Count per Side: 23 sts {7 sc, 4 hdc, 4 dc, 4 edc, and 4 tr, not including ch-2 corner sps}",
+          "summary" : "Shape the square by working sc, hdc, dc, edc, and tr groups into ch-6 spaces, forming corners and sides, repeated 4 times.",
+          "title" : "Round 9"
+        },
+        {
+          "rawInstruction" : "Join your yarn by making a standing hdc in any ch-2 corner sp. [Hdc, ch 2, 2 hdc] in the same ch-2 corner sp. This is your first corner made. (Hdc in the next 23 sts, [2 hdc, ch 2, 2 hdc] in the next ch-2 sp) 3 times, omitting the last corner on the last repeat. Join to the first hdc with a sl st. {27 hdc, not including ch-2 corner sps}",
+          "summary" : "Join yarn with a standing hdc and work hdc along each side with corner increases, repeated for all 4 sides.",
+          "title" : "Round 10"
+        },
+        {
+          "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Skip the first (hidden) st, dc in the next 26 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. {30 dc, not including ch-2 corner sps}",
+          "summary" : "Slip stitch to corner, work dc along each side skipping hidden stitches with corner increases, repeated 4 times.",
+          "title" : "Round 11"
+        },
+        {
+          "rawInstruction" : "Sl st in the next st and the next ch-2 sp. Ch 3 (counts as dc). [Dc, ch 2, 2 dc] in the same ch-2 sp. This is your first corner made. *Dc in the next 30 sts. [2 dc, ch 2, 2 dc] in the next ch-2 sp.* Rep from * to * 3 more times, omitting the last corner on the last repeat. Join to the top of the beg ch-3 with a sl st. Fasten off and work away your ends. {34 dc, not including ch-2 corner sps}",
+          "summary" : "Slip stitch to corner, work dc in each stitch around with corner increases, repeated 4 times, then fasten off.",
+          "title" : "Round 12"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Mary's Moment Floral Square"
+}

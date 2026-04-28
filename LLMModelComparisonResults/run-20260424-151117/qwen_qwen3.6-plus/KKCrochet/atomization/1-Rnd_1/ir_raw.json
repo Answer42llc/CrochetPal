@@ -1,0 +1,69 @@
+{
+  "rounds": [
+    {
+      "title": "Rnd 1",
+      "sourceText": "Create a magic ring with 6 sc in the ring. Close the ring.",
+      "expectedProducedStitches": 6,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Create a magic ring",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "magicRing",
+              "stitch": null,
+              "count": null,
+              "instruction": "Create a magic ring",
+              "target": null,
+              "note": null,
+              "notePlacement": null,
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "with 6 sc in the ring",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 6,
+              "instruction": "single crochet",
+              "target": "in the ring",
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "Close the ring.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "closeRing",
+              "stitch": null,
+              "count": null,
+              "instruction": "Pull tail to close the magic ring",
+              "target": null,
+              "note": null,
+              "notePlacement": null,
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

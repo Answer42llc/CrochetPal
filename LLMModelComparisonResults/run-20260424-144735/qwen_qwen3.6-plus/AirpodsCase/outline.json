@@ -1,0 +1,124 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off.",
+      "term" : "FO"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "DK yarn in the colour(s) of your choice",
+    "A 3mm crochet hook",
+    "A stitch marker",
+    "A darning needle",
+    "A button if you aren’t going to crochet one"
+  ],
+  "parts" : [
+    {
+      "name" : "Body",
+      "rounds" : [
+        {
+          "rawInstruction" : "CH 12",
+          "summary" : "Create a foundation chain of 12 stitches.",
+          "title" : "Chain 12"
+        },
+        {
+          "rawInstruction" : "Starting in the 2nd chain from the hook and working in one side of the chain, work as follows, 2 HTC in first stitch, 1 HTC in each of the next 8 stitches, 2HTC in the next stitch, working in the other side of the chain, 2 HTC in the next stitch, 1HTC in each of the next 8 stitches, 2 HTC in the last stitch, join to the 1st HTC. You should have 24 stitches in total. Mark the beginning of your round with a stitch marker.",
+          "summary" : "Work increases around the foundation chain to form an oval base, then mark the start.",
+          "targetStitchCount" : 24,
+          "title" : "Round 1"
+        },
+        {
+          "rangeEndNumber" : 6,
+          "rangeStartNumber" : 2,
+          "rawInstruction" : "1 HTC in each stitch all the way around (24)",
+          "summary" : "Work one half treble crochet in each stitch around for five rounds.",
+          "targetStitchCount" : 24,
+          "title" : "Rounds 2-6"
+        },
+        {
+          "rawInstruction" : "1 DC in each stitch all the way around (24)",
+          "summary" : "Switch to double crochet and work one in each stitch around.",
+          "targetStitchCount" : 24,
+          "title" : "Round 7"
+        },
+        {
+          "rawInstruction" : "Now we will begin to work the flap, from here on we will be working in rows back and forth.",
+          "summary" : "Transition from working in rounds to working in rows for the flap.",
+          "title" : "Begin working the flap in rows back and forth."
+        },
+        {
+          "rawInstruction" : "1DC, 1DC, CH 2, turn, 1 HTC in the next 10 stitches, CH 2, turn. (10)",
+          "summary" : "Work two double crochets, chain 2, turn, then work half treble crochets across and chain 2 to turn.",
+          "targetStitchCount" : 10,
+          "title" : "Row 1"
+        },
+        {
+          "rangeEndNumber" : 9,
+          "rangeStartNumber" : 2,
+          "rawInstruction" : "1 HTC in each stitch all the way across, CH 2, turn (10)",
+          "summary" : "Work one half treble crochet across each row, chain 2, and turn for eight rows.",
+          "targetStitchCount" : 10,
+          "title" : "Rows 2-9"
+        },
+        {
+          "rawInstruction" : "2HTCtog, 1HTC, 1HTC, CH2, skip the next 2 stitches, 1HTC, 1HTC, 2HTCtog, CH2, turn (8)",
+          "summary" : "Create the buttonhole by decreasing and chaining to skip stitches.",
+          "targetStitchCount" : 8,
+          "title" : "Row 10"
+        },
+        {
+          "rawInstruction" : "1HTC in each stitch across, FO. (8)",
+          "summary" : "Work one half treble crochet across and fasten off.",
+          "targetStitchCount" : 8,
+          "title" : "Row 11"
+        }
+      ]
+    },
+    {
+      "name" : "Button",
+      "rounds" : [
+        {
+          "rawInstruction" : "Start with a magic ring,",
+          "summary" : "Create a magic ring to begin the button.",
+          "title" : "Start with a magic ring"
+        },
+        {
+          "rawInstruction" : "work 12 treble crochet, join. (12)",
+          "summary" : "Work twelve treble crochets into the ring and join.",
+          "targetStitchCount" : 12,
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "SS into each stitch around (12)",
+          "summary" : "Slip stitch into each stitch around to finish the button.",
+          "targetStitchCount" : 12,
+          "title" : "Round 2"
+        },
+        {
+          "rawInstruction" : "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place.",
+          "summary" : "Position and sew the button onto the flap.",
+          "title" : "Line the button up with where the button hole on the flap lies when in position at the front of the pouch, (you can mark this with a stitch marker) and sew into place."
+        },
+        {
+          "rawInstruction" : "Weave in the ends.",
+          "summary" : "Secure and hide all loose yarn tails.",
+          "title" : "Weave in the ends."
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Airpods Case"
+}

@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input:\n\nRound: \"Row 9\" for \"Head\" part\nRaw instruction: \"DEC, 1 SC, DEC (3)\"\nTarget stitch count: 3\n\nThe instruction says: DEC, 1 SC, DEC\n\nLet me break this down:\n- DEC: decrease (single crochet 2 stitches together) - consumes multiple stitches, produces 1\n- 1 SC: 1 single crochet - produces 1 stitch\n- DEC: decrease - produces 1 stitch\n\nTotal produced: 1 + 1 + 1 = 3, which matches the target stitch count of 3.\n\nNow let me encode each:\n\n1. \"DEC\" - operation, semantics: decrease, actionTag: \"decrease\", stitch: \"sc\" (since abbreviation says dec = single crochet 2 stitches together), count: 1, note: \"DEC\", producedStitches: null (for decrease, it produces 1 stitch)\n\nWait, let me re-read the decrease semantics:\n- `decrease`: consumes multiple stitch-slots, produces 1 stitch; usually `stitch = dec`.\n\nSo stitch should be \"dec\", actionTag \"decrease\".\n\n2. \"1 SC\" - operation, semantics: stitchProducing, actionTag: \"sc\", stitch: \"sc\", count: 1\n\n3. \"DEC\" - same as first.\n\nAll three are flat statements. No repeat needed.\n\nLet me construct the IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Row 9\", \"sourceText\": \"DEC, 1 SC, DEC (3)\", \"expectedProducedStitches\": 3, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"DEC\", \"operation\": {\"semantics\": \"decrease\", \"actionTag\": \"decrease\", \"stitch\": \"dec\", \"count\": 1, \"instruction\": \"single crochet 2 stitches together\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"1 SC\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 1, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"DEC\", \"operation\": {\"semantics\": \"decrease\", \"actionTag\": \"decrease\", \"stitch\": \"dec\", \"count\": 1, \"instruction\": \"single crochet 2 stitches together\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_Wt1rhPki4BkGWh1X3qn1Cdhv",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777044317,
+  "id" : "6ce3f6c5-b901-4c97-ae45-9e171a62423e",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 700,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 303
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 90,
+    "prompt_tokens" : 11738,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12438
+  }
+}

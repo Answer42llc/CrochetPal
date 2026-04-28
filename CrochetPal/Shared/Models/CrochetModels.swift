@@ -327,6 +327,11 @@ struct PatternSource: Codable, Hashable {
     var fileName: String?
     var fileSizeBytes: Int?
     var importedAt: Date
+    /// Application-Support-relative path to a copy of the original imported file
+    /// (image/PDF). `nil` for web/text sources or for legacy projects imported before
+    /// this field existed. Resolved via `SourceFileStore` to an absolute URL when
+    /// the UI needs to preview the original pattern.
+    var localFilePath: String? = nil
 }
 
 /// A single tap-per-action instruction emitted by the compiler and executed by the UI.

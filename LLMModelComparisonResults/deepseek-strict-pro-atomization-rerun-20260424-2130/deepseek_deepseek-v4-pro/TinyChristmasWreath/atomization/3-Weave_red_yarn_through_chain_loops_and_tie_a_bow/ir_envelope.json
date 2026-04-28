@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a crochet round into Crochet IR. Let me analyze the input.\n\nThis is a single round with the title \"Weave red yarn through chain loops and tie a bow\" and the raw instruction is about weaving red yarn through chain loops and tying a bow. This is a finishing\/assembly step, not a stitch-producing round.\n\nLet me break down the instruction:\n\"Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\"\n\nThis is purely bookkeeping\/assembly operations. There are no stitches being produced. Let me think about how to represent this.\n\nThe entire round is about:\n1. Taking a length of red yarn, threading it into a yarn needle\n2. Weaving it through chain loops around the wreath\n3. Tying ends in a bow\n4. Cutting ends\n\nThis is all bookkeeping. Since it's a single round with no stitch count, `expectedProducedStitches` should be null.\n\nI think the best approach is to represent this as a single operation with semantics \"bookkeeping\" and actionTag \"assembly\" or perhaps I should split it into multiple statements. Let me look at the instruction more carefully.\n\nThe instruction is one continuous paragraph describing an assembly process. I think it's reasonable to represent it as a single bookkeeping operation with actionTag \"assembly\" and the full instruction text. Or I could split it into logical steps.\n\nLet me re-read the rules:\n- \"If the input round contains only a non-stitch instruction, emit a single operation with semantics = bookkeeping and an appropriate actionTag.\"\n\nSo a single operation is appropriate here. Let me use actionTag \"assembly\" since this is an assembly step.\n\nNow let me construct the IR:\n\n- `title`: \"Weave red yarn through chain loops and tie a bow\"\n- `sourceText`: the full raw instruction\n- `expectedProducedStitches`: null (no stitches produced)\n- `body.statements`: array with one statement\n\nThe one statement:\n- `kind`: \"operation\"\n- `sourceText`: the raw instruction\n- `operation`:\n  - `semantics`: \"bookkeeping\"\n  - `actionTag`: \"assembly\"\n  - `stitch`: null\n  - `count`: 1\n  - `instruction`: the full text (or a condensed version?)\n  - `target`: null\n  - `note`: null\n  - `notePlacement`: \"all\"\n  - `producedStitches`: null\n\nActually, let me think about whether this should be multiple operations. The steps are:\n1. Take red yarn and thread needle\n2. Weave through chain loops\n3. Tie bow\n4. Cut ends\n\nI think a single operation is fine per the rule. But I could also break it into multiple bookkeeping operations. Let me keep it as one since the rule says \"emit a single operation.\"\n\nLet me also consider: should the `instruction` field contain the full raw instruction text? The `instruction` field is described as \"instruction\" in the operation - it's the human-readable description. I'll put the full raw instruction there and leave `note` as null.\n\nNow, for the `stitch` field - since this is bookkeeping, stitch should be null.\n\nLet me also consider if there should be multiple statements. The instruction says \"Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\"\n\nThis could be broken into:\n1. Take red yarn, thread needle\n2. Weave through chain loops\n3. Tie bow and cut ends\n\nBut per the rule, a single operation is fine. Let me go with that.\n\nNow let me construct the full JSON and call the tool.\n\nWait, I should double-check: `notePlacement` - for a single operation with no note, this should be \"all\" as default.\n\nActually, looking at the examples more carefully, when there's no note on the operation, `notePlacement` is set to \"first\" in the examples for stitchProducing operations. But for bookkeeping, I think \"all\" is fine. Let me check the examples...\n\nIn the first example, operations within the repeat body have `notePlacement: \"all\"` for increase operations (with note text \"dc inc\") and `notePlacement: \"first\"` for stitchProducing operations with null notes. So it seems like \"first\" is a safe default when there's no note.\n\nFor bookkeeping operations, I'll use \"all\" since the instruction applies to the whole operation.\n\nLet me finalize the JSON.\n\nOne more consideration: should I use actionTag \"assembly\" or something like \"weaveAndTie\"? The rules say: \"For actions not covered above, invent a camelCase or lowercase tag (letters, digits, underscore, or hyphen) and describe the action in instruction.\"\n\nI think \"assembly\" is appropriate since this is an assembly step.\n\nLet me construct the JSON now.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Weave red yarn through chain loops and tie a bow\", \"sourceText\": \"Take a 30-40cm\/12-16\\\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\", \"expectedProducedStitches\": null, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Take a 30-40cm\/12-16\\\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 1, \"instruction\": \"Take a 30-40cm\/12-16\\\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\", \"target\": null, \"note\": null, \"notePlacement\": \"all\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_TZjyPDMrOXzti2X7N5ZLIx9o",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777045514,
+  "id" : "b7b9e8c2-a59d-40f9-9a55-d1d5da5e580f",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1475,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 1110
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 126,
+    "prompt_tokens" : 11774,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 13249
+  }
+}

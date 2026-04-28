@@ -1,0 +1,31 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "frenchKnot",
+      "instruction" : "Make two French knots for the eyes",
+      "note" : "eyes",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Make two French knots for the eyes."
+    },
+    {
+      "actionTag" : "embroiderBlushes",
+      "instruction" : "Use pink yarn to stitch the blushes just below the eyes for a finished look",
+      "note" : "just below the eyes",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 1,
+      "sourceText" : "Then, use pink yarn to stitch the blushes just below the eyes for a finished look."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+  "title" : "Eyes & Blushes",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

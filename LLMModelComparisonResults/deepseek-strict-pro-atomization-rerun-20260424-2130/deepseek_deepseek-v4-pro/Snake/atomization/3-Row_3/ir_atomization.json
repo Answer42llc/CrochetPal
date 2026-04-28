@@ -1,0 +1,27 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 12,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "12 sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 12,
+      "sourceText" : "12 sc",
+      "title" : "Row 3"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input:\n\nRound: \"Row 86\"\nSource text: \"dec, 8 sc = 9 sc\"\nTarget stitch count: 9\n\nLet me parse this:\n- \"dec\" = decrease (2 stitches together, consumes 2, produces 1)\n- \"8 sc\" = 8 single crochet\n- \"= 9 sc\" is the stitch count after the round\n\nSo we have:\n1. A decrease operation: consumes 2 stitches, produces 1\n2. 8 sc operations: each produces 1 stitch\n\nTotal produced: 1 + 8 = 9, matches targetStitchCount.\n\nLet me construct the IR. Both operations are in the body's statements array.\n\nFor \"dec\": semantics = decrease, actionTag = \"decrease\", stitch = \"dec\" (or should it be \"sc\" since this is sc decrease? The pattern says \"dec.\" = decrease (2 crochets together). Since we're working in sc context, I'll use stitch = \"dec\" and actionTag = \"decrease\". Actually, the pattern uses \"dec.\" with a dot but in the instruction it's \"dec\" without the dot. Let me just use stitch = \"dec\" and actionTag = \"decrease\".)\n\nFor \"8 sc\": semantics = stitchProducing, actionTag = \"sc\", stitch = \"sc\", count = 8.\n\nNow let me build the JSON.\n\nThe round body has no repeat or normalization needed. Just two flat statements.\n\nLet me also think about the `instruction` field. The abbreviation `dec.` is defined as \"decrease (2 crochets together)\". I should put a meaningful instruction. Since the pattern abbreviation uses \"dec.\" I'll keep stitch as \"dec\" and actionTag as \"decrease\". For instruction, I can put null or a brief description. I'll put null since the stitch name is clear.\n\nActually, let me reconsider. The pattern defines:\n- `dec. = decrease (2 crochets together)`\n\nSo \"dec\" appears in the raw instruction. This is a custom abbreviation. The stitch should be \"dec\" (the author's abbreviation), and the actionTag should be \"decrease\". The instruction could be \"decrease (2 crochets together)\" but I think null is fine since `dec.` is defined in abbreviations. Let me leave instruction null and let the UI use the abbreviation definition.\n\nWait, the raw text says \"dec\" not \"dec.\" — but it's clearly the same abbreviation. I'll use stitch = \"dec\".\n\nNow, for the decrease operation:\n- semantics: \"decrease\"\n- actionTag: \"decrease\"\n- stitch: \"dec\"\n- count: 1 (one decrease)\n- producedStitches: null (decrease doesn't use this field normally, but let me check... For decrease, it consumes multiple and produces 1. The schema has producedStitches as optional. I'll set it to null.)\n\nFor the sc operation:\n- semantics: \"stitchProducing\"\n- actionTag: \"sc\"\n- stitch: \"sc\"\n- count: 8\n- producedStitches: null\n\nBoth operations have target: null, instruction: null, note: null, notePlacement: \"first\" (default).\n\nLet me construct the full JSON now.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Row 86\", \"sourceText\": \"dec, 8 sc = 9 sc\", \"expectedProducedStitches\": 9, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"dec\", \"operation\": {\"semantics\": \"decrease\", \"actionTag\": \"decrease\", \"stitch\": \"dec\", \"count\": 1, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"8 sc\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 8, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_f7flSwH2JWCz4xJYvuw0ph74",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777045236,
+  "id" : "af448c37-2f38-4b07-8f9c-de457482eb62",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 982,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 690
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 125,
+    "prompt_tokens" : 11773,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12755
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "back loop only",
+      "term" : "blo"
+    },
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "decrease (single crochet 2 together or invisible decrease)",
+      "term" : "dec"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "flo"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "increase (2 single crochet in one stitch)",
+      "term" : "inc"
+    },
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    }
+  ],
+  "partName" : "Mouse",
+  "rawInstruction" : "(sc 2, dec) x6. (18)",
+  "summary" : "Repeat two single crochets and a decrease six times.",
+  "targetStitchCount" : 18,
+  "title" : "Round 18"
+}

@@ -1,0 +1,195 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Increase",
+      "term" : "Inc"
+    },
+    {
+      "definition" : "Stitch",
+      "term" : "St"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "Slst"
+    },
+    {
+      "definition" : "back loop only",
+      "term" : "BLO"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "FLO"
+    }
+  ],
+  "confidence" : 0.87,
+  "materials" : [
+    "3mm crochet hook",
+    "Drops Paris yarn",
+    "Needle and thread for sewing eyes, nose"
+  ],
+  "parts" : [
+    {
+      "name" : "Top case",
+      "rounds" : [
+        {
+          "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook.",
+          "summary" : "Foundation chain for the top case.",
+          "title" : "Foundation Chain"
+        },
+        {
+          "rawInstruction" : "9sc, 4sc in the next st, 8sc, 3sc in the last st. (24)",
+          "summary" : "Work around the foundation chain, placing increases at both ends.",
+          "targetStitchCount" : 24,
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "Inc, 8sc, 4inc, 8sc, 3inc. (32)",
+          "summary" : "Increase round to shape the case.",
+          "targetStitchCount" : 32,
+          "title" : "Round 2"
+        },
+        {
+          "rawInstruction" : "FLO 13sc, 2inc, 14sc, 2inc, 1sc. (36)",
+          "summary" : "Work in front loop only with increases.",
+          "targetStitchCount" : 36,
+          "title" : "Round 3"
+        },
+        {
+          "rawInstruction" : "14sc, inc, 17sc, inc, 3sc. (38)",
+          "summary" : "Increase round.",
+          "targetStitchCount" : 38,
+          "title" : "Round 4"
+        },
+        {
+          "rawInstruction" : "38sc. (38)",
+          "summary" : "Single crochet around.",
+          "targetStitchCount" : 38,
+          "title" : "Round 5"
+        },
+        {
+          "rawInstruction" : "Change white.",
+          "summary" : "Switch from yellow to white yarn.",
+          "title" : "Change to white yarn"
+        },
+        {
+          "rangeEndNumber" : 9,
+          "rangeStartNumber" : 6,
+          "rawInstruction" : "38sc. (38)",
+          "summary" : "Single crochet around for four rounds in white.",
+          "targetStitchCount" : 38,
+          "title" : "Rounds 6-9"
+        },
+        {
+          "rawInstruction" : "Finish, cut and hide the yarn.",
+          "summary" : "Fasten off and weave in the end for the top case.",
+          "title" : "Finish off top case"
+        }
+      ]
+    },
+    {
+      "name" : "Bottom case",
+      "rounds" : [
+        {
+          "rawInstruction" : "Chain 11, turn and crochet to the second chain from hook.",
+          "summary" : "Foundation chain for the bottom case.",
+          "title" : "Foundation Chain"
+        },
+        {
+          "rawInstruction" : "9sc, 4sc in the next st, 8sc, 3sc in the last st. (24)",
+          "summary" : "Work around the foundation chain, same as top case.",
+          "targetStitchCount" : 24,
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "Inc, 8sc, 4inc, 8sc, 3inc. (32)",
+          "summary" : "Increase round, same as top case.",
+          "targetStitchCount" : 32,
+          "title" : "Round 2"
+        },
+        {
+          "rawInstruction" : "13sc, 2inc, 14sc, 2inc, 1sc. (36)",
+          "summary" : "Same as top case Round 3 but worked through both loops (no FLO).",
+          "targetStitchCount" : 36,
+          "title" : "Round 3"
+        },
+        {
+          "rawInstruction" : "14sc, inc, 17sc, inc, 3sc. (38)",
+          "summary" : "Increase round, same as top case.",
+          "targetStitchCount" : 38,
+          "title" : "Round 4"
+        },
+        {
+          "rangeEndNumber" : 7,
+          "rangeStartNumber" : 5,
+          "rawInstruction" : "38sc. (38)",
+          "summary" : "Single crochet around for three rounds.",
+          "targetStitchCount" : 38,
+          "title" : "Rounds 5-7"
+        },
+        {
+          "rawInstruction" : "Do not cut the yarn, crochet 2sc more.",
+          "summary" : "Work two additional single crochets without cutting yarn to prepare for joining.",
+          "title" : "Crochet 2sc more"
+        },
+        {
+          "rawInstruction" : "To connect 2 shells, use 10slst. FLO from the top shell, BLO from bottom shell.",
+          "summary" : "Join the top and bottom cases together using 10 slip stitches through front loop of top and back loop of bottom.",
+          "title" : "Join shells"
+        }
+      ]
+    },
+    {
+      "name" : "Ears",
+      "rounds" : [
+        {
+          "rawInstruction" : "7sc in MR, do not join, just tie MR.",
+          "summary" : "Make ears by working 7 single crochets into a magic ring.",
+          "title" : "Ears"
+        }
+      ]
+    },
+    {
+      "name" : "Arms",
+      "rounds" : [
+        {
+          "rawInstruction" : "5sc in MR. (5)",
+          "summary" : "Start arms with 5 single crochets in a magic ring.",
+          "targetStitchCount" : 5,
+          "title" : "Round 1"
+        },
+        {
+          "rangeEndNumber" : 3,
+          "rangeStartNumber" : 2,
+          "rawInstruction" : "5sc. (5)",
+          "summary" : "Single crochet around for two rounds.",
+          "targetStitchCount" : 5,
+          "title" : "Rounds 2-3"
+        },
+        {
+          "rawInstruction" : "Crochet on both side 2sc.",
+          "summary" : "Flatten and crochet 2sc through both sides to close.",
+          "title" : "Crochet on both sides"
+        }
+      ]
+    },
+    {
+      "name" : "Assembly",
+      "rounds" : [
+        {
+          "rawInstruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+          "summary" : "Attach ears, arms, and embroider the nose, eyes, and cheeks.",
+          "title" : "Sew all parts"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Huawei Freebuds Case"
+}

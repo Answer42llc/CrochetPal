@@ -1,0 +1,38 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "Ch 1",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "turn",
+      "instruction" : "Turn",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 1,
+      "sourceText" : "turn"
+    },
+    {
+      "actionTag" : "sc",
+      "instruction" : "one more row of sc",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "do one more row of sc",
+      "stitchTag" : "sc"
+    }
+  ],
+  "producedStitchCount" : 1,
+  "sourceText" : "Ch 1, turn, and do one more row of sc.",
+  "title" : "Final Row",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

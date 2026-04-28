@@ -1,0 +1,3 @@
+Error Domain=NSURLErrorDomain Code=-1005 "The network connection was lost." UserInfo={_kCFStreamErrorCodeKey=54, NSUnderlyingError=0x89ce1d5f0 {Error Domain=kCFErrorDomainCFNetwork Code=-1005 "(null)" UserInfo={_kCFStreamErrorCodeKey=54, _kCFStreamErrorDomainKey=1}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <34A91523-A3C0-4DA0-93A4-E32E1C5F9E8F>.<1>, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalDataTask <34A91523-A3C0-4DA0-93A4-E32E1C5F9E8F>.<1>"
+), NSLocalizedDescription=The network connection was lost., NSErrorFailingURLStringKey=https://api.deepseek.com/beta/chat/completions, NSErrorFailingURLKey=https://api.deepseek.com/beta/chat/completions, _kCFStreamErrorDomainKey=1}

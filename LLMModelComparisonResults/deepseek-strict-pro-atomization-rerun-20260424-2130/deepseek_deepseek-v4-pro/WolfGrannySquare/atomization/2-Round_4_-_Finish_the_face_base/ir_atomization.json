@@ -1,0 +1,297 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 2,
+              "note" : "count as 1hdc",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch2 (count as 1hdc)"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "note" : "to complete the first hdc inc",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc",
+              "target" : "same st"
+            },
+            "repeat" : null,
+            "sourceText" : "1hdc in the same st to complete the first hdc inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "hdc inc",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "increase",
+                      "count" : 1,
+                      "note" : "hdc inc",
+                      "notePlacement" : "all",
+                      "producedStitches" : 2,
+                      "semantics" : "increase",
+                      "stitch" : "hdc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "hdc inc"
+                  }
+                ]
+              },
+              "times" : 3
+            },
+            "sourceText" : "(hdc inc)x3"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "instruction" : "Change to white yarn",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Change to white yarn:"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "1hdc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "note" : "first part, into next st",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "1hdc+1sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "note" : "second part, into same st",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "same st"
+            },
+            "repeat" : null,
+            "sourceText" : "1hdc+1sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "sc inc",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "sc inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 9,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "9sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "sc inc",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "sc inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "note" : "first part, into next st",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1sc+1hdc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "note" : "second part, into same st",
+              "notePlacement" : "all",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc",
+              "target" : "same st"
+            },
+            "repeat" : null,
+            "sourceText" : "1sc+1hdc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "1hdc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "changeColor",
+              "count" : 1,
+              "instruction" : "Change back to grey yarn",
+              "notePlacement" : "all",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Change back to grey yarn:"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "hdc inc",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "hdc"
+            },
+            "repeat" : null,
+            "sourceText" : "hdc inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slst",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "slst",
+              "target" : "top of the first ch2"
+            },
+            "repeat" : null,
+            "sourceText" : "Slst to the top of the first ch2"
+          }
+        ]
+      },
+      "sourceText" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+      "title" : "Round 4 - Finish the face base"
+    }
+  ]
+}

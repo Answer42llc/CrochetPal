@@ -1,0 +1,32 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "increase (2 crochets in 1 loop)",
+      "term" : "inc."
+    },
+    {
+      "definition" : "decrease (2 crochets together)",
+      "term" : "dec."
+    },
+    {
+      "definition" : "repeat the sequence of loops in brackets L times",
+      "term" : "(....) - L times"
+    }
+  ],
+  "partName" : "Body",
+  "rawInstruction" : "We glue the eyes and embroider the eyebrows.",
+  "summary" : "Glue the safety eyes in place and embroider eyebrows above them.",
+  "title" : "Glue eyes and embroider eyebrows"
+}

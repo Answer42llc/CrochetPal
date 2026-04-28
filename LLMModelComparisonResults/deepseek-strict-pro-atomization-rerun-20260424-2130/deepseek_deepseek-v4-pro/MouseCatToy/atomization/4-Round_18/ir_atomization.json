@@ -1,0 +1,58 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "sc 2, dec",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 2,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "sc 2"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "decrease",
+                      "count" : 1,
+                      "notePlacement" : "all",
+                      "producedStitches" : 1,
+                      "semantics" : "decrease",
+                      "stitch" : "dec"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "dec"
+                  }
+                ]
+              },
+              "sourceRepeatCount" : 6,
+              "times" : 6
+            },
+            "sourceText" : "(sc 2, dec) x6. (18)"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 18,
+      "sourceText" : "(sc 2, dec) x6. (18)",
+      "title" : "Round 18"
+    }
+  ]
+}

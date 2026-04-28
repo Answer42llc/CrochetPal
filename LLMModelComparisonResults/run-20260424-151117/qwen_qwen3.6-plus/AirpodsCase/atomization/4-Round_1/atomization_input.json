@@ -1,0 +1,25 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Chain",
+      "term" : "CH"
+    },
+    {
+      "definition" : "Half Treble Crochet",
+      "term" : "HTC"
+    },
+    {
+      "definition" : "Double Crochet",
+      "term" : "DC"
+    },
+    {
+      "definition" : "Fasten Off.",
+      "term" : "FO"
+    }
+  ],
+  "partName" : "Button",
+  "rawInstruction" : "work 12 treble crochet, join. (12)",
+  "summary" : "Work twelve treble crochets into the ring and join.",
+  "targetStitchCount" : 12,
+  "title" : "Round 1"
+}

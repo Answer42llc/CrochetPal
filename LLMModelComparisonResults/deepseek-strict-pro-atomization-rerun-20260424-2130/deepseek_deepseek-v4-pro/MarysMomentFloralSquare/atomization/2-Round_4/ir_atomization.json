@@ -1,0 +1,102 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "fphdc",
+                      "count" : 1,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "fphdc",
+                      "target" : "around the FPhdc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "FPhdc around the FPhdc"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "ch",
+                      "count" : 4,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "ch"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "ch 4"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "Popcorn",
+                      "count" : 1,
+                      "instruction" : "Make 5 dc in indicated sp, remove hook, insert into first dc, pull last st through to close",
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "Popcorn",
+                      "target" : "next ch-2 sp"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "make a Popcorn in the next ch-2 sp"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "ch",
+                      "count" : 4,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "ch"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "ch 4"
+                  }
+                ]
+              },
+              "times" : 6
+            },
+            "sourceText" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "slSt",
+              "count" : 1,
+              "instruction" : "Join to the first FPhdc",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "slSt",
+              "target" : "first FPhdc"
+            },
+            "repeat" : null,
+            "sourceText" : "Join to the first FPhdc with a sl st"
+          }
+        ]
+      },
+      "sourceText" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}",
+      "title" : "Round 4"
+    }
+  ]
+}

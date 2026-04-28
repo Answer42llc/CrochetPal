@@ -1,0 +1,20 @@
+{
+  "actions" : [
+
+  ],
+  "expansionFailure" : "invalidResponse(\"ir_invalid_operation_count\")",
+  "expectedProducedStitches" : 10,
+  "sourceText" : "Start 10 sc in a magic ring",
+  "title" : "Row 1",
+  "validationIssues" : [
+    {
+      "code" : "ir_invalid_operation_count",
+      "message" : "Operation count must be positive.",
+      "severity" : "error",
+      "sourceText" : "magic ring"
+    }
+  ],
+  "warnings" : [
+
+  ]
+}

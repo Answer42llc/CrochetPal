@@ -1,0 +1,105 @@
+{
+  "rounds": [
+    {
+      "title": "Round 4",
+      "sourceText": "14sc, inc, 17sc, inc, 3sc",
+      "expectedProducedStitches": 38,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "14sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 14,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "inc",
+            "operation": {
+              "semantics": "increase",
+              "actionTag": "increase",
+              "stitch": "sc",
+              "count": 1,
+              "instruction": null,
+              "target": null,
+              "note": "Increase",
+              "notePlacement": "all",
+              "producedStitches": 2
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "17sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 17,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "inc",
+            "operation": {
+              "semantics": "increase",
+              "actionTag": "increase",
+              "stitch": "sc",
+              "count": 1,
+              "instruction": null,
+              "target": null,
+              "note": "Increase",
+              "notePlacement": "all",
+              "producedStitches": 2
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          },
+          {
+            "kind": "operation",
+            "sourceText": "3sc",
+            "operation": {
+              "semantics": "stitchProducing",
+              "actionTag": "sc",
+              "stitch": "sc",
+              "count": 3,
+              "instruction": null,
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "foundation chain",
+      "term" : "fc"
+    },
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "space",
+      "term" : "sp"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "ss"
+    },
+    {
+      "definition" : "increase (2 sc in same stitch)",
+      "term" : "inc"
+    },
+    {
+      "definition" : "decrease (single crochet 2 stitches together)",
+      "term" : "dec"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "fasten off",
+      "term" : "FO"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "YarnArt Begonia Cotton Fine (2) yarn",
+    "2.0 mm crochet hook",
+    "Yarn needle",
+    "Scissors",
+    "Fiberfill stuffing"
+  ],
+  "parts" : [
+    {
+      "name" : "Head",
+      "rounds" : [
+        {
+          "rawInstruction" : "CH 4",
+          "summary" : "Chain 4 to form the foundation chain.",
+          "title" : "Foundation Chain"
+        },
+        {
+          "rawInstruction" : "3 SC (3)",
+          "summary" : "Insert hook into 2nd chain from hook and work 1 single crochet in each chain across.",
+          "targetStitchCount" : 3,
+          "title" : "Row 1"
+        },
+        {
+          "rawInstruction" : "INC, 1 SC, INC (5)",
+          "summary" : "Increase in first stitch, single crochet in next stitch, increase in last stitch.",
+          "targetStitchCount" : 5,
+          "title" : "Row 2"
+        },
+        {
+          "rawInstruction" : "INC, 3 SC, INC (7)",
+          "summary" : "Increase in first stitch, single crochet in each of next 3 stitches, increase in last stitch.",
+          "targetStitchCount" : 7,
+          "title" : "Row 3"
+        },
+        {
+          "rawInstruction" : "INC, 5 SC, INC (9)",
+          "summary" : "Increase in first stitch, single crochet in each of next 5 stitches, increase in last stitch.",
+          "targetStitchCount" : 9,
+          "title" : "Row 4"
+        },
+        {
+          "rangeEndNumber" : 6,
+          "rangeStartNumber" : 5,
+          "rawInstruction" : "9 SC (9)",
+          "summary" : "Single crochet in each stitch across for two rows.",
+          "targetStitchCount" : 9,
+          "title" : "Rows 5-6"
+        },
+        {
+          "rawInstruction" : "DEC, 5 SC, DEC (7)",
+          "summary" : "Decrease across first 2 stitches, single crochet in each of next 5 stitches, decrease across last 2 stitches.",
+          "targetStitchCount" : 7,
+          "title" : "Row 7"
+        },
+        {
+          "rawInstruction" : "DEC, 3 SC, DEC (5)",
+          "summary" : "Decrease across first 2 stitches, single crochet in each of next 3 stitches, decrease across last 2 stitches.",
+          "targetStitchCount" : 5,
+          "title" : "Row 8"
+        },
+        {
+          "rawInstruction" : "DEC, 1 SC, DEC (3)",
+          "summary" : "Decrease across first 2 stitches, single crochet in next stitch, decrease across last 2 stitches. Do not fasten off; continue to Body.",
+          "targetStitchCount" : 3,
+          "title" : "Row 9"
+        }
+      ]
+    },
+    {
+      "name" : "Body",
+      "rounds" : [
+        {
+          "rawInstruction" : "INC, 1 SC, INC (5)",
+          "summary" : "Increase in first stitch, single crochet in next stitch, increase in last stitch.",
+          "targetStitchCount" : 5,
+          "title" : "Row 10"
+        },
+        {
+          "rawInstruction" : "INC, 3 SC, INC (7)",
+          "summary" : "Increase in first stitch, single crochet in each of next 3 stitches, increase in last stitch.",
+          "targetStitchCount" : 7,
+          "title" : "Row 11"
+        },
+        {
+          "rawInstruction" : "INC, 5 SC, INC (9)",
+          "summary" : "Increase in first stitch, single crochet in each of next 5 stitches, increase in last stitch.",
+          "targetStitchCount" : 9,
+          "title" : "Row 12"
+        },
+        {
+          "rawInstruction" : "Place a stitch marker in the space between Row 11 and Row 12. (This is where you will begin working the first arm)",
+          "summary" : "Mark the space between Rows 11 and 12 for later arm attachment.",
+          "title" : "Place stitch marker for first arm"
+        },
+        {
+          "rawInstruction" : "INC, 7 SC, INC (11)",
+          "summary" : "Increase in first stitch, single crochet in each of next 7 stitches, increase in last stitch.",
+          "targetStitchCount" : 11,
+          "title" : "Row 13"
+        },
+        {
+          "rangeEndNumber" : 19,
+          "rangeStartNumber" : 14,
+          "rawInstruction" : "11 SC (11)",
+          "summary" : "Single crochet in each stitch across for six rows.",
+          "targetStitchCount" : 11,
+          "title" : "Rows 14-19"
+        },
+        {
+          "rawInstruction" : "Place a stitch marker in the space between Row 14 and Row 15. (This is where you will begin working the second arm)",
+          "summary" : "Mark the space between Rows 14 and 15 for later arm attachment.",
+          "title" : "Place stitch marker for second arm"
+        },
+        {
+          "rawInstruction" : "DEC, 7 SC, DEC (9)",
+          "summary" : "Decrease across first 2 stitches, single crochet in each of next 7 stitches, decrease across last 2 stitches. Do not fasten off; continue to Legs.",
+          "targetStitchCount" : 9,
+          "title" : "Row 20"
+        }
+      ]
+    },
+    {
+      "name" : "Legs",
+      "rounds" : [
+        {
+          "rawInstruction" : "4 SC (4)",
+          "summary" : "Work 1 single crochet in each of the first 4 stitches only to begin the first leg.",
+          "targetStitchCount" : 4,
+          "title" : "Leg 1 - Row 21"
+        },
+        {
+          "rangeEndNumber" : 25,
+          "rangeStartNumber" : 22,
+          "rawInstruction" : "4 SC (4)",
+          "summary" : "Single crochet in each stitch across for 4 rows.",
+          "targetStitchCount" : 4,
+          "title" : "Leg 1 - Rows 22-25"
+        },
+        {
+          "rawInstruction" : "Fasten off.",
+          "summary" : "Fasten off the yarn for the first leg.",
+          "title" : "Fasten off Leg 1"
+        },
+        {
+          "rawInstruction" : "Skip 1 stitch next to Leg 1, and join yarn in the following stitch. Chain 1 (counts as first single crochet). Make 1 single crochet in each of the next 3 stitches. (4)",
+          "summary" : "Skip one stitch, join yarn, and work 4 single crochets to begin the second leg.",
+          "targetStitchCount" : 4,
+          "title" : "Leg 2 - Row 21"
+        },
+        {
+          "rangeEndNumber" : 25,
+          "rangeStartNumber" : 22,
+          "rawInstruction" : "4 SC (4)",
+          "summary" : "Single crochet in each stitch across for 4 rows.",
+          "targetStitchCount" : 4,
+          "title" : "Leg 2 - Rows 22-25"
+        },
+        {
+          "rawInstruction" : "Fasten off.",
+          "summary" : "Fasten off the yarn for the second leg.",
+          "title" : "Fasten off Leg 2"
+        }
+      ]
+    },
+    {
+      "name" : "Arms",
+      "rounds" : [
+        {
+          "rawInstruction" : "Attach yarn between Rows 11–12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO",
+          "summary" : "Attach yarn between Rows 11-12, chain 1, work sc, hdc, 3 dc, chain 2, and slip stitch to form the first arm.",
+          "title" : "Arm 1"
+        },
+        {
+          "rawInstruction" : "Attach yarn on opposite side between Rows 14–15. CH 2, 3 DC in same sp, HDC in next sp, SC in next sp, SS. FO",
+          "summary" : "Attach yarn between Rows 14-15, chain 2, work 3 dc, hdc, sc, and slip stitch to form the second arm.",
+          "title" : "Arm 2"
+        }
+      ]
+    },
+    {
+      "name" : "Ears",
+      "rounds" : [
+        {
+          "rawInstruction" : "Attach yarn in the top corner of the head. CH 2, 2 DC in the next sp, CH 2, SS into the same sp. FO",
+          "summary" : "Attach yarn at the top corner of the head, chain 2, work 2 double crochets, chain 2, and slip stitch to form the first ear.",
+          "title" : "Ear 1"
+        },
+        {
+          "rawInstruction" : "Move to the opposite top corner, at the same level as the last st of the first ear. Attach yarn. CH 2, 2 DC in the same sp, CH 2, SS into the same sp. FO",
+          "summary" : "Move to the opposite top corner, attach yarn, chain 2, work 2 double crochets, chain 2, and slip stitch to form the second ear.",
+          "title" : "Ear 2"
+        }
+      ]
+    },
+    {
+      "name" : "Finishing",
+      "rounds" : [
+        {
+          "rawInstruction" : "Repeat the entire pattern to create a second identical piece.",
+          "summary" : "Create a second identical panel following the same pattern.",
+          "title" : "Make a second panel"
+        },
+        {
+          "rawInstruction" : "Using a yarn needle, weave in all loose ends securely on the wrong side of the work.",
+          "summary" : "Weave in all loose ends on the wrong side before joining panels.",
+          "title" : "Weave in ends"
+        },
+        {
+          "rawInstruction" : "Use safety eyes, or embroider using yarn (suggested position of the eyes - between row 4 and 5). This step must be done before assembling.",
+          "summary" : "Add eyes and nose to the face panel before joining the two pieces together.",
+          "title" : "Add eyes and nose"
+        },
+        {
+          "rawInstruction" : "Place both panels together with wrong sides facing each other. Attach yarn at any point along the edge. Work slip stitches evenly around, inserting your hook through both layers. Continue around the entire shape to join. Optional: Lightly stuff the bear before fully closing, or leave flat for a keychain-style finish. Fasten off and weave in all ends securely.",
+          "summary" : "Place panels wrong sides together and join with slip stitches all around, optionally stuffing before fully closing.",
+          "title" : "Joining the Pieces"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Mochi Bear"
+}

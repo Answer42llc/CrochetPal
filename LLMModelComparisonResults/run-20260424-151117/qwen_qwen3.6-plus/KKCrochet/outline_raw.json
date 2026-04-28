@@ -1,0 +1,228 @@
+{
+  "projectTitle": "Crochet Knockers",
+  "materials": [
+    "1 (1, 1, 2, 2) skeins of yarn from the Knitted Knocker approved yarn list",
+    "Size G (4.5mm) crochet hook",
+    "3 locking stitch markers (1 in a different color for start of round)",
+    "Tapestry needle"
+  ],
+  "confidence": 0.95,
+  "abbreviations": [
+    { "term": "ch", "definition": "chain" },
+    { "term": "pm", "definition": "place marker" },
+    { "term": "rnd", "definition": "round" },
+    { "term": "sc", "definition": "single crochet" },
+    { "term": "rep", "definition": "Repeat" },
+    { "term": "inc", "definition": "work 2 scs in next sc" },
+    { "term": "inv dec", "definition": "invisible decrease (like sc2tog, but only in the front loops)" }
+  ],
+  "parts": [
+    {
+      "name": "Front",
+      "rounds": [
+        {
+          "title": "Rnd 1",
+          "rawInstruction": "Create a magic ring with 6 sc in the ring. Close the ring.",
+          "summary": "Form a magic ring and work 6 single crochets into it.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rnd 2",
+          "rawInstruction": "inc x 6 (12 sc)",
+          "summary": "Increase in every stitch around.",
+          "targetStitchCount": 12,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rnd 3",
+          "rawInstruction": "(2 sc, 2 inc, PM X 3 (18 sc)",
+          "summary": "Work pattern and place markers.",
+          "targetStitchCount": 18,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rnd 4",
+          "rawInstruction": "(4 sc, 2 inc) x 3 (24 sc).Move Markers up as you go.",
+          "summary": "Work increase pattern and move markers.",
+          "targetStitchCount": 24,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rnd 5",
+          "rawInstruction": "(7 sc, inc) x 3 (27 sc)",
+          "summary": "Work increase pattern.",
+          "targetStitchCount": 27,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rnd 6",
+          "rawInstruction": "(Work to 1 sc before marker and inc x 2) x 3 (33 sc)",
+          "summary": "Work to markers and increase.",
+          "targetStitchCount": 33,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rnd 7",
+          "rawInstruction": "(Work to marker and inc in marked stitch) x 3 (36 sc)",
+          "summary": "Work to markers and increase in marked stitch.",
+          "targetStitchCount": 36,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Sew in tail",
+          "rawInstruction": "Using the tapestry needle, sew in the magic ring’s 6” tail.",
+          "summary": "Weave in starting tail.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Size Selection & Repeat",
+          "rawInstruction": "Select the cup size and continue. A cup – Repeat Rnds 6 & 7 three times until 4.5” across or 13 rounds (approx. 63 sc) B cup – Repeat Rnds 6 & 7 four times until 5” across or 15 rounds (approx.72 sc) C cup – Repeat Rnds 6 & 7 five times until 5.5” across or 17 rounds (approx. 81 sc) D cup – Repeat Rnds 6 & 7 six times until 6” across or 19 rounds (approx 90 sc) DD cup – Repeat Rnds 6 & 7 seven times until 6.5” across or 21 rounds (approx. 99 sc)",
+          "summary": "Repeat rounds 6 and 7 based on desired cup size.",
+          "targetStitchCount": null,
+          "repeatFromTitle": "Rnd 6",
+          "repeatToTitle": "Rnd 7",
+          "repeatUntilCount": null,
+          "repeatAfterRow": 7,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    },
+    {
+      "name": "Turning Rows",
+      "rounds": [
+        {
+          "title": "Rounds 1-2",
+          "rawInstruction": "Work 2 rnds even through the back loop only.",
+          "summary": "Work two rounds evenly in back loops only.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": 1,
+          "rangeEndNumber": 2
+        }
+      ]
+    },
+    {
+      "name": "Back",
+      "rounds": [
+        {
+          "title": "Preparation",
+          "rawInstruction": "When the size is correct, the turning rows have been completed, and you’re ready to start decreasing, crochet until 1 sc before the first marker.",
+          "summary": "Crochet to one stitch before the first marker to begin decreases.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rnd 1",
+          "rawInstruction": "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+          "summary": "Work invisible decreases and place markers, then single crochet to next marker.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Repeat Rnd 1",
+          "rawInstruction": "Repeat Rnd 1 until you have 15 sc left.",
+          "summary": "Continue decrease round until 15 stitches remain.",
+          "targetStitchCount": null,
+          "repeatFromTitle": "Rnd 1",
+          "repeatToTitle": "Rnd 1",
+          "repeatUntilCount": null,
+          "repeatAfterRow": 1,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Cut yarn",
+          "rawInstruction": "Cut yarn leaving a 10” tail.",
+          "summary": "Fasten off leaving a long tail.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Weave through front loops",
+          "rawInstruction": "Important! Do Not Miss This Step! Thread tapestry needle and weave through the front loop only for the remaining 15 sc.",
+          "summary": "Thread tail through front loops of remaining stitches.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Stuffing or Mailing Instructions",
+          "rawInstruction": "If stuffing the Knocker: Slightly overstuff with Poly-fil (or other fiber fill) Do not close hole as it is difficult to reopen. Stuffing will not come out when worn or washed. Tuck tail into Knocker so that filling can be adjusted as needed. If mailing in unstuffed: Leave the hole open and the yarn tail outside of the Knocker. If your yarn tends to fray easily, tie a loose knot at the end of the tail.",
+          "summary": "Follow stuffing or mailing instructions based on intended use.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    }
+  ]
+}

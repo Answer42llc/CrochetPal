@@ -1,0 +1,36 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "magic ring",
+      "term" : "MR"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Increase",
+      "term" : "Inc"
+    },
+    {
+      "definition" : "Stitch",
+      "term" : "St"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "Slst"
+    },
+    {
+      "definition" : "back loop only",
+      "term" : "BLO"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "FLO"
+    }
+  ],
+  "partName" : "Bottom case",
+  "rawInstruction" : "Chain 11 and do the same with bottom case but R3 do not FLO.",
+  "summary" : "Create foundation chain and follow top case pattern without front loop only on round 3.",
+  "title" : "Foundation Chain"
+}

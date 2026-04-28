@@ -1,0 +1,52 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "slip stitch for joining to a different round",
+      "term" : "slst"
+    },
+    {
+      "definition" : "stitch",
+      "term" : "st"
+    },
+    {
+      "definition" : "yarn over",
+      "term" : "yo"
+    },
+    {
+      "definition" : "skip",
+      "term" : "sk"
+    },
+    {
+      "definition" : "increase",
+      "term" : "inc"
+    },
+    {
+      "definition" : "picot stitch",
+      "term" : "pic"
+    },
+    {
+      "definition" : "third loop only",
+      "term" : "TLO"
+    }
+  ],
+  "partName" : "Wolf Head",
+  "rawInstruction" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+  "summary" : "Create a magic ring with grey yarn, chain 1, work 7 single crochet into the ring, and slip stitch to the first single crochet.",
+  "title" : "Round 1"
+}

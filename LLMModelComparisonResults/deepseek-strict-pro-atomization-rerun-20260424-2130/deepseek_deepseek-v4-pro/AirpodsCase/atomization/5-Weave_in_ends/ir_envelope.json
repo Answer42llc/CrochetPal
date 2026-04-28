@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a single crochet round into Crochet IR. Let me analyze the input:\n\n- Part: \"Button\"\n- Raw instruction: \"Weave in the ends.\"\n- Title: \"Weave in ends\"\n\nThis is a bookkeeping instruction - \"Weave in the ends.\" It doesn't produce stitches. It's a finishing step.\n\nI need to create a single round with:\n- expectedProducedStitches: null (no stitches produced)\n- body with one statement: an operation with semantics = \"bookkeeping\", actionTag = \"weaveInEnds\" (or something similar), count = 0 (or 1?), stitch = null\n\nLet me think about what actionTag to use. \"Weave in the ends\" is a common finishing action. I'll use \"weaveInEnds\" as the actionTag, or perhaps \"weaveInEnds\" is good. Actually, looking at the recommended tags, \"assembly\" might be appropriate for weaving in ends. Let me go with \"assembly\" since weaving in ends is an assembly\/finishing task. Or I could use \"custom\" - but let me use a descriptive tag. \"weaveInEnds\" seems like a good custom tag.\n\nFor bookkeeping, count is typically 0 since no stitches are produced. Let me set count to 0.\n\nThe sourceText should be the raw instruction: \"Weave in the ends.\"\n\nLet me construct the IR:\n\n```json\n{\n  \"rounds\": [\n    {\n      \"title\": \"Weave in ends\",\n      \"sourceText\": \"Weave in the ends.\",\n      \"expectedProducedStitches\": null,\n      \"body\": {\n        \"statements\": [\n          {\n            \"kind\": \"operation\",\n            \"sourceText\": \"Weave in the ends.\",\n            \"operation\": {\n              \"semantics\": \"bookkeeping\",\n              \"actionTag\": \"weaveInEnds\",\n              \"stitch\": null,\n              \"count\": 0,\n              \"instruction\": \"Weave in the ends.\",\n              \"target\": null,\n              \"note\": null,\n              \"notePlacement\": \"all\",\n              \"producedStitches\": null\n            },\n            \"repeat\": null,\n            \"conditional\": null,\n            \"note\": null\n          }\n        ],\n        \"sourceText\": null,\n        \"normalizationNote\": null\n      }\n    }\n  ]\n}\n```\n\nWait, let me reconsider. The actionTag for weaving in ends - I think \"assembly\" is a recommended value for bookkeeping actions. But \"weaveInEnds\" is more specific and the spec says \"Unknown tags are allowed.\" Let me use \"assembly\" since it fits the category, or maybe I should use \"weaveInEnds\" to be more precise.\n\nActually, re-reading the spec: \"bookkeeping: turn, skip, joinYarn, fastenOff, changeColor, setWorkingLoop, placeMarker, removeMarker, moveMarker, assembly, custom\"\n\nSo \"assembly\" is one of the recommended values. Weaving in ends is an assembly task. Let me use \"assembly\" as the actionTag.\n\nAlso, `stitch` can be null for bookkeeping operations since no stitch is involved.\n\nLet me also set `instruction` to describe what to do. The spec says `instruction` can be null or a string. I'll put the instruction text there.\n\nNow let me finalize. The `notePlacement` should probably be \"all\" since it's a standalone instruction.\n\nLet me also consider: should `count` be 0 or 1? For bookkeeping, count typically is 0. But it could also be 1 to represent \"do this once\". Let me use 1 since it's a single action, or 0... I think 0 is fine for bookkeeping.\n\nActually, I'll use count = 1 to represent one weaving action, but it doesn't really matter for bookkeeping. Let me use 1.\n\nHmm, on second thought, let me keep count at 0 for bookkeeping since no stitches are being counted. The spec examples don't show bookkeeping with count constraints.\n\nLet me go with 1, as it's a single instruction being performed.\n\nNow let me call the function.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Weave in ends\", \"sourceText\": \"Weave in the ends.\", \"expectedProducedStitches\": null, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Weave in the ends.\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"assembly\", \"stitch\": null, \"count\": 1, \"instruction\": \"Weave in the ends.\", \"target\": null, \"note\": null, \"notePlacement\": \"all\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_1Uhk9ertQ7HvUYlQF8ALhoPm",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777042723,
+  "id" : "b82c4fed-42ee-4290-9fa4-1c015c83f477",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1094,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 892
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 33,
+    "prompt_tokens" : 11681,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12775
+  }
+}

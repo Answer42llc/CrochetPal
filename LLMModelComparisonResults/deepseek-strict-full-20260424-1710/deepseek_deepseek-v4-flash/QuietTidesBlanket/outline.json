@@ -1,0 +1,136 @@
+{
+  "abbreviations" : [
+
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "Crochet Hook size I\/5.5mm",
+    "Circulo's Alpaya Yarn - 3 hanks of off white, 2 hanks of teal, 2 hanks of light blue",
+    "Scissors",
+    "Yarn needle",
+    "Blocking mat or thick towel and pins"
+  ],
+  "parts" : [
+    {
+      "name" : "Body",
+      "rounds" : [
+        {
+          "rawInstruction" : "With off white, ch 114. 1 sc in the 2nd ch from the hook and in each ch across. (113 sc) Ch 1, turn.",
+          "summary" : "Chain 114, then single crochet in the second chain from hook and in each chain across.",
+          "targetStitchCount" : 113,
+          "title" : "Row 1"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across, changing to teal in the last sc. Ch 1, turn.",
+          "summary" : "Single crochet across, changing to teal in the last stitch.",
+          "title" : "Row 2"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across. Ch 1, turn.",
+          "summary" : "Single crochet across with teal.",
+          "title" : "Row 3"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+          "summary" : "Single crochet across, changing to off white in the last stitch.",
+          "title" : "Row 4"
+        },
+        {
+          "rawInstruction" : "1 sc in the first 2 sc, *fpdc around the next sc from 3 rows below (see reference image), then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+          "summary" : "Work front-post double crochet stitches around stitches 3 rows below, alternating with single crochets.",
+          "title" : "Row 5"
+        },
+        {
+          "rawInstruction" : "1 sc in each st across, changing to light blue in the last sc. Ch 1, turn.",
+          "summary" : "Single crochet across, changing to light blue in the last stitch.",
+          "title" : "Row 6"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across. Ch 1, turn.",
+          "summary" : "Single crochet across with light blue.",
+          "title" : "Row 7"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+          "summary" : "Single crochet across, changing to off white in the last stitch.",
+          "title" : "Row 8"
+        },
+        {
+          "rawInstruction" : "1 sc in the first 2 sc, *fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+          "summary" : "Work front-post double crochet stitches around the fpdc posts from 4 rows below, alternating with single crochets.",
+          "title" : "Row 9"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across, changing to teal in the last sc. Ch 1, turn.",
+          "summary" : "Single crochet across, changing to teal in the last stitch.",
+          "title" : "Row 10"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across. Ch 1, turn.",
+          "summary" : "Single crochet across with teal.",
+          "title" : "Row 11"
+        },
+        {
+          "rawInstruction" : "1 sc in each sc across, changing to off white in the last sc. Ch 1, turn.",
+          "summary" : "Single crochet across, changing to off white in the last stitch.",
+          "title" : "Row 12"
+        },
+        {
+          "rawInstruction" : "1 sc in the first 2 sc, *fpdc around the top of the fpdc from 4 rows below, then - back on your working row - sk the sc behind the fpdc you just made, 1 sc in each of the next 2 sc;* repeat from * to * across. Ch 1, turn.",
+          "summary" : "Work front-post double crochet stitches around the fpdc posts from 4 rows below, alternating with single crochets.",
+          "title" : "Row 13"
+        },
+        {
+          "rawInstruction" : "Repeat Rows 6-13 until you have a total of 118 rows.",
+          "repeatAfterRow" : 13,
+          "repeatFromTitle" : "Row 6",
+          "repeatToTitle" : "Row 13",
+          "repeatUntilCount" : 118,
+          "summary" : "Cycle through rows 6-13 repeatedly until the blanket reaches 118 rows total.",
+          "title" : "Repeat Rows 6-13"
+        },
+        {
+          "rawInstruction" : "Then ch 1, turn, and do one more row of sc.",
+          "summary" : "Work one final row of single crochet after reaching 118 rows.",
+          "title" : "Additional sc row"
+        },
+        {
+          "rawInstruction" : "Weave in ends, then move on to the border.",
+          "summary" : "Weave in all loose yarn ends before starting the border.",
+          "title" : "Weave in ends"
+        }
+      ]
+    },
+    {
+      "name" : "Border",
+      "rounds" : [
+        {
+          "rawInstruction" : "With off white, place one sc evenly around the entire blanket. Place 3 sc in each corner. *Tip: while working along the sides, place two sc for each colored row, so 2 sc per white row, 2 sc for each teal row, etc. This way you won't be adding unnecessary single crochets to the sides which could result in a wavy edge. Join with sl st to the first sc you made.",
+          "summary" : "Work a single crochet border evenly around the blanket, with 3 sc in each corner.",
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "Finish off white, add teal.",
+          "summary" : "Cut the off white yarn and attach teal yarn.",
+          "title" : "Finish off white, add teal"
+        },
+        {
+          "rawInstruction" : "Ch 2, 1 hdc in each st around, placing 3 hdc in each corner. Join with a sl st to the first hdc. Finish off teal, add light blue.",
+          "summary" : "Work a half-double crochet border round, with 3 hdc in each corner; finish off teal and add light blue.",
+          "title" : "Round 2"
+        },
+        {
+          "rawInstruction" : "Finish off teal, add light blue.",
+          "summary" : "Cut the teal yarn and attach light blue yarn.",
+          "title" : "Finish off teal, add light blue"
+        },
+        {
+          "rawInstruction" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+          "summary" : "Work a single crochet border round, with 3 sc in each corner; finish off and weave in ends.",
+          "title" : "Round 3"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Quiet Tides Baby Blanket"
+}

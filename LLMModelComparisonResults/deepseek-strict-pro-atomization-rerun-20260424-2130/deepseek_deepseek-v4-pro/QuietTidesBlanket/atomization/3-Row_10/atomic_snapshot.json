@@ -1,0 +1,46 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "sc",
+      "note" : "in each sc across",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "1 sc in each sc across",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "changeColor",
+      "instruction" : "change to teal in the last sc",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 1,
+      "sourceText" : "changing to teal in the last sc"
+    },
+    {
+      "actionTag" : "ch",
+      "producedStitches" : 0,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "Ch 1",
+      "stitchTag" : "ch"
+    },
+    {
+      "actionTag" : "turn",
+      "instruction" : "Turn",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 3,
+      "sourceText" : "turn"
+    }
+  ],
+  "producedStitchCount" : 1,
+  "sourceText" : "1 sc in each sc across, changing to teal in the last sc. Ch 1, turn.",
+  "title" : "Row 10",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

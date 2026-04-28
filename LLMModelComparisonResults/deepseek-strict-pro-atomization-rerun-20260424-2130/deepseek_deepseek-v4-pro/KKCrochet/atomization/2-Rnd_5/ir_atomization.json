@@ -1,0 +1,60 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "(7 sc, inc)",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 7,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "7 sc"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "increase",
+                      "count" : 1,
+                      "instruction" : "work 2 scs in next sc",
+                      "note" : "inc",
+                      "notePlacement" : "all",
+                      "producedStitches" : 2,
+                      "semantics" : "increase",
+                      "stitch" : "sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "inc"
+                  }
+                ]
+              },
+              "sourceRepeatCount" : 3,
+              "times" : 3
+            },
+            "sourceText" : "(7 sc, inc) x 3"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 27,
+      "sourceText" : "(7 sc, inc) x 3 (27 sc)",
+      "title" : "Rnd 5"
+    }
+  ]
+}

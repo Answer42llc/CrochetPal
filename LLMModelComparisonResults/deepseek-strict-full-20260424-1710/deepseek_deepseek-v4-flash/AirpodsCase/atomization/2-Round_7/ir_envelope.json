@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input. I have a single round to compile into Crochet IR.\n\nThe pattern defines abbreviations:\n- CH = Chain\n- HTC = Half Treble Crochet\n- DC = Double Crochet\n- FO = Fasten Off\n\nThe round is:\n- Title: \"Round 7\"\n- Part: \"Body\"\n- Raw instruction: \"1 DC in each stitch all the way around (24)\"\n- Target stitch count: 24\n\nSo the instruction says to work 1 DC in each stitch around, resulting in 24 stitches. This is a stitchProducing operation with `stitch = \"DC\"` (using the author's abbreviation), `actionTag = \"DC\"`, `count = 24` (the target stitch count), and `semantics = \"stitchProducing\"`. The `instruction` field should contain the author's definition of DC since it's a custom abbreviation per the pattern.\n\nWait, DC is a common abbreviation for Double Crochet. But the pattern explicitly lists DC as an author-defined abbreviation. However, the rules say:\n\n\"When the raw instruction uses any of these terms:\n1. Use the author's abbreviation as the stitch (and actionTag) value, NOT a standard stitch.\n2. Put the author's definition (or a short rephrasing of it) into instruction so the user sees what the abbreviation actually means.\"\n\nSo I should use \"DC\" as the stitch and actionTag value. For instruction, I should provide the definition. The pattern says \"DC = Double Crochet\" so instruction could be \"Double Crochet\" or I could leave it null since it's a common stitch.\n\nActually, let me re-read: \"Put the author's definition (or a short rephrasing of it) into instruction\". The definition is just \"Double Crochet\" which is clear. I'll put that in instruction.\n\nLet me also think about notePlacement. Since there's only one type of stitch throughout, \"first\" seems appropriate.\n\nLet me construct the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Round 7\", \"sourceText\": \"1 DC in each stitch all the way around (24)\", \"expectedProducedStitches\": 24, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"1 DC in each stitch all the way around (24)\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"DC\", \"stitch\": \"DC\", \"count\": 24, \"instruction\": \"Double Crochet\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_hRn0ztHe7038AG5DbtsrLD5O",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777028946,
+  "id" : "fe3f73ef-5ca1-4414-bacc-2f0eb20a4661",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 634,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 419
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11690,
+    "prompt_tokens" : 11690,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 12324
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "frenchKnot",
+              "count" : 2,
+              "instruction" : "Make two French knots for the eyes",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "eyes"
+            },
+            "repeat" : null,
+            "sourceText" : "Make two French knots for the eyes."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "embroiderBlushes",
+              "count" : 1,
+              "instruction" : "Use pink yarn to stitch the blushes just below the eyes for a finished look",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "just below the eyes"
+            },
+            "repeat" : null,
+            "sourceText" : "Then, use pink yarn to stitch the blushes just below the eyes for a finished look."
+          }
+        ]
+      },
+      "sourceText" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+      "title" : "Eyes & Blushes"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "tr",
+              "count" : 12,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "tr"
+            },
+            "repeat" : null,
+            "sourceText" : "work 12 treble crochet"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "join",
+              "count" : 1,
+              "instruction" : "join with slip stitch to first stitch",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "first stitch"
+            },
+            "repeat" : null,
+            "sourceText" : "join"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 12,
+      "sourceText" : "work 12 treble crochet, join.",
+      "title" : "Round 1"
+    }
+  ]
+}

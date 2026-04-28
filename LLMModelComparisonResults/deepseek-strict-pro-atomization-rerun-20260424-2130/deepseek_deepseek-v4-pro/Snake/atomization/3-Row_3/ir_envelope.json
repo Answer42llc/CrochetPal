@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input carefully.\n\nWe have:\n- Part name: \"Large Snake (~68 cm)\"\n- Raw instruction: \"12 sc\"\n- Target stitch count: 12\n- Title: \"Row 3\"\n\nThis is straightforward: 12 single crochet stitches. The instruction \"12 sc\" means work 12 sc stitches. Since there's no indication of working into specific targets and the targetStitchCount is 12, this is a stitchProducing operation with count = 12.\n\nLet me construct the IR.\n\nThe round:\n- title: \"Row 3\"\n- sourceText: \"12 sc\"\n- expectedProducedStitches: 12\n- body with one statement: operation with semantics stitchProducing, actionTag \"sc\", stitch \"sc\", count 12.\n\nLet me build the JSON.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Row 3\", \"sourceText\": \"12 sc\", \"expectedProducedStitches\": 12, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"12 sc\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 12, \"instruction\": null, \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_sszcXMzqMz575gqXv1jbUTEd",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777045263,
+  "id" : "1de90b87-4c30-4985-99fe-32cb7170bb7e",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 363,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 169
+    },
+    "prompt_cache_hit_tokens" : 11648,
+    "prompt_cache_miss_tokens" : 118,
+    "prompt_tokens" : 11766,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11648
+    },
+    "total_tokens" : 12129
+  }
+}

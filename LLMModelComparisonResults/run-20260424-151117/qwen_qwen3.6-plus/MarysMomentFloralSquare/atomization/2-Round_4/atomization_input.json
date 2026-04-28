@@ -1,0 +1,68 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Beginning",
+      "term" : "Beg"
+    },
+    {
+      "definition" : "Chain",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "Double crochet",
+      "term" : "Dc"
+    },
+    {
+      "definition" : "Front loop only",
+      "term" : "FLO"
+    },
+    {
+      "definition" : "Front post",
+      "term" : "FP"
+    },
+    {
+      "definition" : "Half-double crochet",
+      "term" : "Hdc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "Rep"
+    },
+    {
+      "definition" : "Single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Stitch marker",
+      "term" : "SM"
+    },
+    {
+      "definition" : "Space\/spaces",
+      "term" : "Sp\/sps"
+    },
+    {
+      "definition" : "Stitch\/stitches",
+      "term" : "St\/sts"
+    },
+    {
+      "definition" : "Treble crochet",
+      "term" : "Tr"
+    },
+    {
+      "definition" : "Repeat instructions between asterisks the number of times specified",
+      "term" : "*"
+    },
+    {
+      "definition" : "Repeat instructions between brackets the number of times specified.",
+      "term" : "()"
+    },
+    {
+      "definition" : "Used to indicate stitches made into the same st\/sp",
+      "term" : "[]"
+    }
+  ],
+  "partName" : "Square",
+  "rawInstruction" : "(FPhdc around the FPhdc, ch 4, make a Popcorn in the next ch-2 sp, ch 4) 6 times. Join to the first FPhdc with a sl st. {6 FPhdc, 6 Popcorns, and 12 ch-4 sps}",
+  "summary" : "Work front post half double crochets and popcorn stitches separated by chain-4 spaces.",
+  "title" : "Round 4"
+}

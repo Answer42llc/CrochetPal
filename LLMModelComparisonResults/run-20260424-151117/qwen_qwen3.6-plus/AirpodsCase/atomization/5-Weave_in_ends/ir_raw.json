@@ -1,0 +1,33 @@
+{
+  "rounds": [
+    {
+      "title": "Weave in ends",
+      "sourceText": "Weave in the ends.",
+      "expectedProducedStitches": null,
+      "body": {
+        "statements": [
+          {
+            "kind": "operation",
+            "sourceText": "Weave in the ends.",
+            "operation": {
+              "semantics": "bookkeeping",
+              "actionTag": "weaveInEnds",
+              "stitch": null,
+              "count": 1,
+              "instruction": "Weave in the ends.",
+              "target": null,
+              "note": null,
+              "notePlacement": "first",
+              "producedStitches": null
+            },
+            "repeat": null,
+            "conditional": null,
+            "note": null
+          }
+        ],
+        "sourceText": null,
+        "normalizationNote": null
+      }
+    }
+  ]
+}

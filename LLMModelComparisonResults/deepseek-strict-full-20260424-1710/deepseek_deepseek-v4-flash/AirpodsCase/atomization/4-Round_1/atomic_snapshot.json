@@ -1,0 +1,119 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 0,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 1,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 2,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 4,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 5,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 6,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 8,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 9,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 10,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "tr",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "12 treble crochet",
+      "stitchTag" : "tr"
+    },
+    {
+      "actionTag" : "join",
+      "instruction" : "Join",
+      "note" : "join with a slip stitch to close the round",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 12,
+      "sourceText" : "join"
+    }
+  ],
+  "expectedProducedStitches" : 12,
+  "producedStitchCount" : 12,
+  "sourceText" : "work 12 treble crochet, join. (12)",
+  "title" : "Round 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

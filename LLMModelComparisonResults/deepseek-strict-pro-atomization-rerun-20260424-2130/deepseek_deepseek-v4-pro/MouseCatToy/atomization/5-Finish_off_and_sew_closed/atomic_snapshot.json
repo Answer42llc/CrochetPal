@@ -1,0 +1,29 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "fastenOff",
+      "instruction" : "Fasten off",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Finish off"
+    },
+    {
+      "actionTag" : "assembly",
+      "instruction" : "Sew closed",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 1,
+      "sourceText" : "sew closed"
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Finish off and sew closed.",
+  "title" : "Finish off and sew closed",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

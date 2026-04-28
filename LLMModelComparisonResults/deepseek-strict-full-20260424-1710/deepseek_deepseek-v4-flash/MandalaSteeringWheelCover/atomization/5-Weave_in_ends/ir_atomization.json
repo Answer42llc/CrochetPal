@@ -1,0 +1,26 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "weaveInEnds",
+              "count" : 1,
+              "instruction" : "Weave in all ends.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Weave in all ends."
+          }
+        ]
+      },
+      "sourceText" : "Weave in all ends.",
+      "title" : "Weave in ends"
+    }
+  ]
+}

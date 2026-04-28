@@ -1,0 +1,55 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "decrease",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "DEC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 7,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "7 SC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "decrease",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "DEC"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 9,
+      "sourceText" : "DEC, 7 SC, DEC (9)",
+      "title" : "Row 20"
+    }
+  ]
+}

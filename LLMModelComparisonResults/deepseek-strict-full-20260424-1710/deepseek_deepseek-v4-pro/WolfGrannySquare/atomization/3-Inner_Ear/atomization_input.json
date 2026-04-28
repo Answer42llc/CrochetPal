@@ -1,0 +1,52 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "slip stitch for joining to a different round",
+      "term" : "slst"
+    },
+    {
+      "definition" : "stitch",
+      "term" : "st"
+    },
+    {
+      "definition" : "yarn over",
+      "term" : "yo"
+    },
+    {
+      "definition" : "skip",
+      "term" : "sk"
+    },
+    {
+      "definition" : "increase",
+      "term" : "inc"
+    },
+    {
+      "definition" : "picot stitch",
+      "term" : "pic"
+    },
+    {
+      "definition" : "third loop only",
+      "term" : "TLO"
+    }
+  ],
+  "partName" : "Wolf's Left Ear",
+  "rawInstruction" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+  "summary" : "Create the left inner ear with white yarn using dc and a picot stitch, then fasten off.",
+  "title" : "Inner Ear"
+}

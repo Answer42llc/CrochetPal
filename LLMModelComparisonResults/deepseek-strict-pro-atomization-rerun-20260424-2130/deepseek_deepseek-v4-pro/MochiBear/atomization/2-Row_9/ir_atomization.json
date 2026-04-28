@@ -1,0 +1,57 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "instruction" : "single crochet 2 stitches together",
+              "notePlacement" : "first",
+              "semantics" : "decrease",
+              "stitch" : "dec"
+            },
+            "repeat" : null,
+            "sourceText" : "DEC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1 SC"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "instruction" : "single crochet 2 stitches together",
+              "notePlacement" : "first",
+              "semantics" : "decrease",
+              "stitch" : "dec"
+            },
+            "repeat" : null,
+            "sourceText" : "DEC"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 3,
+      "sourceText" : "DEC, 1 SC, DEC (3)",
+      "title" : "Row 9"
+    }
+  ]
+}

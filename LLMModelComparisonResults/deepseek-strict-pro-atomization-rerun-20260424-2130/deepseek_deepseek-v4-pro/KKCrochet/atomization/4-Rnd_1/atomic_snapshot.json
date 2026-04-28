@@ -1,0 +1,126 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "inv dec",
+      "instruction" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 0,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "inv dec"
+    },
+    {
+      "actionTag" : "placeMarker",
+      "instruction" : "place marker",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 1,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker"
+    },
+    {
+      "actionTag" : "inv dec",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 2,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "inv dec"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "until 1 sc before the next marker",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 3,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "inv dec",
+      "instruction" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 4,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "inv dec"
+    },
+    {
+      "actionTag" : "placeMarker",
+      "instruction" : "place marker",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 5,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker"
+    },
+    {
+      "actionTag" : "inv dec",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 6,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "inv dec"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "until 1 sc before the next marker",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 7,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "sc"
+    },
+    {
+      "actionTag" : "inv dec",
+      "instruction" : "invisible decrease (like sc2tog, but only in the front loops)",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 8,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "inv dec"
+    },
+    {
+      "actionTag" : "placeMarker",
+      "instruction" : "place marker",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 9,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker"
+    },
+    {
+      "actionTag" : "inv dec",
+      "producedStitches" : 1,
+      "semantics" : "decrease",
+      "sequenceIndex" : 10,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "inv dec"
+    },
+    {
+      "actionTag" : "sc",
+      "note" : "until 1 sc before the next marker",
+      "producedStitches" : 1,
+      "semantics" : "stitchProducing",
+      "sequenceIndex" : 11,
+      "sourceText" : "inv dec (PM), inv dec, then sc until 1 sc before the next marker",
+      "stitchTag" : "sc"
+    }
+  ],
+  "producedStitchCount" : 9,
+  "sourceText" : "(inv dec (PM), inv dec, then sc until 1 sc before the next marker) x 3.",
+  "title" : "Rnd 1",
+  "validationIssues" : [
+    {
+      "code" : "ir_operation_invalid_action_tag",
+      "message" : "actionTag must be camelCase letters or digits (got inv dec).",
+      "severity" : "error",
+      "sourceText" : "inv dec"
+    },
+    {
+      "code" : "ir_operation_invalid_action_tag",
+      "message" : "actionTag must be camelCase letters or digits (got inv dec).",
+      "severity" : "error",
+      "sourceText" : "inv dec"
+    }
+  ],
+  "warnings" : [
+
+  ]
+}

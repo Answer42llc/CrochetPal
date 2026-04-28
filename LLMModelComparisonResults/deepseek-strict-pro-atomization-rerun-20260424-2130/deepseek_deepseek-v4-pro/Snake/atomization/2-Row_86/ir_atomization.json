@@ -1,0 +1,41 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "decrease",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "decrease",
+              "stitch" : "dec"
+            },
+            "repeat" : null,
+            "sourceText" : "dec"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "8 sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 9,
+      "sourceText" : "dec, 8 sc = 9 sc",
+      "title" : "Row 86"
+    }
+  ]
+}

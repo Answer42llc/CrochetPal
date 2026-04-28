@@ -1,0 +1,130 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "joinYarn",
+              "count" : 1,
+              "instruction" : "Attach yarn between Rows 11-12.",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "target" : "between Rows 11-12"
+            },
+            "repeat" : null,
+            "sourceText" : "Attach yarn between Rows 11-12."
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc",
+              "target" : "same sp"
+            },
+            "repeat" : null,
+            "sourceText" : "SC in same sp"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "hdc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "hdc",
+              "target" : "next sp"
+            },
+            "repeat" : null,
+            "sourceText" : "HDC in next sp"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "dc",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "dc",
+              "target" : "next sp"
+            },
+            "repeat" : null,
+            "sourceText" : "3 DC in next sp"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 2,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 2"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ss",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "ss",
+              "target" : "same sp"
+            },
+            "repeat" : null,
+            "sourceText" : "SS in same sp"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "FO",
+              "count" : 1,
+              "instruction" : "fasten off",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "FO"
+            },
+            "repeat" : null,
+            "sourceText" : "FO"
+          }
+        ]
+      },
+      "sourceText" : "Attach yarn between Rows 11-12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO.",
+      "title" : "Arm 1"
+    }
+  ]
+}

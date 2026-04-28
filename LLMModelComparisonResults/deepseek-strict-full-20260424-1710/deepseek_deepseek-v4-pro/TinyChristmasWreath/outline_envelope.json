@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to parse a crochet pattern for a \"Tiny Christmas Wreath\" into the provided JSON schema format. Let me carefully analyze the pattern and extract all required information.\n\nLet me break down the pattern:\n\n**Project Title:** \"Tiny Christmas Wreath\" - this is the thing the pattern makes.\n\n**Materials:**\n- Yarn in green (about 2m\/2.2yd, shown in Caron Simply Soft Kelly Green)\n- Yarn in red (34-40cm\/12-16\", shown in Red Heart Soft Really Red)\n- Hook matching chosen yarn weight (suggested 3.5mm\/E for worsted yarn)\n- Yarn needle\n- Pair of scissors\n- Optional: clear nail polish or white glue\n\n**Abbreviations:**\n- Ch: chain or chains\n- sl st: slip stitch\n- st: stitch\n\n**Pattern:**\n- Rnd 1: with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)\n\nThen there are non-stitch instructions:\n- Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).\n- Take a 30-40cm\/12-16\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\n- Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\n\nNow let me structure this into parts and rounds.\n\nThe pattern seems to have just one part - the wreath. Let me call it \"Wreath\".\n\nThere's only one round (Rnd 1), then several non-stitch instructions.\n\nFor Rnd 1: The instruction is quite long. Let me capture it:\n\"with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)\"\n\nTarget stitch count: 14 (chain-loops made)\n\nThen non-stitch instructions:\n1. \"Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).\"\n2. \"Take a 30-40cm\/12-16\\\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\"\n3. \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\"\n\nNow, for the abbreviations - the pattern has an explicit \"Abbreviations\" section with:\n- Ch: chain or chains\n- sl st: slip stitch\n- st: stitch\n\nThese go into the abbreviations array.\n\nNow, the materials: I should list them as strings. Let me clean them up:\n- \"Green yarn (about 2m\/2.2yd, e.g., Caron Simply Soft Kelly Green)\"\n- \"Red yarn (34-40cm\/12-16\\\", e.g., Red Heart Soft Really Red)\"\n- \"Hook matching chosen yarn weight (suggested 3.5mm\/E for worsted yarn)\"\n- \"Yarn needle\"\n- \"Scissors\"\n- \"Optional: clear nail polish or white glue\"\n\nNow for confidence, I'd say this is quite clear and straightforward. I'll set it to 0.95.\n\nLet me now construct the JSON.\n\nFor the round:\n- title: \"Rnd 1\"\n- rawInstruction: the full instruction text\n- summary: brief description\n- targetStitchCount: 14\n- All repeat\/range fields: null\n\nFor non-stitch instructions, each gets its own round object with the instruction as the title and rawInstruction.\n\nLet me finalize the JSON structure.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"confidence\": 0.95, \"abbreviations\": [{\"term\": \"Ch\", \"definition\": \"chain or chains\"}, {\"term\": \"sl st\", \"definition\": \"slip stitch\"}, {\"term\": \"st\", \"definition\": \"stitch\"}], \"parts\": [{\"name\": \"Wreath\", \"rounds\": [{\"title\": \"Rnd 1\", \"rawInstruction\": \"with green, make a slip knot and ch 14; sl st in the first ch you made, to join the piece in a circle; [ch 3, sl st in the next ch of the circle] 14 times (work your last sl st into the st that joined the circle) (14 chain-loops made)\", \"summary\": \"Chain 14, join to form a circle, then create 14 chain-3 loops around the circle with slip stitches.\", \"targetStitchCount\": 14, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}, {\"title\": \"Fasten off and weave in the ends\", \"rawInstruction\": \"Fasten off and weave in the ends (or keep them for sewing, if the wreath will become an applique).\", \"summary\": \"Fasten off green yarn and weave in ends, or keep them for sewing if using as an applique.\", \"targetStitchCount\": null, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}, {\"title\": \"Weave red yarn through chain loops and tie a bow\", \"rawInstruction\": \"Take a 30-40cm\/12-16\\\" length of red yarn, thread it into a yarn needle and weave it through the chain loops around the wreath, starting and ending at the join. Tie the ends in a bow, then cut them to the length you like.\", \"summary\": \"Weave red yarn through all 14 chain loops, tie ends into a bow, and trim.\", \"targetStitchCount\": null, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}, {\"title\": \"Optional: secure knot with nail polish or glue\", \"rawInstruction\": \"Optionally, if your yarn holds knots poorly or tends to fray at the ends, dot some clear nail polish or white glue at the knot and at the ends, to secure them.\", \"summary\": \"Optionally apply clear nail polish or white glue to the bow knot and yarn ends to prevent fraying.\", \"targetStitchCount\": null, \"repeatFromTitle\": null, \"repeatToTitle\": null, \"repeatUntilCount\": null, \"repeatAfterRow\": null, \"rangeStartNumber\": null, \"rangeEndNumber\": null}]}], \"projectTitle\": \"Tiny Christmas Wreath\", \"materials\": [\"Green yarn (about 2m\/2.2yd, e.g., Caron Simply Soft Kelly Green)\", \"Red yarn (34-40cm\/12-16\\\", e.g., Red Heart Soft Really Red)\", \"Hook matching chosen yarn weight (suggested 3.5mm\/E for worsted yarn)\", \"Yarn needle\", \"Scissors\", \"Optional: clear nail polish or white glue\"]}",
+              "name" : "return_crochet_pattern_outline"
+            },
+            "id" : "call_00_2JuHYwQO6sLZYzYVCMvwZsGo",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777028756,
+  "id" : "7d430293-0cf6-476c-8428-bd19c96e7189",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1773,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 942
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 3135,
+    "prompt_tokens" : 3135,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 4908
+  }
+}

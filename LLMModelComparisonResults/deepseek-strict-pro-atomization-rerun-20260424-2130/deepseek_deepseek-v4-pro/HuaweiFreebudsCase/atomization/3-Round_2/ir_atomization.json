@@ -1,0 +1,86 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "Inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "8sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 4,
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "4inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 8,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "8sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 3,
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "3inc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 32,
+      "sourceText" : "Inc, 8sc, 4inc, 8sc, 3inc. (32)",
+      "title" : "Round 2"
+    }
+  ]
+}

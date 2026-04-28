@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "assembly",
+      "instruction" : "Sew all parts, nose, eyes and cheeks to finish.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Sew all parts, nose, eyes and cheeks to finish."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Sew all parts, nose, eyes and cheeks to finish.",
+  "title" : "Sew all parts",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "ch",
+              "count" : 1,
+              "instruction" : "chain 1 (does not count as a stitch)",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "ch"
+            },
+            "repeat" : null,
+            "sourceText" : "Ch 1"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "1 sc in each st around"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 4,
+              "note" : "3 sc in each corner",
+              "notePlacement" : "all",
+              "producedStitches" : 3,
+              "semantics" : "increase",
+              "stitch" : "sc",
+              "target" : "each corner"
+            },
+            "repeat" : null,
+            "sourceText" : "place 3 sc in each corner"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "joinYarn",
+              "count" : 1,
+              "instruction" : "join with a slip stitch to the first sc",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping",
+              "stitch" : "slSt",
+              "target" : "first sc"
+            },
+            "repeat" : null,
+            "sourceText" : "Join with a sl st to the first sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "fastenOff",
+              "count" : 1,
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Finish off"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "weaveInEnds",
+              "count" : 1,
+              "instruction" : "weave in all yarn ends",
+              "notePlacement" : "first",
+              "semantics" : "bookkeeping"
+            },
+            "repeat" : null,
+            "sourceText" : "Weave in ends"
+          }
+        ]
+      },
+      "sourceText" : "Ch 1, 1 sc in each st around, place 3 sc in each corner. Join with a sl st to the first sc. Finish off. Weave in ends.",
+      "title" : "Round 3"
+    }
+  ]
+}

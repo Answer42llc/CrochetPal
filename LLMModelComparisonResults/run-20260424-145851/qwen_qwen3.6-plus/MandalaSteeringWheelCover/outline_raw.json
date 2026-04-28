@@ -1,0 +1,76 @@
+{
+  "projectTitle": "Mandala Steering Wheel Cover",
+  "materials": [
+    "1 skein of Mandala yarn of your choice",
+    "Crochet hook size G or 4.25 mm"
+  ],
+  "confidence": 0.95,
+  "abbreviations": [],
+  "parts": [
+    {
+      "name": "Cover",
+      "rounds": [
+        {
+          "title": "Ch 17",
+          "rawInstruction": "Ch 17",
+          "summary": "Create a starting chain of 17 stitches.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Row 1",
+          "rawInstruction": "Sc in 2nd ch from hook and in next 2 chs. Hdc in next ch, dc in next 8 chains. Hdc in next ch. Sc in last 3 chains. Turn",
+          "summary": "Work a mix of single, half double, and double crochets across the chain.",
+          "targetStitchCount": 16,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Rows 2-109",
+          "rawInstruction": "Ch 1, sc in first 3 sts. Hdc in next st. dc in next 8 sts. Hdc in next st. sc in last 3 sts.",
+          "summary": "Repeat the established stitch pattern across for 108 rows.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": 2,
+          "rangeEndNumber": 109
+        },
+        {
+          "title": "Finish off and sew the 2 ends together.",
+          "rawInstruction": "Finish off and sew the 2 ends together.",
+          "summary": "Fasten off yarn and seam the ends together to form a loop.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        },
+        {
+          "title": "Weave in all ends.",
+          "rawInstruction": "Weave in all ends.",
+          "summary": "Secure loose yarn tails.",
+          "targetStitchCount": null,
+          "repeatFromTitle": null,
+          "repeatToTitle": null,
+          "repeatUntilCount": null,
+          "repeatAfterRow": null,
+          "rangeStartNumber": null,
+          "rangeEndNumber": null
+        }
+      ]
+    }
+  ]
+}

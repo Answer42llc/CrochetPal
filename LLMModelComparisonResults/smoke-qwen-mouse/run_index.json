@@ -1,0 +1,36 @@
+{
+  "atomizationResults" : [
+
+  ],
+  "fixtureRoot" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM",
+  "fixtures" : [
+    {
+      "baselineOutlinePath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/outline.json",
+      "baselineRoundCount" : 18,
+      "extractedTextPath" : "\/Users\/lw\/Projects\/CrochetPal\/CrochetPalTests\/Fixtures\/LLM\/MouseCatToy\/extracted_text.txt",
+      "name" : "MouseCatToy",
+      "sourceType" : "web",
+      "sourceURL" : "https:\/\/sparkitectcrafts.com\/mouse-cat-toy-crochet-pattern\/",
+      "title" : "Mouse Cat Toy",
+      "titleHint" : "Mouse Cat Toy"
+    }
+  ],
+  "generatedAt" : "2026-04-24T06:36:35Z",
+  "models" : [
+    "qwen\/qwen3.6-plus"
+  ],
+  "outlineResults" : [
+    {
+      "error" : "HTTP 401: {\"success\":false,\"result\":[],\"messages\":[],\"error\":[{\"code\":2009,\"message\":\"Unauthorized\"}]}",
+      "fixtureName" : "MouseCatToy",
+      "model" : "qwen\/qwen3.6-plus",
+      "sampledRoundIndices" : [
+
+      ],
+      "status" : "failed"
+    }
+  ],
+  "outputRoot" : "\/Users\/lw\/Projects\/CrochetPal\/LLMModelComparisonResults\/smoke-qwen-mouse",
+  "repoRoot" : "\/Users\/lw\/Projects\/CrochetPal",
+  "sampleCount" : 1
+}

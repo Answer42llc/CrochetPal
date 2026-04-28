@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze this input. It's a single round with a finishing instruction. Let me parse it carefully.\n\nThe instruction says: \"Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib.\"\n\nThis is a finishing instruction - it's not a typical crochet round with stitch counts. It's a bookkeeping\/assembly type instruction that tells the user to repeat previous rows and bind off.\n\nLet me convert this to Crochet IR.\n\nThe title is \"Hem — Repeat rows for length\" and partName is \"Finishing\".\n\nThis instruction doesn't produce stitches - it's a bookkeeping operation. I'll represent it as a note or a bookkeeping operation.\n\nActually, let me think about this more carefully. \"Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm.\" is more of a general instruction\/note that doesn't map well to explicit stitch-level operations. It's like a note or instruction to the crocheter.\n\n\"Bind off in rib\" is also a finishing instruction.\n\nI think the best approach is a `note` statement, since this is more of an informational instruction rather than a stitch-level operation. But alternatively, I could use a bookkeeping operation.\n\nLet me go with a note since it's a general finishing instruction that doesn't produce specific stitches.\n\nActually, looking at the instruction more carefully - \"Repeat the last 2 rows until hem measures 2½\" \/ 6.5 cm. Bind off in rib.\" - this is telling the user to do something, it's an action. But it's not a stitch-level action. I think a `note` with `emitAsAction: true` would be appropriate here, since the user needs to take this action.\n\nLet me construct the IR.\n\nThe expectedProducedStitches is null since this is a finishing step, not a round that produces stitches.\n\nThe body has no explicit stitch count, so expectedProducedStitches should be null.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Hem — Repeat rows for length\", \"sourceText\": \"Repeat the last 2 rows until hem measures 2½\\\" \/ 6.5 cm. Bind off in rib.\", \"expectedProducedStitches\": null, \"body\": {\"sourceText\": null, \"normalizationNote\": null, \"statements\": [{\"kind\": \"note\", \"sourceText\": \"Repeat the last 2 rows until hem measures 2½\\\" \/ 6.5 cm. Bind off in rib.\", \"operation\": null, \"repeat\": null, \"conditional\": null, \"note\": {\"sourceText\": \"Repeat the last 2 rows until hem measures 2½\\\" \/ 6.5 cm. Bind off in rib.\", \"message\": \"Repeat the last 2 rows until hem measures 2½\\\" \/ 6.5 cm. Bind off in rib.\", \"emitAsAction\": true}}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_PZhPdGFYYjWRnkKTPKl5fcri",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029143,
+  "id" : "551a12e6-08c1-4469-939c-e5f9512de557",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 658,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 412
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11954,
+    "prompt_tokens" : 11954,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 12612
+  }
+}

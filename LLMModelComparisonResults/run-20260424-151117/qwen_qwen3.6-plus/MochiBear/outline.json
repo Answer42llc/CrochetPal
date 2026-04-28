@@ -1,0 +1,291 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "foundation chain",
+      "term" : "fc"
+    },
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "space",
+      "term" : "sp"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "ss"
+    },
+    {
+      "definition" : "increase (2 sc in same stitch)",
+      "term" : "inc"
+    },
+    {
+      "definition" : "decrease (single crochet 2 stitches together)",
+      "term" : "dec"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "fasten off",
+      "term" : "FO"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "YarnArt Begonia Cotton Fine (2) yarn",
+    "2.0 mm crochet hook",
+    "Yarn needle",
+    "Scissors",
+    "Fiberfill stuffing"
+  ],
+  "parts" : [
+    {
+      "name" : "Head",
+      "rounds" : [
+        {
+          "rawInstruction" : "CH 4",
+          "summary" : "Chain 4 to begin the head.",
+          "title" : "Foundation"
+        },
+        {
+          "rawInstruction" : "3 SC",
+          "summary" : "Work 3 single crochets across.",
+          "targetStitchCount" : 3,
+          "title" : "Row 1"
+        },
+        {
+          "rawInstruction" : "INC, 1 SC, INC",
+          "summary" : "Increase, 1 single crochet, increase.",
+          "targetStitchCount" : 5,
+          "title" : "Row 2"
+        },
+        {
+          "rawInstruction" : "INC, 3 SC, INC",
+          "summary" : "Increase, 3 single crochets, increase.",
+          "targetStitchCount" : 7,
+          "title" : "Row 3"
+        },
+        {
+          "rawInstruction" : "INC, 5 SC, INC",
+          "summary" : "Increase, 5 single crochets, increase.",
+          "targetStitchCount" : 9,
+          "title" : "Row 4"
+        },
+        {
+          "rangeEndNumber" : 6,
+          "rangeStartNumber" : 5,
+          "rawInstruction" : "9 SC",
+          "summary" : "Work 9 single crochets across for two rows.",
+          "targetStitchCount" : 9,
+          "title" : "Rows 5-6"
+        },
+        {
+          "rawInstruction" : "DEC, 5 SC, DEC",
+          "summary" : "Decrease, 5 single crochets, decrease.",
+          "targetStitchCount" : 7,
+          "title" : "Row 7"
+        },
+        {
+          "rawInstruction" : "DEC, 3 SC, DEC",
+          "summary" : "Decrease, 3 single crochets, decrease.",
+          "targetStitchCount" : 5,
+          "title" : "Row 8"
+        },
+        {
+          "rawInstruction" : "DEC, 1 SC, DEC",
+          "summary" : "Decrease, 1 single crochet, decrease.",
+          "targetStitchCount" : 3,
+          "title" : "Row 9"
+        },
+        {
+          "rawInstruction" : "Don't FO, keep going to BODY",
+          "summary" : "Do not fasten off; continue directly to the body section.",
+          "title" : "Continue to Body"
+        }
+      ]
+    },
+    {
+      "name" : "Body",
+      "rounds" : [
+        {
+          "rawInstruction" : "INC, 1 SC, INC",
+          "summary" : "Increase, 1 single crochet, increase.",
+          "targetStitchCount" : 5,
+          "title" : "Row 10"
+        },
+        {
+          "rawInstruction" : "INC, 3 SC, INC",
+          "summary" : "Increase, 3 single crochets, increase.",
+          "targetStitchCount" : 7,
+          "title" : "Row 11"
+        },
+        {
+          "rawInstruction" : "INC, 5 SC, INC",
+          "summary" : "Increase, 5 single crochets, increase.",
+          "targetStitchCount" : 9,
+          "title" : "Row 12"
+        },
+        {
+          "rawInstruction" : "Place a stitch marker in the space between Row 11 and Row 12.",
+          "summary" : "Mark the attachment point for the first arm.",
+          "title" : "Place stitch marker for Arm 1"
+        },
+        {
+          "rawInstruction" : "INC, 7 SC, INC",
+          "summary" : "Increase, 7 single crochets, increase.",
+          "targetStitchCount" : 11,
+          "title" : "Row 13"
+        },
+        {
+          "rangeEndNumber" : 19,
+          "rangeStartNumber" : 14,
+          "rawInstruction" : "11 SC",
+          "summary" : "Work 11 single crochets across for six rows.",
+          "targetStitchCount" : 11,
+          "title" : "Rows 14-19"
+        },
+        {
+          "rawInstruction" : "Place a stitch marker in the space between Row 14 and Row 15.",
+          "summary" : "Mark the attachment point for the second arm.",
+          "title" : "Place stitch marker for Arm 2"
+        },
+        {
+          "rawInstruction" : "DEC, 7 SC, DEC",
+          "summary" : "Decrease, 7 single crochets, decrease.",
+          "targetStitchCount" : 9,
+          "title" : "Row 20"
+        },
+        {
+          "rawInstruction" : "Don't FO, keep going to LEG 1",
+          "summary" : "Do not fasten off; continue directly to the first leg.",
+          "title" : "Continue to Leg 1"
+        }
+      ]
+    },
+    {
+      "name" : "Legs",
+      "rounds" : [
+        {
+          "rawInstruction" : "4 SC",
+          "summary" : "Work 4 single crochets across for the first leg.",
+          "targetStitchCount" : 4,
+          "title" : "Row 21 (Leg 1)"
+        },
+        {
+          "rangeEndNumber" : 25,
+          "rangeStartNumber" : 22,
+          "rawInstruction" : "4 SC",
+          "summary" : "Work 4 single crochets across for four rows.",
+          "targetStitchCount" : 4,
+          "title" : "Rows 22-25"
+        },
+        {
+          "rawInstruction" : "Fasten off.",
+          "summary" : "Secure and cut yarn for the first leg.",
+          "title" : "Fasten off Leg 1"
+        },
+        {
+          "rawInstruction" : "Return to the body. Skip 1 stitch next to Leg 1, and join yarn in the following stitch.",
+          "summary" : "Reattach yarn to the body to begin the second leg.",
+          "title" : "Join yarn for Leg 2"
+        },
+        {
+          "rawInstruction" : "4 SC",
+          "summary" : "Work 4 single crochets across for the second leg.",
+          "targetStitchCount" : 4,
+          "title" : "Row 21 (Leg 2)"
+        },
+        {
+          "rangeEndNumber" : 25,
+          "rangeStartNumber" : 22,
+          "rawInstruction" : "4 SC",
+          "summary" : "Work 4 single crochets across for four rows.",
+          "targetStitchCount" : 4,
+          "title" : "Rows 22-25"
+        },
+        {
+          "rawInstruction" : "Fasten off.",
+          "summary" : "Secure and cut yarn for the second leg.",
+          "title" : "Fasten off Leg 2"
+        }
+      ]
+    },
+    {
+      "name" : "Arms",
+      "rounds" : [
+        {
+          "rawInstruction" : "Attach yarn between Rows 11–12. CH 1, SC in same sp, HDC in next sp, 3 DC in next sp, CH 2, SS in same sp. FO",
+          "summary" : "Create the first arm on the side of the body.",
+          "title" : "Arm 1"
+        },
+        {
+          "rawInstruction" : "Attach yarn on opposite side between Rows 14–15. CH 2, 3 DC in same sp, HDC in next sp, SC in next sp, SS. FO",
+          "summary" : "Create the second arm on the opposite side of the body.",
+          "title" : "Arm 2"
+        }
+      ]
+    },
+    {
+      "name" : "Ears",
+      "rounds" : [
+        {
+          "rawInstruction" : "Attach yarn in the top corner of the head. CH 2, 2 DC in the next sp, CH 2, SS into the same sp. FO",
+          "summary" : "Create the first ear at the top corner of the head.",
+          "title" : "Ear 1"
+        },
+        {
+          "rawInstruction" : "Move to the opposite top corner, at the same level as the last st of the first ear. Attach yarn. CH 2, 2 DC in the same sp, CH 2, SS into the same sp. FO",
+          "summary" : "Create the second ear at the opposite top corner.",
+          "title" : "Ear 2"
+        }
+      ]
+    },
+    {
+      "name" : "Finishing & Assembly",
+      "rounds" : [
+        {
+          "rawInstruction" : "Repeat the entire pattern to create a second identical piece.",
+          "summary" : "Create a second identical panel for the bear.",
+          "title" : "Make a second panel"
+        },
+        {
+          "rawInstruction" : "Using a yarn needle, weave in all loose ends securely on the wrong side of the work.",
+          "summary" : "Securely weave in all loose ends before assembly.",
+          "title" : "Weave in ends"
+        },
+        {
+          "rawInstruction" : "Use safety eyes, or embroider using yarn (suggested position of the eyes - between row 4 and 5). This step must be done before assembling.",
+          "summary" : "Attach or embroider facial features before joining panels.",
+          "title" : "Add eyes and nose"
+        },
+        {
+          "rawInstruction" : "Place both panels together with wrong sides facing each other. Attach yarn at any point along the edge. Work slip stitches evenly around, inserting your hook through both layers. Continue around the entire shape to join.",
+          "summary" : "Join both panels together with slip stitches.",
+          "title" : "Join the pieces"
+        },
+        {
+          "rawInstruction" : "Lightly stuff the bear before fully closing, or leave flat for a keychain-style finish.",
+          "summary" : "Optionally add stuffing before closing the final seam.",
+          "title" : "Add stuffing (optional)"
+        },
+        {
+          "rawInstruction" : "Fasten off and weave in all ends securely.",
+          "summary" : "Secure final yarn and weave in remaining ends.",
+          "title" : "Fasten off and weave in ends"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Mochi Bear"
+}

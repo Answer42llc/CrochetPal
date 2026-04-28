@@ -1,0 +1,168 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "chain stitch",
+      "term" : "ch"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "slip stitch for joining to a different round",
+      "term" : "slst"
+    },
+    {
+      "definition" : "stitch",
+      "term" : "st"
+    },
+    {
+      "definition" : "yarn over",
+      "term" : "yo"
+    },
+    {
+      "definition" : "skip",
+      "term" : "sk"
+    },
+    {
+      "definition" : "increase",
+      "term" : "inc"
+    },
+    {
+      "definition" : "picot stitch",
+      "term" : "pic"
+    },
+    {
+      "definition" : "third loop only",
+      "term" : "TLO"
+    }
+  ],
+  "confidence" : 0.95,
+  "materials" : [
+    "Yarn of Your Choice - 5 Colors (sample uses wool yarn)",
+    "Crochet Hook (3.00 mm used in sample)",
+    "Darning Needle",
+    "Scissors"
+  ],
+  "parts" : [
+    {
+      "name" : "Wolf Head",
+      "rounds" : [
+        {
+          "rawInstruction" : "With grey yarn: Magic loop, ch1, 7sc, slst to the first sc.",
+          "summary" : "Create a magic ring with grey yarn, chain 1, work 7 single crochet into the ring, and slip stitch to the first single crochet.",
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "Ch1, sc inc in the same st, sc inc, change to white yarn: (sc inc)x5. Change back to grey yarn on the final yo of the last sc, and slst to the first sc.",
+          "summary" : "Work increases with grey and white yarn to shape the face.",
+          "title" : "Round 2"
+        },
+        {
+          "rawInstruction" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, hdc inc, 1hdc; Change to white yarn: hdc inc, 1hdc, hdc inc, (1sc, sc inc) repeat 2 times, hdc inc, 1hdc, hdc inc; Change back to grey yarn: 1hdc. Slst to the top of the first ch2.",
+          "summary" : "Expand the head with half double crochet increases, alternating grey and white yarn.",
+          "title" : "Round 3"
+        },
+        {
+          "rawInstruction" : "Ch2 (count as 1hdc), 1hdc in the same st to complete the first hdc inc, (hdc inc)x3; Change to white yarn: 1hdc, 1hdc+1sc, 1sc, sc inc, 9sc, sc inc, 1sc, 1sc+1hdc, 1hdc; Change back to grey yarn: hdc inc. Slst to the top of the first ch2.",
+          "summary" : "Finish the face base with increases and color changes.",
+          "title" : "Round 4"
+        },
+        {
+          "rawInstruction" : "Ch2 (count as 1hdc), 3hdc, (hdc inc)x3; Change to white yarn: 3hdc, 2sc, (sc inc, 4sc) repeat 2 times, sc inc, 2sc, 3hdc; Change back to grey yarn: (hdc inc)x3. Slst to the top of the first ch2, and fasten off.",
+          "summary" : "Complete the wolf head with final increases and fasten off.",
+          "title" : "Round 5"
+        }
+      ]
+    },
+    {
+      "name" : "Squaring",
+      "rounds" : [
+        {
+          "rawInstruction" : "Third loop only. With grey stitches on top, join new yarn to the 4th grey stitch from the right. Ch3 (count as 1dc), 1dc in the same st to complete the first dc inc, 8hdc, dc inc, ch3; [dc inc, 8hdc, dc inc, ch3] repeat 3 times, omit the final ch3. Instead, work ch1, then 1hdc into the top of the first ch3.",
+          "summary" : "Work into the third loop only to shape the circle into a square, with double crochet increases at the corners.",
+          "title" : "Squaring"
+        }
+      ]
+    },
+    {
+      "name" : "Border",
+      "rounds" : [
+        {
+          "rawInstruction" : "Ch3 (count as 1dc), 1dc in the same corner, 1dc in each st around, (2dc, ch3, 2dc) in each corner as you go. When you return to the starting corner, work (2dc, ch3), slst to the top of the first ch3, fasten off.",
+          "summary" : "Work a border of double crochet stitches around the square with corner increases.",
+          "title" : "Border"
+        }
+      ]
+    },
+    {
+      "name" : "Wolf's Left Ear",
+      "rounds" : [
+        {
+          "rawInstruction" : "With grey stitches on top, join white yarn to the 4th grey stitch from the left. Ch2, (1dc, ch-1 pic, 1dc) in the next st, ch2, slst to the next st. Fasten off and weave in the ends.",
+          "summary" : "Create the inner ear with white yarn using a picot stitch for the ear tip.",
+          "title" : "Inner Ear"
+        },
+        {
+          "rawInstruction" : "Join grey yarn to the st immediately to the right of the inner ear join (the 5th grey st from the left), ch1. Now we crochet along the inner ear part and work in the TLO: sk the initial ch, 2sc, sc inc in the tip st, 2sc, ch1. Slst in the same grey st used for the inner ear's final slst. Fasten off, and weave in your ends.",
+          "summary" : "Add a grey edge around the inner ear working in the third loop only.",
+          "title" : "Ear Edge"
+        }
+      ]
+    },
+    {
+      "name" : "Wolf's Right Ear",
+      "rounds" : [
+        {
+          "rawInstruction" : "Repeat the ear instructions on the opposite side, leaving a 5-stitch for symmetry. (Join white yarn for the inner ear in the 3rd grey stitch from the right.)",
+          "summary" : "Repeat the left ear instructions on the right side, joining white yarn in the 3rd grey stitch from the right.",
+          "title" : "Right Ear"
+        }
+      ]
+    },
+    {
+      "name" : "Wolf's Muzzle",
+      "rounds" : [
+        {
+          "rawInstruction" : "Magic loop, ch2(count as 1hdc), 9hdc, slst to the top of the first ch2.",
+          "summary" : "Create a magic ring and work 9 half double crochet into it, slip stitch to join.",
+          "title" : "Round 1"
+        },
+        {
+          "rawInstruction" : "Ch1+1sc, 1sc in each st around, slst to the first sc. Fasten off, leave a long tail for attaching.",
+          "summary" : "Work single crochet in each stitch around and fasten off, leaving a long tail for attaching.",
+          "title" : "Round 2"
+        }
+      ]
+    },
+    {
+      "name" : "Final Assembly and Details",
+      "rounds" : [
+        {
+          "rawInstruction" : "Turn the muzzle over so the wrong side faces out. Position it on the lower center of the head and sew it firmly in place. You can add a small amount of stuffing before closing.",
+          "summary" : "Attach the muzzle to the center of the wolf face with wrong side facing out, optionally adding stuffing.",
+          "title" : "Attach the Muzzle"
+        },
+        {
+          "rawInstruction" : "Stitch the nose on the muzzle.",
+          "summary" : "Embroider the nose onto the muzzle.",
+          "title" : "The Nose"
+        },
+        {
+          "rawInstruction" : "Make two French knots for the eyes. Then, use pink yarn to stitch the blushes just below the eyes for a finished look.",
+          "summary" : "Create eyes with French knots and stitch pink blushes below the eyes.",
+          "title" : "Eyes & Blushes"
+        }
+      ]
+    }
+  ],
+  "projectTitle" : "Wolf Granny Square"
+}

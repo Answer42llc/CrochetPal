@@ -1,0 +1,27 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "CH",
+              "count" : 12,
+              "instruction" : "Chain",
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "CH"
+            },
+            "repeat" : null,
+            "sourceText" : "CH 12"
+          }
+        ]
+      },
+      "sourceText" : "CH 12",
+      "title" : "CH 12"
+    }
+  ]
+}

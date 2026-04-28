@@ -1,0 +1,87 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 14,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "14sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "Increase",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 17,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "17sc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "increase",
+              "count" : 1,
+              "note" : "Increase",
+              "notePlacement" : "all",
+              "producedStitches" : 2,
+              "semantics" : "increase",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "inc"
+          },
+          {
+            "conditional" : null,
+            "kind" : "operation",
+            "note" : null,
+            "operation" : {
+              "actionTag" : "sc",
+              "count" : 3,
+              "notePlacement" : "first",
+              "semantics" : "stitchProducing",
+              "stitch" : "sc"
+            },
+            "repeat" : null,
+            "sourceText" : "3sc"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 38,
+      "sourceText" : "14sc, inc, 17sc, inc, 3sc",
+      "title" : "Round 4"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "additionalProperties" : false,
+  "properties" : {
+    "abbreviations" : {
+      "items" : {
+        "additionalProperties" : false,
+        "properties" : {
+          "definition" : {
+            "type" : "string"
+          },
+          "term" : {
+            "type" : "string"
+          }
+        },
+        "required" : [
+          "term",
+          "definition"
+        ],
+        "type" : "object"
+      },
+      "type" : "array"
+    },
+    "confidence" : {
+      "type" : "number"
+    },
+    "materials" : {
+      "items" : {
+        "type" : "string"
+      },
+      "type" : "array"
+    },
+    "parts" : {
+      "items" : {
+        "additionalProperties" : false,
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "rounds" : {
+            "items" : {
+              "additionalProperties" : false,
+              "properties" : {
+                "rangeEndNumber" : {
+                  "anyOf" : [
+                    {
+                      "type" : "integer"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "rangeStartNumber" : {
+                  "anyOf" : [
+                    {
+                      "type" : "integer"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "rawInstruction" : {
+                  "type" : "string"
+                },
+                "repeatAfterRow" : {
+                  "anyOf" : [
+                    {
+                      "type" : "integer"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "repeatFromTitle" : {
+                  "anyOf" : [
+                    {
+                      "type" : "string"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "repeatToTitle" : {
+                  "anyOf" : [
+                    {
+                      "type" : "string"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "repeatUntilCount" : {
+                  "anyOf" : [
+                    {
+                      "type" : "integer"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "summary" : {
+                  "type" : "string"
+                },
+                "targetStitchCount" : {
+                  "anyOf" : [
+                    {
+                      "type" : "integer"
+                    },
+                    {
+                      "type" : "null"
+                    }
+                  ]
+                },
+                "title" : {
+                  "type" : "string"
+                }
+              },
+              "required" : [
+                "title",
+                "rawInstruction",
+                "summary",
+                "targetStitchCount",
+                "repeatFromTitle",
+                "repeatToTitle",
+                "repeatUntilCount",
+                "repeatAfterRow",
+                "rangeStartNumber",
+                "rangeEndNumber"
+              ],
+              "type" : "object"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [
+          "name",
+          "rounds"
+        ],
+        "type" : "object"
+      },
+      "type" : "array"
+    },
+    "projectTitle" : {
+      "type" : "string"
+    }
+  },
+  "required" : [
+    "projectTitle",
+    "materials",
+    "confidence",
+    "abbreviations",
+    "parts"
+  ],
+  "type" : "object"
+}

@@ -1,0 +1,77 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "Beginning",
+      "term" : "Beg"
+    },
+    {
+      "definition" : "Chain",
+      "term" : "Ch"
+    },
+    {
+      "definition" : "Double crochet",
+      "term" : "Dc"
+    },
+    {
+      "definition" : "Front loop only",
+      "term" : "FLO"
+    },
+    {
+      "definition" : "Front post",
+      "term" : "FP"
+    },
+    {
+      "definition" : "Half-double crochet",
+      "term" : "Hdc"
+    },
+    {
+      "definition" : "Repeat",
+      "term" : "Rep"
+    },
+    {
+      "definition" : "Single crochet",
+      "term" : "Sc"
+    },
+    {
+      "definition" : "Stitch marker",
+      "term" : "SM"
+    },
+    {
+      "definition" : "Space\/spaces",
+      "term" : "Sp\/sps"
+    },
+    {
+      "definition" : "Stitch\/stitches",
+      "term" : "St\/sts"
+    },
+    {
+      "definition" : "Treble crochet",
+      "term" : "Tr"
+    },
+    {
+      "definition" : "Repeat instructions between asterisks the number of times specified",
+      "term" : "*"
+    },
+    {
+      "definition" : "Repeat instructions between brackets the number of times specified",
+      "term" : "()"
+    },
+    {
+      "definition" : "Used to indicate stitches made into the same st\/sp",
+      "term" : "[]"
+    },
+    {
+      "definition" : "Extended double crochet – Yarn over, insert your hook into the indicated st, yarn over and pull up a loop. Yarn over and pull through ONE loop. (Yarn over and pull through two loops) twice.",
+      "term" : "Edc"
+    },
+    {
+      "definition" : "Make 5 dc in the indicated st\/sp. Remove your hook from the last dc and insert it into the first dc of the 5-dc group. Grab the last st with your hook and pull it through the first st to complete the Popcorn.",
+      "term" : "Popcorn"
+    }
+  ],
+  "partName" : "Square",
+  "rawInstruction" : "Into a magic ring: ch 1, make 6 sc, join to the first sc with a sl st. {6 sc}",
+  "summary" : "Create a magic ring and work six single crochets into it, then join.",
+  "targetStitchCount" : 6,
+  "title" : "Round 1"
+}

@@ -1,0 +1,21 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "note",
+      "instruction" : "Repeat Rnd 1 until you have 15 sc left.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Repeat Rnd 1 until you have 15 sc left."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Repeat Rnd 1 until you have 15 sc left.",
+  "title" : "Repeat Rnd 1",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

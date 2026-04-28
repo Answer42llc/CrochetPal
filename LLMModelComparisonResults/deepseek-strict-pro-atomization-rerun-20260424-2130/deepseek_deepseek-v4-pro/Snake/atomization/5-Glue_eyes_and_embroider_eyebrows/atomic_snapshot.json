@@ -1,0 +1,29 @@
+{
+  "actions" : [
+    {
+      "actionTag" : "assembly",
+      "instruction" : "Glue the eyes: smear the tips with glue and insert them 10 rows from the beginning of the head, with a distance of 10 loops between the eyes.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 0,
+      "sourceText" : "Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops."
+    },
+    {
+      "actionTag" : "embroider",
+      "instruction" : "Embroider eyebrows over the eyes.",
+      "producedStitches" : 0,
+      "semantics" : "bookkeeping",
+      "sequenceIndex" : 1,
+      "sourceText" : "We embroider eyebrows over the eyes."
+    }
+  ],
+  "producedStitchCount" : 0,
+  "sourceText" : "Gluing the eyes: I smeared the tips of the eyes with glue and inserted them in 10 rows from the beginning of the head, the distance between the eyes is 10 loops. We embroider eyebrows over the eyes.",
+  "title" : "Glue eyes and embroider eyebrows",
+  "validationIssues" : [
+
+  ],
+  "warnings" : [
+
+  ]
+}

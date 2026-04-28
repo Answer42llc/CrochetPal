@@ -1,0 +1,168 @@
+{
+  "abbreviations" : [
+    {
+      "definition" : "beginning",
+      "term" : "beg"
+    },
+    {
+      "definition" : "back loop only",
+      "term" : "BLO"
+    },
+    {
+      "definition" : "back post",
+      "term" : "BP"
+    },
+    {
+      "definition" : "back post double crochet",
+      "term" : "BPdc"
+    },
+    {
+      "definition" : "back post half double crochet",
+      "term" : "BPhdc"
+    },
+    {
+      "definition" : "back post single crochet",
+      "term" : "BPsc"
+    },
+    {
+      "definition" : "back post treble crochet",
+      "term" : "BPtc"
+    },
+    {
+      "definition" : "contrasting color",
+      "term" : "CC"
+    },
+    {
+      "definition" : "continue",
+      "term" : "cont"
+    },
+    {
+      "definition" : "chain",
+      "term" : "ch"
+    },
+    {
+      "definition" : "decrease",
+      "term" : "dec"
+    },
+    {
+      "definition" : "double crochet",
+      "term" : "dc"
+    },
+    {
+      "definition" : "double crochet 2 stitches together",
+      "term" : "dc2tog"
+    },
+    {
+      "definition" : "double treble crochet",
+      "term" : "dtr"
+    },
+    {
+      "definition" : "established",
+      "term" : "est"
+    },
+    {
+      "definition" : "front loop only",
+      "term" : "FLO"
+    },
+    {
+      "definition" : "front post",
+      "term" : "FP"
+    },
+    {
+      "definition" : "front post double crochet",
+      "term" : "FPdc"
+    },
+    {
+      "definition" : "front post half double crochet",
+      "term" : "FPhdc"
+    },
+    {
+      "definition" : "front post single crochet",
+      "term" : "FPsc"
+    },
+    {
+      "definition" : "front post treble crochet",
+      "term" : "FPtc"
+    },
+    {
+      "definition" : "half double crochet",
+      "term" : "hdc"
+    },
+    {
+      "definition" : "half double crochet 2 stitches together",
+      "term" : "hdc2tog"
+    },
+    {
+      "definition" : "increase",
+      "term" : "inc"
+    },
+    {
+      "definition" : "main color",
+      "term" : "MC"
+    },
+    {
+      "definition" : "pattern(s)",
+      "term" : "pat(s)"
+    },
+    {
+      "definition" : "place marker",
+      "term" : "pm"
+    },
+    {
+      "definition" : "repeat",
+      "term" : "rep"
+    },
+    {
+      "definition" : "round(s)",
+      "term" : "rnd(s)"
+    },
+    {
+      "definition" : "right side",
+      "term" : "RS"
+    },
+    {
+      "definition" : "single crochet",
+      "term" : "sc"
+    },
+    {
+      "definition" : "single crochet 2 stitches together",
+      "term" : "sc2tog"
+    },
+    {
+      "definition" : "slip stitch",
+      "term" : "sl st"
+    },
+    {
+      "definition" : "Form a loop of yarn around your fingers, with the end attached to the ball on the right and the tail on the left. Insert hook into the loop under both pieces of yarn and draw up a loop onto hook. (This does not count as your first stitch.) Work first row into the original loop. Pull up the yarn tail after your first row is complete to close the loop.",
+      "term" : "sliding loop"
+    },
+    {
+      "definition" : "space",
+      "term" : "sp"
+    },
+    {
+      "definition" : "stitch(es)",
+      "term" : "st(s)"
+    },
+    {
+      "definition" : "together",
+      "term" : "tog"
+    },
+    {
+      "definition" : "treble",
+      "term" : "tr"
+    },
+    {
+      "definition" : "wrong side",
+      "term" : "WS"
+    },
+    {
+      "definition" : "yarn over",
+      "term" : "yo"
+    }
+  ],
+  "partName" : "Finishing",
+  "rawInstruction" : "Sew buttons to correspond with buttonholes. Weave in all ends and block as desired.",
+  "summary" : "Attach buttons, secure all loose ends, and block the finished garment.",
+  "title" : "Sew buttons and finish"
+}

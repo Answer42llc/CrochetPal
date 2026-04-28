@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "The user wants me to compile a crochet round into Crochet IR. Let me analyze the input:\n\n- Pattern: Small Snake (~31 cm)\n- Row 1: \"Start 10 sc in a magic ring\", targetStitchCount: 10\n\nThis is straightforward. \"Start 10 sc in a magic ring\" means:\n1. First, create a magic ring (bookkeeping operation)\n2. Then work 10 sc into the magic ring (stitchProducing, 10 sc)\n\nBut wait - \"Start 10 sc in a magic ring\" - the \"Start\" could mean we need to make a magic ring and then do 10 sc into it. Let me think about how to represent this.\n\nThe magic ring itself is a bookkeeping operation. Then 10 sc into the magic ring are stitchProducing operations.\n\nActually, typically in crochet IR, a magic ring is treated as a bookkeeping operation with actionTag \"mr\" or \"magicRing\". Then the 10 sc go into it.\n\nLet me structure this:\n\nStatement 1: operation - semantics: bookkeeping, actionTag: \"mr\", stitch: \"mr\", count: 1, instruction: \"Make a magic ring\"\nStatement 2: operation - semantics: stitchProducing, actionTag: \"sc\", stitch: \"sc\", count: 10, target: \"magic ring\"\n\nBut wait, the instruction says \"Start 10 sc in a magic ring\" as a single instruction. The magic ring creation and the 10 sc are essentially one step described together. Let me think about how to split this...\n\nActually, \"Start 10 sc in a magic ring\" typically means:\n1. Make a magic ring\n2. Work 10 sc into the ring\n\nSo two operations. But the pattern says it's one row with targetStitchCount 10 - the 10 sc produce 10 stitches. The magic ring itself doesn't produce a stitch.\n\nLet me keep it as two operations:\n1. Magic ring (bookkeeping)\n2. 10 sc (stitchProducing)\n\nNow for the IR structure:\n\nThe round has:\n- title: \"Row 1\"\n- sourceText: \"Start 10 sc in a magic ring\"\n- expectedProducedStitches: 10\n- body.statements: two operations\n\nLet me build the JSON.\n\nFor the magic ring operation:\n- semantics: \"bookkeeping\"\n- actionTag: \"magicRing\" (or \"mr\")\n- stitch: \"mr\"\n- count: 1\n- instruction: \"Magic ring\"\n- target: null\n- note: null\n- notePlacement: \"all\"\n- producedStitches: null\n\nFor the 10 sc:\n- semantics: \"stitchProducing\"\n- actionTag: \"sc\"\n- stitch: \"sc\"\n- count: 10\n- instruction: null\n- target: \"magic ring\"\n- note: null\n- notePlacement: \"first\"\n- producedStitches: null\n\nLet me construct this properly.\n\nActually, let me reconsider. The source text \"Start 10 sc in a magic ring\" could be split into sourceText for each statement. For the first (magic ring), I might use \"Start in a magic ring\" and for the second \"10 sc in a magic ring\". But I think keeping the sourceText close to what each statement represents is fine.\n\nActually, looking at the example more carefully, each statement has its own sourceText. Let me just use reasonable splits:\n\nStatement 1 (magic ring): sourceText: \"Start in a magic ring\"\nStatement 2 (10 sc): sourceText: \"10 sc\"\n\nOr I could keep both with the full source text. The pattern doesn't give me explicit splits.\n\nLet me just go with:\n- Statement 1 (bookkeeping, magic ring): sourceText \"Start... in a magic ring\" or simply \"magic ring\"\n- Statement 2 (stitchProducing, 10 sc): sourceText \"10 sc in a magic ring\"\n\nActually, let me keep it simpler. The whole instruction is one line. I'll split it logically:\n\nStatement 1: magic ring bookkeeping\nStatement 2: 10 sc\n\nFor sourceText, I'll use the whole thing for both or split it. Let me use \"magic ring\" for the first and \"10 sc\" for the second.\n\nWait, looking at the schema more carefully - the round body has `sourceText` and `normalizationNote` which can be null, and each statement also has `sourceText`. Let me set the round-level sourceText to the full \"Start 10 sc in a magic ring\", and the statement-level sourceText to appropriate fragments.\n\nLet me finalize the JSON now.\n\nFor the magic ring:\n- \"actionTag\": I'll use \"magicRing\" as it's a known bookkeeping action\n- \"stitch\": \"mr\" (standard abbreviation for magic ring)\n- \"instruction\": \"Make a magic ring\"\n\nFor the 10 sc:\n- \"actionTag\": \"sc\"\n- \"stitch\": \"sc\"\n- \"count\": 10\n- \"target\": \"magic ring\"\n\nLet me now construct the complete IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Row 1\", \"sourceText\": \"Start 10 sc in a magic ring\", \"expectedProducedStitches\": 10, \"body\": {\"sourceText\": \"Start 10 sc in a magic ring\", \"normalizationNote\": null, \"statements\": [{\"kind\": \"operation\", \"sourceText\": \"magic ring\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"magicRing\", \"stitch\": \"mr\", \"count\": 1, \"instruction\": \"Make a magic ring\", \"target\": null, \"note\": null, \"notePlacement\": \"all\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"10 sc\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 10, \"instruction\": null, \"target\": \"magic ring\", \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}]}}]}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_biYtI8XXsDlbHZM8a29hDZpj",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777045199,
+  "id" : "5b877c05-ef3b-40ca-ad31-7bcffbc6b77e",
+  "model" : "deepseek-v4-pro",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_9954b31ca7_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1396,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 1087
+    },
+    "prompt_cache_hit_tokens" : 11520,
+    "prompt_cache_miss_tokens" : 252,
+    "prompt_tokens" : 11772,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 11520
+    },
+    "total_tokens" : 13168
+  }
+}

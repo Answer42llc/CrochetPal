@@ -1,0 +1,58 @@
+{
+  "rounds" : [
+    {
+      "body" : {
+        "statements" : [
+          {
+            "conditional" : null,
+            "kind" : "repeat",
+            "note" : null,
+            "operation" : null,
+            "repeat" : {
+              "body" : {
+                "sourceText" : "(sc 5, inc)",
+                "statements" : [
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "sc",
+                      "count" : 5,
+                      "notePlacement" : "first",
+                      "semantics" : "stitchProducing",
+                      "stitch" : "sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "sc 5"
+                  },
+                  {
+                    "conditional" : null,
+                    "kind" : "operation",
+                    "note" : null,
+                    "operation" : {
+                      "actionTag" : "increase",
+                      "count" : 1,
+                      "note" : "inc",
+                      "notePlacement" : "all",
+                      "producedStitches" : 2,
+                      "semantics" : "increase",
+                      "stitch" : "sc"
+                    },
+                    "repeat" : null,
+                    "sourceText" : "inc"
+                  }
+                ]
+              },
+              "times" : 3
+            },
+            "sourceText" : "(sc 5, inc) x3"
+          }
+        ]
+      },
+      "expectedProducedStitches" : 21,
+      "sourceText" : "(sc 5, inc) x3. (21)",
+      "title" : "Round 11"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "choices" : [
+    {
+      "finish_reason" : "tool_calls",
+      "index" : 0,
+      "logprobs" : null,
+      "message" : {
+        "content" : "",
+        "reasoning_content" : "Let me analyze the input.\n\nThe pattern defines these abbreviations:\n- ch = chain\n- pm = place marker\n- rnd = round\n- sc = single crochet\n- rep = repeat\n- inc = work 2 scs in next sc\n- inv dec = invisible decrease (like sc2tog, but only in the front loops)\n\nInput round:\n- Part: Front\n- Title: \"Rnd 1\"\n- Raw instruction: \"Create a magic ring with 6 sc in the ring. Close the ring.\"\n- Target stitch count: 6\n\nLet me parse this instruction:\n\n1. \"Create a magic ring\" - this is an operation (bookkeeping, specifically a magic ring \/ mr)\n2. \"with 6 sc in the ring\" - 6 single crochet stitches into the ring\n3. \"Close the ring\" - this is also bookkeeping (close the ring)\n\nLet me think about how to structure this. The instruction says \"Create a magic ring with 6 sc in the ring. Close the ring.\"\n\nI think the \"Create a magic ring\" and \"Close the ring\" are both bookkeeping operations, and \"6 sc in the ring\" is 6 stitches producing stitches.\n\nActually, looking at the stitch vocabulary, \"mr\" is in the recommended standard values for stitch. But \"create a magic ring\" is more of a bookkeeping action.\n\nLet me think about this more carefully. The magic ring itself doesn't produce stitches - it's a setup technique. The 6 sc in the ring are the actual stitches. And \"close the ring\" is pulling the tail to close the magic ring.\n\nI'll structure this as:\n\n1. Operation: bookkeeping, actionTag = \"magicRing\", instruction = \"Create a magic ring\"\n2. Operation: stitchProducing, stitch = \"sc\", count = 6, actionTag = \"sc\", target = \"magic ring\"\n3. Operation: bookkeeping, actionTag = \"closeRing\", instruction = \"Close the ring\"\n\nWait, but looking at the example more carefully, they tend to keep things simpler. Let me reconsider.\n\nActually, \"mr\" is in the list of standard stitch values. So maybe \"Create a magic ring\" could be a stitchProducing operation with stitch = \"mr\"? No, mr is the magic ring itself, not a stitch that produces a stitch.\n\nLet me just split it into reasonable operations.\n\n\"Create a magic ring\" → bookkeeping, actionTag = \"magicRing\"\n\"6 sc in the ring\" → stitchProducing, sc, count = 6, target = \"magic ring\"  \n\"Close the ring\" → bookkeeping, actionTag = \"closeRing\"\n\nActually, I think I can simplify this. Let me look at how patterns typically represent this.\n\nI'll go with:\n1. A bookkeeping operation for creating the magic ring\n2. 6 sc stitches into the ring\n3. A bookkeeping operation for closing the ring\n\nLet me also think about the targetStitchCount of 6. This is `expectedProducedStitches` for the round.\n\nLet me create the IR.",
+        "role" : "assistant",
+        "tool_calls" : [
+          {
+            "function" : {
+              "arguments" : "{\"rounds\": [{\"title\": \"Rnd 1\", \"sourceText\": \"Create a magic ring with 6 sc in the ring. Close the ring.\", \"expectedProducedStitches\": 6, \"body\": {\"statements\": [{\"kind\": \"operation\", \"sourceText\": \"Create a magic ring\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"magicRing\", \"stitch\": null, \"count\": 1, \"instruction\": \"Create a magic ring\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"6 sc in the ring\", \"operation\": {\"semantics\": \"stitchProducing\", \"actionTag\": \"sc\", \"stitch\": \"sc\", \"count\": 6, \"instruction\": null, \"target\": \"magic ring\", \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}, {\"kind\": \"operation\", \"sourceText\": \"Close the ring\", \"operation\": {\"semantics\": \"bookkeeping\", \"actionTag\": \"closeRing\", \"stitch\": null, \"count\": 1, \"instruction\": \"Close the ring\", \"target\": null, \"note\": null, \"notePlacement\": \"first\", \"producedStitches\": null}, \"repeat\": null, \"conditional\": null, \"note\": null}], \"sourceText\": null, \"normalizationNote\": null}}]}}",
+              "name" : "return_crochet_ir_atomization"
+            },
+            "id" : "call_00_f7SSjWDQPRTeJphqecJfK57q",
+            "index" : 0,
+            "type" : "function"
+          }
+        ]
+      }
+    }
+  ],
+  "created" : 1777029155,
+  "id" : "2ea41ee3-8acc-4e76-b5d9-596ba6c9c1e4",
+  "model" : "deepseek-v4-flash",
+  "object" : "chat.completion",
+  "system_fingerprint" : "fp_058df29938_prod0820_fp8_kvcache_20260402",
+  "usage" : {
+    "completion_tokens" : 1061,
+    "completion_tokens_details" : {
+      "reasoning_tokens" : 654
+    },
+    "prompt_cache_hit_tokens" : 0,
+    "prompt_cache_miss_tokens" : 11752,
+    "prompt_tokens" : 11752,
+    "prompt_tokens_details" : {
+      "cached_tokens" : 0
+    },
+    "total_tokens" : 12813
+  }
+}
