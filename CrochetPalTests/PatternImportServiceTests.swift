@@ -256,6 +256,7 @@ final class PatternImportServiceTests: XCTestCase {
         let capture = RequestCapture()
         let completionData = try completionResponseData(for: SampleDataFactory.demoOutlineResponse)
         MockURLProtocol.handler = { request in
+            capture.request = request
             capture.body = try requestBody(from: request)
             let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
             return (response, completionData)
@@ -274,10 +275,14 @@ final class PatternImportServiceTests: XCTestCase {
             context: ParseRequestContext(traceID: "request-test-text", parseRequestID: "request-test-text", sourceType: .web)
         )
 
+        let capturedRequest = try XCTUnwrap(capture.request)
+        XCTAssertEqual(capturedRequest.timeoutInterval, 900, accuracy: 0.1)
         let requestData = try XCTUnwrap(capture.body)
         let object = try XCTUnwrap(JSONSerialization.jsonObject(with: requestData) as? [String: Any])
         XCTAssertEqual(object["model"] as? String, "text-model")
         XCTAssertNil(object["provider"])
+        let reasoning = try XCTUnwrap(object["reasoning"] as? [String: Any])
+        XCTAssertEqual(reasoning["effort"] as? String, "none")
         let responseFormat = try XCTUnwrap(object["response_format"] as? [String: Any])
         let jsonSchema = try XCTUnwrap(responseFormat["json_schema"] as? [String: Any])
         let schema = try XCTUnwrap(jsonSchema["schema"] as? [String: Any])
@@ -291,10 +296,14 @@ final class PatternImportServiceTests: XCTestCase {
         XCTAssertFalse((messages.first?["content"] as? String)?.contains("- notes") == true)
     }
 
-    func testDeepSeekTextLLMRequestOmitsProviderRoutingPayloadWhenDisabled() async throws {
+    func testDeepSeekFlashOutlineLLMRequestUsesDeepSeekStrictToolCall() async throws {
         let capture = RequestCapture()
-        let completionData = try completionResponseData(for: SampleDataFactory.demoOutlineResponse)
+        let completionData = try toolCallCompletionResponseData(
+            for: SampleDataFactory.demoOutlineResponse,
+            functionName: "crochet_pattern_outline_response"
+        )
         MockURLProtocol.handler = { request in
+            capture.request = request
             capture.body = try requestBody(from: request)
             let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
             return (response, completionData)
@@ -305,7 +314,9 @@ final class PatternImportServiceTests: XCTestCase {
             configuration: try RuntimeConfiguration.load(values: [
                 "OPENAI_API_KEY": "test-key",
                 "OPENAI_BASE_URL": "https://example.com/openrouter/v1/",
-                "TEXT_MODEL_ID": "deepseek/deepseek-v3.2",
+                "DEEPSEEK_API_KEY": "deepseek-key",
+                "DEEPSEEK_BASE_URL": "https://example.com/deepseek",
+                "TEXT_MODEL_ID": "deepseek/deepseek-v4-flash",
                 "ATOMIZATION_MODEL_ID": "atomization-model",
                 "VISION_MODEL_ID": "vision-model"
             ]),
@@ -313,15 +324,267 @@ final class PatternImportServiceTests: XCTestCase {
             logger: ConsoleTraceLogger()
         )
 
-        _ = try await client.parseTextPatternOutline(
+        let response = try await client.parseTextPatternOutline(
             extractedText: "Body\nRound 1: In a MR, sc 6. (6)",
             titleHint: "Smoke",
             context: ParseRequestContext(traceID: "request-test-deepseek", parseRequestID: "request-test-deepseek", sourceType: .web)
         )
 
+        XCTAssertEqual(response.projectTitle, "Mouse Cat Toy")
+        XCTAssertEqual(capture.request?.url?.absoluteString, "https://example.com/deepseek/beta/chat/completions")
+        XCTAssertEqual(capture.request?.value(forHTTPHeaderField: "Authorization"), "Bearer deepseek-key")
         let requestData = try XCTUnwrap(capture.body)
         let object = try XCTUnwrap(JSONSerialization.jsonObject(with: requestData) as? [String: Any])
+        XCTAssertEqual(object["model"] as? String, "deepseek-v4-flash")
+        XCTAssertNil(object["response_format"])
+        XCTAssertNil(object["plugins"])
         XCTAssertNil(object["provider"])
+        XCTAssertNil(object["reasoning"])
+        let thinking = try XCTUnwrap(object["thinking"] as? [String: Any])
+        XCTAssertEqual(thinking["type"] as? String, "disabled")
+        let tools = try XCTUnwrap(object["tools"] as? [[String: Any]])
+        XCTAssertEqual(tools.count, 1)
+        let function = try XCTUnwrap(tools.first?["function"] as? [String: Any])
+        XCTAssertEqual(function["name"] as? String, "crochet_pattern_outline_response")
+        XCTAssertEqual(function["strict"] as? Bool, true)
+        let parameters = try XCTUnwrap(function["parameters"] as? [String: Any])
+        XCTAssertNil(parameters["$defs"])
+        XCTAssertEqual(parameters["additionalProperties"] as? Bool, false)
+        let properties = try XCTUnwrap(parameters["properties"] as? [String: Any])
+        XCTAssertNotNil(properties["projectTitle"])
+        let toolChoice = try XCTUnwrap(object["tool_choice"] as? [String: Any])
+        let toolChoiceFunction = try XCTUnwrap(toolChoice["function"] as? [String: Any])
+        XCTAssertEqual(toolChoice["type"] as? String, "function")
+        XCTAssertEqual(toolChoiceFunction["name"] as? String, "crochet_pattern_outline_response")
+    }
+
+    func testDeepSeekProAtomizationLLMRequestUsesStrictToolCallAndDeepSeekBetaEndpoint() async throws {
+        let capture = RequestCapture()
+        let completionData = try toolCallCompletionResponseData(
+            for: SampleDataFactory.demoIRAtomizationResponse,
+            functionName: "crochet_round_ir_atomization_response"
+        )
+        MockURLProtocol.handler = { request in
+            capture.request = request
+            capture.body = try requestBody(from: request)
+            let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
+            return (response, completionData)
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try RuntimeConfiguration.load(values: [
+                "OPENAI_API_KEY": "test-key",
+                "OPENAI_BASE_URL": "https://example.com/openrouter/v1/",
+                "DEEPSEEK_API_KEY": "deepseek-key",
+                "DEEPSEEK_BASE_URL": "https://example.com/deepseek/beta",
+                "TEXT_MODEL_ID": "text-model",
+                "ATOMIZATION_MODEL_ID": "deepseek/deepseek-v4-pro",
+                "VISION_MODEL_ID": "vision-model"
+            ]),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        let response = try await client.parseTextRoundsToIR(
+            projectTitle: "Mouse Cat Toy",
+            materials: ["Cotton yarn"],
+            rounds: [
+                AtomizationRoundInput(
+                    partName: "Body",
+                    title: "Round 1",
+                    rawInstruction: "In a MR, sc 6. (6)",
+                    summary: "Create a magic ring.",
+                    targetStitchCount: 6,
+                    previousRoundStitchCount: nil,
+                    abbreviations: []
+                )
+            ],
+            context: ParseRequestContext(traceID: "request-test-ir", parseRequestID: "request-test-ir", sourceType: .web)
+        )
+
+        XCTAssertFalse(response.rounds.isEmpty)
+        XCTAssertEqual(capture.request?.url?.absoluteString, "https://example.com/deepseek/beta/chat/completions")
+        XCTAssertEqual(capture.request?.value(forHTTPHeaderField: "Authorization"), "Bearer deepseek-key")
+        let requestData = try XCTUnwrap(capture.body)
+        let object = try XCTUnwrap(JSONSerialization.jsonObject(with: requestData) as? [String: Any])
+        XCTAssertEqual(object["model"] as? String, "deepseek-v4-pro")
+        XCTAssertNil(object["response_format"])
+        XCTAssertNil(object["plugins"])
+        XCTAssertNil(object["provider"])
+        XCTAssertNil(object["reasoning"])
+        let thinking = try XCTUnwrap(object["thinking"] as? [String: Any])
+        XCTAssertEqual(thinking["type"] as? String, "disabled")
+        let tools = try XCTUnwrap(object["tools"] as? [[String: Any]])
+        XCTAssertEqual(tools.count, 1)
+        let function = try XCTUnwrap(tools.first?["function"] as? [String: Any])
+        XCTAssertEqual(function["name"] as? String, "crochet_round_ir_atomization_response")
+        XCTAssertEqual(function["strict"] as? Bool, true)
+        let parameters = try XCTUnwrap(function["parameters"] as? [String: Any])
+        XCTAssertNil(parameters["$defs"])
+        let definitions = try XCTUnwrap(parameters["$def"] as? [String: Any])
+        let block = try XCTUnwrap(definitions["block"] as? [String: Any])
+        let blockProperties = try XCTUnwrap(block["properties"] as? [String: Any])
+        let sourceText = try XCTUnwrap(blockProperties["sourceText"] as? [String: Any])
+        XCTAssertNotNil(sourceText["anyOf"])
+        let statement = try XCTUnwrap(definitions["statement"] as? [String: Any])
+        let statementProperties = try XCTUnwrap(statement["properties"] as? [String: Any])
+        for key in ["operation", "repeat", "conditional", "note"] {
+            let nullableReference = try XCTUnwrap(statementProperties[key] as? [String: Any])
+            let variants = try XCTUnwrap(nullableReference["anyOf"] as? [[String: Any]])
+            let objectVariant = try XCTUnwrap(variants.first)
+            XCTAssertNil(objectVariant["$ref"], "\(key) should inline its object schema inside anyOf for DeepSeek strict mode")
+            XCTAssertEqual(objectVariant["type"] as? String, "object")
+            XCTAssertNotNil(objectVariant["properties"], "\(key) object variant must declare properties")
+        }
+        let invalidEmptyObjectPaths = emptyObjectSchemaPaths(in: parameters)
+        XCTAssertTrue(
+            invalidEmptyObjectPaths.isEmpty,
+            "DeepSeek strict mode rejects object schemas without properties: \(invalidEmptyObjectPaths)"
+        )
+        let toolChoice = try XCTUnwrap(object["tool_choice"] as? [String: Any])
+        let toolChoiceFunction = try XCTUnwrap(toolChoice["function"] as? [String: Any])
+        XCTAssertEqual(toolChoice["type"] as? String, "function")
+        XCTAssertEqual(toolChoiceFunction["name"] as? String, "crochet_round_ir_atomization_response")
+    }
+
+    func testDeepSeekStrictToolCallAcceptsFirstCompleteArgumentsObject() async throws {
+        let capture = RequestSequenceCapture()
+        let contentData = try JSONEncoder().encode(SampleDataFactory.demoIRAtomizationResponse)
+        let arguments = try XCTUnwrap(String(data: contentData, encoding: .utf8))
+        let completionData = try toolCallCompletionResponseData(
+            withArguments: arguments + "}",
+            functionName: "crochet_round_ir_atomization_response"
+        )
+        MockURLProtocol.handler = { [capture] request in
+            capture.requestCount += 1
+            capture.bodies.append(try requestBody(from: request))
+            let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
+            return (response, completionData)
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try RuntimeConfiguration.load(values: [
+                "OPENAI_API_KEY": "test-key",
+                "OPENAI_BASE_URL": "https://example.com/openrouter/v1/",
+                "DEEPSEEK_API_KEY": "deepseek-key",
+                "DEEPSEEK_BASE_URL": "https://example.com/deepseek/beta",
+                "TEXT_MODEL_ID": "text-model",
+                "ATOMIZATION_MODEL_ID": "deepseek/deepseek-v4-flash",
+                "VISION_MODEL_ID": "vision-model"
+            ]),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        let response = try await client.parseTextRoundsToIR(
+            projectTitle: "Mouse Cat Toy",
+            materials: ["Cotton yarn"],
+            rounds: [
+                AtomizationRoundInput(
+                    partName: "Body",
+                    title: "Round 1",
+                    rawInstruction: "In a MR, sc 6. (6)",
+                    summary: "Create a magic ring.",
+                    targetStitchCount: 6,
+                    previousRoundStitchCount: nil,
+                    abbreviations: []
+                )
+            ],
+            context: ParseRequestContext(traceID: "deepseek-extra-brace", parseRequestID: "deepseek-extra-brace", sourceType: .web)
+        )
+
+        XCTAssertEqual(capture.requestCount, 1)
+        XCTAssertEqual(response.rounds.count, SampleDataFactory.demoIRAtomizationResponse.rounds.count)
+    }
+
+    func testDeepSeekStrictRepairRequestDisablesThinking() async throws {
+        let capture = RequestSequenceCapture()
+        MockURLProtocol.handler = { [self, capture] request in
+            capture.requestCount += 1
+            capture.bodies.append(try requestBody(from: request))
+            let response = HTTPURLResponse(url: try XCTUnwrap(request.url), statusCode: 200, httpVersion: nil, headerFields: nil)!
+
+            if capture.requestCount == 1 {
+                return (response, try self.toolCallCompletionResponseData(
+                    withArguments: #"{"rounds":["#,
+                    functionName: "crochet_round_ir_atomization_response"
+                ))
+            }
+
+            return (response, try self.toolCallCompletionResponseData(
+                for: SampleDataFactory.demoIRAtomizationResponse,
+                functionName: "crochet_round_ir_atomization_response"
+            ))
+        }
+
+        let session = URLSession(configuration: configuration())
+        let client = OpenAICompatibleLLMClient(
+            configuration: try RuntimeConfiguration.load(values: [
+                "OPENAI_API_KEY": "test-key",
+                "OPENAI_BASE_URL": "https://example.com/openrouter/v1/",
+                "DEEPSEEK_API_KEY": "deepseek-key",
+                "DEEPSEEK_BASE_URL": "https://example.com/deepseek",
+                "TEXT_MODEL_ID": "text-model",
+                "ATOMIZATION_MODEL_ID": "deepseek/deepseek-v4-flash",
+                "VISION_MODEL_ID": "vision-model"
+            ]),
+            session: session,
+            logger: ConsoleTraceLogger()
+        )
+
+        let response = try await client.parseTextRoundsToIR(
+            projectTitle: "Mouse Cat Toy",
+            materials: ["Cotton yarn"],
+            rounds: [
+                AtomizationRoundInput(
+                    partName: "Body",
+                    title: "Round 1",
+                    rawInstruction: "In a MR, sc 6. (6)",
+                    summary: "Create a magic ring.",
+                    targetStitchCount: 6,
+                    previousRoundStitchCount: nil,
+                    abbreviations: []
+                )
+            ],
+            context: ParseRequestContext(traceID: "deepseek-repair", parseRequestID: "deepseek-repair", sourceType: .web)
+        )
+
+        XCTAssertEqual(capture.requestCount, 2)
+        XCTAssertEqual(response.rounds.count, SampleDataFactory.demoIRAtomizationResponse.rounds.count)
+        let requestObjects = try capture.bodies.map {
+            try XCTUnwrap(JSONSerialization.jsonObject(with: $0) as? [String: Any])
+        }
+        XCTAssertEqual(requestObjects.compactMap { $0["model"] as? String }, ["deepseek-v4-flash", "deepseek-v4-flash"])
+        let repairThinking = try XCTUnwrap(requestObjects[1]["thinking"] as? [String: Any])
+        XCTAssertEqual(repairThinking["type"] as? String, "disabled")
+        XCTAssertNil(requestObjects[1]["reasoning"])
+    }
+
+    func testDeepSeekStrictToolCallRequiresDedicatedDeepSeekConfigurationWhenPrimaryBaseIsOpenRouter() async throws {
+        let client = OpenAICompatibleLLMClient(
+            configuration: try RuntimeConfiguration.load(values: [
+                "OPENAI_API_KEY": "test-key",
+                "OPENAI_BASE_URL": "https://example.com/openrouter/v1/",
+                "TEXT_MODEL_ID": "deepseek/deepseek-v4-flash",
+                "ATOMIZATION_MODEL_ID": "atomization-model",
+                "VISION_MODEL_ID": "vision-model"
+            ]),
+            session: URLSession(configuration: configuration()),
+            logger: ConsoleTraceLogger()
+        )
+
+        do {
+            _ = try await client.parseTextPatternOutline(
+                extractedText: "Body\nRound 1: In a MR, sc 6. (6)",
+                titleHint: "Smoke",
+                context: ParseRequestContext(traceID: "missing-deepseek-config", parseRequestID: "missing-deepseek-config", sourceType: .web)
+            )
+            XCTFail("Expected missing DeepSeek configuration")
+        } catch let error as PatternImportFailure {
+            XCTAssertEqual(error.errorDescription, "缺少配置项：DEEPSEEK_API_KEY")
+        }
     }
 
     func testTextLLMRepairsMalformedOutlineJSONResponse() async throws {
@@ -2207,6 +2470,40 @@ final class PatternImportServiceTests: XCTestCase {
         return try completionResponseData(withContent: content)
     }
 
+    private func toolCallCompletionResponseData<T: Encodable>(
+        for payload: T,
+        functionName: String
+    ) throws -> Data {
+        let contentData = try JSONEncoder().encode(payload)
+        let arguments = try XCTUnwrap(String(data: contentData, encoding: .utf8))
+        return try toolCallCompletionResponseData(withArguments: arguments, functionName: functionName)
+    }
+
+    private func toolCallCompletionResponseData(
+        withArguments arguments: String,
+        functionName: String
+    ) throws -> Data {
+        let object: [String: Any] = [
+            "choices": [
+                [
+                    "message": [
+                        "tool_calls": [
+                            [
+                                "id": "call_test",
+                                "type": "function",
+                                "function": [
+                                    "name": functionName,
+                                    "arguments": arguments
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+        return try JSONSerialization.data(withJSONObject: object)
+    }
+
     private func completionResponseData(withContent content: String) throws -> Data {
         let object: [String: Any] = [
             "choices": [
@@ -2229,6 +2526,28 @@ final class PatternImportServiceTests: XCTestCase {
             "VISION_MODEL_ID": "vision-model"
         ])
     }
+
+}
+
+private func emptyObjectSchemaPaths(in value: Any, path: String = "$") -> [String] {
+    if let dictionary = value as? [String: Any] {
+        var paths: [String] = []
+        if dictionary["type"] as? String == "object", dictionary["properties"] == nil {
+            paths.append(path)
+        }
+        for (key, rawValue) in dictionary {
+            paths.append(contentsOf: emptyObjectSchemaPaths(in: rawValue, path: "\(path).\(key)"))
+        }
+        return paths
+    }
+
+    if let array = value as? [Any] {
+        return array.enumerated().flatMap { index, rawValue in
+            emptyObjectSchemaPaths(in: rawValue, path: "\(path)[\(index)]")
+        }
+    }
+
+    return []
 }
 
 private final class MockURLProtocol: URLProtocol, @unchecked Sendable {
@@ -2256,6 +2575,7 @@ private final class MockURLProtocol: URLProtocol, @unchecked Sendable {
 }
 
 private final class RequestCapture: @unchecked Sendable {
+    var request: URLRequest?
     var body: Data?
 }
 
@@ -3323,7 +3643,7 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
 
         // ----- Step 2: IR atomization (batched) -----
         //
-        // DeepSeek v3.2 (and most commercial LLMs via Cloudflare gateway) silently cap
+        // DeepSeek text models (and most commercial LLMs via Cloudflare gateway) silently cap
         // output at ~8K tokens even when max_tokens says more. For large patterns the IR
         // tree easily exceeds that, so we atomize in batches matching the production
         // ProjectRepository pattern (incremental per-round atomization).
@@ -3648,7 +3968,8 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
                 ["role": "system", "content": systemPrompt],
                 ["role": "user", "content": userPrompt]
             ],
-            "response_format": responseFormat
+            "response_format": responseFormat,
+            "reasoning": ["effort": "none"]
         ]
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
 
@@ -3760,6 +4081,8 @@ final class IRAtomizationLLMIntegrationTests: XCTestCase {
         return try RuntimeConfiguration.load(values: [
             "OPENAI_API_KEY": resolve(raw["OPENAI_API_KEY"] ?? ""),
             "OPENAI_BASE_URL": resolve(raw["OPENAI_BASE_URL"] ?? ""),
+            "DEEPSEEK_API_KEY": resolve(raw["DEEPSEEK_API_KEY"] ?? ""),
+            "DEEPSEEK_BASE_URL": resolve(raw["DEEPSEEK_BASE_URL"] ?? ""),
             "TEXT_MODEL_ID": resolve(raw["TEXT_MODEL_ID"] ?? ""),
             "ATOMIZATION_MODEL_ID": resolve(raw["ATOMIZATION_MODEL_ID"] ?? raw["TEXT_MODEL_ID"] ?? ""),
             "VISION_MODEL_ID": resolve(raw["VISION_MODEL_ID"] ?? raw["TEXT_MODEL_ID"] ?? "")

@@ -267,6 +267,245 @@ final class ProjectRepositoryTests: XCTestCase {
         XCTAssertTrue(repository.recentLogs.isEmpty)
     }
 
+    func testStartWebImportInsertsPlaceholderBeforeImporterCompletesAndReplacesSameID() async throws {
+        let importer = FakePatternImporter(
+            record: makePendingWebRecord(),
+            importBehavior: { [self] _ in
+                try await Task.sleep(nanoseconds: 200_000_000)
+                return self.makePendingWebRecord()
+            }
+        )
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger(),
+            backgroundTaskRunner: NoopBackgroundTaskRunner()
+        )
+
+        let projectID = try repository.startWebImport(from: "https://example.com/pattern")
+
+        XCTAssertEqual(repository.records.count, 1)
+        XCTAssertEqual(repository.records.first?.project.id, projectID)
+        XCTAssertEqual(repository.records.first?.project.title, "Importing Web Pattern")
+        XCTAssertFalse(repository.records.first?.importState.isReady ?? true)
+
+        await waitUntil {
+            repository.records.first?.importState.isReady == true
+        }
+
+        let completed = try XCTUnwrap(repository.records.first)
+        XCTAssertEqual(completed.project.id, projectID)
+        XCTAssertEqual(completed.project.title, "Mouse Cat Toy")
+        XCTAssertNil(completed.importRequest)
+    }
+
+    func testCompletedAsyncImportRequestsPermissionAndSchedulesCompletionNotification() async throws {
+        let importer = FakePatternImporter(record: makePendingWebRecord())
+        let notifications = SpyImportNotificationScheduler()
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger(),
+            backgroundTaskRunner: NoopBackgroundTaskRunner(),
+            importNotificationScheduler: notifications
+        )
+
+        let projectID = try repository.startWebImport(from: "https://example.com/pattern")
+
+        await waitUntil {
+            notifications.prepareCount == 1 &&
+                notifications.completedImports.contains { completed in
+                    completed.projectID == projectID && completed.projectTitle == "Mouse Cat Toy"
+                }
+        }
+    }
+
+    func testFailedAsyncImportDoesNotScheduleCompletionNotification() async throws {
+        let importer = FakePatternImporter(
+            record: makePendingWebRecord(),
+            importBehavior: { _ in
+                throw PatternImportFailure.emptyExtraction
+            }
+        )
+        let notifications = SpyImportNotificationScheduler()
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger(),
+            backgroundTaskRunner: NoopBackgroundTaskRunner(),
+            importNotificationScheduler: notifications
+        )
+
+        _ = try repository.startWebImport(from: "https://example.com/pattern")
+
+        await waitUntil {
+            repository.records.first?.importState.isFailed == true &&
+                notifications.prepareCount == 1
+        }
+        try await Task.sleep(nanoseconds: 50_000_000)
+
+        XCTAssertTrue(notifications.completedImports.isEmpty)
+    }
+
+    func testCompletedAsyncImportStillAutoParsesFirstDeferredRound() async throws {
+        let importer = FakePatternImporter(record: makePendingWebRecord())
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger(),
+            backgroundTaskRunner: NoopBackgroundTaskRunner()
+        )
+
+        let projectID = try repository.startWebImport(from: "https://example.com/pattern")
+
+        await waitUntil {
+            importer.atomizeRequestCounts == [1]
+        }
+
+        let completed = try XCTUnwrap(repository.records.first(where: { $0.project.id == projectID }))
+        XCTAssertEqual(completed.importState.phase, .ready)
+        XCTAssertEqual(completed.project.parts[0].rounds[0].atomizationStatus, .ready)
+    }
+
+    func testFailedAsyncImportKeepsRequestAndRetryReusesSameRow() async throws {
+        let importer = FakePatternImporter(
+            record: makePendingWebRecord(),
+            importBehavior: { [self] callIndex in
+                if callIndex == 0 {
+                    throw PatternImportFailure.emptyExtraction
+                }
+                return self.makePendingWebRecord()
+            }
+        )
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger(),
+            backgroundTaskRunner: NoopBackgroundTaskRunner()
+        )
+
+        let projectID = try repository.startWebImport(from: "https://example.com/pattern")
+
+        await waitUntil {
+            repository.records.first?.importState.isFailed == true
+        }
+
+        let failed = try XCTUnwrap(repository.records.first)
+        XCTAssertEqual(failed.project.id, projectID)
+        XCTAssertNotNil(failed.importRequest)
+        XCTAssertEqual(importer.importRequestCount, 1)
+
+        repository.retryImport(projectID: projectID)
+
+        await waitUntil {
+            repository.records.first?.importState.isReady == true
+        }
+
+        let completed = try XCTUnwrap(repository.records.first)
+        XCTAssertEqual(completed.project.id, projectID)
+        XCTAssertNil(completed.importRequest)
+        XCTAssertEqual(importer.importRequestCount, 2)
+    }
+
+    func testLoadMarksInterruptedImportsAsRetryableFailures() async throws {
+        let directory = tempDirectory()
+        let storage = JSONFileStore(directoryURL: directory)
+        let now = Date()
+        let project = CrochetProject(
+            title: "Importing Web Pattern",
+            source: PatternSource(
+                type: .web,
+                displayName: "https://example.com/pattern",
+                sourceURL: "https://example.com/pattern",
+                fileName: nil,
+                fileSizeBytes: nil,
+                importedAt: now
+            ),
+            materials: [],
+            confidence: 0,
+            abbreviations: [],
+            parts: [],
+            activePartID: nil,
+            createdAt: now,
+            updatedAt: now
+        )
+        let interrupted = ProjectRecord(
+            project: project,
+            progress: .initial(for: project),
+            importState: PatternImportState(phase: .parsingOutline, message: "正在解析 Pattern 结构", errorMessage: nil, updatedAt: now, retryCount: 0),
+            importRequest: .web(urlString: "https://example.com/pattern")
+        )
+        try storage.save([interrupted], to: "projects.json")
+
+        let repository = ProjectRepository(
+            importer: FakePatternImporter(record: makePendingWebRecord()),
+            storage: storage,
+            logger: ConsoleTraceLogger(),
+            backgroundTaskRunner: NoopBackgroundTaskRunner()
+        )
+
+        let record = try XCTUnwrap(repository.records.first)
+        XCTAssertTrue(record.importState.isFailed)
+        XCTAssertEqual(record.importState.errorMessage, "导入被中断，请重试。")
+        XCTAssertNotNil(record.importRequest)
+    }
+
+    func testStartTextImageAndPDFImportsCopyRetrySources() async throws {
+        let sourceStore = SourceFileStore(baseDirectoryURL: tempDirectory())
+        let importer = FakePatternImporter(
+            record: makePendingWebRecord(),
+            importBehavior: { [self] _ in
+                try await Task.sleep(nanoseconds: 500_000_000)
+                return self.makePendingWebRecord()
+            }
+        )
+        let repository = ProjectRepository(
+            importer: importer,
+            storage: JSONFileStore(directoryURL: tempDirectory()),
+            logger: ConsoleTraceLogger(),
+            sourceFileStore: sourceStore,
+            backgroundTaskRunner: NoopBackgroundTaskRunner()
+        )
+
+        let textID = try repository.startTextImport(from: "Round 1: sc 6")
+        let imageData = Data([0x01, 0x02, 0x03])
+        let imageID = try repository.startImageImport(data: imageData, fileName: "pattern.png")
+        let pdfData = Data([0x25, 0x50, 0x44, 0x46])
+        let pdfID = try repository.startPDFImport(data: pdfData, fileName: "pattern.pdf")
+
+        let textRecord = try XCTUnwrap(repository.records.first(where: { $0.project.id == textID }))
+        let textRequest = try XCTUnwrap(textRecord.importRequest)
+        XCTAssertEqual(textRequest.sourceType, .text)
+        let textPath = try XCTUnwrap(textRequest.localFilePath)
+        let textURL = try XCTUnwrap(sourceStore.resolveURL(forRelativePath: textPath))
+        XCTAssertEqual(try String(contentsOf: textURL, encoding: .utf8), "Round 1: sc 6")
+
+        let imageRecord = try XCTUnwrap(repository.records.first(where: { $0.project.id == imageID }))
+        let imageRequest = try XCTUnwrap(imageRecord.importRequest)
+        XCTAssertEqual(imageRequest.sourceType, .image)
+        let imagePath = try XCTUnwrap(imageRequest.localFilePath)
+        XCTAssertEqual(imageRequest.fileName, "pattern.png")
+        XCTAssertEqual(imageRequest.fileSizeBytes, imageData.count)
+        let imageURL = try XCTUnwrap(sourceStore.resolveURL(forRelativePath: imagePath))
+        XCTAssertEqual(try Data(contentsOf: imageURL), imageData)
+
+        let pdfRecord = try XCTUnwrap(repository.records.first(where: { $0.project.id == pdfID }))
+        let pdfRequest = try XCTUnwrap(pdfRecord.importRequest)
+        XCTAssertEqual(pdfRequest.sourceType, .pdf)
+        let pdfPath = try XCTUnwrap(pdfRequest.localFilePath)
+        XCTAssertEqual(pdfRequest.fileName, "pattern.pdf")
+        XCTAssertEqual(pdfRequest.fileSizeBytes, pdfData.count)
+        let pdfURL = try XCTUnwrap(sourceStore.resolveURL(forRelativePath: pdfPath))
+        XCTAssertEqual(try Data(contentsOf: pdfURL), pdfData)
+
+        let projectIDs = [textID, imageID, pdfID]
+        await waitUntil(timeoutNanoseconds: 2_000_000_000) {
+            projectIDs.allSatisfy { id in
+                repository.records.first(where: { $0.project.id == id })?.importState.isReady == true
+            }
+        }
+    }
+
     // Regression for the Round 7 "Complete + 0/0" bug: when the LLM atomization returns
     // zero atomic actions (e.g. the produced count is 0 because every stitch was wrapped
     // in a note(emitAsAction=false) — see docs/bad-cases/round7-...md), the repository
@@ -432,34 +671,44 @@ final class ProjectRepositoryTests: XCTestCase {
 
 private final class FakePatternImporter: PatternImporting {
     private let record: ProjectRecord
+    private let importBehavior: (Int) async throws -> ProjectRecord
     private let atomizeBehavior: @Sendable (CrochetProject, [RoundReference], Int) async throws -> [AtomizedRoundUpdate]
+    private(set) var importRequestCount = 0
     private(set) var atomizeRequestCounts: [Int] = []
     private(set) var requestedTargets: [[RoundReference]] = []
 
     init(
         record: ProjectRecord,
+        importBehavior: ((Int) async throws -> ProjectRecord)? = nil,
         atomizeBehavior: @escaping @Sendable (CrochetProject, [RoundReference], Int) async throws -> [AtomizedRoundUpdate] = { _, targets, _ in
             FakePatternImporter.defaultAtomizedUpdates(for: targets)
         }
     ) {
         self.record = record
+        self.importBehavior = importBehavior ?? { _ in record }
         self.atomizeBehavior = atomizeBehavior
     }
 
     func importWebPattern(from urlString: String) async throws -> ProjectRecord {
-        record
+        try await importRecord()
     }
 
     func importImagePattern(data: Data, fileName: String) async throws -> ProjectRecord {
-        record
+        try await importRecord()
     }
 
     func importTextPattern(from rawText: String) async throws -> ProjectRecord {
-        record
+        try await importRecord()
     }
 
     func importPDFPattern(data: Data, fileName: String) async throws -> ProjectRecord {
-        record
+        try await importRecord()
+    }
+
+    private func importRecord() async throws -> ProjectRecord {
+        let callIndex = importRequestCount
+        importRequestCount += 1
+        return try await importBehavior(callIndex)
     }
 
     func atomizeRounds(in project: CrochetProject, targets: [RoundReference]) async throws -> [AtomizedRoundUpdate] {
@@ -479,5 +728,18 @@ private final class FakePatternImporter: PatternImporting {
                 producedStitchCount: 1
             )
         }
+    }
+}
+
+private final class SpyImportNotificationScheduler: ImportNotificationScheduling {
+    private(set) var prepareCount = 0
+    private(set) var completedImports: [(projectID: UUID, projectTitle: String)] = []
+
+    func prepareForImportCompletionNotifications() async {
+        prepareCount += 1
+    }
+
+    func notifyImportCompleted(projectID: UUID, projectTitle: String) async {
+        completedImports.append((projectID, projectTitle))
     }
 }

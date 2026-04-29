@@ -334,6 +334,175 @@ struct PatternSource: Codable, Hashable {
     var localFilePath: String? = nil
 }
 
+enum PatternImportPhase: String, Codable, Hashable {
+    case queued
+    case capturingSource
+    case fetchingSource
+    case extractingSource
+    case parsingOutline
+    case parsingImage
+    case ready
+    case failed
+
+    var isInProgress: Bool {
+        switch self {
+        case .queued, .capturingSource, .fetchingSource, .extractingSource, .parsingOutline, .parsingImage:
+            return true
+        case .ready, .failed:
+            return false
+        }
+    }
+
+    var defaultMessage: String {
+        switch self {
+        case .queued:
+            return "等待导入"
+        case .capturingSource:
+            return "正在保存来源"
+        case .fetchingSource:
+            return "正在获取 Pattern"
+        case .extractingSource:
+            return "正在提取 Pattern 文本"
+        case .parsingOutline:
+            return "正在解析 Pattern 结构"
+        case .parsingImage:
+            return "正在解析图片 Pattern"
+        case .ready:
+            return "导入完成"
+        case .failed:
+            return "导入失败"
+        }
+    }
+}
+
+struct PatternImportState: Codable, Hashable {
+    var phase: PatternImportPhase
+    var message: String
+    var errorMessage: String?
+    var updatedAt: Date
+    var retryCount: Int
+
+    static func queued(now: Date = .now, retryCount: Int = 0) -> PatternImportState {
+        PatternImportState(
+            phase: .queued,
+            message: PatternImportPhase.queued.defaultMessage,
+            errorMessage: nil,
+            updatedAt: now,
+            retryCount: retryCount
+        )
+    }
+
+    static func ready(now: Date = .now) -> PatternImportState {
+        PatternImportState(
+            phase: .ready,
+            message: PatternImportPhase.ready.defaultMessage,
+            errorMessage: nil,
+            updatedAt: now,
+            retryCount: 0
+        )
+    }
+
+    var isReady: Bool {
+        phase == .ready
+    }
+
+    var isFailed: Bool {
+        phase == .failed
+    }
+
+    var isInProgress: Bool {
+        phase.isInProgress
+    }
+
+    mutating func move(to phase: PatternImportPhase, now: Date = .now) {
+        self.phase = phase
+        self.message = phase.defaultMessage
+        self.errorMessage = nil
+        self.updatedAt = now
+    }
+
+    mutating func fail(message: String, now: Date = .now) {
+        phase = .failed
+        self.message = PatternImportPhase.failed.defaultMessage
+        errorMessage = message
+        updatedAt = now
+    }
+}
+
+struct PatternImportRequest: Codable, Hashable {
+    var sourceType: PatternSourceType
+    var urlString: String?
+    var localFilePath: String?
+    var fileName: String?
+    var fileSizeBytes: Int?
+
+    static func web(urlString: String) -> PatternImportRequest {
+        PatternImportRequest(
+            sourceType: .web,
+            urlString: urlString,
+            localFilePath: nil,
+            fileName: nil,
+            fileSizeBytes: nil
+        )
+    }
+
+    static func text(localFilePath: String) -> PatternImportRequest {
+        PatternImportRequest(
+            sourceType: .text,
+            urlString: nil,
+            localFilePath: localFilePath,
+            fileName: nil,
+            fileSizeBytes: nil
+        )
+    }
+
+    static func image(localFilePath: String, fileName: String, fileSizeBytes: Int) -> PatternImportRequest {
+        PatternImportRequest(
+            sourceType: .image,
+            urlString: nil,
+            localFilePath: localFilePath,
+            fileName: fileName,
+            fileSizeBytes: fileSizeBytes
+        )
+    }
+
+    static func pdf(localFilePath: String, fileName: String, fileSizeBytes: Int) -> PatternImportRequest {
+        PatternImportRequest(
+            sourceType: .pdf,
+            urlString: nil,
+            localFilePath: localFilePath,
+            fileName: fileName,
+            fileSizeBytes: fileSizeBytes
+        )
+    }
+
+    var placeholderTitle: String {
+        switch sourceType {
+        case .web:
+            return "Importing Web Pattern"
+        case .text:
+            return "Importing Text Pattern"
+        case .image, .pdf:
+            return fileName ?? placeholderDisplayName
+        }
+    }
+
+    var placeholderDisplayName: String {
+        switch sourceType {
+        case .web:
+            return urlString ?? "Web Pattern"
+        case .text:
+            return "Pasted Pattern"
+        case .image, .pdf:
+            return fileName ?? "Pattern Source"
+        }
+    }
+
+    var sourceURL: String? {
+        sourceType == .web ? urlString : nil
+    }
+}
+
 /// A single tap-per-action instruction emitted by the compiler and executed by the UI.
 ///
 /// Fields:
@@ -538,8 +707,37 @@ struct ExecutionProgress: Codable, Hashable {
 struct ProjectRecord: Codable, Hashable, Identifiable {
     var project: CrochetProject
     var progress: ExecutionProgress
+    var importState: PatternImportState = .ready()
+    var importRequest: PatternImportRequest? = nil
 
     var id: UUID { project.id }
+
+    init(
+        project: CrochetProject,
+        progress: ExecutionProgress,
+        importState: PatternImportState = .ready(),
+        importRequest: PatternImportRequest? = nil
+    ) {
+        self.project = project
+        self.progress = progress
+        self.importState = importState
+        self.importRequest = importRequest
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case project
+        case progress
+        case importState
+        case importRequest
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        project = try container.decode(CrochetProject.self, forKey: .project)
+        progress = try container.decode(ExecutionProgress.self, forKey: .progress)
+        importState = try container.decodeIfPresent(PatternImportState.self, forKey: .importState) ?? .ready()
+        importRequest = try container.decodeIfPresent(PatternImportRequest.self, forKey: .importRequest)
+    }
 }
 
 struct ProjectSnapshot: Codable, Hashable {

@@ -10,7 +10,7 @@ struct ImportSheet: View {
     @State private var patternText = ""
     @State private var photoItem: PhotosPickerItem?
     @State private var showPDFImporter = false
-    @State private var isImporting = false
+    @State private var isPreparingSource = false
     @State private var errorMessage: String?
 
     let onImported: (UUID) -> Void
@@ -24,9 +24,9 @@ struct ImportSheet: View {
                         .autocorrectionDisabled()
 
                     Button("Import URL") {
-                        Task { await importFromURL() }
+                        importFromURL()
                     }
-                    .disabled(urlText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isImporting)
+                    .disabled(urlText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isPreparingSource)
                 }
 
                 Section("Import From Text") {
@@ -46,21 +46,22 @@ struct ImportSheet: View {
                     }
 
                     Button("Import Text") {
-                        Task { await importFromText() }
+                        importFromText()
                     }
-                    .disabled(patternText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isImporting)
+                    .disabled(patternText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isPreparingSource)
                 }
 
                 Section("Import From Image") {
                     PhotosPicker(selection: $photoItem, matching: .images) {
                         Label("Choose From Photos", systemImage: "photo.on.rectangle")
                     }
-                    .disabled(isImporting)
+                    .disabled(isPreparingSource)
 
                     if ProcessInfo.processInfo.arguments.contains("-ui-testing") {
                         Button("Use Sample Image") {
                             Task { await importSampleImage() }
                         }
+                        .disabled(isPreparingSource)
                     }
                 }
 
@@ -70,7 +71,7 @@ struct ImportSheet: View {
                     } label: {
                         Label("Choose PDF File", systemImage: "doc.richtext")
                     }
-                    .disabled(isImporting)
+                    .disabled(isPreparingSource)
                 }
 
                 if let errorMessage {
@@ -89,8 +90,8 @@ struct ImportSheet: View {
                 }
             }
             .overlay {
-                if isImporting {
-                    ProgressView("Parsing pattern...")
+                if isPreparingSource {
+                    ProgressView("Preparing source...")
                         .padding()
                         .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
                 }
@@ -109,33 +110,30 @@ struct ImportSheet: View {
         }
     }
 
-    private func importFromURL() async {
-        await performImport {
-            let record = try await container.repository.importWebPattern(from: urlText)
-            onImported(record.project.id)
+    private func importFromURL() {
+        startImport {
+            try container.repository.startWebImport(from: urlText)
         }
     }
 
     private func importFromPhotoPicker(_ item: PhotosPickerItem) async {
-        await performImport {
+        await prepareSource {
             guard let data = try await item.loadTransferable(type: Data.self) else {
                 throw PatternImportFailure.invalidResponse("empty_image_data")
             }
             let fileName = item.supportedContentTypes.first?.preferredFilenameExtension.map { "pattern.\($0)" } ?? "pattern.jpg"
-            let record = try await container.repository.importImagePattern(data: data, fileName: fileName)
-            onImported(record.project.id)
+            return try container.repository.startImageImport(data: data, fileName: fileName)
         }
     }
 
-    private func importFromText() async {
-        await performImport {
-            let record = try await container.repository.importTextPattern(from: patternText)
-            onImported(record.project.id)
+    private func importFromText() {
+        startImport {
+            try container.repository.startTextImport(from: patternText)
         }
     }
 
     private func importFromPDFPicker(_ result: Result<[URL], Error>) async {
-        await performImport {
+        await prepareSource {
             let urls = try result.get()
             guard let url = urls.first else {
                 throw PatternImportFailure.invalidResponse("empty_pdf_selection")
@@ -146,28 +144,38 @@ struct ImportSheet: View {
             }
             let data = try Data(contentsOf: url)
             let fileName = url.lastPathComponent
-            let record = try await container.repository.importPDFPattern(data: data, fileName: fileName)
-            onImported(record.project.id)
+            return try container.repository.startPDFImport(data: data, fileName: fileName)
         }
     }
 
     private func importSampleImage() async {
-        await performImport {
-            let record = try await container.repository.importImagePattern(
+        await prepareSource {
+            try container.repository.startImageImport(
                 data: SampleDataFactory.sampleImageData,
                 fileName: "sample.png"
             )
-            onImported(record.project.id)
         }
     }
 
-    private func performImport(_ block: @escaping () async throws -> Void) async {
+    private func startImport(_ enqueue: () throws -> UUID) {
         errorMessage = nil
-        isImporting = true
-        defer { isImporting = false }
+        do {
+            let projectID = try enqueue()
+            onImported(projectID)
+            dismiss()
+        } catch {
+            errorMessage = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+        }
+    }
+
+    private func prepareSource(_ block: @escaping () async throws -> UUID) async {
+        errorMessage = nil
+        isPreparingSource = true
+        defer { isPreparingSource = false }
 
         do {
-            try await block()
+            let projectID = try await block()
+            onImported(projectID)
             dismiss()
         } catch {
             errorMessage = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription

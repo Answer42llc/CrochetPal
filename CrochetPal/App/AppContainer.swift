@@ -31,13 +31,20 @@ final class AppContainer: ObservableObject {
         let parserClient: PatternLLMParsing
 
         if isUITesting {
+            let delayNanoseconds: UInt64 = ProcessInfo.processInfo.arguments.contains("-ui-testing-slow-import")
+                ? 3_000_000_000
+                : 0
             parserClient = FixturePatternParsingClient(
                 outlineResponse: SampleDataFactory.demoOutlineResponse,
                 imageResponse: SampleDataFactory.demoImageParseResponse,
-                irResponse: SampleDataFactory.demoIRAtomizationResponse
+                irResponse: SampleDataFactory.demoIRAtomizationResponse,
+                delayNanoseconds: delayNanoseconds
             )
         } else if let configuration = try? RuntimeConfiguration.load() {
-            parserClient = OpenAICompatibleLLMClient(configuration: configuration, logger: logger)
+            parserClient = OpenAICompatibleLLMClient(
+                configuration: configuration,
+                logger: logger
+            )
         } else {
             parserClient = FailingPatternClient()
         }
@@ -55,7 +62,10 @@ final class AppContainer: ObservableObject {
         let repository = ProjectRepository(
             importer: importer,
             storage: makeStorage(isUITesting: isUITesting),
-            logger: logger
+            logger: logger,
+            sourceFileStore: sourceFileStore,
+            backgroundTaskRunner: isUITesting ? NoopBackgroundTaskRunner() : ApplicationBackgroundTaskRunner(),
+            importNotificationScheduler: isUITesting ? NoopImportNotificationScheduler() : LocalImportNotificationScheduler()
         )
         let watchSync = WatchSyncCoordinator()
         return AppContainer(

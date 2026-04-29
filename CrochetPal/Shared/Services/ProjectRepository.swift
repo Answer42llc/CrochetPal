@@ -11,8 +11,12 @@ final class ProjectRepository: ObservableObject {
     private let importer: PatternImporting
     private let storage: JSONFileStoring
     private let logger: ConsoleTraceLogger
+    private let sourceFileStore: SourceFileStoring?
+    private let backgroundTaskRunner: BackgroundTaskRunning
+    private let importNotificationScheduler: ImportNotificationScheduling
     private let filename = "projects.json"
     private var watchSync: WatchSyncCoordinator?
+    private var runningImportIDs: Set<UUID> = []
     /// Per-project monotonic counter. Each `setExecutionState` increments it; long-running
     /// tasks capture the token they produced so their terminal state writes can be skipped
     /// when a newer operation has already taken over the state (e.g. user-initiated
@@ -22,10 +26,16 @@ final class ProjectRepository: ObservableObject {
     init(
         importer: PatternImporting,
         storage: JSONFileStoring,
-        logger: ConsoleTraceLogger
+        logger: ConsoleTraceLogger,
+        sourceFileStore: SourceFileStoring? = nil,
+        backgroundTaskRunner: BackgroundTaskRunning? = nil,
+        importNotificationScheduler: ImportNotificationScheduling? = nil
     ) {
         self.importer = importer
         self.storage = storage
+        self.sourceFileStore = sourceFileStore
+        self.backgroundTaskRunner = backgroundTaskRunner ?? ApplicationBackgroundTaskRunner()
+        self.importNotificationScheduler = importNotificationScheduler ?? NoopImportNotificationScheduler()
         self.records = []
         self.executionStates = [:]
         self.recentLogs = []
@@ -63,8 +73,12 @@ final class ProjectRepository: ObservableObject {
     }
 
     var activeRecord: ProjectRecord? {
-        let id = activeProjectID ?? records.first?.project.id
-        return records.first(where: { $0.project.id == id })
+        if let activeProjectID,
+           let record = records.first(where: { $0.project.id == activeProjectID }),
+           record.importState.isReady {
+            return record
+        }
+        return records.first(where: { $0.importState.isReady })
     }
 
     func executionState(for projectID: UUID) -> ProjectExecutionState {
@@ -95,7 +109,67 @@ final class ProjectRepository: ObservableObject {
         return record
     }
 
+    @discardableResult
+    func startWebImport(from urlString: String) throws -> UUID {
+        let trimmed = urlString.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard URL(string: trimmed) != nil else {
+            throw PatternImportFailure.invalidURL
+        }
+        return startImport(request: .web(urlString: trimmed))
+    }
+
+    @discardableResult
+    func startTextImport(from rawText: String) throws -> UUID {
+        let trimmed = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
+            throw PatternImportFailure.emptyExtraction
+        }
+        let data = Data(trimmed.utf8)
+        let path = try saveImportSource(data: data, fileName: "pasted-pattern.txt")
+        return startImport(request: .text(localFilePath: path))
+    }
+
+    @discardableResult
+    func startImageImport(data: Data, fileName: String) throws -> UUID {
+        guard !data.isEmpty else {
+            throw PatternImportFailure.invalidResponse("empty_image_data")
+        }
+        let path = try saveImportSource(data: data, fileName: fileName)
+        return startImport(request: .image(localFilePath: path, fileName: fileName, fileSizeBytes: data.count))
+    }
+
+    @discardableResult
+    func startPDFImport(data: Data, fileName: String) throws -> UUID {
+        guard !data.isEmpty else {
+            throw PatternImportFailure.invalidResponse("empty_pdf_data")
+        }
+        let path = try saveImportSource(data: data, fileName: fileName)
+        return startImport(request: .pdf(localFilePath: path, fileName: fileName, fileSizeBytes: data.count))
+    }
+
+    func retryImport(projectID: UUID) {
+        guard let index = records.firstIndex(where: { $0.project.id == projectID }),
+              let request = records[index].importRequest,
+              records[index].importState.isFailed else {
+            return
+        }
+
+        var state = PatternImportState.queued(
+            retryCount: records[index].importState.retryCount + 1
+        )
+        state.move(to: .queued)
+        records[index].importState = state
+        records[index].importRequest = request
+        records[index].project.updatedAt = .now
+        persist()
+        prepareImportCompletionNotifications()
+        startImportTask(projectID: projectID)
+    }
+
     func setActiveProject(_ projectID: UUID) {
+        guard records.first(where: { $0.project.id == projectID })?.importState.isReady == true else {
+            return
+        }
         activeProjectID = projectID
         pushActiveSnapshot()
     }
@@ -208,6 +282,177 @@ final class ProjectRepository: ObservableObject {
 
     func clearRecentLogs() {
         recentLogs.removeAll()
+    }
+
+    private func startImport(request: PatternImportRequest) -> UUID {
+        let now = Date()
+        let project = CrochetProject(
+            title: request.placeholderTitle,
+            source: PatternSource(
+                type: request.sourceType,
+                displayName: request.placeholderDisplayName,
+                sourceURL: request.sourceURL,
+                fileName: request.fileName,
+                fileSizeBytes: request.fileSizeBytes,
+                importedAt: now,
+                localFilePath: request.localFilePath
+            ),
+            materials: [],
+            confidence: 0,
+            abbreviations: [],
+            parts: [],
+            activePartID: nil,
+            createdAt: now,
+            updatedAt: now
+        )
+        let record = ProjectRecord(
+            project: project,
+            progress: .initial(for: project),
+            importState: .queued(now: now),
+            importRequest: request
+        )
+
+        records.insert(record, at: 0)
+        executionStates[project.id] = .idle
+        persist()
+        prepareImportCompletionNotifications()
+        startImportTask(projectID: project.id)
+        return project.id
+    }
+
+    private func startImportTask(projectID: UUID) {
+        guard !runningImportIDs.contains(projectID) else { return }
+        runningImportIDs.insert(projectID)
+
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            await self.backgroundTaskRunner.run(named: "CrochetPal Pattern Import") { [weak self] in
+                await self?.performImport(projectID: projectID)
+            }
+            self.runningImportIDs.remove(projectID)
+        }
+    }
+
+    private func performImport(projectID: UUID) async {
+        guard let index = records.firstIndex(where: { $0.project.id == projectID }),
+              let request = records[index].importRequest else {
+            return
+        }
+
+        updateImportPhase(.queued, for: projectID)
+        let progress: PatternImportProgressReporter = { [weak self] phase in
+            await MainActor.run {
+                self?.updateImportPhase(phase, for: projectID)
+            }
+        }
+
+        do {
+            let imported: ProjectRecord
+            switch request.sourceType {
+            case .web:
+                guard let urlString = request.urlString else {
+                    throw PatternImportFailure.invalidURL
+                }
+                imported = try await importer.importWebPattern(from: urlString, progress: progress)
+            case .text:
+                guard let localFilePath = request.localFilePath else {
+                    throw PatternImportFailure.invalidResponse("missing_text_import_source")
+                }
+                let data = try loadImportSource(relativePath: localFilePath)
+                guard let text = String(data: data, encoding: .utf8) else {
+                    throw PatternImportFailure.invalidResponse("invalid_text_source_encoding")
+                }
+                imported = try await importer.importTextPattern(from: text, progress: progress)
+            case .image:
+                guard let localFilePath = request.localFilePath,
+                      let fileName = request.fileName else {
+                    throw PatternImportFailure.invalidResponse("missing_image_import_source")
+                }
+                let data = try loadImportSource(relativePath: localFilePath)
+                imported = try await importer.importImagePattern(data: data, fileName: fileName, progress: progress)
+            case .pdf:
+                guard let localFilePath = request.localFilePath,
+                      let fileName = request.fileName else {
+                    throw PatternImportFailure.invalidResponse("missing_pdf_import_source")
+                }
+                let data = try loadImportSource(relativePath: localFilePath)
+                imported = try await importer.importPDFPattern(data: data, fileName: fileName, progress: progress)
+            }
+            completeImport(imported, replacing: projectID)
+        } catch {
+            let message = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+            markImportFailed(projectID: projectID, message: message)
+        }
+    }
+
+    private func completeImport(_ imported: ProjectRecord, replacing projectID: UUID) {
+        guard let index = records.firstIndex(where: { $0.project.id == projectID }) else { return }
+
+        var completed = imported
+        let originalCreatedAt = records[index].project.createdAt
+        completed.project.id = projectID
+        completed.project.createdAt = originalCreatedAt
+        completed.project.updatedAt = .now
+        completed.progress.projectID = projectID
+        completed.importState = .ready()
+        completed.importRequest = nil
+        records[index] = completed
+        setExecutionState(.idle, for: projectID)
+        activeProjectID = projectID
+        persist()
+        pushActiveSnapshot()
+        notifyImportCompleted(projectID: projectID, projectTitle: completed.project.title)
+        autoParseFirstRound(for: projectID)
+    }
+
+    private func prepareImportCompletionNotifications() {
+        Task { @MainActor [importNotificationScheduler] in
+            await importNotificationScheduler.prepareForImportCompletionNotifications()
+        }
+    }
+
+    private func notifyImportCompleted(projectID: UUID, projectTitle: String) {
+        Task { @MainActor [importNotificationScheduler] in
+            await importNotificationScheduler.notifyImportCompleted(
+                projectID: projectID,
+                projectTitle: projectTitle
+            )
+        }
+    }
+
+    private func updateImportPhase(_ phase: PatternImportPhase, for projectID: UUID) {
+        guard let index = records.firstIndex(where: { $0.project.id == projectID }),
+              records[index].importState.phase != .failed,
+              records[index].importState.phase != .ready else {
+            return
+        }
+
+        records[index].importState.move(to: phase)
+        records[index].project.updatedAt = .now
+        persist()
+    }
+
+    private func markImportFailed(projectID: UUID, message: String) {
+        guard let index = records.firstIndex(where: { $0.project.id == projectID }) else { return }
+
+        records[index].importState.fail(message: message)
+        records[index].project.updatedAt = .now
+        persist()
+    }
+
+    private func saveImportSource(data: Data, fileName: String) throws -> String {
+        guard let sourceFileStore else {
+            throw PatternImportFailure.invalidResponse("missing_source_file_store")
+        }
+        return try sourceFileStore.saveSourceFile(data: data, fileName: fileName)
+    }
+
+    private func loadImportSource(relativePath: String) throws -> Data {
+        guard let sourceFileStore,
+              let url = sourceFileStore.resolveURL(forRelativePath: relativePath) else {
+            throw PatternImportFailure.invalidResponse("missing_import_source_file")
+        }
+        return try Data(contentsOf: url)
     }
 
     private func apply(_ command: ExecutionCommand, to projectID: UUID, source: ExecutionCommandSource) {
@@ -480,16 +725,19 @@ final class ProjectRepository: ObservableObject {
     }
 
     private func upsert(_ record: ProjectRecord) {
+        var readyRecord = record
+        readyRecord.importState = .ready()
+        readyRecord.importRequest = nil
         if let existingIndex = records.firstIndex(where: { $0.project.id == record.project.id }) {
-            records[existingIndex] = record
+            records[existingIndex] = readyRecord
         } else {
-            records.insert(record, at: 0)
+            records.insert(readyRecord, at: 0)
         }
-        setExecutionState(.idle, for: record.project.id)
-        activeProjectID = record.project.id
+        setExecutionState(.idle, for: readyRecord.project.id)
+        activeProjectID = readyRecord.project.id
         persist()
         pushActiveSnapshot()
-        autoParseFirstRound(for: record.project.id)
+        autoParseFirstRound(for: readyRecord.project.id)
     }
 
     /// Automatically atomizes the first round of a newly imported deferred-atomization
@@ -521,9 +769,17 @@ final class ProjectRepository: ObservableObject {
     }
 
     private func load() {
-        records = (try? storage.load([ProjectRecord].self, from: filename)) ?? []
-        activeProjectID = records.first?.project.id
+        let loadedRecords = (try? storage.load([ProjectRecord].self, from: filename)) ?? []
+        records = loadedRecords.map { record in
+            var updated = record
+            if updated.importState.isInProgress {
+                updated.importState.fail(message: "导入被中断，请重试。")
+            }
+            return updated
+        }
+        activeProjectID = records.first(where: { $0.importState.isReady })?.project.id
         executionStates = Dictionary(uniqueKeysWithValues: records.map { ($0.project.id, .idle) })
+        persist()
     }
 
     private func persist() {
@@ -531,7 +787,8 @@ final class ProjectRepository: ObservableObject {
     }
 
     private func pushActiveSnapshot() {
-        guard let projectID = activeProjectID, let snapshot = snapshot(for: projectID) else { return }
+        guard let record = activeRecord,
+              let snapshot = snapshot(for: record.project.id) else { return }
         Task {
             await watchSync?.push(snapshot: snapshot)
         }

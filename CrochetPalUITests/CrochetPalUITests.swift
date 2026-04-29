@@ -35,6 +35,30 @@ final class CrochetPalUITests: XCTestCase {
         app.buttons["Undo"].tap()
     }
 
+    func testImportURLShowsPendingRowBeforeReady() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["-ui-testing", "-ui-testing-slow-import"]
+        app.launch()
+
+        app.buttons["addProject"].tap()
+        let urlField = app.textFields["https://example.com/pattern"]
+        XCTAssertTrue(urlField.waitForExistence(timeout: 2))
+        urlField.tap()
+        urlField.typeText("https://example.com/pattern")
+
+        let importButton = app.buttons["Import URL"]
+        importButton.tap()
+
+        let importSheetDismissed = expectation(
+            for: NSPredicate(format: "exists == false"),
+            evaluatedWith: importButton
+        )
+        wait(for: [importSheetDismissed], timeout: 2)
+
+        XCTAssertTrue(app.staticTexts["Importing Web Pattern"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.staticTexts["Mouse Cat Toy"].waitForExistence(timeout: 10))
+    }
+
     func testImportSampleImageFlow() throws {
         let app = XCUIApplication()
         app.launchArguments = ["-ui-testing"]

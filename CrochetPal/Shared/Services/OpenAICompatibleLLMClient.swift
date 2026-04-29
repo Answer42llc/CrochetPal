@@ -47,6 +47,29 @@ struct AtomizationMatchSubagent {
 final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvaluating {
     private typealias JSONObject = [String: Any]
 
+    private enum StructuredOutputMode {
+        case responseFormat(JSONObject)
+        case strictToolCall(functionName: String, schema: JSONObject)
+
+        var logValue: String {
+            switch self {
+            case .responseFormat(let responseFormat):
+                return (responseFormat["type"] as? String) ?? "unknown"
+            case .strictToolCall:
+                return "strict_tool_call"
+            }
+        }
+    }
+
+    private struct ChatCompletionTarget {
+        var endpoint: URL
+        var apiKey: String
+        var requestModelID: String
+        var usesOpenRouterExtensions: Bool
+        var allowsProviderRouting: Bool
+        var usesDeepSeekStrictBeta: Bool
+    }
+
     private let configuration: RuntimeConfiguration
     private let session: URLSession
     private let logger: TraceLogging
@@ -73,7 +96,6 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
             context: context,
             modelKind: "text_outline_parser",
             responseFormat: PromptFactory.outlineResponseFormat(),
-            providerPayload: textProviderPayload(for: configuration.textModelID),
             temperature: 0,
             reasoning: ["effort": "none"]
         )
@@ -100,10 +122,9 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
             context: context,
             modelKind: "round_ir_parser",
             responseFormat: PromptFactory.irAtomizationResponseFormat(),
-            providerPayload: textProviderPayload(for: configuration.atomizationModelID),
             temperature: 0,
-            repairModelID: configuration.atomizationModelID,
-            repairProviderPayload: textProviderPayload(for: configuration.atomizationModelID)
+            reasoning: ["effort": "none"],
+            repairModelID: configuration.atomizationModelID
         )
     }
 
@@ -129,10 +150,6 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
             context: context,
             modelKind: "vision_parser",
             responseFormat: PromptFactory.imageResponseFormat(),
-            providerPayload: [
-                "require_parameters": true,
-                "allow_fallbacks": false
-            ],
             temperature: 0
         )
     }
@@ -308,26 +325,38 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
         repairModelID: String? = nil,
         repairProviderPayload: JSONObject? = nil
     ) async throws -> Response {
-        let endpoint = configuration.baseURL.appending(path: "chat/completions")
+        let structuredOutputMode = structuredOutputMode(for: modelID, responseFormat: responseFormat)
+        let target = try chatCompletionTarget(for: modelID, structuredOutputMode: structuredOutputMode)
+        let endpoint = target.endpoint
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
-        request.timeoutInterval = 90
+        request.timeoutInterval = 900
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(configuration.apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(target.apiKey)", forHTTPHeaderField: "Authorization")
 
         var body: JSONObject = [
-            "model": modelID,
+            "model": target.requestModelID,
             "temperature": temperature,
-            "messages": messagePayload,
-            "response_format": responseFormat
+            "messages": messagePayload
         ]
-        if usesOpenRouterExtensions() {
+        switch structuredOutputMode {
+        case .responseFormat(let responseFormat):
+            body["response_format"] = responseFormat
+        case .strictToolCall(let functionName, let schema):
+            let toolSchema = target.usesDeepSeekStrictBeta ? deepSeekStrictToolSchema(from: schema) : schema
+            body["tools"] = [strictToolDefinition(functionName: functionName, schema: toolSchema)]
+            body["tool_choice"] = forcedToolChoice(functionName: functionName)
+        }
+        if target.usesOpenRouterExtensions, case .responseFormat = structuredOutputMode {
             body["plugins"] = responseHealingPlugins()
         }
-        if let providerPayload {
+        if target.allowsProviderRouting,
+           let providerPayload = providerPayload ?? deepSeekV4ProviderPayload(for: modelID) {
             body["provider"] = providerPayload
         }
-        if let reasoning {
+        if target.usesDeepSeekStrictBeta, usesDeepSeekV4Model(modelID) {
+            body["thinking"] = ["type": "disabled"]
+        } else if let reasoning {
             body["reasoning"] = reasoning
         }
         let requestBody = try JSONSerialization.data(withJSONObject: body)
@@ -346,6 +375,8 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
             durationMS: nil,
             metadata: [
                 "modelID": modelID,
+                "requestModelID": target.requestModelID,
+                "endpoint": endpoint.absoluteString,
                 "requestJSON": serializeForLogging(sanitizedForLogging(body))
             ]
         ))
@@ -393,7 +424,7 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
                 "modelID": modelID,
                 "statusCode": "\(httpResponse.statusCode)",
                 "responseBytes": "\(data.count)",
-                "responseFormat": (responseFormat["type"] as? String) ?? "unknown"
+                "responseFormat": structuredOutputMode.logValue
             ]
         ))
 
@@ -422,6 +453,7 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
         do {
             return try decodeResponse(from: content)
         } catch {
+            let decodeError = describeDecodingError(error)
             if allowsRepair {
                 logger.log(LogEvent(
                     timestamp: .now,
@@ -436,6 +468,7 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
                     durationMS: nil,
                     metadata: [
                         "modelID": modelID,
+                        "decodeError": decodeError,
                         "contentPreview": String(content.prefix(500))
                     ]
                 ))
@@ -482,6 +515,7 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
                 durationMS: nil,
                 metadata: [
                     "modelID": modelID,
+                    "decodeError": decodeError,
                     "contentPreview": String(content.prefix(500))
                 ]
             ))
@@ -517,27 +551,214 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
         )
     }
 
-    private func textProviderPayload(for modelID: String) -> JSONObject? {
-//        guard modelID == "deepseek/deepseek-v3.2" else {
-//            return nil
-//        }
-//
-//        return [
-//            "require_parameters": true,
-//            "allow_fallbacks": false,
-//            "order": ["atlas-cloud/fp8", "siliconflow/fp8"]
-//        ]
-        return nil
+    private func textProviderPayload(for _: String) -> JSONObject? {
+        nil
+    }
+
+    private func chatCompletionTarget(
+        for modelID: String,
+        structuredOutputMode: StructuredOutputMode
+    ) throws -> ChatCompletionTarget {
+        let isStrictToolCall: Bool = {
+            if case .strictToolCall = structuredOutputMode { return true }
+            return false
+        }()
+        let requiresDeepSeekStrictBeta = usesDeepSeekV4Model(modelID) && isStrictToolCall
+
+        guard requiresDeepSeekStrictBeta else {
+            let endpoint = configuration.baseURL.appending(path: "chat/completions")
+            return ChatCompletionTarget(
+                endpoint: endpoint,
+                apiKey: configuration.apiKey,
+                requestModelID: modelID,
+                usesOpenRouterExtensions: usesOpenRouterExtensions(for: endpoint),
+                allowsProviderRouting: true,
+                usesDeepSeekStrictBeta: false
+            )
+        }
+
+        if let deepSeekBaseURL = configuration.deepSeekBaseURL {
+            guard let apiKey = configuration.deepSeekAPIKey, !apiKey.isEmpty else {
+                throw PatternImportFailure.missingConfiguration("DEEPSEEK_API_KEY")
+            }
+            let endpoint = deepSeekBetaBaseURL(from: deepSeekBaseURL).appending(path: "chat/completions")
+            return ChatCompletionTarget(
+                endpoint: endpoint,
+                apiKey: apiKey,
+                requestModelID: officialDeepSeekModelID(from: modelID),
+                usesOpenRouterExtensions: false,
+                allowsProviderRouting: false,
+                usesDeepSeekStrictBeta: true
+            )
+        }
+
+        guard isDeepSeekBaseURL(configuration.baseURL) else {
+            throw PatternImportFailure.missingConfiguration("DEEPSEEK_API_KEY")
+        }
+
+        let endpoint = deepSeekBetaBaseURL(from: configuration.baseURL).appending(path: "chat/completions")
+        return ChatCompletionTarget(
+            endpoint: endpoint,
+            apiKey: configuration.apiKey,
+            requestModelID: officialDeepSeekModelID(from: modelID),
+            usesOpenRouterExtensions: false,
+            allowsProviderRouting: false,
+            usesDeepSeekStrictBeta: true
+        )
+    }
+
+    private func deepSeekBetaBaseURL(from baseURL: URL) -> URL {
+        let lastPath = baseURL.pathComponents.last?.lowercased()
+        if lastPath == "beta" {
+            return baseURL
+        }
+        if baseURL.host?.lowercased() == "api.deepseek.com", lastPath == "v1" {
+            return baseURL.deletingLastPathComponent().appending(path: "beta")
+        }
+        return baseURL.appending(path: "beta")
+    }
+
+    private func structuredOutputMode(for modelID: String, responseFormat: JSONObject) -> StructuredOutputMode {
+        guard usesDeepSeekV4Model(modelID),
+              let jsonSchema = responseFormat["json_schema"] as? JSONObject,
+              let functionName = jsonSchema["name"] as? String,
+              let schema = jsonSchema["schema"] as? JSONObject else {
+            return .responseFormat(responseFormat)
+        }
+
+        return .strictToolCall(functionName: functionName, schema: schema)
+    }
+
+    private func strictToolDefinition(functionName: String, schema: JSONObject) -> JSONObject {
+        [
+            "type": "function",
+            "function": [
+                "name": functionName,
+                "description": "Return the structured JSON payload for this parsing request.",
+                "strict": true,
+                "parameters": schema
+            ]
+        ]
+    }
+
+    private func forcedToolChoice(functionName: String) -> JSONObject {
+        [
+            "type": "function",
+            "function": [
+                "name": functionName
+            ]
+        ]
+    }
+
+    private func deepSeekV4ProviderPayload(for modelID: String) -> JSONObject? {
+        guard usesDeepSeekV4Model(modelID) else {
+            return nil
+        }
+
+        return [
+            "only": ["deepseek"],
+            "allow_fallbacks": false
+        ]
+    }
+
+    private func usesDeepSeekV4Model(_ modelID: String) -> Bool {
+        let normalized = modelID.lowercased()
+        return normalized == "deepseek/deepseek-v4-flash"
+            || normalized.hasPrefix("deepseek/deepseek-v4-flash-")
+            || normalized == "deepseek/deepseek-v4-pro"
+            || normalized.hasPrefix("deepseek/deepseek-v4-pro-")
+    }
+
+    private func officialDeepSeekModelID(from modelID: String) -> String {
+        guard modelID.hasPrefix("deepseek/") else {
+            return modelID
+        }
+        return String(modelID.dropFirst("deepseek/".count))
+    }
+
+    private func isDeepSeekBaseURL(_ url: URL) -> Bool {
+        let host = url.host?.lowercased() ?? ""
+        let path = url.path.lowercased()
+        return host == "api.deepseek.com" || path.contains("/deepseek")
     }
 
     private func responseHealingPlugins() -> [JSONObject] {
         [["id": "response-healing"]]
     }
 
-    private func usesOpenRouterExtensions() -> Bool {
-        let host = configuration.baseURL.host?.lowercased() ?? ""
-        let path = configuration.baseURL.path.lowercased()
+    private func usesOpenRouterExtensions(for url: URL) -> Bool {
+        let host = url.host?.lowercased() ?? ""
+        let path = url.path.lowercased()
         return host.contains("openrouter.ai") || path.contains("/openrouter/")
+    }
+
+    private func deepSeekStrictToolSchema(from schema: JSONObject) -> JSONObject {
+        let definitions = (schema["$defs"] as? JSONObject) ?? (schema["$def"] as? JSONObject) ?? [:]
+        return convertDeepSeekStrictSchemaNode(schema, definitions: definitions) as? JSONObject ?? schema
+    }
+
+    private func convertDeepSeekStrictSchemaNode(_ value: Any, definitions: JSONObject) -> Any {
+        if let dictionary = value as? JSONObject {
+            var converted: JSONObject = [:]
+            for (key, rawValue) in dictionary {
+                let mappedKey = key == "$defs" ? "$def" : key
+                if key == "$ref", let ref = rawValue as? String {
+                    converted[mappedKey] = ref.replacingOccurrences(of: "#/$defs/", with: "#/$def/")
+                } else {
+                    converted[mappedKey] = convertDeepSeekStrictSchemaNode(rawValue, definitions: definitions)
+                }
+            }
+
+            if let typeArray = dictionary["type"] as? [Any],
+               typeArray.contains(where: { ($0 as? String) == "null" }) {
+                var base = converted
+                base.removeValue(forKey: "type")
+                let nonNullTypes = typeArray.compactMap { $0 as? String }.filter { $0 != "null" }
+                let variants = nonNullTypes.map { typeName -> JSONObject in
+                    var variant = base
+                    variant["type"] = typeName
+                    return variant
+                } + [["type": "null"]]
+                return ["anyOf": variants]
+            }
+
+            if let variants = dictionary["anyOf"] as? [Any] {
+                converted["anyOf"] = variants.map { variant -> Any in
+                    if let resolved = resolveDeepSeekAnyOfRefVariant(variant, definitions: definitions) {
+                        return resolved
+                    }
+                    return convertDeepSeekStrictSchemaNode(variant, definitions: definitions)
+                }
+            }
+
+            return converted
+        }
+
+        if let array = value as? [Any] {
+            return array.map { convertDeepSeekStrictSchemaNode($0, definitions: definitions) }
+        }
+
+        return value
+    }
+
+    private func resolveDeepSeekAnyOfRefVariant(_ value: Any, definitions: JSONObject) -> JSONObject? {
+        guard let variant = value as? JSONObject,
+              let ref = variant["$ref"] as? String else {
+            return nil
+        }
+        let definitionName = ref
+            .replacingOccurrences(of: "#/$defs/", with: "")
+            .replacingOccurrences(of: "#/$def/", with: "")
+        guard !definitionName.isEmpty,
+              let definition = definitions[definitionName] as? JSONObject else {
+            return nil
+        }
+
+        var resolved = convertDeepSeekStrictSchemaNode(definition, definitions: definitions) as? JSONObject ?? definition
+        for (key, rawValue) in variant where key != "$ref" && key != "type" {
+            resolved[key] = convertDeepSeekStrictSchemaNode(rawValue, definitions: definitions)
+        }
+        return resolved
     }
 
     private func sanitizedForLogging(_ value: Any) -> Any {
@@ -582,12 +803,34 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
         let choices = object?["choices"] as? [[String: Any]]
         let message = choices?.first?["message"] as? [String: Any]
 
+        if let toolArguments = extractToolCallArguments(from: message) {
+            return toolArguments
+        }
+
         if let content = message?["content"] as? String {
             return content
         }
 
         if let parts = message?["content"] as? [[String: Any]] {
             return parts.compactMap { $0["text"] as? String }.joined(separator: "\n")
+        }
+
+        return nil
+    }
+
+    private func extractToolCallArguments(from message: [String: Any]?) -> String? {
+        guard let toolCalls = message?["tool_calls"] as? [[String: Any]],
+              let function = toolCalls.first?["function"] as? [String: Any],
+              let arguments = function["arguments"] else {
+            return nil
+        }
+
+        if let arguments = arguments as? String {
+            return arguments
+        }
+
+        if JSONSerialization.isValidJSONObject(arguments) {
+            return serializeForLogging(arguments)
         }
 
         return nil
@@ -680,10 +923,86 @@ final class OpenAICompatibleLLMClient: PatternLLMParsing, AtomizationMatchEvalua
     }
 
     private func extractJSONObject(from text: String) -> String {
-        guard let first = text.firstIndex(of: "{"), let last = text.lastIndex(of: "}") else {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if isValidJSONObject(trimmed) {
+            return trimmed
+        }
+
+        guard let first = trimmed.firstIndex(of: "{") else {
             return text
         }
-        return String(text[first...last])
+
+        var depth = 0
+        var isInsideString = false
+        var isEscaped = false
+        var index = first
+
+        while index < trimmed.endIndex {
+            let character = trimmed[index]
+            if isInsideString {
+                if isEscaped {
+                    isEscaped = false
+                } else if character == "\\" {
+                    isEscaped = true
+                } else if character == "\"" {
+                    isInsideString = false
+                }
+            } else {
+                switch character {
+                case "\"":
+                    isInsideString = true
+                case "{":
+                    depth += 1
+                case "}":
+                    depth -= 1
+                    if depth == 0 {
+                        let candidate = String(trimmed[first...index])
+                        if isValidJSONObject(candidate) {
+                            return candidate
+                        }
+                    }
+                default:
+                    break
+                }
+            }
+
+            index = trimmed.index(after: index)
+        }
+
+        guard let last = trimmed.lastIndex(of: "}") else {
+            return text
+        }
+        return String(trimmed[first...last])
+    }
+
+    private func isValidJSONObject(_ text: String) -> Bool {
+        guard let data = text.data(using: .utf8),
+              let object = try? JSONSerialization.jsonObject(with: data) else {
+            return false
+        }
+        return object is [String: Any]
+    }
+
+    private func describeDecodingError(_ error: Error) -> String {
+        switch error {
+        case let DecodingError.dataCorrupted(context):
+            return "dataCorrupted path=\(codingPathDescription(context.codingPath)) description=\(context.debugDescription)"
+        case let DecodingError.keyNotFound(key, context):
+            return "keyNotFound key=\(key.stringValue) path=\(codingPathDescription(context.codingPath)) description=\(context.debugDescription)"
+        case let DecodingError.typeMismatch(type, context):
+            return "typeMismatch type=\(type) path=\(codingPathDescription(context.codingPath)) description=\(context.debugDescription)"
+        case let DecodingError.valueNotFound(type, context):
+            return "valueNotFound type=\(type) path=\(codingPathDescription(context.codingPath)) description=\(context.debugDescription)"
+        default:
+            return error.localizedDescription
+        }
+    }
+
+    private func codingPathDescription(_ codingPath: [CodingKey]) -> String {
+        guard !codingPath.isEmpty else {
+            return "$"
+        }
+        return codingPath.map(\.stringValue).joined(separator: ".")
     }
 }
 
@@ -1655,15 +1974,18 @@ struct FixturePatternParsingClient: PatternLLMParsing {
     private let outlineResponse: PatternOutlineResponse
     private let imageResponse: PatternParseResponse
     private let irRounds: [CrochetIRInstructionBlock]
+    private let delayNanoseconds: UInt64
 
     init(
         outlineResponse: PatternOutlineResponse,
         imageResponse: PatternParseResponse,
-        irResponse: CrochetIRAtomizationResponse
+        irResponse: CrochetIRAtomizationResponse,
+        delayNanoseconds: UInt64 = 0
     ) {
         self.outlineResponse = outlineResponse
         self.imageResponse = imageResponse
         self.irRounds = irResponse.rounds
+        self.delayNanoseconds = delayNanoseconds
     }
 
     func parseTextPatternOutline(
@@ -1671,7 +1993,8 @@ struct FixturePatternParsingClient: PatternLLMParsing {
         titleHint: String?,
         context: ParseRequestContext
     ) async throws -> PatternOutlineResponse {
-        outlineResponse
+        try await delayIfNeeded()
+        return outlineResponse
     }
 
     func parseTextRoundsToIR(
@@ -1680,7 +2003,8 @@ struct FixturePatternParsingClient: PatternLLMParsing {
         rounds: [AtomizationRoundInput],
         context: ParseRequestContext
     ) async throws -> CrochetIRAtomizationResponse {
-        CrochetIRAtomizationResponse(rounds: Array(irRounds.prefix(rounds.count)))
+        try await delayIfNeeded()
+        return CrochetIRAtomizationResponse(rounds: Array(irRounds.prefix(rounds.count)))
     }
 
     func parseImagePattern(
@@ -1689,6 +2013,12 @@ struct FixturePatternParsingClient: PatternLLMParsing {
         fileName: String,
         context: ParseRequestContext
     ) async throws -> PatternParseResponse {
-        imageResponse
+        try await delayIfNeeded()
+        return imageResponse
+    }
+
+    private func delayIfNeeded() async throws {
+        guard delayNanoseconds > 0 else { return }
+        try await Task.sleep(nanoseconds: delayNanoseconds)
     }
 }

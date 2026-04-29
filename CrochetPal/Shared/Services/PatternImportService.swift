@@ -12,12 +12,40 @@ struct AtomizedRoundUpdate: Hashable {
     var warning: String?
 }
 
+typealias PatternImportProgressReporter = (PatternImportPhase) async -> Void
+
 protocol PatternImporting {
     func importWebPattern(from urlString: String) async throws -> ProjectRecord
+    func importWebPattern(from urlString: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord
     func importTextPattern(from rawText: String) async throws -> ProjectRecord
+    func importTextPattern(from rawText: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord
     func importImagePattern(data: Data, fileName: String) async throws -> ProjectRecord
+    func importImagePattern(data: Data, fileName: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord
     func importPDFPattern(data: Data, fileName: String) async throws -> ProjectRecord
+    func importPDFPattern(data: Data, fileName: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord
     func atomizeRounds(in project: CrochetProject, targets: [RoundReference]) async throws -> [AtomizedRoundUpdate]
+}
+
+extension PatternImporting {
+    func importWebPattern(from urlString: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord {
+        await progress(.fetchingSource)
+        return try await importWebPattern(from: urlString)
+    }
+
+    func importTextPattern(from rawText: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord {
+        await progress(.parsingOutline)
+        return try await importTextPattern(from: rawText)
+    }
+
+    func importImagePattern(data: Data, fileName: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord {
+        await progress(.parsingImage)
+        return try await importImagePattern(data: data, fileName: fileName)
+    }
+
+    func importPDFPattern(data: Data, fileName: String, progress: @escaping PatternImportProgressReporter) async throws -> ProjectRecord {
+        await progress(.extractingSource)
+        return try await importPDFPattern(data: data, fileName: fileName)
+    }
 }
 
 struct PatternImportService: PatternImporting {
@@ -45,6 +73,13 @@ struct PatternImportService: PatternImporting {
     }
 
     func importWebPattern(from urlString: String) async throws -> ProjectRecord {
+        try await importWebPattern(from: urlString, progress: { _ in })
+    }
+
+    func importWebPattern(
+        from urlString: String,
+        progress: @escaping PatternImportProgressReporter
+    ) async throws -> ProjectRecord {
         guard let url = URL(string: urlString) else {
             throw PatternImportFailure.invalidURL
         }
@@ -57,6 +92,7 @@ struct PatternImportService: PatternImporting {
 
         let request = URLRequest(url: url)
         let started = Date()
+        await progress(.fetchingSource)
         let (data, response) = try await session.data(for: request)
         let duration = Int(Date().timeIntervalSince(started) * 1000)
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -81,6 +117,7 @@ struct PatternImportService: PatternImporting {
             metadata: ["statusCode": "\(httpResponse.statusCode)", "bytes": "\(data.count)", "url": url.absoluteString]
         ))
 
+        await progress(.extractingSource)
         let extraction = extractor.extract(from: html, sourceURL: url, context: context, logger: logger)
         logger.log(LogEvent(
             timestamp: .now,
@@ -103,6 +140,7 @@ struct PatternImportService: PatternImporting {
             throw PatternImportFailure.emptyExtraction
         }
 
+        await progress(.parsingOutline)
         let responsePayload = try await parserClient.parseTextPatternOutline(
             extractedText: extraction.finalText,
             titleHint: extraction.title,
@@ -124,6 +162,13 @@ struct PatternImportService: PatternImporting {
     }
 
     func importTextPattern(from rawText: String) async throws -> ProjectRecord {
+        try await importTextPattern(from: rawText, progress: { _ in })
+    }
+
+    func importTextPattern(
+        from rawText: String,
+        progress: @escaping PatternImportProgressReporter
+    ) async throws -> ProjectRecord {
         let trimmedText = rawText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedText.isEmpty else {
             throw PatternImportFailure.emptyExtraction
@@ -152,6 +197,7 @@ struct PatternImportService: PatternImporting {
             ]
         ))
 
+        await progress(.parsingOutline)
         let responsePayload = try await parserClient.parseTextPatternOutline(
             extractedText: trimmedText,
             titleHint: nil,
@@ -173,6 +219,14 @@ struct PatternImportService: PatternImporting {
     }
 
     func importImagePattern(data: Data, fileName: String) async throws -> ProjectRecord {
+        try await importImagePattern(data: data, fileName: fileName, progress: { _ in })
+    }
+
+    func importImagePattern(
+        data: Data,
+        fileName: String,
+        progress: @escaping PatternImportProgressReporter
+    ) async throws -> ProjectRecord {
         let context = ParseRequestContext(
             traceID: UUID().uuidString,
             parseRequestID: UUID().uuidString,
@@ -193,6 +247,7 @@ struct PatternImportService: PatternImporting {
             metadata: ["fileName": fileName, "bytes": "\(data.count)"]
         ))
 
+        await progress(.parsingImage)
         let responsePayload = try await parserClient.parseImagePattern(
             imageData: data,
             mimeType: mimeType(for: fileName),
@@ -223,6 +278,14 @@ struct PatternImportService: PatternImporting {
     }
 
     func importPDFPattern(data: Data, fileName: String) async throws -> ProjectRecord {
+        try await importPDFPattern(data: data, fileName: fileName, progress: { _ in })
+    }
+
+    func importPDFPattern(
+        data: Data,
+        fileName: String,
+        progress: @escaping PatternImportProgressReporter
+    ) async throws -> ProjectRecord {
         let context = ParseRequestContext(
             traceID: UUID().uuidString,
             parseRequestID: UUID().uuidString,
@@ -243,6 +306,7 @@ struct PatternImportService: PatternImporting {
             metadata: ["fileName": fileName, "bytes": "\(data.count)"]
         ))
 
+        await progress(.extractingSource)
         let extraction = try await pdfExtractor.extract(from: data, context: context, logger: logger)
 
         logger.log(LogEvent(
@@ -265,6 +329,7 @@ struct PatternImportService: PatternImporting {
             ]
         ))
 
+        await progress(.parsingOutline)
         let responsePayload = try await parserClient.parseTextPatternOutline(
             extractedText: extraction.finalText,
             titleHint: extraction.title,
@@ -833,4 +898,3 @@ struct PatternImportService: PatternImporting {
         return "Row"
     }
 }
-

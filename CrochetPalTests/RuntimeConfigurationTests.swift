@@ -6,12 +6,16 @@ final class RuntimeConfigurationTests: XCTestCase {
         let configuration = try RuntimeConfiguration.load(values: [
             "OPENAI_API_KEY": "key",
             "OPENAI_BASE_URL": "https://example.com/v1/",
+            "DEEPSEEK_API_KEY": "deepseek-key",
+            "DEEPSEEK_BASE_URL": "https://api.deepseek.com/beta",
             "TEXT_MODEL_ID": "text-model",
             "ATOMIZATION_MODEL_ID": "atomization-model",
             "VISION_MODEL_ID": "vision-model"
         ])
 
         XCTAssertEqual(configuration.apiKey, "key")
+        XCTAssertEqual(configuration.deepSeekAPIKey, "deepseek-key")
+        XCTAssertEqual(configuration.deepSeekBaseURL?.absoluteString, "https://api.deepseek.com/beta")
         XCTAssertEqual(configuration.textModelID, "text-model")
         XCTAssertEqual(configuration.atomizationModelID, "atomization-model")
         XCTAssertEqual(configuration.visionModelID, "vision-model")
@@ -31,6 +35,20 @@ final class RuntimeConfigurationTests: XCTestCase {
         XCTAssertEqual(configuration.textModelID, "text-model")
         XCTAssertEqual(configuration.atomizationModelID, "atomization-model")
         XCTAssertEqual(configuration.visionModelID, "vision-model")
+    }
+
+    func testConfigurationIgnoresUnresolvedOptionalBuildSettings() throws {
+        let configuration = try RuntimeConfiguration.load(values: [
+            "OPENAI_API_KEY": "key",
+            "OPENAI_BASE_URL": "https://example.com/v1/",
+            "DEEPSEEK_API_KEY": "$(DEEPSEEK_API_KEY)",
+            "DEEPSEEK_BASE_URL": "$(DEEPSEEK_BASE_URL)",
+            "TEXT_MODEL_ID": "text-model",
+            "VISION_MODEL_ID": "vision-model"
+        ])
+
+        XCTAssertNil(configuration.deepSeekAPIKey)
+        XCTAssertNil(configuration.deepSeekBaseURL)
     }
 
     func testAtomizationModelFallsBackToTextModel() throws {

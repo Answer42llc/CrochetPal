@@ -172,6 +172,8 @@ final class ModelNormalizationIntegrationTests: XCTestCase {
         return RuntimeConfiguration(
             apiKey: baseConfiguration.apiKey,
             baseURL: baseConfiguration.baseURL,
+            deepSeekAPIKey: baseConfiguration.deepSeekAPIKey,
+            deepSeekBaseURL: baseConfiguration.deepSeekBaseURL,
             textModelID: textModelID,
             atomizationModelID: modelID,
             visionModelID: visionModelID
